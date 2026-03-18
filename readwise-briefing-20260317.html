@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 | 2026-03-17</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-color: #faf9f7;
+            --text-color: #2c2c2c;
+            --accent-color: #2d5a4a;
+            --accent-light: #3d7a6a;
+            --border-color: #e8e4df;
+            --card-bg: #ffffff;
+            --star-high: #d4a574;
+            --star-mid: #c9b896;
+            --star-low: #aab8c0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            font-size: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .card.priority-high {
+            border-left-color: var(--star-high);
+        }
+
+        .card.priority-medium {
+            border-left-color: var(--star-mid);
+        }
+
+        .card.priority-low {
+            border-left-color: var(--star-low);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--text-color);
+            flex: 1;
+        }
+
+        .card-source {
+            font-size: 0.85em;
+            color: #888;
+            font-style: italic;
+        }
+
+        .card-content {
+            color: #444;
+            margin-bottom: 15px;
+            white-space: pre-line;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .card-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        .analysis-box {
+            background: #f5f3f0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .analysis-box h4 {
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .actions-list {
+            list-style: none;
+        }
+
+        .actions-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .actions-list li:last-child {
+            border-bottom: none;
+        }
+
+        .action-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .appendix {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid var(--accent-color);
+        }
+
+        .appendix-content {
+            display: grid;
+            gap: 15px;
+        }
+
+        .appendix-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.6em;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Readwise 情报简报</h1>
+        <div class="subtitle">2026-03-17 | 与意图对齐分析</div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">29</div>
+                <div class="stat-label">新 Highlights</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">30</div>
+                <div class="stat-label">新 Documents</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">高价值内容</div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2 class="section-title">⭐⭐⭐⭐⭐ 立即行动</h2>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">Agent = OS：架构范式的深刻洞察</div>
+                <div class="card-source">@yan5xu</div>
+            </div>
+            <div class="card-content">下午和两个朋友先后聊完想明白一个事情：垂类不要做 agent，agent 一定是通用的，或者类似于 os。垂类要去给 agent 做应用，赋能 agent。
+
+最基础的是 skill，高级一点，把逻辑分装到内部，替调用 agent 省 token，再高级一点，把用户状态保存起来（状态就是 memory）。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">Agentic Engineering</span>
+                    <span class="tag">架构</span>
+                </div>
+                <a class="card-link" href="https://x.com/yan5xu/status/2033495066082505033" target="_blank">查看原文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>深度分析</h4>
+                <p><strong>核心洞察</strong>：Agent 是通用计算平台，类似 OS。垂直领域应该做 Skill/App，而不是重复造 Agent。</p>
+                <p><strong>三层能力模型</strong>：</p>
+                <ol>
+                    <li><strong>Skill 层</strong>：基础工具调用</li>
+                    <li><strong>Logic 层</strong>：封装逻辑节省 token</li>
+                    <li><strong>Memory 层</strong>：保存用户状态</li>
+                </ol>
+                <p><strong>与你当前工作的关系</strong>：你的 mcp-server-odi、portal-cli 都是在给通用 Agent 做赋能，方向正确！</p>
+            </div>
+        </div>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">Memory Lifecycle 设计难度 &gt; Skill 接口设计</div>
+                <div class="card-source">@Noahhh1005</div>
+            </div>
+            <div class="card-content">同意 agent = OS 的比喻，但 memory 这层比"保存状态"要难很多。OS 的文件系统是被动存储，agent 的 memory 需要主动分层压缩——什么该记、什么该忘、什么从 daily log 升格到 long-term memory，都需要设计。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">Agentic Engineering</span>
+                    <span class="tag">Memory</span>
+                </div>
+                <a class="card-link" href="https://x.com/Noahhh1005/status/2033545399244579129" target="_blank">查看原文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>关键补充</h4>
+                <p>Noah 补充了 yan5xu 框架中最难的部分：<strong>Memory Lifecycle 管理</strong>。</p>
+                <p><strong>三层记忆压缩</strong>：</p>
+                <ul>
+                    <li>Daily log → 自动摘要</li>
+                    <li>重要事件 → Long-term memory</li>
+                    <li>遗忘机制 → 主动清理</li>
+                </ul>
+                <p><strong>建议</strong>：在 skill 设计中加入 memory 策略声明（保留时长、压缩规则）。</p>
+            </div>
+        </div>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">Design Skills 生态全景</div>
+                <div class="card-source">@dingyi</div>
+            </div>
+            <div class="card-content">市面上 design skills 汇总：
+
+1. <strong>Impeccable</strong>：增强版 frontend-design，17 个设计命令（/polish、/audit、/distill 等）
+2. <strong>UI Skills</strong>：15 个独立 skills，含 baseline-ui、fixing-accessibility、12-principles-of-animation 等
+3. <strong>Taste Skill</strong>：taste-skill、redesign-skill、output-skill、soft-skill
+4. <strong>Better Icons</strong>：MCP server + skill，20 万+ 图标
+5. <strong>UI Design Brain</strong>：60+ 组件最佳实践库
+6. <strong>AI kit by Motion</strong>：$299 会员专属，动画专家 skill</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">Frontend Design</span>
+                    <span class="tag">Skills</span>
+                </div>
+                <a class="card-link" href="https://x.com/dingyi/status/2033679210766843928" target="_blank">查看原文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>行动建议</h4>
+                <p><strong>与你相关</strong>：你正在探索 Agentic Engineering，这些 design skills 是很好的"垂直领域 skill"案例。</p>
+                <p><strong>可学习点</strong>：</p>
+                <ul>
+                    <li>Skill 命名规范（动词开头）</li>
+                    <li>组合式架构（15 个独立 skills）</li>
+                    <li>商业化路径（Motion+$299）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">毛教员任务拆解 Skill</div>
+                <div class="card-source">@BirdTechVision</div>
+            </div>
+            <div class="card-content">顶级任务安排 skill：把任务拆解成 5 条铁律——1) 任务讲得明明白白，2) 时间卡得死死的，3) 既压活又懂心疼人，4) 主动给资源托底，5) 放权又兜底。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">Prompt Engineering</span>
+                    <span class="tag">管理</span>
+                </div>
+                <a class="card-link" href="https://x.com/BirdTechVision/status/2033518588905279864" target="_blank">查看原文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>应用场景</h4>
+                <p><strong>向上管理</strong>：与 Nicole/Kirill 1:1 时，可以用这个框架准备讨论材料。</p>
+                <p><strong>团队管理</strong>：给团队成员布置任务时，确保 5 个要素齐全。</p>
+                <p><strong>Skill 设计</strong>：可以把它封装成你的 skill 生态中的一个"管理类 skill"。</p>
+            </div>
+        </div>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">Alma 集成 rtk：自动节省海量 token</div>
+                <div class="card-source">@yetone</div>
+            </div>
+            <div class="card-content">Alma 自动且无感地集成了 rtk！所有 Bash 工具的命令调用都会自动使用 rtk 处理 output，不需要安装 rtk 也不需要感知它的存在，就会自动获取其带来的巨大收益：自动节省海量的 tokens！</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">Token Optimization</span>
+                    <span class="tag">Agent Tooling</span>
+                </div>
+                <a class="card-link" href="https://x.com/yetone/status/2033519024542470563" target="_blank">查看原文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>技术洞察</h4>
+                <p><strong>rtk 原理</strong>：在命令和 LLM 之间加"过滤器"，智能压缩输出（去注释、空白、样板代码）。</p>
+                <p><strong>效果</strong>：ls/tree 节省 80%，cat/read 节省 70%，测试输出节省 90%。</p>
+                <p><strong>与你的关系</strong>：portal-cli 可以考虑集成类似的输出压缩逻辑。</p>
+            </div>
+        </div>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">进化主题：SkillNet, SkillCraft, OpenClaw-RL, MetaClaw</div>
+                <div class="card-source">@dongxi_nlp</div>
+            </div>
+            <div class="card-content">本周喜欢的论文和工作：SkillNet，SkillCraft，OpenClaw-RL，MetaClaw。主题：进化！</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">AI Research</span>
+                    <span class="tag">Evolution</span>
+                </div>
+                <a class="card-link" href="https://x.com/dongxi_nlp/status/2033321462287814967" target="_blank">查看原文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>研究趋势</h4>
+                <p><strong>共同主题</strong>：Skill 学习与进化。这些工作都在研究如何让 AI 自动学习、组合、进化技能。</p>
+                <p><strong>值得关注</strong>：SkillCraft 可能是类似 AutoGPT 的 skill 自动生成工具。</p>
+                <p><strong>建议</strong>：深入了解这些论文，对你的 Agentic Engineering 探索可能有启发。</p>
+            </div>
+        </div>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">本地 OCR 突破：GLM-OCR 仅需 2GB 显存</div>
+                <div class="card-source">@billtheinvestor</div>
+            </div>
+            <div class="card-content">本地 OCR 已经足够强大，不再需要依赖云端。GLM-OCR 在 Mac Studio M2 Ultra 上，只需约 2GB 显存，即可处理表格、数学方程，每秒达约 260 个 token。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">本地 AI</span>
+                    <span class="tag">OCR</span>
+                </div>
+                <a class="card-link" href="https://x.com/billtheinvestor/status/2033591033582522508" target="_blank">查看原文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>技术意义</h4>
+                <p><strong>门槛降低</strong>：拥有 GPU 或 Mac 的人已经准备好迎接 AI 时代。</p>
+                <p><strong>与你相关</strong>：你的 K12 Education 课程可以用这个做本地化演示，无需依赖云端。</p>
+            </div>
+        </div>
+
+        <div class="card priority-high">
+            <div class="card-header">
+                <div class="card-title">Kimi 高管：AI Native 人才观</div>
+                <div class="card-source">陈祖鑫</div>
+            </div>
+            <div class="card-content">Kimi VP Fu Qiang 分享：AI native 时代，好奇心、独特品味、AI 技能、快速学习、泛化能力最重要。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">人才观</span>
+                    <span class="tag">AI Adoption</span>
+                </div>
+                <a class="card-link" href="https://read.readwise.io/read/01kkvjkz2ppd698b53zx9y6fcm" target="_blank">阅读全文 →</a>
+            </div>
+            <div class="analysis-box">
+                <h4>与你相关</h4>
+                <p><strong>团队管理</strong>：你的 Engineering Baseline 工作可以参考这些维度评估团队成员。</p>
+                <p><strong>个人发展</strong>：这些指标也适用于评估自己的 AI 成熟度。</p>
+                <p><strong>关键维度</strong>：好奇心 > 硬技能；品味 > 经验；泛化能力 > 专业化。</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">⭐⭐⭐ 备用收藏</h2>
+
+        <div class="card priority-medium">
+            <div class="card-header">
+                <div class="card-title">Transformer 内部造计算机</div>
+                <div class="card-source">@Gorden_Sun</div>
+            </div>
+            <div class="card-content">Percepta AI 把 WebAssembly 解释器编译进 Transformer 权重，让模型前向传播本身就是程序执行。争议：权重不是训练出来的，而是直接编译进去的。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">AI Research</span>
+                    <span class="tag">WASM</span>
+                </div>
+                <a class="card-link" href="https://x.com/Gorden_Sun/status/2033564595647025177" target="_blank">查看原文 →</a>
+            </div>
+        </div>
+
+        <div class="card priority-medium">
+            <div class="card-header">
+                <div class="card-title">程序员存在的意义</div>
+                <div class="card-source">@luoleiorg</div>
+            </div>
+            <div class="card-content">抖音评论：学计算机的应该懂，程序员的存在是因为早前计算机不理解人类语言，程序员的工作就是把人类语言转换为机器语言。如今计算机懂人类语言了，那程序员自然就不需要了啊。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">职业思考</span>
+                    <span class="tag">AI Impact</span>
+                </div>
+                <a class="card-link" href="https://x.com/luoleiorg/status/2033399128894669158" target="_blank">查看原文 →</a>
+            </div>
+        </div>
+
+        <div class="card priority-medium">
+            <div class="card-header">
+                <div class="card-title">vphone-cli：iOS 系统虚拟化</div>
+                <div class="card-source">@sitinme</div>
+            </div>
+            <div class="card-content">真把 iOS 系统虚拟化跑起来了。Mac 上终于开始出现真正像样的 iPhone 虚拟机方案。门槛高（SIP、AMFI、固件包），但方向很有意思。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">Virtualization</span>
+                    <span class="tag">iOS</span>
+                </div>
+                <a class="card-link" href="https://x.com/sitinme/status/2033538776388059329" target="_blank">查看原文 →</a>
+            </div>
+        </div>
+
+        <div class="card priority-medium">
+            <div class="card-header">
+                <div class="card-title">Nowledge Mem：个人知识图谱</div>
+                <div class="card-source">@wey_gu</div>
+            </div>
+            <div class="card-content">Graph 结构、双时序因素处理、基于访问频率的全局摘要、知识演进与结晶、多路召回管道。今天发了 iOS 和 Android 客户端。</div>
+            <div class="card-meta">
+                <div class="card-tags">
+                    <span class="tag">Knowledge Graph</span>
+                    <span class="tag">Memory</span>
+                </div>
+                <a class="card-link" href="https://x.com/wey_gu/status/2033528751393591496" target="_blank">查看原文 →</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">行动清单</h2>
+        <ul class="actions-list">
+            <li>
+                <div class="action-checkbox"></div>
+                <div>研究 SkillNet/SkillCraft 论文，理解 Skill 自动学习机制</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>评估 rtk CLI 项目，考虑集成到 portal-cli</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>用"毛教员任务拆解"框架准备下次 Kirill 1:1 材料</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>探索 Impeccable Design Skills，提取 skill 设计最佳实践</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>在 mcp-server-odi 中加入 Memory Lifecycle 设计</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>测试 GLM-OCR，评估本地化可行性</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="section-title">持续追踪</h2>
+        <ul class="actions-list">
+            <li>
+                <div class="action-checkbox"></div>
+                <div>Agent = OS 范式演进（yan5xu, Noah）</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>Skill 自动学习与进化（SkillNet, SkillCraft, MetaClaw）</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>Design Skills 生态发展</div>
+            </li>
+            <li>
+                <div class="action-checkbox"></div>
+                <div>Token Optimization 技术（rtk, Alma）</div>
+            </li>
+        </ul>
+    </section>
+
+    <div class="appendix">
+        <h2 class="section-title">全部附录</h2>
+        <div class="appendix-content">
+            <div class="appendix-item">
+                <strong>品味 vs 灵感</strong> (@Magic_grass99)：大家忙着寻找品味，却很少慢下来寻找灵感。
+            </div>
+            <div class="appendix-item">
+                <strong>圆桌提示词</strong> (@rmrf100)：与 LLM 深度对话的提示词模板。
+            </div>
+            <div class="appendix-item">
+                <strong>简历建议</strong> (@real_kai42)：姓名-学校/公司-岗位，不超一页，突出亮点。
+            </div>
+            <div class="appendix-item">
+                <strong>Cloudflare vs Vercel</strong> (@vikingmute)：CF fork just-bash 并移除安全代码，引发争议。
+            </div>
+            <div class="appendix-item">
+                <strong>中国人 vs 盎撒人 vs 犹太人</strong> (@leige88888)：一个关于文化差异的寓言。
+            </div>
+            <div class="appendix-item">
+                <strong>把时间用在事情上</strong> (@meng_ke10197)：而非情绪上。
+            </div>
+            <div class="appendix-item">
+                <strong>中国赢得赞美</strong> (@teortaxesTex)：稳定、无聊、可预测=信任。
+            </div>
+            <div class="appendix-item">
+                <strong>ChatRTX</strong> (@0ajmoptt)：最棒的 AI-native 工具。
+            </div>
+            <div class="appendix-item">
+                <strong>Ghostty cmux</strong> (@dingyi)：太多变种，期待官方支持。
+            </div>
+            <div class="appendix-item">
+                <strong>open-pencil</strong> (@sitinme)：开源版 Figma，AI 原生设计工具。
+            </div>
+            <div class="appendix-item">
+                <strong>LaTeX 4 神经网络</strong> (@seekjourney)：又省了好多 token。
+            </div>
+            <div class="appendix-item">
+                <strong>学中文</strong> (@craigzLiszt)：started learning chinese, just in case。
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Generated by my-readwise-briefing skill | 2026-03-17</p>
+        <p>与 intent/active.md 对齐：Engineering Baseline · AI Adoption · Agentic Engineering · Social Output</p>
+    </footer>
+</body>
+</html>

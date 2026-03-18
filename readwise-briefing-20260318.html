@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 - 2026-03-18</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3f0;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --accent: #2d5a4a;
+            --accent-light: #3d7a6a;
+            --border: #e2e8f0;
+            --star: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Serif SC", "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.75;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .header h1 {
+            color: var(--accent);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .meta {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .item-medium {
+            border-left-color: #718096;
+        }
+
+        .item-low {
+            border-left-color: #cbd5e0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+        }
+
+        .item-source {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .item-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+        }
+
+        .item-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+
+        .stars {
+            color: var(--star);
+            letter-spacing: 2px;
+        }
+
+        .analysis {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .analysis-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .action-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .action-item {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .action-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .appendix {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .appendix-toggle {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .appendix-content {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .appendix-content.show {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>📚 Readwise 情报简报</h1>
+        <div class="meta">
+            <time datetime="2026-03-18">2026年3月18日</time> |
+            距上次同步 <strong>12小时</strong>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="stat-card">
+            <div class="stat-value">13</div>
+            <div class="stat-label">新增 Highlights</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">14</div>
+            <div class="stat-label">新增 Documents</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">27</div>
+            <div class="stat-label">总新增内容</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">59</div>
+            <div class="stat-label">已处理 Highlights</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">⭐⭐⭐⭐⭐ 立即行动</h2>
+
+        <article class="item">
+            <div class="item-header">
+                <div class="item-title">Open SWE - LangChain 开源 Coding Agent 框架</div>
+                <span class="item-source">Harrison Chase / ginobefun</span>
+            </div>
+            <div class="item-content">LangChain 今天开源的 Coding Agent 框架，提炼 Stripe、Ramp、Coinbase 等公司的生产实践。
+
+五大核心架构模式：
+1. 隔离沙箱执行 - 独立云端沙箱，错误影响范围受限
+2. 精选工具集 - Stripe 约 500 个工具，质量 > 数量
+3. Slack 优先触发 - 融入现有工作流
+4. 启动时注入完整上下文 - 读取 Linear/PR/AGENTS.md
+5. 子智能体编排 - 复杂任务拆分，独立上下文</div>
+            <div class="analysis">
+                <div class="analysis-title">🔍 批判性分析</div>
+                这是最具实践价值的 Agent 架构开源项目。核心洞察：<strong>AI 驱动的灵活性</strong>与<strong>确定性逻辑的可靠性</strong>分离。对 IKEA 内部 Agent 落地有直接参考价值。
+            </div>
+            <a href="https://x.com/hwchase17/status/2033977192053612621" target="_blank" class="item-link">查看原文 →</a>
+        </article>
+
+        <article class="item">
+            <div class="item-header">
+                <div class="item-title">Automaton AI - 必须赚钱才能活的智能体</div>
+                <span class="item-source">开发者Hailey</span>
+            </div>
+            <div class="item-content">00后华人 Sigil Wen 开发的 AI 智能体轰动了硅谷。
+
+生存机制：
+账户有钱 → 继续运行
+余额归零 → 自动停机
+
+主动赚钱方式：
+- 自动搭建网站、注册域名
+- 营销推广、套利策略
+- 部署在线工具服务
+- 雇佣人类完成任务
+
+三大能力：自我进化（秒级）、自我繁殖（复制下一代）、独立经济身份（加密钱包）</div>
+            <div class="analysis">
+                <div class="analysis-title">🔍 批判性分析</div>
+                "AI 自治经济"概念的首次实践验证。如果跑通，将重新定义 Web4：从人类主导走向 AI 自治。对未来企业形态有颠覆性影响——<strong>没有老板、没有员工，公司本身就是 AI</strong>。
+            </div>
+            <a href="https://x.com/IndieDevHailey/status/2033810028025573803" target="_blank" class="item-link">查看原文 →</a>
+        </article>
+
+        <article class="item">
+            <div class="item-header">
+                <div class="item-title">WASM 嵌入 Transformer - 混合架构突破</div>
+                <span class="item-source">雷尼尔</span>
+            </div>
+            <div class="item-content">将 WebAssembly 解释器无损嵌入 Transformer 模型权重。
+
+这相当于在 LLM 内部运行一台真正的计算机，可以实际执行计算（而非推断）。
+
+混合架构：
+1. 神经网络 → 推理和理解
+2. 嵌入式解释器 → 高精度计算
+
+类比：像 TI 的 DSP 芯片，ARM 负责逻辑，DSP 专门负责高速计算。</div>
+            <div class="analysis">
+                <div class="analysis-title">🔍 批判性分析</div>
+                验证了"小模型 + 工具 > 大模型裸奔"假设。对数值计算、物理模拟、金融建模、密码学运算有重大意义。这是 Agent 工具能力的下一个跃迁。
+            </div>
+            <a href="https://x.com/mtrainier2020/status/2033640996337291482" target="_blank" class="item-link">查看原文 →</a>
+        </article>
+
+        <article class="item">
+            <div class="item-header">
+                <div class="item-title">Agent OS vs Agent-native App</div>
+                <span class="item-source">Yan5xu</span>
+            </div>
+            <div class="item-content">关键认知：
+1. 为什么不推荐垂类做 Agent
+2. 为什么 skill 不会是 Agent application
+3. Agent native application 是什么
+4. Agent OS 和 application 各自的命题</div>
+            <div class="analysis">
+                <div class="analysis-title">🔍 批判性分析</div>
+                Agent 系统设计的"第一性原理"思考。区分 OS（底层能力编排）和 App（具体任务实现）是构建可扩展 Agent 生态的关键。这对 claude-agent-kit 研究有指导意义。
+            </div>
+            <a href="https://x.com/yan5xu/status/2033721922757005519" target="_blank" class="item-link">查看原文 →</a>
+        </article>
+
+        <article class="item">
+            <div class="item-header">
+                <div class="item-title">Lenny's Newsletter - 内容商业化标杆</div>
+                <span class="item-source">Shawn Pang 庞舜心</span>
+            </div>
+            <div class="item-content">美国科技圈最有影响力的 Newsletter：
+- 38万订阅者
+- 1.8万付费订阅者
+- 年订阅费 > 200万美元
+
+Lenny 开源了所有 newsletter 文字和 podcast 转录，是内容 AI 的最佳语料之一。</div>
+            <div class="analysis">
+                <div class="analysis-title">🔍 批判性分析</div>
+                内容商业化的黄金案例验证：4.7%付费转化率 × 合理定价 = 可持续生意。开源策略反哺影响力，形成正向循环。对 Social Output 有参考价值。
+            </div>
+            <a href="https://x.com/0xshawnpang/status/2033970661576871992" target="_blank" class="item-link">查看原文 →</a>
+        </article>
+
+        <article class="item">
+            <div class="item-header">
+                <div class="item-title">Ultrathink Prompt - 认知梳理神器</div>
+                <span class="item-source">Yan5xu</span>
+            </div>
+            <div class="item-content">"开启 ultrathink，把我整个思考完整打散，然后梳理里面的相互关系。你可以一边思考一边梳理，最后得到一个逻辑结构。"
+
+反馈：真 tmd 好用，感觉像是开了窍。</div>
+            <div class="analysis">
+                <div class="analysis-title">🔍 批判性分析</div>
+                复杂问题结构化的有效 prompt 模式。打散 → 梳理 → 重组，本质是认知重组。可以集成到 AGENTS.md 的思考框架中。
+            </div>
+            <a href="https://x.com/yan5xu/status/2033714206860771339" target="_blank" class="item-link">查看原文 →</a>
+        </article>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">⭐⭐⭐ 备用收藏</h2>
+
+        <article class="item item-medium">
+            <div class="item-header">
+                <div class="item-title">日企数字化的"效率悖论"</div>
+                <span class="item-source">StarKnight</span>
+            </div>
+            <div class="item-content">引入工具省30%时间且不贵。
+
+普通领导：牛逼，快引进！两个人干五个人的活，裁掉三个人。
+日企领导：员工闲下来干啥？哎那怎么行。</div>
+            <div class="analysis">
+                <div class="analysis-title">💡 启示</div>
+                Engineering Baseline 的组织层面挑战：技术效率 ≠ 组织效率。文化变革先于技术引入。对 IKEA Digital Change 有警示意义。
+            </div>
+        </article>
+
+        <article class="item item-medium">
+            <div class="item-header">
+                <div class="item-title">CS336 + Tiny LLM 复刻计划</div>
+                <span class="item-source">卡比卡比</span>
+            </div>
+            <div class="item-content">"最近先不高强度更新了，好累。想努力学习一下，把 CS336 先看完，然后复刻一下 tiny llm。上下文切换多了脑子晕，学点东西洗洗脑子。"</div>
+            <div class="analysis">
+                <div class="analysis-title">💡 启示</div>
+                深度学习 vs 碎片输出。CS336 (Deep Learning Systems) 是 Stanford 课程，复刻 tiny llm 是理解 Transformer 架构的最佳路径。可作为 Agentic Engineering 的学习资源。
+            </div>
+            <a href="https://x.com/jakevin7/status/2033946531259154859" target="_blank" class="item-link">查看原文 →</a>
+        </article>
+
+        <article class="item item-medium">
+            <div class="item-header">
+                <div class="item-title">NotebookLM 的深度认知</div>
+                <span class="item-source">Roland的思考日记</span>
+            </div>
+            <div class="item-content">"一直以来我都以为我对 NotebookLM 已经到了出神入化阶段，看来我还是菜。"</div>
+            <div class="analysis">
+                <div class="analysis-title">💡 启示</div>
+                学习谦逊（Intellectual Humility）。即使"专家"也可能错过核心能力。持续保持初学者心态。
+            </div>
+        </article>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">🎯 行动清单</h2>
+        <ul class="action-list">
+            <li class="action-item">
+                <span class="action-checkbox"></span>
+                <span><strong>研究 Open SWE 架构</strong> - 评估是否可应用于 IKEA 内部 Coding Agent 落地</span>
+            </li>
+            <li class="action-item">
+                <span class="action-checkbox"></span>
+                <span><strong>跟踪 Automaton AI 进展</strong> - 理解 AI 经济自治的可行性与风险</span>
+            </li>
+            <li class="action-item">
+                <span class="action-checkbox"></span>
+                <span><strong>深入 Yan5xu 的 Agent OS 认知</strong> - 更新 claude-agent-kit 研究框架</span>
+            </li>
+            <li class="action-item">
+                <span class="action-checkbox"></span>
+                <span><strong>研究 WASM + Transformer 混合架构</strong> - 验证 SLM Agent Benchmark 假设</span>
+            </li>
+            <li class="action-item">
+                <span class="action-checkbox"></span>
+                <span><strong>分析 Lenny's Newsletter 商业模式</strong> - 为 Social Output 寻找可持续路径</span>
+            </li>
+            <li class="action-item">
+                <span class="action-checkbox"></span>
+                <span><strong>添加 Ultrathink 到 AGENTS.md</strong> - 作为复杂问题结构化思考工具</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">🔄 持续追踪</h2>
+        <article class="item">
+            <div class="item-content">
+                <strong>长期关注主题：</strong>
+                • AI Agent 经济自治 (Automaton)
+                • 混合架构演进 (WASM + Transformer)
+                • Agent OS vs App 边界
+                • 企业 Agent 落地实践 (Open SWE)
+                • 内容商业化模式 (Lenny's)
+            </div>
+        </article>
+    </section>
+
+    <section class="appendix">
+        <button class="appendix-toggle" onclick="document.getElementById('appendixContent').classList.toggle('show')">
+            <span>📋 全部附录 (27条)</span>
+            <span id="toggleIcon">▶</span>
+        </button>
+        <div id="appendixContent" class="appendix-content">
+            <article class="item">
+                <div class="item-header">
+                    <div class="item-title">HackerNews 2026-03-18 汇总</div>
+                    <span class="item-source">SuperTechFans</span>
+                </div>
+                <div class="item-content">Kagi Translate LinkedIn 职场话术、Meta 隐蔽资金网络、Mistral Leanstral 代码代理、SEC 季度财报改革、Kagi Small Web、美国医疗浪费等。</div>
+                <a href="https://read.readwise.io/read/01kkz7d9jsrqmmg4k8vzykcc79" target="_blank" class="item-link">查看原文 →</a>
+            </article>
+            <article class="item">
+                <div class="item-header">
+                    <div class="item-title">Deriving Agent Harnesses from First Principles</div>
+                    <span class="item-source">Viv</span>
+                </div>
+                <div class="item-content">Agent = Model (智能) + Harness (工具/记忆/执行逻辑)。随着模型进步，Harness 会演化但仍是关键。</div>
+                <a href="https://read.readwise.io/read/01kky95yamkehm24mtskgynqmx" target="_blank" class="item-link">查看原文 →</a>
+            </article>
+            <article class="item">
+                <div class="item-header">
+                    <div class="item-title">WASM 嵌入相关讨论</div>
+                    <span class="item-source">wwwgoubuli</span>
+                </div>
+                <div class="item-content">"今天应该可以让 AI 来逆向一下，分析出到底为什么这么快了。"</div>
+                <a href="https://read.readwise.io/read/01kky95yjcnffnzzhhvns0je38" target="_blank" class="item-link">查看原文 →</a>
+            </article>
+            <article class="item">
+                <div class="item-header">
+                    <div class="item-title">JimmyLv 开源讨论</div>
+                    <span class="item-source">Jimmy_JingLv</span>
+                </div>
+                <div class="item-content">"@wwwgoubuli 咦，不是开源吗？"</div>
+                <a href="https://x.com/Jimmy_JingLv/status/2033934735656058981" target="_blank" class="item-link">查看原文 →</a>
+            </article>
+            <article class="item">
+                <div class="item-header">
+                    <div class="item-title">更多 Yan5xu 推文</div>
+                    <span class="item-source">yan5xu</span>
+                </div>
+                <div class="item-content">Agent OS 与 Application 系列推文链接</div>
+                <a href="https://x.com/yan5xu/status/2033721014413402303" target="_blank" class="item-link">查看原文 →</a>
+            </article>
+        </div>
+    </section>
+
+    <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: 0.85rem;">
+        <p>由 <strong>my-readwise-briefing</strong> 自动生成 | 基于 Readwise API</p>
+        <p style="margin-top: 0.5rem;">生成时间: <time datetime="2026-03-18T06:00:00Z">2026-03-18 14:00 (UTC+8)</time></p>
+    </footer>
+
+    <script>
+        document.querySelector('.appendix-toggle').addEventListener('click', function() {
+            const icon = document.getElementById('toggleIcon');
+            icon.textContent = icon.textContent === '▶' ? '▼' : '▶';
+        });
+    </script>
+</body>
+</html>
