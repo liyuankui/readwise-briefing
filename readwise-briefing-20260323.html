@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 - 2026-03-23</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3f0;
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --accent: #2d5a4a;
+            --accent-light: #3d7a6a;
+            --border: #e0dcd5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Noto Serif SC", "STSong", "SimSun", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.75;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .header .date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .header .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .header .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header .stat-value {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .card-source {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .card-category {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            background: var(--bg-secondary);
+            color: var(--accent);
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .card-summary {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-action {
+            background: var(--bg-secondary);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .card-action-label {
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        .intent-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .intent-tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.7rem;
+            background: white;
+            border-radius: 20px;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .header .stats { flex-direction: column; gap: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Readwise 情报简报</h1>
+        <div class="date">2026-03-23</div>
+        <div class="stats">
+            <div class="stat">
+                <span>Highlights</span>
+                <span class="stat-value">109</span>
+            </div>
+            <div class="stat">
+                <span>Documents</span>
+                <span class="stat-value">94</span>
+            </div>
+            <div class="stat">
+                <span>本期新增</span>
+                <span class="stat-value">67</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="intent-tags">
+        <span style="width: 100%; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem;">当前关注意图</span>
+        <span class="intent-tag">Engineering Baseline</span>
+        <span class="intent-tag">AI Coding</span>
+        <span class="intent-tag">Agentic Engineering</span>
+        <span class="intent-tag">Skills Development</span>
+        <span class="intent-tag">AI Agent First Case</span>
+        <span class="intent-tag">Decision Mastery</span>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">⭐⭐⭐⭐⭐ 立即行动 (高价值)</h2>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Stripe 前CTO：AI时代优先招前manager转行写代码的人</div>
+                <span class="card-category">AI Engineering</span>
+            </div>
+            <div class="card-source">来源: Saito</div>
+            <p class="card-summary">David Singleton（前Stripe CTO）认为manager天然擅长拆解任务、协调资源、知道什么时候该推一把什么时候该放手——这正是驾驭coding agent最核心的能力。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                重新评估团队中转行做开发的前manager，他们可能是AI时代的关键人才
+            </div>
+            <a href="https://x.com/SaitoWu/status/2035711109240438957" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">MagicSkills - 北大开源skill基础设施</div>
+                <span class="card-category">Agentic Engineering</span>
+            </div>
+            <div class="card-source">来源: axiaisacat</div>
+            <p class="card-summary">AI Agent现在最缺的不是模型，而是一套像npm一样可复用的skill基础设施。MagicSkills让SKILL.md变成可安装、可组合、可同步、可调用的共享能力层。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                深入研究MagicSkills，评估集成到skills开发工作流
+            </div>
+            <a href="https://x.com/axiaisacat/status/2035350896636444714" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Web Access Skill - Agent联网能力拉满</div>
+                <span class="card-category">Agentic Engineering</span>
+            </div>
+            <div class="card-source">来源: 一泽Eze</div>
+            <p class="card-summary">能让Agent代替你：一次性操作100+浏览器网页、自动化发布社媒、自动找B站/网飞并播放、查美签预约时间、自动化测试Web App。Skill内自动总结站点操作经验，每次执行都能优化下次速度。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                安装并测试Web Access Skill，评估用于AI Agent First Case
+            </div>
+            <a href="https://x.com/eze_api/status/2035632804904288466" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Readwise CLI - 终端访问所有保存内容</div>
+                <span class="card-category">Tools</span>
+            </div>
+            <div class="card-source">来源: Readwise</div>
+            <p class="card-summary">npm install -g @readwise/cli — 让你和你使用的AI agents直接从终端访问所有Readwise保存的内容（highlights、articles、PDFs、books、YouTube、newsletters）。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                安装Readwise CLI，集成到AI工作流中
+            </div>
+            <a href="https://x.com/readwise/status/2035669006623736987" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Google Maps API 免费推出 Demo Key</div>
+                <span class="card-category">API</span>
+            </div>
+            <div class="card-source">来源: KK.aWSB</div>
+            <p class="card-summary">只需Google账号，秒获API密钥。无需信用卡、无需账单信息。AI生成的地理空间代码现在可以直接跑了。对学生、独立开发者、第三世界用户门槛归零。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                获取Demo Key，测试AI生成的地图代码
+            </div>
+            <a href="https://x.com/KKaWSB/status/2035468766892498176" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Claude模型在设计类编码任务中占据主导地位</div>
+                <span class="card-category">AI Coding</span>
+            </div>
+            <div class="card-source">来源: Design Arena</div>
+            <p class="card-summary">Anthropic模型在设计类编码任务中占据绝对主导。Opus 4.6在Web开发(HTML/React/Full-Stack)、移动开发(React Native/Android)、3D设计、游戏开发、数据可视化中均排名第一。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                用于AI Coding推广，强调Claude在前端/UI开发的优势
+            </div>
+            <a href="https://x.com/design_arena/status/2035392440099102766" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">YC CEO：60天写60万行生产代码</div>
+                <span class="card-category">AI Coding</span>
+            </div>
+            <div class="card-source">来源: Xiao Tan</div>
+            <p class="card-summary">Garry Tan用gstack创建15个AI"虚拟员工"来管理编码，像团队一样并行运行多个任务，极大提升生产力。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                研究gstack，思考Multi-Agent工作流
+            </div>
+            <a href="https://x.com/xtano/status/2035485759884476558" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">MiniMax开源官方skills repo</div>
+                <span class="card-category">Agentic Engineering</span>
+            </div>
+            <div class="card-source">来源: MiniMax</div>
+            <p class="card-summary">为你的agents装备精选的skills：iOS/Android开发、Office文件编辑、GLSL着色器视觉特效。</p>
+            <div class="card-action">
+                <span class="card-action-label">🎯 建议行动</span>
+                研究MiniMax的skill结构和组织方式
+            </div>
+            <a href="https://x.com/MiniMax_AI/status/2035492320548995161" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">⭐⭐⭐ 备用收藏 (中等价值)</h2>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Koe (声) - macOS极简语音输入工具</div>
+                <span class="card-category">Tools</span>
+            </div>
+            <div class="card-source">来源: Vincent Yang</div>
+            <p class="card-summary">完全没有GUI，按住Fn键说话，自动粘贴文本无需切换窗口。结合Objective-C和Rust实现快速语音识别和纠正。</p>
+            <a href="https://x.com/vincentdanielyang/status/2035490327706378646" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Nexu - 微信OpenClaw客户端开源</div>
+                <span class="card-category">Tools</span>
+            </div>
+            <div class="card-source">来源: Tom Huang</div>
+            <p class="card-summary">华人团队开发，一键扫码直连，将本地电脑变成微信超级智能终端。无限制免费用顶级模型Claude、GPT。</p>
+            <a href="https://x.com/tomhuang1209/status/2035482968528760918" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">LiteParse - 免费开源文档解析工具</div>
+                <span class="card-category">Tools</span>
+            </div>
+            <div class="card-source">来源: Jerry Liu (LlamaIndex)</div>
+            <p class="card-summary">无需GPU，支持50+文件格式，保留表格等复杂布局，内置OCR和截图功能，与AI agents轻松集成。</p>
+            <a href="https://x.com/jerryjliu0/status/2035473035585905679" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">维生素D3：4年内衰老仅1年</div>
+                <span class="card-category">Health</span>
+            </div>
+            <div class="card-source">来源: 波波 Lucy</div>
+            <p class="card-summary">2.5万人4年试验：每日2000 IU维生素D3可减少约140个碱基对的端粒损耗。此外2023年加拿大研究显示维生素D可降低40%痴呆症风险。</p>
+            <a href="https://x.com/lucy_boboo/status/2035437882440474699" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">桑拿：每周4-7次痴呆风险降66%</div>
+                <span class="card-category">Health</span>
+            </div>
+            <div class="card-source">来源: 墓碑科技</div>
+            <p class="card-summary">芬兰2315名男性20年追踪：每周4-7次桑拿，痴呆症风险降66%，阿尔茨海默症降65%。热休克蛋白清理脑部垃圾，BDNF蛋白单次增66%。</p>
+            <a href="https://x.com/MonumentTech/status/2035447908383842533" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">AI的记忆必须能睡眠——只有知识图谱能让它入睡</div>
+                <span class="card-category">AI Research</span>
+            </div>
+            <div class="card-source">来源: Yan</div>
+            <a href="https://x.com/yanleizz/status/2035473553665356981" target="_blank" class="card-link">查看原文 →</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">📋 行动清单</h2>
+        <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+            <ol style="padding-left: 1.5rem; line-height: 2;">
+                <li>深入研究MagicSkills架构，评估skill复用基础设施</li>
+                <li>安装Web Access Skill，测试Agent自动化能力</li>
+                <li>安装Readwise CLI，集成到AI工作流</li>
+                <li>研究gstack的Multi-Agent工作流</li>
+                <li>用Design Arena数据支持Claude在前端开发的优势</li>
+                <li>重新评估团队中前manager转开发人员</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">🔄 持续追踪</h2>
+        <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+            <ul style="padding-left: 1.5rem; line-height: 2;">
+                <li>Skill基础设施发展 (MagicSkills, MiniMax skills)</li>
+                <li>Agent工具生态 (Web Access, gstack)</li>
+                <li>Claude在设计类任务的优势持续扩大</li>
+                <li>API免费化趋势 (Google Maps)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>由 <strong>my-readwise-briefing</strong> 自动生成</p>
+        <p style="margin-top: 0.5rem;">生成时间: 2026-03-23</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">数据来源: Readwise Highlights + Reader</p>
+    </div>
+</body>
+</html>
