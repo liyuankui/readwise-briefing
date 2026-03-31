@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 - 2026年03月31日</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3ef;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --accent: #2d5a4a;
+            --accent-light: #3d7a6a;
+            --border: #e2d8c8;
+            --code-bg: #f8f6f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.75;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .date {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 1.8rem;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .item-medium {
+            border-left-color: #d69e2e;
+        }
+
+        .item-low {
+            border-left-color: #718096;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .item-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .item-author {
+            padding: 0.25rem 0.75rem;
+            background: var(--code-bg);
+            border-radius: 20px;
+        }
+
+        .item-relevance {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .item-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .item-reasons {
+            font-size: 0.85rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .item-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .item-link:hover {
+            background: var(--accent-light);
+        }
+
+        .analysis {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .analysis h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .analysis ul {
+            margin-left: 1.5rem;
+        }
+
+        .analysis li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>📚 Readwise 情报简报</h1>
+        <p class="date">2026年03月31日</p>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">34</div>
+                <div class="stat-label">总内容</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">11</div>
+                <div class="stat-label">⭐⭐⭐⭐⭐ 高价值</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">13</div>
+                <div class="stat-label">⭐⭐⭐ 中等</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10</div>
+                <div class="stat-label">⭐ 暂时无关</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="analysis">
+        <h3>🎯 意图对齐分析</h3>
+        <p><strong>当前关注点</strong>: AI Coding / Vibe Stack / Agentic Engineering / Decision Mastery</p>
+        <p><strong>关键洞察</strong>:</p>
+        <ul>
+            <li><strong>AI工具采用的悖论</strong>: 公司推行AI但实际效率下降40%-200%，所有人在假装受益</li>
+            <li><strong>Claude工作流最佳实践</strong>: Boris Cherny的三条原则(用最贵模型、纯文本知识库、让AI看运行结果)</li>
+            <li><strong>供应链安全警告</strong>: litellm投毒事件，karpathy亲自提醒检查版本</li>
+            <li><strong>多Agent编排工具</strong>: Cline Kanban、Agent Computer、微信CLI等Agent基础设施成熟</li>
+            <li><strong>论证思维</strong>: Karpathy的LLM实验-让AI同时写正反方，避免回音室效应</li>
+        </ul>
+    </div>
+
+    <section class="section">
+        <h2 class="section-title">⭐⭐⭐⭐⭐ 立即行动 (高价值)</h2>
+        
+        <div class="item ">
+            <div class="item-title">Karpathy的LLM论证实验</div>
+            <div class="item-meta">
+                <span class="item-author">👤 雨哥向前冲</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">Karpathy用LLM写博客，先强化论点，再让LLM反驳，结果直接被反方说服。核心观点: LLM不是真理机器，而是论证机器。聪明人把它当最狠的对手，而非yes-man。写重要文章时，故意让LLM分别写正反两方最强版本，然后自己判断。</div>
+            <div class="item-reasons">📍 AI Coding相关 | 决策思维相关</div>
+            <a href="https://x.com/xiangxiang103/status/2037936602962604499" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">ColaMD - Agent时代编辑器</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Orange AI</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">MarkDown已成为最重要文件格式。但Typora不支持外部修改后实时刷新。ColaMD定位: 轻量、免费、为Agent时代设计的Markdown编辑器。Agent改文件时眼前内容实时刷新，就像看Agent现场写作。MIT开源，macOS/Windows/Linux全平台。</div>
+            <div class="item-reasons">📍 AI Coding相关 | CLI工具相关 | Agent工程相关</div>
+            <a href="https://read.readwise.io/read/01kmyjscvywpgjzbhg6tk1dj1k" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">Cline Kanban - 多Agent编排</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Cline</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">Introducing Cline Kanban: CLI无关的多Agent编排独立应用。Claude和Codex兼容。npm i -g cline。任务在worktree中运行，点击查看diff，链接卡片创建依赖链，自主完成大量工作。</div>
+            <div class="item-reasons">📍 AI Coding相关 | CLI工具相关 | Agent工程相关</div>
+            <a href="https://x.com/cline/status/2037182739695493399" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">Agent Computer - 云端Agent计算机</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Advait Paliwal</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">Introducing Agent Computer: AI Agent的云端计算机，<0.5秒启动，持久化磁盘、共享凭证、SSH访问。</div>
+            <div class="item-reasons">📍 AI Coding相关 | Agent工程相关</div>
+            <a href="https://x.com/advaitpaliwal/status/2036123714157420959" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">Octarine - 轻量笔记应用</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Ironben</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">看大家都在推Obsidian。但比较后选择了Octarine，30MB左右，比Obsidian小一个数量级。本地md保存，适合Agent利用。内置智能对话、多Workspace、数据库模式、todo模式、日记模式、模版、git备份。</div>
+            <div class="item-reasons">📍 AI Coding相关 | CLI工具相关 | Agent工程相关</div>
+            <a href="https://x.com/1ronben/status/2035978760827322578" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">litellm供应链攻击事件</div>
+            <div class="item-meta">
+                <span class="item-author">👤 宝玉</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">Karpathy亲自警告: litellm被投毒。版本1.82.8包含恶意.pth文件，每次Python启动自动执行。收集SSH密钥、云凭证、K8s密钥、环境变量、加密钱包。攻击链: Trivy被攻破→litellm PyPI令牌被盗→恶意包发布。建议: pip show litellm检查版本，1.82.6是最后干净版本。</div>
+            <div class="item-reasons">📍 AI Coding相关 | 安全事件-高优先级</div>
+            <a href="https://x.com/baoyuzhao/status/2035935585852379347" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">微信CLI开源</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Tom Huang</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">连最封闭的微信都开始开源了，正式开源CLI，让Agent自由调度企业微信能力。7大业务品类、12个AI Agent Skills，覆盖通讯录、待办、会议、消息、日程、文档与智能表格。百模打战→百🦐大战→百CLI大战。</div>
+            <div class="item-reasons">📍 AI Coding相关 | CLI工具相关 | Agent工程相关</div>
+            <a href="https://x.com/tomhuangcn/status/2036537226550773867" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">OpenCLI 1.4.0发布</div>
+            <div class="item-meta">
+                <span class="item-author">👤 卡比卡比</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">OpenCLI 1.4.0要发版了! 包括反风控全面提升、安全性全面提升、插件化支持、通用web read支持任意URL转Markdown。新增10+平台: Pixiv、TikTok、雪球、京东、LinkedIn、V2EX、豆包、Hacker News等。小红书图文发布、微信公众号转Markdown。Pipeline引擎支持链式表达式。</div>
+            <div class="item-reasons">📍 CLI工具相关 | 安全事件-高优先级</div>
+            <a href="https://x.com/kabikabi/status/2035769762374328610" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">Anthropic工程博客</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Anthropic</span>
+                <span class="item-relevance">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">Anthropic工程博客新文章: 使用多Agent系统改进Claude前端设计，帮助Claude更好处理长时间自主软件任务。</div>
+            <div class="item-reasons">📍 AI Coding相关 | Agent工程相关</div>
+            <a href="https://x.com/AnthropicAI/status/2035718044635373774" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">AI工具采用的反讽</div>
+            <div class="item-meta">
+                <span class="item-author">👤 LIN WEI</span>
+                <span class="item-relevance">⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">公司推行AI工具11个月，所有任务耗时都增加40%-200%。邮件润色要否定AI建议、会议纪要要花7分钟纠正机器人错误、周报要30分钟重写AI草稿。但所有人都在#wins频道发截图，没人说真实情况。效率的新定义: 花更多时间达到同样结果，然后称之为创新。</div>
+            <div class="item-reasons">📍 AI Coding相关 | 开发工具</div>
+            <a href="https://x.com/grapeot/status/2037258348866003408" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item ">
+            <div class="item-title">Wide Research方法</div>
+            <div class="item-meta">
+                <span class="item-author">👤 鸭哥</span>
+                <span class="item-relevance">⭐⭐⭐⭐</span>
+            </div>
+            <div class="item-text">53篇学生作业让AI逐个总结。ChatGPT做不到10篇就停，Claude 4.5和GPT-5勉强过10篇，Deep Research能到20篇左右。没有一个能做完，所有AI全在偷懒。但用Wide Research方法后，53篇一次全搞定质量还很高。</div>
+            <div class="item-reasons">📍 AI Coding相关 | 开发工具</div>
+            <a href="https://x.com/grapeot/status/2037258348866003408" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">⭐⭐⭐ 备用收藏 (中等优先级)</h2>
+        
+        <div class="item item-medium">
+            <div class="item-title">CLI工具推荐清单</div>
+            <div class="item-meta">
+                <span class="item-author">👤 路旁的涛哥</span>
+                <span class="item-relevance">⭐⭐⭐</span>
+            </div>
+            <div class="item-text">开发工具: gh (GitHub官方CLI), vercel (前端部署), lazygit (Git TUI). 搜索与查找: rg (ripgrep), fzf (模糊查找). 数据与导航: jq (JSON处理).</div>
+            <div class="item-reasons">📍 CLI工具相关 | 开发工具</div>
+            <a href="https://x.com/JumpingTao/status/2038565202430488838" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">Carbonyl - 终端Chromium浏览器</div>
+            <div class="item-meta">
+                <span class="item-author">👤 套利豪仔</span>
+                <span class="item-relevance">⭐⭐⭐</span>
+            </div>
+            <div class="item-text">有人开发了完全在终端运行的Chromium浏览器Carbonyl，能直接在命令行渲染真实网页。闲置时CPU占用精准保持0%，快速轻巧，100%开源。</div>
+            <div class="item-reasons">📍 CLI工具相关 | 开发工具</div>
+            <a href="https://x.com/pritipatelfgoo/status/2036812080226222358" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">ListenHub本地ASR</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Michael Anti</span>
+                <span class="item-relevance">⭐⭐⭐</span>
+            </div>
+            <div class="item-text">推荐ListenHub的本地ASR方案，测试后基本是语音识别本地使用的最佳方案。</div>
+            <div class="item-reasons">📍 CLI工具相关 | 开发工具</div>
+            <a href="https://x.com/mranti/status/2036321948796592486" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">Boris Cherny的Claude工作流</div>
+            <div class="item-meta">
+                <span class="item-author">👤 阿绎 AYi</span>
+                <span class="item-relevance">⭐⭐⭐</span>
+            </div>
+            <div class="item-text">创造Claude Code的男人公开工作流: 1)永远选最贵最聪明的模型(一次想清楚比来回试错省token); 2)团队维护一个txt知识库(Claude犯错记一笔，每周更新); 3)永远让Claude看到代码运行结果(不能让画家蒙眼画画)。清晨流程: 醒来手机启动三个任务，该干嘛干嘛，晚点回来检查。</div>
+            <div class="item-reasons">📍 AI Coding相关</div>
+            <a href="https://x.com/ayi_a_zh/status/2036602226762266939" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">Claude Opus能力领先</div>
+            <div class="item-meta">
+                <span class="item-author">👤 黄赟</span>
+                <span class="item-relevance">⭐⭐⭐</span>
+            </div>
+            <div class="item-text">Claude Opus底层能力依旧断档式领先。AK的autoresearch还在实验室，Claude的Harness Engineering已嵌入Opus 4.6很久。同样的提示词，一眼就能猜到哪个是在追求极致可用。</div>
+            <div class="item-reasons">📍 AI Coding相关</div>
+            <a href="https://x.com/hy_research/status/2036637176544669806" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">Vibe Coding套路化</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Jesse Lau</span>
+                <span class="item-relevance">⭐⭐⭐</span>
+            </div>
+            <div class="item-text">现在vibe coding有些套路化了。年轻人就像当年才学编程的我，啥有趣都愿意实现。ig/bongyunng用一个摄像头、一个投影仪和JavaScript，让数字小球在现实物体/便签纸上产生物理反弹。</div>
+            <div class="item-reasons">📍 AI Coding相关</div>
+            <a href="https://x.com/jesselau007/status/2036499203745089848" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">Xiaoyin Qu谈AI时代教育</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Xiaoyin Qu</span>
+                <span class="item-relevance">⭐⭐</span>
+            </div>
+            <div class="item-text">我在AI行业工作，说实话我不知道15年后孩子职业会怎样。但我知道什么能帮到他们: 1)存钱买金条，这是最实用的礼物; 2)培养想象力，AI奖励有主动性和狂野想法的人; 3)建立韧性，稳定工作最容易被AI取代; 4)投资真正的人际连接能力，不是networking而是真诚情感连接。</div>
+            <div class="item-reasons">📍 教育相关</div>
+            <a href="https://x.com/quxiaoyin/status/2037198460349259883" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">ARC-AGI-3发布</div>
+            <div class="item-meta">
+                <span class="item-author">👤 ARC Prize</span>
+                <span class="item-relevance">⭐⭐</span>
+            </div>
+            <div class="item-text">ARC-AGI-3: 全球唯一未饱和的AG智能基准测试。人类得分100%，AI<1%。这个人机差距证明我们还没有AGI。大多数基准测试模型已知知识，ARC-AGI-3测试模型如何学习。关键失败模式: 以为在玩别的游戏、坚持早期假设、无法预测。</div>
+            <div class="item-reasons">📍 教育相关</div>
+            <a href="https://x.com/arcprize/status/2036860087948763526" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">TypeNo - 极简语音输入</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Orange AI</span>
+                <span class="item-relevance">⭐⭐</span>
+            </div>
+            <div class="item-text">大多数语音输入法越来越臃肿: 要登录、订阅、联网、一堆新功能。TypeNo是macOS极简语音输入法: 永远免费开源、本地模型保护隐私、轻量节省内存。按Control开始说话，再按一次自动转录粘贴。没有账号订阅没有多余UI。</div>
+            <div class="item-reasons">📍 CLI工具相关</div>
+            <a href="https://read.readwise.io/read/01kmg015q406bhmcq2cvfp2s2v" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">LobsterAI微信集成</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Tw93</span>
+                <span class="item-relevance">⭐⭐</span>
+            </div>
+            <div class="item-text">最近在用LobsterAI，桌面端本地跑数据在自己机器上更放心。开源后更新很快，尤其是微信接入体验已经很完善。</div>
+            <div class="item-reasons">📍 CLI工具相关</div>
+            <a href="https://x.com/Tw93/status/2035718807172792439" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">范式转换书单</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Mr Panda</span>
+                <span class="item-relevance">⭐⭐</span>
+            </div>
+            <div class="item-text">范式转换不是旧框架的修修补补，而是整个世界观的更替。(内含书单，需查看原文)</div>
+            <div class="item-reasons">📍 决策思维相关</div>
+            <a href="https://x.com/panda_republic/status/2035796639815283466" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">必装CLI有哪些?</div>
+            <div class="item-meta">
+                <span class="item-author">👤 向阳乔木</span>
+                <span class="item-relevance">⭐⭐</span>
+            </div>
+            <div class="item-text">必装的CLI有哪些? 目前装了Github、Vercel、飞书CLI、OpenCLI，好像已经差不多了?</div>
+            <div class="item-reasons">📍 CLI工具相关</div>
+            <a href="https://read.readwise.io/read/01kmzw11gttgtakzqqvxcsqp7a" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-medium">
+            <div class="item-title">现在都这么开源了???</div>
+            <div class="item-meta">
+                <span class="item-author">👤 RainbowBird</span>
+                <span class="item-relevance">⭐⭐</span>
+            </div>
+            <div class="item-text">对开源项目繁荣的感叹(需查看原图)</div>
+            <div class="item-reasons">📍 CLI工具相关</div>
+            <a href="https://read.readwise.io/read/01kmyjqvmxtfhpj8vsm0w5fzba" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">⭐ 暂时无关</h2>
+        
+        <div class="item item-low">
+            <div class="item-title">AutoClaw - Local OpenClaw</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Z.ai</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">Here comes AutoClaw. We offer a new solution to run OpenClaw locally on your own machine. Download and start immediately. No API key required. Bring any model you like, or use GLM-5-Turbo, optimized for tool calling and multi-step tasks. Fully local. Your data never leaves your machine.</div>
+            
+            <a href="https://x.com/Zai_org/status/2038632251551023250" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">迷幻药与长寿研究</div>
+            <div class="item-meta">
+                <span class="item-author">👤 华尔街观察</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">Bryan Johnson的5-MeO-DMT实验: DMN(默认模式网络)被彻底抹平。体验后变化: 梦里开始笑、争吵快速翻篇、不再有成人式压情绪模式。他认为比运动+饮食+睡眠加起来都更强，是最彻底的人体重置。</div>
+            
+            <a href="https://x.com/cnfinancewatch/status/2037903430614687797" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">Patrick Winston演讲艺术</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Ray Wang</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">技术再好，讲不清楚就等于没有。Patrick Winston在MIT教这门课超过40年，这是2019年去世前最后录像。核心观点: 演讲能力不是天赋，是可以训练的手艺。</div>
+            
+            <a href="https://x.com/RayWangQ/status/2037177338725536192" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">High Agency Introvert Execution</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Panda</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">分享一个很变态的心态: 强迫自己去做。我是重度i人，但和朋友运营API站点快三年。早期硬逼自己去参加B端活动，给自己定死KPI: 这次出来必须加上5个潜在客户微信。就靠心理暗示开始搭讪后排刷手机的人。认识了一堆头部咨询投研战略部门的人，推动了好几单长期合作。利润率只维持5-15%，不玩数据倒卖，用户数据只保留7天。</div>
+            
+            <a href="https://read.readwise.io/read/01kmyjsd0gna1fme7pq6ezwx9b" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">减肥的真相</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Saito</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">减肥只有一个核心，其他都是糖霜。(需要查看原文了解详情)</div>
+            
+            <a href="https://x.com/SaitoWu/status/2038253144808047066" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">长寿方法文章</div>
+            <div class="item-meta">
+                <span class="item-author">👤 杨高能</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">强推一篇文章: 大学老师带领60多位学生调整作息每周复盘。讲了具体方法，延缓衰老健康身体是自己最好的礼物。</div>
+            
+            <a href="https://x.com/430Yang/status/2038412655581626420" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">pretext依赖说明</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Yifeng Wang</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">pretext仅依赖canvas.measureText和Intl.Segmenter。后者bun和node都内置，前者可用skia canvas实现。这意味着仅靠bun+yoga+pretext+skia canvas就够完整渲染headless UI了。</div>
+            
+            <a href="https://x.com/yifanwww/status/2036327073625798743" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">6个必装Skills分享</div>
+            <div class="item-meta">
+                <span class="item-author">👤 数字生命卡兹克</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">分享6个我觉得应该必装的Skills(需查看原文)</div>
+            
+            <a href="https://read.readwise.io/read/01kmzw11cwwa6hqxxf6ka8b0ed" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">减肥真相</div>
+            <div class="item-meta">
+                <span class="item-author">👤 Saito</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">减肥的真相: 蛋糕只有一个，其他全是糖霜</div>
+            
+            <a href="https://read.readwise.io/read/01kmyjqvg0mv04f60m90p68m1c" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+        <div class="item item-low">
+            <div class="item-title">尼尔·盖曼《捕梦》</div>
+            <div class="item-meta">
+                <span class="item-author">👤 douban.com</span>
+                <span class="item-relevance"></span>
+            </div>
+            <div class="item-text">《捕梦》是尼尔·盖曼写的一本书。故事充满奇幻和冒险。它讲述了梦境和现实的奇妙联系。</div>
+            
+            <a href="https://read.readwise.io/read/01kmzczs11127s8zmhqsb9z6yb" target="_blank" class="item-link">查看原文 →</a>
+        </div>
+        
+    </section>
+
+    <footer class="footer">
+        <p>Generated by my-readwise-briefing skill | 基于 intent/active.md 意图对齐分析</p>
+        <p>上次同步: 2026-03-23 | 本次同步: 2026年03月31日</p>
+    </footer>
+</body>
+</html>
