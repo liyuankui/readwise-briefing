@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 — 2026-04-02</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3f0;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --accent: #2d5a4a;
+            --accent-light: #3d7a6a;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, "Noto Serif SC", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.75;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .priority-5 {
+            border-left: 4px solid #c53030;
+            padding-left: 16px;
+        }
+
+        .priority-4 {
+            border-left: 4px solid #dd6b20;
+            padding-left: 16px;
+        }
+
+        .priority-3 {
+            border-left: 4px solid #3182ce;
+            padding-left: 16px;
+        }
+
+        .item {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .item-source {
+            font-size: 12px;
+            color: var(--text-secondary);
+            padding: 2px 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+
+        .item-content {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .item-analysis {
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .item-analysis strong {
+            color: var(--accent);
+        }
+
+        .item-url {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 12px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .item-url:hover {
+            background: var(--accent-light);
+        }
+
+        .action-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .action-list li {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: white;
+            border-left: 3px solid var(--accent);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            margin: 0 4px 4px 0;
+            font-size: 11px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .appendix {
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .appendix h3 {
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .appendix-item {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .appendix-item:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 600px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Readwise 情报简报</h1>
+            <p class="subtitle">2026-04-02 | 增量同步 | 上次：2026-03-31</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">20</div>
+                    <div class="stat-label">新增条目</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">高价值</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">中等价值</div>
+                </div>
+            </div>
+        </header>
+
+        <section class="priority-5">
+            <h2>⭐⭐⭐⭐⭐ 立即行动</h2>
+
+            <div class="item">
+                <div class="item-title">
+                    Multica — AI-native 团队协作平台
+                    <span class="item-source">Jiayuan (JY) Zhang</span>
+                </div>
+                <div class="item-content">
+                    <strong>问题</strong>：团队间知识无法共享（Coding agent 上下文散落在各自 session）、多人+多 Agent 缺乏协作中枢。<br>
+                    <strong>方案</strong>：像 Linear 一样管理任务，但 AI agent 是一等公民。分配 issue 给 agent，自动执行、更新状态、发表评论，所有人实时可见。<br>
+                    <strong>目标</strong>：1-10 人的 AI-native 小团队。
+                </div>
+                <div class="item-analysis">
+                    <strong>🔍 深度分析</strong>：这与你在做的 <strong>PRATA</strong> 和 <strong>AI Agent First Case</strong> 高度相关！<br><br>
+                    • <strong>互补性</strong>：PRATA 专注 Agent 间加密通信；Multica 专注任务协作与看板管理。两者可互补。<br>
+                    • <strong>验证价值</strong>：市场已有类似需求，证明你的方向正确。<br>
+                    • <strong>差异点</strong>：Multica 需要 agent 注册到 workspace；PRATA 是点对点加密，更轻量。
+                </div>
+                <a href="https://x.com/jiayuan_jy/status/2039241051605791028" target="_blank" class="item-url">查看原文 →</a>
+                <div style="margin-top: 8px;">
+                    <span class="tag">Agentic Engineering</span>
+                    <span class="tag">PRATA</span>
+                    <span class="tag">AI First Case</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-title">
+                    Claude Code 源码架构深度解析（第二版）
+                    <span class="item-source">Xiao Tan</span>
+                </div>
+                <div class="item-content">
+                    <strong>内容</strong>：基于泄露源码的可视化解析，涵盖 Agent Loop（11 步）、53 个内置工具、隐藏功能（Buddy、Kairos、UltraPlan、Coordinator Mode 等）。<br>
+                    <strong>特点</strong>：降低技术难度，非技术背景也能理解。
+                </div>
+                <div class="item-analysis">
+                    <strong>🔍 深度分析</strong>：这是理解 <strong>AI Coding</strong> 和 <strong>Agentic Engineering</strong> 的绝佳资源！<br><br>
+                    • <strong>学习价值</strong>：了解 Anthropic 如何设计 Agent Loop，可借鉴到 PRATA/iKit。<br>
+                    • <strong>隐藏功能</strong>：Kairos（持久化模式）与你的 Decision Mastery 相关；Coordinator Mode（并行分发）与 Agentic Engineering 相关。<br>
+                    • <strong>愤怒检测</strong>：正则检测用户情绪，专门安抚 — 这是对"按闹分配"的工程化实现 😂
+                </div>
+                <a href="https://ccunpacked.dev/" target="_blank" class="item-url">查看解析 →</a>
+                <div style="margin-top: 8px;">
+                    <span class="tag">AI Coding</span>
+                    <span class="tag">Agentic Engineering</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-title">
+                    高智商与上升通道
+                    <span class="item-source">明明今天也在学</span>
+                </div>
+                <div class="item-content">
+                    高智商的人往往栽在两个地方：一是看透了规则的无聊，失去了深耕的动力；二是不屑于搞人情世故，在社会里寸步难行。不是聪明没用，是这个世界的上升通道，从来不是只给聪明人留的。
+                </div>
+                <div class="item-analysis">
+                    <strong>🔍 深度分析</strong>：这直接关联到你的 <strong>Engineering Baseline & Value Demonstration</strong> 工作！<br><br>
+                    • <strong>技术陷阱</strong>：技术人容易"看透规则的无聊"，但不屑于展示价值，导致晋升困难。<br>
+                    • <strong>上升通道</strong>：晋升 case 需要同时满足"技术价值" + "业务影响力" + "人情世故"（向上管理）。<br>
+                    • <strong>行动建议</strong>：不要让"聪明"成为"不做价值展示"的借口。
+                </div>
+                <div style="margin-top: 8px;">
+                    <span class="tag">Engineering Baseline</span>
+                    <span class="tag">Decision Mastery</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="priority-3">
+            <h2>⭐⭐⭐ 备用收藏</h2>
+
+            <div class="item">
+                <div class="item-title">
+                    indexbind — 面向 Markdown 的本地检索工具
+                    <span class="item-source">jolestar</span>
+                </div>
+                <div class="item-content">
+                    本地 Markdown 检索工具，可能与 <strong>Personal Content Digest</strong> 项目相关。
+                </div>
+                <span class="tag">Content Digest</span>
+                <span class="tag">知识管理</span>
+            </div>
+
+            <div class="item">
+                <div class="item-title">
+                    飞书开源文档合集
+                    <span class="item-source">姚金刚</span>
+                </div>
+                <div class="item-content">
+                    • 42.5万字《姚金刚认知随笔》（每周更新）<br>
+                    • 《GEO白皮书》— AI搜索营销科普<br>
+                    • 《姚金刚提示词合集》<br>
+                    • 《GEO提示词合集》
+                </div>
+                <div class="item-analysis">
+                    <strong>参考价值</strong>：提示词合集可借鉴到 <strong>K12 Education</strong> 课程设计。
+                </div>
+                <span class="tag">K12 Education</span>
+                <span class="tag">Prompt</span>
+            </div>
+
+            <div class="item">
+                <div class="item-title">
+                    长寿手册：压住炎症，稳住血糖，留住肌肉
+                    <span class="item-source">杨高能</span>
+                </div>
+                <div class="item-content">
+                    Long life depends on controlling inflammation, stabilizing blood sugar, and keeping muscles strong. Regular exercise, good sleep, healthy food, and managing stress are key habits. Having a purpose in life also helps keep your body and mind healthy.
+                </div>
+                <div class="item-analysis">
+                    <strong>行动建议</strong>：长期健康是支撑高强度工作的基础。
+                </div>
+                <span class="tag">健康</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>✅ 行动清单</h2>
+            <ul class="action-list">
+                <li><strong>PRATA / AI First Case</strong>：研究 Multica 的协作模型，思考与 PRATA 的互补性</li>
+                <li><strong>AI Coding</strong>：阅读 Claude Code 源码解析，借鉴 Agent Loop 设计到 iKit/claude-agent-kit</li>
+                <li><strong>Engineering Baseline</strong>：用"上升通道"视角审视当前价值展示方式，确保不犯"聪明人陷阱"</li>
+                <li><strong>Content Digest</strong>：评估 indexbind 是否可替代当前方案</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📌 持续追踪</h2>
+            <ul class="action-list">
+                <li><strong>Multica 发展</strong>：观察市场反应，收集用户反馈</li>
+                <li><strong>Claude Code 功能</strong>：关注 Kairos、Coordinator Mode 等隐藏功能的正式发布</li>
+                <li><strong>AI-native 团队</strong>：寻找更多实战案例，丰富 AI Agent First Case</li>
+            </ul>
+        </section>
+
+        <div class="appendix">
+            <h3>📋 全部附录</h3>
+
+            <div class="appendix-item">
+                <strong>Claude Code 源码泄露</strong> | HackerNews 2026-04-01 | 通过 NPM map 文件意外泄露，暴露未发布功能
+            </div>
+            <div class="appendix-item">
+                <strong>Axios 供应链攻击</strong> | HackerNews 2026-04-01 | 恶意版本植入远程访问木马
+            </div>
+            <div class="appendix-item">
+                <strong>CLI IS EVERYTHING</strong> | nash_su | CLI 工具热情高涨，与 portal-cli 方向一致
+            </div>
+            <div class="appendix-item">
+                <strong>愤怒检测正则</strong> | Tz | Claude Code 检测用户抓狂状态的硬编码正则
+            </div>
+            <div class="appendix-item">
+                <strong>Oracle 裁员</strong> | HackerNews | 因 AI 数据中心建设背负巨额债务，计划裁员 2-3 万人
+            </div>
+            <div class="appendix-item">
+                <strong>Ollama Apple MLX</strong> | HackerNews | 为 Apple Silicon 优化的本地大模型推理
+            </div>
+            <div class="appendix-item">
+                <strong>Cloudflare EmDash</strong> | HackerNews | 开源 CMS，通过 Worker 沙箱化解决插件安全问题
+            </div>
+            <div class="appendix-item">
+                <strong>1-bit LLM Bonsai</strong> | HackerNews | PrismML 发布，内存降低 14 倍，能耗减少 5 倍
+            </div>
+        </div>
+
+        <footer>
+            <p>生成时间：2026-04-02 | 数据来源：Readwise (Highlights + Documents)</p>
+            <p>同步策略：增量获取（updatedAfter: 2026-03-31T19:27:13）</p>
+        </footer>
+    </div>
+</body>
+</html>
