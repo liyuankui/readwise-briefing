@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 - 2026-04-03</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3f0;
+            --text-primary: #1c1c1c;
+            --text-secondary: #4a4a4a;
+            --accent: #2d5a4a;
+            --accent-light: #e8f0ed;
+            --border: #e0ded8;
+            --star-high: #f59e0b;
+            --star-medium: #fbbf24;
+            --star-low: #d1d5db;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Noto Serif SC", "STSong", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .header .date {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .summary {
+            background: var(--accent-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .stars {
+            color: var(--star-high);
+            letter-spacing: 2px;
+        }
+        
+        .item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.8rem;
+            gap: 1rem;
+        }
+        
+        .item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+        
+        .item-meta {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .badge-type {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        
+        .badge-score {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .item-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+        
+        .item-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+        }
+        
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .item-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .item-link:hover {
+            text-decoration: underline;
+        }
+        
+        .item-actions {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 0.4rem 0.8rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .focus-areas {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .focus-areas h3 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .focus-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .focus-item {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .insight {
+            background: linear-gradient(135deg, var(--accent-light) 0%, white 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .insight h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Readwise 情报简报</h1>
+        <div class="date">2026年4月3日</div>
+    </div>
+    
+    <div class="focus-areas">
+        <h3>当前关注</h3>
+        <div class="focus-list">
+            <span class="focus-item">Engineering Baseline & Value Demonstration</span><span class="focus-item">AI Starter Kit</span><span class="focus-item">Vibe Coding Stack / Internal Simple API</span><span class="focus-item">IKEA Skill Hub</span><span class="focus-item">AI Adoption Strategy</span><span class="focus-item">Software Testing Excellence</span><span class="focus-item">Social Output</span><span class="focus-item">Personal Content Digest</span>
+        </div>
+    </div>
+    
+    <div class="summary">
+        <h2>📊 本期摘要</h2>
+        <div class="summary-grid">
+            <div class="stat">
+                <div class="stat-value">100</div>
+                <div class="stat-label">总条目</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">61</div>
+                <div class="stat-label">高价值</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">9</div>
+                <div class="stat-label">中等价值</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">59K</div>
+                <div class="stat-label">总字数</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="insight">
+        <h3>💡 核心洞察</h3>
+        <p><strong>Skill 基础设施爆发</strong>：从 MagicSkills 到 ikea-skill-hub，"可复用技能"成为 Agent 工程的新焦点。</p>
+        <p><strong>Vibe Coding 成为主流</strong>：AI 时代面试核心从"写代码"转向"调教 AI"，考察架构思维和 Token 效率。</p>
+        <p><strong>团队协作新范式</strong>：Multica 开创 Agent + 人协作看板，知识孤岛问题待解。</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title"><span class="stars">⭐⭐⭐⭐⭐</span> 立即行动</h2>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">这两本书把Claude Code和Codex的Harness工程吃透了，对于Claude Code和Codex源码解析和对比都入木三分，文科生也能读的津津有味：</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 13</span>
+                </div>
+            </div>
+            <div class="item-content">这两本书把Claude Code和Codex的Harness工程吃透了，对于Claude Code和Codex源码解析和对比都入木三分，文科生也能读的津津有味：
+
+《Harness Engineering——Claude Code 设计指南》：不是源码注释汇编，也不是产品功能介绍。它关注的是 Claude Code 如何把不稳定模 型收束进可持续运行的工程秩序，让控制面、主循环、工具权限、上下文治理、恢复路 径、多代理验证与团队制度长成一套完整骨架
+
+《Claude Code 和 Codex 的 Harness 设计哲学——殊途同归，还是各表一枝》：比较两套 AI coding harness...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">AI Coding</span><span class="tag">Claude</span><span class="tag">Engineering</span></div>
+            <a href="https://twitter.com/wquguru/status/2039333332987810103/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">2026 03 25 HackerNews</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">rss</span>
+                    <span class="badge badge-score">Score: 13</span>
+                </div>
+            </div>
+            <div class="item-content">
+  2026-03-25 Hacker News Top Stories
+  #
+
+
+
+微软承诺"修复"Windows 11 实则是掩盖其强制集成 AI、植入广告、限制用户自主权等侵犯权益行为，核心控制政策并未改变。
+PyPI 上的 litellm 包 1.82.7 和 1.82.8 版本遭供应链攻击，包含窃取系统敏感凭证的恶意文件，建议立即轮换凭证。
+该网页提供 Claude Code v2.1.81 的全面功能速查指南，涵盖快捷键、MCP 服务器、Slash 命令等核心功能。
+美国联邦通信委员会将外国制造的消费级路由器纳入受限制设备清单，禁止批准新设备认证以防范供应链安全风险。
+苹果推出...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Claude</span><span class="tag">MCP</span><span class="tag">LLM</span></div>
+            <a href="https://supertechfans.com/cn/post/2026-03-25-HackerNews/" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">跟朋友探讨，AI 时代，如何考察候选人，一致的结论是，需要现场看候选人的 vibe coding 能力。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 12</span>
+                </div>
+            </div>
+            <div class="item-content">跟朋友探讨，AI 时代，如何考察候选人，一致的结论是，需要现场看候选人的 vibe coding 能力。
+
+以前考察古法编码技能，会针对算法、数据结构、解题速度、编码规范等做细致了解，也考察专业知识。
+
+但这些技能，随着 Coding Agent 能力的提升，已经全部被内化了，人能做的就是调教，调教，调教😅。考察的是架构能力、工程能力，以及对多个 AI 的管理能力。
+
+面试的问题可能变成了，刚才你做的工作花了 10M Token，如何在 1M 内解决？刚才你花了 1 个小时解决问题，如果想 10min 搞定，该怎么做？
+
+再往下问，会触及一个更本质的能力：你有没有意识到问题的“形态”，有没有在...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Agent</span><span class="tag">Vibe</span><span class="tag">管理</span></div>
+            <a href="https://twitter.com/Barret_China/status/2035934140839940390/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">最近北大开源的一个项目，我觉得很值得关注。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 12</span>
+                </div>
+            </div>
+            <div class="item-content">最近北大开源的一个项目，我觉得很值得关注。
+
+AI Agent 现在最缺的，可能不是模型，
+而是一套像 npm 一样可复用的 skill 基础设施。
+MagicSkills 做的就是这件事。
+
+它不是再去造一个新的 Agent framework，
+而是想把那些散落在各处的 SKILL.md，
+变成可安装、可组合、可同步、可调用的共享能力层。
+
+MagicSkills 的思路更像是，
+先把 skill 从零散文档里抽出来，
+做成一个本地优先的共享 skill pool，
+然后再按不同 Agent、不同框架去组合和分发。
+这样一来，skill 就不再只是 prompt 附件，
+而是开始变成真正可...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Agent</span><span class="tag">Skill</span><span class="tag">管理</span></div>
+            <a href="https://twitter.com/axiaisacat/status/2035347878936273142/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">2026 04 02 HackerNews</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">rss</span>
+                    <span class="badge badge-score">Score: 11</span>
+                </div>
+            </div>
+            <div class="item-content">
+  2026-04-02 Hacker News Top Stories
+  #
+
+
+
+开发者基于泄露源码构建了 Claude Code 可视化解析工具，详细展示其 Agent 循环、53 个内置工具及实验性功能的内部工作机制。
+工程师采用"每日贴点"系统管理电子元件，通过彩色贴纸分布识别高频使用物品，实现无需软件的极简库存管理。
+OpenAI 以 8520 亿美元估值完成 1220 亿美元融资，月收入 20 亿美元但未盈利，正战略转向企业级应用与 AI 编程工具。
+第三方网站展示 GitHub 历史可用性数据，但社区质疑 2018 年前记录准确性及状态页面本身的可靠性，认为其可能更偏向宣传...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Claude</span><span class="tag">Agent</span><span class="tag">管理</span></div>
+            <a href="https://supertechfans.com/cn/post/2026-04-02-HackerNews/" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">想和大伙聊聊，在 AI 时代我是如何深入学习一个技术领域的。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 10</span>
+                </div>
+            </div>
+            <div class="item-content">想和大伙聊聊，在 AI 时代我是如何深入学习一个技术领域的。
+
+之前没有 AI 之前更多是看书、翻这个领域有名的国内外人的所有博客，然后摘抄记录到笔记本，这种速度挺慢，但是很有学习的乐趣，比如当时学习 WebGL 就是这种感觉，可能学懂一个东西差不多要半年空闲时间，慢但快乐。
+
+现在有了 AI 之后，其实我很讨厌网上那种3分钟教你看完百年孤独，也讨厌一切短剧和倍速看电视剧的方式，更多还是挑好的看，吃好一点。
+
+不过最近写你不知道的 Claude Code 和 Agent 系列，除了自己懂的部分外，其实还有大量不太清楚的领域，好在之前收藏了不少文章，刚好借助这一块清库存，全部搞懂输出出去，一直认...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Claude</span><span class="tag">Agent</span><span class="tag">学习</span></div>
+            <a href="https://twitter.com/HiTw93/status/2039713457952706686/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Your Role, Your Skills</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">article</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">Discover and install AI Agent Skills by professional roles. Each Skill features Before/After comparisons across 26 domains. 4000+ digital workers at your service....</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Agent</span><span class="tag">Skill</span></div>
+            <a href="https://skills.yangsir.net/" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">没想到《Claude Code 源码架构深度解析》第一版一天就超过了2K star，我刚刚发布了第二版。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">没想到《Claude Code 源码架构深度解析》第一版一天就超过了2K star，我刚刚发布了第二版。
+
+第二版由我亲自审校和修改，我敢说第二版这个文档丢给任何一家AI公司，都能让你们的Engineer团队对Agent的理解上升一个层次。我100%确定。
+
+另外我特意降低了些技术难度，即便没有技术背景，你也能学到很多知识。 链接👇...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Claude</span><span class="tag">Agent</span></div>
+            <a href="https://twitter.com/tvytlx/status/2039330606488948950/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">开源 Multica：专为 AI-native 团队设计的 Agent + 人的协作平台</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">开源 Multica：专为 AI-native 团队设计的 Agent + 人的协作平台
+
+https://t.co/Wx0IutujjR
+
+为什么做 Multica？
+
+Multica 最初是为了解决我们团队自己的问题：
+
+1. 团队间的知识无法共享。 每个人都在用 coding agent，但产出的上下文全部散落在各自的 agent session 里。A 做完了一件事，B 不知道；agent 跑完了一轮，结果只有发起人看得到。团队知识变成了一座座孤岛。
+
+2. 多人 + 多 Agent 的协作缺乏中枢。 当团队同时有多个 agent 在跑任务，谁在做什么、做到哪了、卡住了没有——没有一个...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Agent</span><span class="tag">管理</span></div>
+            <a href="https://twitter.com/jiayuan_jy/status/2039241051605791028/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">开源 Multica：专为 AI-native 团队设计的 Agent + 人的协作平台</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">开源 Multica：专为 AI-native 团队设计的 Agent + 人的协作平台
+
+https://t.co/Wx0IutujjR
+
+为什么做 Multica？
+
+Multica 最初是为了解决我们团队自己的问题：
+
+1. 团队间的知识无法共享。 每个人都在用 coding agent，但产出的上下文全部散落在各自的 agent session 里。A 做完了一件事，B 不知道；agent 跑完了一轮，结果只有发起人看得到。团队知识变成了一座座孤岛。
+
+2. 多人 + 多 Agent 的协作缺乏中枢。 当团队同时有多个 agent 在跑任务，谁在做什么、做到哪了、卡住了没有——没有一个...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Agent</span><span class="tag">管理</span></div>
+            <a href="https://twitter.com/tsaiggo/status/2039263536191545825/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">兄弟们，真的变天了 💥 越来越有意思</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">兄弟们，真的变天了 💥 越来越有意思
+
+连最封闭的微信都开始开源了 ，正式开源 CLI，让你的 Agent 自由调度企业微信能力 🔥
+
+7 大业务品类、12 个 AI Agent Skills，覆盖通讯录、待办、会议、消息、日程、文档与智能表格
+
+百模打战 -> 百🦐大战 -> 百 CLI 大战
+
+开源地址...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Agent</span><span class="tag">Skill</span></div>
+            <a href="https://twitter.com/tuturetom/status/2038443518159458444/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">MarkDown 已经成为我的生活中最重要的文件格式了。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">MarkDown 已经成为我的生活中最重要的文件格式了。
+Typora 虽然是非常好的 MD 编辑器，但是有个很大的痛点：
+每次 Agent 改完文件，都要手动关掉再打开才能看到变化。
+这个操作一天要重复几十次，很烦。
+
+今天决定自己解决这个问题，开发了一个新的编辑器 ColaMD：
+Agent 在后台改你的 .md 文件，你眼前的内容实时刷新。
+就像是在看 Agent 现场写作，体验彻底改变。
+
+相比其他编辑器的 区别？
+- Obsidian 功能强大但太重了，我只是想看一个 .md 文件，不需要打开一整个知识库。
+- Typora 是我用过体验最好的编辑器，但它不支持文件被外部修改后实时刷...</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Agent</span><span class="tag">管理</span></div>
+            <a href="https://twitter.com/oran_ge/status/2038203661348941937/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Introducing Cline Kanban: A standalone app for CLI-agnostic multi-agent orchestration</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">Introducing Cline Kanban: A standalone app for CLI-agnostic multi-agent orchestration. Claude and Codex compatible.
+
+npm i -g cline
+
+Tasks run in worktrees, click to review diffs, & link cards together to create dependency chains that complete large amounts of work autonomously....</div>
+            <div class="item-tags"><span class="tag">AI</span><span class="tag">Claude</span><span class="tag">Agent</span></div>
+            <a href="https://twitter.com/cline/status/2037182739695493399/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">New on the Anthropic Engineering Blog:</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">Anthropic shared a new blog post about their engineering work. They use a multi-agent system to improve Claude's frontend design. This helps Claude handle long-running, autonomous software tasks better....</div>
+            <div class="item-tags"><span class="tag">Claude</span><span class="tag">Agent</span><span class="tag">Engineering</span></div>
+            <a href="https://twitter.com/AnthropicAI/status/2036481033621623056/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Anthropic 的 Thariq 把他写的 Claude/Agent 技术文章做了一个索引，即将上 Claude 官方博客。几个核心观点：</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                    <span class="badge badge-score">Score: 9</span>
+                </div>
+            </div>
+            <div class="item-content">Anthropic 的 Thariq 把他写的 Claude/Agent 技术文章做了一个索引，即将上 Claude 官方博客。几个核心观点：
+
+- Skills 是所有 agent 的基础抽象
+- Agent 应该用文件系统
+- Bash is all you need
+- Prompt caching 是最高 alpha
+- 构建 agent 是艺术不是科学
+
+跑了半年 Claude Code，回头看这个列表，每一条都在实践中验证过了。推荐所有用 Claude Code 的人收藏。...</div>
+            <div class="item-tags"><span class="tag">Claude</span><span class="tag">Agent</span><span class="tag">Skill</span></div>
+            <a href="https://twitter.com/runes_leo/status/2036225984320397364/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看原文</a>
+        </div>
+    
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title"><span class="stars">⭐⭐⭐</span> 备用收藏</h2>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Becoming the Machine</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">article</span>
+                </div>
+            </div>
+            <div class="item-content">The author reflects on what it means to become efficient and systematic like a machine. They explore balancing human needs with productivity habits and tools. The piece urges thoughtful use of routine...</div>
+            <a href="https://blog.armeet.ca/becoming-the-machine/" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">2026 03 27 HackerNews</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">rss</span>
+                </div>
+            </div>
+            <div class="item-content">
+  2026-03-27 Hacker News Top Stories
+  #
+
+
+
+欧盟拟通过"Chat Control"法案授权大规模扫描私人通信以打击儿童虐待内容，虽遭欧洲议会反对但仍面临保守派推动，引发隐私权与监控担忧。
+安全研究者利用报废特斯拉零件在桌面搭建车机系统，通过解决硬件连接难题成功运行系统并发现特斯拉设有漏洞奖励机制提供永久SSH访问权限。
+作者基于MediaWiki创建开...</div>
+            <a href="https://supertechfans.com/cn/post/2026-03-27-HackerNews/" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">做了一个 macOS 语音输入工具叫 Koe（声），完全没有 GUI，菜单栏只有一个小图标。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                </div>
+            </div>
+            <div class="item-content">Vincent Yang made a simple macOS voice typing tool called Koe with no graphical interface. You hold the Fn key to talk, and it pastes text automatically without switching windows. The tool uses text f...</div>
+            <a href="https://twitter.com/m1ssuo/status/2035405721924481373/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">2026 04 03 HackerNews</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">rss</span>
+                </div>
+            </div>
+            <div class="item-content">
+  2026-04-03 Hacker News Top Stories
+  #
+
+
+
+LinkedIn被曝通过JavaScript静默扫描用户浏览器扩展程序并加密传输扩展ID，引发对用户隐私深度信息采集和侵犯的争议。
+NASA阿耳忒弥斯二号任务成功发射，搭载宇航员的"诚信号"飞船开启为期约10天的载人绕月飞行，为深空探索及火星任务奠定基础。
+Google DeepMind发布基于Gemini ...</div>
+            <a href="https://supertechfans.com/cn/post/2026-04-03-HackerNews/" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">给别人也推荐过，有人还不太了解。。。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                </div>
+            </div>
+            <div class="item-content">给别人也推荐过，有人还不太了解。。。
+
+它大概是这么个东西。
+
+类似于在你的浏览器，比如你已经登录了某个网页了，它这个等于是打开 F12 开发者工具，在里面用 console，读东西，页面里那些内存里的 state，credentials ，元素…
+
+要啥有啥。
+
+反正就是写段 js 操作就行了……...</div>
+            <a href="https://twitter.com/wwwgoubuli/status/2039696027331219512/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">这作者的圆点系统有点意思：每次使用工具箱时，在上面贴一个圆点。</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                </div>
+            </div>
+            <div class="item-content">这作者的圆点系统有点意思：每次使用工具箱时，在上面贴一个圆点。
+
+过了几年，常用与不常用的工具箱，一目了然。...</div>
+            <a href="https://twitter.com/lijigang/status/2039303389222424719/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">思维工具箱中，十分称手的一个工具：二轴分析法</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                </div>
+            </div>
+            <div class="item-content">思维工具箱中，十分称手的一个工具：二轴分析法...</div>
+            <a href="https://twitter.com/lijigang/status/2036450277512061017/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Here comes AutoClaw</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">tweet</span>
+                </div>
+            </div>
+            <div class="item-content">Here comes AutoClaw. We offer a new solution to run OpenClaw locally on your own machine.
+
+- Download and start immediately. No API key required.
+- Bring any model you like, or use GLM-5-Turbo, optimi...</div>
+            <a href="https://twitter.com/Zai_org/status/2038632251551023250/?rw_tt_thread=True" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">2026 03 26 HackerNews</div>
+                <div class="item-meta">
+                    <span class="badge badge-type">rss</span>
+                </div>
+            </div>
+            <div class="item-content">
+  2026-03-26 Hacker News Top Stories
+  #
+
+
+
+Wine 11 通过内核级 NTSYNC 重构将 Windows 游戏同步操作直接交由 Linux 内核处理，实现游戏性能与帧率稳定性的大幅提升。
+Sora 团队宣布即将停止应用及 API 服务，并承诺公布详细停用时间表与作品保存指南。
+作者表达对当前 AI 话题过度泛滥的厌倦，呼吁科技社区少谈论工具本身、多...</div>
+            <a href="https://supertechfans.com/cn/post/2026-03-26-HackerNews/" target="_blank" class="item-link">🔗 查看</a>
+        </div>
+    
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">📋 行动清单</h2>
+        <div class="item">
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 0.5rem;">☐ 研究 MagicSkills 架构，评估与 ikea-skill-hub 的整合可能</li>
+                <li style="margin-bottom: 0.5rem;">☐ 阅读《Claude Code 源码架构深度解析》第二版</li>
+                <li style="margin-bottom: 0.5rem;">☐ 试用 ColaMD 编辑器，评估 Agent 实时协作体验</li>
+                <li style="margin-bottom: 0.5rem;">☐ 研究 Multica，思考 PRATA 与团队协作的集成</li>
+                <li style="margin-bottom: 0.5rem;">☐ 准备 Vibe Coding 面试题库，用于团队招聘</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-secondary);">
+        <p>生成时间: 2026-04-03 11:38:04</p>
+        <p style="margin-top: 0.5rem;">由 my-readwise-briefing skill 自动生成</p>
+    </footer>
+</body>
+</html>
