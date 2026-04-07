@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 — 2026-04-07</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3f0;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --accent: #2d5a4a;
+            --accent-light: #3d7a6a;
+            --border: #e0dcd5;
+            --star-high: #f39c12;
+            --star-mid: #f1c40f;
+            --star-low: #bdc3c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, "Noto Serif SC", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.75;
+            font-size: 16px;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--accent-light);
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .item {
+            background: white;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .item:hover {
+            box-shadow: 0 4px 12px rgba(45, 90, 74, 0.1);
+            border-color: var(--accent-light);
+        }
+
+        .item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .stars {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .stars.high { color: var(--star-high); }
+        .stars.mid { color: var(--star-mid); }
+        .stars.low { color: var(--star-low); }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .item-source {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        .item-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .item-link {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+
+        .action-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .action-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .action-list li:last-child {
+            border-bottom: none;
+        }
+
+        .action-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .appendix {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+
+        .appendix h3 {
+            margin-top: 0;
+        }
+
+        .appendix-item {
+            font-size: 0.9rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .appendix-item:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .collapsible-header {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .collapsible-header::after {
+            content: "▼";
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+
+        .collapsed .collapsible-header::after {
+            transform: rotate(-90deg);
+        }
+
+        .collapsed .collapsible-content {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.5rem; }
+            h1 { font-size: 1.6rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Readwise 情报简报</h1>
+            <p class="subtitle">2026 年 4 月 7 日 | 增量更新</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">52</div>
+                    <div class="stat-label">新增内容</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">高价值</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Skills 工具</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Agentic</div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2>⭐ 立即行动</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">Waza — AI 时代工程师的 8 个能力</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Skills</span>
+                    <span class="tag">Agentic Engineering</span>
+                    <span>Tw93</span>
+                </div>
+                <div class="item-content">
+                    花了一天时间，把常用的 Skill Release 成 Waza（日语"技"）。8 个 skill 对应 AI 时代工程师的核心能力：
+                    <br><br>
+                    1. <strong>/think</strong> — 会思考：先质疑问题本身，压测方案<br>
+                    2. <strong>/design</strong> — 会设计：对交付物有审美要求<br>
+                    3. <strong>/hunt</strong> — 会排查：系统化定位根因<br>
+                    4. <strong>/check</strong> — 会检查：审 diff，用证据验证<br>
+                    5. <strong>/read</strong> — 会阅读：一手资料进工作流<br>
+                    6. <strong>/write</strong> — 会写作：清晰传递给对应受众<br>
+                    7. <strong>/learn</strong> — 会学习：输出驱动的学习流程<br>
+                    8. <strong>/health</strong> — 会维护：工具链体检
+                </div>
+                <a href="https://x.com/HiTw93/status/2041053321851789629" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">Multica — 团队与 Agent 的 Context 共享 Workspace</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Agentic</span>
+                    <span class="tag">协作</span>
+                    <span>Jiayuan (JY) Zhang</span>
+                </div>
+                <div class="item-content">
+                    把团队所有人和 Agent 的 context 共享在同一个 Workspace 里——复利效应比想象中大得多。
+                    <br><br>
+                    换新 Mac，装好 Claude Code + Multica CLI，创建新 Agent，直接就能接上之前没做完的工作。每一次协作——每一个 issue、每一段讨论、每一次 code review，都成为下一个 Agent 的起点。
+                </div>
+                <a href="https://x.com/jiayuan_jy/status/2040747872627650720" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">CodeIsland — MacBook 刘海 AI 状态面板</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Vibe Coding</span>
+                    <span class="tag">Mac</span>
+                    <span>北北</span>
+                </div>
+                <div class="item-content">
+                    开源、免费、轻量、便捷！让 MacBook 的刘海变成 AI 编码 Agent 的实时状态面板。
+                    <br><br>
+                    支持 Claude Code / Codex / Gemini CLI / Cursor 等 8 种工具。直接在刘海上审批权限、回答问题、跳转终端，不用再切窗口。
+                </div>
+                <a href="https://x.com/xzdejz/status/2041042567668851147" target="_blank" class="item-link">查看项目 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">Hermes Agent vs. OpenClaw — 架构对比</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Agentic</span>
+                    <span class="tag">架构</span>
+                    <span>TheTuringPost</span>
+                </div>
+                <div class="item-content">
+                    <strong>Skills：</strong>OpenClaw 由人编写，Hermes 大部分自己形成<br>
+                    <strong>Memory：</strong>Hermes 有 memory stack（持久化 + SQLite 历史 + 可选建模），OpenClaw 基于 Markdown 文件<br>
+                    <strong>Architecture：</strong>Hermes 围绕 agentic self-improving loop，OpenClaw 用 Gateway 作为控制平面<br>
+                    <strong>Safety：</strong>Hermes 默认集成安全机制
+                </div>
+                <a href="https://x.com/TheTuringPost/status/2040936147720048909" target="_blank" class="item-link">查看对比 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">从 Copilot 到 Autopilot：责任迁移</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">AI Adoption</span>
+                    <span class="tag">组织</span>
+                    <span>鸭哥</span>
+                </div>
+                <div class="item-content">
+                    红杉两篇文章（卖结果、去层级）漏掉了中间那层组织接口：<strong>评估谁做、权限怎么给、出了事谁负责</strong>。
+                    <br><br>
+                    从 copilot 到 autopilot，本质上不是能力升级，而是<strong>责任迁移</strong>。
+                </div>
+                <a href="https://x.com/grapeot/status/2040810955647648153" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">Coding Agent ≠ End Game</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Agentic</span>
+                    <span class="tag">思考</span>
+                    <span>Yan5xu</span>
+                </div>
+                <div class="item-content">
+                    开发 Pinix 的这段时间，我有了一个非常叛逆的看法：
+                    <br><br>
+                    <strong>Coding Agent = General Purpose Agent ≠ End Game</strong>
+                    <br><br>
+                    从 Devin 到 Manus 再到 Openclaw，它们被贴了各种标签，但核心基本一样——一个 LLM 实现的 Agentic 系统。
+                </div>
+                <a href="https://x.com/yan5xu/status/2040937512752025855" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">Skills Manager 上线</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Skills</span>
+                    <span class="tag">工具</span>
+                    <span>Yibie</span>
+                </div>
+                <div class="item-content">
+                    能够妥善管理 Skill 的生命周期：发现、安装、测试、保留。提供 <strong>try</strong> 功能，让人在尝试之后不满意的情况下不保留该 Skill。
+                </div>
+                <a href="https://x.com/yibie/status/2040757384155636168" target="_blank" class="item-link">查看项目 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">dokobot 本地抓取重磅更新</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">工具</span>
+                    <span class="tag">Life OS</span>
+                    <span>ZEN</span>
+                </div>
+                <div class="item-content">
+                    本地免费无限抓取！
+                    <br><br>
+                    • 支持任意网站<br>
+                    • 本地模式隐私无忧<br>
+                    • 结构化 Markdown 输出（内容分栏，链接编号引用）<br>
+                    • 多浏览器并行抓取
+                </div>
+                <a href="https://x.com/supezen/status/2041158534352793910" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">iCloudKit 数据库 — 苹果生态太好了</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Life OS</span>
+                    <span class="tag">苹果</span>
+                    <span>JimmyLv</span>
+                </div>
+                <div class="item-content">
+                    已经玩上 iCloudKit 数据库了，苹果生态真是太好了，为啥我没早入坑 😭
+                </div>
+                <a href="https://x.com/Jimmy_JingLv/status/2040988959363436860" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars high">⭐⭐⭐⭐⭐</span>
+                    <div class="item-title">Multi-agent Workflow 研究</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Agentic</span>
+                    <span class="tag">研究</span>
+                    <span>九原客</span>
+                </div>
+                <div class="item-content">
+                    这两天研究了下 Multi-agent workflow，感觉确实可行，要不然也不会跑出来这么多。
+                </div>
+                <a href="https://x.com/9hills/status/2040985341889483167" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>⭐ 备用收藏</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">Marc Andreessen 的判断位视角：会玩才会赢</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">判断位</span>
+                    <span class="tag">生产力</span>
+                    <span>Rey</span>
+                </div>
+                <div class="item-content">
+                    未来的竞争，不是努力程度，而是<strong>"谁在玩对的游戏"</strong>。
+                    <br><br>
+                    在 AI 时代，"努力"不再是稀缺变量，"高判断密度的玩"才是。最有价值的工作，往往不是"目标导向"，而是"兴趣驱动的探索副产品"。
+                </div>
+                <a href="https://x.com/ReyJudgementOS/status/2040717755608117727" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">Apple ML-SSD 论文：代码生成的 Lock/Fork 直觉</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">AI</span>
+                    <span class="tag">代码生成</span>
+                    <span>鸭哥</span>
+                </div>
+                <div class="item-content">
+                    代码生成里有些位置需要极高精度，有些位置需要保留探索，但全局解码策略只能做一次折中。
+                    <br><br>
+                    这个 lock / fork 的直觉值得深入理解。
+                </div>
+                <a href="https://x.com/grapeot/status/2041251108996456926" target="_blank" class="item-link">查看文章 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">创业 6 年亿级反思</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">创业</span>
+                    <span class="tag">反思</span>
+                    <span>龙共火火</span>
+                </div>
+                <div class="item-content">
+                    关于流量、平台、IP、认知成长及团队。从 2019 年创业到现在，运气比较好——活了下来。
+                </div>
+                <a href="https://x.com/huolongguodomgt/status/1976219065959186700" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">当一样东西过剩时，它的互补品变得稀缺</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">经济</span>
+                    <span class="tag">思考</span>
+                    <span>李继刚</span>
+                </div>
+                <div class="item-content">
+                    简短但深刻的经济学洞察。
+                </div>
+                <a href="https://x.com/lijigang/status/2041157331417976995" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">AI 无法实现真正意义上的仿写</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">AI</span>
+                    <span class="tag">写作</span>
+                    <span>Dontbesilent</span>
+                </div>
+                <div class="item-content">
+                    塞给 AI 一大堆语料库去仿写是绝对错误的方法。相对正确一点的方法是让 AI 试图从这些文字当中逆向出人的思考方式。你知道这个人是如何思考的，才能搞清楚他是如何写作的。
+                </div>
+                <a href="https://x.com/dontbesilent/status/2040836756183175324" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">Raycast Glaze — 用 AI 聊天创建桌面应用</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">AI 工具</span>
+                    <span class="tag">Raycast</span>
+                    <span>Raycast</span>
+                </div>
+                <div class="item-content">
+                    Create any desktop app in minutes by chatting with AI. Beautiful, powerful, and truly personal.
+                </div>
+                <a href="https://x.com/raycast/status/2029180822838759703" target="_blank" class="item-link">查看产品 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">李继刚的双向链接自动化</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">笔记</span>
+                    <span class="tag">双向链接</span>
+                    <span>李继刚</span>
+                </div>
+                <div class="item-content">
+                    之前给笔记手动添加双向链接的维护成本实在太高了，准备按 Karpathy 这套机制跑下看看。
+                </div>
+                <a href="https://x.com/lijigang/status/2040749564685324741" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">Apple 自蒸馏论文：Embarrassingly Simple</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">AI</span>
+                    <span class="tag">蒸馏</span>
+                    <span>Berryxia</span>
+                </div>
+                <div class="item-content">
+                    兄弟们，原来蒸馏如此的见效快！Apple Research 刚刚发布了《Embarrassingly Simple Self-Distillation Improves Code Generation》。
+                </div>
+                <a href="https://x.com/berryxia/status/2040570633042690194" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">用乔布斯 skill 蒸馏（200 万 Opus tokens）</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Skills</span>
+                    <span class="tag">蒸馏</span>
+                    <span>花叔</span>
+                </div>
+                <div class="item-content">
+                    烧了我 200 万 Opus4.6 tokens，用女娲.skill 蒸馏出的这款 乔布斯.skill 已开源。
+                </div>
+                <a href="https://x.com/AlchainHust/status/2040755291831042511" target="_blank" class="item-link">查看项目 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">Markdown 笔记工具推荐</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">笔记</span>
+                    <span class="tag">Markdown</span>
+                    <span>Ding</span>
+                </div>
+                <div class="item-content">
+                    既然给 AI 看的都是 markdown，好像也没必要死磕那么难用的 Obsidian，这个设计很舒服。
+                </div>
+                <a href="https://x.com/dingyi/status/2041002724519715010" target="_blank" class="item-link">查看原推 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">Skill PPT 工具上线</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">Skills</span>
+                    <span class="tag">PPT</span>
+                    <span>Russell</span>
+                </div>
+                <div class="item-content">
+                    智能搜索高质量设计风格，支持本地写作风格，自动下载匹配图片，轻松控制动画。
+                </div>
+                <a href="https://read.readwise.io/read/01kngq5btxznazgv9s4vq93shx" target="_blank" class="item-link">查看工具 →</a>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="stars mid">⭐⭐⭐</span>
+                    <div class="item-title">Codex 团队用极简 Spec 构建产品</div>
+                </div>
+                <div class="item-source">
+                    <span class="tag">工程</span>
+                    <span class="tag">流程</span>
+                    <span>宝玉</span>
+                </div>
+                <div class="item-content">
+                    OpenAI Codex 团队用极简的产品规格文档（只有 10 个要点）和 AI 辅助工具，让工程师直接在代码层面做决策。
+                </div>
+                <a href="https://read.readwise.io/read/01knjdznnyep2v6rcrz9ng684y" target="_blank" class="item-link">查看访谈 →</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>📋 行动清单</h2>
+            <ul class="action-list">
+                <li><strong>安装 Waza</strong> — 评估 8 个技能是否符合工作习惯</li>
+                <li><strong>研究 Multica</strong> — 理解 Workspace context 共享机制</li>
+                <li><strong>试用 CodeIsland</strong> — 提升编码 Agent 可见性</li>
+                <li><strong>对比 Hermes vs OpenClaw</strong> — 选择合适的 Agentic 架构</li>
+                <li><strong>安装 Skills Manager</strong> — 统一管理 Skills 生命周期</li>
+                <li><strong>更新 dokobot</strong> — 体验本地抓取能力</li>
+                <li><strong>探索 iCloudKit</strong> — 理解苹果生态数据同步</li>
+                <li><strong>阅读 Apple ML-SSD 论文</strong> — 理解代码生成的 lock/fork 直觉</li>
+                <li><strong>思考责任迁移</strong> — 从 copilot 到 autopilot 的组织变化</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔍 持续追踪</h2>
+            <div class="item">
+                <div class="item-content">
+                    <strong>Agentic Engineering：</strong>Multi-agent workflow 实践、Hermes Agent 发展、Coding Agent 边界探索<br><br>
+                    <strong>AI Adoption：</strong>组织责任迁移、Skills 工具生态、蒸馏技术应用<br><br>
+                    <strong>Life OS：</strong>笔记工具演进、本地抓取工具、跨设备数据同步
+                </div>
+            </div>
+        </section>
+
+        <section class="appendix">
+            <div class="collapsible-header" onclick="this.parentElement.classList.toggle('collapsed')">
+                <h3>📚 全部内容附录 (52 条)</h3>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">点击折叠/展开</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="appendix-item">• Waza — 8 个 Skill 对应 AI 时代工程师的 8 个能力 <span style="color: var(--text-secondary);">| Tw93</span></div>
+                <div class="appendix-item">• Multica — 团队 context 共享 Workspace <span style="color: var(--text-secondary);">| Jiayuan (JY) Zhang</span></div>
+                <div class="appendix-item">• CodeIsland — MacBook 刘海 AI 状态面板 <span style="color: var(--text-secondary);">| 北北</span></div>
+                <div class="appendix-item">• Hermes Agent vs. OpenClaw — 架构对比 <span style="color: var(--text-secondary);">| TheTuringPost</span></div>
+                <div class="appendix-item">• 从 Copilot 到 Autopilot：责任迁移 <span style="color: var(--text-secondary);">| 鸭哥</span></div>
+                <div class="appendix-item">• Coding Agent ≠ End Game <span style="color: var(--text-secondary);">| Yan5xu</span></div>
+                <div class="appendix-item">• Skills Manager 上线 <span style="color: var(--text-secondary);">| Yibie</span></div>
+                <div class="appendix-item">• dokobot 本地抓取重磅更新 <span style="color: var(--text-secondary);">| ZEN</span></div>
+                <div class="appendix-item">• iCloudKit 数据库 — 苹果生态太好了 <span style="color: var(--text-secondary);">| JimmyLv</span></div>
+                <div class="appendix-item">• Multi-agent Workflow 研究 <span style="color: var(--text-secondary);">| 九原客</span></div>
+                <div class="appendix-item">• Marc Andreessen 的判断位视角：会玩才会赢 <span style="color: var(--text-secondary);">| Rey</span></div>
+                <div class="appendix-item">• Apple ML-SSD 论文：代码生成的 Lock/Fork 直觉 <span style="color: var(--text-secondary);">| 鸭哥</span></div>
+                <div class="appendix-item">• 创业 6 年亿级反思 <span style="color: var(--text-secondary);">| 龙共火火</span></div>
+                <div class="appendix-item">• 当一样东西过剩时，它的互补品变得稀缺 <span style="color: var(--text-secondary);">| 李继刚</span></div>
+                <div class="appendix-item">• AI 无法实现真正意义上的仿写 <span style="color: var(--text-secondary);">| Dontbesilent</span></div>
+                <div class="appendix-item">• Raycast Glaze — 用 AI 聊天创建桌面应用 <span style="color: var(--text-secondary);">| Raycast</span></div>
+                <div class="appendix-item">• 李继刚的双向链接自动化 <span style="color: var(--text-secondary);">| 李继刚</span></div>
+                <div class="appendix-item">• Apple 自蒸馏论文：Embarrassingly Simple <span style="color: var(--text-secondary);">| Berryxia</span></div>
+                <div class="appendix-item">• 用乔布斯 skill 蒸馏（200 万 Opus tokens）<span style="color: var(--text-secondary);">| 花叔</span></div>
+                <div class="appendix-item">• Markdown 笔记工具推荐 <span style="color: var(--text-secondary);">| Ding</span></div>
+                <div class="appendix-item">• Skill PPT 工具上线 <span style="color: var(--text-secondary);">| Russell</span></div>
+                <div class="appendix-item">• Codex 团队用极简 Spec 构建产品 <span style="color: var(--text-secondary);">| 宝玉</span></div>
+                <div class="appendix-item">• HackerNews 2026-04-07：Gemma 4 在 iPhone 上 <span style="color: var(--text-secondary);">| SuperTechFans</span></div>
+                <div class="appendix-item">• Obsidian + Claude Code 健脑房 <span style="color: var(--text-secondary);">| Haoshan Hong</span></div>
+                <div class="appendix-item">• 苏格拉底追问、维特根斯坦拆解、波兰尼兜底 <span style="color: var(--text-secondary);">| Jaden</span></div>
+                <div class="appendix-item">• 用 Claude 打造私人家教 <span style="color: var(--text-secondary);">| Joooe</span></div>
+                <div class="appendix-item">• Ilya 密件与 OpenAI 内幕（纽约客）<span style="color: var(--text-secondary);">| 思维怪怪</span></div>
+                <div class="appendix-item">• Baudrillard 理论：具身与符号之分 <span style="color: var(--text-secondary);">| TaNGSoFT</span></div>
+                <div class="appendix-item">• 否定别人的想法算不上什么本事 <span style="color: var(--text-secondary);">| 宝玉（译）</span></div>
+                <div class="appendix-item">• 前端是不是重复劳动？AI 自适应浏览器 <span style="color: var(--text-secondary);">| Ruanyf</span></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>生成时间：2026-04-07 | 数据来源：Readwise | 同步策略：增量更新</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                <strong>当前关注：</strong>Life OS | Agentic Engineering | AI Adoption | Vibe Coding Stack | PRATA
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
