@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-04-16</title>
+<style>
+  :root {
+    --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+    --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+    --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+    --accent4: #d97706; --accent5: #dc2626;
+  }
+  html.dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+    --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+    --accent4: #f59e0b; --accent5: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+    line-height: 1.75; padding: 2rem; max-width: 960px; margin: 0 auto;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 1rem; }
+  .header h1 { font-size: 1.6rem; color: var(--accent); }
+  .header .meta { font-size: 0.85rem; color: var(--text3); }
+  #theme-toggle { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.8rem; cursor: pointer; font-size: 1rem; color: var(--text); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-align: center; }
+  .stat-card .num { font-size: 2rem; font-weight: bold; color: var(--accent); }
+  .stat-card .label { font-size: 0.8rem; color: var(--text3); margin-top: 0.25rem; }
+  .section { margin-bottom: 2.5rem; }
+  .section h2 { font-size: 1.2rem; color: var(--accent2); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .signal-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .signal-table th { background: var(--surface2); padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid var(--border); color: var(--text2); }
+  .signal-table td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .signal-table tr:hover td { background: var(--surface2); }
+  .signal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; border-left: 4px solid var(--accent3); }
+  .signal-card.high { border-left-color: var(--accent5); }
+  .signal-card.medium { border-left-color: var(--accent4); }
+  .signal-card h3 { font-size: 1rem; color: var(--text); margin-bottom: 0.5rem; }
+  .signal-card .content { font-size: 0.9rem; color: var(--text2); margin-bottom: 0.75rem; line-height: 1.6; }
+  .signal-card .why { background: var(--surface2); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem; }
+  .signal-card .why::before { content: "💡 为什么相关 · "; font-weight: bold; }
+  .signal-card .meta { display: flex; gap: 1rem; font-size: 0.78rem; color: var(--text3); flex-wrap: wrap; align-items: center; }
+  .tag { background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.75rem; color: var(--text2); }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .action-list { list-style: none; }
+  .action-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.5rem; align-items: flex-start; }
+  .action-list li::before { content: "→"; color: var(--accent3); font-weight: bold; flex-shrink: 0; }
+  details summary { cursor: pointer; color: var(--text3); padding: 0.5rem; border-radius: 8px; }
+  details summary:hover { background: var(--surface2); }
+  details[open] summary { color: var(--text2); }
+  .axiom-banner { background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%); color: white; padding: 1rem 1.5rem; border-radius: 12px; text-align: center; margin-bottom: 2rem; font-size: 0.95rem; letter-spacing: 0.05em; }
+  .star { color: var(--accent5); }
+  .badge { display: inline-block; background: var(--accent); color: white; font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.3rem; }
+  .badge.blue { background: var(--accent2); }
+  .badge.green { background: var(--accent3); }
+  .proposal-link { display: inline-block; background: var(--accent2); color: white; padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.8rem; text-decoration: none; margin-top: 0.5rem; }
+  .proposal-link:hover { opacity: 0.9; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="meta">2026-04-16 · 增量同步自 2026-04-12 · Kyle Li</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom-banner">不可行动的信息 = 噪音 · 信号 → 洞察 → 行动</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="num">50</div><div class="label">高亮 Highlights</div></div>
+  <div class="stat-card"><div class="num">30</div><div class="label">文章/推文 Docs</div></div>
+  <div class="stat-card"><div class="num">10</div><div class="label">⭐×5 高价值信号</div></div>
+  <div class="stat-card"><div class="num">5</div><div class="label">🔥 深挖 Proposals</div></div>
+</div>
+
+<!-- 信号概览表 -->
+<div class="section">
+  <h2>🗺️ 5大深挖方向速览</h2>
+  <table class="signal-table">
+    <thead>
+      <tr>
+        <th>#</th><th>方向</th><th>连接意图</th><th>核心信号</th><th>Proposal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>P1</td>
+        <td><strong>Thin Harness, Fat Skills → IKEA Agent架构</strong></td>
+        <td><span class="tag">Skill Hub</span> <span class="tag">Life OS</span></td>
+        <td>Garry Tan百万阅读·三层分离</td>
+        <td><a href="/tmp/readwise-proposals-2026-04-16.html#p1">查看 →</a></td>
+      </tr>
+      <tr>
+        <td>P2</td>
+        <td><strong>AI First = 架构师+操作员 → Engineering角色演变</strong></td>
+        <td><span class="tag">Eng Baseline</span> <span class="tag">Life OS</span></td>
+        <td>九原客·全业务流程AI处理</td>
+        <td><a href="/tmp/readwise-proposals-2026-04-16.html#p2">查看 →</a></td>
+      </tr>
+      <tr>
+        <td>P3</td>
+        <td><strong>Vercel Open Agents → IKEA内部AI软件工厂</strong></td>
+        <td><span class="tag">Vibe Stack</span> <span class="tag">Agentic Eng</span></td>
+        <td>Stripe/Spotify建自己的AI工厂</td>
+        <td><a href="/tmp/readwise-proposals-2026-04-16.html#p3">查看 →</a></td>
+      </tr>
+      <tr>
+        <td>P4</td>
+        <td><strong>Meta-Harness开源 → Life OS第一个Proactive Agent</strong></td>
+        <td><span class="tag">Life OS</span> <span class="tag">Agentic Eng</span></td>
+        <td>ONBOARDING.md驱动跨域Harness</td>
+        <td><a href="/tmp/readwise-proposals-2026-04-16.html#p4">查看 →</a></td>
+      </tr>
+      <tr>
+        <td>P5</td>
+        <td><strong>AI大佬不让孩子学CS → Engineering团队价值重构</strong></td>
+        <td><span class="tag">Eng Baseline</span> <span class="tag">AI Upskill</span></td>
+        <td>微软/Anthropic/沃顿专家反直觉选择</td>
+        <td><a href="/tmp/readwise-proposals-2026-04-16.html#p5">查看 →</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 高价值内容 -->
+<div class="section">
+  <h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+  <div class="signal-card high">
+    <h3>Garry Tan · Thin Harness, Fat Skills <span class="badge">Agentic Eng</span><span class="badge blue">Skill Hub</span></h3>
+    <div class="content">「Fat Skills（判断性操作推入Markdown技能文件）+ Fat Code（确定性逻辑写成代码）+ Thin Harness（框架只做最基础连接）」三层分离。鸭哥：他的五个概念（Skill Files、Thin Harness、Resolvers、Latent vs Deterministic、Diarization）和我们过去一年独立搭建的context infrastructure体系几乎逐条对应。</div>
+    <div class="why">直接验证了Kyle的Skill Hub和Life OS架构方向。百万阅读说明这是整个行业的共识时刻——先动者窗口在收窄。</div>
+    <div class="meta">
+      <span>@garrytan · @grapeot · @chenchengpro</span>
+      <a href="https://x.com/garrytan/status/2042925773300908103" target="_blank">原文 →</a>
+      <a href="https://x.com/grapeot/status/2044167578986455537" target="_blank">鸭哥解读 →</a>
+      <a class="proposal-link" href="/tmp/readwise-proposals-2026-04-16.html#p1">深挖 P1 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>九原客 · AI First = 架构师 + 操作员 <span class="badge">Eng Baseline</span><span class="badge blue">Life OS</span></h3>
+    <div class="content">「只是用Claude Code写代码不叫AI First。全部业务流程全部由AI处理，AI犯错后不是人工修正而是修正Context/Harness。最终只需要两个角色，架构师和操作员。」</div>
+    <div class="why">这个模型直接冲击"Engineering Manager"的定义。如果成立，Kyle的团队需要从执行者转型为架构师。这是Engineering Baseline最锋利的重构视角。</div>
+    <div class="meta">
+      <span>@9hills</span>
+      <a href="https://x.com/9hills/status/2043720951490302421" target="_blank">原文 →</a>
+      <a class="proposal-link" href="/tmp/readwise-proposals-2026-04-16.html#p2">深挖 P2 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>Yoonho Lee · Meta-Harness 代码开源 <span class="badge green">Life OS</span><span class="badge">Agentic Eng</span></h3>
+    <div class="content">「We just released code for Meta-Harness! The repo is designed to help users implement good Meta-Harnesses in completely new domains! Just point your agent at ONBOARDING.md and have a conversation.」</div>
+    <div class="why">Life OS的核心缺口之一是"如何跨域部署Harness"。Meta-Harness专门解决这个问题——可能是Life OS第一个Proactive Agent的构建工具。</div>
+    <div class="meta">
+      <span>@yoonholeee</span>
+      <a href="https://x.com/yoonholeee/status/2044442372864700510" target="_blank">原文 →</a>
+      <a class="proposal-link" href="/tmp/readwise-proposals-2026-04-16.html#p4">深挖 P4 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>宝玉 · Vercel Open Agents 开源 <span class="badge">Vibe Stack</span><span class="badge blue">Agentic Eng</span></h3>
+    <div class="content">「现成的编程Agent在大型代码仓库上表现不行，也不了解你公司的知识体系和内部流程，所以Stripe、Spotify、Block这些公司都在造自己的AI软件工厂。」Vercel Open Agents：用来搭建企业自有编程Agent平台的参考实现，成熟度较高，很容易二开到企业内部。</div>
+    <div class="why">IKEA内部有同样的问题。Vibe Stack是基础设施，Open Agents是上层的Agent编排层。两者结合可能是IKEA内部AI软件工厂的完整路径。</div>
+    <div class="meta">
+      <span>@dotey · @9hills</span>
+      <a href="https://x.com/dotey/status/2043904844608532640" target="_blank">宝玉解读 →</a>
+      <a href="https://x.com/9hills/status/2043908842598347208" target="_blank">九原客试用 →</a>
+      <a class="proposal-link" href="/tmp/readwise-proposals-2026-04-16.html#p3">深挖 P3 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>沐阳 · AI大佬不让孩子学CS（反直觉）<span class="badge">Eng Baseline</span><span class="badge blue">AI Upskill</span></h3>
+    <div class="content">「AI领域的顶级大佬，如何规划自己孩子的未来？受访大佬包括微软首席AI专家、Anthropic总裁、沃顿商学院教授等等。让我不敢相信的是，这些站在AI技术最前沿的顶级专家，并不打算让孩子去学计算机，学理工科之类的。」</div>
+    <div class="why">反直觉信号。如果AI技术专家都不押注CS，他们押注什么？这直接影响Engineering Baseline的定义和AI Upskill Trainer的课程设计方向。</div>
+    <div class="meta">
+      <span>@yyyole</span>
+      <a href="https://x.com/yyyole/status/2043368043045396755" target="_blank">原文 →</a>
+      <a class="proposal-link" href="/tmp/readwise-proposals-2026-04-16.html#p5">深挖 P5 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>Yuanhao · yoyo Agent三层Harness实践指南 <span class="badge green">Life OS</span></h3>
+    <div class="content">「开源Agent yoyo的三层Harness：1️⃣技术约束，我如何改变；2️⃣经济约束，我改变多少；3️⃣社会约束，我为什么改变。yoyo自我进化42次。」</div>
+    <div class="why">Life OS的核心是构建能自我进化的系统。yoyo的三层约束模型是一个可直接借鉴的框架——经济约束和社会约束层在多数harness中是缺失的。</div>
+    <div class="meta">
+      <span>@yuanhao</span>
+      <a href="https://x.com/yuanhao/status/2043495964204265968" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>AIGCLINK · Wikiwise — Karpathy知识库Mac落地 <span class="badge green">Life OS</span></h3>
+    <div class="content">「Karpathy的那套个人知识库的想法，有人做了落地，变成了一个原生macOS应用：Wikiwise。普通人也能用上Andrej Karpathy那套由AI主动维护的复利式知识库。内置SwiftTerm终端，直接在应用里跑Claude Code、Codex，文件管理+预览+终端三合一。」</div>
+    <div class="why">Life OS Memory支柱的现成参考实现。Karpathy的复利式知识库是Kyle Life OS记忆架构研究的重要输入。</div>
+    <div class="meta">
+      <span>@aigclink</span>
+      <a href="https://x.com/aigclink/status/2043586584231158026" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>花叔 · Darwin.skill — Skill评分与进化工具 <span class="badge blue">Skill Hub</span><span class="badge">Skills Dev</span></h3>
+    <div class="content">「用达尔文.skill打完分之后，你可能会发现你的有些纸糊的skill就是在瞎跑...」「用达尔文.skill优化了我本地的一个减少AI味的skill，把它从72分提升到了87分，非常舒适～」</div>
+    <div class="why">IKEA Skill Hub缺少Skill质量评估机制。Darwin.skill提供了可量化的评分框架，可直接引入作为Skill Hub的质量层。</div>
+    <div class="meta">
+      <span>@AlchainHust</span>
+      <a href="https://x.com/AlchainHust/status/2043925057773416690" target="_blank">评分演示 →</a>
+      <a href="https://x.com/AlchainHust/status/2044066709586489622" target="_blank">优化结果 →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>SagaSu · 三省六部幻觉 — 虚拟公司式多Agent架构不成立 <span class="badge">Agentic Eng</span><span class="badge blue">Life OS</span></h3>
+    <div class="content">「三省六部幻觉：为什么"虚拟公司"式多Agent架构在工程上不成立。」（文档详情需进一步查看）</div>
+    <div class="why">反直觉信号。Life OS规划包含多个Proactive Agents协作。如果"虚拟公司"架构是幻觉，Life OS的多Agent协作设计需要重新审视。</div>
+    <div class="meta">
+      <span>@SagaSu</span>
+      <a href="https://read.readwise.io/read/01kp9xwwnyw8r8sbxcyyx04597" target="_blank">Readwise →</a>
+    </div>
+  </div>
+
+  <div class="signal-card high">
+    <h3>姚金刚 · GEOFlow — 首个开源SEO&GEO系统 <span class="badge">宝尊调研</span></h3>
+    <div class="content">「这是开源的第一个SEO&GEO系统：GEOFlow。系统可用于官网GEO频道部署、独立资讯站、独立官网甚至多站点部署，实现自动化+智能化的自运营。」</div>
+    <div class="why">宝尊运营Ontology调研的潜在工具。如果宝尊的内容运营可以被GEO化，这是一个直接影响替代策略的信号——AI不只是替代人工，而是重构整个内容运营模式。</div>
+    <div class="meta">
+      <span>@yaojingang</span>
+      <a href="https://x.com/yaojingang/status/2043685995602964765" target="_blank">原文 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- 中等价值 -->
+<div class="section">
+  <h2>⭐⭐⭐ 中等价值（备用收藏）</h2>
+  <table class="signal-table">
+    <thead><tr><th>内容</th><th>作者</th><th>关联意图</th><th>链接</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Continual learning "已解决"——Dario Amodei大胆声明被研究员质疑</td>
+        <td>@AI_Whisper_X</td>
+        <td><span class="tag">AI技术跟踪</span></td>
+        <td><a href="https://x.com/AI_Whisper_X/status/2043279143496769940" target="_blank">→</a></td>
+      </tr>
+      <tr>
+        <td>Claude Code最佳实践指南 3.2万Star，连Claude Code创造者都引用</td>
+        <td>@sitinme</td>
+        <td><span class="tag">AI Coding</span> <span class="tag">Engineering</span></td>
+        <td><a href="https://x.com/sitinme/status/2043172254083629476" target="_blank">→</a></td>
+      </tr>
+      <tr>
+        <td>VMark：完全不懂Rust/TS的人用AI做到有序迭代——「怎么用AI有序做软件」说明书</td>
+        <td>@lyricwai</td>
+        <td><span class="tag">Vibe Coding</span> <span class="tag">AI Coding</span></td>
+        <td><a href="https://x.com/lyricwai/status/2043582723332415539" target="_blank">→</a></td>
+      </tr>
+      <tr>
+        <td>李继刚 /ljg-read skill — 每日精读内容「智能伴读」，找更深的结构</td>
+        <td>@lijigang</td>
+        <td><span class="tag">Skills Dev</span> <span class="tag">Life OS</span></td>
+        <td><a href="https://x.com/lijigang/status/2043697756481720367" target="_blank">→</a></td>
+      </tr>
+      <tr>
+        <td>UI设计高级感：第一层设计规范，第二层高级感——靠skill能拆第一层，第二层更难</td>
+        <td>@ianneo_ai</td>
+        <td><span class="tag">AI Coding</span> <span class="tag">Design</span></td>
+        <td><a href="https://x.com/ianneo_ai/status/2043537120099545464" target="_blank">→</a></td>
+      </tr>
+      <tr>
+        <td>Software还有什么价值：Higgsfield vs 开源Higgsfield的商业模式对比</td>
+        <td>@leeoxiang</td>
+        <td><span class="tag">AI策略</span> <span class="tag">Eng Baseline</span></td>
+        <td><a href="https://x.com/leeoxiang/status/2043199824049352841" target="_blank">→</a></td>
+      </tr>
+      <tr>
+        <td>HackerNews 4/14-4/16：AI监控争议、WordPress供应链攻击、eml算子通用性</td>
+        <td>RSS</td>
+        <td><span class="tag">技术趋势</span></td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 行动清单 -->
+<div class="section">
+  <h2>🎯 行动清单（本周内）</h2>
+  <ul class="action-list">
+    <li>阅读 Garry Tan 原文 + 鸭哥解读，对照 IKEA Skill Hub 架构，识别差距 → 输出到 workspace/ikea-skill-hub/</li>
+    <li>Clone Meta-Harness 仓库（github.com/yoonholeee/meta-harness），跑 ONBOARDING.md 对话，评估是否适合 Life OS 第一个 Proactive Agent</li>
+    <li>试用 Vercel Open Agents，写一页对比分析：Vibe Stack 现状 vs Open Agents 能补什么</li>
+    <li>找到沐阳推文的原文章（微软/Anthropic大佬育儿观），完整阅读，提炼与 AI Upskill Trainer 课程设计的 3 个启发</li>
+    <li>搜索 Darwin.skill，评估能否引入 IKEA Skill Hub 作为质量评分机制</li>
+    <li>查看 SagaSu "三省六部幻觉" 全文，对照 Life OS 多 Agent 架构检查设计假设</li>
+    <li>在 Life OS workspace 中新增 Memory Architecture 研究节点，引用 Wikiwise 和 yoyo 三层 Harness 作为参考实现</li>
+  </ul>
+</div>
+
+<!-- 低价值附录 -->
+<details>
+  <summary>📂 低价值附录（暂时无关，折叠）</summary>
+  <div class="section" style="margin-top:1rem;">
+    <table class="signal-table">
+      <thead><tr><th>内容</th><th>作者</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>皇后大道演唱会现场体验</td><td>@wobushimiao</td><td>娱乐/情感内容</td></tr>
+        <tr><td>UFC总裁血液过滤疗法</td><td>@mubeitech</td><td>健康/不相关</td></tr>
+        <tr><td>胰岛素抵抗12小时禁食警告</td><td>@BoboLucyWisdom</td><td>健康内容</td></tr>
+        <tr><td>内容营销三要素（钩子/认知/Takeaways）</td><td>@shaogefenhao</td><td>营销方法论</td></tr>
+        <tr><td>fastfetch配置丢给Codex完成</td><td>@geekbb</td><td>工具娱乐</td></tr>
+        <tr><td>Gemini官方macOS版发布</td><td>@geekbb</td><td>工具资讯</td></tr>
+        <tr><td>自定义域名邮箱0成本30分钟</td><td>@ZaynHao</td><td>工具技巧</td></tr>
+        <tr><td>SlowMist安全Skill接入Hermes Agent</td><td>@evilcos</td><td>安全技术/非当前焦点</td></tr>
+        <tr><td>con：基于TTY的Codex替代品</td><td>@i5ting</td><td>工具资讯</td></tr>
+        <tr><td>Droid Agent推广（多条）</td><td>@iamzhihui</td><td>工具推广</td></tr>
+        <tr><td>Appwrite + Opus 4.6更新</td><td>@appwrite</td><td>工具资讯</td></tr>
+        <tr><td>各类图片/链接only推文（无文字内容）</td><td>多位</td><td>无有效信息</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

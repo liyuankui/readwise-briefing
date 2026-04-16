@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-04-16</title>
+<style>
+  :root {
+    --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+    --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+    --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+    --accent4: #d97706; --accent5: #dc2626;
+  }
+  html.dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+    --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+    --accent4: #f59e0b; --accent5: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+    line-height: 1.75; padding: 2rem; max-width: 1000px; margin: 0 auto;
+  }
+  .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; border-bottom:2px solid var(--accent); padding-bottom:1rem; }
+  .header h1 { font-size:1.6rem; color:var(--accent); }
+  .header .meta { font-size:0.85rem; color:var(--text3); }
+  #theme-toggle { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:0.4rem 0.8rem; cursor:pointer; font-size:1rem; color:var(--text); }
+  .axiom-banner { background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%); color:white; padding:1rem 1.5rem; border-radius:12px; text-align:center; margin-bottom:2rem; font-size:0.95rem; letter-spacing:0.05em; }
+  .toc { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:2rem; }
+  .toc h2 { font-size:1rem; color:var(--accent2); margin-bottom:0.75rem; }
+  .toc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:0.5rem; }
+  .toc-item { display:flex; gap:0.75rem; align-items:flex-start; padding:0.5rem; border-radius:8px; transition:background 0.15s; }
+  .toc-item:hover { background:var(--surface2); }
+  .toc-num { font-weight:bold; color:var(--accent2); min-width:1.5rem; }
+  .toc-title { font-size:0.88rem; }
+  .toc-sub { font-size:0.78rem; color:var(--text3); }
+  a { color:var(--accent2); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  /* Proposal cards */
+  .proposal { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2rem; margin-bottom:2.5rem; position:relative; }
+  .proposal-header { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+  .proposal-num { font-size:2rem; font-weight:bold; color:var(--accent2); min-width:2.5rem; }
+  .proposal-title { font-size:1.25rem; font-weight:bold; color:var(--text); }
+  .proposal-signal { font-size:0.8rem; color:var(--text3); margin-top:0.25rem; }
+  .tags { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.4rem; }
+  .tag { background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:0.1rem 0.5rem; font-size:0.75rem; color:var(--text2); }
+  .tag.red { border-color:var(--accent5); color:var(--accent5); background:rgba(220,38,38,0.08); }
+  .tag.green { border-color:var(--accent3); color:var(--accent3); background:rgba(5,150,105,0.08); }
+  .tag.blue { border-color:var(--accent2); color:var(--accent2); background:rgba(99,102,241,0.08); }
+  .tag.amber { border-color:var(--accent4); color:var(--accent4); background:rgba(217,119,6,0.08); }
+
+  .claim-box { background:linear-gradient(135deg,rgba(99,102,241,0.08),rgba(45,90,74,0.08)); border:1px solid var(--accent2); border-radius:10px; padding:1rem 1.25rem; margin-bottom:1.5rem; }
+  .claim-box .label { font-size:0.75rem; color:var(--accent2); font-weight:bold; margin-bottom:0.3rem; letter-spacing:0.05em; }
+  .claim-box .text { font-size:1rem; color:var(--text); font-weight:500; }
+
+  .section-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.25rem; }
+  .info-box { background:var(--surface2); border-radius:10px; padding:1rem; }
+  .info-box .label { font-size:0.75rem; color:var(--text3); font-weight:bold; margin-bottom:0.5rem; letter-spacing:0.05em; }
+  .info-box ul { padding-left:1.2rem; font-size:0.88rem; color:var(--text2); }
+  .info-box ul li { margin-bottom:0.3rem; }
+  .info-box p { font-size:0.88rem; color:var(--text2); }
+
+  .milestones { margin-bottom:1.25rem; }
+  .milestones .label { font-size:0.75rem; color:var(--text3); font-weight:bold; margin-bottom:0.75rem; letter-spacing:0.05em; }
+  .milestone { display:flex; gap:1rem; margin-bottom:0.6rem; align-items:flex-start; }
+  .milestone .dot { width:10px; height:10px; border-radius:50%; background:var(--accent2); margin-top:0.45rem; flex-shrink:0; }
+  .milestone .dot.green { background:var(--accent3); }
+  .milestone .dot.amber { background:var(--accent4); }
+  .milestone .content { flex:1; }
+  .milestone .m-title { font-size:0.9rem; font-weight:600; color:var(--text); }
+  .milestone .m-sub { font-size:0.8rem; color:var(--text3); }
+
+  .action-row { display:flex; gap:0.5rem; align-items:flex-start; margin-bottom:0.5rem; }
+  .action-row .arrow { color:var(--accent3); font-weight:bold; flex-shrink:0; }
+  .action-row .text { font-size:0.88rem; color:var(--text2); }
+
+  .challenge-box { background:rgba(220,38,38,0.06); border:1px solid rgba(220,38,38,0.2); border-radius:10px; padding:1rem 1.25rem; }
+  .challenge-box .label { font-size:0.75rem; color:var(--accent5); font-weight:bold; margin-bottom:0.5rem; }
+  .challenge-box ul { padding-left:1.2rem; font-size:0.85rem; color:var(--text2); }
+  .challenge-box ul li { margin-bottom:0.3rem; }
+
+  .roi-bar { display:flex; gap:1rem; margin-bottom:1.25rem; }
+  .roi-item { flex:1; background:var(--surface2); border-radius:8px; padding:0.75rem; text-align:center; }
+  .roi-item .num { font-size:1.4rem; font-weight:bold; color:var(--accent3); }
+  .roi-item .desc { font-size:0.75rem; color:var(--text3); margin-top:0.2rem; }
+
+  @media (max-width: 640px) {
+    .section-grid { grid-template-columns:1fr; }
+    .roi-bar { flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🔬 深挖 Proposals · 2026-04-16</h1>
+    <div class="meta">5个方向 · 5 subagents并行推理 · Kyle Li</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom-banner">不可行动的信息 = 噪音 · 每个Proposal必须能回答：解决谁的什么问题？怎么知道成功？</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h2>📋 5大Proposal一览</h2>
+  <div class="toc-grid">
+    <div class="toc-item">
+      <div class="toc-num">P1</div>
+      <div>
+        <div class="toc-title"><a href="#p1">Thin Harness → IKEA Agent架构重构</a></div>
+        <div class="toc-sub">Skill Hub · Life OS · Garry Tan百万阅读</div>
+      </div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">P2</div>
+      <div>
+        <div class="toc-title"><a href="#p2">AI First = 养系统的人 → Engineering角色演变</a></div>
+        <div class="toc-sub">Eng Baseline · Life OS · 九原客</div>
+      </div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">P3</div>
+      <div>
+        <div class="toc-title"><a href="#p3">Vercel Open Agents → IKEA内部AI软件工厂</a></div>
+        <div class="toc-sub">Vibe Stack · Agentic Eng · Stripe/Spotify路径</div>
+      </div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">P4</div>
+      <div>
+        <div class="toc-title"><a href="#p4">Meta-Harness → Life OS首个Proactive Agent</a></div>
+        <div class="toc-sub">Life OS · Memory · ONBOARDING.md驱动</div>
+      </div>
+    </div>
+    <div class="toc-item">
+      <div class="toc-num">P5</div>
+      <div>
+        <div class="toc-title"><a href="#p5">AI大佬不让孩子学CS → Engineering价值重构</a></div>
+        <div class="toc-sub">Eng Baseline · AI Upskill · 反直觉信号</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P1 -->
+<div class="proposal" id="p1">
+  <div class="proposal-header">
+    <div class="proposal-num">P1</div>
+    <div>
+      <div class="proposal-title">将 IKEA Skill Hub 从"技能仓库"升级为"轻量级编排框架"</div>
+      <div class="proposal-signal">信号来源：Garry Tan · Thin Harness, Fat Skills（百万阅读）+ 鸭哥逐条对应</div>
+      <div class="tags">
+        <span class="tag blue">IKEA Skill Hub</span>
+        <span class="tag blue">Life OS</span>
+        <span class="tag green">Agentic Eng</span>
+        <span class="tag">13周 · 2人</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="claim-box">
+    <div class="label">核心主张（一句话）</div>
+    <div class="text">通过 Thin Harness 设计模式，将 IKEA Skill Hub 的 Agent 首次命中率从 33% 提升至 80%，同时将 Skill 开发时间降低 38%。</div>
+  </div>
+
+  <div class="section-grid">
+    <div class="info-box">
+      <div class="label">🎯 锁定痛点（IKEA现场）</div>
+      <ul>
+        <li>30% Skills 是手工串联的"胶水 Skill"，维护成本高</li>
+        <li>45% 低评分因"输出不稳定"——缺 Latent vs Deterministic 区分</li>
+        <li>85% Skills 重复实现相同 API 调用逻辑（无 Resolver 复用）</li>
+        <li>Agent 首次命中率仅 33%，平均需 3 轮对话才能触发正确 Skill</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <div class="label">📊 成功标准（可测量）</div>
+      <ul>
+        <li>Skill 开发时间：16h → 10h（-38%）</li>
+        <li>Agent 首次命中率：33% → 80%（+142%）</li>
+        <li>新贡献者：5人 → 11人（+120%）</li>
+        <li>代码复用率：0% → 70%</li>
+        <li>Skills 总数：96 → 120（+25%，质量优先）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="milestones">
+    <div class="label">🗓️ 实施里程碑</div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M1（2周）— Harness 原型设计</div><div class="m-sub">重构 3 个示例 Skills，定义 frontmatter 标准，对标 Garry Tan 5概念</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M2（3周）— Resolver 机制</div><div class="m-sub">发布 @ikea/skill-resolver NPM包，集成 MCPHub，消除 85% 重复 API 代码</div></div></div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M3（4周）— Skills 迁移</div><div class="m-sub">20个高频 Skills 迁移新架构，添加 Latent/Deterministic 质量标签</div></div></div>
+    <div class="milestone"><div class="dot amber"></div><div class="content"><div class="m-title">M4（2周）— Diarization 场景路由</div><div class="m-sub">实现 Recipes 功能，场景路由规则库，Agent 命中率验证</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M5（2周）— 生态闭环</div><div class="m-sub">创作者仪表板，Darwin.skill 评分集成，Workshop + 文档</div></div></div>
+  </div>
+
+  <div class="roi-bar">
+    <div class="roi-item"><div class="num">¥791K</div><div class="desc">年化收益估算</div></div>
+    <div class="roi-item"><div class="num">13周</div><div class="desc">全周期</div></div>
+    <div class="roi-item"><div class="num">2人</div><div class="desc">资源投入</div></div>
+    <div class="roi-item"><div class="num">160h</div><div class="desc">总工作量</div></div>
+  </div>
+
+  <div class="label" style="font-size:0.75rem;color:var(--text3);font-weight:bold;margin-bottom:0.5rem;letter-spacing:0.05em;">⚡ 立即行动（本周）</div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">阅读 Garry Tan 原文，制作 5概念 vs IKEA现状 对比表（2小时）</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">选 3-5 个 Skills 做架构分析，量化重复代码比例（3小时）</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">Teams 发起投票：哪个痛点对你影响最大？（1小时）</div></div>
+
+  <div class="challenge-box" style="margin-top:1rem;">
+    <div class="label">⚠️ 诚实挑战（主动挑漏洞）</div>
+    <ul>
+      <li>真的需要框架吗？M1 必须先量化"胶水代码"占比，验证收益 > 复杂度引入</li>
+      <li>ROI 数字过于乐观？基于假设，M2 实测数据后必须修正</li>
+      <li>与 Ingka 全球 Skills（ingka-group-digital/skills）的架构兼容性未验证</li>
+      <li>Darwin.skill 评分机制是否可信？需独立验证评分标准</li>
+    </ul>
+  </div>
+</div>
+
+<!-- P2 -->
+<div class="proposal" id="p2">
+  <div class="proposal-header">
+    <div class="proposal-num">P2</div>
+    <div>
+      <div class="proposal-title">"养系统的人"取代"写代码的人"——Engineering Baseline 2.0</div>
+      <div class="proposal-signal">信号来源：九原客·AI First先行者 + 沐阳·AI大佬不让孩子学CS</div>
+      <div class="tags">
+        <span class="tag red">Eng Baseline</span>
+        <span class="tag blue">Life OS</span>
+        <span class="tag amber">AI Upskill</span>
+        <span class="tag">24周 · 战略级</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="claim-box">
+    <div class="label">核心主张（一句话）</div>
+    <div class="text">工程师价值 = 系统产出的业务结果（而非代码行数）——Nicole 和 Kirill 主动引用团队的 System Output Metrics 做决策，而不是 Kyle 推送月报。</div>
+  </div>
+
+  <div class="section-grid">
+    <div class="info-box">
+      <div class="label">🎯 锁定痛点（Kyle团队现实）</div>
+      <ul>
+        <li>价值展示无感：AI 生成代码快，但"我们做了什么"不可见</li>
+        <li>晋升失败：Shuaishuai 案例说明现有晋升模板不能承载 AI 时代的价值</li>
+        <li>向上对齐困难：Nicole/Kirill 用传统指标衡量，工程团队在错误赛道上卷</li>
+        <li>技术债积压：AI 写的代码没人"养"，Harness 无人负责</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <div class="label">📊 成功标准</div>
+      <ul>
+        <li>Nicole 月会主动引用 System Output Metrics（非 Kyle 推送）</li>
+        <li>下一个晋升 case 用新模板，通过率 > 80%</li>
+        <li>团队 AI 使用率：代码生成 > 60%，Context 维护 > 30%</li>
+        <li>Engineering Baseline 文档被 ≥2 个其他团队引用</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="milestones">
+    <div class="label">🗓️ 实施里程碑</div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M1（4周）— Engineering Baseline v2.0 文档</div><div class="m-sub">定义"Architect + Operator"模式，4大价值维度，与 Nicole/Kirill 对齐</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M2（6周）— Pilot 项目验证</div><div class="m-sub">选 1 个内部项目，完整跑 Architect+Operator 模式，量化产出</div></div></div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M3（8周）— Context/Harness 资产库</div><div class="m-sub">团队共享 Harness 库，AI 犯错修 Harness 而非人工改代码</div></div></div>
+    <div class="milestone"><div class="dot amber"></div><div class="content"><div class="m-title">M4（2周）— 晋升 Case 新模板</div><div class="m-sub">基于"系统产出 + 业务影响"重新设计晋升叙事框架</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M5（4周）— Engineering Value Dashboard</div><div class="m-sub">可视化 System Output Metrics，自动周报给 Nicole</div></div></div>
+  </div>
+
+  <div class="roi-bar">
+    <div class="roi-item"><div class="num">5:1</div><div class="desc">首年ROI（投3人月）</div></div>
+    <div class="roi-item"><div class="num">¥500K+</div><div class="desc">年化产出估算</div></div>
+    <div class="roi-item"><div class="num">24周</div><div class="desc">全周期</div></div>
+    <div class="roi-item"><div class="num">战略级</div><div class="desc">影响范围</div></div>
+  </div>
+
+  <div class="label" style="font-size:0.75rem;color:var(--text3);font-weight:bold;margin-bottom:0.5rem;letter-spacing:0.05em;">⚡ 立即行动（本周）</div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">起草 Engineering Baseline v2.0 大纲（1页），本周与 Nicole 1:1 分享</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">找 5 位工程师喝咖啡，问"你觉得你最不可替代的价值是什么？"</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">挖掘第一个"黄金案例"：Shuaishuai 架构决策产生了什么业务影响？</div></div>
+
+  <div class="challenge-box" style="margin-top:1rem;">
+    <div class="label">⚠️ 诚实挑战</div>
+    <ul>
+      <li>IKEA 企业文化是否支持？宜家 values 强调 Simplicity 和 Cost-consciousness，"养系统"框架需要翻译成 IKEA 语言才能被 Kirill 接受</li>
+      <li>中国工程师"卷"心态：若用焦虑驱动（"不转型就被淘汰"），会造成抵触。需用职业安全感框架</li>
+      <li>Kyle 自己是否已经是"Architect"？如果 Kyle 还在写代码，这个框架会失去说服力</li>
+      <li>24周太长：文化变革没有快速胜利，团队可能中途失去信心</li>
+    </ul>
+  </div>
+</div>
+
+<!-- P3 -->
+<div class="proposal" id="p3">
+  <div class="proposal-header">
+    <div class="proposal-num">P3</div>
+    <div>
+      <div class="proposal-title">在 Vibe Stack 基础上构建 IKEA CDH AI 软件工厂</div>
+      <div class="proposal-signal">信号来源：Vercel Open Agents开源 + Stripe/Spotify/Block都在建自己的AI工厂</div>
+      <div class="tags">
+        <span class="tag blue">Vibe Stack</span>
+        <span class="tag green">Agentic Eng</span>
+        <span class="tag blue">Life OS</span>
+        <span class="tag">18周 · MVP</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="claim-box">
+    <div class="label">核心主张（一句话）</div>
+    <div class="text">在 Vibe Stack 基础上增加 Agent 编排层，实现"需求→代码→测试→部署"全自动闭环，AI 犯错后修正 Harness 而非人工改代码，年化节省 2112 人周。</div>
+  </div>
+
+  <div class="section-grid">
+    <div class="info-box">
+      <div class="label">🎯 MVP 目标用户（具体痛点）</div>
+      <ul>
+        <li><b>ODI 团队（11名工程师）</b>：内部工具排期 2-4 周，Agent 生成代码无处部署</li>
+        <li>企业知识（IKEA业务规则）无法注入现成 Agent</li>
+        <li>Agent 反复犯同样错误，没有 Harness 记忆机制</li>
+        <li>Vibe Stack 已有 infra，缺 Agent 编排上层</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <div class="label">📊 成功标准（北极星指标）</div>
+      <ul>
+        <li>Agent 自主完成率 &gt; 60%（无人工干预完成任务）</li>
+        <li>内部工具开发时间：2-4周 → &lt;1小时</li>
+        <li>月运行成本 &lt; $50（基于现有 Cloud Function）</li>
+        <li>6个月内 ≥3 个真实工具上线并被非开发者使用</li>
+        <li>Dogfood 采纳率 &gt; 30%（88名工程师中 ≥26人）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="milestones">
+    <div class="label">🗓️ 实施里程碑</div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M1（3周）— Agent 运行沙箱 + Context 注入</div><div class="m-sub">基于 Vibe Stack CF，添加 Agent 执行环境，IKEA 知识库 RAG 接入</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M2（4周）— Agent 编排核心</div><div class="m-sub">Planner / Coder / Tester / Deployer / Validator 五角色编排，参考 Vercel Open Agents 架构</div></div></div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M3（3周）— 企业知识库注入</div><div class="m-sub">IKEA 业务规则、ODI API 文档、历史 PR 注入 RAG，Agent "懂 IKEA"</div></div></div>
+    <div class="milestone"><div class="dot amber"></div><div class="content"><div class="m-title">M4（4周）— Harness 自我修正机制</div><div class="m-sub">Agent 犯错 → 自动更新 Harness → 下次不再犯，建立错误学习闭环</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M5（4周）— Dogfood 3个真实工具</div><div class="m-sub">让 ODI 团队用 Factory 构建 3 个内部工具，量化 ROI，准备推广</div></div></div>
+  </div>
+
+  <div class="roi-bar">
+    <div class="roi-item"><div class="num">2112</div><div class="desc">年化节省人周</div></div>
+    <div class="roi-item"><div class="num">$0</div><div class="desc">平台月运行成本</div></div>
+    <div class="roi-item"><div class="num">18周</div><div class="desc">MVP周期</div></div>
+    <div class="roi-item"><div class="num">L1→L4</div><div class="desc">团队角色跃迁</div></div>
+  </div>
+
+  <div class="label" style="font-size:0.75rem;color:var(--text3);font-weight:bold;margin-bottom:0.5rem;letter-spacing:0.05em;">⚡ 立即行动（本周）</div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">今天：Clone Vercel Open Agents，整理架构对比表（Vibe Stack现状 vs 需要什么）</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">本周四：与 Nicole 1:1 汇报 AI Factory 方向，争取 M1 资源（2名工程师）</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">本周五：从 ODI 团队收集 Top 3 内部工具需求，作为 M5 候选</div></div>
+
+  <div class="challenge-box" style="margin-top:1rem;">
+    <div class="label">⚠️ 诚实挑战（IKEA企业约束）</div>
+    <ul>
+      <li>IT 合规审查可能在 Week 10 否决整个项目——需要 Week 1 就预沟通 IT/Security</li>
+      <li>Agent 成功率 &lt; 40% 时，工程师会觉得"还不如自己写"——需要明确只针对中等复杂度场景</li>
+      <li>与 Leo Yu 团队（Platform）边界冲突——需 Week 1 明确分工边界</li>
+      <li>根本质疑：简单工具用 AI Factory 反而更慢——Factory 必须只做"中等复杂度且重复性高"的场景</li>
+    </ul>
+  </div>
+</div>
+
+<!-- P4 -->
+<div class="proposal" id="p4">
+  <div class="proposal-header">
+    <div class="proposal-num">P4</div>
+    <div>
+      <div class="proposal-title">用 Meta-Harness 构建 Life OS 第一个 Proactive Agent</div>
+      <div class="proposal-signal">信号来源：Meta-Harness代码开源 + yoyo三层Harness + Wikiwise知识库落地</div>
+      <div class="tags">
+        <span class="tag green">Life OS</span>
+        <span class="tag green">Memory</span>
+        <span class="tag blue">Agentic Eng</span>
+        <span class="tag">6周 · 个人项目</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="claim-box">
+    <div class="label">核心主张（一句话）</div>
+    <div class="text">将 context/ 维护从每月 4小时手动劳动 → LLM 自主完成，作为 Life OS 第一个真正的 Proactive Agent，验证 Meta-Harness 框架可行性。</div>
+  </div>
+
+  <div class="section-grid">
+    <div class="info-box">
+      <div class="label">🎯 锁定痛点：Kyle最高频手动动作</div>
+      <ul>
+        <li>context/ 目录维护：每月 4小时，更新过时信息、归档旧文档</li>
+        <li>现有 ingest/lint 工具缺 Repair 能力（能发现问题，不能自动修复）</li>
+        <li>跨 session 记忆无持续更新机制（Life OS Memory 支柱空缺）</li>
+        <li>三层约束（技术/经济/社会）在多数 Harness 中是缺失的</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <div class="label">📊 成功标准</div>
+      <ul>
+        <li>context/ 维护手动时间：4h/月 → &lt;30min/月（-87.5%）</li>
+        <li>Agent 每次运行无需 Kyle 触发（定时/事件驱动）</li>
+        <li>经济约束：每次运行 token 成本 &lt; $0.5</li>
+        <li>社会约束：修改 context/ 前必须生成"变更说明"供 Kyle 确认</li>
+        <li>第 6 周：可将框架复制到第 2 个 Proactive Agent</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="milestones">
+    <div class="label">🗓️ 实施里程碑</div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M1（1周）— ONBOARDING.md 侦察</div><div class="m-sub">Clone Meta-Harness，跑 ONBOARDING.md 对话，评估成熟度（理论4/5 vs 工程2/5）</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M2（2周）— context/ Repair Agent 原型</div><div class="m-sub">三层约束设计（技术/经济/社会），首次 dry-run，Human-in-the-loop 确认机制</div></div></div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M3（1周）— 校准与约束调整</div><div class="m-sub">观察 Agent 行为，调整 Harness，验证不会越界修改 intent/ 或 journal/</div></div></div>
+    <div class="milestone"><div class="dot amber"></div><div class="content"><div class="m-title">M4（1周）— 定时触发部署</div><div class="m-sub">接入 macOS launchd 或 cron，实现"无需召唤"的自动运行</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M5（1周）— 模式提炼 + 下一个 Agent 设计</div><div class="m-sub">总结可复用的三层约束模板，设计 Readwise Briefing Proactive Agent</div></div></div>
+  </div>
+
+  <div class="roi-bar">
+    <div class="roi-item"><div class="num">36h</div><div class="desc">年化直接节省</div></div>
+    <div class="roi-item"><div class="num">$0.5</div><div class="desc">每次运行成本上限</div></div>
+    <div class="roi-item"><div class="num">6周</div><div class="desc">全周期</div></div>
+    <div class="roi-item"><div class="num">可复制</div><div class="desc">框架可复用到N个Agent</div></div>
+  </div>
+
+  <div class="label" style="font-size:0.75rem;color:var(--text3);font-weight:bold;margin-bottom:0.5rem;letter-spacing:0.05em;">⚡ 立即行动（本周）</div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">Day 1-2：Clone Meta-Harness 仓库，跑 ONBOARDING.md，记录成熟度评估</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">Day 3-4：设计三层约束文档（技术：只改context/；经济：&lt;$0.5/次；社会：需确认）</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">Day 5-7：首次 dry-run，不执行修改，只输出"我会做什么"供 Kyle 审查</div></div>
+
+  <div class="challenge-box" style="margin-top:1rem;">
+    <div class="label">⚠️ 诚实挑战</div>
+    <ul>
+      <li>Meta-Harness 工程成熟度仅 2/5：需承担"早期采纳者"踩坑成本，可能 Week 3 发现根本不可用</li>
+      <li>三层约束不是防御墙：必须叠加硬编码限制（禁止写 intent/、journal/），不能只靠 Harness 文字约束</li>
+      <li>降级路径：若 Agent 无法理解 context/ 结构 → 退回传统 Rules（保留 lint，放弃 repair）</li>
+      <li>经济约束 $0.5 是否够？context/ 维护涉及大量文件读取，实际 token 消耗需要实测</li>
+    </ul>
+  </div>
+</div>
+
+<!-- P5 -->
+<div class="proposal" id="p5">
+  <div class="proposal-header">
+    <div class="proposal-num">P5</div>
+    <div>
+      <div class="proposal-title">Engineering 价值重构：架构判断力 + 领域系统整合能力 = 新护城河</div>
+      <div class="proposal-signal">信号来源：AI大佬不让孩子学CS（微软/Anthropic/沃顿）— 反直觉信号</div>
+      <div class="tags">
+        <span class="tag red">Eng Baseline</span>
+        <span class="tag amber">AI Upskill</span>
+        <span class="tag">战略级 · 反直觉</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="claim-box">
+    <div class="label">核心主张（一句话）</div>
+    <div class="text">工程师的不可替代性 = 架构判断力（知道做什么）× 领域深度（懂 IKEA 业务）× 系统整合能力（让各部分协作）——这三项 AI 无法轻易替代，且越来越稀缺。</div>
+  </div>
+
+  <div class="section-grid">
+    <div class="info-box">
+      <div class="label">🎯 锁定痛点（Kyle现实困境）</div>
+      <ul>
+        <li>价值展示困难：AI 生成代码快，但"工程师做了什么"对管理层不可见</li>
+        <li>晋升框架过时：以代码量/PR数为基础，无法承载 AI 时代的贡献</li>
+        <li>AI Upskill 课程设计迷失：教 Prompt 还是教架构思维？</li>
+        <li>团队焦虑：工程师担心被 AI 替代，但不知道如何建立新护城河</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <div class="label">📊 成功标准</div>
+      <ul>
+        <li>Nicole 能向 Kirill 清晰解释团队的不可替代价值（无需 Kyle 在场）</li>
+        <li>AI Upskill Trainer 课程 L2+ 层包含"架构判断力"模块</li>
+        <li>团队焦虑指数（季度 survey）下降 30%</li>
+        <li>下个晋升 case 用新框架通过率 &gt; 80%</li>
+        <li>6个月内 ≥3 名工程师能独立主导一个 Architect 决策</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="milestones">
+    <div class="label">🗓️ 实施里程碑</div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M1（1周）— 读原文 + 提炼框架</div><div class="m-sub">找到并完整阅读 AI 专家教育观原文，提炼他们押注什么（判断力/创造力/人际连接/领域深度？）</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M2（3周）— Engineering Value Framework v1</div><div class="m-sub">定义 4 大价值维度（Architecture Judgment / Domain Mastery / System Stewardship / AI Leverage），与 Nicole 对齐</div></div></div>
+    <div class="milestone"><div class="dot"></div><div class="content"><div class="m-title">M3（4周）— AI Upskill 课程重设计</div><div class="m-sub">L2+ 课程增加"架构判断力"模块，用真实 IKEA 案例教学，而非纯 Prompt 技巧</div></div></div>
+    <div class="milestone"><div class="dot amber"></div><div class="content"><div class="m-title">M4（4周）— 团队 Architect 培养 Pilot</div><div class="m-sub">选 2-3 名工程师，给予真实架构决策权，用 AI 支撑分析，人负责判断</div></div></div>
+    <div class="milestone"><div class="dot green"></div><div class="content"><div class="m-title">M5（4周）— 晋升框架更新 + 案例库</div><div class="m-sub">重写晋升模板，建立"架构决策案例库"（每个决策记录背景/选项/理由/结果）</div></div></div>
+  </div>
+
+  <div class="roi-bar">
+    <div class="roi-item"><div class="num">¥1.2M+</div><div class="desc">年化ROI估算</div></div>
+    <div class="roi-item"><div class="num">16周</div><div class="desc">全周期</div></div>
+    <div class="roi-item"><div class="num">11人</div><div class="desc">受益团队规模</div></div>
+    <div class="roi-item"><div class="num">战略级</div><div class="desc">长期护城河</div></div>
+  </div>
+
+  <div class="label" style="font-size:0.75rem;color:var(--text3);font-weight:bold;margin-bottom:0.5rem;letter-spacing:0.05em;">⚡ 立即行动（本周）</div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">今天：找到沐阳推文的原文章（搜索"微软首席AI专家 孩子 教育"），完整阅读，记录他们实际押注什么</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">本周：起草 Engineering Value Framework 初稿（1页），本周 Nicole 1:1 用 10 分钟讨论</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text">本周五：挖掘第一个"黄金案例"——团队过去一个月哪个决策体现了不可替代的架构判断力？</div></div>
+
+  <div class="challenge-box" style="margin-top:1rem;">
+    <div class="label">⚠️ 诚实挑战</div>
+    <ul>
+      <li>IKEA 是否接受这套框架？宜家文化强调 Simplicity，"架构判断力"可能被认为是"过度设计"——需要翻译成 IKEA 语言（"客户价值决策"而非"架构"）</li>
+      <li>中国市场特殊性：中国企业仍然高度重视执行力和速度，"架构思维"可能被认为是在逃避交付压力</li>
+      <li>Kyle 自己是否是好的架构判断力示范？如果 Kyle 的决策案例不够有说服力，这个框架无法推广</li>
+      <li>AI 专家的教育观和企业价值观之间有鸿沟：他们谈的是10年后的世界，Nicole 需要的是今年 KPI</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 汇总 -->
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:2rem;">
+  <h2 style="color:var(--accent2);margin-bottom:1rem;font-size:1.1rem;">🎯 本周最高优先级行动（跨所有Proposals）</h2>
+  <div class="action-row"><div class="arrow">→</div><div class="text"><b>今天</b>：找到 AI 大佬育儿观原文（P5-M1），完整阅读 30分钟</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text"><b>今天</b>：Clone Vercel Open Agents + Meta-Harness 仓库，各用 30分钟侦察</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text"><b>本周四 Nicole 1:1</b>：分享 Engineering Baseline v2.0 初稿 + AI Factory 方向，争取 M1 资源</div></div>
+  <div class="action-row"><div class="arrow">→</div><div class="text"><b>本周五</b>：选择 P1/P2/P3/P4 中最想优先推进的 1 个，开启 M1</div></div>
+  <p style="margin-top:1rem;font-size:0.85rem;color:var(--text3);">📌 建议优先级：P4（最快见效，6周，个人项目）→ P2（战略级，先动）→ P1（技术深度）→ P3（资源需求最大）→ P5（与P2合并推进）</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

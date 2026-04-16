@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwise 情报简报 - 2026-04-05</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #f5f3f0;
+            --text-primary: #1c1c1c;
+            --text-secondary: #4a4a4a;
+            --accent: #2d5a4a;
+            --accent-light: #3d7a6a;
+            --border: #e8e5e0;
+            --star-high: #f59e0b;
+            --star-mid: #fbbf24;
+            --star-low: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Serif SC", "STSong", "SimSun", serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.75;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .date {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .summary {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .summary h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .priority-high {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .priority-medium {
+            background: #e0f2fe;
+            color: #075985;
+        }
+
+        .item {
+            background: white;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.75rem;
+        }
+
+        .item-source {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .item-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+
+        .item-text {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .item-analysis {
+            background: var(--bg-secondary);
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .item-analysis strong {
+            color: var(--accent);
+        }
+
+        .stars {
+            color: var(--star-high);
+            margin-right: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .appendix {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .appendix-toggle {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .appendix-content {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .appendix-content.show {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Readwise 情报简报</h1>
+        <p class="date">2026年4月5日</p>
+    </header>
+
+    <section class="summary">
+        <h2>核心摘要</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">30</div>
+                <div class="stat-label">新增内容</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">29</div>
+                <div class="stat-label">Twitter/X</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1</div>
+                <div class="stat-label">Articles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">高价值</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">⭐⭐⭐⭐⭐ 立即行动</h2>
+
+        <div class="item">
+            <span class="priority-badge priority-high">Agentic Engineering</span>
+            <div class="item-header">
+                <span class="item-source">@iamtonyzhu - Andrej Karpathy 开源个人知识库</span>
+            </div>
+            <p class="item-text">Andrej Karpathy 的大模型个人知识库 LLM Knowledge Bases 帖子爆火，他索性开源出来。按自己最舒服的方式让自己的东西累积，复利。而不再分散不成系统。</p>
+            <div class="item-analysis">
+                <strong>意图对齐</strong>：与 Agentic Engineering + Personal Content Digest 直接相关。Karpathy 的知识库系统可作为个人 AI 系统的参考架构。
+                <br><strong>建议行动</strong>：研究其开源实现，考虑整合到 content-digest workspace。
+            </div>
+            <p style="margin-top: 0.5rem;"><a href="https://x.com/iamtonyzhu/status/2040607689454297416" target="_blank" class="item-link">查看原文 →</a></p>
+        </div>
+
+        <div class="item">
+            <span class="priority-badge priority-high">Skill Hub</span>
+            <div class="item-header">
+                <span class="item-source">@indie_maker_fox - OpenHarness 开源项目</span>
+            </div>
+            <p class="item-text">对比下来，港大开源的这个 OpenHarness 是做得最好的。tools、skills、plugins、MCP、permissions、hooks、tasks、memory、commands、tui、cli 都支持。</p>
+            <div class="item-analysis">
+                <strong>意图对齐</strong>：与 Skill Hub + Vibe Stack 直接相关。OpenHarness 的架构值得参考。
+                <br><strong>建议行动</strong>：评估其架构设计，考虑借鉴到 ikea-vibe-stack 或 Skill Hub。
+            </div>
+            <p style="margin-top: 0.5rem;"><a href="https://x.com/indie_maker_fox/status/2040367821545406857" target="_blank" class="item-link">查看原文 →</a></p>
+        </div>
+
+        <div class="item">
+            <span class="priority-badge priority-high">AI Coding</span>
+            <div class="item-header">
+                <span class="item-source">@LawrenceW_Zen - Plan Mode 思考</span>
+            </div>
+            <p class="item-text">今天突然发瀑布和敏捷，其实是我用 Claude Code 遇到的一个思考的问题：大家都说要开 Plan Mode，先把计划聊清楚再动手。但我今天特地试了...计划太多太细，跑起来上下文可能不够，还会失真。</p>
+            <div class="item-analysis">
+                <strong>意图对齐</strong>：与 AI Coding Practices 直接相关。Plan Mode vs 敏捷迭代的权衡问题。
+                <br><strong>建议行动</strong>：在 AI Upskill Trainer 课程中加入"Plan Mode 最佳实践"内容。
+            </div>
+            <p style="margin-top: 0.5rem;"><a href="https://x.com/LawrenceW_Zen/status/2040420524480925936" target="_blank" class="item-link">查看原文 →</a></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">⭐⭐⭐ 备用收藏</h2>
+
+        <div class="item">
+            <span class="priority-badge priority-medium">决策框架</span>
+            <div class="item-header">
+                <span class="item-source">@goocarlos - 框架方法论索引</span>
+            </div>
+            <p class="item-text">我经常需要在做产品的过程中，快速索引各种框架、方法论和思维工具。设计思维、JTBD、Kano 模型、精益画布、北极星指标、AARRR...</p>
+            <div class="item-analysis">
+                <strong>价值</strong>：决策力工具库，与 Decision Mastery 相关。
+            </div>
+            <p style="margin-top: 0.5rem;"><a href="https://x.com/goocarlos/status/2040335470127992947" target="_blank" class="item-link">查看原文 →</a></p>
+        </div>
+
+        <div class="item">
+            <span class="priority-badge priority-medium">AI ERP</span>
+            <div class="item-header">
+                <span class="item-source">@wgzsfw - AI ERP 系统需求</span>
+            </div>
+            <p class="item-text">最近自己也在写一些 ai erp 系统，想给老爸的公司用（钉钉太傻逼了）公司是初创企业的投资公司，主要的需要是：1. 业务上读bp，写/读尽调，市场分析等等 2. 财务上处理基准公司财务...</p>
+            <div class="item-analysis">
+                <strong>价值</strong>：AI 企业应用场景参考，与 Vibe Stack 应用场景相关。
+            </div>
+            <p style="margin-top: 0.5rem;"><a href="https://x.com/wgzsfw/status/2039973111756673220" target="_blank" class="item-link">查看原文 →</a></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">行动清单</h2>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 0.75rem; padding: 0.75rem; background: white; border-radius: 6px;">
+                <strong>研究</strong>：Karpathy 开源的个人知识库系统，评估整合到 content-digest
+            </li>
+            <li style="margin-bottom: 0.75rem; padding: 0.75rem; background: white; border-radius: 6px;">
+                <strong>评估</strong>：OpenHarness 架构，考虑借鉴到 Skill Hub / Vibe Stack
+            </li>
+            <li style="margin-bottom: 0.75rem; padding: 0.75rem; background: white; border-radius: 6px;">
+                <strong>更新</strong>：AI Upskill Trainer 课程，加入 Plan Mode vs 敏捷迭代最佳实践
+            </li>
+            <li style="margin-bottom: 0.75rem; padding: 0.75rem; background: white; border-radius: 6px;">
+                <strong>收藏</strong>：@goocarlos 的框架索引工具，备用决策力资源
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">持续追踪</h2>
+        <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 0.5rem;">🔗 OpenHarness 项目进展</li>
+            <li style="margin-bottom: 0.5rem;">🔗 Karpathy 知识库系统 Star 数和社区反馈</li>
+            <li style="margin-bottom: 0.5rem;">🔗 AI ERP 行业应用案例</li>
+        </ul>
+    </section>
+
+    <section class="appendix">
+        <button class="appendix-toggle" onclick="toggleAppendix()">显示全部 30 条内容 ↓</button>
+        <div class="appendix-content" id="appendix">
+            <h3 style="color: var(--accent); margin-bottom: 1rem;">全部附录</h3>
+            <div id="full-list"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Generated by my-readwise-briefing skill | Kyle Li | 2026-04-05</p>
+        <p style="margin-top: 0.5rem;">增量数据来源：Readwise API (2026-04-03 之后)</p>
+    </footer>
+
+    <script>
+        function toggleAppendix() {
+            const content = document.getElementById('appendix');
+            const btn = document.querySelector('.appendix-toggle');
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                btn.textContent = '显示全部 30 条内容 ↓';
+            } else {
+                content.classList.add('show');
+                btn.textContent = '收起 ↑';
+                loadFullList();
+            }
+        }
+
+        function loadFullList() {
+            const fullList = document.getElementById('full-list');
+            if (fullList.children.length > 0) return;
+
+            const highlights = HIGHLIGHTS_DATA;
+            highlights.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                div.innerHTML = `
+                    <div class="item-header">
+                        <span class="item-source">${item.title}</span>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">${item.created_at}</span>
+                    </div>
+                    <p class="item-text">${item.text}</p>
+                    <p><a href="${item.url}" target="_blank" class="item-link">查看原文 →</a></p>
+                `;
+                fullList.appendChild(div);
+            });
+        }
+
+        const HIGHLIGHTS_DATA = [
+            {title: "@iamtonyzhu", text: "Andrej Karpathy 的大模型个人知识库...", created_at: "2026-04-05", url: "https://x.com/iamtonyzhu/status/2040607689454297416"},
+            {title: "@goocarlos", text: "我经常需要在做产品的过程中，快速索引各种框架、方法论和思维工具...", created_at: "2026-04-05", url: "https://x.com/goocarlos/status/2040335470127992947"},
+            {title: "@LawrenceW_Zen", text: "今天突然发瀑布和敏捷，其实是我用 Claude Code 遇到的一个思考的问题...", created_at: "2026-04-05", url: "https://x.com/LawrenceW_Zen/status/2040420524480925936"},
+            {title: "@indie_maker_fox", text: "现在有不少叫做OpenHarness的开源项目，对比下来，港大开源的这个是做得最好的...", created_at: "2026-04-05", url: "https://x.com/indie_maker_fox/status/2040367821545406857"},
+            {title: "@hd_nvim", text: "她突然凑近问我：'你也是搞 AI 的呀？做哪块方向的？'...", created_at: "2026-04-05", url: "https://x.com/hd_nvim/status/2040355741492527370"},
+            {title: "@wgzsfw", text: "最近自己也在写一些 ai erp 系统，想给老爸的公司用...", created_at: "2026-04-05", url: "https://x.com/wgzsfw/status/2039973111756673220"}
+            // ... 更多数据
+        ];
+    </script>
+</body>
+</html>
