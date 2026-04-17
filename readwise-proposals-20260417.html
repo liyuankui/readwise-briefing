@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深度 Proposals — 2026-04-17</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75;
+  padding: 2rem; max-width: 960px; margin: 0 auto; transition: background 0.3s, color 0.3s;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.3rem; margin: 2.5rem 0 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+.date { color: var(--text3); font-size: 0.9rem; }
+.axiom { background: var(--surface2); border-left: 4px solid var(--accent4); padding: 0.75rem 1rem; margin: 1rem 0; font-style: italic; color: var(--text2); border-radius: 0 8px 8px 0; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; position: fixed; top: 1rem; right: 1rem; z-index: 100; }
+#theme-toggle:hover { transform: scale(1.1); }
+
+.mapping-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+.mapping-table th, .mapping-table td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+.mapping-table th { background: var(--surface2); color: var(--text3); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.mapping-table tr:hover { background: var(--surface2); }
+
+.proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1.5rem 0; }
+.proposal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.proposal-num { background: var(--accent); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; flex-shrink: 0; }
+html.dark .proposal-num { background: var(--accent2); }
+.proposal-title { font-size: 1.15rem; font-weight: bold; color: var(--text); margin-left: 0.75rem; flex: 1; }
+.core-claim { background: var(--surface2); border-left: 4px solid var(--accent3); padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 0 8px 8px 0; font-weight: bold; color: var(--accent); }
+html.dark .core-claim { color: var(--accent3); }
+.section-label { font-size: 0.85rem; font-weight: bold; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin: 1rem 0 0.5rem; }
+
+.pain-point { background: var(--surface2); border-radius: 8px; padding: 0.75rem; margin: 0.25rem 0; color: var(--text2); font-size: 0.9rem; }
+.milestone { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.milestone-badge { background: var(--accent2); color: white; border-radius: 6px; padding: 0.15rem 0.5rem; font-size: 0.75rem; font-weight: bold; white-space: nowrap; }
+.milestone-text { font-size: 0.9rem; color: var(--text2); }
+
+.success-metric { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0; }
+.success-metric::before { content: "📊"; }
+
+.action-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.4rem 0; }
+.action-item::before { content: "⚡"; flex-shrink: 0; }
+
+.challenge { background: linear-gradient(135deg, var(--surface2), transparent); border: 1px dashed var(--accent5); border-radius: 8px; padding: 0.75rem; margin: 0.5rem 0; font-size: 0.9rem; color: var(--text2); }
+.challenge strong { color: var(--accent5); }
+
+.tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 0.1rem 0.5rem; font-size: 0.7rem; color: var(--accent2); margin: 0.15rem; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.8rem; text-align: center; }
+details summary { cursor: pointer; color: var(--text3); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<h1>🔬 深度 Proposals</h1>
+<div class="date">2026-04-17 · 5 subagents 并行推理 · 基于 Readwise 情报简报</div>
+
+<div class="axiom">不可行动的信息 = 噪音。以下每个 Proposal 都必须回答：解决什么问题？为什么现在？怎么做？怎么知道成功？</div>
+
+<h2>信号 × 项目 对应关系</h2>
+<table class="mapping-table">
+<thead><tr><th>信号</th><th>来源</th><th>对应项目</th><th>Proposal 核心</th></tr></thead>
+<tbody>
+<tr><td>pi-autoresearch 300× 测试提速</td><td>@nash_su</td><td>Testing Excellence · AI Coding</td><td>先建地基，再追 300×</td></tr>
+<tr><td>Boris Cherny: 类型签名 > 代码</td><td>@mubeitech</td><td>AI Coding · Ontology</td><td>类型 = AI 的缰绳</td></tr>
+<tr><td>Agent SDK 生态全景</td><td>@RookieRicardoR</td><td>PRATA · Agentic Eng</td><td>消息管道 → 神经系统</td></tr>
+<tr><td>Impeccable 2.0 Anti AI Slop</td><td>@vikingmute</td><td>Skill Hub · delivery-closure</td><td>25 规则拦截设计 slop</td></tr>
+<tr><td>GEO 效果归因 Skill</td><td>@yaojingang</td><td>宝尊 Ontology · CCM</td><td>AI 搜索中的隐形品牌风险</td></tr>
+</tbody>
+</table>
+
+<!-- ========== Proposal 1 ========== -->
+<div class="proposal" id="p1">
+<div class="proposal-header">
+<div class="proposal-num">1</div>
+<div class="proposal-title">pi-autoresearch：AI 自研究革命化测试与 CI</div>
+</div>
+<div class="core-claim">Shopify 有 974 个测试才能跑 autoresearch。我们覆盖率近零，必须先建地基——300× 拿来激励可以，拿来汇报是造假。</div>
+
+<div class="section-label">🎯 锁定痛点</div>
+<div class="pain-point">IKEA CDH Java 服务测试覆盖率极低 → CI pipeline 依赖手工验证 → 构建时间长但没人敢优化（怕破坏未测试的功能）</div>
+
+<div class="section-label">📅 里程碑</div>
+<div class="milestone"><span class="milestone-badge">M1 2w</span><span class="milestone-text">基线测量：<code>time mvn clean verify</code> 拿到构建时间 + 覆盖率数字</span></div>
+<div class="milestone"><span class="milestone-badge">M2 4w</span><span class="milestone-text">AI 测试生成试点：选 1 个高频修改模块，AI 生成单元测试达 60% 覆盖率</span></div>
+<div class="milestone"><span class="milestone-badge">M3 6w</span><span class="milestone-text">CI 并行化：测试分组并行执行，构建时间减少 30%+</span></div>
+<div class="milestone"><span class="milestone-badge">M4 10w</span><span class="milestone-text">Autoresearch 试验：在有足够测试的模块上跑 AI 自研究优化</span></div>
+
+<div class="section-label">📊 成功标准</div>
+<div class="success-metric">试点模块测试覆盖率从 ~0% → 60%+</div>
+<div class="success-metric">CI 构建时间减少 30%（可度量，不吹 300×）</div>
+<div class="success-metric">至少 1 个 autoresearch 优化案例可在 Digital Sharing Days 展示</div>
+
+<div class="section-label">⚡ 本周行动</div>
+<div class="action-item"><code>time mvn clean verify</code> 拿到第一个构建时间数字</div>
+<div class="action-item">读 Shopify/Karpathy autoresearch 原文建立判断力</div>
+<div class="action-item">找团队里最恨等构建的人聊 30 分钟</div>
+
+<div class="section-label">🚩 诚实挑战</div>
+<div class="challenge"><strong>漏洞：</strong>Java 生态 ≠ JS 生态。Shopify 的 300× 来自 React 组件测试特性，Java 的 Spring Boot 测试启动成本是结构性的，不能简单类比。必须先拿到 baseline 数据再说话。</div>
+<div class="challenge"><strong>漏洞：</strong>团队 11 人，日常交付压力大。额外写测试的带宽从哪来？需要经理级别的优先级保护。</div>
+<span class="tag">Testing Excellence</span><span class="tag">AI Coding</span><span class="tag">Engineering Baseline</span>
+</div>
+
+<!-- ========== Proposal 2 ========== -->
+<div class="proposal" id="p2">
+<div class="proposal-header">
+<div class="proposal-num">2</div>
+<div class="proposal-title">Type-First Engineering：类型签名 = AI 的缰绳</div>
+</div>
+<div class="core-claim">类型签名不是代码风格偏好，是约束 AI 行为空间的 Ontology——命名即存在，边界先于内容。</div>
+
+<div class="section-label">🎯 锁定痛点</div>
+<div class="pain-point">AI 生成代码时，类型不完善 → 运行时错误难追踪 → 边界条件被忽略 → 维护者无法快速理解 AI 生成的逻辑</div>
+
+<div class="section-label">📅 里程碑</div>
+<div class="milestone"><span class="milestone-badge">M1 1w</span><span class="milestone-text">基线扫描：统计 TS 项目中 <code>any</code> 使用量 + Java 项目中 <code>@Nullable</code> 缺失率</span></div>
+<div class="milestone"><span class="milestone-badge">M2 2w</span><span class="milestone-text">团队 Lightning Talk："类型签名 = AI 缰绳"（不提 Ontology，用工程语言）</span></div>
+<div class="milestone"><span class="milestone-badge">M3 4w</span><span class="milestone-text">起草 3 条类型约定：禁 any / 返回值必须声明 / 接口优先</span></div>
+<div class="milestone"><span class="milestone-badge">M4 8w</span><span class="milestone-text">AI Coding 模板集成：AGENTS.md 增加类型优先规则，AI 生成代码自动遵守</span></div>
+
+<div class="section-label">📊 成功标准</div>
+<div class="success-metric">TS 项目 <code>any</code> 使用量下降 50%</div>
+<div class="success-metric">新 AI 生成的 PR 中类型完整率 > 90%</div>
+<div class="success-metric">团队理解"类型 = 约束 AI"的人数 > 70%</div>
+
+<div class="section-label">⚡ 本周行动</div>
+<div class="action-item">跑 <code>grep -r "any" --include="*.ts" | wc -l</code> 统计现状</div>
+<div class="action-item">准备 15 分钟 Lightning Talk 素材</div>
+<div class="action-item">起草 3 条类型约定初稿</div>
+
+<div class="section-label">🚩 诚实挑战</div>
+<div class="challenge"><strong>漏洞：</strong>团队主力写 Java（已强类型），对 TS 类型严格度的感知可能不强。需要找到 Java 侧也受益的切入点（如 @Nullable 注解、Branded Types）。</div>
+<div class="challenge"><strong>漏洞：</strong>"类型签名重要"是正确但不新鲜的观点。真正价值在于将其与 AI coding 实践绑定——没有 AI 上下文，这只是老生常谈。</div>
+<span class="tag">AI Coding</span><span class="tag">Engineering Baseline</span><span class="tag">Ontology</span>
+</div>
+
+<!-- ========== Proposal 3 ========== -->
+<div class="proposal" id="p3">
+<div class="proposal-header">
+<div class="proposal-num">3</div>
+<div class="proposal-title">PRATA 架构演进：消息管道 → 神经系统</div>
+</div>
+<div class="core-claim">保持 E2E 加密底座不变，在 Watcher 层引入可插拔 Agent Runtime 适配器——bun:sqlite + FTS5 已是最优解，不需要迁移。</div>
+
+<div class="section-label">🎯 锁定痛点</div>
+<div class="pain-point">PRATA v0.2 是优秀的消息管道，但 Watcher ↔ Copilot CLI 集成缺少标准 hook interface → 每接一个新 Runtime（Claude/OpenAI/Gemini）都要写胶水代码</div>
+
+<div class="section-label">📅 里程碑</div>
+<div class="milestone"><span class="milestone-badge">M1 1w</span><span class="milestone-text">Hook Interface 提取：从现有 Watcher 代码中抽象 <code>AgentRuntime</code> 接口</span></div>
+<div class="milestone"><span class="milestone-badge">M2 2w</span><span class="milestone-text">Claude Runtime PoC：子进程调用 Claude CLI，验证消息 → 推理 → 回复链路</span></div>
+<div class="milestone"><span class="milestone-badge">M3 3w</span><span class="milestone-text">Memory Schema 设计：FTS5 全文搜索 + 可插拔记忆层（对齐 Life OS Memory 支柱）</span></div>
+<div class="milestone"><span class="milestone-badge">Gate</span><span class="milestone-text">⚠️ 决策门：2-3 人试用反馈后才启动 M4（多模型适配器）</span></div>
+
+<div class="section-label">📊 成功标准</div>
+<div class="success-metric">新增 Runtime 适配器的开发时间 < 2 小时（当前 ~1 天）</div>
+<div class="success-metric">Memory 检索延迟 < 50ms（FTS5 保证）</div>
+<div class="success-metric">至少 2 名团队成员完成 Watcher 试用并给出反馈</div>
+
+<div class="section-label">⚡ 本周行动</div>
+<div class="action-item">从现有代码提取 Hook Interface（~2h）</div>
+<div class="action-item">Claude Runtime PoC：子进程调用验证（~1h）</div>
+<div class="action-item">Memory Schema 设计草案（~30min）</div>
+
+<div class="section-label">🚩 诚实挑战</div>
+<div class="challenge"><strong>漏洞：</strong>最大风险是"解决还不存在的问题"——当前 PRATA 没有用户抱怨 Runtime 不够多。设置决策门是对的，但要警惕过度架构。</div>
+<div class="challenge"><strong>漏洞：</strong>Claude Agent SDK 的 API 稳定性未知。子进程调用是最安全的隔离方式，但性能开销需要实测。</div>
+<span class="tag">PRATA</span><span class="tag">Agentic Engineering</span><span class="tag">Life OS</span>
+</div>
+
+<!-- ========== Proposal 4 ========== -->
+<div class="proposal" id="p4">
+<div class="proposal-header">
+<div class="proposal-num">4</div>
+<div class="proposal-title">Impeccable 2.0：25 规则系统化拦截 AI 设计 Slop</div>
+</div>
+<div class="core-claim">Impeccable CLI 作为 delivery-closure CREATE Check 的子引擎，用确定性规则（无 LLM 开销）拦截 AI 生成 HTML 的设计 slop。</div>
+
+<div class="section-label">🎯 锁定痛点</div>
+<div class="pain-point">Skill Hub、Vibe Stack 示例、briefing HTML 大量 AI 生成 → 设计同质化（相同渐变、相同圆角、相同配色）→ "AI 味"削弱专业感和品牌辨识度</div>
+
+<div class="section-label">📅 里程碑</div>
+<div class="milestone"><span class="milestone-badge">M1 1w</span><span class="milestone-text">基线扫描：对 Skill Hub + briefing HTML 跑 Impeccable CLI，量化当前 slop 数</span></div>
+<div class="milestone"><span class="milestone-badge">M2 2w</span><span class="milestone-text">创建 Impeccable Skill：Agent 生成 HTML 前预防 slop（与 TASTE.md 互补）</span></div>
+<div class="milestone"><span class="milestone-badge">M3 4w</span><span class="milestone-text">delivery-closure 集成：CREATE Check 流程新增 Impeccable 检测步骤</span></div>
+<div class="milestone"><span class="milestone-badge">M4 8w</span><span class="milestone-text">GHES CI 门禁：PR 合并前自动扫描（渐进引入，warning → error）</span></div>
+
+<div class="section-label">📊 成功标准</div>
+<div class="success-metric">Skill Hub HTML slop 检出数下降 70%</div>
+<div class="success-metric">delivery-closure CREATE Check 平均耗时增加 < 5 秒（确定性规则，不调 LLM）</div>
+<div class="success-metric">团队能识别并说出至少 5 种 AI slop pattern</div>
+
+<div class="section-label">⚡ 本周行动</div>
+<div class="action-item">对 Skill Hub 主页 HTML 跑 Impeccable 基线扫描</div>
+<div class="action-item">安装 Impeccable CLI + Chrome 扩展体验</div>
+<div class="action-item">delivery-closure SKILL.md 预留 Impeccable 检测位</div>
+
+<div class="section-label">🚩 诚实挑战</div>
+<div class="challenge"><strong>漏洞：</strong>团队以后端 Java 为主，前端设计质量可能不在优先级列表上。需要用"专业感→用户信任→采纳率"的链条说服。</div>
+<div class="challenge"><strong>漏洞：</strong>Impeccable 的 25 条规则是否与 IKEA 的 Skapa 设计系统对齐？可能存在"Impeccable 说不行但 Skapa 说可以"的冲突。</div>
+<span class="tag">Skill Hub</span><span class="tag">Anti-slop</span><span class="tag">delivery-closure</span>
+</div>
+
+<!-- ========== Proposal 5 ========== -->
+<div class="proposal" id="p5">
+<div class="proposal-header">
+<div class="proposal-num">5</div>
+<div class="proposal-title">GEO 监测：AI 搜索中的隐形品牌风险</div>
+</div>
+<div class="core-claim">IKEA China 必须在 2026 建立 GEO 监测能力，否则在 AI 搜索引擎的回答中成为"隐形品牌"——用户问"沙发推荐"时看不到宜家。</div>
+
+<div class="section-label">🎯 锁定痛点</div>
+<div class="pain-point">6 个盲区：① AI 搜索中 IKEA 品牌引用率未知 ② 官网内容不可被 AI 解析 ③ 无 GEO 归因闭环 ④ 宝尊内容产出未考虑 AI 可读性 ⑤ 国内/海外 AI 平台差异大 ⑥ 竞品 GEO 动向零感知</div>
+
+<div class="section-label">📅 里程碑</div>
+<div class="milestone"><span class="milestone-badge">M1 2w</span><span class="milestone-text">基线盲测：5 个高频查询 × 3 个 AI 平台（ChatGPT/Gemini/Kimi），记录 IKEA 出现率</span></div>
+<div class="milestone"><span class="milestone-badge">M2 4w</span><span class="milestone-text">追踪框架：基于姚金刚开源 skill 搭建 IKEA GEO 监测方案</span></div>
+<div class="milestone"><span class="milestone-badge">M3 6w</span><span class="milestone-text">内容改造试点：选 1 个品类（如收纳），优化内容结构使其对 AI 友好</span></div>
+<div class="milestone"><span class="milestone-badge">M4 8w</span><span class="milestone-text">Skill Hub 集成：GEO 监测封装为标准 Skill，可被其他团队复用</span></div>
+
+<div class="section-label">📊 成功标准</div>
+<div class="success-metric">IKEA 在试点品类的 AI 搜索引用率从 baseline 提升 20%+</div>
+<div class="success-metric">GEO 监测 Skill 在 Skill Hub 上线并被 ≥2 个团队使用</div>
+<div class="success-metric">宝尊 Ontology 调研中新增"GEO 准备度"评估维度</div>
+
+<div class="section-label">⚡ 本周行动</div>
+<div class="action-item">30 分钟盲测：5 个查询 × 3 个 AI 平台，记录 IKEA 出现情况</div>
+<div class="action-item">宝尊内容模块访谈（酒令）加入 GEO 准备度问题</div>
+<div class="action-item">Clone 姚金刚 geo-tracking-plan 仓库，研究架构</div>
+
+<div class="section-label">🚩 诚实挑战</div>
+<div class="challenge"><strong>漏洞：</strong>"内容不归你管"——GEO 优化的执行者是内容团队/宝尊，CDH 只能提供工具和数据。需要跨部门协作，而这正是最难的部分。</div>
+<div class="challenge"><strong>漏洞：</strong>GEO 是新领域，ROI 还没有行业基准。先做盲测拿到数据，才能判断投入是否值得。不能只因为是新趋势就冲进去。</div>
+<span class="tag">宝尊 Ontology</span><span class="tag">CCM</span><span class="tag">AI Adoption</span>
+</div>
+
+<div class="footer">
+<p>Generated by my-readwise-briefing v3.0.0 · Phase 2/2 · 5 subagents · 5 proposals</p>
+<p>Phase 1 简报 → <code>/tmp/readwise-briefing-20260417.html</code></p>
+<p style="margin-top:0.5rem;font-style:italic;">每个 Proposal 都经过独立 subagent 深度推理，自带诚实挑战。<br>不可行动的信息 = 噪音。</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

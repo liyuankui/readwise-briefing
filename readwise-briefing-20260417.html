@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 — 2026-04-17</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  transition: background 0.3s, color 0.3s;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.75rem; color: var(--text2); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; }
+.header-left { flex: 1; }
+.date { color: var(--text3); font-size: 0.9rem; }
+.axiom { background: var(--surface2); border-left: 4px solid var(--accent4); padding: 0.75rem 1rem; margin: 1rem 0; font-style: italic; color: var(--text2); border-radius: 0 8px 8px 0; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; position: fixed; top: 1rem; right: 1rem; z-index: 100; }
+#theme-toggle:hover { transform: scale(1.1); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-align: center; }
+.stat-number { font-size: 2rem; font-weight: bold; color: var(--accent); }
+.stat-label { font-size: 0.85rem; color: var(--text3); }
+.signal-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.signal-table th, .signal-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+.signal-table th { background: var(--surface2); color: var(--text2); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.signal-table tr:hover { background: var(--surface2); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin: 1rem 0; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.card-title { font-weight: bold; color: var(--text); font-size: 1rem; }
+.card-source { font-size: 0.8rem; color: var(--text3); }
+.card-content { color: var(--text2); font-size: 0.95rem; margin: 0.5rem 0; }
+.card-note { background: var(--surface2); border-radius: 8px; padding: 0.75rem; margin-top: 0.75rem; font-size: 0.9rem; }
+.card-note strong { color: var(--accent3); }
+.stars { color: var(--accent4); }
+.tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 0.15rem 0.6rem; font-size: 0.75rem; color: var(--accent2); margin: 0.2rem; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.action-list { list-style: none; padding: 0; }
+.action-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.5rem; }
+.action-list li::before { content: "→"; color: var(--accent3); font-weight: bold; flex-shrink: 0; }
+details { margin: 1rem 0; }
+details summary { cursor: pointer; color: var(--text3); padding: 0.5rem; background: var(--surface2); border-radius: 8px; }
+details summary:hover { color: var(--text2); }
+.footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.8rem; text-align: center; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<div class="header">
+<div class="header-left">
+<h1>📡 Readwise 情报简报</h1>
+<div class="date">2026-04-17 · 上次同步: 2026-04-16 04:17 UTC · 增量 ~24h</div>
+</div>
+</div>
+
+<div class="axiom">不可行动的信息 = 噪音。信号 → 洞察 → 行动，缺一环即无效。</div>
+
+<div class="stats">
+<div class="stat-card"><div class="stat-number">10</div><div class="stat-label">新 Highlights</div></div>
+<div class="stat-card"><div class="stat-number" style="color:var(--accent5)">5</div><div class="stat-label">⭐×5 高价值</div></div>
+<div class="stat-card"><div class="stat-number" style="color:var(--accent4)">3</div><div class="stat-label">⭐×3 中价值</div></div>
+<div class="stat-card"><div class="stat-number" style="color:var(--text3)">2</div><div class="stat-label">⭐ 低价值</div></div>
+</div>
+
+<h2>🎯 5大深挖方向预览</h2>
+<table class="signal-table">
+<thead><tr><th>#</th><th>方向</th><th>信号来源</th><th>对应 Intent</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>pi-autoresearch：AI 自研究革命化测试</strong></td><td>@nash_su</td><td>Testing Excellence · AI Coding</td></tr>
+<tr><td>2</td><td><strong>类型签名 > 代码：AI 时代的质量锚点</strong></td><td>@mubeitech</td><td>AI Coding · Engineering Baseline</td></tr>
+<tr><td>3</td><td><strong>Agent SDK 选型：Claude vs OpenAI vs Vercel</strong></td><td>@RookieRicardoR</td><td>Agentic Engineering · PRATA</td></tr>
+<tr><td>4</td><td><strong>Impeccable 2.0：系统化消灭 AI Slop 设计</strong></td><td>@vikingmute</td><td>Skills · Design Quality</td></tr>
+<tr><td>5</td><td><strong>GEO 效果归因 Skill：搜索可见性新战场</strong></td><td>@yaojingang</td><td>AI Adoption · 宝尊 Ontology</td></tr>
+</tbody>
+</table>
+<p style="color:var(--text3);font-size:0.85rem;margin-top:0.5rem;">→ 详见 Phase 2 Proposals: <code>/tmp/readwise-proposals-20260417.html</code></p>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（5）</h2>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">Shopify pi-autoresearch：单元测试快300倍</div>
+<div class="card-source">@nash_su · <a href="https://x.com/nash_su/status/2044616683671929268">原文</a></div>
+</div>
+<div class="card-content">Shopify 用 Karpathy 的 pi-autoresearch 实现：单元测试快 300×、React 组件加载快 20%、CI 构建时间减少 65%。autoresearch 框架持续演化，非常适合 AI 自研究。</div>
+<div class="card-note"><strong>🔗 为什么相关：</strong>直击 Testing Excellence（测试提速）和 AI Coding（CI 效率）两个 in_progress 项目。300× 不是渐进优化，是范式转换。对 IKEA 的 Java/K8s CI pipeline 有直接参考价值。</div>
+<span class="tag">Testing Excellence</span><span class="tag">AI Coding</span><span class="tag">CI/CD</span>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">Boris Cherny（Claude Code 创作者）：类型签名 > 代码本身</div>
+<div class="card-source">@mubeitech · <a href="https://x.com/mubeitech/status/2044457507247071740">原文</a></div>
+</div>
+<div class="card-content">Claude Code 创作者 Boris Cherny 直言：写程序时，代码本身根本不是最重要的东西——最重要的是类型签名。推荐《Scala 函数式编程》，但承认你大概率一辈子用不上 Scala，重点是理解类型思维。</div>
+<div class="card-note"><strong>🔗 为什么相关：</strong>这是对 AI Coding Practices 的元认知升级。当 AI 写大量代码时，<em>约束 AI 行为空间的不是更多代码，而是更好的类型签名</em>——与 Ontology Research（约束 Agent 行为空间）的底层逻辑一致。TypeScript 优先（R10）再次被验证。</div>
+<span class="tag">AI Coding</span><span class="tag">Engineering Baseline</span><span class="tag">Ontology</span>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">Agent SDK 生态全景：Claude Agent SDK 依然最快</div>
+<div class="card-source">@RookieRicardoR(耳朵) · <a href="https://x.com/RookieRicardoR/status/2044630408894271549">原文</a></div>
+</div>
+<div class="card-content">Claude Agent SDK 通过子进程环境变量兼容所有 Claude 协议模型（GLM、Minimax）。OpenAI 系推荐 Agent SDK / Vercel AI SDK / Pi-mono。上层 Runtime 推荐 assistant-ui。完整方案推荐 CodePilot（藏师傅）和 Craft（宝玉）。数据库推荐 better-sqlite + F5，记忆层可插拔。</div>
+<div class="card-note"><strong>🔗 为什么相关：</strong>直接对标 Agentic Engineering 和 PRATA 的技术选型。Claude Agent SDK 兼容多模型的方式值得 PRATA 借鉴。assistant-ui 和 better-sqlite 组合与 Life OS 的 Memory 支柱高度吻合。</div>
+<span class="tag">Agentic Engineering</span><span class="tag">PRATA</span><span class="tag">Life OS</span>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">Impeccable 2.0：Anti AI Slop 设计检测工具</div>
+<div class="card-source">@vikingmute · <a href="https://x.com/vikingmute/status/2044769616082423983">原文</a></div>
+</div>
+<div class="card-content">Impeccable 升级 2.0，推出 CLI 工具（无需 LLM 即可扫描代码，检测 25 种 AI slop 设计）和 Chrome 扩展（一键检测任意网页）。全新文档界面，前后设计对比图，Visual Mode 检测，Anti-patterns 目录。</div>
+<div class="card-note"><strong>🔗 为什么相关：</strong>IKEA Skill Hub 和 Vibe Stack 都在大量用 AI 生成前端代码。25 种 AI slop pattern 的系统化检测，可直接集成到 delivery-closure 的 CHECK 流程。与 anti-slop-creator skill 的理念一致但领域不同（设计 vs 写作）。</div>
+<span class="tag">Skills</span><span class="tag">Design Quality</span><span class="tag">Anti-slop</span>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">GEO 后端效果归因 Skill 开源</div>
+<div class="card-source">@yaojingang · <a href="https://x.com/yaojingang/status/2044710488311996773">原文</a></div>
+</div>
+<div class="card-content">姚金刚开源 GEO tracking plan skill：输入公司名 + 辅助信息，基于官网和官方资产生成 GEO 后端效果追踪方案。区分国内/海外/混合 GEO 监测逻辑，输出可视化 HTML 报告 + DOCX 交付。</div>
+<div class="card-note"><strong>🔗 为什么相关：</strong>GEO（Generative Engine Optimization）是搜索的下一个战场。对 IKEA CCM & Personalization（搜索可见性）和宝尊 Ontology 研究（运营替代方案评估）都有直接启发。该 skill 的架构（输入→分析→HTML报告）也是 Skills Development 的参考模式。</div>
+<span class="tag">AI Adoption</span><span class="tag">宝尊 Ontology</span><span class="tag">CCM</span>
+</div>
+
+<h2>⭐⭐⭐ 中价值信号（3）</h2>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">Qwen3.5-9B-GLM5.1-Distill：8GB VRAM 本地推理新高度</div>
+<div class="card-source">@berryxia · <a href="https://x.com/berryxia/status/2044792772100853842">原文</a></div>
+</div>
+<div class="card-content">用 GLM-5.1 顶级推理蒸馏，仅需 8GB VRAM，MLX 苹果原生版已上线。作者已蒸馏完 Claude Opus 版本。</div>
+<span class="tag">本地模型</span><span class="tag">AI 技术</span>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">Huberman Lab 播客：高中生的认知科学启蒙</div>
+<div class="card-source">@ReyJudgementOS · <a href="https://x.com/ReyJudgementOS/status/2044719786333254081">原文</a></div>
+</div>
+<div class="card-content">高中生系统听 Huberman Lab，不只学英语——理解大脑运作、专注/情绪/习惯的设计、底层机制。但多数孩子缺的不是知识，而是理解结构、转化为行动的能力。</div>
+<span class="tag">K12 Education</span><span class="tag">认知科学</span>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="card-title">HackerNews 2026-04-17 热点</div>
+<div class="card-source">SuperTechFans · <a href="https://read.readwise.io/read/01kpccy436xhhx3pq9etp4xc16">原文</a></div>
+</div>
+<div class="card-content">主要信号：Claude Opus 4.7 发布（自适应思考有争议）· 阿里开源 Qwen3.6-35B-A3B · Cloudflare Email 路由 · Gemini 密钥暴露致 5.4 万欧元账单 · Ollama 不如直接用 llama.cpp · Ticketmaster 反垄断裁决</div>
+<span class="tag">行业动态</span><span class="tag">AI 模型</span>
+</div>
+
+<h2>⭐ 低价值附录</h2>
+
+<details>
+<summary>展开 2 条低价值内容</summary>
+<div class="card" style="opacity:0.7">
+<div class="card-header">
+<div class="card-title">Pete Hegseth 五角大楼布道引用《低俗小说》</div>
+<div class="card-source">@KELMAND1 · <a href="https://x.com/KELMAND1/status/2044775156988719386">原文</a></div>
+</div>
+<div class="card-content">政治娱乐新闻，与当前 intent 无关。</div>
+</div>
+<div class="card" style="opacity:0.7">
+<div class="card-header">
+<div class="card-title">中国 PPI 转正，生产端走向扩张</div>
+<div class="card-source">@NullableX · <a href="https://x.com/NullableX/status/2044648918072565997">原文</a></div>
+</div>
+<div class="card-content">宏观经济信号。PPI 转正标志生产端收缩 3 年后开始扩张，但与当前技术/项目 intent 不直接相关。</div>
+</div>
+</details>
+
+<h2>📋 行动清单</h2>
+<ul class="action-list">
+<li><strong>研究 pi-autoresearch</strong>：评估能否应用到 IKEA Java/K8s CI pipeline（Testing Excellence）</li>
+<li><strong>集成 Impeccable CLI</strong>：在 delivery-closure CHECK 流程中加入 AI slop 扫描（Skills）</li>
+<li><strong>评估 Claude Agent SDK</strong>：对比当前 PRATA 架构，看是否可用于 Watcher 集成（Agentic Engineering）</li>
+<li><strong>推广类型签名规范</strong>：在 AI Coding Practices 中增加"类型优先"最佳实践（Engineering Baseline）</li>
+<li><strong>GEO 归因学习</strong>：研究姚金刚的开源 skill，评估 IKEA 搜索可见性监测方案（CCM）</li>
+</ul>
+
+<div class="footer">
+<p>Generated by my-readwise-briefing v3.0.0 · Phase 1/2 · 10 highlights · 11 documents</p>
+<p>Phase 2 Proposals → <code>/tmp/readwise-proposals-20260417.html</code></p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
