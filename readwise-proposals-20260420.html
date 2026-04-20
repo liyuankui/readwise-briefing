@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Readwise Proposals · 2026-04-20</title>
+<style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;}
+:root.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75} a{color:var(--accent)} .wrap{max-width:1120px;margin:0 auto;padding:32px 20px 72px} .top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:24px} h1{margin:0;font-size:2rem} .muted{color:var(--text3)} .btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer} .hero,.section,.card{background:var(--surface);border:1px solid var(--border);border-radius:18px} .hero{padding:24px;margin-bottom:24px} .section{padding:24px;margin-top:24px} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px} .card{padding:18px} .meta-row{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:var(--text3);flex-wrap:wrap} .badge{color:var(--accent3);font-weight:700} .summary{margin:12px 0} .analysis{background:var(--surface2);padding:12px 14px;border-radius:12px;margin:16px 0} ol,ul{margin:12px 0 0 20px} table{width:100%;border-collapse:collapse} th,td{border-bottom:1px solid var(--border);padding:10px;text-align:left;vertical-align:top} @media (max-width:840px){.grid{grid-template-columns:1fr} .top{flex-direction:column} }
+</style>
+</head>
+<body>
+<div class='wrap'>
+  <div class='top'>
+    <div>
+      <h1>Readwise Proposals</h1>
+      <div class='muted'>公理：不可行动的信息 = 噪音</div>
+    </div>
+    <button id='theme-toggle' class='btn'>🌙</button>
+  </div>
+  <section class='hero'>
+    <p><strong>总体判断：</strong>这 5 个 proposal 不是 5 个孤立点子，而是一条从 <strong>execution → trust → embedding → enablement → governance</strong> 的连续路线：先让 Agent 稳定做事，再让组织放心接入，然后让更多人以低风险方式使用，最后把成本与策略显性化。</p>
+    <table>
+      <thead><tr><th>Proposal</th><th>连接项目</th><th>一句话核心主张</th></tr></thead>
+      <tbody>
+        <tr><td><a href='#proposal-1'>Proposal 1 · Agentic Test Factory Harness</a></td><td>Life OS / Testing Excellence</td><td>不要再让单个 Agent 硬扛超长任务；应改造成“主 Agent 调度 + 子 Agent 执行 + 文件级进度持久化 + 自动评估”的软件工厂流程。</td></tr><tr><td><a href='#proposal-2'>Proposal 2 · Harness Spine / Trust Architecture</a></td><td>Life OS / Skill Hub</td><td>先做一条可复用的 Harness Spine，把一切会动手的能力纳入同一 Trust Path，让权限、上下文、验证、恢复共享。</td></tr><tr><td><a href='#proposal-3'>Proposal 3 · Workflow-Embedded Agent Bridge</a></td><td>Vibe Stack / Baozun Ontology</td><td>把“Agent 调工具”改成“工作流接 Agent”：让内部系统通过双向会话实时暴露当前流程状态和合法操作，Agent 成为流程内协作者。</td></tr><tr><td><a href='#proposal-4'>Proposal 4 · IKEA Internal Maker Kit</a></td><td>AI Starter Kit / AI Upskill Trainer / Vibe Stack</td><td>IKEA 不需要“人人都成工程师”；需要一条受控 Golden Path，让 BA / Ops / Analyst / PM 能像工程师一样在一周内交付低风险内部工具。</td></tr><tr><td><a href='#proposal-5'>Proposal 5 · Manifest Policy Router</a></td><td>AI Starter Kit / Skill Hub / Vibe Stack</td><td>把模型选择从个人经验搬到 manifest 驱动的策略层：按 cost、latency、reasoning need、data sensitivity、trust tier 自动路由，并输出可审计的 ROI。</td></tr>
+      </tbody>
+    </table>
+  </section>
+  
+    <section id='proposal-1' class='section'>
+      <div class='meta-row'><span class='badge'>Life OS / Testing Excellence</span><a href='https://read.readwise.io/read/01kpm48kmx9a804ngyhaczvb2e' target='_blank' rel='noreferrer'>原始信号</a></div>
+      <h2>Proposal 1 · Agentic Test Factory Harness</h2>
+      <p class='summary'><strong>核心主张：</strong>不要再让单个 Agent 硬扛超长任务；应改造成“主 Agent 调度 + 子 Agent 执行 + 文件级进度持久化 + 自动评估”的软件工厂流程。</p>
+      <div class='grid'>
+        <div class='card'><h3>实施里程碑</h3><ol><li>定义 task schema、progress.json、失败分类。</li><li>做主从调度原型，先稳定跑完 1 个模块的测试修复。</li><li>接入 test/lint verdict，子任务完成必须带机器可读结果。</li><li>打通从 failing tests 到 draft PR 的闭环。</li><li>抽成模板，供其他仓库复用。</li></ol></div>
+        <div class='card'><h3>成功标准</h3><ul><li>长程任务连续执行成功率 ≥ 80%。</li><li>单日稳定处理 100+ failing tests 或 5+ 模块批次。</li><li>中断后 5 分钟内从 progress 文件恢复。</li></ul></div>
+      </div>
+      <div class='analysis'><strong>ROI / 业务影响：</strong>测试债清理效率提升 3–5 倍，人工盯盘从全程跟随降为异常介入。</div>
+      <div class='grid'>
+        <div class='card'><h3>本周立即行动</h3><ol><li>选 1 个真实测试债仓库做样板。</li><li>定义最小 harness 协议。</li><li>录 1 次扫描→分批→修复→验证 demo。</li></ol></div>
+        <div class='card'><h3>诚实挑战</h3><p>如果根因其实是测试基建太脏而不是 orchestration，这个方案要降级成“自动分类 + 辅助修复”，不能假装平台万能。</p></div>
+      </div>
+    </section>
+    
+    <section id='proposal-2' class='section'>
+      <div class='meta-row'><span class='badge'>Life OS / Skill Hub</span><a href='https://read.readwise.io/read/01kpk5781df9fcgdwkee87pkya' target='_blank' rel='noreferrer'>原始信号</a></div>
+      <h2>Proposal 2 · Harness Spine / Trust Architecture</h2>
+      <p class='summary'><strong>核心主张：</strong>先做一条可复用的 Harness Spine，把一切会动手的能力纳入同一 Trust Path，让权限、上下文、验证、恢复共享。</p>
+      <div class='grid'>
+        <div class='card'><h3>实施里程碑</h3><ol><li>定义 Spine Contract：action schema / approval modes / evidence log / session snapshot。</li><li>落 Trust Gateway，统一 shell/file/network/skill policy。</li><li>落 Context Spine：working memory、summary checkpoint、resume protocol。</li><li>落 Verification Layer：manifest + checker。</li><li>用 Life OS 与 Skill Hub 各跑 1 个试点。</li></ol></div>
+        <div class='card'><h3>成功标准</h3><ul><li>高风险 write/execute/external-call 100% 经过 Gateway。</li><li>会话恢复到可继续状态 ≤ 30 秒。</li><li>新 skill 接入耗时 ≤ 0.5 人天。</li></ul></div>
+      </div>
+      <div class='analysis'><strong>ROI / 业务影响：</strong>统一 trust/control plane 后，后续 Agent 项目不再重复补权限、记忆、验证，组织信任成本显著下降。</div>
+      <div class='grid'>
+        <div class='card'><h3>本周立即行动</h3><ol><li>拆 10 个真实 agent 任务做 trace inventory。</li><li>起草 Harness Contract v0.1。</li><li>用同一套 gateway 包 1 个 Life OS flow + 1 个 Skill Hub flow。</li></ol></div>
+        <div class='card'><h3>诚实挑战</h3><p>最大风险是抽象过度；若 2 周内不能显著提升试点稳定性，它就只是优雅架构。</p></div>
+      </div>
+    </section>
+    
+    <section id='proposal-3' class='section'>
+      <div class='meta-row'><span class='badge'>Vibe Stack / Baozun Ontology</span><a href='https://read.readwise.io/read/01kpjtwnevfjk9c7ymdfg63nf0' target='_blank' rel='noreferrer'>原始信号</a></div>
+      <h2>Proposal 3 · Workflow-Embedded Agent Bridge</h2>
+      <p class='summary'><strong>核心主张：</strong>把“Agent 调工具”改成“工作流接 Agent”：让内部系统通过双向会话实时暴露当前流程状态和合法操作，Agent 成为流程内协作者。</p>
+      <div class='grid'>
+        <div class='card'><h3>实施里程碑</h3><ol><li>锁定 1 个高频流程切片并量基线。</li><li>做 WS Bridge、权限校验、动作 manifest v0。</li><li>在真实页面接入 3–5 个安全动作。</li><li>补审计、失败回放和第二流程复用验证。</li></ol></div>
+        <div class='card'><h3>成功标准</h3><ul><li>单流程接入周期 ≤ 5 个工作日。</li><li>人工复制粘贴次数下降 80%+。</li><li>首个流程平均处理时长下降 30%+。</li><li>第二个流程复用率 ≥ 70%。</li></ul></div>
+      </div>
+      <div class='analysis'><strong>ROI / 业务影响：</strong>让 Baozun ontology 从研究材料变成可执行资产，也让 Vibe Stack 从页面/API 承载层升级为业务协作层。</div>
+      <div class='grid'>
+        <div class='card'><h3>本周立即行动</h3><ol><li>选 20 个真实异常 case 建基线。</li><li>定义 session/entity/state/allowedActions schema。</li><li>先做查单、校验、草拟建议，不直接执行高风险操作。</li></ol></div>
+        <div class='card'><h3>诚实挑战</h3><p>很容易做成比普通自动化更重的平台工程；若第二流程复用率上不去，应立即收缩。</p></div>
+      </div>
+    </section>
+    
+    <section id='proposal-4' class='section'>
+      <div class='meta-row'><span class='badge'>AI Starter Kit / AI Upskill Trainer / Vibe Stack</span><a href='https://read.readwise.io/read/01kpj3ck6zkb5g2znmpg1pcb36' target='_blank' rel='noreferrer'>原始信号</a></div>
+      <h2>Proposal 4 · IKEA Internal Maker Kit</h2>
+      <p class='summary'><strong>核心主张：</strong>IKEA 不需要“人人都成工程师”；需要一条受控 Golden Path，让 BA / Ops / Analyst / PM 能像工程师一样在一周内交付低风险内部工具。</p>
+      <div class='grid'>
+        <div class='card'><h3>实施里程碑</h3><ol><li>定义 maker lane 白名单/黑名单。</li><li>做 Golden Path：模板 UI、认证、Simple API、部署脚手架、示例应用。</li><li>跑 1 个 cohort + 3 个真实场景。</li><li>沉淀模板目录、owner 机制、案例库。</li></ol></div>
+        <div class='card'><h3>成功标准</h3><ul><li>Time-to-first-tool ≤ 5 个工作日。</li><li>≥ 60% pilot 参与者交付至少 1 个可用工具。</li><li>首轮 ≥ 10 个真实内部工具，且 ≥ 70% 基于模板。</li><li>0 个高风险安全事故。</li></ul></div>
+      </div>
+      <div class='analysis'><strong>ROI / 业务影响：</strong>把“培训很多，成品很少”变成“以工具交付衡量 adoption”，同时释放小需求对工程队列的挤占。</div>
+      <div class='grid'>
+        <div class='card'><h3>本周立即行动</h3><ol><li>回看 Jira/Teams，筛 10 个高频低风险场景。</li><li>发布一页纸 pilot 边界。</li><li>用现有 Vibe Stack 交付 1 个样板应用。</li></ol></div>
+        <div class='card'><h3>诚实挑战</h3><p>若 data access / auth 仍慢，maker enablement 只会更快地卡在老地方。</p></div>
+      </div>
+    </section>
+    
+    <section id='proposal-5' class='section'>
+      <div class='meta-row'><span class='badge'>AI Starter Kit / Skill Hub / Vibe Stack</span><a href='https://read.readwise.io/read/01kpj3ckdwymb72vppvct278dy' target='_blank' rel='noreferrer'>原始信号</a></div>
+      <h2>Proposal 5 · Manifest Policy Router</h2>
+      <p class='summary'><strong>核心主张：</strong>把模型选择从个人经验搬到 manifest 驱动的策略层：按 cost、latency、reasoning need、data sensitivity、trust tier 自动路由，并输出可审计的 ROI。</p>
+      <div class='grid'>
+        <div class='card'><h3>实施里程碑</h3><ol><li>定义 4 个模型层级与 policy manifest v0。</li><li>做统一 router / proxy，记录请求特征、路由决策与成本。</li><li>先接 ASK 一个场景、Vibe Stack 一个场景。</li><li>做 dashboard：成本、命中率、fallback、异常。</li><li>把推荐 manifest 作为 Skill Hub 可分发资产。</li></ol></div>
+        <div class='card'><h3>成功标准</h3><ul><li>试点场景 inference cost 下降 ≥ 40%。</li><li>路由额外延迟 &lt; 150ms。</li><li>≥ 90% 请求由策略自动决定 tier。</li><li>敏感流量误路由到不合规模型 = 0。</li></ul></div>
+      </div>
+      <div class='analysis'><strong>ROI / 业务影响：</strong>把 AI 投入从“拍脑袋买更强模型”转成“按任务复杂度精准配置”，便于向管理层讲清 cost-to-value。</div>
+      <div class='grid'>
+        <div class='card'><h3>本周立即行动</h3><ol><li>盘点 2 周内真实模型调用样本。</li><li>起草带 8 个决策维度的 v0 manifest。</li><li>接 1 个 ASK 命令与 1 个 Vibe Stack API 做 A/B。</li></ol></div>
+        <div class='card'><h3>诚实挑战</h3><p>若内部流量还太小、场景太异质，路由层可能先带来复杂度，再带来节省。</p></div>
+      </div>
+    </section>
+    
+</div>
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body></html>

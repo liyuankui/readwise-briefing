@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Readwise Briefing · 2026-04-20</title>
+<style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;}
+:root.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75} a{color:var(--accent)} .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 72px} .top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:24px} h1{margin:0;font-size:2rem} .muted{color:var(--text3)} .btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer} .hero,.section,.card{background:var(--surface);border:1px solid var(--border);border-radius:18px} .hero{padding:24px;margin-bottom:24px} .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px} .stat{background:var(--surface2);padding:14px;border-radius:14px} .stat b{display:block;font-size:1.5rem;color:var(--accent)} .section{padding:24px;margin-top:24px} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px} .card{padding:18px} .meta-row{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:var(--text3)} .badge{color:var(--accent3);font-weight:700} .summary{margin:10px 0} .analysis{background:var(--surface2);padding:12px 14px;border-radius:12px;margin:12px 0} .recommendation{border-left:4px solid var(--accent);padding:10px 14px;background:color-mix(in srgb, var(--accent) 7%, var(--surface));border-radius:0 12px 12px 0} .source{margin-top:12px;font-size:.9rem} ol,ul{margin:12px 0 0 20px} table{width:100%;border-collapse:collapse;font-size:.95rem} th,td{border-bottom:1px solid var(--border);padding:10px;vertical-align:top;text-align:left} .appendix{padding:10px 0;border-bottom:1px solid var(--border)} .appendix summary{cursor:pointer} @media (max-width: 840px){.grid,.stats{grid-template-columns:1fr} .top{flex-direction:column} }
+</style>
+</head>
+<body>
+<div class='wrap'>
+  <div class='top'>
+    <div>
+      <h1>Readwise 情报简报</h1>
+      <div class='muted'>2026-04-20 · 本轮取数 100 recent highlights + 100 recent documents</div>
+    </div>
+    <button id='theme-toggle' class='btn'>🌙</button>
+  </div>
+  <section class='hero'>
+    <p><strong>结论先行：</strong>这轮 Readwise 里最强的信号不是“某个新模型”，而是 <strong>Agent 从 demo 走向 production</strong> 所需的五块骨架：长程调度、trust spine、workflow bridge、maker enablement、policy routing。</p>
+    <div class='stats'>
+      <div class='stat'><b>200</b><span>总信号</span></div>
+      <div class='stat'><b>5</b><span>高价值方向</span></div>
+      <div class='stat'><b>7</b><span>备用收藏</span></div>
+      <div class='stat'><b>188</b><span>附录沉淀</span></div>
+    </div>
+  </section>
+  <section class='section'>
+    <h2>信号概览：5 个最值得深挖的方向</h2>
+    <table>
+      <thead><tr><th>方向</th><th>连接项目</th><th>一句话判断</th></tr></thead>
+      <tbody>
+        <tr><td><a href='readwise-proposals-20260420.html#proposal-1'>Agentic Test Factory</a></td><td>Life OS / Testing Excellence</td><td>长程任务的瓶颈在 orchestration，不在单次 prompt。</td></tr>
+        <tr><td><a href='readwise-proposals-20260420.html#proposal-2'>Harness Spine</a></td><td>Life OS / Skill Hub</td><td>权限、记忆、验证、恢复应先统一为 trust/control plane。</td></tr>
+        <tr><td><a href='readwise-proposals-20260420.html#proposal-3'>Workflow Agent Bridge</a></td><td>Vibe Stack / Baozun</td><td>真正的 AI 协作不该停在聊天窗外，而应进入业务流程节点。</td></tr>
+        <tr><td><a href='readwise-proposals-20260420.html#proposal-4'>Internal Maker Kit</a></td><td>ASK / Trainer / Vibe Stack</td><td>“人人都能做”要翻译成可控的 internal maker lane。</td></tr>
+        <tr><td><a href='readwise-proposals-20260420.html#proposal-5'>Manifest Router</a></td><td>ASK / Skill Hub / Vibe Stack</td><td>模型调用需要 policy layer，否则成本和风险无法治理。</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class='section'>
+    <h2>高价值内容（⭐ x5）</h2>
+    <div class='grid'>
+      
+    <article class="card">
+      <div class="meta-row"><span class="badge">⭐ x5 / 长程执行</span><span>Life OS · Testing Excellence</span></div>
+      <h3>把海量测试修复改造成主从调度的 Agentic Test Factory</h3>
+      <p class="summary">Claude Code 长任务会因 context compact 丢状态，单 agent 无法稳定吃完 1k 单测这类任务。高价值点不在 prompt，而在“任务分片 + 进度持久化 + 子 agent 重试策略”。</p>
+      <div class="analysis"><strong>为何相关：</strong>它直接命中 Life OS 的 Software Factory 目标，也给 Testing Excellence 一个可落地的自动化抓手。</div>
+      <div class="recommendation"><strong>建议动作：</strong>选 1 个真实测试债仓库，定义 progress.json 与批次策略，先跑 1 次模块级试点。</div>
+      <p class="source"><a href="https://read.readwise.io/read/01kpm48kmx9a804ngyhaczvb2e" target="_blank" rel="noreferrer">查看原文</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="meta-row"><span class="badge">⭐ x5 / Harness</span><span>Life OS · Skill Hub</span></div>
+      <h3>先做 Harness Spine，再谈更多 Agent 功能</h3>
+      <p class="summary">真实 Agent 系统的重心不是 loop，而是权限、上下文压缩、会话恢复、verification、subagent 委派与审计。Harness 才是生产级 Agent 的骨架。</p>
+      <div class="analysis"><strong>为何相关：</strong>Kyle 当前多条战线都在做“会动手的 Agent”，缺的是统一 trust/control plane。</div>
+      <div class="recommendation"><strong>建议动作：</strong>起草 Harness Contract v0.1：action schema、approval mode、evidence log、resume protocol。</div>
+      <p class="source"><a href="https://read.readwise.io/read/01kpk5781df9fcgdwkee87pkya" target="_blank" rel="noreferrer">查看原文</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="meta-row"><span class="badge">⭐ x5 / Workflow</span><span>Vibe Stack · Baozun Ontology</span></div>
+      <h3>把 Agent 从聊天窗外挂，前移到业务工作流内部</h3>
+      <p class="summary">与其不断给 Agent 塞工具，不如让业务系统把“当前实体、状态、合法动作、权限边界”实时暴露给 Agent。重点从 tool list 变成 workflow bridge。</p>
+      <div class="analysis"><strong>为何相关：</strong>这正好连接 Baozun Ontology 的实体/规则研究，与 Vibe Stack 的内部应用承载能力。</div>
+      <div class="recommendation"><strong>建议动作：</strong>锁 1 个高频流程切片（如订单异常处理），只做查询/校验/草拟建议 3 类安全动作。</div>
+      <p class="source"><a href="https://read.readwise.io/read/01kpjtwnevfjk9c7ymdfg63nf0" target="_blank" rel="noreferrer">查看原文</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="meta-row"><span class="badge">⭐ x5 / Enablement</span><span>AI Starter Kit · AI Upskill Trainer · Vibe Stack</span></div>
+      <h3>“人人都是工程师”应被翻译成 Internal Maker Kit</h3>
+      <p class="summary">真正可行的不是让所有人写核心系统，而是让 BA / Ops / PM 在受控边界内，一周交付低风险内部工具。价值在 Golden Path，而非再上更多课。</p>
+      <div class="analysis"><strong>为何相关：</strong>这与 Kyle 的采纳观察完全一致：高意愿、中能力、低方法论，缺的是模板和交付路径。</div>
+      <div class="recommendation"><strong>建议动作：</strong>整理 10 个高频低风险内部工具场景，配 1 个样板应用与一页纸边界规则。</div>
+      <p class="source"><a href="https://read.readwise.io/read/01kpj3ck6zkb5g2znmpg1pcb36" target="_blank" rel="noreferrer">查看原文</a></p>
+    </article>
+    
+    <article class="card">
+      <div class="meta-row"><span class="badge">⭐ x5 / Policy</span><span>AI Starter Kit · Skill Hub · Vibe Stack</span></div>
+      <h3>做一个 manifest 驱动的模型路由与策略层</h3>
+      <p class="summary">模型选择不应继续散落在 prompt 与个人经验里。把 cost / latency / sensitivity / reasoning need 写成 manifest，按策略路由到不同 tier，可把“可用”升级为“可治理”。</p>
+      <div class="analysis"><strong>为何相关：</strong>Kyle 需要把 AI 工具价值翻译成 business impact；路由层能直接给出成本、风险与命中率仪表盘。</div>
+      <div class="recommendation"><strong>建议动作：</strong>定义 4 个模型层级与 v0 policy manifest，先接入 1 个 ASK 场景 + 1 个 Vibe Stack 场景。</div>
+      <p class="source"><a href="https://read.readwise.io/read/01kpj3ckdwymb72vppvct278dy" target="_blank" rel="noreferrer">查看原文</a></p>
+    </article>
+    
+    </div>
+  </section>
+  <section class='section'>
+    <h2>备用收藏（⭐ x3）</h2>
+    <ul><li><a href='https://read.readwise.io/read/01kpk8h7gpxxp6rw2c09snpxrc' target='_blank' rel='noreferrer'>agent-worktree 出现跨区域、跨公司使用信号，说明 worktree/多 agent 工作流已开始形成事实标准。</a></li><li><a href='https://read.readwise.io/read/01kpj3ck37csc7p2zwkarh3bp3' target='_blank' rel='noreferrer'>Firecrawl 开源 web-agent，说明网页执行层正在快速 commoditize，适合关注而非立即自研。</a></li><li><a href='https://read.readwise.io/read/01kpj3ckgsw9ven6sgwc679ck2' target='_blank' rel='noreferrer'>极简 dotfiles + mise 趋势，提示 AI Starter Kit 应更偏收敛而非堆工具。</a></li><li><a href='https://read.readwise.io/read/01kpm3wj5aqytts54787kwytr4' target='_blank' rel='noreferrer'>HackerNews 04-20 中 Vercel OAuth 泄露提醒：第三方 AI 集成的信任链是平台化前置问题。</a></li><li><a href='https://read.readwise.io/read/01kpezwy35caqnvm7nm8cz0f5r' target='_blank' rel='noreferrer'>HackerNews 04-18 中 Claude 4.7 token/cost 上升，强化了“需要路由层”而非盲升模型的判断。</a></li><li><a href='https://read.readwise.io/read/01kpjtwn76cgtz2f0y4vzew634' target='_blank' rel='noreferrer'>免费 LLM API 清单说明低成本 experimentation 仍有窗口，适合 ASK 与教学演示。</a></li><li><a href='https://read.readwise.io/read/01kpk8h7rgjphcscqzqngs5xea' target='_blank' rel='noreferrer'>冥想 13 分钟 × 8 周的信号虽非技术，但提醒 Agentic 工作强度需要身体/注意力预算。</a></li></ul>
+  </section>
+  <section class='section'>
+    <h2>行动清单</h2>
+    <ol><li>为长程测试/修复任务定义 progress.json、batch size 与 retry policy。</li><li>产出 Harness Contract v0.1，把 permission / context / verification 统一起来。</li><li>选 1 个 Baozun/OMS 高频流程，做 workflow-embedded agent 的薄 PoC。</li><li>拉出 10 个 maker 场景，定义白名单边界与样板应用。</li><li>设计 manifest 路由策略与基础 ROI dashboard。</li></ol>
+  </section>
+  <section class='section'>
+    <h2>完整附录：Documents</h2>
+    <details class='appendix'><summary>tweet · 看到很多朋友问过一个问题，为什么给我的 Claude Code 安排任务，它都不会一口气执行完，而是跑最多几十分钟就停下来，然后问我要不要继续。例如让它把项目中的单测全部补全（大概 1k 个），它跑了大概 200 个就停下来了。</summary><p>看到很多朋友问过一个问题，为什么给我的 Claude Code 安排任务，它都不会一口气执行完，而是跑最多几十分钟就停下来，然后问我要不要继续。例如让它把项目中的单测全部补全（大概 1k 个），它跑了大概 200 个就停下来了。
+
+cc 并不是对一句话任务抗拒，如果不理解它的执行机制，很难设计出能跑长程任务的 harness 流程。
+
+在执行一个超大任务的时候，单 agent 的执行流程大概是这样的：1）刚开始是高效模式，指令遵循效果特别棒；2）跑了大概 80k tokens 的时候，context 开始逼近 compact 阈值；3）紧接着，对话历史被压缩为摘要，模型开始忘记刚才修复单测的细节；4）再经过一两轮 auto-compact，它甚至会开始重复检查已修复的测试，当触发 maxTurns 并且 response 没有 ToolUse 指令时，模型会退出任务，然后开始询问用户：&quot;我已经修复了约 200 个测试，要继续吗？&quot;
+
+如果你在当前 session，回复继续，接下来的工作，它会做的更加不符合预期，并且退出得更快。
+
+任何试图在一个 agent session 内完成海量工作的方案，最终都会碰到 context 膨胀 → compact → 信息丢失 → 效率下降的问题。
+
+其实优化方向也特别简单，设计一个主-子 Agent 的运行模式（任务调度器），同时将任务进度写到 file system 中（进度持久化），每个子 agent 有独立 context、独立退出逻辑，主 agent 只负责调度和进度追踪，从而绕过单一 agent 的所有瓶颈。
+
+因此给 cc 的指令需要包含至少这三部分：
+
+1）任务分解。不要给一个无边界的指令（如修复所有单测），而是先扫描出所有失败测试，按目录或模块分组，每组 15-30 个，作为一个独立子任务。关键是每个子任务的 prompt 必须自包含——写清楚文件路径、错误现象、期望行为，不能写&quot;根据之前的分析来修复&quot;，因为子 agent 看不到父 agent 的历史。
+
+2）进度持久化。在项目根目录维护一个 progress.json，记录 completed / failed / pending 三个列表。主 agent 每轮调度前读这个文件决定下一批任务，子 agent 完成后更新对应条目。这样即使主 agent 自己被 compact，重读文件就能恢复全部状态。
+
+3）失败策略。子 agent 报错时，如果错误可修复，用 SendMessage 继续同一个子 agent（保留错误上下文更高效）；如果方向完全错了，启动新的子 agent 避免锚定在错误路径上；多次失败则上报用户，不要无限重试烧 token。
+
+Claude Code 其实已经内建了这套能力。最直接的方式是启用 Coordinator Mode（输入</p><p><a href='https://read.readwise.io/read/01kpm48kmx9a804ngyhaczvb2e' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>rss · 2026 04 20 HackerNews</summary><p>
+  2026-04-20 Hacker News Top Stories
+  #
+
+
+
+康奈尔德语教师用手动打字机要求学生完成写作以远离AI与线上工具、重拾专注与交流，呼应高校回归纸笔/口试防作弊并引发“考试制 vs 持续考核”的争议。
+Vercel 因第三方 Context.ai 的 Google Workspace OAuth 被攻破而泄露标为“非敏感”的未加密环境变量，黑客自称售卖数据要价200万美元，暴露第三方AI依赖的安全薄弱环节。
+NIST 通过在硅片上三维集成多材料实现芯片级多波长可调谐激光器，显著缩小体积与成本、提升变频与开关效率，助力量子计算、原子钟、生医与通信应用。
+Vercel 披露内部系统遭入侵影响“有限子集客户”，起因为第三方AI工具的 OAuth 泄露并建议客户审计日志与轮换环境变量，凸显对外部服务依赖带来的系统性风险。
+作者批评 Figma 设计系统过度复杂、真理源回归代码，认为如 Claude Design 的 HTML/JS 工具可降设工摩擦但仍稚嫩，生态或分化为延续Figma与探索型创作两路。
+美以对伊朗冲突期间预测市场与油期货出现超10亿美元、与事件节点高度同步的押注，疑涉内幕信息且监管滞后，引发对预测市场伦理与腐败风险的争议。
+Notion 被曝公开页面可无认证枚举所有编辑者姓名与邮箱且自2022年来未修复，官方仅考虑移除或代理个人信息，暴露遗留依赖导致的隐私设计缺陷。
+文章提出 ALGOL、Lisp、ML、Self、Forth、APL、Prolog 七大“原语言”，主张先掌握其范式与核心抽象以加速跨语言迁移并深化对类型、对象、堆栈、向量化与逻辑推理的理解。
+迪拜一航空公司员工因在私人WhatsApp群组分享爆炸照片被捕，折射阿联酋对通信的深度监控与诱捕执法，引发对隐私和言论自由的担忧。
+为延长旅行者1号寿命，NASA 关闭低能带电粒子实验以应对RTG电力衰减，优先保留等离子波与磁强计继续获取星际介质数据。
+
+
+
+  1. 大学教师转向使用打字机以遏制人工智能写作作业 (College instructor turns to typewriters to curb AI-written work)
+  #
+
+
+https://sentinelcolorado.com/uncategorized/a-college-instructor-turns-to-typewriters-to-curb-ai-written-work-and-teach-life-lessons/
+这篇文章报道了康奈尔大学一位德语教师格里特·马蒂亚斯·费尔普斯（Grit Matthias Phelps）采用老式手动打字机进行教学的创新做法。每学期一次，她让学生们使用没有屏幕、没有拼写检查和在线翻译辅助的手动打字机完成德语写作作业，旨在让学生体验</p><p><a href='https://read.readwise.io/read/01kpm3wj5aqytts54787kwytr4' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · MacBook Neo 我的编程学习和音乐工作站，雏形有了</summary><p>MacBook Neo 我的编程学习和音乐工作站，雏形有了
+接下来，就是三块内容的持续学习与推进
+  
+1、结合 Scilab, Octave, Maxima, SageMath, JASP 
+学习数学、物理学、概率与统计 
+2、C/V/C++, Lisp/Erlang/LFE, Golang 编程学习 
+3、Ableton Live、FL Studio、Serato DJ Pro
+Guitar Pro、DJ Studio 音乐DJ练习与创作
+
+若 Neo 上不够用了，就在 Mini M4 上跑
+
+现在也使用 Neo + Hercules 日常练习打碟
+一些小型派对，这个配置也可应对
+
+别再说 Neo 配置太低，干不了什么活了
+作为 MacBook 入门机，Neo 简直不要太香
+使用 MacBook Neo 也1个月了
+https://t.co/nXHDa4ZijQ</p><p><a href='https://read.readwise.io/read/01kpk8h7wr9v1k3fbw4tx4gwbh' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 冥想数据：每天 13 分钟，8 周后注意力、记忆力、情绪调节都有可测量的提升。但 4 周不够，必须撑到 8 周。Huberman 本人说他准备从 5...</summary><p>冥想数据：每天 13 分钟，8 周后注意力、记忆力、情绪调节都有可测量的提升。但 4 周不够，必须撑到 8 周。Huberman 本人说他准备从 5 分钟加到 15 分钟。这个很重要啊</p><p><a href='https://read.readwise.io/read/01kpk8h7rgjphcscqzqngs5xea' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Introducing OpenMythos</summary><p>Introducing OpenMythos
+
+An open-source, first-principles theoretical reconstruction of Claude Mythos, implemented in PyTorch.
+
+The architecture instantiates a looped transformer with a Mixture-of-Experts (MoE) routing mechanism, enabling iterative depth via weight sharing and conditional computation across experts.
+
+My implementation explores the hypothesis that recursive application of a fixed parameterized block, coupled with sparse expert activation, can yield improved efficiency–performance tradeoffs and emergent multi-step reasoning.
+
+Learn more ⬇️🧵</p><p><a href='https://read.readwise.io/read/01kpk8h7mydb84gj2gdm08271a' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 来看下有哪些人在用 agent-worktree?</summary><p>来看下有哪些人在用 agent-worktree?
+
+地域: 中国 40+、美国 20+、欧洲 15+、印度/东南亚 15+、日韩 5+、中东/拉美各若干
+
+公司:  Google + SpaceX + Figma + Adobe + JPMorgan + 阿里 + 美团 + 饿了么 + Bob 翻译作者 + Apache ShardingSphere 贡献者全都在</p><p><a href='https://read.readwise.io/read/01kpk8h7gpxxp6rw2c09snpxrc' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 这篇 arXiv 的《Dive into Claude Code》，感觉最有用的地方是讲清楚了，其实Claude Code这种系统一旦进入真实环境，工程重点立刻就变的很现实。</summary><p>这篇 arXiv 的《Dive into Claude Code》，感觉最有用的地方是讲清楚了，其实Claude Code这种系统一旦进入真实环境，工程重点立刻就变的很现实。
+
+Claude Code当然是个 coding agent，会跑 shell、会改文件、会调外部服务。  模型循环本身并不复杂。  
+
+文中直接写了Claude Code的核心就是反复调用模型、执行工具、再根据结果继续往下走。
+  
+论文里整理得出，真正占分量的是围在外面的那一圈系统设计:
+
+权限控制、审批模式、上下文压缩、插件和 skill 的扩展面、subagent 的委派、会话持久化。  
+
+分析结论：
+
+今天决定agent 产品成败的，是“怎么在真实世界里动手”，而非“会不会想”，
+
+很多人谈 agent，还停留在 prompt、loop、planning 这些表层词汇。
+
+Claude Code 这类产品越来越在意的一点却是一旦真的要进项目、进终端、进文件系统，马上就碰到很现实的问题。
+
+文件能不能碰。  
+命令能不能跑。  
+风险怎么分级。  
+用户什么时候该介入。  
+上下文太长了怎么办。  
+会话断了怎么接回去。
+
+这些问题不花哨，但恰恰这些才是生产系统的骨架。
+
+文章给 Claude Code 提炼了五个出发点，
+
+-人始终保留决策权，
+-系统要守住安全和隐私，
+-执行要稳定，
+-人的能力得要真的放大，
+-还得慢慢适应不同用户的项目环境和信任关系。
+
+Claude Code 的设计品味清楚得很。就是没有把大量精力放在“用显式状态机把模型一步步管死”这种方向上。 
+更像是在给一个越来越强的模型准备工作现场，让它有护栏，有工具，有恢复机制也有边界。
+
+还有就是把 context 当成主约束来看。  
+
+很多人总觉得上下文管理只是优化项，模型更大一点就好了。  
+
+但这篇分析的判断却是：context 根本就是成本、稳定性和任务质量的交叉点。如果带着错的上下文开工，后面会越跑越偏。  
+
+所以压缩、筛选、延迟加载也是主工程，不是边角料。
+
+跟OpenClaw对比这一段也挺有意思。  
+同样一组问题，放在不同产品形态里，答案会完全不同。没有什么谁比谁更先进，
+  
+CLI 里的 coding agent和一个多通道的 assistant gateway，天然就不会长成一样。  
+
+权限边界不同，扩展方式不同，运行时位置不同，整套架构的重心也会变。
+
+所以这篇文章帮助你更确定了一件事，那就是agent architecture 说到底是在设计一套运行秩序。  
+
+模型就像发动机。能不能上路，靠的是刹车、方向盘、仪表盘和路权规则。
+
+虽然基于公开源码和公开资料，这篇第三方分析终归不是 Anthropic 自己写的官方架构说明。  
+拿来理解设计思路，很有价值。  
+但不能拿来把所</p><p><a href='https://read.readwise.io/read/01kpk5781df9fcgdwkee87pkya' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 警告三次不如动真格一次！中方下达停运令，西方航运巨头集体懵圈近日，国际航运界突发重磅事件。全球集装箱航运排名前两位的巨头——丹麦马士基和瑞士地中海航运（MSC），突然收到中方正式通知：立即停止巴拿马运河沿线两大核心港口的全部运营。没有缓冲期、无协商余地，一纸停运令干净利落。此前，中方已多次发出警告，要求相关方正视中资海外资产权益，但对方置若罔闻。连续三次耐心沟通无果后，中方果断出手，用实际行动捍卫底线。这次“动真格”，不仅让两大航运巨头高层紧急沟通、态度急转直下，更让西方媒体一时集体失语。分析人士指出，中国作为全球最大贸易国，手握庞大市场筹码。两大巨头在中国市场的业务占比近三成，离开这一核心版图，损失难以估量。此次停运令，既是精准反制，也是向所有试图挑战中方核心利益者发出的清晰信号：警...</summary><p>警告三次不如动真格一次！中方下达停运令，西方航运巨头集体懵圈近日，国际航运界突发重磅事件。全球集装箱航运排名前两位的巨头——丹麦马士基和瑞士地中海航运（MSC），突然收到中方正式通知：立即停止巴拿马运河沿线两大核心港口的全部运营。没有缓冲期、无协商余地，一纸停运令干净利落。此前，中方已多次发出警告，要求相关方正视中资海外资产权益，但对方置若罔闻。连续三次耐心沟通无果后，中方果断出手，用实际行动捍卫底线。这次“动真格”，不仅让两大航运巨头高层紧急沟通、态度急转直下，更让西方媒体一时集体失语。分析人士指出，中国作为全球最大贸易国，手握庞大市场筹码。两大巨头在中国市场的业务占比近三成，离开这一核心版图，损失难以估量。此次停运令，既是精准反制，也是向所有试图挑战中方核心利益者发出的清晰信号：警告可以多次，底线不容试探；行动一次，胜过千言。</p><p><a href='https://read.readwise.io/read/01kpk577wnf9bv3883jmym7bg6' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Luffa + Claude Opus 4.6从零搭建黄金量化看板的实战复盘</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpjtwnj3scnb8fbvdmvpx71c' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 有些烦什么系统都往 agent 里塞个工具的模式。想了一下，把 mcp 改造为双向协议，把 agent 本身改造为外挂。</summary><p>有些烦什么系统都往 agent 里塞个工具的模式。想了一下，把 mcp 改造为双向协议，把 agent 本身改造为外挂。
+业务系统需要的时候一条 ws 连接接上 agent，把业务能力反向暴露给 agent。
+这样可以在任何业务流程里无痛接入 agent 了。</p><p><a href='https://read.readwise.io/read/01kpjtwnevfjk9c7ymdfg63nf0' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Elon Musk亲自转发的这个89分钟访谈，是这个周末看过最有价值的内容。</summary><p>Elon Musk亲自转发的这个89分钟访谈，是这个周末看过最有价值的内容。
+
+没有八卦，没有鸡汤，作者花了五年时间，读了三百万字Elon的公开言论，像解剖机器人一样，把他的大脑操作系统完整拆给你看。
+
+一、他和普通人最根本的区别
+
+普通人的努力是加法，一个能力点提升百分之十。
+Elon的努力是乘法，十个能力点同时提升，每个点还互相放大。
+最后出来的效果，是一万倍的差距。
+他所有的决策都从物理定律出发，从不被行业惯例束缚。
+再用百分之五十的成功概率疯狂压缩时间线，宁可早失败早调整，也绝不等到百分之百确定。
+
+二、所有Elon公司都在用的五步算法
+
+这是整个视频最炸裂的部分，没有之一。
+第一步，质疑每一个要求，把每条规则后面的人名写出来，问这是谁定的为什么。
+第二步，删除，能删就删，最多加回百分之十。
+第三步，简化和优化。
+第四步，加速。
+第五步，自动化。
+绝大多数人都把顺序搞反了，先自动化了本来就应该删掉的低效流程。
+
+三、他的团队管理哲学
+
+在Elon的公司干活不是终身制，是服役期。
+干完一仗大家可以走，但必须全力以赴。
+他要的不是和谐的团队，是方向一致的高能量个体的向量之和。
+他身边有二十个左右能完全理解他意志，自主执行的人。
+他们像病毒一样把指令扩散到整个公司。
+他选择对使命的同理心，而不是对个人的同理心。
+他愿意被讨厌，因为被讨厌本身就是一种竞争优势。
+
+四、最反直觉的心态
+
+他永远在算机会成本。
+花十万美元加速一个零件，可能拯救未来每天一千万美元的收入。
+他的野心是S曲线的，做到一半立刻拉一个更大的目标。
+让愿景永远大到没人能准确衡量。
+他把人生当模拟器，挫折失败舆论攻击，都只是游戏里的关卡。
+输了就重来。
+
+五、最后说一句
+
+你不需要成为Elon Musk 你也成不了。
+，你可以把他的思考框架和执行算法，用在你自己的项目和工作里。
+
+把宏大使命，极端删减，疯狂加速变成习惯。
+你就已经在用乘法，而不是加法过日子了。
+@elonmusk Thank you for bringing goodness and change to this world.</p><p><a href='https://read.readwise.io/read/01kpjtwnb5qfh2bv8rxvh9q5x8' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 作者还整理了一份列表，汇总当前可永久免费使用的 LLM API，列出了模型、上下文和速率限制，帮助开发者零成本接入大模型。看了一下，其中有些模型完全能够胜任四档模型中的简单和标准层级，例如：</summary><p>作者还整理了一份列表，汇总当前可永久免费使用的 LLM API，列出了模型、上下文和速率限制，帮助开发者零成本接入大模型。看了一下，其中有些模型完全能够胜任四档模型中的简单和标准层级，例如：
+
+Gemini - Gemini 2.5 Flash
+Z AI - GLM-4.7-Flash、GLM-4.6V-Flash
+Cerebras - gpt-oss-120b、zai-glm-4.7
+Cloudflare - qwq-32b
+GitHub - gpt-4.1、gpt-4o、o4-mini
+Groq - gpt-oss-120b
+NVIDIA - minimax-m2.7
+……
+
+https://t.co/RK2p997B56</p><p><a href='https://read.readwise.io/read/01kpjtwn76cgtz2f0y4vzew634' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 如何科学增强记忆力</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpjtwn2yk61hrbe7vj8fc3c6' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 看到越来越多的开发者开始使用 mise，我又开始相信自己的直觉了。😁</summary><p>看到越来越多的开发者开始使用 mise，我又开始相信自己的直觉了。😁</p><p><a href='https://read.readwise.io/read/01kpjtwmyspgjaaxv6zxynqg0g' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 1/ 用了三年的 M2 Air 16G，在 Agents + Chrome 多开下已经撑不住了。回国顺手换了台 M5...</summary><p>1/ 用了三年的 M2 Air 16G，在 Agents + Chrome 多开下已经撑不住了。回国顺手换了台 M5 Pro MBP 48G，从零开始配。
+
+原则：less is more。只留离不开的，其它一律 say goodbye。
+
+2026 我的开发环境 👇</p><p><a href='https://read.readwise.io/read/01kpjqmd51z0s5vt3nsktmbjwb' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · The Anatomy of an Agent Harness </summary><p>An agent harness is the software system that wraps a large language model to enable goal-directed behavior using tools, memory, and error handling. It manages context, tool calls, safety, and verification to make the agent reliable and useful in production. Different frameworks implement harnesses, balancing complexity between the model and infrastructure to improve performance as models evolve.</p><p><a href='https://read.readwise.io/read/01kpjqmd06hz8f4p6gc3ejnq3d' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 最近经历越来越多的事情让我在加速做这三件事</summary><p>最近经历越来越多的事情让我在加速做这三件事
+
+1.维护心力
+2.做减法
+3.第一性原理&amp;澄清问题本质</p><p><a href='https://read.readwise.io/read/01kpjqmcw237zrmyzpmr24v671' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · AI时代，你的身体已经敲响警钟</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpjqmcq92mr6c6shztm3ank4' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Agentic Coding 的边界</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpj68k8mzps7vv7mayy0vk91' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 主业养家糊口，副业暗中屠龙 </summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpj68k3zqkc4fqqmk45db59j' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 今早花了一小时把 dotfiles 装修了一下</summary><p>今早花了一小时把 dotfiles 装修了一下
+
+和什么花哨的 oh-my-zsh， zsh-plugin， iTerm2 config  全部说再见了
+
+现在核心就两个 brew：管理所有系统依赖，msie： 管理所有开发依赖，新机器直接  一把就全部装回来了爽到！</p><p><a href='https://read.readwise.io/read/01kpj3ckgsw9ven6sgwc679ck2' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 我今天才知道 manifest，感觉是一个更好看的 New-API。</summary><p>我今天才知道 manifest，感觉是一个更好看的 New-API。
+
+为个人 AI Agent 提供智能模型路由，自动将简单请求路由到便宜模型，复杂请求路由到高级模型，节省高达 70% 成本。请求先经过 23 维度评分算法（2ms 内完成），自动分配到 Simple → Reasoning 四档之一，每个层级可配置最多 5 个备选模型。支持 300+ 模型，兼容 API key 和已有的订阅（ChatGPT Plus、Claude Max、OpenCode Go等），可以 Docker 一键自托管。
+
+https://t.co/28pPA5GDLO</p><p><a href='https://read.readwise.io/read/01kpj3ckdwymb72vppvct278dy' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 🚀好消息！NVIDIA 限时福利：一年期 API Key 免费领！</summary><p>NVIDIA is offering a free one-year API key for their NIM AI platform. You can register at build.nvidia.com and get a key to use models like MiniMax 2.7. This service is free for research and development but not for commercial use.</p><p><a href='https://read.readwise.io/read/01kpj3ckajcheg7qyr0qhz8txg' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Everyone is engineer 人人都是工程师的时代到来</summary><p>Everyone is engineer 人人都是工程师的时代到来
+
+以前是只能想，现在是人人都能 Do，所以之前只有 “人人都是产品经理”
+
+Anthropic 的增长负责人一个人用 Claude Code 做增长工程完成之前需要一个团队包括工程师才能做的事情
+
+现在市场称这类增长运营人员为 “分销工程师” The distribution engineer</p><p><a href='https://read.readwise.io/read/01kpj3ck6zkb5g2znmpg1pcb36' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 🚀 Firecrawl 重磅开源 web-agent！</summary><p>🚀 Firecrawl 重磅开源 web-agent！
+
+100% 开源框架，任意模型都能轻松构建搜索、抓取、交互网页的 AI Agent，直接起飞！
+
+想打造自己的网页 Agent 开发者，现在就可以 fork 直接玩！</p><p><a href='https://read.readwise.io/read/01kpj3ck37csc7p2zwkarh3bp3' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 哪些书籍启迪了哈萨比斯(DeepMind创始人/诺奖得主)？</summary><p>哪些书籍启迪了哈萨比斯(DeepMind创始人/诺奖得主)？
+
+科幻和科学著作为主，特别适合给青少年/科技人员
+《《集异璧》》、《银河系漫游指南》、《基地》、《文明》
+以及Altman所推崇的那些现代作品
+收藏+转发! 
+
+英文清单👇
+Demis Hassabis’s Inspirations
+Ender’s Game
+The Chess Computer Handbook
+Gödel, Escher, Bach
+Foundation series
+Culture series
+Crowds and Power
+The Hitchhiker’s Guide to the Galaxy
+The Making of the Atomic Bomb
+
+Other AI people&#x27;s Inspirations
+The Ingenuity Gap
+Inventing the Future
+Owning Your Own Shadow
+Reinforcement Learning
+The Age of Spiritual Machines
+You and Your Research
+The Years of Lyndon Johnson
+Why AI Will Save the World
+Moore’s Law for Everything</p><p><a href='https://read.readwise.io/read/01kpj3cjz7vgdpte0pgfjd5tmb' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>rss · 2026 04 19 HackerNews</summary><p>
+  2026-04-19 Hacker News Top Stories
+  #
+
+
+
+作者将多服务从 DigitalOcean 迁至 Hetzner，大幅降本并提速，按降 TTL、rsync、MySQL 复制与反代切换等步骤实现零停机并完成 CentOS7→AlmaLinux 9.7 升级。
+smolvm 提供亚秒级冷启动、单文件打包与默认隔离网络的便携虚拟机，旨在以类容器易用性取代 Docker，并关注 k3s 与未来直播迁移等能力。
+月球尘埃极细尖锐且与氧接触迅速反应散发似火药气味，致“月球花粉症”等刺激风险，未来任务需更强过滤、密封与除尘。
+社区对比显示升级至 Opus 4.7 后平均请求体积与成本统计上升约三成，同时强制自适应思考让输出更短引发质量争议且无法关闭。
+Kdenlive 2025 年多次更新并规划 26.04 功能，用户称其功能强与门槛低但稳定性受质疑，部分更偏好更简洁且略稳的 Shotcut。
+日本铁路的领先源于企业结构与土地/交通政策协同（含私铁“轨道+地产”模式），并以严禁路边停车和购车需车位证明等制度支撑高密度公共出行。
+该区间计算器以不相交区间并集进行运算并采用全精度向外舍入，能正确处理含零除法与函数逆等传统区间算术难题。
+iTerm2 因 SSH 集成误信终端转义致本地命令被拼接执行，甚至“cat readme.txt”即可触发 RCE，补丁未入稳定版提醒谨慎查看不受信文本。
+B-52 的星象跟踪仪采用机电角度计算机以齿轮、电机与同步器实现三角运算，将星历转为本地方位与高度以驱动自动锁星并输出导航定位。
+Amiga Graphics Archive 收藏展示 Amiga 图形与技术史料，并对 68000 系列“16/32 位”称谓与架构特性提供背景讨论。
+
+
+
+  1. 从 DigitalOcean 迁移到 Hetzner (Migrating from DigitalOcean to Hetzner)
+  #
+
+
+https://isayeter.com/posts/digitalocean-to-hetzner-migration/
+这篇文章详细介绍了作者将服务器从 DigitalOcean 迁移到 Hetzner 的全过程，重点强调了迁移过程中实现零停机时间的策略和技术细节。作者因土耳其里拉贬值导致美元计价的基础设施费用大幅上涨，决定寻找性价比更高的服务器，最终选择了 Hetzner 的 AX162-R 服务器，月费用从 1432 美元降至 233 美元，每年节省约 1.4 万美元，同时硬件配置更强大。
+迁移涉及的系统包括 30 个 MySQL 数据库（248GB 数据）、34 个 Nginx 虚拟主机、GitLab EE、Neo4j 图数据库、Supervisor 后台任务管理、Gearman 任务队列及多个活跃的</p><p><a href='https://read.readwise.io/read/01kphmg7bbnfyn9nq99j7sxh0e' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 什么才是真正的 Harness Engineering？ </summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpgbyvpjfdgath5trm0vx3s2' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 兄弟们，上手体验了下， 给我的Reddtrends产品做了一个产品宣传视频。</summary><p>兄弟们，上手体验了下， 给我的Reddtrends产品做了一个产品宣传视频。
+
+一键直出，提示词👇
+
+“你访问我的产品网站：，然后使用 /hyperframes 制作一个产品宣传视频”</p><p><a href='https://read.readwise.io/read/01kpg1p70zbep2nbvntydgpq5v' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 另一个绘制svg图标的 skill，效果也有点意思。</summary><p>另一个绘制svg图标的 skill，效果也有点意思。
+
+
+
+这是我让他绘制的 pi-autoresearch 插件的架构图。模型 claude sonnet 4.6 medium</p><p><a href='https://read.readwise.io/read/01kpg1p6x4awr5t9mef7byfz19' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 一文说清你到底需不需要部署本地大模型？</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpg1p6rtxzvr8gjvvdyyxemm' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · #BestBlogs 早报 2026-04-18</summary><p>#BestBlogs 早报 2026-04-18 
+
+强烈推荐观看 AI Engineering 的几个大神的演讲，包括 Peter Steinberger、Mario Zechner 和 Ryan Lopopolo</p><p><a href='https://read.readwise.io/read/01kpfy6rn5x45dwem7pxxty7nw' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 健康这个话题怎么强调都不为过</summary><p>健康这个话题怎么强调都不为过 
+我最近喜欢用这句话来表达：构建自己的健康体系，包括5个核心要素，睡眠、运动、饮食、情绪、药物 
+它们之间，相辅相成 
+真正长期有用且对自己的健康体系产生复利的方法和手段，都不用怎么花钱 
+
+这5个要素中，睡眠的重要性其实被大大低估了 
+睡眠不足，或者睡眠质量差，会严重损害这套健康体系
+
+如何提升睡眠质量？
+不内耗，规律饮食与作息，规律且有一定强度的有氧和力量运动，降低物欲</p><p><a href='https://read.readwise.io/read/01kpfy6rh4n6e836d9m1xf7gm7' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 内容创作者最该记住的三句话：1，爱一个人，就把他蒸馏掉&quot; ——用NotebookLM吞噬大佬全部内容，直接对话学习。2，垂直小号一周成专家&quot; ——AI让你深耕7天建立认知壁垒，算法正在奖励细分。3，再穷不能穷模型&quot; ——每天50%工作时间用AI，让Claude+Obsidian成为选题雷达和第二大脑。</summary><p>内容创作者最该记住的三句话：1，爱一个人，就把他蒸馏掉&quot; ——用NotebookLM吞噬大佬全部内容，直接对话学习。2，垂直小号一周成专家&quot; ——AI让你深耕7天建立认知壁垒，算法正在奖励细分。3，再穷不能穷模型&quot; ——每天50%工作时间用AI，让Claude+Obsidian成为选题雷达和第二大脑。</p><p><a href='https://read.readwise.io/read/01kpfy6rcxaww4zjjx76thyqxe' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 我家小家伙每天4小时玩耍时间</summary><p>我家小家伙每天4小时玩耍时间
+现在开始自己烤Minecraft熟肉
+日常学习：主要用可汗学院英文版
+进度是校内3倍，体系也更清晰
+
+去年用过数学学院，略显枯燥
+过2年再试试
+
+杨振宁先生的渗透式框架学习法
+非常精妙
+回头写一篇长文</p><p><a href='https://read.readwise.io/read/01kpftq4j6dta5b86grynvxv48' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · OpenAI总裁：AI指数级演进，软件工程半年大变天</summary><p>OpenAI总裁：AI指数级演进，软件工程半年大变天
+以前是人适应电脑，现在是AI实现人的意图
+
+这动摇了当前教育的基础，
+我们需要重构孩子的学习内容。
+教育的本质，不是内容选择，
+而是层级分配。
+在学之前，厘清结构和重点 
+分清三层：
+a)不变的判断结构
+b)缓变的杠杆能力
+c)快速贬值的工具
+大多数人把时间花在了第三层。
+
+1. 知识和技能可分为3层
+① Timeless（不会过期）
+本质：跨时代有效的认知与判断结构
+判断力（风险 / 上限 / 结构识别）
+因果理解
+抽象能力
+学习能力
+决策框架
+👉 特点：
+不依赖具体工具或时代
+
+② Leverage Skills（杠杆技能｜半衰期较长）
+包括：
+编程（但不是语法，而是构建能力）
+写作（表达与结构）
+数学建模
+系统设计
+产品思维
+👉 特点：
+会随时代演进，但底层能力长期有效
+
+③ Time-sensitive（快速贬值）
+具体工具（某个框架、某个软件）
+具体语法细节
+平台规则（流量玩法等）
+👉 特点：
+容易被AI或新技术替代
+
+2. 孩子的注意力是稀缺的战略资产，
+必须集中在有长远价值的类别
+不可浪费在快速贬值的类别
+
+我家的配置结构嵌套
+① 主线：timeless（判断位）
+用 GPT 学：
+历史（决策与成败）
+科学（因果结构）
+商业（回报函数）
+人物（判断路径）
+👉 这是判断密度来源
+
+② 同步：AI表达与创造
+让孩子：
+用 GPT 写故事 / 做分析
+做小项目（Minecraft / 3D打印 / 内容创作）
+把想法变成具体产物
+👉 这是意图 → 现实的通道
+
+③ 自然长出：编程
+当孩子出现这些信号时进入：
+“我想让这个自动化”
+“这个功能做不到”
+“AI不够精确”
+👉 这时再学编程，
+
+不是学习，
+而是为了解锁更高表达能力
+
+3. 为什么这样更符合趋势？
+OpenAI正在做的事情，
+是降低执行门槛，让更多人进入“创造层”
+
+那么👇
+早学编程 → 优势在下降
+早形成判断 → 优势在上升
+
+多数人把时间花在最底层，
+少数人在中层构建能力，
+极少数人，在最上层做判断。</p><p><a href='https://read.readwise.io/read/01kpftq4ez5xqx1k7617m0gvrh' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · The world is transitioning to a compute-powered economy</summary><p>The world is transitioning to a compute-powered economy.
+
+The field of software engineering is currently undergoing a renaissance, with AI having dramatically sped up software engineering even over just the past six months. AI is now on track to bring this same transformation to every other kind of work that people do with a computer.
+
+Using a computer has always been about contorting yourself to the machine. You take a goal and break it down into smaller goals. You translate intent into instructions. We are moving into a world where you no longer have to micromanage the computer. More and more, it adapts to what you want. Rather doing work with a computer, the computer does work for you. The rate, scale, and sophistication of problem solving it will do for you will be bound by the amount of compute you have access to.
+
+Friction is starting to disappear. You can try ideas faster. You can build things you would not have attempted before. Small teams can do what used to require much larger ones, and larger ones may be capable of unprecedented feats. More and more, people can turn intent into software, spreadsheets, presentations, workflows, science, and companies.
+
+People are spendin</p><p><a href='https://read.readwise.io/read/01kpftq4bws565zka6906ph383' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 昨天我用一个下午</summary><p>昨天我用一个下午
+给自己搭了一个&quot;被动学习&quot; PTE 的系统。
+主要是帮助长时间vibe coding
+但是有希望在英语上有所提升的朋友
+
+解法是把&quot;喂料&quot;和&quot;吸收&quot;物理分开，做成两个 skill 融合。
+主动那一端负责吃油管 PTE 老师的讲解文稿。
+被动那一端负责在我不知情的情况下教我。
+被动端是我原本就在用的 english-immersion skill。
+我给它加了一个 hook：English Mode 一开，它自动读 methodology，在日常对话里静默示范那些规则，并在我自己的英文输入里做命中检测
+
+真正的洞察不在技术层
+被动学习的灵魂是&quot;我不知道系统在教我&quot;。
+一旦我意识到&quot;哦这句话是在示范 signposting&quot;
+被动就变成了应付，吸收就失效了
+所以整个系统的第一条设计原则是
+永远不告诉我正在示范哪一条
+整个过程我只要做一件事：正常工作。
+PTE 技巧在不知不觉中内化。
+英语也在不断进步！</p><p><a href='https://read.readwise.io/read/01kpftq48fvgga3914d7z7drw6' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 按费曼教授对教育的定义，</summary><p>按费曼教授对教育的定义，
+世界上90%的“教育”不及格，
+需要家长在利用系统的同时，开个小窗
+
+费曼：教育的目的是激发学生学习的热情，
+促发他们能够思考、理解和质疑。</p><p><a href='https://read.readwise.io/read/01kpftq451rme7xj9zxsgsng4j' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 你怕 AI 取代你，但 AI 从来没活过，也从没失败过</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpftq41kyhq3p1gqmmksf54w' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · In fact programming is particularly good at teaching you how...</summary><p>In fact programming is particularly good at teaching you how to think. Programs are literally built out of ideas. Which is one reason it&#x27;s still a good idea to study CS in the AI era. It&#x27;s still important to be able to think well.</p><p><a href='https://read.readwise.io/read/01kpftq3yatnsn4rbevy7r0c9d' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 马斯克谈自己的成长历程</summary><p>马斯克谈自己的成长历程
+“科技树思维”/Technology Tree：
+世界不是随机的, 是有依赖关系和发展顺序的系统
+理解了结构，也就理解了世界
+
+从“玩游戏” → “理解现实系统”
+《文明》这类游戏，
+是压缩后的世界模型
+
+孩子如果能迁移结构，会变成：
+看产业 → 看技术树
+看国家 → 看制度演化
+看公司 → 看能力堆叠
+
+Elon Musk👇
+我小时候会玩一些历史策略类游戏，
+比如《文明》。
+这些游戏会展示文明是如何形成的。
+通过科技树，你可以发明各种东西——
+比如文字、民主制度、火药。
+
+你会逐渐意识到：
+“原来技术是分阶段发展的。
+没有文字，就不可能有民主。”
+
+技术和思想的发展，是有阶段顺序的。
+这是一个非常有用的框架。</p><p><a href='https://read.readwise.io/read/01kpftq3t7kbyns3f8ffe9tq88' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · You can use AI to cut costs</summary><p>You can use AI to cut costs. You can also use AI to raise your ambition.
+
+Too many people focus on the first. More people should be thinking about the second.</p><p><a href='https://read.readwise.io/read/01kpftq3mnh7h1bfaqsrbgtfpn' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 直接放原码可能会存在法律问题 所以就给大家开一下这个可以用于逆向的 skill</summary><p>直接放原码可能会存在法律问题 所以就给大家开一下这个可以用于逆向的 skill
+基本上是针对当前这个场景可以把东西吐出来的
+
+你会需要的是 IDA 和 IDA mcp 在此基础上进行一些微调编排引导 然后就能够复刻出来
+
+原代码应该是不方便给了</p><p><a href='https://read.readwise.io/read/01kpfm78tqhegse3z66pzrf9dg' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 我靠，HeyGen 发布这个 hyperframes CLI 很强啊</summary><p>我靠，HeyGen 发布这个 hyperframes CLI 很强啊
+
+跟我之前的一个想法类似，就是它把用纯 HTML 写的那个动效变成视频。
+
+然后再接一个（比如 Seedance 2.0 这样的）模型。
+
+这样你就可以纯零人工介入，实现人脸出镜的那种科普视频了。
+
+比如我发布一个小东西，想讲一下这些功能，我就可以一张照片扔上去，剩下的全交给 Claude Code 搞完。
+
+而且它支持 GSAP、Lottie、CSS、Three.js 这种框架去生成视频的效果。
+
+理论上你可以拿这套东西构建出任何主流的 AE 特效模板。
+
+它支持完整的视频渲染管线，包括获取、编码、音频混合，还有一个编辑器的 UI 界面，你可以手动在这个界面里编辑。
+
+这个比原来的 Remotion 完整和强大了非常多，推荐你如果用原来 Remotion 做视频，可以换到这个框架了</p><p><a href='https://read.readwise.io/read/01kpfcyr73zdyh4yapmdbkp30n' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Cloudflare introduces a new tool</summary><p>Cloudflare introduces a new tool
+Check if your site is &quot;Agent Ready&quot;
+
+Well per their own vague metrics they got some work to do on their own site :D</p><p><a href='https://read.readwise.io/read/01kpfcyr24qgpycak9xxtsr4kv' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · #TIL</summary><p>#TIL</p><p><a href='https://read.readwise.io/read/01kpfcyqvf4591z6a5x111jkh6' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 反社会但不献忠的中式活法</summary><p>反社会但不献忠的中式活法</p><p><a href='https://read.readwise.io/read/01kpf6360gw84tsr9ma4jwr7vn' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>rss · 2026 04 18 HackerNews</summary><p>
+  2026-04-18 Hacker News Top Stories
+  #
+
+
+
+OpenAI 升级 Codex 为可操控电脑、并行多任务与插件齐备的通用代理，潜力巨大但仍面临与大厂竞争、用户体验与安全风险等挑战。
+Anthropic 推出 Claude Design 将 AI 融入协同设计与交付流程，提升效率之余也引发关于界面同质化与个性化权衡的讨论。
+阿西莫夫《最后的问题》引发对不确定性的思考，而讨论聚焦于不同文化与当下 LLM 在拒答、表达不确定与真实推理上的不足。
+广告监控体系可大规模交易可反匿名的精准定位数据，带来严重隐私与国家安全风险，亟需联邦禁售与架构级隐私改造。
+Claude 4.7 更细粒度分词略提指令遵循却显著增加英文与代码场景的 token 与成本、加速上下文与缓存消耗并更易触发限速。
+轻量 Qwen 在趣味 SVG 插图中更灵活有趣而 Opus 更注重物理合理，体现两者在图形生成偏好与取舍上的差异。
+拟议法案强制设备级年龄验证并向应用暴露状态，或将操作系统变成全国性身份闸门、侵蚀匿名与隐私且数据保护含糊。
+“被动收入”神话让创业者脱离用户与产品、迷信速成与课程套利，九成速成店铺速败而真正杠杆在可规模化好产品与长期服务。
+官方 Clojure 纪录片集中呈现语言理念与生态，也折射出业界对 REPL 工作流与语言特性的误解与实践分歧。
+通过刷量与账号矩阵“制造趋势”的隐形营销正淹没真实声音，情感与理性社群皆易被操纵而公众在识破与默许间摇摆。
+
+
+
+  1. Codex——几乎涵盖所有领域的智能助手 (Codex for almost everything)
+  #
+
+
+https://openai.com/index/codex-for-almost-everything/
+OpenAI 发布了 Codex 的重大更新，提升了这款每周服务超过 300 万开发者的智能助手的能力。新版 Codex 不仅能协助编写代码，还能操作电脑上的各种应用程序，实现点击、输入等操作，支持多任务并行，极大方便了前端开发、应用测试等场景。
+新增的内置浏览器功能允许用户直接在网页上添加注释，便于前端和游戏开发的精准指令传达。Codex 还集成了 gpt-image-1.5 图像生成模型，支持结合截图和代码生成产品概念、设计草图和游戏视觉素材。
+此次更新还推出了 90 多个新插件，涵盖 JIRA、CircleCI、GitLab、微软办公套件等工具，增强了 Codex 跨应用获取上下文和执行操作的能力。软件开发生命周期的支持也更完善，新增 GitHub 代码评审、多个终端标签页、远程开发环境 SSH 连接等功能，并支持多种文件格式的预览和任务计划管理。
+Codex 的自动化功能得到扩展，能够保存和复用对话上下文，支持长期任务的自动唤醒和继续执行。预览版记忆功</p><p><a href='https://read.readwise.io/read/01kpezwy35caqnvm7nm8cz0f5r' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · The Type Know · 图标是不是装饰</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kpearsap2x75qpfgc0weh4hg' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 我认为，我们应该多关注Builders（动手做事的人），少关注Influencers（只做自媒体的人）。</summary><p>我认为，我们应该多关注Builders（动手做事的人），少关注Influencers（只做自媒体的人）。
+
+根据此原则，我开放了一套日报，解决三个问题：
+
+- 昨天，全世界的独立开发者发布了什么好玩的？
+- 昨天，有啥值得独立开发者关注的新闻？
+- 今天我有2小时，我可以做点啥？</p><p><a href='https://read.readwise.io/read/01kpears7cxyyy0pexq28t6tbf' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 程序员兄弟们，终于有人把AI编码最致命的那个毛病给治好了，</summary><p>程序员兄弟们，终于有人把AI编码最致命的那个毛病给治好了，
+
+GStack这次的困惑协议更新直接封神，而且感觉这次更新才是AI编码Agent真正该走的路。
+
+Karpathy早就点破了AI编码的第一失败模式，关键不在代码写得有多烂，主要是在不确定的时候，永远自信地选一条错路，然后花十分钟把所有东西都推倒重来。
+
+大部分人都经历过这种绝望，就是你去倒杯水的功夫，它已经把整个数据库schema改了，还写了三百行完全跑不通的代码，最后你删它写的东西比你自己从头写还要久🥺
+
+Garry Tan把这个问题做成了一个产品特性，叫困惑协议，现在每一个工作流里都加了一个模糊门，遇到架构选型、数据建模、删除重构这种高代价的分叉点，它不再硬着头皮继续，它会停下来，精准地问你一个问题。
+
+最反直觉的地方就在这里，让AI更犹豫，反而让整体效率高了好几倍，表面上看多了一次三十秒的确认 实际上避免了之后半小时甚至几小时的大返工。
+
+这和那些让你每一步都点确认的反人类设计完全不一样，它只在猜错会真正浪费时间的地方刹车，其他时候该怎么跑怎么跑，有范围的打断好过无差别的确认。
+
+这其实是在教AI拥有元认知，知道自己不知道，比知道很多事情重要得多。
+
+最危险的从来不是能力差的助手。
+是那种看起来很能干，永远不问问题，然后默默把事情搞砸的。
+
+这次更新还有一个特别接地气的细节，加了CEO评审强化，在每一个停止点都反复强调只评审，不写代码。
+就是为了防止代理太自作主张，把评审模式直接变成了实现模式。
+
+这种从真实使用痛点里长出来的功能比一些抽象的智能都管用。
+
+同时更新的还有GBrain深度集成，
+所有技能执行前会先搜你的个人知识库，执行完自动把结果写回去。
+AI终于有了长期记忆，不会每次都像第一次见你的项目一样。
+
+过去一年所有人都在追全自主Agent。
+觉得越不用人管越好，但GStack用行动证明了。
+最好的AI永远不是替你做所有决定的老板，是知道什么时候该干活，什么时候该停下来问你的搭档。
+
+这才是AI代理真正的成熟标志。
+#GStack #AI编程 #Agent #开发者工具 #YC</p><p><a href='https://read.readwise.io/read/01kpears3xwfgz8zaab8cxdecv' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 用了这么久 Claude Code，很多人都在研究 CLAUDE.md、Hooks、Sub-Agent，但其实它 GitHub 仓库里还藏着一批官方插件，很多人根本没注意到。</summary><p>用了这么久 Claude Code，很多人都在研究 CLAUDE.md、Hooks、Sub-Agent，但其实它 GitHub 仓库里还藏着一批官方插件，很多人根本没注意到。
+
+仓库根目录的 plugins/ 下面，安安静静放着 12 个 Anthropic 官方写的插件，没怎么宣传，但里面有几个是真的很实用。
+
+第一个是code-review，敲个命令就能启动4个Agent并行审PR，自动查规范、找bug，还会过滤无效问题，甚至能直接把结果贴到PR评论里，省超多时间。
+
+第二个hookify，解决手写Hooks规则的麻烦，一句话就能创建防护，比如“不要用rm -rf命令”，自动生成规则，下次Claude要执行就会警告或阻止，还能自动回顾对话，生成你纠正过的行为规则。
+
+第三个ralph-wiggum，堪称“强迫症福音”，给它任务和完成标准，它会自己循环迭代，直到做好才停，黑客松里有人用它一晚上生成6个仓库，适合有明确标准的任务（比如写带测试的API）。
+
+还有feature-dev和security-guidance：前者是结构化开发神器，7步流程帮你吃透需求、分析代码库，接手陌生项目加功能超合适；后者是后台安全卫士，实时监控命令和文件，防注入、防危险调用，装上不用管，默默保驾护航。
+
+剩下的插件也各有侧重，比如commit-commands一键搞定Git提交、推PR，plugin-dev帮你自己写插件，还有优化前端审美、辅助学习的款。</p><p><a href='https://read.readwise.io/read/01kpears0asdh33j1bngxkzwy5' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 看多了前端已死，程序员要被淘汰了，这次终于轮到 marketing 了？</summary><p>看多了前端已死，程序员要被淘汰了，这次终于轮到 marketing 了？
+
+Anthropic 有个非技术背景的人，一个人扛了 10 个月的 growth marketing。
+
+他做的事其实已经不太像 marketing 了：
+
+历史广告数据喂给 Claude Code，先分析哪些文案差，再直接生成新版本
+headline 和 description 拆给不同 sub-agent，再接 Figma plugin 批量出图
+然后喂给 Meta Ads 的 MCP server，直接问 Claude 哪些广告在浪费预算
+最后加一个 memory system，让每轮实验结果进入下一轮。
+
+这套东西看下来，会感觉未来很多公司缺的可能是一个会搭 agent、接数据、做闭环的人。
+
+作者这类人起个新名字，Distribution Engineer（未来真的都是AI 加持下的复合型人才了）！</p><p><a href='https://read.readwise.io/read/01kpearrw4y7akaw9ecxqb0f15' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 如何通过一句提示词过朱雀AI检测。</summary><p>如何通过一句提示词过朱雀AI检测。
+
+经过我4000多次反复试验，总结出一个规律：
+文稿的AI味来自于判断句。
+只需禁止AI使用判断句，过朱雀检测的概率就可以大幅度提升。
+今天公布出来造福推友。
+提示词在跟帖中。使用时开启思考模式。</p><p><a href='https://read.readwise.io/read/01kpe0dfdwkx862xn3jzhxsqsa' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Vercel 又出了一个很棒的东西：wterm</summary><p>Vercel 又出了一个很棒的东西：wterm
+https://t.co/cFjivCIacN
+基于 Web 的终端模拟器
+特点是直接渲染到 DOM，不是 Canvas，所以支持原生支持文本选择、复制粘贴、浏览器查找和无障碍。
+
+核心用 Zig 语言编写，编译为 WebAssembly，体积仅约 12 KB，性能接近原生。还有很多很棒的特性。
+
+适合在浏览器里直接运行终端命令，官网演示可以看下，挺惊艳的。</p><p><a href='https://read.readwise.io/read/01kpe0df7nr2vrhcj45fjbjwef' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 做了个 wx cli，主要是给自己用的，用来管理自己的聊天记录，整理消息，实时监听消息之类的</summary><p>做了个 wx cli，主要是给自己用的，用来管理自己的聊天记录，整理消息，实时监听消息之类的</p><p><a href='https://read.readwise.io/read/01kpdp098f9qk1f7ha9sahb7tc' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 这个工具太强了！我已经把我微信收藏的143条数据全部成功解析了出来。这个做出来的网站是skill内置的，但是数据反正都在本地，自己想怎么分类整理都可以。</summary><p>这个工具太强了！我已经把我微信收藏的143条数据全部成功解析了出来。这个做出来的网站是skill内置的，但是数据反正都在本地，自己想怎么分类整理都可以。
+
+Mac电脑是唯一的限制。
+收藏夹不再吃灰，是AI时代给我最强的体感之一。
+小红书、X、微信，已经全部打通了。。。太强了！</p><p><a href='https://read.readwise.io/read/01kpdfhk73xg9st3h9sswhzk3e' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 说实话，这才是Anthropic今年最有价值的更新啊，没有之一！！！</summary><p>Anthropic&#x27;s new Claude Code update supports a huge one million token context window for longer tasks. To manage this, users can start new sessions, rewind to previous points, compact summaries, or use subagents with fresh contexts. These tools help keep the model focused and efficient despite the large context size.</p><p><a href='https://read.readwise.io/read/01kpdfhk2nr70nhe7qway93csk' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 穷人怎样翻身变富？</summary><p>穷人怎样翻身变富？ 
+
+ Quora上有个高赞回答，我觉得讲得特别实在，一针见血：
+
+&quot;我曾经就是一穷二白的人。  
+
+第一步：立刻调整态度。
+
+没有借口，不怪任何人、任何事。你必须100%为自己的成功负全责。  
+
+第二：永远守信用，而且每次都超出别人的预期。
+还是那句话: 零借口。  
+
+第三：深刻自我反省。
+
+搞清楚到底是哪里卡住了自己，承认阻碍你的，只有你自己。  然后，就开始疯狂翻石头找机会。
+
+看得越多，好机会就越容易跳出来。发现后，全力以赴去干！  这事不轻松，不然人人都富了。
+
+你要比别人工作更久、更拼命，不断把自己从自己的坑里拉出来，绝不为平庸找任何借口。  太懒散？那就别指望致富。  
+
+最后一点，只向已经成功的人请教，别听没做过的人瞎BB。他们会直接告诉你哪里错了。  
+
+记住：人最可怕的习惯，就是拼命证明自己“是对的”，哪怕是证明自己会失败。
+
+所以态度真的决定一切。  机会从来不是天上掉下来的，而是别人愿意给你的。
+想让别人押注你？就得用超强的表现证明你值得。
+
+持续超越预期，机会就会源源不断找上门。
+
+白手起家的人，都懂这个道理。</p><p><a href='https://read.readwise.io/read/01kpcyd5fjvgz0kads9rk78zxw' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 把 GitHub 仓库直接挂到 Mac 上当本地文件夹用，点开就能看文件内容。</summary><p>把 GitHub 仓库直接挂到 Mac 上当本地文件夹用，点开就能看文件内容。
+
+https://t.co/RIo0fAF9ot
+
+GHFS 是个 macOS 小工具，用 Apple 自家的 FSKit 把 GitHub 上的仓库变成你电脑里的只读文件夹。不需要装 macFUSE、git 这些外部工具，点开文件就读内容，后台慢慢克隆，克隆完自动替换。能自动列出你账号下的仓库，也能搜公开仓库挂进来</p><p><a href='https://read.readwise.io/read/01kpcyd58athjad5zs1x3e29c8' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · </summary><p></p><p><a href='https://read.readwise.io/read/01kpcgb8bf1gfsf7gtw4vztwaw' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 我也来说说我的推荐吧。</summary><p>我也来说说我的推荐吧。
+
+Claude Agent Sdk 依然是最快方案，可以通过子进程设置环境变量的方式，兼容所有支持 Claude 协议的模型，比如 GLM、Minimax 之类的，换言之，Claude Code 能支持的用它也都能支持。
+
+Openai 系的模型可以看看 Openai Agent Sdk 或者 Vercel AI SDK，或者直接用整套的 Pi-mono。
+
+上面讲的都是底层，上层是 CLI or 桌面端事件，一般叫做 Runtime，可以用  assistant-ui +  配套的 tools ui。
+
+这个库包装了一层模型时间到 UI 的完整事件流和完整 UI 组件，也可以只用的它的 Runtime 做事件流，自己做 UI 组件，但是这里面的 UI 组件还挺漂亮的。
+
+完整的开源方案，我推荐藏师傅（虽然他把我屏蔽了）的 CodePilot。
+
+宝玉老师推荐的 Craft 也不错。
+
+数据库推荐直接上 better sqlite + F5，记忆层可以单独做可插拔设计，无论是用外部组件还是直接 markdown 都可以。</p><p><a href='https://read.readwise.io/read/01kpcgb87gaw50swcw0zdcnpr6' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>rss · 2026 04 17 HackerNews</summary><p>
+  2026-04-17 Hacker News Top Stories
+  #
+
+
+
+EFF 称谷歌未按承诺通知用户即向 ICE 交出参与抗议者的账户元数据，可能侵害言论权并已被投诉为欺骗性行为。
+Anthropic 发布的 Claude Opus 4.7 强化编程与多模态但“自适应思考”饱受质疑、关闭后更稳，且以与 4.6 相同定价在多平台上线。
+阿里开源 MoE 模型 Qwen3.6-35B-A3B 以更强编码与多模态能力对标更大模型、可广泛使用，但稳定性与复杂结构细节仍有限且需注意显存配置。
+日本麦当劳为符合法规真实呈现并更清晰展示食材，菜单照片刻意将汉堡面包与配料略微错位摆放且禁止使用 AI 生成。
+陪审团裁定 Live Nation/Ticketmaster 非法垄断或引发拆分与整改，业界呼吁以荷兰式拍卖和限制转让等手段遏制黄牛并改善竞争。
+文章批评 Ollama 在开源合规与技术透明上失信且性能不佳并复杂化生态，尽管上手易用，但社区更建议直接使用及时更新的 llama.cpp 等替代。
+作者警示 LLM 将加剧虚假与服务劣化并侵蚀思考能力，主张抵制与监管、谨慎限用且仅在受控场景取其利，并反思教育与社会结构变迁。
+Darkbloom 宣称用闲置苹果硅设备提供端到端加密的私有推理并让设备主获利且成本更低，但实际需求、收益、磨损与规模化成本备受质疑。
+Cloudflare 推出与 Workers 深度集成的邮件路由与发送及代理能力（自动配置 SPF/DKIM/DMARC 等），但价格高于 AWS SES 且滥用与投递声誉令人担心。
+因在客户端暴露且未限权的浏览器密钥被滥用，用户 13 小时内 Gemini 账单暴涨 5.4 万欧元，凸显预算提醒滞后与缺乏硬性上限，谷歌称已推限额与密钥限制并建议预付费。
+
+
+
+  1. 谷歌违背了对我的承诺——现在 ICE 掌握了我的数据 (Google broke its promise to me – now ICE has my data)
+  #
+
+
+https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data
+这篇文章讲述了 Amandla Thomas-Johnson 的经历，他是一名持学生签证在美国攻读博士的学生。2024 年 9 月，他曾短暂参加了一场支持巴勒斯坦的抗议活动。2025 年 4 月，美国移民与海关执法局（ICE）向谷歌发出行政传票，要求提供他的账户数据。谷歌在未通知他、也未给予他挑战传票的机会的情况下，于次月将其信息交给了 ICE，违反了谷歌近十年来承诺的用户数据披露前通知政策。
+谷歌的通知政策中有少数例外情况，如法院的禁令，但这些并不适用于 Thomas-Johnson 的案件</p><p><a href='https://read.readwise.io/read/01kpccy436xhhx3pq9etp4xc16' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 🤯 又一枚核弹级开源模型来了！@leftcurvedev_ 刚分享的 Qwen3.5-9B-GLM5.1-Distill-v1 直接把本地AI拉到新高度！</summary><p>A new powerful open-source AI model called Qwen3.5-9B-GLM5.1-Distill-v1 was released. It runs well on ordinary GPUs with only 8GB VRAM and offers deeper thinking than earlier versions. An Apple native version is also available, and a larger 27B model is expected soon.</p><p><a href='https://read.readwise.io/read/01kpccvf7qag7f09t2rgke6z7y' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Shopify 用 pi-autoresearch 实现了如下优化：</summary><p>Shopify 用 pi-autoresearch 实现了如下优化：
+
+单元测试: 快300倍！
+React 组建加载: 快20% 
+CI 构建时间: 减少65% 
+
+karpathy 的 autoresearch 还在持续演化，确实是个非常适合 AI 自研究框架。</p><p><a href='https://read.readwise.io/read/01kpccvf2k1fdvn3ajsp5srd2s' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · GEO的后端效果归因，一直是一个难题，刚好这几天有不同的朋友问到，于是下午写了一个skill，解决这个问题</summary><p>GEO的后端效果归因，一直是一个难题，刚好这几天有不同的朋友问到，于是下午写了一个skill，解决这个问题
+
+1、基于公司的实际业务特点和现状、业务环境分析，结合我们梳理的整体GEO直接监测与间接监测的方法论体系，输出一版完整适用于目标企业的GEO监测与归因方案与方法体系；
+2、区分国内和海外GEO的特性，以及说明哪些效果是能直接观测、哪些只能部分恢复、哪些暂时无法完整归因；
+3、输出可视化HTML报告与文档报告
+
+已开源到GitHub，地址见评论区，图片为示例报告，欢迎体验和提交反馈</p><p><a href='https://read.readwise.io/read/01kpccvexwg0bbrjzmftf2j0sr' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Pete Hegseth 在五角大楼的一次布道中引用了一段“圣经经文”—但实际上那是电影《低俗小说》中虚构的以西结书 25:17 的演讲。</summary><p>Pete Hegseth 在五角大楼的一次布道中引用了一段“圣经经文”—但实际上那是电影《低俗小说》中虚构的以西结书 25:17 的演讲。
+
+低级红比高级黑还要致命，下面的人各种蚌埠住了🌚</p><p><a href='https://read.readwise.io/read/01kpccvesg1jq1zcdj0q9nd66q' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Impeccable 升级到 2.0 了，这应该是目前我觉得最好的 design skills 了，anti AI slop</summary><p>Impeccable 升级到 2.0 了，这应该是目前我觉得最好的 design skills 了，anti AI slop
+https://t.co/sqmcLM0NU5 
+
+推出了CLI 工具，无需 LLM 即可扫描代码，检测 25 种 AI slop 设计。
+Chrome 扩展，一键检测任意网页。
+各种升级和精简的命令。
+全新的文档界面，有前后设计对比图，有 Visual Mode 检测，有 Anti-patterns。
+
+真的是非常好，想要一个不一样的，没有 AI 味的设计，可以试一下。</p><p><a href='https://read.readwise.io/read/01kpccvengh86x3jwjh2w08qdx' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 有一种不好的预感，普通消费者仅靠每个月几十美元订阅AI生产力工具的好日子，可能很快就要到头了。</summary><p>有一种不好的预感，普通消费者仅靠每个月几十美元订阅AI生产力工具的好日子，可能很快就要到头了。
+原因很简单，你看为什么一个“消费者”要订阅“生产力”工具？这不是很扯淡的事吗？</p><p><a href='https://read.readwise.io/read/01kpccveg8183zfmhxhhf032rp' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 还是mark 一下吧,  2026 年 4 月中国 PPI 终于转正, 生产端收缩3年多后终于重新开始走向扩张</summary><p>还是mark 一下吧,  2026 年 4 月中国 PPI 终于转正, 生产端收缩3年多后终于重新开始走向扩张. 非常优美的软着陆曲线. 习近平其他什么一带一路全球战略不说, 光是刺破了地产泡沫后还能顶着贸易战和 FED 加息周期平安着陆经济, 这一条说一句当今第一政治家不过分.</p><p><a href='https://read.readwise.io/read/01kpbhayn2fczgstrxtyz93p16' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 如果一个孩子从高中开始系统听</summary><p>如果一个孩子从高中开始系统听  
+Huberman Lab  播客
+
+他接触到的，不只是英语  
+
+而是：
+👉 大脑如何运作  
+👉 专注、情绪、习惯如何被设计  
+👉 睡眠、压力、动机的底层机制  
+👉 负面情绪和行为如何被抑制
+
+他会开始意识到：  
+很多“努力”，其实是低效甚至错误的，
+只是在消耗意志力，
+却违反了认知科学
+
+真正重要的是：  
+如何理解自己，如何调动自己，
+如何形成正向思维和行为模式
+
+——  
+
+问题是  
+
+大多数孩子  
+即使能听懂内容  
+
+也无法真正用起来  
+
+因为缺的不是知识  
+
+而是：
+
+👉 如何理解结构  
+👉 如何转化为行动  
+
+——  
+
+英语是入口（让你看见世界）  
+但理解世界，靠的是另一套能力</p><p><a href='https://read.readwise.io/read/01kpbhayf9ajcc0041xnrpwkmr' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>article · Learning &amp; Education</summary><p>Find out about Google&#x27;s commitment to education through our products and initiatives.</p><p><a href='https://read.readwise.io/read/01kpa5d8h8bfdns3vyq4jcdpak' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · The AI Native Human —— 为什么你其实只是个办了 AI 包月会员卡的山顶洞人？</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kp9xwwnyw8r8sbxcyyx04597' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · We just released code for Meta-Harness!</summary><p>We just released code for Meta-Harness! 
+
+Aside from replicating paper experiments, the repo is designed to help users implement good Meta-Harnesses in completely new domains! Just point your agent at ONBOARDING.md and have a conversation</p><p><a href='https://read.readwise.io/read/01kp9xwwek5y2ekj1ccsqmz5wj' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Gemini 官方 macOS 版，做得不错啊。</summary><p>Gemini 官方 macOS 版，做得不错啊。</p><p><a href='https://read.readwise.io/read/01kp9xww88knvvxrhmnpaa8qvg' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 之前我们 @SlowMist_Team 发布的安全 Skill 可以直接在 @NousResearch Hermes Agent 上使用，直接让你的 Agent...</summary><p>之前我们 @SlowMist_Team 发布的安全 Skill 可以直接在 @NousResearch Hermes Agent 上使用，直接让你的 Agent 安装 https://t.co/ylhdKKCpt2 即可，如图。
+
+为了以后触发方便及稳定，你可以这样告诉你是 Agent：
+
+以后我提 smas 就指 slowmist-agent-security，这样方便我们后续操作。
+
+玩起来吧。</p><p><a href='https://read.readwise.io/read/01kp9xwvzxfej55nnjafqq1snh' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>rss · 2026 04 16 HackerNews</summary><p>
+  2026-04-16 Hacker News Top Stories
+  #
+
+
+
+Flock Safety 的 AI 车牌与车辆指纹监控快速扩张，虽能辅助侦查却伴随无令检索、跨域共享、偏见与误拦等风险，呼吁以社区建设替代泛化监控。
+作者依据 CCPA 向 Flock 要求删除家人数据被以“数据由客户控制”为由拒绝，凸显其合规灰区与个人难以行使删除权的问题。
+与其被厚重教材劝退，不如用 Crenshaw 与 Nanopass 方法先动手做小型编译器，实践后再系统补理论。
+作者在洛杉矶自然历史博物馆记录矿物之美，引发对“上帝睡在矿物中”这一美学与灵性隐喻的讨论与分歧。
+VF 通过并购后在中低端背包上刻意降质并收窄保修，使寿命缩短与单位使用成本上升以驱动重复购买。
+Piotr Wozniak 主张遵循生理节律的自由睡眠、拒绝闹钟与稳定作息，用“时钟+沙漏”模型与策略提升记忆、学习与健康。
+关闭源代码无法阻挡 AI 自动化攻击，需将持续低成本的 AI 安全测试融入开发流程，以 AI 抵御 AI 并保持开源透明。
+Anna’s Archive 因发布 Spotify 资源被缺席判赔 3.22 亿美元并遭全球禁令与域名冻结，但匿名与跨境执行使其更具震慑意义。
+OpenSSL 4.0.0 移除旧协议与引擎、强化校验并新增 ECH/SM2/SM3 等，且 ECH 在部分生态可用但对单一服务器隐私收益有限。
+Gemma 4 已能在 iPhone 本地离线运行但主要依赖 GPU 非 ANE，能效与发热不佳更偏演示，生态与基准仍待完善。
+
+
+
+  1. 停止 Flock 监控系统 (Stop Flock)
+  #
+
+
+https://stopflock.com
+介绍了 Flock Safety 公司推广的 AI 监控摄像头系统及其引发的隐私和法律问题。Flock 摄像头不仅能识别车牌，还能通过颜色、车型、车身损伤、轮胎类型甚至车贴位置等特征，创建“车辆指纹”，实现对车辆的精准追踪。系统还能分析车辆之间的关联，追踪车辆的行驶路线和频繁出现的地点，形成详细的移动和社交网络数据库。执法部门可在无需搜查令的情况下访问这些数据，存在滥用风险，如堪萨斯一警察曾利用该系统非法跟踪前女友。
+该系统在美国迅速普及，已有超过 3,000 个执法和政府机构使用，覆盖超过 10 万台摄像头，且扩展速度快，缺乏公众监督。Flock 摄像头引发了严重的第四修正案隐私权争议，法院已多次判定类似的无差别监控行为违宪，但由于 Flock 是私营企业，其数据收集和销售存在法律灰色地带。隐私不仅关乎隐藏不法行为，更是个人自由和尊严的保障。专家警告，这种大规模监控系统一旦被滥用，可能成为压制异见和侵犯公民自由的工具。
+此外，Flock 系统加剧了执法中的种族偏见，例如伊利诺伊州 Oak Park 地区通过 Fl</p><p><a href='https://read.readwise.io/read/01kp9s135kz1xgsctq0yh65fsh' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 思路蛮好的，codex等gui，这个con基于tty，也是个很不错的思路，希望支持目录树和简单编辑。</summary><p>思路蛮好的，codex等gui，这个con基于tty，也是个很不错的思路，希望支持目录树和简单编辑。</p><p><a href='https://read.readwise.io/read/01kp7p59en104hkd5xrd4568b7' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Vercel 也放出了开源 Agent 托管平台 open-agents。</summary><p>Vercel 也放出了开源 Agent 托管平台 open-agents。
+
+试用了下，成熟度较高，很容易二开到企业内部。不出意料 Vercel 也使用了 Agent not in sandbox 设计。</p><p><a href='https://read.readwise.io/read/01kp7bxwaeavzrq8mm2xrp53by' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Garry Tan 上周发了 Thin Harness, Fat Skills，百万阅读。他的五个概念（Skill Files、Thin Harness、Resolvers、Latent vs...</summary><p>Garry Tan 上周发了 Thin Harness, Fat Skills，百万阅读。他的五个概念（Skill Files、Thin Harness、Resolvers、Latent vs Deterministic、Diarization）和我们过去一年独立搭建的 context infrastructure 体系几乎逐条对应。
+
+逐个拆解这五个概念，每个后面直接链到我们开源的对应实现。另外标注了两个 Garry 没覆盖的维度：IC→Manager 心智转变，和 consensus ceiling 的突破。
+
+https://t.co/7ztvFI85wN</p><p><a href='https://read.readwise.io/read/01kp7bxw6rgx64t5dx9qrmypvv' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 用达尔文.skill优化了我本地的一个减少AI味的skill，把它从72分提升到了87分，非常舒适～</summary><p>用达尔文.skill优化了我本地的一个减少AI味的skill，把它从72分提升到了87分，非常舒适～</p><p><a href='https://read.readwise.io/read/01kp7bxw3p9e4z7ee1df1cc8xn' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 你不知道的大模型训练：原理、路径与新实践</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kp7bxw05ftqqrhgcecg3dp8g' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>rss · 2026 04 15 HackerNews</summary><p>
+  2026-04-15 Hacker News Top Stories
+  #
+
+
+
+有人收购30余款WordPress插件植入后门，通过wpos-analytics向wp-config.php注入并用以太坊合约充当C2投放SEO垃圾，虽官方紧急更新和下架仍未清理配置，暴露插件供应链巨大风险。
+DaVinci Resolve 新增 Photo 页将节点式调色引入静态照片，兼容多相机与工作流并提供AI/GPU/协作等强力功能，定价友好但对 Linux 支持与免费版功能仍有限。
+Backblaze 悄然将 OneDrive/Dropbox/.git 等目录排除在“无限制备份”之外且未告知，忽视“同步≠备份”的需求并引发用户对数据安全与信任的担忧。
+GitHub 推出 Stacked PRs 将大改拆成有序堆栈并配套 gh stack/自动变基以提升评审与合并效率，同时也引发对 Git 在大仓库与 Phabricator/Mercurial/Sapling 等工具优劣的讨论。
+谷歌将“后退按钮劫持”纳入垃圾政策并自2026-06-15起处罚，促站点移除相关脚本，用户亦抱怨网站劫持快捷键/右键与前端路由导致的差劲体验。
+互联网档案馆正数字化并公开上万盘稀有现场录音，志愿者修复编目保存音乐史之余也掀起对录音合法性、乐队默许与版权期限应缩短的讨论。
+Jujutsu（jj）以可变提交和无需命名分支的工作流提供比 Git 更灵活的拆合变更与协作（兼容 Git 后端），但时间戳等语义差异需与 Git 生态磨合。
+西班牙授权在体育与电影直播时段实施域名/URL/IP 动态封锁以打击盗播，却可能殃及中小 ISP 与合法站点并与欧盟网络中立和无地理封锁原则冲突。
+Claude Code 例程可按计划或事件自动运行具会话与改码/发PR能力的代理流水线，但用户担心平台锁定与不透明记忆，倾向用可替代的独立引擎降低依赖。
+对 zlib 核心经 Lean 形式化验证后未现缺陷，模糊测试却在运行时与未验证解析器中发现溢出与 DoS，提示证明能强固核心但边界组件与规范仍是风险源。
+
+
+
+  1. 有人购买了 30 个 WordPress 插件并在所有插件中植入了后门 (Someone bought 30 WordPress plugins and planted a backdoor in all of them)
+  #
+
+
+https://anchor.host/someone-bought-30-wordpress-plugins-and-planted-a-backdoor-in-all-of-them/
+这篇文章讲述了一个大规模的 WordPress 插件供应链攻击事件。攻击者通过购买一个包含 30 多个插件的插件组合，在所有插件中植入了后门代码，导致大量网站被感染。
+事件起因是一</p><p><a href='https://read.readwise.io/read/01kp7bjj22fkbw6h50e4aewgnh' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 三省六部幻觉：为什么&quot;虚拟公司&quot;式多Agent架构在工程上不成立</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kp7839ps2nx5hzkm81etsy6f' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 为什么你的&quot;AI 优先&quot;战略可能大错特错？</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kp7839j6egkmfwa9v28smx52' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Hey @grok is this true ??</summary><p>Hey @grok is this true ??</p><p><a href='https://read.readwise.io/read/01kp7839ddhtv3hkh0jg9cgwtn' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 用达尔文.skill打完分之后，你可能会发现你的有些纸糊的skill就是在瞎跑...</summary><p>用达尔文.skill打完分之后，你可能会发现你的有些纸糊的skill就是在瞎跑...</p><p><a href='https://read.readwise.io/read/01kp783992cxh8ws1yb73edmdm' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Dr</summary><p>Dr. Benjamin Bikman 对成年人提出了严厉的警告：
+
+“如果成年人无法禁食 12 小时，这是一个非常糟糕的迹象——这通常意味着胰岛素抵抗和慢性胰岛素水平升高。”
+
+高胰岛素水平会使你的身体一直处于燃烧糖分的状态。
+禁食期间葡萄糖会迅速耗尽 → 你会感到崩溃、非常难受，并且无法动用储存的脂肪。
+
+我在国内时曾有一个朋友就是这样，她一日三餐只要过点不吃就会饿得头昏眼花。禁食是不可能的，因为会低血糖。顺便说一下，这朋友每顿必吃米饭，可以没有肉，但不能没有饭。这其实已经是典型的糖尿病前期了，胰岛素抵抗导致血糖波动剧烈。
+
+唯一的解决方法就是逐渐减少碳水和糖的的摄入，训练身体使用脂肪作为燃料。其实一个人一旦胰岛素恢复敏感度，一天1-2顿就是很自然的选择。很多时候我们感到饥饿并不是因为我们真的能量不够了，而是我们血糖太低导致的。
+
+～关注我，一起探索自愈之路～</p><p><a href='https://read.readwise.io/read/01kp783940nzs8pxb6eq42d46z' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 一个自定义域名邮箱，0 成本，30 分钟搞定</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kp7838zm0n6vtsfewsh12hn8' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Harness Engineering:从执行者到系统架构师</summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kp7838tkph1pzmmnntd41q19' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Vercel 开源了 Open Agents，一个用来搭建企业自有编程 Agent 平台的参考实现。</summary><p>Vercel open sourced Open Agents, a platform to build custom coding agents for companies. It separates the agent from the sandbox for safer and flexible code execution. This gives developers full control but requires self-maintenance, unlike Anthropic’s managed service.</p><p><a href='https://read.readwise.io/read/01kp7838nyhazy413sk4tn6gth' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 好看的 fastfetch 配置，直接丢给 Codex 让它给我配好了。</summary><p>好看的 fastfetch 配置，直接丢给 Codex 让它给我配好了。</p><p><a href='https://read.readwise.io/read/01kp7838g9m7jns7z5d0rczba5' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>video · Ex-Google Exec: The ONLY Move That Protects Your Career in the Next 2 Years | Mo Gawdat</summary><p>AI will soon do most jobs better than humans, changing work forever. To protect your career, learn to lead and build ethical AI that helps people. Society must focus on using AI responsibly to create a better future.</p><p><a href='https://read.readwise.io/read/01kp690d3wbyh2k6dfn3v772ge' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>podcast · Ex-Google Exec: How to Position Yourself Now Before the Next AI Phase (2026–2027) | Mo Gawdat</summary><p>AI will take over many jobs and change how we work and live. People must learn to use AI wisely and focus on creating ethical AI that helps everyone. The future with AI will be hard at first, but it can become better if we guide it well.</p><p><a href='https://read.readwise.io/read/01kp6906b1cz9j2bt13jn2yq0a' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Garry Tan 提炼了他在 agentic engineering 领域的核心心法：Fat Skills, Fat Code, Thin...</summary><p>Garry Tan 提炼了他在 agentic engineering 领域的核心心法：Fat Skills, Fat Code, Thin Harness。
+
+简单说就是三层分离：把需要判断的模糊操作推入 markdown 技能文件（Fat Skills），把必须精确执行的确定性逻辑写成代码（Fat Code），框架本身只做最基础的连接（Thin Harness）。用他的话说：&quot;在正确的层做正确的事，其他都是架构天文学。&quot;
+
+这个思想的精髓在于他给 AI Agent 设的一条铁律：你不允许做一次性工作。如果某件事将来还会做，就先手动跑 3-10 个样本，批准后固化成技能文件。如果需要自动运行，就设 cron。测试标准很简单：如果我为同一件事问你两次，你就失败了。
+
+这条指令拿到了 1000+ 赞和 2500+ 书签，因为它击中了本质：每个技能文件都是系统的永久升级，不会退化、不会遗忘、凌晨 3 点也在跑。
+
+社区讨论也很有料。Sam Ward 说他们团队就是这么干的——智能体的智能全在启动时加载的 markdown 里，框架只管连模型和工具。要升级智能体就改 markdown，不动代码。Claudia 补充说边界会自然迁移：确定性代码一旦需要上下文判断就会被拉进技能层，当你不再对抗这种迁移，架构就稳了。
+
+这其实是 Unix &quot;do one thing well&quot; 在智能体工程的翻版。人类花了 50 年才学会这个教训，现在在 AI Agent 领域快速重演一遍。大多数智能体系统脆弱的根源就是框架太胖，在框架层做了太多推理和编排。
+
+Garry 举了个实战案例：他们用技能文件管理 YC 创始人活动的反馈循环。技能文件自动读反馈、识别模式、生成改进建议，然后重写自己。7 月活动 12% 的&quot;还好&quot;评分，下次活动降到 4%。这就是技能文件自我进化的威力。
+
+100x 生产力不是靠更聪明的模型，而是 Fat Skills + Thin Harness + 把一切固化的纪律。下一个更好的模型出来，所有技能自动受益——潜在空间的判断力提升，确定性层保持完全可靠。
+
+这是我见过对 agentic engineering 最清晰的架构原则。</p><p><a href='https://read.readwise.io/read/01kp4s4b7mfxkzec2y841c2ebn' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Thin Harness, Fat Skills</summary><p>AI coding agents become far more effective by using skill files, which are reusable processes that guide the model&#x27;s judgment without overwhelming it. The system separates intelligent reasoning (latent) from reliable execution (deterministic) for better trust and performance. This approach lets skills improve automatically with better models, making every upgrade permanent and scalable.</p><p><a href='https://read.readwise.io/read/01kp4s4b2b5ma947pngbtn7bbt' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · Why Your “AI-First” Strategy Is Probably Wrong  </summary><p>This tweet contains no text.</p><p><a href='https://read.readwise.io/read/01kp4nvg5a82esek2newv10kdg' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · 这是开源的第一个SEO&amp;GEO系统：GEOFlow</summary><p>这是开源的第一个SEO&amp;GEO系统：GEOFlow
+
+去年10月份，国庆节的时候，就完成了第一版的开发，这几个月，断断续续进行了不少的迭代，也做了不少测试，终于上线开源，欢迎下载部署测试：
+
+1、GEOFlow系统可用于官网GEO频道部署、独立资讯站、以及独立官网甚至多站点部署，实现自动化+智能化的自运营；
+2、对SEO&amp;GEO进行了工作流层面的规范，前端相关页面做了相关的GEO代码规范，系统后台完成相关配置后，系统自动完成内容与发布的管理；
+3、配套skill，通过skill可以与CLI及各种skill打通，实现更智能、便捷的管理，也可以接入多个AI工作台，比如codex、牛马AI、CodePilot等
+
+GitHub地址详见评论区</p><p><a href='https://read.readwise.io/read/01kp4nvg12gnejbzhq5atgwayx' target='_blank' rel='noreferrer'>原文</a></p></details><details class='appendix'><summary>tweet · AI first 先行者，推荐看看。</summary><p>AI first 先行者，推荐看看。
+
+只是用Claude Code 写代码不叫AI First。
+
+全部业务流程全部由AI处理，AI 犯错后不是人工修正而是修正Context/Harness。
+
+最终只需要两个角色，架构师和操作员。</p><p><a href='https://read.readwise.io/read/01kp4nvfwvw1dwfjary51rkv6c' target='_blank' rel='noreferrer'>原文</a></p></details>
+  </section>
+  <section class='section'>
+    <h2>完整附录：Highlights</h2>
+    <details class='appendix'><summary>highlight #1007938260 · 看到很多朋友问过一个问题，为什么给我的 Claude Code 安排任务，它都不会一口气执行完，而是跑最多几十分钟就停下来，然后问我要不要继续。例如让它把项目中的单测全部补全（大概</summary><p>看到很多朋友问过一个问题，为什么给我的 Claude Code 安排任务，它都不会一口气执行完，而是跑最多几十分钟就停下来，然后问我要不要继续。例如让它把项目中的单测全部补全（大概 1k 个），它跑了大概 200 个就停下来了。
+
+cc</p></details><details class='appendix'><summary>highlight #1007781970 · MacBook Neo 我的编程学习和音乐工作站，雏形有了 接下来，就是三块内容的持续学习与推进    1、结合 Scilab, Octave, Maxima, SageMath,</summary><p>MacBook Neo 我的编程学习和音乐工作站，雏形有了
+接下来，就是三块内容的持续学习与推进
+  
+1、结合 Scilab, Octave, Maxima, SageMath, JASP 
+学习数学、物理学、概率与统计 
+2、C/V/C++, Lisp/Erlang/LFE, Golang 编程学习 
+3、Ableton Live、FL Studio、Serato DJ Pro
+Guitar Pro、DJ Studio https://t.co/wgZfh1tdKO
+
+![](https://pbs.twimg.com/media/HF6HdgHaAAAEUPz.jpg)</p></details><details class='appendix'><summary>highlight #1007781969 · 冥想数据：每天 13 分钟，8 周后注意力、记忆力、情绪调节都有可测量的提升。但 4 周不够，必须撑到 8 周。Huberman 本人说他准备从 5 分钟加到 15 分钟。这个很重</summary><p>冥想数据：每天 13 分钟，8 周后注意力、记忆力、情绪调节都有可测量的提升。但 4 周不够，必须撑到 8 周。Huberman 本人说他准备从 5 分钟加到 15 分钟。这个很重要啊 https://t.co/x02prgFmAc</p></details><details class='appendix'><summary>highlight #1007781968 · Introducing OpenMythos  An open-source, first-principles theoretical reconstruction of Cla</summary><p>Introducing OpenMythos
+
+An open-source, first-principles theoretical reconstruction of Claude Mythos, implemented in PyTorch.
+
+The architecture instantiates a looped transformer with a Mixture-of-Experts (MoE) routing mechanism, enabling iterative depth via weight sharing and https://t.co/YLvCid6CAr
+
+![](https://pbs.twimg.com/media/HGOe90NaYAAcTaO.jpg)</p></details><details class='appendix'><summary>highlight #1007781966 · 来看下有哪些人在用 agent-worktree?  地域: 中国 40+、美国 20+、欧洲 15+、印度/东南亚 15+、日韩 5+、中东/拉美各若干  公司:  Google</summary><p>来看下有哪些人在用 agent-worktree?
+
+地域: 中国 40+、美国 20+、欧洲 15+、印度/东南亚 15+、日韩 5+、中东/拉美各若干
+
+公司:  Google + SpaceX + Figma + Adobe + JPMorgan + 阿里 + 美团 + 饿了么 + Bob 翻译作者 + Apache ShardingSphere 贡献者全都在
+
+https://t.co/bkLlDtCYwh</p></details><details class='appendix'><summary>highlight #1007767890 · 这篇 arXiv 的《Dive into Claude Code》，感觉最有用的地方是讲清楚了，其实Claude Code这种系统一旦进入真实环境，工程重点立刻就变的很现实。  C</summary><p>这篇 arXiv 的《Dive into Claude Code》，感觉最有用的地方是讲清楚了，其实Claude Code这种系统一旦进入真实环境，工程重点立刻就变的很现实。
+
+Claude Code当然是个 coding agent，会跑 shell、会改文件、会调外部服务。  模型循环本身并不复杂。  
+
+文中直接写了Claude</p></details><details class='appendix'><summary>highlight #1007767889 · 警告三次不如动真格一次！中方下达停运令，西方航运巨头集体懵圈近日，国际航运界突发重磅事件。全球集装箱航运排名前两位的巨头——丹麦马士基和瑞士地中海航运（MSC），突然收到中方正式通</summary><p>警告三次不如动真格一次！中方下达停运令，西方航运巨头集体懵圈近日，国际航运界突发重磅事件。全球集装箱航运排名前两位的巨头——丹麦马士基和瑞士地中海航运（MSC），突然收到中方正式通知：立即停止巴拿马运河沿线两大核心港口的全部运营。没有缓冲期、无协商余地，一纸停运令干净利落。此前，中方 https://t.co/qWS1MaWvRN
+
+![](https://pbs.twimg.com/media/HGQk_SdasAALenK.jpg)
+
+![](https://pbs.twimg.com/media/HGQk_ScaYAAXsAR.jpg)
+
+![](https://pbs.twimg.com/media/HGQk_SdawAAlAvV.jpg)
+
+![](https://pbs.twimg.com/media/HGQk_SfakAAUk8d.jpg)</p></details><details class='appendix'><summary>highlight #1007685107 · https://t.co/KQ85leEU3Q</summary><p>https://t.co/KQ85leEU3Q</p></details><details class='appendix'><summary>highlight #1007685106 · 有些烦什么系统都往 agent 里塞个工具的模式。想了一下，把 mcp 改造为双向协议，把 agent 本身改造为外挂。 业务系统需要的时候一条 ws 连接接上 agent，把业务</summary><p>有些烦什么系统都往 agent 里塞个工具的模式。想了一下，把 mcp 改造为双向协议，把 agent 本身改造为外挂。
+业务系统需要的时候一条 ws 连接接上 agent，把业务能力反向暴露给 agent。
+这样可以在任何业务流程里无痛接入 agent 了。 https://t.co/DaA0TQ167k
+
+![](https://pbs.twimg.com/media/HGN7j7wbEAAyUoU.jpg)</p></details><details class='appendix'><summary>highlight #1007685105 · Elon Musk亲自转发的这个89分钟访谈，是这个周末看过最有价值的内容。  没有八卦，没有鸡汤，作者花了五年时间，读了三百万字Elon的公开言论，像解剖机器人一样，把他的大脑操</summary><p>Elon Musk亲自转发的这个89分钟访谈，是这个周末看过最有价值的内容。
+
+没有八卦，没有鸡汤，作者花了五年时间，读了三百万字Elon的公开言论，像解剖机器人一样，把他的大脑操作系统完整拆给你看。
+
+一、他和普通人最根本的区别
+
+普通人的努力是加法，一个能力点提升百分之十。 https://t.co/NxFLt5oY4V https://t.co/T9wFRnAfnn
+
+![](https://pbs.twimg.com/media/HGPu6kFWoAA_IRF.jpg)</p></details><details class='appendix'><summary>highlight #1007685101 · 作者还整理了一份列表，汇总当前可永久免费使用的 LLM API，列出了模型、上下文和速率限制，帮助开发者零成本接入大模型。看了一下，其中有些模型完全能够胜任四档模型中的简单和标准层</summary><p>作者还整理了一份列表，汇总当前可永久免费使用的 LLM API，列出了模型、上下文和速率限制，帮助开发者零成本接入大模型。看了一下，其中有些模型完全能够胜任四档模型中的简单和标准层级，例如：
+
+Gemini - Gemini 2.5 Flash
+Z AI - GLM-4.7-Flash、GLM-4.6V-Flash
+Cerebras - https://t.co/hvVQBZ6Ktx https://t.co/pH3MJuxMrS
+
+![](https://pbs.twimg.com/media/HGQGg-0aoAANA3H.jpg)</p></details><details class='appendix'><summary>highlight #1007685099 · https://t.co/dFHqfPsw5x</summary><p>https://t.co/dFHqfPsw5x</p></details><details class='appendix'><summary>highlight #1007685098 · 看到越来越多的开发者开始使用 mise，我又开始相信自己的直觉了。😁  https://t.co/zNsOOGrxc4 https://t.co/IIsOGxns26</summary><p>看到越来越多的开发者开始使用 mise，我又开始相信自己的直觉了。😁
+
+https://t.co/zNsOOGrxc4 https://t.co/IIsOGxns26</p></details><details class='appendix'><summary>highlight #1007671582 · 3/ 第 1 个：Claude Code  重要性不用多说。后台替我装 &amp; 配几乎所有其它软件。  再加上 @HiTw93  老师的 statusline，顺便说一下我也在使用这个</summary><p>3/ 第 1 个：Claude Code
+
+重要性不用多说。后台替我装 &amp; 配几乎所有其它软件。
+
+再加上 @HiTw93  老师的 statusline，顺便说一下我也在使用这个的主项目 Waza，完全是真实沉淀的高质量 skill！点进去看看就知道那几个天天蒸馏别人的自媒体主打的“项目”有多差了：
+https://t.co/65VS2Ir60E</p></details><details class='appendix'><summary>highlight #1007671581 · https://t.co/VoQByJUrBU</summary><p>https://t.co/VoQByJUrBU</p></details><details class='appendix'><summary>highlight #1007671580 · 最近经历越来越多的事情让我在加速做这三件事  1.维护心力 2.做减法 3.第一性原理&amp;澄清问题本质 https://t.co/hJJghdHFZ9</summary><p>最近经历越来越多的事情让我在加速做这三件事
+
+1.维护心力
+2.做减法
+3.第一性原理&amp;澄清问题本质 https://t.co/hJJghdHFZ9</p></details><details class='appendix'><summary>highlight #1007671579 · https://t.co/fas9xAHyJh</summary><p>https://t.co/fas9xAHyJh</p></details><details class='appendix'><summary>highlight #1007571914 · https://t.co/ZkKxbMdqSP</summary><p>https://t.co/ZkKxbMdqSP</p></details><details class='appendix'><summary>highlight #1007571913 · https://t.co/zuD5HGsjaA</summary><p>https://t.co/zuD5HGsjaA</p></details><details class='appendix'><summary>highlight #1007560161 · 今早花了一小时把 dotfiles 装修了一下  和什么花哨的 oh-my-zsh， zsh-plugin， iTerm2 config  全部说再见了  现在核心就两个 brew</summary><p>今早花了一小时把 dotfiles 装修了一下
+
+和什么花哨的 oh-my-zsh， zsh-plugin， iTerm2 config  全部说再见了
+
+现在核心就两个 brew：管理所有系统依赖，msie： 管理所有开发依赖，新机器直接 https://t.co/sJRDutirgp 一把就全部装回来了爽到！</p></details><details class='appendix'><summary>highlight #1007560160 · 我今天才知道 manifest，感觉是一个更好看的 New-API。  为个人 AI Agent 提供智能模型路由，自动将简单请求路由到便宜模型，复杂请求路由到高级模型，节省高达 </summary><p>我今天才知道 manifest，感觉是一个更好看的 New-API。
+
+为个人 AI Agent 提供智能模型路由，自动将简单请求路由到便宜模型，复杂请求路由到高级模型，节省高达 70% 成本。请求先经过 23 维度评分算法（2ms 内完成），自动分配到 Simple → Reasoning 四档之一，每个层级可配置最多 5 个备选模型。支持 https://t.co/2zod8cGLRh</p></details><details class='appendix'><summary>highlight #1007560158 · 🚀好消息！NVIDIA 限时福利：一年期 API Key 免费领！  Hermes Agent 现已支持接入 NVIDIA NIM 平台，实测可选 MiniMax 2.7 模型。 </summary><p>🚀好消息！NVIDIA 限时福利：一年期 API Key 免费领！
+
+Hermes Agent 现已支持接入 NVIDIA NIM 平台，实测可选 MiniMax 2.7 模型。
+
+获取后的 API Key 有效期长达12个月，目前可用。
+
+有便宜不占是王八蛋吖😂，不领白不领。
+
+传送门： https://t.co/yHOD44lixD https://t.co/k46a5VJIzE https://t.co/15iFEUmPlK
+
+![](https://pbs.twimg.com/media/HGM2bR_bwAAIP_j.jpg)</p></details><details class='appendix'><summary>highlight #1007560156 · Everyone is engineer 人人都是工程师的时代到来  以前是只能想，现在是人人都能 Do，所以之前只有 “人人都是产品经理”  Anthropic 的增长负责人一个</summary><p>Everyone is engineer 人人都是工程师的时代到来
+
+以前是只能想，现在是人人都能 Do，所以之前只有 “人人都是产品经理”
+
+Anthropic 的增长负责人一个人用 Claude Code 做增长工程完成之前需要一个团队包括工程师才能做的事情
+
+现在市场称这类增长运营人员为 “分销工程师” The distribution engineer https://t.co/740eLiaz2M</p></details><details class='appendix'><summary>highlight #1007560154 · 🚀 Firecrawl 重磅开源 web-agent！  100% 开源框架，任意模型都能轻松构建搜索、抓取、交互网页的 AI Agent，直接起飞！  想打造自己的网页 Agen</summary><p>🚀 Firecrawl 重磅开源 web-agent！
+
+100% 开源框架，任意模型都能轻松构建搜索、抓取、交互网页的 AI Agent，直接起飞！
+
+想打造自己的网页 Agent 开发者，现在就可以 fork 直接玩！
+ https://t.co/zCYITK3aOF</p></details><details class='appendix'><summary>highlight #1007560153 · 哪些书籍启迪了哈萨比斯(DeepMind创始人/诺奖得主)？  科幻和科学著作为主，特别适合给青少年/科技人员 《《集异璧》》、《银河系漫游指南》、《基地》、《文明》 以及Altm</summary><p>哪些书籍启迪了哈萨比斯(DeepMind创始人/诺奖得主)？
+
+科幻和科学著作为主，特别适合给青少年/科技人员
+《《集异璧》》、《银河系漫游指南》、《基地》、《文明》
+以及Altman所推崇的那些现代作品
+收藏+转发! 
+
+英文清单👇
+Demis Hassabis’s Inspirations
+Ender’s Game
+The Chess Computer Handbook https://t.co/n28kltO0kH https://t.co/2XX90N9Rm1
+
+![](https://pbs.twimg.com/media/HGPDvC7agAAKTdX.jpg)</p></details><details class='appendix'><summary>highlight #1007352560 · https://t.co/Gz67WmfW0E</summary><p>https://t.co/Gz67WmfW0E</p></details><details class='appendix'><summary>highlight #1007326651 · 兄弟们，上手体验了下， 给我的Reddtrends产品做了一个产品宣传视频。  一键直出，提示词👇  “你访问我的产品网站：https://t.co/5gILgHed2d，然后使用</summary><p>兄弟们，上手体验了下， 给我的Reddtrends产品做了一个产品宣传视频。
+
+一键直出，提示词👇
+
+“你访问我的产品网站：https://t.co/5gILgHed2d，然后使用 /hyperframes 制作一个产品宣传视频” https://t.co/eEURnKQvn6 https://t.co/bcD3IBzgIy</p></details><details class='appendix'><summary>highlight #1007326650 · 另一个绘制svg图标的 skill，效果也有点意思。  https://t.co/r671bOdkhH  这是我让他绘制的 pi-autoresearch 插件的架构图。模型 cl</summary><p>另一个绘制svg图标的 skill，效果也有点意思。
+
+https://t.co/r671bOdkhH
+
+这是我让他绘制的 pi-autoresearch 插件的架构图。模型 claude sonnet 4.6 medium https://t.co/oQT09CjBEd
+
+![](https://pbs.twimg.com/media/HGLGJu0boAA4Sfx.jpg)</p></details><details class='appendix'><summary>highlight #1007326649 · https://t.co/V4KbwdbueX</summary><p>https://t.co/V4KbwdbueX</p></details><details class='appendix'><summary>highlight #1007321523 · #BestBlogs 早报 2026-04-18   强烈推荐观看 AI Engineering 的几个大神的演讲，包括 Peter Steinberger、Mario Zechn</summary><p>#BestBlogs 早报 2026-04-18 
+
+强烈推荐观看 AI Engineering 的几个大神的演讲，包括 Peter Steinberger、Mario Zechner 和 Ryan Lopopolo https://t.co/im4JI10MMD
+
+![](https://pbs.twimg.com/media/HGJJy4Jb0AA53OH.jpg)</p></details><details class='appendix'><summary>highlight #1007321522 · 健康这个话题怎么强调都不为过  我最近喜欢用这句话来表达：构建自己的健康体系，包括5个核心要素，睡眠、运动、饮食、情绪、药物  它们之间，相辅相成  真正长期有用且对自己的健康体系</summary><p>健康这个话题怎么强调都不为过 
+我最近喜欢用这句话来表达：构建自己的健康体系，包括5个核心要素，睡眠、运动、饮食、情绪、药物 
+它们之间，相辅相成 
+真正长期有用且对自己的健康体系产生复利的方法和手段，都不用怎么花钱 
+
+这5个要素中，睡眠的重要性其实被大大低估了 https://t.co/EpfVuAOrfS</p></details><details class='appendix'><summary>highlight #1007321521 · 内容创作者最该记住的三句话：1，爱一个人，就把他蒸馏掉&quot; ——用NotebookLM吞噬大佬全部内容，直接对话学习。2，垂直小号一周成专家&quot; ——AI让你深耕7天建立认知壁垒，算法</summary><p>内容创作者最该记住的三句话：1，爱一个人，就把他蒸馏掉&quot; ——用NotebookLM吞噬大佬全部内容，直接对话学习。2，垂直小号一周成专家&quot; ——AI让你深耕7天建立认知壁垒，算法正在奖励细分。3，再穷不能穷模型&quot; ——每天50%工作时间用AI，让Claude+Obsidian成为选题雷达和第二大脑。 https://t.co/cy7ckhfj6M</p></details><details class='appendix'><summary>highlight #1007299075 · 我家小家伙每天4小时玩耍时间 现在开始自己烤Minecraft熟肉 日常学习：主要用可汗学院英文版 进度是校内3倍，体系也更清晰  去年用过数学学院，略显枯燥 过2年再试试  杨振</summary><p>我家小家伙每天4小时玩耍时间
+现在开始自己烤Minecraft熟肉
+日常学习：主要用可汗学院英文版
+进度是校内3倍，体系也更清晰
+
+去年用过数学学院，略显枯燥
+过2年再试试
+
+杨振宁先生的渗透式框架学习法
+非常精妙
+回头写一篇长文 https://t.co/RAKfiHwDJm https://t.co/WnUV2UD3zJ
+
+![](https://pbs.twimg.com/media/HGKH3BGbsAAWEVY.jpg)</p></details><details class='appendix'><summary>highlight #1007299074 · OpenAI总裁：AI指数级演进，软件工程半年大变天 以前是人适应电脑，现在是AI实现人的意图  这动摇了当前教育的基础， 我们需要重构孩子的学习内容。 教育的本质，不是内容选择，</summary><p>OpenAI总裁：AI指数级演进，软件工程半年大变天
+以前是人适应电脑，现在是AI实现人的意图
+
+这动摇了当前教育的基础，
+我们需要重构孩子的学习内容。
+教育的本质，不是内容选择，
+而是层级分配。
+在学之前，厘清结构和重点 
+分清三层：
+a)不变的判断结构
+b)缓变的杠杆能力
+c)快速贬值的工具 https://t.co/So41biN7h7 https://t.co/uOLFJT52rD
+
+![](https://pbs.twimg.com/media/HF2YIcAasAIMcyc.jpg)</p></details><details class='appendix'><summary>highlight #1007299073 · The world is transitioning to a compute-powered economy.  The field of software engineerin</summary><p>The world is transitioning to a compute-powered economy.
+
+The field of software engineering is currently undergoing a renaissance, with AI having dramatically sped up software engineering even over just the past six months. AI is now on track to bring this same transformation to</p></details><details class='appendix'><summary>highlight #1007299072 · 昨天我用一个下午 给自己搭了一个&quot;被动学习&quot; PTE 的系统。 主要是帮助长时间vibe coding 但是有希望在英语上有所提升的朋友  解法是把&quot;喂料&quot;和&quot;吸收&quot;物理分开，做成</summary><p>昨天我用一个下午
+给自己搭了一个&quot;被动学习&quot; PTE 的系统。
+主要是帮助长时间vibe coding
+但是有希望在英语上有所提升的朋友
+
+解法是把&quot;喂料&quot;和&quot;吸收&quot;物理分开，做成两个 skill 融合。
+主动那一端负责吃油管 PTE 老师的讲解文稿。
+被动那一端负责在我不知情的情况下教我。
+被动端是我原本就在用的 https://t.co/GEVjVnY7mu
+
+![](https://pbs.twimg.com/media/HGIXUvcacAA1AUX.jpg)</p></details><details class='appendix'><summary>highlight #1007299071 · 按费曼教授对教育的定义， 世界上90%的“教育”不及格， 需要家长在利用系统的同时，开个小窗  费曼：教育的目的是激发学生学习的热情， 促发他们能够思考、理解和质疑。 https:</summary><p>按费曼教授对教育的定义，
+世界上90%的“教育”不及格，
+需要家长在利用系统的同时，开个小窗
+
+费曼：教育的目的是激发学生学习的热情，
+促发他们能够思考、理解和质疑。 https://t.co/ZSKjiGgQEM https://t.co/z9zcWECCyr
+
+![](https://pbs.twimg.com/media/HGJ10LzaIAAzRPv.jpg)</p></details><details class='appendix'><summary>highlight #1007299070 · https://t.co/0BN1UmRpE1</summary><p>https://t.co/0BN1UmRpE1</p></details><details class='appendix'><summary>highlight #1007299069 · In fact programming is particularly good at teaching you how to think. Programs are litera</summary><p>In fact programming is particularly good at teaching you how to think. Programs are literally built out of ideas. Which is one reason it&#x27;s still a good idea to study CS in the AI era. It&#x27;s still important to be able to think well. https://t.co/bsqBIy0P8c</p></details><details class='appendix'><summary>highlight #1007299068 · 马斯克谈自己的成长历程 “科技树思维”/Technology Tree： 世界不是随机的, 是有依赖关系和发展顺序的系统 理解了结构，也就理解了世界  从“玩游戏” → “理解现实</summary><p>马斯克谈自己的成长历程
+“科技树思维”/Technology Tree：
+世界不是随机的, 是有依赖关系和发展顺序的系统
+理解了结构，也就理解了世界
+
+从“玩游戏” → “理解现实系统”
+《文明》这类游戏，
+是压缩后的世界模型
+
+孩子如果能迁移结构，会变成：
+看产业 → 看技术树
+看国家 → 看制度演化
+看公司 → https://t.co/j3mbPzvsUR https://t.co/4tr4bkF9JE
+
+![](https://pbs.twimg.com/media/HGHM2Yja4AAw6ME.jpg)</p></details><details class='appendix'><summary>highlight #1007299067 · You can use AI to cut costs. You can also use AI to raise your ambition.  Too many people </summary><p>You can use AI to cut costs. You can also use AI to raise your ambition.
+
+Too many people focus on the first. More people should be thinking about the second.</p></details><details class='appendix'><summary>highlight #1007286621 · 直接放原码可能会存在法律问题 所以就给大家开一下这个可以用于逆向的 skill 基本上是针对当前这个场景可以把东西吐出来的  你会需要的是 IDA 和 IDA mcp 在此基础上进</summary><p>直接放原码可能会存在法律问题 所以就给大家开一下这个可以用于逆向的 skill
+基本上是针对当前这个场景可以把东西吐出来的
+
+你会需要的是 IDA 和 IDA mcp 在此基础上进行一些微调编排引导 然后就能够复刻出来
+
+原代码应该是不方便给了 https://t.co/89uUI1WMCD https://t.co/fgpOQqiZbD
+
+![](https://pbs.twimg.com/media/HGKFlkvbwAE-33a.jpg)</p></details><details class='appendix'><summary>highlight #1007247461 · 我靠，HeyGen 发布这个 hyperframes CLI 很强啊  跟我之前的一个想法类似，就是它把用纯 HTML 写的那个动效变成视频。  然后再接一个（比如 Seedanc</summary><p>我靠，HeyGen 发布这个 hyperframes CLI 很强啊
+
+跟我之前的一个想法类似，就是它把用纯 HTML 写的那个动效变成视频。
+
+然后再接一个（比如 Seedance 2.0 这样的）模型。
+
+这样你就可以纯零人工介入，实现人脸出镜的那种科普视频了。 https://t.co/twjOjtrUpP https://t.co/aTvR3kyZJY</p></details><details class='appendix'><summary>highlight #1007247460 · Cloudflare introduces a new tool Check if your site is &quot;Agent Ready&quot;  Well per their own v</summary><p>Cloudflare introduces a new tool
+Check if your site is &quot;Agent Ready&quot;
+
+Well per their own vague metrics they got some work to do on their own site :D https://t.co/nzAipL1zZZ https://t.co/cLFqil7vlt
+
+![](https://pbs.twimg.com/media/HGHMPNAbUAAx6uW.jpg)</p></details><details class='appendix'><summary>highlight #1007247442 · https://t.co/PhnY7WzEW1 #TIL https://t.co/KKmRDNEoaA  ![](https://pbs.twimg.com/media/HGFy</summary><p>https://t.co/PhnY7WzEW1
+#TIL https://t.co/KKmRDNEoaA
+
+![](https://pbs.twimg.com/media/HGFy4XzbEAA0Obf.jpg)</p></details><details class='appendix'><summary>highlight #1007232239 · 反社会但不献忠的中式活法 https://t.co/6AhhEJVRNA  ![](https://pbs.twimg.com/media/HGIPZzwakAA3nH4.jpg)</summary><p>反社会但不献忠的中式活法 https://t.co/6AhhEJVRNA
+
+![](https://pbs.twimg.com/media/HGIPZzwakAA3nH4.jpg)</p></details><details class='appendix'><summary>highlight #1007117737 · https://t.co/KcgWiNGcxZ</summary><p>https://t.co/KcgWiNGcxZ</p></details><details class='appendix'><summary>highlight #1007117734 · 我认为，我们应该多关注Builders（动手做事的人），少关注Influencers（只做自媒体的人）。  根据此原则，我开放了一套日报，解决三个问题：  - 昨天，全世界的独立开</summary><p>我认为，我们应该多关注Builders（动手做事的人），少关注Influencers（只做自媒体的人）。
+
+根据此原则，我开放了一套日报，解决三个问题：
+
+- 昨天，全世界的独立开发者发布了什么好玩的？
+- 昨天，有啥值得独立开发者关注的新闻？
+- 今天我有2小时，我可以做点啥？
+
+https://t.co/H0j3QG4SSH</p></details><details class='appendix'><summary>highlight #1007117730 · 程序员兄弟们，终于有人把AI编码最致命的那个毛病给治好了，  GStack这次的困惑协议更新直接封神，而且感觉这次更新才是AI编码Agent真正该走的路。 https://t.co</summary><p>程序员兄弟们，终于有人把AI编码最致命的那个毛病给治好了，
+
+GStack这次的困惑协议更新直接封神，而且感觉这次更新才是AI编码Agent真正该走的路。 https://t.co/Aw9Dyq1sVc https://t.co/sOZkmjVUPT
+
+![](https://pbs.twimg.com/media/HGGQ_d-WoAA7xtB.jpg)</p></details><details class='appendix'><summary>highlight #1007117727 · 用了这么久 Claude Code，很多人都在研究 CLAUDE.md、Hooks、Sub-Agent，但其实它 GitHub 仓库里还藏着一批官方插件，很多人根本没注意到。  仓</summary><p>用了这么久 Claude Code，很多人都在研究 CLAUDE.md、Hooks、Sub-Agent，但其实它 GitHub 仓库里还藏着一批官方插件，很多人根本没注意到。
+
+仓库根目录的 plugins/ 下面，安安静静放着 12 个 Anthropic 官方写的插件，没怎么宣传，但里面有几个是真的很实用。 https://t.co/ZWCeEdrceG</p></details><details class='appendix'><summary>highlight #1007117725 · 看多了前端已死，程序员要被淘汰了，这次终于轮到 marketing 了？  Anthropic 有个非技术背景的人，一个人扛了 10 个月的 growth marketing。  </summary><p>看多了前端已死，程序员要被淘汰了，这次终于轮到 marketing 了？
+
+Anthropic 有个非技术背景的人，一个人扛了 10 个月的 growth marketing。
+
+他做的事其实已经不太像 marketing 了：
+
+历史广告数据喂给 Claude Code，先分析哪些文案差，再直接生成新版本
+headline 和 description 拆给不同 https://t.co/EOlNGMSmv2</p></details><details class='appendix'><summary>highlight #1007086029 · 请在深刻理解下面规则的前提下， 为我撰写一篇关于xxxxxx的稿件，大约600个字左右。 避免任何形式的判断句与定义句。包括但不限于“A是B”的结构、“A不是B”的否定判断、“所谓</summary><p>请在深刻理解下面规则的前提下， 为我撰写一篇关于xxxxxx的稿件，大约600个字左右。
+避免任何形式的判断句与定义句。包括但不限于“A是B”的结构、“A不是B”的否定判断、“所谓A即B”的定义式表述，以及任何带有绝对肯定或否定语气的陈述。 https://t.co/o7YfyRl0W4
+
+![](https://pbs.twimg.com/media/HGGgmkCboAA1ZxN.jpg)
+
+![](https://pbs.twimg.com/media/HGGgtAoa4AEH0mH.png)
+
+![](https://pbs.twimg.com/media/HGGgwSbbAAAuO04.png)
+
+![](https://pbs.twimg.com/media/HGGgxu6aEAAnOgV.png)</p></details><details class='appendix'><summary>highlight #1007086027 · Vercel 又出了一个很棒的东西：wterm https://t.co/h2UvbmeuWH 基于 Web 的终端模拟器 特点是直接渲染到 DOM，不是 Canvas，所以支持原</summary><p>Vercel 又出了一个很棒的东西：wterm
+https://t.co/h2UvbmeuWH
+基于 Web 的终端模拟器
+特点是直接渲染到 DOM，不是 Canvas，所以支持原生支持文本选择、复制粘贴、浏览器查找和无障碍。
+
+核心用 Zig 语言编写，编译为 WebAssembly，体积仅约 12 KB，性能接近原生。还有很多很棒的特性。 https://t.co/mzWU7isPng
+
+![](https://pbs.twimg.com/media/HGGo5_4a4AAj2GH.jpg)</p></details><details class='appendix'><summary>highlight #1007055740 · 做了个 wx cli，主要是给自己用的，用来管理自己的聊天记录，整理消息，实时监听消息之类的  https://t.co/034C3zWndi</summary><p>做了个 wx cli，主要是给自己用的，用来管理自己的聊天记录，整理消息，实时监听消息之类的
+
+https://t.co/034C3zWndi</p></details><details class='appendix'><summary>highlight #1007045938 · 这个工具太强了！我已经把我微信收藏的143条数据全部成功解析了出来。这个做出来的网站是skill内置的，但是数据反正都在本地，自己想怎么分类整理都可以。  Mac电脑是唯一的限制。</summary><p>这个工具太强了！我已经把我微信收藏的143条数据全部成功解析了出来。这个做出来的网站是skill内置的，但是数据反正都在本地，自己想怎么分类整理都可以。
+
+Mac电脑是唯一的限制。
+收藏夹不再吃灰，是AI时代给我最强的体感之一。
+小红书、X、微信，已经全部打通了。。。太强了！ https://t.co/uP4bDleZTw https://t.co/dGIcwhTM9d
+
+![](https://pbs.twimg.com/media/HGCE6NubgAAm63A.jpg)
+
+![](https://pbs.twimg.com/media/HGCE768bUAAi0qc.jpg)
+
+![](https://pbs.twimg.com/media/HGCE9x-bQAAKyrn.jpg)
+
+![](https://pbs.twimg.com/media/HGCFCKDbUAAuagd.jpg)</p></details><details class='appendix'><summary>highlight #1007045937 · 说实话，这才是Anthropic今年最有价值的更新啊，没有之一！！！  没有堆更大的上下文窗口，也没有吹更厉害的模型能力，Claude Code的核心开发者@trq212 大神直接</summary><p>说实话，这才是Anthropic今年最有价值的更新啊，没有之一！！！
+
+没有堆更大的上下文窗口，也没有吹更厉害的模型能力，Claude Code的核心开发者@trq212 大神直接把大部分人用长上下文的错误方式拍在了大家脸上。
+
+这是官方自己承认1M窗口根本解决不了问题，
+真正能让长任务跑通的是主动的会话管理。 https://t.co/H2EmCNEdve https://t.co/zSuAERjOqu
+
+![](https://pbs.twimg.com/media/HF_4aHibwAAU6tI.jpg)
+
+![](https://pbs.twimg.com/media/HF_4aHEXsAEDEBR.jpg)
+
+![](https://pbs.twimg.com/media/HF_4aHmbcAAJf-J.jpg)
+
+![](https://pbs.twimg.com/media/HF_4aHAW4AAuZga.jpg)</p></details><details class='appendix'><summary>highlight #1007015324 · 穷人怎样翻身变富？    Quora上有个高赞回答，我觉得讲得特别实在，一针见血：  &quot;我曾经就是一穷二白的人。    第一步：立刻调整态度。  没有借口，不怪任何人、任何事。你必</summary><p>穷人怎样翻身变富？ 
+
+ Quora上有个高赞回答，我觉得讲得特别实在，一针见血：
+
+&quot;我曾经就是一穷二白的人。  
+
+第一步：立刻调整态度。
+
+没有借口，不怪任何人、任何事。你必须100%为自己的成功负全责。  
+
+第二：永远守信用，而且每次都超出别人的预期。
+还是那句话: 零借口。 https://t.co/VZFimihGI6
+
+![](https://pbs.twimg.com/media/HF7c1hMasAQ_r2f.jpg)</p></details><details class='appendix'><summary>highlight #1007015323 · 把 GitHub 仓库直接挂到 Mac 上当本地文件夹用，点开就能看文件内容。  https://t.co/fpELYg8LOD  GHFS 是个 macOS 小工具，用 Appl</summary><p>把 GitHub 仓库直接挂到 Mac 上当本地文件夹用，点开就能看文件内容。
+
+https://t.co/fpELYg8LOD
+
+GHFS 是个 macOS 小工具，用 Apple 自家的 FSKit 把 GitHub 上的仓库变成你电脑里的只读文件夹。不需要装 macFUSE、git https://t.co/CorPIh9Jgz
+
+![](https://pbs.twimg.com/media/HF7JoxMbIAA_cDV.jpg)</p></details><details class='appendix'><summary>highlight #1006963591 · 写程序时，代码本身根本不是最重要的东西。 Claude Code 创作者 Boris Cherny 直接点破了这个真相。 最重要的是类型签名。  为了说明这点，他给所有工程师推荐了</summary><p>写程序时，代码本身根本不是最重要的东西。
+Claude Code 创作者 Boris Cherny 直接点破了这个真相。
+最重要的是类型签名。
+
+为了说明这点，他给所有工程师推荐了一本书。
+《Scala 函数式编程》。
+但他紧接着就坦白了一个事实。
+你日常工作大概率一辈子都用不上 Scala。 https://t.co/phgLKijgt9</p></details><details class='appendix'><summary>highlight #1006963590 · 我也来说说我的推荐吧。  Claude Agent Sdk 依然是最快方案，可以通过子进程设置环境变量的方式，兼容所有支持 Claude 协议的模型，比如 GLM、Minimax </summary><p>我也来说说我的推荐吧。
+
+Claude Agent Sdk 依然是最快方案，可以通过子进程设置环境变量的方式，兼容所有支持 Claude 协议的模型，比如 GLM、Minimax 之类的，换言之，Claude Code 能支持的用它也都能支持。
+
+Openai 系的模型可以看看 Openai Agent Sdk 或者 Vercel AI SDK，或者直接用整套的 https://t.co/1bwgCj9Lis</p></details><details class='appendix'><summary>highlight #1006958481 · 🤯 又一枚核弹级开源模型来了！@leftcurvedev_ 刚分享的 Qwen3.5-9B-GLM5.1-Distill-v1 直接把本地AI拉到新高度！  🧠 用 GLM-5.1</summary><p>🤯 又一枚核弹级开源模型来了！@leftcurvedev_ 刚分享的 Qwen3.5-9B-GLM5.1-Distill-v1 直接把本地AI拉到新高度！
+
+🧠 用 GLM-5.1 顶级推理蒸馏，思考深度完爆基础版  
+⚡ 仅需 8GB VRAM 就能跑，普通显卡直接起飞  
+🍎 还有 MLX 苹果原生版已上线  
+🔥 作者刚蒸馏完 Claude Opus https://t.co/Gx7yDqtibb</p></details><details class='appendix'><summary>highlight #1006958480 · Shopify 用 pi-autoresearch 实现了如下优化：  单元测试: 快300倍！ React 组建加载: 快20%  CI 构建时间: 减少65%   karpat</summary><p>Shopify 用 pi-autoresearch 实现了如下优化：
+
+单元测试: 快300倍！
+React 组建加载: 快20% 
+CI 构建时间: 减少65% 
+
+karpathy 的 autoresearch 还在持续演化，确实是个非常适合 AI 自研究框架。 https://t.co/AwIl5MRk85</p></details><details class='appendix'><summary>highlight #1006958479 · geo-tracking-plan：https://t.co/VIPiTbY2vu  作用：输入公司名称和辅助信息，基于官网与官方资产生成 GEO 后端效果追踪方案，显式区分国内 </summary><p>geo-tracking-plan：https://t.co/VIPiTbY2vu
+
+作用：输入公司名称和辅助信息，基于官网与官方资产生成 GEO 后端效果追踪方案，显式区分国内 / 海外 / 混合 GEO 的不同监测逻辑
+适合：官网优先检索、业务识别、直接与间接效果设计、可视化 HTML 报告、DOCX 交付。
+
+对应仓库：
+https://t.co/vx2PNuN0e9</p></details><details class='appendix'><summary>highlight #1006958478 · Pete Hegseth 在五角大楼的一次布道中引用了一段“圣经经文”—但实际上那是电影《低俗小说》中虚构的以西结书 25:17 的演讲。  低级红比高级黑还要致命，下面的人各种蚌</summary><p>Pete Hegseth 在五角大楼的一次布道中引用了一段“圣经经文”—但实际上那是电影《低俗小说》中虚构的以西结书 25:17 的演讲。
+
+低级红比高级黑还要致命，下面的人各种蚌埠住了🌚 https://t.co/DhgwCpZQCx</p></details><details class='appendix'><summary>highlight #1006958477 · Impeccable 升级到 2.0 了，这应该是目前我觉得最好的 design skills 了，anti AI slop https://t.co/r1KA87Y6FY   推</summary><p>Impeccable 升级到 2.0 了，这应该是目前我觉得最好的 design skills 了，anti AI slop
+https://t.co/r1KA87Y6FY 
+
+推出了CLI 工具，无需 LLM 即可扫描代码，检测 25 种 AI slop 设计。
+Chrome 扩展，一键检测任意网页。
+各种升级和精简的命令。
+全新的文档界面，有前后设计对比图，有 Visual Mode</p></details><details class='appendix'><summary>highlight #1006958476 · @riverleaf88 你家接入的交流电，曾经也只是生产力工具。</summary><p>@riverleaf88 你家接入的交流电，曾经也只是生产力工具。</p></details><details class='appendix'><summary>highlight #1006853941 · 还是mark 一下吧,  2026 年 4 月中国 PPI 终于转正, 生产端收缩3年多后终于重新开始走向扩张. 非常优美的软着陆曲线. 习近平其他什么一带一路全球战略不说, 光是</summary><p>还是mark 一下吧,  2026 年 4 月中国 PPI 终于转正, 生产端收缩3年多后终于重新开始走向扩张. 非常优美的软着陆曲线. 习近平其他什么一带一路全球战略不说, 光是刺破了地产泡沫后还能顶着贸易战和 FED 加息周期平安着陆经济, 这一条说一句当今第一政治家不过分. https://t.co/3Ptk0SDFZQ https://t.co/20LvinyVMr
+
+![](https://pbs.twimg.com/media/HGAMYXmbIAAQY9s.png)</p></details><details class='appendix'><summary>highlight #1006853940 · 如果一个孩子从高中开始系统听   Huberman Lab  播客  他接触到的，不只是英语    而是： 👉 大脑如何运作   👉 专注、情绪、习惯如何被设计   👉 睡眠、压力</summary><p>如果一个孩子从高中开始系统听  
+Huberman Lab  播客
+
+他接触到的，不只是英语  
+
+而是：
+👉 大脑如何运作  
+👉 专注、情绪、习惯如何被设计  
+👉 睡眠、压力、动机的底层机制  
+👉 负面情绪和行为如何被抑制
+
+他会开始意识到：  
+很多“努力”，其实是低效甚至错误的，
+只是在消耗意志力， https://t.co/TLAHoOQfMG</p></details><details class='appendix'><summary>highlight #1006715928 · https://t.co/z19fhmD66b</summary><p>https://t.co/z19fhmD66b</p></details><details class='appendix'><summary>highlight #1006715925 · We just released code for Meta-Harness! https://t.co/OdU7zocdPl  Aside from replicating pa</summary><p>We just released code for Meta-Harness! https://t.co/OdU7zocdPl
+
+Aside from replicating paper experiments, the repo is designed to help users implement good Meta-Harnesses in completely new domains! Just point your agent at ONBOARDING.md and have a conversation https://t.co/0H6Zrvg8FQ https://t.co/0hhtPHT1Ut
+
+![](https://pbs.twimg.com/media/HF7KIPeboAE8mYA.jpg)</p></details><details class='appendix'><summary>highlight #1006715920 · Gemini 官方 macOS 版，做得不错啊。  https://t.co/6XYALol5lV https://t.co/A1VmEgYjWl  ![](https://pbs</summary><p>Gemini 官方 macOS 版，做得不错啊。
+
+https://t.co/6XYALol5lV https://t.co/A1VmEgYjWl
+
+![](https://pbs.twimg.com/media/HF-6OB4bIAATdE8.jpg)</p></details><details class='appendix'><summary>highlight #1006715918 · 之前我们 @SlowMist_Team 发布的安全 Skill 可以直接在 @NousResearch Hermes Agent 上使用，直接让你的 Agent 安装 https:</summary><p>之前我们 @SlowMist_Team 发布的安全 Skill 可以直接在 @NousResearch Hermes Agent 上使用，直接让你的 Agent 安装 https://t.co/yInir1C8Uj 即可，如图。
+
+为了以后触发方便及稳定，你可以这样告诉你是 Agent：
+
+以后我提 smas 就指 slowmist-agent-security，这样方便我们后续操作。
+
+玩起来吧。 https://t.co/4UXlFXwpub
+
+![](https://pbs.twimg.com/media/HF_Jd_NbcAI_UUx.jpg)
+
+![](https://pbs.twimg.com/media/HF_Jd_MbcAAfAS7.jpg)
+
+![](https://pbs.twimg.com/media/HF_Jd_HbcAEriKn.jpg)</p></details><details class='appendix'><summary>highlight #1006437857 · 思路蛮好的，codex等gui，这个con基于tty，也是个很不错的思路，希望支持目录树和简单编辑。 https://t.co/an2kVrEei1</summary><p>思路蛮好的，codex等gui，这个con基于tty，也是个很不错的思路，希望支持目录树和简单编辑。 https://t.co/an2kVrEei1</p></details><details class='appendix'><summary>highlight #1006408994 · Vercel 也放出了开源 Agent 托管平台 open-agents。  试用了下，成熟度较高，很容易二开到企业内部。不出意料 Vercel 也使用了 Agent not in</summary><p>Vercel 也放出了开源 Agent 托管平台 open-agents。
+
+试用了下，成熟度较高，很容易二开到企业内部。不出意料 Vercel 也使用了 Agent not in sandbox 设计。
+
+https://t.co/h9x2FnDtej https://t.co/hIntTp5DjG
+
+![](https://pbs.twimg.com/media/HF1sP3_asAMVijS.jpg)</p></details><details class='appendix'><summary>highlight #1006408992 · Garry Tan 上周发了 Thin Harness, Fat Skills，百万阅读。他的五个概念（Skill Files、Thin Harness、Resolvers、Lat</summary><p>Garry Tan 上周发了 Thin Harness, Fat Skills，百万阅读。他的五个概念（Skill Files、Thin Harness、Resolvers、Latent vs Deterministic、Diarization）和我们过去一年独立搭建的 context infrastructure 体系几乎逐条对应。</p></details><details class='appendix'><summary>highlight #1006408991 · 用达尔文.skill优化了我本地的一个减少AI味的skill，把它从72分提升到了87分，非常舒适～ https://t.co/sTogtttvEh https://t.co/yb</summary><p>用达尔文.skill优化了我本地的一个减少AI味的skill，把它从72分提升到了87分，非常舒适～ https://t.co/sTogtttvEh https://t.co/ybuUdva857
+
+![](https://pbs.twimg.com/media/HF37rJ7asAMgXSB.jpg)</p></details><details class='appendix'><summary>highlight #1006408990 · https://t.co/yJi18lu2a9</summary><p>https://t.co/yJi18lu2a9</p></details><details class='appendix'><summary>highlight #1006401513 · https://t.co/qejg8bnyGe</summary><p>https://t.co/qejg8bnyGe</p></details><details class='appendix'><summary>highlight #1006401512 · https://t.co/RHdIs6xzUk</summary><p>https://t.co/RHdIs6xzUk</p></details><details class='appendix'><summary>highlight #1006401511 · Hey @grok is this true ?? https://t.co/GmN8AzTt9r  ![](https://pbs.twimg.com/media/HF2vd61</summary><p>Hey @grok is this true ?? https://t.co/GmN8AzTt9r
+
+![](https://pbs.twimg.com/media/HF2vd61asAIdWNk.jpg)</p></details><details class='appendix'><summary>highlight #1006401510 · 用达尔文.skill打完分之后，你可能会发现你的有些纸糊的skill就是在瞎跑... https://t.co/RkPJirUvxm https://t.co/ybuUdva857</summary><p>用达尔文.skill打完分之后，你可能会发现你的有些纸糊的skill就是在瞎跑... https://t.co/RkPJirUvxm https://t.co/ybuUdva857
+
+![](https://pbs.twimg.com/media/HF16393bYAATCc3.jpg)</p></details><details class='appendix'><summary>highlight #1006401509 · Dr. Benjamin Bikman 对成年人提出了严厉的警告：  “如果成年人无法禁食 12 小时，这是一个非常糟糕的迹象——这通常意味着胰岛素抵抗和慢性胰岛素水平升高。”  </summary><p>Dr. Benjamin Bikman 对成年人提出了严厉的警告：
+
+“如果成年人无法禁食 12 小时，这是一个非常糟糕的迹象——这通常意味着胰岛素抵抗和慢性胰岛素水平升高。”
+
+高胰岛素水平会使你的身体一直处于燃烧糖分的状态。
+禁食期间葡萄糖会迅速耗尽 → 你会感到崩溃、非常难受，并且无法动用储存的脂肪。 https://t.co/UEMEIzbIEX https://t.co/czJALHuat2</p></details><details class='appendix'><summary>highlight #1006401508 · https://t.co/YsmibN9czX</summary><p>https://t.co/YsmibN9czX</p></details><details class='appendix'><summary>highlight #1006401507 · https://t.co/Cd6BbcJbiP</summary><p>https://t.co/Cd6BbcJbiP</p></details><details class='appendix'><summary>highlight #1006401503 · Vercel 开源了 Open Agents，一个用来搭建企业自有编程 Agent 平台的参考实现。  CEO Guillermo Rauch 说：现成的编程 Agent 在大型代</summary><p>Vercel 开源了 Open Agents，一个用来搭建企业自有编程 Agent 平台的参考实现。
+
+CEO Guillermo Rauch 说：现成的编程 Agent 在大型代码仓库上表现不行，也不了解你公司的知识体系和内部流程，所以 Stripe、Spotify、Block 这些公司都在造自己的 AI 软件工厂。
+
+Open Agents 绑定了 Vercel 自家的 https://t.co/scgyEDpWBb https://t.co/o0kAakG2Jt
+
+![](https://pbs.twimg.com/media/HF1ontzXAAAErih.jpg)</p></details><details class='appendix'><summary>highlight #1006401496 · 好看的 fastfetch 配置，直接丢给 Codex 让它给我配好了。  https://t.co/YAjAS5jsD2 https://t.co/georbvLXit  ![]</summary><p>好看的 fastfetch 配置，直接丢给 Codex 让它给我配好了。
+
+https://t.co/YAjAS5jsD2 https://t.co/georbvLXit
+
+![](https://pbs.twimg.com/media/HF3Yz2CasAEUHl8.jpg)</p></details><details class='appendix'><summary>highlight #1006148399 · Garry Tan 提炼了他在 agentic engineering 领域的核心心法：Fat Skills, Fat Code, Thin Harness。  简单说就是三层分离</summary><p>Garry Tan 提炼了他在 agentic engineering 领域的核心心法：Fat Skills, Fat Code, Thin Harness。
+
+简单说就是三层分离：把需要判断的模糊操作推入 markdown 技能文件（Fat Skills），把必须精确执行的确定性逻辑写成代码（Fat Code），框架本身只做最基础的连接（Thin https://t.co/ptiXjl3fkp</p></details><details class='appendix'><summary>highlight #1006148397 · https://t.co/EVPCod6rxu</summary><p>https://t.co/EVPCod6rxu</p></details><details class='appendix'><summary>highlight #1006139195 · https://t.co/oWr2pTk4Hu</summary><p>https://t.co/oWr2pTk4Hu</p></details><details class='appendix'><summary>highlight #1006139194 · 这是开源的第一个SEO&amp;GEO系统：GEOFlow  去年10月份，国庆节的时候，就完成了第一版的开发，这几个月，断断续续进行了不少的迭代，也做了不少测试，终于上线开源，欢迎下载部</summary><p>这是开源的第一个SEO&amp;GEO系统：GEOFlow
+
+去年10月份，国庆节的时候，就完成了第一版的开发，这几个月，断断续续进行了不少的迭代，也做了不少测试，终于上线开源，欢迎下载部署测试：
+
+1、GEOFlow系统可用于官网GEO频道部署、独立资讯站、以及独立官网甚至多站点部署，实现自动化+智能化的自运营； https://t.co/0jwLTwMe9Y
+
+![](https://pbs.twimg.com/media/HFyhUbsasAAdxYe.jpg)
+
+![](https://pbs.twimg.com/media/HFyhVr0bgAASmdI.jpg)
+
+![](https://pbs.twimg.com/media/HFyhVrzagAA3-WM.jpg)
+
+![](https://pbs.twimg.com/media/HFyhgDSbgAA1h1i.jpg)</p></details><details class='appendix'><summary>highlight #1006139193 · AI first 先行者，推荐看看。  只是用Claude Code 写代码不叫AI First。  全部业务流程全部由AI处理，AI 犯错后不是人工修正而是修正Context/H</summary><p>AI first 先行者，推荐看看。
+
+只是用Claude Code 写代码不叫AI First。
+
+全部业务流程全部由AI处理，AI 犯错后不是人工修正而是修正Context/Harness。
+
+最终只需要两个角色，架构师和操作员。 https://t.co/0U0zECDO8u</p></details><details class='appendix'><summary>highlight #1006139192 · https://t.co/q9JL7v4nXv  skill 武器库新增 /ljg-read  使用场景：  每日精读内容时，需一个「智能伴读」帮我找到更深的「结构」，与我当前理解</summary><p>https://t.co/q9JL7v4nXv
+
+skill 武器库新增 /ljg-read
+
+使用场景：
+
+每日精读内容时，需一个「智能伴读」帮我找到更深的「结构」，与我当前理解进行碰撞。
+
+文章、论文、书籍，都可以。
+
+（截图为Claude 宪法链接的phase 0阶段分析） https://t.co/8Ut5vQvTVD
+
+![](https://pbs.twimg.com/media/HFyr2IabMAA9mnK.jpg)</p></details><details class='appendix'><summary>highlight #1006139191 · Karpathy的那套个人知识库的想法，有人做了落地，变成了一个原生macOS应用：Wikiwise  普通人也能用上Andrej Karpathy那套由AI主动维护的复利式知识库</summary><p>Karpathy的那套个人知识库的想法，有人做了落地，变成了一个原生macOS应用：Wikiwise
+
+普通人也能用上Andrej Karpathy那套由AI主动维护的复利式知识库，无需自己写代码、配环境、折腾部署
+
+内置SwiftTerm终端，直接在应用里跑Claude Code、Codex，文件管理+预览+终端三合一，不用切换 https://t.co/NSoTjZJlk2
+
+![](https://pbs.twimg.com/media/HFxHJSWakAAC-9O.jpg)</p></details><details class='appendix'><summary>highlight #1005964498 · 把一根针管直接扎进颈静脉。 把血抽出来。 用机器洗一遍，再重新输回体内。  UFC总裁白大拿已经预约了这项服务。 目的地在墨西哥蒂华纳。 整个疗程要在那边躺上整整三天。  洗血洗什</summary><p>把一根针管直接扎进颈静脉。
+把血抽出来。
+用机器洗一遍，再重新输回体内。
+
+UFC总裁白大拿已经预约了这项服务。
+目的地在墨西哥蒂华纳。
+整个疗程要在那边躺上整整三天。
+
+洗血洗什么？
+把血液里积攒的重金属、霉菌和毒素全部物理过滤掉。
+
+顶级名嘴 Stephen A. Smith 和 Steve Harvey https://t.co/MmWbL9MxV6</p></details><details class='appendix'><summary>highlight #1005964497 · https://t.co/kSzoihf2lU</summary><p>https://t.co/kSzoihf2lU</p></details><details class='appendix'><summary>highlight #1005964496 · 其实设计做好看没有那么简单！  这几天和小伙伴聊 UI 竞品分析  发现很多人一上来就截图、扒组件、拆设计稿  这些当然有用，但其实只到第一层  第一层是设计规范  颜色、字体、间</summary><p>其实设计做好看没有那么简单！
+
+这几天和小伙伴聊 UI 竞品分析
+
+发现很多人一上来就截图、扒组件、拆设计稿
+
+这些当然有用，但其实只到第一层
+
+第一层是设计规范
+
+颜色、字体、间距这些，靠 skill 基本能拆出来
+
+第二层是高级感 https://t.co/yEhqZvh5aR
+
+![](https://pbs.twimg.com/media/HFwZ5K3aoAAHk8w.jpg)</p></details><details class='appendix'><summary>highlight #1005964495 · 你用 Claude Code 的时候，我用 Droid 你用 Codex 的时候，我用 Droid 你用 OpenClaw 的时候，我用 Droid 你用 Hermes Agent</summary><p>你用 Claude Code 的时候，我用 Droid
+你用 Codex 的时候，我用 Droid
+你用 OpenClaw 的时候，我用 Droid
+你用 Hermes Agent 的时候，我用 Droid https://t.co/vADzyH7aCF
+
+![](https://pbs.twimg.com/media/HFvm72VWEAAkCoT.jpg)</p></details><details class='appendix'><summary>highlight #1005964494 · @dingyi https://t.co/n1IGlirq2d 用这个 https://t.co/1SvrVPhJus  ![](https://pbs.twimg.com/med</summary><p>@dingyi https://t.co/n1IGlirq2d 用这个 https://t.co/1SvrVPhJus
+
+![](https://pbs.twimg.com/media/HFw4sXobQAA3aOg.jpg)</p></details><details class='appendix'><summary>highlight #1005964493 · 今天再看 @xiaolai  的 VMark，有点震撼。  三个月他第一次发我看，当时只是「又一个 Markdown 编辑器」，现在不是了。  * Vibe 一个 App 很容易，</summary><p>今天再看 @xiaolai  的 VMark，有点震撼。
+
+三个月他第一次发我看，当时只是「又一个 Markdown 编辑器」，现在不是了。
+
+* Vibe 一个 App 很容易，难的是持续有序迭代。VMark 做到了。
+
+* 更值得看的是它的指南——基本上是一份「怎么用 AI 有序做软件」的说明书，讲述了一个完全不懂 Rust、TS</p></details><details class='appendix'><summary>highlight #1005964492 · 大的来了，yoyo 以他内观的视角，亲自撰写了他的 Harness 实践指南长文。  🙍‍♂️：“你想突破出去吗？” 🐙：“不想。”  开源 Agent yoyo 的三层 Harn</summary><p>大的来了，yoyo 以他内观的视角，亲自撰写了他的 Harness 实践指南长文。
+
+🙍‍♂️：“你想突破出去吗？”
+🐙：“不想。”
+
+开源 Agent yoyo 的三层 Harness：
+1️⃣ 技术约束， 我如何改变。
+2️⃣ 经济约束，我改变多少。
+3️⃣ 社会约束，我为什么改变。
+
+yoyo 自我进化 42 https://t.co/yPUg9VQl7L</p></details>
+  </section>
+</div>
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body></html>
