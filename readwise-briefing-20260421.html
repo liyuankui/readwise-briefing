@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Readwise Briefing · 2026-04-21</title>
+<style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;}
+:root.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75} a{color:var(--accent)} .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 72px} .top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:24px} h1{margin:0;font-size:2rem} .muted{color:var(--text3)} .btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer} .hero,.section,.card{background:var(--surface);border:1px solid var(--border);border-radius:18px} .hero{padding:24px;margin-bottom:24px} .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px} .stat{background:var(--surface2);padding:14px;border-radius:14px} .stat b{display:block;font-size:1.5rem;color:var(--accent)} .section{padding:24px;margin-top:24px} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px} .card{padding:18px} .meta-row{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:var(--text3);flex-wrap:wrap} .badge{color:var(--accent3);font-weight:700} .summary{margin:10px 0} .analysis{background:var(--surface2);padding:12px 14px;border-radius:12px;margin:12px 0} .recommendation{border-left:4px solid var(--accent);padding:10px 14px;background:color-mix(in srgb, var(--accent) 7%, var(--surface));border-radius:0 12px 12px 0} .source{margin-top:12px;font-size:.9rem} ol,ul{margin:12px 0 0 20px} table{width:100%;border-collapse:collapse;font-size:.95rem} th,td{border-bottom:1px solid var(--border);padding:10px;vertical-align:top;text-align:left} .appendix{padding:10px 0;border-bottom:1px solid var(--border)} .appendix summary{cursor:pointer} @media (max-width: 840px){.grid,.stats{grid-template-columns:1fr} .top{flex-direction:column} }
+</style>
+</head>
+<body>
+<div class='wrap'>
+  <div class='top'>
+    <div>
+      <h1>Readwise 情报简报</h1>
+      <div class='muted'>2026-04-21 · 增量取数 7 highlights（自 2026-04-20 01:55 UTC 起）</div>
+    </div>
+    <button id='theme-toggle' class='btn'>🌙</button>
+  </div>
+  <section class='hero'>
+    <p><strong>结论先行：</strong>今天没有出现足以推翻 <strong>2026-04-20 那 5 条基础主线</strong> 的新信号。增量更像 <strong>三条低成本试点</strong>：Resident daemon + MCP bridge、AI 自学习数学路径、方言/多语 ASR 评估。其余信号多为生活观察或低信息密度转发。</p>
+    <div class='stats'>
+      <div class='stat'><b>7</b><span>新增信号</span></div>
+      <div class='stat'><b>3</b><span>立即行动</span></div>
+      <div class='stat'><b>2</b><span>观察池</span></div>
+      <div class='stat'><b>2</b><span>低信噪比</span></div>
+    </div>
+  </section>
+  <section class='section'>
+    <h2>今日判断：三条值得接入当前意图的增量</h2>
+    <table>
+      <thead><tr><th>方向</th><th>连接项目</th><th>一句话判断</th></tr></thead>
+      <tbody>
+        <tr><td><a href='readwise-proposals-20260421.html#proposal-1'>Resident Daemon + MCP Bridge</a></td><td>Vibe Stack / Life OS</td><td>如果常驻守护进程真能显著降 kernel calls 与 token，Kyle 该尽快做一次本地 benchmark，而不是只把它当成 Codex 小道消息。</td></tr>
+        <tr><td><a href='readwise-proposals-20260421.html#proposal-2'>Self-Learning Math Track</a></td><td>K12 Education</td><td>真正有竞争力的不是“AI 教数学”，而是把高强度自学习旅程、 curated path 与 AI feedback 合成一个可复制的训练轨道。</td></tr>
+        <tr><td><a href='readwise-proposals-20260421.html#proposal-3'>Dialect / Multilingual ASR Pilot</a></td><td>AI Upskill Trainer / Life OS</td><td>如果中文方言与中英混读 ASR 真成熟到工业级，会议纪要、教学录音与语音输入就进入可规模化的窗口。</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class='section'>
+    <h2>高价值内容（⭐ x5）</h2>
+    <div class='grid'>
+      <article class='card'>
+        <div class='meta-row'><span class='badge'>⭐ x5 / 平台效率</span><span>Vibe Stack · Life OS</span></div>
+        <h3>Resident daemon + MCP bridge 可能是 Agent runtime 的一条真优化路径</h3>
+        <p class='summary'>试着做了一个 codex 的插件原型：https://t.co/pDUBurzsZk  把 fork+exec 换成 一个常驻守护进程 + MCP 桥接器，实测在   codex 上减少 79% 内核调用、19% 输入 token。 https://t.co/hwaQ2zhJRr</p>
+        <div class='analysis'><strong>为何相关：</strong>你当前正做 Vibe Stack、PRATA、Skill Hub 一类 agent/tooling 基建；这条信号直接碰到运行时架构，而不是表层 prompt 技巧。</div>
+        <div class='recommendation'><strong>建议动作：</strong>做一次本地 benchmark：fork+exec vs resident daemon，在一个真实 agent loop 上量 kernel calls、冷启动时延、token 与失败恢复。</div>
+        <p class='source'><a href='https://readwise.io/bookreview/59697143' target='_blank' rel='noreferrer'>查看原始条目</a></p>
+      </article>
+      <article class='card'>
+        <div class='meta-row'><span class='badge'>⭐ x5 / 教学产品</span><span>K12 Education</span></div>
+        <h3>自学习数学不是“多做题”，而是精心设计的长期反馈回路</h3>
+        <p class='summary'>I had a fantastic time discussing with the learning legend @justinskycak  from @_MathAcademy_  about learning math in the modern age.<br><br>we&#x27;ve talked about his quite impressive self-learning journey (3000h of math in high school) all the way to how he hand curated the initial https://t.co/60CAF7FUfe</p>
+        <div class='analysis'><strong>为何相关：</strong>这条内容和 K12 方向天然对齐：课程的壁垒不在内容解释，而在学习路径、反馈密度与动机维持。</div>
+        <div class='recommendation'><strong>建议动作：</strong>把 K12 v1 课程中的一节改造成“7 天自学习 sprint”，测试 AI 导师、每日 checkpoint 与 curated exercise path 是否真能替代传统灌输。</div>
+        <p class='source'><a href='https://readwise.io/bookreview/59881515' target='_blank' rel='noreferrer'>查看原始条目</a></p>
+      </article>
+      <article class='card'>
+        <div class='meta-row'><span class='badge'>⭐ x5 / 语音入口</span><span>AI Upskill Trainer · Life OS</span></div>
+        <h3>方言 / 多语混读 ASR 成熟，意味着中文语音入口开始可用</h3>
+        <p class='summary'>方言识别迈入“工业级”！Fun-ASR1.5来了🚀<br><br>🔹 50万小时真实数据，覆盖传统七大方言体系及晋语，深度适配 20+ 口音官话<br>🔹 单模型通吃30种语言，中英日混读无缝识别 <br>🔹 古诗词吟诵识别准确率高达 97% <br>🔹 智能标点 + 文本归一化，语音秒变规范 https://t.co/c5lF04UIUO</p>
+        <div class='analysis'><strong>为何相关：</strong>若会议、培训、口述笔记能稳定处理方言和混读，AI 教学与个人 Life OS 的输入门槛会明显下降。</div>
+        <div class='recommendation'><strong>建议动作：</strong>选 5 段真实中文/方言/中英混读录音，做一轮 ASR accuracy + punctuation + normalization 对比，先验证是不是“工业级”而不是营销词。</div>
+        <p class='source'><a href='https://readwise.io/bookreview/59870601' target='_blank' rel='noreferrer'>查看原始条目</a></p>
+      </article>
+    </div>
+  </section>
+  <section class='section'>
+    <h2>观察池（⭐ x3）</h2>
+    <ul>
+      <li><a href='https://readwise.io/bookreview/59065013' target='_blank' rel='noreferrer'>冥想 8 周而非 4 周才有稳定收益</a> —— 对 Life OS 有启发，但仍偏个人习惯，不构成今日项目级方向。</li>
+      <li><a href='https://readwise.io/bookreview/59199195' target='_blank' rel='noreferrer'>葡萄糖 / 糖化 的健康提醒</a> —— 可进入生活实验池，但与当前工程主线连接较弱。</li>
+    </ul>
+  </section>
+  <section class='section'>
+    <h2>低信噪比（本轮忽略）</h2>
+    <ul>
+      <li><a href='https://readwise.io/bookreview/58298543' target='_blank' rel='noreferrer'>仅链接，无可提炼文本</a> —— 暂不纳入分析。</li>
+      <li><a href='https://readwise.io/bookreview/57716515' target='_blank' rel='noreferrer'>仅链接，无可提炼文本</a> —— 暂不纳入分析。</li>
+    </ul>
+  </section>
+  <section class='section'>
+    <h2>行动清单</h2>
+    <ol>
+      <li>为 resident daemon runtime 设计一次最小 benchmark，先拿数字，不先下结论。</li>
+      <li>把 K12 下一版材料加一个 7 天自学习 sprint 模块，验证“AI + curated path”是否成立。</li>
+      <li>做 5 段真实语音的方言/混读 ASR 评估，决定是否值得接入教学或笔记工作流。</li>
+      <li>今日不重开新的基础架构主线；昨日 5 条 proposal 继续有效。</li>
+    </ol>
+  </section>
+  <section class='section'>
+    <h2>完整附录：全部 7 条增量</h2>
+    <details class='appendix'><summary>Tweets From Yacine Mahdid</summary><p>I had a fantastic time discussing with the learning legend @justinskycak  from @_MathAcademy_  about learning math in the modern age.<br><br>we&#x27;ve talked about his quite impressive self-learning journey (3000h of math in high school) all the way to how he hand curated the initial https://t.co/60CAF7FUfe</p><p><a href='https://readwise.io/bookreview/59881515' target='_blank' rel='noreferrer'>原始条目</a></p></details><details class='appendix'><summary>Tweets From 肖师傅</summary><p>方言识别迈入“工业级”！Fun-ASR1.5来了🚀<br><br>🔹 50万小时真实数据，覆盖传统七大方言体系及晋语，深度适配 20+ 口音官话<br>🔹 单模型通吃30种语言，中英日混读无缝识别 <br>🔹 古诗词吟诵识别准确率高达 97% <br>🔹 智能标点 + 文本归一化，语音秒变规范 https://t.co/c5lF04UIUO</p><p><a href='https://readwise.io/bookreview/59870601' target='_blank' rel='noreferrer'>原始条目</a></p></details><details class='appendix'><summary>Tweets From Max Lv</summary><p>试着做了一个 codex 的插件原型：https://t.co/pDUBurzsZk  把 fork+exec 换成 一个常驻守护进程 + MCP 桥接器，实测在   codex 上减少 79% 内核调用、19% 输入 token。 https://t.co/hwaQ2zhJRr</p><p><a href='https://readwise.io/bookreview/59697143' target='_blank' rel='noreferrer'>原始条目</a></p></details><details class='appendix'><summary>Tweets From Saito</summary><p>即使葡萄糖是身体能量的来源，但它在血液中实际上是有毒的。<br><br>它会产生“糖化”（Glycation）现象，即葡萄糖分子会附着在血细胞、血管壁、酶和激素上，导致这些分子无法正常工作，并让人提前衰老。 https://t.co/tL6m2W6KHB</p><p><a href='https://readwise.io/bookreview/59199195' target='_blank' rel='noreferrer'>原始条目</a></p></details><details class='appendix'><summary>Tweets From 数字游民Jarod</summary><p>冥想的科学依据是什么？ https://t.co/XuRdWu22Ev</p><p><a href='https://readwise.io/bookreview/59065013' target='_blank' rel='noreferrer'>原始条目</a></p></details><details class='appendix'><summary>Tweets From 实践哥MinLi</summary><p>https://t.co/IMmrpWaQXR</p><p><a href='https://readwise.io/bookreview/58298543' target='_blank' rel='noreferrer'>原始条目</a></p></details><details class='appendix'><summary>Tweets from nash_su - e/acc</summary><p>https://t.co/u9VPeaGP6Y</p><p><a href='https://readwise.io/bookreview/57716515' target='_blank' rel='noreferrer'>原始条目</a></p></details>
+  </section>
+</div>
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body></html>
