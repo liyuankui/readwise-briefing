@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Readwise Delta Proposals · 2026-04-21</title>
+<style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;}
+:root.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75} a{color:var(--accent)} .wrap{max-width:1120px;margin:0 auto;padding:32px 20px 72px} .top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:24px} h1{margin:0;font-size:2rem} .muted{color:var(--text3)} .btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer} .hero,.section,.card{background:var(--surface);border:1px solid var(--border);border-radius:18px} .hero{padding:24px;margin-bottom:24px} .section{padding:24px;margin-top:24px} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px} .card{padding:18px} .meta-row{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:var(--text3);flex-wrap:wrap} .badge{color:var(--accent3);font-weight:700} .summary{margin:12px 0} .analysis{background:var(--surface2);padding:12px 14px;border-radius:12px;margin:16px 0} ol,ul{margin:12px 0 0 20px} table{width:100%;border-collapse:collapse} th,td{border-bottom:1px solid var(--border);padding:10px;text-align:left;vertical-align:top} @media (max-width:840px){.grid{grid-template-columns:1fr} .top{flex-direction:column} }
+</style>
+</head>
+<body>
+<div class='wrap'>
+  <div class='top'>
+    <div>
+      <h1>Readwise Delta Proposals</h1>
+      <div class='muted'>2026-04-21 · tactical deltas, not a strategic reset</div>
+    </div>
+    <button id='theme-toggle' class='btn'>🌙</button>
+  </div>
+  <section class='hero'>
+    <p><strong>总体判断：</strong>今天这批内容不足以重写昨天那条 <strong>execution → trust → workflow → enablement → governance</strong> 主线。更合理的动作，是从中抽出 <strong>三次便宜、快、可证伪</strong> 的试点；如果其中任一成立，再回写到更大的平台路线。</p>
+    <table>
+      <thead><tr><th>Proposal</th><th>连接项目</th><th>一句话核心主张</th></tr></thead>
+      <tbody>
+        <tr><td><a href='#proposal-1'>Proposal 1 · Resident Runtime Benchmark</a></td><td>Vibe Stack / Life OS</td><td>先量化常驻守护进程 + MCP 桥接是否真能降低 agent runtime 成本，再决定要不要把它变成平台能力。</td></tr>
+        <tr><td><a href='#proposal-2'>Proposal 2 · Self-Learning Math Sprint</a></td><td>K12 Education</td><td>用 7 天自学习 sprint 验证“AI + curated path + daily feedback”能否比传统讲授更快形成成就感与复利。</td></tr>
+        <tr><td><a href='#proposal-3'>Proposal 3 · Dialect ASR Readiness Pilot</a></td><td>AI Upskill Trainer / Life OS</td><td>用真实录音验证中文方言与中英混读转写的可用阈值，确认语音入口是否到了可接入的时点。</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section id='proposal-1' class='section'>
+    <div class='meta-row'><span class='badge'>Vibe Stack / Life OS</span><a href='https://readwise.io/bookreview/59697143' target='_blank' rel='noreferrer'>原始信号</a></div>
+    <h2>Proposal 1 · Resident Runtime Benchmark</h2>
+    <p class='summary'><strong>核心主张：</strong>不要先争论 resident daemon 架构是不是“更先进”；先在一个真实 agent task 上量化它是否真的省 kernel calls、省 token、降冷启动。</p>
+    <div class='grid'>
+      <div class='card'><h3>实施里程碑</h3><ol><li>选 1 个现成 agent workflow 作为 benchmark 场景。</li><li>定义观测指标：kernel calls、cold start、token、失败恢复时间。</li><li>做 fork+exec 与 resident daemon 两种实现的最小对照。</li><li>整理结果，决定是收敛成内部 runtime adapter，还是仅保留为实验结论。</li></ol></div>
+      <div class='card'><h3>成功标准</h3><ul><li>kernel calls 降幅有明确数量级，而非随机波动。</li><li>平均冷启动时延与失败恢复时间显著改善。</li><li>代码改动与运维复杂度仍控制在小团队可维护范围内。</li></ul></div>
+    </div>
+    <div class='analysis'><strong>ROI / 业务影响：</strong>若成立，它会直接改善 Vibe Stack / PRATA / 本地 agent tooling 的运行效率；若不成立，也能快速阻止一条容易让人兴奋却未必值钱的架构分支。</div>
+    <div class='grid'>
+      <div class='card'><h3>本周立即行动</h3><ol><li>锁定 benchmark 用例。</li><li>画出 runtime path 与测量点。</li><li>先实现最小 resident loop，不做平台化包装。</li></ol></div>
+      <div class='card'><h3>诚实挑战</h3><p>这很可能只是某个特定场景下的局部优化；若不能跨两类任务复现收益，就不该上升成平台 road map。</p></div>
+    </div>
+  </section>
+  <section id='proposal-2' class='section'>
+    <div class='meta-row'><span class='badge'>K12 Education</span><a href='https://readwise.io/bookreview/59881515' target='_blank' rel='noreferrer'>原始信号</a></div>
+    <h2>Proposal 2 · Self-Learning Math Sprint</h2>
+    <p class='summary'><strong>核心主张：</strong>K12 产品不该只卖“讲得更好”，而应设计一条让学生在 7 天内感受到自学习能力增长的 sprint。</p>
+    <div class='grid'>
+      <div class='card'><h3>实施里程碑</h3><ol><li>选择 1 个适合初中/国际校学生的数学主题。</li><li>把内容拆成 daily quest：讲解、练习、复盘、挑战题。</li><li>让 AI 导师负责反馈与鼓励，不替学生完成思考。</li><li>收集每天的完成率、卡点与自我效能反馈。</li></ol></div>
+      <div class='card'><h3>成功标准</h3><ul><li>学生能连续完成 7 天，不靠外部强推。</li><li>至少 1 个关键概念达到“能自己讲清楚”。</li><li>学生主观感受从“听懂”转向“我自己能推进”。</li></ul></div>
+    </div>
+    <div class='analysis'><strong>ROI / 业务影响：</strong>若成立，Apex AI 的差异化将来自学习设计与反馈系统，而不是内容堆叠；这也更容易复制到其他学科。</div>
+    <div class='grid'>
+      <div class='card'><h3>本周立即行动</h3><ol><li>选主题与目标年龄。</li><li>写出 7 天 sprint 的每日任务卡。</li><li>用 1 名学生做 dry run。</li></ol></div>
+      <div class='card'><h3>诚实挑战</h3><p>这条路对课程设计要求很高；若题目梯度与反馈节奏没设计好，学生会在第 2–3 天流失。</p></div>
+    </div>
+  </section>
+  <section id='proposal-3' class='section'>
+    <div class='meta-row'><span class='badge'>AI Upskill Trainer / Life OS</span><a href='https://readwise.io/bookreview/59870601' target='_blank' rel='noreferrer'>原始信号</a></div>
+    <h2>Proposal 3 · Dialect ASR Readiness Pilot</h2>
+    <p class='summary'><strong>核心主张：</strong>语音入口值不值得接入，不看宣传页；看它是否能稳定处理真实的中文方言、中英混读、口语标点与文本归一化。</p>
+    <div class='grid'>
+      <div class='card'><h3>实施里程碑</h3><ol><li>采 5 段真实录音：会议、教学、随手口述各类场景。</li><li>定义 WER / punctuation / normalization 三个维度。</li><li>对比至少 2 套 ASR，引入 1 段方言样本与 1 段中英混读。</li><li>根据结果决定是否接到训练营或个人笔记工作流。</li></ol></div>
+      <div class='card'><h3>成功标准</h3><ul><li>核心名词与动作项丢失率可接受。</li><li>中文标点与段落划分无需大规模手修。</li><li>方言/混读场景的可用性明显高于现有方案。</li></ul></div>
+    </div>
+    <div class='analysis'><strong>ROI / 业务影响：</strong>一旦语音入口成熟，培训记录、个人 capture、教学点评都能明显降门槛；这比继续优化文字输入更可能打开新频次。</div>
+    <div class='grid'>
+      <div class='card'><h3>本周立即行动</h3><ol><li>准备 5 段测试样本。</li><li>定义人工评分 rubric。</li><li>先跑小样本，不先接主工作流。</li></ol></div>
+      <div class='card'><h3>诚实挑战</h3><p>ASR 常在 demo 里很好、在真实会议里崩；若命名实体与口语杂音处理不过线，就只能继续留在实验层。</p></div>
+    </div>
+  </section>
+</div>
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body></html>
