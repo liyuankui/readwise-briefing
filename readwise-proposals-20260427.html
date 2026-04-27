@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh" class="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-04-27</title>
+<style>
+:root {
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);
+  font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  font-size:15px;line-height:1.75;padding:24px;}
+.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;}
+.header h1{font-size:26px;font-weight:700;color:var(--accent);}
+.header .sub{font-size:13px;color:var(--text3);margin-top:4px;}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;
+  padding:6px 12px;cursor:pointer;font-size:18px;}
+.banner{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;
+  padding:14px 20px;border-radius:10px;margin-bottom:28px;font-size:14px;font-weight:600;text-align:center;}
+.index-table{width:100%;border-collapse:collapse;margin-bottom:36px;}
+.index-table th{background:var(--surface2);color:var(--text2);font-size:12px;padding:8px 12px;
+  text-align:left;border:1px solid var(--border);}
+.index-table td{padding:10px 12px;border:1px solid var(--border);font-size:13.5px;vertical-align:top;}
+.index-table tr:nth-child(even) td{background:var(--surface);}
+.index-table tr:nth-child(odd) td{background:var(--surface2);}
+.proposal{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:28px;margin-bottom:32px;}
+.proposal-header{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px;
+  border-bottom:2px solid var(--border);padding-bottom:16px;}
+.proposal-id{background:var(--accent2);color:white;border-radius:10px;
+  width:48px;height:48px;display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:800;flex-shrink:0;}
+.proposal-title{font-size:19px;font-weight:700;color:var(--text);}
+.proposal-intent{font-size:12px;color:var(--text3);margin-top:4px;}
+.claim{background:linear-gradient(135deg,var(--surface2),var(--surface));
+  border-left:4px solid var(--accent2);padding:14px 18px;border-radius:0 8px 8px 0;
+  margin-bottom:20px;font-size:15px;font-style:italic;color:var(--text);}
+.section-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;
+  letter-spacing:1px;margin-bottom:6px;margin-top:18px;}
+.milestones{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px;}
+.milestone{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;}
+.milestone .m-id{font-size:11px;color:var(--accent4);font-weight:700;}
+.milestone .m-title{font-size:13px;font-weight:600;margin-top:2px;}
+.milestone .m-time{font-size:11px;color:var(--text3);margin-top:2px;}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px;}
+.metric{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;}
+.metric .m-val{font-size:20px;font-weight:700;color:var(--accent3);}
+.metric .m-label{font-size:12px;color:var(--text3);}
+.actions{list-style:none;margin-top:8px;}
+.actions li{padding:8px 14px;border-left:3px solid var(--accent4);margin-bottom:6px;
+  background:var(--surface2);border-radius:0 6px 6px 0;font-size:13.5px;}
+.actions li .tag{display:inline-block;background:var(--accent4);color:white;
+  border-radius:4px;padding:1px 7px;font-size:11px;margin-right:6px;}
+.risks{list-style:none;margin-top:8px;}
+.risks li{padding:8px 14px;border-left:3px solid var(--accent5);margin-bottom:4px;
+  background:var(--surface2);border-radius:0 6px 6px 0;font-size:13px;}
+.challenges{background:var(--surface2);border-radius:8px;padding:14px 18px;margin-top:8px;font-size:13px;}
+.challenges p{margin-bottom:8px;padding-left:16px;position:relative;}
+.challenges p::before{content:"⚠️";position:absolute;left:0;top:0;}
+.roi{background:linear-gradient(135deg,var(--accent3)15,transparent);border:1px solid var(--accent3);
+  border-radius:8px;padding:12px 16px;margin-top:8px;font-size:13.5px;}
+.painpoint{background:var(--surface2);border-radius:8px;padding:12px 16px;
+  border-left:4px solid var(--accent5);margin-top:8px;font-size:13.5px;font-style:italic;}
+a{color:var(--accent2);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.back-link{margin-bottom:20px;font-size:13px;}
+code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:12px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>🔬 深度 Proposals · 2026-04-27</h1>
+    <div class="sub">5个 subagents 并行生成 · Phase 2 深度挖掘 · <a href="/tmp/readwise-briefing-20260427.html">← 返回简报</a></div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="banner">不可行动的信息 = 噪音 · 5个信号 → 5个可落地 Proposal</div>
+
+<div class="back-link"><a href="/tmp/readwise-briefing-20260427.html">← Phase 1 情报简报</a></div>
+
+<table class="index-table">
+  <thead><tr><th>ID</th><th>Proposal</th><th>核心主张（一句话）</th><th>关联意图</th><th>紧迫度</th></tr></thead>
+  <tbody>
+    <tr><td><b>A</b></td><td>双Agent隔离审查架构</td><td>上下文隔离是AI代码审查产生价值的充要条件</td><td>Testing Excellence · Life OS</td><td>🔥 高</td></tr>
+    <tr><td><b>B</b></td><td>数据质量革命 L0 开场白</td><td>AI输出质量 = 你输入数据的质量，与工具无关</td><td>AI Upskill Trainer</td><td>🔥 高</td></tr>
+    <tr><td><b>C</b></td><td>IKEA China GEO基线审计</td><td>AI引用位正在固化，5/31前必须知道IKEA是否已错失第一屏</td><td>GEO for IKEA</td><td>⚡ 极高</td></tr>
+    <tr><td><b>D</b></td><td>IKEA Taste-as-Code</td><td>TASTE.md应成为每次Gemini Review自动执行的质量门禁</td><td>Skill Hub · Life OS</td><td>🟡 中</td></tr>
+    <tr><td><b>E</b></td><td>"判断力密度"框架</td><td>CDH竞争力取决于单位工程师的高质量决策数量，不是团队规模</td><td>Engineering Baseline</td><td>🟡 中</td></tr>
+  </tbody>
+</table>
+
+<!-- PROPOSAL A -->
+<div class="proposal" id="A">
+  <div class="proposal-header">
+    <div class="proposal-id">A</div>
+    <div>
+      <div class="proposal-title">双Agent隔离审查架构 — 让AI代码审查真正有价值</div>
+      <div class="proposal-intent">关联：Software Testing Excellence · Life OS Software Factory</div>
+    </div>
+  </div>
+  <div class="claim">「上下文隔离是AI代码审查产生价值的充要条件——写代码的AI与审代码的AI必须互不知情，否则只是在做确认偏误的自我审查。」</div>
+
+  <div class="section-label">🎯 具体痛点</div>
+  <div class="painpoint">ODI Senior Engineer：用 Copilot 生成促销价计算逻辑，自己review了一遍，30分钟人工review聚焦代码风格。<strong>没发现并发场景下的竞态条件。</strong>大促当天，部分订单促销价计算错误。根因：AI生成代码→作者熟悉AI的"逻辑路径"→review时沿AI路径复查→竞态/边界从未进入视野。</div>
+
+  <div class="section-label">🗓️ 里程碑</div>
+  <div class="milestones">
+    <div class="milestone"><div class="m-id">M0</div><div class="m-title">技术预研 + 合规确认</div><div class="m-time">第1-2周</div></div>
+    <div class="milestone"><div class="m-id">M1</div><div class="m-title">MVP：1个仓库隔离审查</div><div class="m-time">第3-5周</div></div>
+    <div class="milestone"><div class="m-id">M2</div><div class="m-title">效果校准 + Bug分类学</div><div class="m-time">第6-8周</div></div>
+    <div class="milestone"><div class="m-id">M3</div><div class="m-title">扩展3-5仓库 + Skill Hub</div><div class="m-time">第9-12周</div></div>
+    <div class="milestone"><div class="m-id">M4</div><div class="m-title">数据沉淀 + 价值闭环</div><div class="m-time">第13-16周</div></div>
+  </div>
+
+  <div class="section-label">📊 成功标准</div>
+  <div class="metrics">
+    <div class="metric"><div class="m-val">≥40%</div><div class="m-label">Review comment 接受率</div></div>
+    <div class="metric"><div class="m-val">-30%</div><div class="m-label">逻辑类 production bug</div></div>
+    <div class="metric"><div class="m-val">≤20min</div><div class="m-label">高危PR人工review时间（基线35min）</div></div>
+    <div class="metric"><div class="m-val">≤30%</div><div class="m-label">噪音率（无效comment）</div></div>
+  </div>
+
+  <div class="section-label">💰 ROI</div>
+  <div class="roi">API成本：~¥40-160/16周（可忽略）。减少1个严重逻辑bug/月 → 大促期间业务损失预防 <strong>>¥10万</strong>。人工review节省：15min/PR × 50PR/周 × 50周 = <strong>625小时/年</strong>（≈1名工程师4个月工时）。</div>
+
+  <div class="section-label">✅ 立即行动（本周）</div>
+  <ul class="actions">
+    <li><span class="tag">🔴 今天</span>历史复盘实验（2h）：取近6月真实production bug的代码diff，开全新AI对话纯审代码，验证假设是否成立</li>
+    <li><span class="tag">🟡 本周</span>写隔离审查 Prompt v0：保存至 <code>testing-excellence/dual-agent-review-prompt.md</code></li>
+    <li><span class="tag">🟢 本周</span>与最常review AI代码的 Senior Engineer 聊20分钟：校准，不是说服</li>
+  </ul>
+
+  <div class="section-label">⚠️ 最大风险</div>
+  <div class="challenges">
+    <p>代码diff外传安全合规（高概率阻断）→ M0首要：确认 Copilot for Business 合规状态，备选 Azure OpenAI VPN内网部署</p>
+    <p>Devin实验数据未必可复制（AI辅助代码bug密度可能更低）→ 行动A（复盘实验）是决定整个Proposal值不值得推进的关键</p>
+    <p>执行瓶颈：Kyle不能是唯一owner → M1必须有工程师owner，行动C找到此人</p>
+  </div>
+</div>
+
+<!-- PROPOSAL B -->
+<div class="proposal" id="B">
+  <div class="proposal-header">
+    <div class="proposal-id" style="background:var(--accent3);">B</div>
+    <div>
+      <div class="proposal-title">"数据质量革命"作为 AI Upskill Trainer L0 课程的反直觉开场白</div>
+      <div class="proposal-intent">关联：AI Upskill Trainer [in_progress 🔥] · AI Adoption Strategy</div>
+    </div>
+  </div>
+  <div class="claim">「AI 输出质量 = 你输入数据的质量，与工具选哪个无关——这是Survey中5次提到"怎么让AI听懂我"的真正答案，也是当前课程体系里缺失的方法论地基。」</div>
+
+  <div class="section-label">🎯 具体痛点</div>
+  <div class="painpoint">Yvonne 每周用AI写 Project Update 邮件，输入"帮我写一封项目进度更新邮件"→ 获得600字套话 → 花30分钟删改 → 觉得"AI不如自己写"。根因：她把5维上下文（受众/状态/决策点/风险/期望行动）压缩成了一句噪声。<strong>AI没失效，输入失效了。</strong></div>
+
+  <div class="section-label">🗓️ 里程碑</div>
+  <div class="milestones">
+    <div class="milestone"><div class="m-id">M1</div><div class="m-title">10人脏/净输入对比实验</div><div class="m-time">本周（W1）</div></div>
+    <div class="milestone"><div class="m-id">M2</div><div class="m-title">L0-v2教案 + 五维框架卡片</div><div class="m-time">W2-W3</div></div>
+    <div class="milestone"><div class="m-id">M3</div><div class="m-title">首次开课 ≥40人 Lunch&Learn</div><div class="m-time">W4-W5</div></div>
+    <div class="milestone"><div class="m-id">M4</div><div class="m-title">模板库固化（≥10场景）</div><div class="m-time">W6-W7</div></div>
+    <div class="milestone"><div class="m-id">M5</div><div class="m-title">3个月后对比Survey基线复盘</div><div class="m-time">M3末</div></div>
+  </div>
+
+  <div class="section-label">📊 成功标准</div>
+  <div class="metrics">
+    <div class="metric"><div class="m-val">≥80%</div><div class="m-label">课后认知测试正确率</div></div>
+    <div class="metric"><div class="m-val">-30%</div><div class="m-label">典型场景AI输出返工时间</div></div>
+    <div class="metric"><div class="m-val">≥15次</div><div class="m-label">模板使用/人/月</div></div>
+    <div class="metric"><div class="m-val">≥5/13</div><div class="m-label">讲师在自己课中引用框架</div></div>
+  </div>
+
+  <div class="section-label">💰 ROI</div>
+  <div class="roi">29人样本：节省~100工时/月。全200人规模：潜在节省~700工时/月，折合约 <strong>¥140,000/月</strong>（人力成本估算）。战略价值：讲师团从"工具推销员"→"思维框架提供者"，信任资产长期复利。</div>
+
+  <div class="section-label">✅ 立即行动（本周）</div>
+  <ul class="actions">
+    <li><span class="tag">🔴 今天</span>10人内部实验（30min）：脏输入 vs 五维框架净输入，记录自评分差距。预期≥1.5分差距 = L0第一张Slide素材</li>
+    <li><span class="tag">🟡 明天</span>重写L0课程第一张Slide：问题"ChatGPT vs DeepSeek谁更强？" → 揭秘"错误的问题" → 厨师类比 → 实验数据</li>
+    <li><span class="tag">🟢 本周</span>在讲师团群发起"脏输入挑战"：收集真实Prompt截图，净化对比，建立真实案例素材库</li>
+  </ul>
+
+  <div class="section-label">⚠️ 诚实挑战</div>
+  <div class="challenges">
+    <p>认知≠行为：30min听完觉得有道理，下午依然"帮我写个报告" → L0 KPI必须是"当堂完成真实任务重写"，不是"认知改变"</p>
+    <p>Karpathy观点≠已发表实证研究 → 用自己的10人实验数据代替权威背书，不让"Karpathy说的"成为唯一论据</p>
+    <p>与L1.1 Prompt四要素的边界 → L0设计"饥饿感"：带着"我知道问题在哪但不知道怎么做"的悬念离场，引导L1.1</p>
+  </div>
+</div>
+
+<!-- PROPOSAL C -->
+<div class="proposal" id="C">
+  <div class="proposal-header">
+    <div class="proposal-id" style="background:var(--accent4);">C</div>
+    <div>
+      <div class="proposal-title">IKEA China GEO基线审计 — 5/31前交付可执行追踪框架</div>
+      <div class="proposal-intent">关联：GEO for IKEA [exploring 🔬] · 宝尊运营 [finite 🔥] · Deadline: 5/31！</div>
+    </div>
+  </div>
+  <div class="claim">「国内AI平台的"品牌引用位"正在固化成推荐壁垒——IKEA China需要在5/31前用数据证明自己是否已经错失第一屏，并交出一套让内容团队可以持续优化的追踪框架。」</div>
+
+  <div class="section-label">🎯 具体痛点</div>
+  <div class="painpoint">酒令（宝尊内容生产模块）每季度审批数百条内容，但没有任何指标能回答：<strong>"当消费者在豆包里问'小户型沙发买哪个牌子好'，宜家会出现在答案里吗？"</strong>现有评估体系是SEO逻辑（关键词排名/UV），完全不覆盖AI引用维度。宝尊5/31要锁定内容模块执行方向——酒令需要的是"哪些内容要改、改成什么格式"的优先级清单。</div>
+
+  <div class="section-label">🗓️ 里程碑（34天！）</div>
+  <div class="milestones">
+    <div class="milestone" style="border-color:var(--accent5)"><div class="m-id" style="color:var(--accent5)">M1</div><div class="m-title">方法论锁定 + 工具准备</div><div class="m-time">4/27–5/3（7天）</div></div>
+    <div class="milestone"><div class="m-id">M2</div><div class="m-title">5×5盲测执行（250条查询）</div><div class="m-time">5/4–5/10</div></div>
+    <div class="milestone"><div class="m-id">M3</div><div class="m-title">Gap分析 + CITE优化清单</div><div class="m-time">5/11–5/17</div></div>
+    <div class="milestone"><div class="m-id">M4</div><div class="m-title">追踪Dashboard搭建</div><div class="m-time">5/18–5/24</div></div>
+    <div class="milestone"><div class="m-id">M5</div><div class="m-title">宝尊交付包（基线报告+清单）</div><div class="m-time">5/25–5/31</div></div>
+  </div>
+
+  <div class="section-label">📊 双框架融合策略</div>
+  <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-top:8px;font-size:13px;">
+    <strong>yao-geo-skills</strong>（追踪层）× <strong>CORE-EEAT + CITE</strong>（优化层）<br><br>
+    yao-geo-skills → 告诉你"引用率是多少"<br>
+    CORE-EEAT + CITE → 告诉你"为什么会这样、怎么改"<br><br>
+    盲测数据 → CITE维度分析（被引用内容格式特征）→ EEAT差距识别 → CORE优化计划 → 复测验证
+  </div>
+
+  <div class="section-label">✅ 立即行动（本周，今天就要开始！）</div>
+  <ul class="actions">
+    <li><span class="tag">🔴 今天</span>锁定品类矩阵：5品类（小户型沙发/卧室收纳/儿童房/家庭办公/厨房收纳）× 10条查询词 = 50条种子词 → <code>geo_queries_v1.csv</code></li>
+    <li><span class="tag">🟡 4/29</span>fork yao-geo-skills，选5条查询词在豆包手动试测，评估250条全量所需人力</li>
+    <li><span class="tag">🟢 5/1</span>与酒令做15分钟对齐：带5条试测结果（"宜家没出现，曲美出现了"）→ 验证她是否认为这重要 → 决定是否借调团队人力</li>
+  </ul>
+
+  <div class="section-label">⚠️ 诚实挑战</div>
+  <div class="challenges">
+    <p>5/31能交付的是"基线+框架"，不是引用率提升结果（AI平台训练数据延迟3-6个月）→ 提前与宝尊对齐预期</p>
+    <p>250条手工盲测 = Kyle一人不现实 → 酒令对齐（5/1）是存活检验，失败则降级为Kyle独立完成但影响缩小</p>
+    <p>CORE-EEAT在国内平台适用性未知 → 框架作为分析假设起点，用实测数据证伪/修正</p>
+  </div>
+</div>
+
+<!-- PROPOSAL D -->
+<div class="proposal" id="D">
+  <div class="proposal-header">
+    <div class="proposal-id" style="background:#7c3aed;">D</div>
+    <div>
+      <div class="proposal-title">IKEA Taste-as-Code — 将设计品味编码为Gemini Review可执行规则</div>
+      <div class="proposal-intent">关联：IKEA Skill Hub [in_progress 🛠️] · Life OS Trust &amp; Eval</div>
+    </div>
+  </div>
+  <div class="claim">「TASTE.md 现在是一份被人类偶尔阅读的文档；它应当成为每次 Gemini Review、每次 UI 生成、每次 Skill 上架时自动执行的质量门禁。」</div>
+
+  <div class="section-label">🎯 具体痛点（5个可追查的断层）</div>
+  <div style="overflow-x:auto;margin-top:8px;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <tr style="background:var(--surface2)"><th style="padding:6px 10px;text-align:left;border:1px solid var(--border)">#</th><th style="padding:6px 10px;text-align:left;border:1px solid var(--border)">痛点</th><th style="padding:6px 10px;text-align:left;border:1px solid var(--border)">证据</th></tr>
+      <tr><td style="padding:6px 10px;border:1px solid var(--border)">P1</td><td style="padding:6px 10px;border:1px solid var(--border)">v3 跑了<strong>17轮</strong>Gemini Review未收敛</td><td style="padding:6px 10px;border:1px solid var(--border)">Review prompt无品味约束 → 泛化建议 → Kyle人工过滤</td></tr>
+      <tr style="background:var(--surface2)"><td style="padding:6px 10px;border:1px solid var(--border)">P2</td><td style="padding:6px 10px;border:1px solid var(--border)">51个Skills跨5个Repo，风格不统一</td><td style="padding:6px 10px;border:1px solid var(--border)">无入库质量门禁</td></tr>
+      <tr><td style="padding:6px 10px;border:1px solid var(--border)">P4</td><td style="padding:6px 10px;border:1px solid var(--border)">4级判断法从未进入Gemini输出格式</td><td style="padding:6px 10px;border:1px solid var(--border)">TASTE.md有 #weird/#question/#suggestion/#good，Gemini不用</td></tr>
+      <tr style="background:var(--surface2)"><td style="padding:6px 10px;border:1px solid var(--border)">P5</td><td style="padding:6px 10px;border:1px solid var(--border)">品味只在Kyle脑中，离开Kyle立刻退化</td><td style="padding:6px 10px;border:1px solid var(--border)">可传递性为零</td></tr>
+    </table>
+  </div>
+
+  <div class="section-label">🗓️ 里程碑（6周）</div>
+  <div class="milestones">
+    <div class="milestone"><div class="m-id">M1</div><div class="m-title">提炼taste-rules.md（REJECT列表）</div><div class="m-time">第1周，3天</div></div>
+    <div class="milestone"><div class="m-id">M2</div><div class="m-title">构建 liyuankui/taste Skill</div><div class="m-time">第2周，2天</div></div>
+    <div class="milestone"><div class="m-id">M3</div><div class="m-title">接入Skill Hub Gemini Review</div><div class="m-time">第3-4周</div></div>
+    <div class="milestone"><div class="m-id">M4</div><div class="m-title">Skill入库质量门禁（skill-lint）</div><div class="m-time">第5周</div></div>
+    <div class="milestone"><div class="m-id">M5</div><div class="m-title">开放给团队（taste → 可复制基础设施）</div><div class="m-time">第6周</div></div>
+  </div>
+
+  <div class="section-label">📊 成功标准</div>
+  <div class="metrics">
+    <div class="metric"><div class="m-val">17→5轮</div><div class="m-label">Gemini Review收敛轮数</div></div>
+    <div class="metric"><div class="m-val">100%</div><div class="m-label">Review使用4级分类输出</div></div>
+    <div class="metric"><div class="m-val">≥3人</div><div class="m-label">团队安装taste Skill</div></div>
+    <div class="metric"><div class="m-val">≤10min</div><div class="m-label">Kyle人工过滤耗时（基线30min）</div></div>
+  </div>
+
+  <div class="section-label">✅ 立即行动（本周）</div>
+  <ul class="actions">
+    <li><span class="tag">🔴 今天</span>读 TASTE.md "给Agent的三句话" + 速查行，起草 <code>workspace/ikea-skill-hub/taste-rules.md</code> REJECT初稿（REJECT列表 ≤30条）</li>
+    <li><span class="tag">🟡 周三前</span>在 skills-registry 建 <code>docs/taste/skill.md</code>，测试一次Gemini调用，验证4级分类输出</li>
+    <li><span class="tag">🟢 周五前</span>拿 PR #26 diff，用taste草稿跑一次Review，对比当前Gemini Review差异，记入Journal</li>
+  </ul>
+
+  <div class="section-label">⚠️ 最大风险</div>
+  <div class="challenges">
+    <p>规则过度工程化 → 时间盒：M1 3天内产出，超过30条即裁剪</p>
+    <p>17轮Review根因可能不是品味缺失，而是需求模糊 → 行动三（PR #26验证）是关键检验</p>
+    <p>最小可行版本：只做 M1+M3，如果PR收敛轮数减半，项目已成功</p>
+  </div>
+</div>
+
+<!-- PROPOSAL E -->
+<div class="proposal" id="E">
+  <div class="proposal-header">
+    <div class="proposal-id" style="background:var(--accent5);">E</div>
+    <div>
+      <div class="proposal-title">"判断力密度"框架 — 重新定义IKEA CDH团队的AI时代价值展示语言</div>
+      <div class="proposal-intent">关联：Engineering Baseline &amp; Value Demonstration [ongoing 🔥] · 向上管理（Nicole/Kirill）</div>
+    </div>
+  </div>
+  <div class="claim">「IKEA CDH 的工程竞争力，不取决于团队规模，而取决于"判断力密度"——单位工程师在单位时间内产生的高质量决策数量；AI 的真正作用不是替代判断，而是把判断以外的一切清零，使判断力密度成为团队唯一不可复制的护城河。」</div>
+
+  <div class="section-label">🎯 具体痛点（3个断层）</div>
+  <div class="painpoint">
+    <strong>P1 语言鸿沟</strong>：Kirill 1:1（4/7）中，技术成就无法被翻译为业务语言——Story Points/PR数对领导层是"工程内部事务"，不是"业务贡献"。<br><br>
+    <strong>P2 晋升case缺陷</strong>：Shuaishuai晋升失败（1/13）暴露：AI普及后，"能写好代码"不再稀缺，Promotion Panel在寻找"模糊时刻做出什么决策"，但团队没有记录机制。<br><br>
+    <strong>P3 AI工具陷阱</strong>：AI辅助写代码→判断工作反而因工作量减轻被忽视→判断力肌肉退化。Chamath：刻意缺人强迫工程判断代替人力，营收破亿。
+  </div>
+
+  <div class="section-label">🗓️ 里程碑（20周）</div>
+  <div class="milestones">
+    <div class="milestone"><div class="m-id">M1</div><div class="m-title">框架共识（Nicole/Kirill认可语言）</div><div class="m-time">第1-4周</div></div>
+    <div class="milestone"><div class="m-id">M2</div><div class="m-title">度量体系 + 判断力日志</div><div class="m-time">第5-10周</div></div>
+    <div class="milestone"><div class="m-id">M3</div><div class="m-title">晋升体系整合</div><div class="m-time">第11-16周</div></div>
+    <div class="milestone"><div class="m-id">M4</div><div class="m-title">向上传播（IKEA Engineering社区）</div><div class="m-time">第17-20周</div></div>
+  </div>
+
+  <div class="section-label">📊 成功标准</div>
+  <div class="metrics">
+    <div class="metric"><div class="m-val">≥3次</div><div class="m-label">Kirill/Nicole主动使用"判断力"语言</div></div>
+    <div class="metric"><div class="m-val">下一位</div><div class="m-label">晋升候选人通过（使用判断力框架）</div></div>
+    <div class="metric"><div class="m-val">≥6条</div><div class="m-label">每人有据可查的高质量决策记录</div></div>
+    <div class="metric"><div class="m-val">≥3/季</div><div class="m-label">技术决策有清晰业务影响数字</div></div>
+  </div>
+
+  <div class="section-label">✅ 立即行动（本周）</div>
+  <ul class="actions">
+    <li><span class="tag">🔴 今天</span>追溯3个历史判断案例（最近90天 Jira/Confluence）用判断力日志模板记录 → 端到端演练，确认框架不是空话</li>
+    <li><span class="tag">🟡 Nicole 1:1前</span>准备破冰问题："你觉得我们给Kirill展示团队价值的方式，有没有什么没说清楚的部分？" → 倾听，让Nicole觉得框架是她的需求</li>
+    <li><span class="tag">🟢 本周五前</span>选定1名"判断力天然高"的工程师做早期盟友（有晋升诉求 + 近期有突出判断），邀请共同设计框架</li>
+  </ul>
+
+  <div class="section-label">⚠️ 最大风险</div>
+  <div class="challenges">
+    <p><strong>⚡ 推进M1前必须先与Nicole确认</strong>：数据只用于成长支持和晋升，不用于裁员决策。无法争取到这条保护线，框架引入可能弄巧成拙</p>
+    <p>框架本质是"给现有工作贴标签"不是真正行为改变 → 第一阶段价值是"让已有的好判断被看见"，不要过度承诺</p>
+    <p>Chamath模式无法复制（IKEA文化） → 落地点是"判断被看见"，不是"刻意缺人高压"</p>
+  </div>
+</div>
+
+<div style="margin-top:40px;padding:20px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--text3);text-align:center;">
+  生成时间：2026-04-27 · 5 subagents 并行推理 · Phase 2 of Readwise Intelligence Briefing<br>
+  <a href="/tmp/readwise-briefing-20260427.html" style="color:var(--accent2)">← 返回 Phase 1 简报</a>
+</div>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){
+  document.documentElement.classList.add('dark');btn.textContent='☀️';
+}
+</script>
+</body>
+</html>

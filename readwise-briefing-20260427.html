@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh" class="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-04-27</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0;
+  --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+  --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  font-size: 15px; line-height: 1.75; padding: 24px;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+.header-left h1 { font-size: 26px; font-weight: 700; color: var(--accent); }
+.header-left .subtitle { color: var(--text3); font-size: 13px; margin-top: 4px; }
+#theme-toggle { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; cursor: pointer; font-size: 18px; }
+.stats-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 20px; }
+.stat-card .num { font-size: 28px; font-weight: 700; color: var(--accent2); }
+.stat-card .label { font-size: 12px; color: var(--text3); }
+.section { margin-bottom: 36px; }
+.section-title { font-size: 17px; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--border);
+  padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.signal-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.signal-table th { background: var(--surface2); color: var(--text2); font-size: 12px;
+  padding: 8px 12px; text-align: left; border: 1px solid var(--border); }
+.signal-table td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; font-size: 13.5px; }
+.signal-table tr:nth-child(even) td { background: var(--surface); }
+.signal-table tr:nth-child(odd) td { background: var(--surface2); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; margin-bottom: 16px; }
+.card .card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.card .stars { font-size: 18px; white-space: nowrap; }
+.card .title { font-weight: 700; font-size: 15px; color: var(--text); }
+.card .meta { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.card .content { font-size: 14px; color: var(--text2); border-left: 3px solid var(--accent3);
+  padding-left: 12px; margin-top: 8px; }
+.card .why { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin-top: 12px;
+  font-size: 13px; color: var(--accent2); }
+.card .why::before { content: "�� 为什么相关："; font-weight: 600; }
+.card a { color: var(--accent2); text-decoration: none; }
+.card a:hover { text-decoration: underline; }
+.medium-list { list-style: none; }
+.medium-list li { padding: 10px 14px; border-bottom: 1px solid var(--border);
+  display: flex; gap: 10px; font-size: 13.5px; align-items: flex-start; }
+.medium-list li:last-child { border-bottom: none; }
+.medium-list li .bullet { color: var(--accent4); font-weight: 700; white-space: nowrap; }
+.action-list { list-style: none; counter-reset: action-counter; }
+.action-list li { counter-increment: action-counter; padding: 10px 14px;
+  border-left: 3px solid var(--accent4); margin-bottom: 8px; background: var(--surface);
+  border-radius: 0 8px 8px 0; font-size: 13.5px; }
+.action-list li::before { content: counter(action-counter) ". "; font-weight: 700; color: var(--accent4); }
+.tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 4px; padding: 1px 7px; font-size: 11px; color: var(--text3); margin-right: 4px; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; }
+details summary { padding: 12px 16px; cursor: pointer; font-weight: 600; font-size: 14px; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary { border-bottom: 1px solid var(--border); }
+details .inner { padding: 12px 16px; font-size: 13px; color: var(--text2); }
+.proposal-link { display: inline-block; margin-top: 16px; background: var(--accent2); color: white;
+  padding: 8px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
+.proposal-link:hover { opacity: 0.9; }
+.banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white;
+  padding: 14px 20px; border-radius: 10px; margin-bottom: 28px; font-size: 14px; font-weight: 600; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="subtitle">2026-04-27 · 增量同步（自 2026-04-21）· Phase 1 信号采集</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="banner">不可行动的信息 = 噪音 · 信号 → 洞察 → 行动</div>
+
+<div class="stats-bar">
+  <div class="stat-card"><div class="num">42</div><div class="label">新增 Highlights</div></div>
+  <div class="stat-card"><div class="num">30</div><div class="label">新增 Documents</div></div>
+  <div class="stat-card"><div class="num">5</div><div class="label">⭐⭐⭐⭐⭐ 高价值</div></div>
+  <div class="stat-card"><div class="num">10</div><div class="label">⭐⭐⭐ 中等价值</div></div>
+  <div class="stat-card"><div class="num">5</div><div class="label">🔬 深挖方向</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">🗺️ 信号概览 — 五大方向（→ Proposals）</div>
+  <table class="signal-table">
+    <thead>
+      <tr><th>#</th><th>方向</th><th>信号来源</th><th>关联意图</th><th>紧迫度</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>A</td><td>多Agent"一写一审"架构</td><td>Devin团队 + 阿绎 AYi</td><td>Life OS · Testing Excellence</td><td>🔥 高</td></tr>
+      <tr><td>B</td><td>Karpathy：数据质量 > 模型大小</td><td>阿绎 AYi · Readwise</td><td>AI Upskill · AI Adoption</td><td>🔥 高</td></tr>
+      <tr><td>C</td><td>GEO Skills框架 (CORE-EEAT + CITE)</td><td>极客杰尼 · GitHub</td><td>GEO for IKEA (5/31 DDL!)</td><td>⚡ 极高</td></tr>
+      <tr><td>D</td><td>Agents with Taste — 品味→可执行规则</td><td>Viking · Emil Kowalski</td><td>Skill Hub · Life OS</td><td>🟡 中</td></tr>
+      <tr><td>E</td><td>Meta MCI监控 + Chamath激进组织</td><td>阿绎 AYi · Russell</td><td>Engineering Baseline · 向上管理</td><td>🟡 中</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">⭐⭐⭐⭐⭐ 高价值信号</div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div>
+        <div class="title">多Agent唯一可落地的模式：一个写，一群审</div>
+        <div class="meta">来源：阿绎 AYi @AYi_AInotes · Devin团队反转声明</div>
+      </div>
+    </div>
+    <div class="content">
+      Devin团队10个月前说"别建多Agent"，今天改口了。真正能用的多Agent只有一种模式：<strong>一个人写，一群人想</strong>。以前多Agent让多个AI改同一代码 → 互相打架，风格乱，bug满天飞。新模式：一个Devin写代码，另一个Devin专门审代码，每PR平均抓出2个严重bug，58%是逻辑错误、边界遗漏和安全漏洞。<strong>关键：两个AI绝对不能共享上下文</strong>——隔离才能产生真正独立的审视。
+    </div>
+    <div class="why">Testing Excellence中"AI写代码→AI写测试"的延伸：独立审查Agent。Life OS Software Factory可直接采用"writer + reviewer"双Agent模式，而非多Agent并行写代码。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div>
+        <div class="title">Karpathy：10亿参数 + 干净数据 = 1.8万亿参数模型水平</div>
+        <div class="meta">来源：阿绎 AYi @AYi_AInotes · Karpathy最新观点</div>
+      </div>
+    </div>
+    <div class="content">
+      掀翻底层逻辑：现有训练数据95%以上是噪声（股票代码、破损HTML、论坛水帖、AI生成垃圾）。Llama 3信息压缩率仅0.07 bits/token，相当于用1.8万亿参数只拍出互联网5%分辨率的模糊照片。未来方向：把模型拆成"记忆"（干净知识蒸馏）和"计算"（推理引擎），小模型+干净数据彻底重写AI格局。
+    </div>
+    <div class="why">AI Upskill Trainer的核心教材：数据质量的重要性超过模型规模，这是给学员的"反直觉开场白"。AI Adoption Strategy中，内部数据治理的优先级应高于模型选型。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div>
+        <div class="title">GEO Skills 开源框架：20项SEO & GEO技能 (CORE-EEAT + CITE)</div>
+        <div class="meta">来源：极客杰尼 @seekjourney · <a href="https://twitter.com/seekjourney" target="_blank">Twitter</a></div>
+      </div>
+    </div>
+    <div class="content">
+      开源仓库包含20项 SEO & GEO 技能：关键词研究、内容写作、技术审核、排名跟踪。核心框架：<strong>CORE-EEAT + CITE</strong>。这是姚金刚 yao-geo-skills 之外另一套完整的 GEO 方法论框架，直接可以借用于 IKEA GEO 追踪体系。
+    </div>
+    <div class="why">GEO for IKEA 的 5/31 deadline！active.md 已有"研究 yao-geo-skills 架构"的 Next action，现在又多了 CORE-EEAT + CITE 框架。两套框架对比研究，选最适合 IKEA China 场景的落地。本周内必须行动。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div>
+        <div class="title">Agents with Taste — 将设计品味编码为AI可执行规则</div>
+        <div class="meta">来源：Viking @vikingmute · Emil Kowalski 文章</div>
+      </div>
+    </div>
+    <div class="content">
+      Emil Kowalski（资深设计师）写了《Agents with taste》，描述如何将设计品味变成AI agent可执行的规则，从而放大个人能力。全是细节规则，资深设计师才能观察到的。最后总结成一个 skill：<code>npx skills add emilkowalski/skill</code>，可直接使用。
+    </div>
+    <div class="why">与 Kyle 的 context/taste/TASTE.md 体系直接呼应：这篇文章证明了"品味→可执行规则→Agent放大"是可行路径，且有人做出来了。IKEA Skill Hub 的下一步应该是将 TASTE.md 的审美规则转化为 Gemini review 可用的具体 checklist。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div>
+        <div class="title">Meta全员AI监控 + Chamath的激进扁平组织实验</div>
+        <div class="meta">来源：阿绎 AYi @AYi_AInotes + Russell @Russell3402</div>
+      </div>
+    </div>
+    <div class="content">
+      <strong>Meta MCI</strong>：4月21日全员推送内部追踪工具，记录键鼠输入、鼠标轨迹、随机截屏——名义上训练AI代理，但边界已模糊。<br><br>
+      <strong>Chamath at Stanford</strong>：1000人抢250个席位，没有组织架构，所有人直接汇报，没有头衔/层级/对齐会。故意严重缺人，工作量永远是人手的2倍，逼你用工程方式解决而不是加人。今年营收破亿美元。<br><br>
+      <strong>Russell洞察</strong>：工作本质产出只占10%，更多的90%是判断、思考——那种带有浓重个人底色的、AI无法模仿的部分。
+    </div>
+    <div class="why">Engineering Baseline向上管理的素材：Kirill/Nicole关心的是团队价值而非工具。这三个信号合在一起说明：AI时代组织竞争优势来自"判断力密度"而非"执行人数"。这是Kyle支持晋升case和团队价值展示的底层论据。</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">⭐⭐⭐ 中等价值信号</div>
+  <div class="card">
+    <ul class="medium-list">
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>Tolaria — AI原生轻量笔记App</strong>：完全免费开源、本地Markdown、Claude Code原生集成、类型/关系原生支持、Git集成。Life OS Memory架构候选方案之一。(<a href="https://twitter.com/laogui" target="_blank">@laogui</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>Yann LeCun：生成式AI不够</strong>：生成下一个词/图不足以做规划和机器人控制，需要"世界模型"。这是对当前LLM路线的系统性质疑，与Testing Excellence中"AI代码需要安全网"同频。(<a href="https://twitter.com/howlemont" target="_blank">@howlemont</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>腾讯云 Cube Sandbox（Rust）</strong>：E2B兼容的Agent代码沙盒，Apache 2.0。Vibe Stack后端扩展：给Agent提供安全执行环境，比自己搭更快。(<a href="https://twitter.com/0xLogicrw" target="_blank">@0xLogicrw</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>陈天桥论AI公司跨司法管辖区运营</strong>：AI最高目标是扩展人类认知边界，不是模仿人类。任何一次性转移都不是真正解决方案。AI Adoption Strategy的宏观框架参考。(<a href="https://twitter.com/dotey" target="_blank">@dotey/@宝玉</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>summary.md for 知识库</strong>：让AI给你的个人知识库/在线文档写一个summary.md。Life OS Memory架构直接行动：给context/生成导航索引。(<a href="https://twitter.com/xicilion" target="_blank">@xicilion</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>Kami skill — 文档排版AI工具</strong>：Tw93 开源，一页纸报告/白皮书/PPT/作品集PDF生成，开源可扩展。AI Upskill Trainer教材制作工具候选，Skill Hub可接入。(<a href="https://twitter.com/HiTw93" target="_blank">@Tw93</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>Marketing Skills 23.3k⭐</strong>：写文案/SEO/产品指标/数据分析/增长工程全链路。AI Upskill Trainer课程内容扩展素材。(<a href="https://twitter.com/tuturetom" target="_blank">@tuturetom</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>HackerNews：制造业隐性知识断裂</strong>：过度效率优化+裁员导致隐性知识消失，AI无法弥补，重建需多年。宝尊Ontology调研的理论支撑：隐性知识一旦流失难以重建，这是宝尊运营AI替代最大的风险点。</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>单张3090跑Qwen 3.5-27B 134 tok/s</strong>：开源社区推理速度突破，模型发布12小时内完成适配。技术前沿信号，对AI Coding Practices和本地化部署方案有参考价值。(<a href="https://twitter.com/seclink" target="_blank">@Y11</a>)</span></li>
+      <li><span class="bullet">⭐⭐⭐</span><span><strong>Jakob Nielsen AI UX 深度长文</strong>：AI时代用户体验设计，提炼为中文，有很多未在任何一款产品集大成的思路。Vibe Stack前端设计参考，AI Upskill Trainer课程素材。(<a href="https://twitter.com/nash_su" target="_blank">@nash_su</a>)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">✅ 行动清单（本周）</div>
+  <ul class="action-list">
+    <li>研究 GEO Skills 开源仓库(CORE-EEAT + CITE) + yao-geo-skills，对比选择IKEA China适用框架（5/31前！）</li>
+    <li>在 Life OS Software Factory 设计中引入 "writer + reviewer 双Agent隔离" 模式，参考 Devin 实验</li>
+    <li>给 context/taste/TASTE.md 中的品味规则提炼为 Gemini review 可用 checklist（参考 Emil Kowalski 的做法）</li>
+    <li>执行 summary.md 方案：给 context/ 目录生成AI导航索引，提升 Memory 可访问性</li>
+    <li>准备 Karpathy "数据质量>模型大小" 作为 AI Upskill Trainer L1 课程的反直觉开场论据</li>
+    <li>向 Kirill/Nicole 传递"判断力密度"框架作为团队价值展示语言（Engineering Baseline向上管理）</li>
+    <li>评估 Cube Sandbox 作为 Vibe Stack 后端安全执行层的可行性</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">📦 低价值附录（折叠）</div>
+  <details>
+    <summary>▼ 展开查看所有低价值内容（15条）</summary>
+    <div class="inner">
+      <ul style="list-style:none;padding:0;">
+        <li>· 谭野：生命力四要素（性欲/食欲/求知欲/表达欲，多巴胺回路）— 个人哲学</li>
+        <li>· Nod Young：真正聪明的人喜欢艺术 — 个人反思</li>
+        <li>· 杨高能：如何高质量活得久（健康文章） — 个人健康</li>
+        <li>· 杂学大师：身体警告信号清单 — 个人健康</li>
+        <li>· Robinson：肌酸6g/天补剂清单 — 个人健康</li>
+        <li>· Dr.Wang：Color Walk前额叶激活术 — 个人wellness（有趣但暂时无关）</li>
+        <li>· 李岳：中国移动免费Token 45000次/月 — 工具资讯</li>
+        <li>· Google Gemma：MacBook M4 Max跑10+并发 Gemma 4 26B — 技术资讯</li>
+        <li>· Bear Liu：实时渲染技术展示 — 技术娱乐</li>
+        <li>· Tison：mise 工具探索 — 个人工具</li>
+        <li>· 岚叔：ZenMux免费DeepSeek V4 Pro — 工具资讯</li>
+        <li>· 杨进：URL only，无有效内容</li>
+        <li>· 白板报/Saito/Ding：URL only或单一工具资讯</li>
+        <li>· 皓樂芒：Yann LeCun视频 — 已汇总关键观点</li>
+        <li>· Rey/Jim Simons：做别人没做的事等原则 — 通用智慧</li>
+      </ul>
+    </div>
+  </details>
+</div>
+
+<div style="margin-top:40px;text-align:center;">
+  <a class="proposal-link" href="/tmp/readwise-proposals-20260427.html">🔬 查看深度 Proposals →</a>
+  <p style="margin-top:12px;font-size:12px;color:var(--text3);">Proposals 由5个 subagents 并行生成，正在运算中...</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
