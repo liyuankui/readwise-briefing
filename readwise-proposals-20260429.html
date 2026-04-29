@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh" class="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-04-29</title>
+<style>
+:root{--bg:#faf9f7;--surface:#fff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;}
+html.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,serif;font-size:14.5px;line-height:1.8;padding:24px;max-width:900px;margin:0 auto;}
+.topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.topbar h1{font-size:22px;font-weight:800;color:var(--accent);}
+.topbar .sub{font-size:12px;color:var(--text3);margin-top:3px;}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:5px 12px;cursor:pointer;font-size:16px;}
+.axiom{background:var(--surface2);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 18px;margin-bottom:24px;font-size:13px;color:var(--text2);font-style:italic;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:28px;}
+th{text-align:left;padding:8px 10px;background:var(--surface2);color:var(--text2);font-weight:700;border-bottom:2px solid var(--border);}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;}
+.proposal{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;overflow:hidden;}
+.ph{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:16px;}
+.pid{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:18px;flex-shrink:0;margin-top:2px;}
+.ph-text .ptitle{font-size:17px;font-weight:800;}
+.ph-text .pslug{font-size:12px;color:var(--text3);margin-top:3px;}
+.ph-text .thesis{font-size:13px;color:var(--accent2);margin-top:8px;font-style:italic;border-left:3px solid var(--accent2);padding-left:10px;}
+.pb{padding:18px 22px;}
+.section{margin-bottom:18px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:6px;}
+.section-content{font-size:13.5px;color:var(--text2);}
+.milestone-row{display:flex;gap:10px;align-items:flex-start;padding:5px 0;border-bottom:1px solid var(--border);}
+.milestone-row:last-child{border-bottom:none;}
+.ms-tag{flex-shrink:0;font-size:10px;font-weight:700;background:var(--surface2);color:var(--text2);padding:2px 8px;border-radius:4px;margin-top:2px;}
+.action-row{display:flex;gap:10px;align-items:flex-start;padding:5px 0;}
+.a-tag{flex-shrink:0;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;color:white;margin-top:2px;}
+.a-now{background:var(--accent5);}
+.a-week{background:var(--accent4);}
+.challenge{background:var(--surface2);border-radius:8px;padding:12px 16px;font-size:13px;color:var(--text2);}
+.challenge-item{padding:5px 0;border-bottom:1px solid var(--border);}
+.challenge-item:last-child{border-bottom:none;}
+.challenge-item::before{content:"⚠️ ";}
+.footer{text-align:center;font-size:12px;color:var(--text3);margin-top:32px;}
+a{color:var(--accent2);text-decoration:none;}a:hover{text-decoration:underline;}
+.badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:3px;font-weight:600;background:var(--surface2);color:var(--text3);margin-right:4px;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div>
+    <h1>🧠 深挖 Proposals · 2026-04-29</h1>
+    <div class="sub">5个方向 · 5个独立 Subagent · 全部可执行</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom">不可行动的信息 = 噪音。以下每个 Proposal 都必须能回答：解决谁的什么痛点、怎么做、怎么知道做成了。</div>
+
+<table>
+  <thead><tr><th>#</th><th>核心主张（一句话）</th><th>连接项目</th><th>今日行动</th></tr></thead>
+  <tbody>
+    <tr><td style="font-weight:800;color:#dc2626;">A</td><td>Google Android 封控是Vibe Stack PWA优先路线正确的外部验证——现在是将这一技术哲学写入团队基础设施策略的时机</td><td>Vibe Stack · AI Starter Kit</td><td>PWA化验证实验（30min）</td></tr>
+    <tr><td style="font-weight:800;color:#6366f1;">B</td><td>AI替代的是操作，替代不了的是你对"该不该做"的判断——这个判断正在决定你在AI时代的职业价值</td><td>AI Upskill L0</td><td>找1位非技术同事测试2×2矩阵</td></tr>
+    <tr><td style="font-weight:800;color:#059669;">C</td><td>数据最小化从建议变成了法律义务——2025年Flo和Mercor的判决，就是白皮书第一章</td><td>AI Starter Kit 白皮书</td><td>确认PIPL条款引用</td></tr>
+    <tr><td style="font-weight:800;color:#d97706;">D</td><td>让关系的"冷却"可见，用衰减而非义务驱动真实连接——把Friendster的物理握手律翻译成团队里的"并肩时刻"</td><td>Human Connection</td><td>建12×12关系矩阵（30min）</td></tr>
+    <tr><td style="font-weight:800;color:#7c3aed;">E</td><td>在AI工具市场格局重构窗口期，CDH主动建立分层采购治理模型，将工具成本与业务价值绑定</td><td>AI Adoption · AI Starter Kit</td><td>导出Copilot使用报告，建成本基线</td></tr>
+  </tbody>
+</table>
+
+<!-- Proposal A -->
+<div class="proposal">
+  <div class="ph">
+    <div class="pid" style="background:#dc2626;">A</div>
+    <div class="ph-text">
+      <div class="ptitle">平台控制权战役：CDH 的 PWA 优先基础设施策略</div>
+      <div class="pslug"><span class="badge">Vibe Stack</span><span class="badge">AI Starter Kit</span> 信号：谷歌2026年9月强制安卓开发者实名注册 · 892pts</div>
+      <div class="thesis">Google 对 Android 侧载的封控不是 IKEA 的紧急威胁，而是一面镜子——它揭示了所有平台依赖都有"控制权可被撤销"的本质风险；Vibe Stack 的 PWA 优先路线恰好是正确的押注，现在是将这一技术哲学明确写入团队基础设施策略的时机。</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="section">
+      <div class="section-label">🎯 锁定的具体痛点</div>
+      <div class="section-content">
+        <strong>痛点A：内部工具移动化的分发盲区</strong> — Vibe Stack 工具全部是 web/桌面。店面/仓库员工的手持设备分发路径现在是空白，Google 新政 9 月生效后任何非注册开发者的 APK 侧载将被静默阻断。<br>
+        <strong>痛点B：AI Starter Kit 移动端最后一公里缺失</strong> — 分发机制未解决。<br>
+        <strong>痛点C：缺乏可向 leadership 陈述的"为什么 web first"叙事</strong> — "Google 正在关闭 Android 侧载"让"平台依赖风险"从抽象变具体。<br>
+        <strong>痛点D：跨平台决策陷阱</strong> — 没有明确策略，团队未来会在"要不要做 native"上反复消耗。
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🏁 实施里程碑</div>
+      <div class="section-content">
+        <div class="milestone-row"><span class="ms-tag">M1 1周</span><div>投票工具在 Android 手机 PWA 完整走通；输出 Gap List</div></div>
+        <div class="milestone-row"><span class="ms-tag">M2 2周</span><div>Vibe Stack 新增 PWA checklist（manifest/service worker/mobile viewport），封装入脚手架</div></div>
+        <div class="milestone-row"><span class="ms-tag">M3 2周</span><div>IKEA MDM 是否支持 PWA 推送/bookmark 预装；一页技术备忘</div></div>
+        <div class="milestone-row"><span class="ms-tag">M4 1周后M1</span><div>1 页 Leadership 简报：平台依赖风险 + Vibe Stack 为何正确 + 移动端路线建议</div></div>
+        <div class="milestone-row"><span class="ms-tag">M5 2周后M2</span><div>AI Starter Kit 增加「移动端AI工具访问」指南：PWA 安装 + 企业 MDM bookmark</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">✅ 成功标准</div>
+      <div class="section-content">新工具符合 PWA 标准 100% · 投票工具 Android PWA Pass · 2名非技术同事能独立安装 PWA · Leadership 简报获书面反馈 · "平台依赖检查"纳入新工具评审 checklist</div>
+    </div>
+    <div class="section">
+      <div class="section-label">💰 ROI</div>
+      <div class="section-content">避免未来 native → PWA 迁移重建成本（2-3工程师月 vs PWA标准化 4-6工程师周，ROI > 3x）· Vibe Stack 潜在用户 10x 扩展（覆盖店面/仓库）· Leadership 信任：从"工程师实验"升级为"有战略依据的基础设施"</div>
+    </div>
+    <div class="section">
+      <div class="section-label">⚡ 立即行动（本周）</div>
+      <div class="section-content">
+        <div class="action-row"><span class="a-tag a-now">今天</span><div>手机 Chrome 打开投票工具 → 「添加到主屏幕」→ 走 Google Sign-In → 提交投票 → 记录 5 条 Gap List（30分钟）</div></div>
+        <div class="action-row"><span class="a-tag a-week">本周</span><div>起草 Leadership 简报框架：3页（信号 / 我们已在做正确的事 / 还需要什么）</div></div>
+        <div class="action-row"><span class="a-tag a-week">本周</span><div>给 IT 发邮件：MDM 覆盖范围 + PWA bookmark 支持 + 企业内部 APK 分发当前流程</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🔴 诚实挑战</div>
+      <div class="challenge">
+        <div class="challenge-item">店面/仓库员工根本不用普通 Android 手机（企业微信小程序才是主流）— 成立度 70%。核心论点应是 PWA 成本优势，Android 信号只是 supporting evidence</div>
+        <div class="challenge-item">国产 Android（MIUI/EMUI）PWA 实际体验很差 — 成立度 60%。M1 必须在真实员工设备测试，退路是微信小程序</div>
+        <div class="challenge-item">Leadership 简报不要以"Google 封控 Android"开头 — 成立度 85%。第一句应是"内部工具覆盖移动端，最快路径和成本是多少"</div>
+        <div class="challenge-item">Google Play 企业分发才是正道（Play Managed，不受新政影响）— 成立度 80%。PWA 优先不是"native 走不通"，两者不互斥</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Proposal B -->
+<div class="proposal">
+  <div class="ph">
+    <div class="pid" style="background:#6366f1;">B</div>
+    <div class="ph-text">
+      <div class="ptitle">L0 新模块：AI 与判断力边界</div>
+      <div class="pslug"><span class="badge">AI Upskill L0</span> 信号：编码伦理（04-29）+ 判断力不可外包（04-28）两日叠加</div>
+      <div class="thesis">AI 替代的是操作，替代不了的是你对"该不该做"的判断——而这个判断，正在决定你在 AI 时代的职业价值。</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="section">
+      <div class="section-label">🎯 锁定的具体痛点</div>
+      <div class="section-content">
+        当前 L0 解决"我不知道 AI 能做什么"（认知层），没有解决"我知道 AI 能做，但不知道什么时候不该让它做"（判断层）。三个结构性空白：<br>
+        <strong>边界空白</strong>：含客户数据/内部价格/员工绩效的文件被直接上传ChatGPT<br>
+        <strong>验证空白</strong>：课程教"让AI给你想要的答案"，没教"如何判断AI答案是否可信"<br>
+        <strong>责任空白</strong>：课程聚焦效率，没有触及"AI产出的内容，谁来负责"
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">📐 模块设计（90分钟，L0全员）</div>
+      <div class="section-content">
+        <strong>A（10min）开场震撼</strong>：3个匿名真实事故场景 → "AI犯了错吗？谁该负责？"<br>
+        <strong>B（25min）判断力2×2矩阵</strong>：后果可逆/不可逆 × 信息可/难验证 → 四象限操作规则（附宜家场景举例）<br>
+        <strong>C（20min）STOP框架</strong>：Source / Test / Owner / Purpose — 每次使用AI输出前的4步核实<br>
+        <strong>D（25min）情景演练</strong>：6张宜家真实工作情景卡 → 小组讨论 → 讲师引导边界讨论<br>
+        <strong>E（10min）个人承诺</strong>："我以前会用AI做___，今天我意识到应该先___，因为___"
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">✅ 成功标准</div>
+      <div class="section-content">课后3题测验正确率 ≥ 80% · 4周后行为改变自报率 ≥ 60% · IT追踪数据上传异常事件数比基线下降</div>
+    </div>
+    <div class="section">
+      <div class="section-label">⚡ 立即行动（本周）</div>
+      <div class="section-content">
+        <div class="action-row"><span class="a-tag a-now">今天</span><div>把2×2矩阵打印成A4，找1名非技术同事15分钟"破圈测试"——观察哪些格子让他们迷惑，这就是模块设计数据</div></div>
+        <div class="action-row"><span class="a-tag a-week">周三前</span><div>在讲师团启动会议程中加10分钟："哪些判断不应该由AI做？"→ 收集真实情景卡素材</div></div>
+        <div class="action-row"><span class="a-tag a-week">周五前</span><div>写AI安全使用白皮书中"员工AI使用行为边界"章节提纲——白皮书给规则，L0模块给练习，两者互相强化</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🔴 诚实挑战</div>
+      <div class="challenge">
+        <div class="challenge-item">90分钟对门店员工信息密度偏高，"知道矩阵形状但课后不会用"是真实风险 — 需要主管在工作中持续提示，这个联动机制提案里没有设计</div>
+        <div class="challenge-item">情景卡"核实"操作学员实际做不到（不知道去哪核实）— 需配套"核实资源清单"，否则框架是空的</div>
+        <div class="challenge-item">这个模块必须由有判断力认知的讲师来教（技术/合规背景），纯业务讲师无法回应追问——招募标准需更新</div>
+        <div class="challenge-item">业务影响最难量化，ROI数字在现有条件下无法被证伪也无法被证实 — 先跑，先建基线，别先算ROI</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Proposal C -->
+<div class="proposal">
+  <div class="ph">
+    <div class="pid" style="background:#059669;">C</div>
+    <div class="ph-text">
+      <div class="ptitle">AI安全使用白皮书 · 第一章：数据风险的真实代价</div>
+      <div class="pslug"><span class="badge">AI Starter Kit</span><span class="badge">负责任AI</span> 信号：Flo 2025判决 + Mercor 4TB泄露 两个实证</div>
+      <div class="thesis">数据最小化从建议变成了法律义务——2025年Flo和Mercor的判决，就是白皮书第一章的最强论据，因为"不是假设，是已发生的事"。</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="section">
+      <div class="section-label">🎯 锁定的具体痛点</div>
+      <div class="section-content">
+        <strong>Flo案（2025年判决）</strong>：2016-2019年向Meta等分享经期数据 → 判违法。告诉IKEA员工：即使是"普通"用户数据，未经明确同意分享给第三方AI平台也可能违法。<br>
+        <strong>Mercor案（2025年）</strong>：4万承包商4TB语音+证件外流，语音无法重置 → 告诉IKEA员工：会议录音/AI语音助手收集的声音，一旦泄露比密码更危险。<br>
+        <strong>CDH具体行为改变目标</strong>：停止将含客户信息的截图发给AI（B1）；停止用ChatGPT/Claude分析含内部价格/人员绩效的文件（B2）；停止录制含顾客信息的会议视频上传AI转录（B3）。
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">📄 章节结构</div>
+      <div class="section-content">
+        <strong>开篇锚定</strong>：两个2025年判决案例，用事实建立"这是法律问题，不是道德建议"的基调<br>
+        <strong>PIPL映射</strong>：第二十三条（数据共享需同意）· 第二十八条（敏感个人信息特别保护）· 第六十六条（违规罚款上限）— 直接写条款编号，不用软表达<br>
+        <strong>CDH情景黑名单</strong>：6个"绝对不能做"场景（附原因和替代方案）<br>
+        <strong>不确定时的处理规则</strong>：简单决策树 → "不确定 → 问安全团队"<br>
+        <strong>主动上报机制</strong>：如何报告可疑数据使用事件（最重要的行为改变）
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">✅ 成功标准</div>
+      <div class="section-content">白皮书发布4周后：主动上报率从0提升至可测量 · 员工确认读过率 ≥ 80% · 至少1次"因为看了白皮书而主动问安全团队"的可追踪案例</div>
+    </div>
+    <div class="section">
+      <div class="section-label">⚡ 立即行动（本周）</div>
+      <div class="section-content">
+        <div class="action-row"><span class="a-tag a-now">今天</span><div>联系 CDH 信息安全/合规团队，确认 PIPL 条款引用准确性 — 这是白皮书公信力的地基，其余内容可迭代，法律引用不能有误</div></div>
+        <div class="action-row"><span class="a-tag a-week">本周</span><div>写"CDH情景黑名单"初稿（6个场景）— 找2名同事review，看他们是否认出自己的日常行为</div></div>
+        <div class="action-row"><span class="a-tag a-week">本周</span><div>确认白皮书与L0模块的发布顺序 — 白皮书给规则，L0给练习，白皮书应先于或同时发布</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🔴 诚实挑战</div>
+      <div class="challenge">
+        <div class="challenge-item">Flo和Mercor是欧美案例，员工会问"中国适用吗？" — PIPL是回答，但需要法律团队确认，不能Kyle自己说了算</div>
+        <div class="challenge-item">"情景黑名单"如果太严格，员工会回避使用AI而非合规使用 — 每个禁止场景必须配替代方案，不能只说"不行"</div>
+        <div class="challenge-item">主动上报机制如果没有明确的接收方和响应承诺，员工不会上报 — 必须先确认安全团队愿意接收和处理</div>
+        <div class="challenge-item">白皮书如果不定期更新，3个月后就会过时 — 需要有"版本责任人"机制，不能是一次性产出</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Proposal D -->
+<div class="proposal">
+  <div class="ph">
+    <div class="pid" style="background:#d97706;">D</div>
+    <div class="ph-text">
+      <div class="ptitle">关系温度计：工程团队连接文化实践</div>
+      <div class="pslug"><span class="badge">Human Connection</span> 信号：Friendster $30K复活 · 碰手机加好友 · "关系淡化"机制 · 1058pts</div>
+      <div class="thesis">让关系的"冷却"可见，用衰减而非义务驱动真实连接——把 Friendster 的物理握手律翻译成团队里的"并肩时刻"。</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="section">
+      <div class="section-label">🎯 锁定的具体痛点</div>
+      <div class="section-content">
+        <strong>P1：Kyle 是唯一中介节点</strong> — 成员间问题默认路由到 Kyle，彼此直接连接稀少<br>
+        <strong>P2：关系衰减无感知</strong> — 两个工程师可能连续 6 周只有 standup 点头，没人察觉已经"失联"<br>
+        <strong>P3：AI 时代互动被任务化</strong> — 所有对话默认带议题，"见人"变成"见任务"<br>
+        <strong>P4：内向者在团建文化中被动</strong> — 集体活动压力大，1:1 机会很少被主动创造<br>
+        <strong>P5：Kyle 的脆弱示范缺乏结构</strong> — 想示范但没有自然锚点
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🏁 实施里程碑</div>
+      <div class="section-content">
+        <div class="milestone-row"><span class="ms-tag">M0 第1周</span><div>Kyle 独立建 12×12 关系矩阵（🔥真实非工作接触 / 🌡工作对话 / ❄无有意义接触），获得基线，不公开</div></div>
+        <div class="milestone-row"><span class="ms-tag">M1 第2-3周</span><div>Kyle 独自实践：某格连续3周❄ → 主动发起一次非工作接触。绑定周五复盘，更新≤5分钟</div></div>
+        <div class="milestone-row"><span class="ms-tag">M2 第4-6周</span><div>周五standup结尾60秒公开：「这周我和X有了非工作对话，聊的是Y。下周我要去找Z。」不要求他人分享</div></div>
+        <div class="milestone-row"><span class="ms-tag">M3 第7-10周</span><div>团队化（自愿）：Notion共享矩阵，🔥暖/🌡微温/☁待激活，显示团队连接密度热力图（非个人数据）</div></div>
+        <div class="milestone-row"><span class="ms-tag">M4 第3月</span><div>季度回顾：热力图识别结构性孤岛 → Kyle据此调整结对搭档/项目分组，而非发起新会议</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">✅ 成功标准</div>
+      <div class="section-content">每人每月非工作直接对话 ≥3次（基线<1次）· 团队活跃连接对数 ≥25对（基线约10对）· 4周以上无接触关系对占比 ≤30%（基线估计>60%）· 需Kyle中介的协作请求减少30%</div>
+    </div>
+    <div class="section">
+      <div class="section-label">⚡ 立即行动（本周）</div>
+      <div class="section-content">
+        <div class="action-row"><span class="a-tag a-now">今晚</span><div>在 Notion/Excel 建 12×12 矩阵，填这周与每人的互动质量。找那些"填❄时完全没有意外感"的格子 — 那就是已在衰减的关系</div></div>
+        <div class="action-row"><span class="a-tag a-week">本周任意1:1</span><div>在结尾加一句："这周除了工作，你和团队里谁聊得最多？" — 不分析不跟进，只是问，感受对方怎么回应</div></div>
+        <div class="action-row"><span class="a-tag a-week">本周五standup</span><div>Kyle先"tap"：「我发现我和X已经3周只聊bug了，下周我要去找他喝杯咖啡」— 这是整个提案最重要的一步</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🔴 诚实挑战</div>
+      <div class="challenge">
+        <div class="challenge-item">最大风险不是工具失效，是Kyle的一致性 — 如果第3周因项目压力忘记更新，信号比没有这个工具更有害。解法：强制绑定周五复盘，5分钟内完不成就删减</div>
+        <div class="challenge-item">内向工程师的真实连接不发生在主动发起的对话里，而在"并肩做事的意外时刻" — 结对编程/oncall/code review留言都算🔥，不能只统计"聊天"</div>
+        <div class="challenge-item">三个月后，如果成员开始用温度计"管理"自己的形象而不是真实连接，工具已经异化 — 立即停止</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Proposal E -->
+<div class="proposal">
+  <div class="ph">
+    <div class="pid" style="background:#7c3aed;">E</div>
+    <div class="ph-text">
+      <div class="ptitle">CDH AI工具组合成本优化策略 2026–2027</div>
+      <div class="pslug"><span class="badge">AI Adoption</span><span class="badge">AI Starter Kit</span> 信号：Copilot 按量计费 + MS/OpenAI 独家终止 · 双重格局重塑</div>
+      <div class="thesis">在AI工具市场格局重构窗口期，CDH主动建立分层采购治理模型，将工具成本与业务价值绑定，避免随规模扩张陷入"工具蔓延+预算失控"双重陷阱。</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="section">
+      <div class="section-label">🎯 锁定的具体痛点</div>
+      <div class="section-content">
+        <strong>成本基线不清晰</strong>：工程团队年度AI工具支出约¥58,000（12人），无分层治理，随AI Upskill铺开，50+人规模下无治理状态年支出可达¥200,000+<br>
+        <strong>Copilot按量计费破坏预算审批机制</strong>：IKEA财务要求提前锁定年度预算，重度用户与轻度用户成本差4-6倍，月度峰值无法预测<br>
+        <strong>工具选择权分散</strong>：无法向供应商展示组织议价体量，安全合规无法集中审计
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🏗 三层工具组合模型</div>
+      <div class="section-content">
+        <strong>Tier A — 深度开发者（4人）</strong>：Copilot Enterprise + Claude Code API池 · 月均~$65/人<br>
+        <strong>Tier B — 标准工程师/BA（8人）</strong>：Copilot Enterprise（代码）+ Gemini（问答）· 月均~$25/人<br>
+        <strong>Tier C — 业务部门AI用户（分批扩展）</strong>：M365 Copilot 或 Gemini for Workspace · 月均~$10/人<br>
+        <strong>年度对比</strong>：无治理62人 ≈ ¥145,000+ vs 三层治理62人 ≈ ¥83,520 → 年节省 ≈ ¥61,000+
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🏁 实施里程碑</div>
+      <div class="section-content">
+        <div class="milestone-row"><span class="ms-tag">M1 1-2周</span><div>完成CDH现状审计：工具清单+实际月费+使用率数据 → 提交管理层确认预算基线</div></div>
+        <div class="milestone-row"><span class="ms-tag">M2 3-4周</span><div>建立AI工具采购审批SOP + 三层分类标准文档 → Nicole/Kirill批准治理框架</div></div>
+        <div class="milestone-row"><span class="ms-tag">M3 5-8周</span><div>工程团队完成Tier A/B重新划分，Copilot席位优化 → Go/No-Go：启动与GitHub的企业级重新谈判</div></div>
+        <div class="milestone-row"><span class="ms-tag">M4 9-16周</span><div>AI Upskill培训对象批量纳入Tier C，与M365/Google Workspace许可对齐</div></div>
+        <div class="milestone-row"><span class="ms-tag">M5 17-20周</span><div>季度工具价值Review机制上线（使用率+成本+工程效率指标联动）</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">✅ 成功标准</div>
+      <div class="section-content">AI工具年度总支出锁定在¥55,000以内（±10%可预测）· 新工具采购合规率100% · 月度预算偏差≤15% · 首批≥30名业务用户纳入Tier C</div>
+    </div>
+    <div class="section">
+      <div class="section-label">⚡ 立即行动（本周）</div>
+      <div class="section-content">
+        <div class="action-row"><span class="a-tag a-now">2天内</span><div>导出 GitHub Copilot 管理后台使用报告：每人每月 suggestion accepted 率 + active day → 驱动Tier划分，有数据才有谈判筹码</div></div>
+        <div class="action-row"><span class="a-tag a-week">3天内</span><div>与IT/采购确认：Copilot按量是否适用Enterprise合同？IKEA全球是否有席位池？Gemini for Workspace是否在中国许可内？</div></div>
+        <div class="action-row"><span class="a-tag a-week">本周</span><div>向Nicole/Kirill发1页纸"信号简报"："市场发生了两件事，我们现在有机会主动优化成本结构，下周讨论" — 先种印象，再提方案</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">🔴 诚实挑战</div>
+      <div class="challenge">
+        <div class="challenge-item">ROI很难被精确量化，Nicole/Kirill会问"20%效率提升换算成什么业务指标？" — 提前定义1-2个已有的可量化指标（Sprint速度/PR review时间），做AI使用前后粗粒度对比</div>
+        <div class="challenge-item">中国数据合规可能是隐形否决票（Copilot/Claude发送代码到境外）— 在提案中主动声明"安全审查已纳入M2"，提前与IT Security通气</div>
+        <div class="challenge-item">"IKEA已经付过一次了"的心理账户 — 提案中明确区分"全球包含"vs"CDH本地追加投入"</div>
+        <div class="challenge-item">业务部门Tier C的预算归属不清晰 — M2阶段明确预算归属方，不要让Kyle独自承担跨部门采购决策</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="/tmp/readwise-briefing-20260429.html">← 返回今日简报</a> &nbsp;·&nbsp; 2026-04-29 · 5个subagents · 全部可执行
+</div>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>
