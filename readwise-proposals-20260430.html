@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh" class="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-04-30</title>
+<style>
+:root{--bg:#faf9f7;--surface:#fff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;}
+html.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,serif;font-size:15px;line-height:1.75;padding:24px;max-width:900px;margin:0 auto;}
+.topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.topbar h1{font-size:22px;font-weight:800;color:var(--accent);}
+.topbar .sub{font-size:12px;color:var(--text3);margin-top:3px;}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:5px 12px;cursor:pointer;font-size:16px;}
+.axiom{background:var(--surface2);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 18px;margin-bottom:20px;font-size:13px;color:var(--text2);font-style:italic;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px;}
+th{text-align:left;padding:8px 10px;background:var(--surface2);color:var(--text2);font-weight:700;border-bottom:2px solid var(--border);}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;}
+.proposal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:20px;}
+.prop-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.prop-label{flex-shrink:0;font-size:13px;font-weight:800;padding:4px 12px;border-radius:6px;color:white;}
+.pa{background:#2d5a4a;}.pb{background:#6366f1;}.pc{background:#d97706;}.pd{background:#059669;}.pe{background:#dc2626;}
+.prop-title{font-size:16px;font-weight:800;color:var(--text);}
+.prop-connect{font-size:11.5px;color:var(--text3);margin-top:2px;}
+.claim{background:var(--surface2);border-radius:8px;padding:12px 16px;margin-bottom:14px;font-size:14px;font-weight:600;color:var(--accent2);border-left:4px solid var(--accent2);}
+.claim::before{content:"💡 核心主张：";font-weight:800;color:var(--accent2);}
+.section{margin-bottom:14px;}
+.section h4{font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);margin-bottom:6px;}
+.milestones{display:flex;flex-direction:column;gap:6px;}
+.ms{display:flex;gap:10px;align-items:flex-start;font-size:13px;}
+.ms-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:2px;}
+.actions{display:flex;flex-direction:column;gap:6px;}
+.act{display:flex;gap:10px;align-items:baseline;font-size:13px;}
+.act-n{flex-shrink:0;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;color:white;background:var(--accent5);}
+.roi{display:flex;gap:12px;flex-wrap:wrap;}
+.roi-box{flex:1;min-width:130px;background:var(--surface2);border-radius:8px;padding:10px 14px;text-align:center;}
+.roi-box .n{font-size:20px;font-weight:800;color:var(--accent3);}
+.roi-box .l{font-size:11px;color:var(--text3);}
+.challenge{background:#fff5f5;border:1px solid #fed7d7;border-radius:8px;padding:10px 14px;font-size:13px;color:#742a2a;}
+html.dark .challenge{background:#2d1515;border-color:#742a2a;color:#feb2b2;}
+.challenge::before{content:"⚠️ 诚实挑战：";font-weight:700;}
+.divider{border:none;border-top:2px solid var(--border);margin:28px 0;}
+a{color:var(--accent2);text-decoration:none;}a:hover{text-decoration:underline;}
+.q-table table{font-size:12.5px;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div>
+    <h1>🧠 深度 Proposals · 2026-04-30</h1>
+    <div class="sub">5 个 subagents · 1篇HN文章 → 5个可执行方向 · 信号日期：2026-04-30</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom">不可行动的信息 = 噪音。每条 Proposal 必须能回答：解决谁的什么问题？本周能做什么？如果失败，哪里最脆弱？</div>
+
+<!-- 信号×项目矩阵 -->
+<table>
+  <thead><tr><th>#</th><th>信号</th><th>连接项目</th><th>核心主张（一句话）</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A</strong></td><td>Ghostty离GitHub + 荷兰政府Forgejo</td><td>Skill Hub · Vibe Stack</td><td>GHES给了数据主权，但Copilot宕机 = 11人AI能力归零，这是今天存在的单点故障</td></tr>
+    <tr><td><strong>B</strong></td><td>Zed 1.0"衍生作品"许可条款</td><td>AI Starter Kit · AI Adoption</td><td>CDH每天把IKEA代码交给AI工具，但没有机制判断是否安全——锅是工程师和Kyle背，不是供应商</td></tr>
+    <tr><td><strong>C</strong></td><td>ChatGPT SSE广告注入</td><td>AI Upskill Trainer L0/L1</td><td>AI给的推荐背后可能有人付了钱——就像你不会完全相信电视购物主持人</td></tr>
+    <tr><td><strong>D</strong></td><td>Mistral Medium 3.5本地自托管</td><td>Life OS · AI Adoption</td><td>CDH的AI瓶颈是数据主权问题，不是能力问题——被封堵的用例恰好是本地模型最擅长的结构化任务</td></tr>
+    <tr><td><strong>E</strong></td><td>Canonical发现Rust 44个TOCTOU漏洞</td><td>Testing Excellence · Engineering Baseline</td><td>我们写的是类型安全的代码，但运行的是没有类型的世界——测试盲区正好长在团队最有安全感的地方</td></tr>
+  </tbody>
+</table>
+
+<hr class="divider">
+
+<!-- Proposal A -->
+<div class="proposal">
+  <div class="prop-header">
+    <span class="prop-label pa">A</span>
+    <div>
+      <div class="prop-title">IKEA数字主权基础设施白皮书：我们的GHES策略是对的，但还缺什么</div>
+      <div class="prop-connect">连接：IKEA Skill Hub · Vibe Stack · Engineering Baseline · AI Starter Kit</div>
+    </div>
+  </div>
+  <div class="claim">GHES 给了数据主权，但不是运营主权。Copilot 认证走 api.github.com——它宕机，11 名工程师的 AI 能力归零。这是今天存在的、可量化的单点故障。</div>
+
+  <div class="section">
+    <h4>4个暴露面（按危险度排序）</h4>
+    <div style="font-size:13px;color:var(--text2);">
+      🔴 <strong>Copilot认证</strong>走 api.github.com，无降级方案；github.com宕机 = 全员AI停摆<br>
+      🔴 <strong>skills-cdh安装链</strong>依赖 github.com API；Skill Hub分发链随github.com可用性波动<br>
+      🟡 <strong>GHES Actions</strong> 默认从 github.com 同步 marketplace runner<br>
+      🟡 <strong>外部协作与AI Starter Kit分发</strong>未主权化（依赖github.com Pages）
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>里程碑</h4>
+    <div class="milestones">
+      <div class="ms"><div class="ms-num">1</div><div>依赖普查：<code>grep -r "github\.com" .github/workflows/</code> 30分钟，输出暴露面清单（本周）</div></div>
+      <div class="ms"><div class="ms-num">2</div><div>白皮书框架：1页文档，引用Ghostty+荷兰Forgejo案例，定义"运营主权"概念（2周内）</div></div>
+      <div class="ms"><div class="ms-num">3</div><div>Skill Hub降级方案：评估将skills-cdh安装源镜像至GHES，减少github.com依赖（M2前）</div></div>
+      <div class="ms"><div class="ms-num">4</div><div>Copilot备用策略：至少有"github.com宕机时的应急工作流"文档（Q3）</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>ROI</h4>
+    <div class="roi">
+      <div class="roi-box"><div class="n">4h</div><div class="l">github.com宕机 = 11工程师×4h停摆</div></div>
+      <div class="roi-box"><div class="n">¥22K</div><div class="l">单次事故人力成本估算</div></div>
+      <div class="roi-box"><div class="n">30min</div><div class="l">依赖普查成本（立即行动M1）</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>立即行动（本周）</h4>
+    <div class="actions">
+      <div class="act"><span class="act-n">①</span><div>运行 <code>grep -r "github\.com" .github/workflows/</code>，30分钟，输出暴露面清单</div></div>
+      <div class="act"><span class="act-n">②</span><div>发100字内部备忘给团队：把"数字主权"议题变成团队共识，非个人想法</div></div>
+      <div class="act"><span class="act-n">③</span><div>在AI Starter Kit Ch.1加"工具可用性主权"段落，引用荷兰Forgejo作为企业参照</div></div>
+    </div>
+  </div>
+
+  <div class="challenge">ROI数字是行业估算非实测。最大风险是这成为"永远下一季度"的事——必须将M1-M3嵌入Skill Hub和Engineering Baseline的既有里程碑，不能作为第五个独立项目存在。</div>
+</div>
+
+<!-- Proposal B -->
+<div class="proposal">
+  <div class="prop-header">
+    <span class="prop-label pb">B</span>
+    <div>
+      <div class="prop-title">CDH AI工具许可风险评估SOP：工程师10分钟自助检查清单</div>
+      <div class="prop-connect">连接：AI Starter Kit Ch.1 · AI Adoption Strategy · Engineering Baseline</div>
+    </div>
+  </div>
+  <div class="claim">CDH每天把IKEA代码交给AI工具，但没有机制判断是否安全——一旦出现数据合规问题，法律责任由工程师和Kyle承担，不是工具供应商。</div>
+
+  <div class="section">
+    <h4>最坏情景量化</h4>
+    <div style="font-size:13px;color:var(--text2);">
+      工程师用Zed写订单系统 → 代码含PII → Zed条款变更 → GDPR违规 + IP争议 → 最低损失 <strong>€42,000</strong>（合规罚款+法务+工时），高端可达数百万欧元。
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>7问自检SOP（10分钟，结论：🟢可用 / 🟡有条件 / 🔴停用）</h4>
+    <div style="font-size:12.5px;color:var(--text2);">
+      <strong>Q1</strong> 工具是否收集并存储我输入的代码/文本？<br>
+      <strong>Q2</strong> 许可条款是否包含"训练数据"或"改善模型"字样？<br>
+      <strong>Q3</strong> 是否有"衍生作品归属"或"IP归属"模糊条款？<br>
+      <strong>Q4</strong> 许可能否被供应商单方面修改而无需通知？<br>
+      <strong>Q5</strong> 是否有企业协议（Enterprise Agreement）可以Override这些条款？<br>
+      <strong>Q6</strong> 数据是否出境至GDPR管辖外？<br>
+      <strong>Q7</strong> 工具是否经过IKEA IT/Legal预先批准？<br><br>
+      <em>Zed 1.0：Q1🔴Q2🔴Q3🔴Q4🔴Q5❌ → 🔴停用 | Claude Code（个人计划）：Q2🟡Q5🟡 → 🟡有条件 | Copilot Enterprise：全部🟢 → 🟢可用</em>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>里程碑</h4>
+    <div class="milestones">
+      <div class="ms"><div class="ms-num">1</div><div>Kyle自己先跑一遍Claude Code评估，形成第一个参考答案（本周）</div></div>
+      <div class="ms"><div class="ms-num">2</div><div>Standup开放提问：团队目前用了哪些未审查工具？摸底现状（本周）</div></div>
+      <div class="ms"><div class="ms-num">3</div><div>将清单嵌入AI Starter Kit Ch.1作为附录（2周内）</div></div>
+      <div class="ms"><div class="ms-num">4</div><div>建立工具白名单/灰名单，工程入职材料包含（1个月内）</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>ROI</h4>
+    <div class="roi">
+      <div class="roi-box"><div class="n">€2.6K</div><div class="l">SOP建设成本/年</div></div>
+      <div class="roi-box"><div class="n">€42K+</div><div class="l">单次违规最低损失</div></div>
+      <div class="roi-box"><div class="n">16:1</div><div class="l">保守ROI</div></div>
+    </div>
+  </div>
+
+  <div class="challenge">这不是法律意见，不覆盖开源依赖许可，无法监控条款动态变化。最大执行风险是合规疲劳——SOP太长工程师就不用。必须控制在7问以内，结论必须是明确的红/黄/绿。</div>
+</div>
+
+<!-- Proposal C -->
+<div class="proposal">
+  <div class="prop-header">
+    <span class="prop-label pc">C</span>
+    <div>
+      <div class="prop-title">AI Upskill Trainer新模块：当AI在帮人卖东西——识别商业偏向的实用技能</div>
+      <div class="prop-connect">连接：AI Upskill Trainer L0/L1 · IKEA门店员工 · 运营团队</div>
+    </div>
+  </div>
+  <div class="claim">AI给你的推荐，背后可能有人付了钱——就像你不会完全相信电视购物主持人，使用AI建议时也要问：这个答案对谁最有好处？</div>
+
+  <div class="section">
+    <h4>3个带走即用的识别问题</h4>
+    <div style="font-size:13px;color:var(--text2);">
+      🔍 <strong>① 这个AI工具是谁的？</strong> — 背后公司有没有商业偏向方向<br>
+      🔍 <strong>② 这个建议，对谁最有好处？</strong> — 受益方是我/顾客，还是第三方<br>
+      🔍 <strong>③ 理由能被独立核实吗？</strong> — "深受好评"≠可信；"承重80kg"=可验证
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>5分钟课堂练习：《那个医生收了红包》</h4>
+    <div style="font-size:13px;color:var(--text2);">
+      讲药厂给回扣的医生故事，让学员回答"他的建议是假的吗"——引出"不是假的但有偏向"的直觉。然后映射到AI。<strong>记忆钩：AI也可能是那位医生。</strong>这个比喻在中国文化背景下有强烈共鸣，且不需要任何技术知识。
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>里程碑</h4>
+    <div class="milestones">
+      <div class="ms"><div class="ms-num">1</div><div>5人访谈：找门店/运营同事验证痛点真实性（本周）</div></div>
+      <div class="ms"><div class="ms-num">2</div><div>测试"医生红包"比喻是否有效（本周，口头测试）</div></div>
+      <div class="ms"><div class="ms-num">3</div><div>开发25分钟模块原型，包含前后测题（3周内）</div></div>
+      <div class="ms"><div class="ms-num">4</div><div>在首批学员中试跑，测量前后测分差（1个月内）</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>成功标准</h4>
+    <div style="font-size:13px;color:var(--text2);">
+      前测：给5个AI推荐场景，学员能识别出几个有商业偏向。目标：完成模块后识别率从&lt;30%提升至&gt;70%。
+    </div>
+  </div>
+
+  <div class="challenge">四个断裂点必须课堂承认：训练数据层面的偏向问不出来；三个问题降低风险但不能消除；核实有时不现实；这个技能会随AI演化而过时。核心：教思维方式，不是万能检测器。</div>
+</div>
+
+<!-- Proposal D -->
+<div class="proposal">
+  <div class="prop-header">
+    <span class="prop-label pd">D</span>
+    <div>
+      <div class="prop-title">CDH本地AI栈可行性评估：哪些用例应该从云端迁回本地</div>
+      <div class="prop-connect">连接：Life OS · AI Adoption Strategy · Vibe Stack · AI Starter Kit</div>
+    </div>
+  </div>
+  <div class="claim">CDH的AI瓶颈是数据主权问题，不是能力问题——被封堵的用例（订单RCA、搜索评测、内部代码Review）恰好是本地模型最擅长的结构化任务。</div>
+
+  <div class="section">
+    <h4>3个被封堵的具体用例</h4>
+    <div style="font-size:13px;color:var(--text2);">
+      <strong>① 订单RCA</strong>：含客户ID，完全被数据安全封堵。本地模型可处理脱敏后日志，无需上云。<br>
+      <strong>② 搜索质量评测</strong>：用户行为序列，批量上云风险高。本地分类模型可替代。<br>
+      <strong>③ 内部代码Review</strong>：商业逻辑属IP敏感，法务灰区。本地代码模型（Mistral/CodeLlama）可处理。
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>用例优先级表（节选）</h4>
+    <table style="font-size:12px;">
+      <thead><tr><th>用例</th><th>当前工具</th><th>数据敏感度</th><th>建议</th></tr></thead>
+      <tbody>
+        <tr><td>订单RCA日志分析</td><td>人工</td><td>🔴 高（含PII）</td><td>本地（Mistral/Ollama）</td></tr>
+        <tr><td>搜索质量分类评测</td><td>人工</td><td>🔴 高（用户行为）</td><td>本地结构化模型</td></tr>
+        <tr><td>内部代码Review</td><td>Copilot</td><td>🟡 中（商业逻辑）</td><td>混合（本地审查+云端建议）</td></tr>
+        <tr><td>技术文档写作</td><td>Claude Cloud</td><td>🟢 低</td><td>继续云端</td></tr>
+        <tr><td>复杂架构推理</td><td>Claude Cloud</td><td>🟢 低</td><td>继续云端（本地能力不足）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h4>立即行动（本周）</h4>
+    <div class="actions">
+      <div class="act"><span class="act-n">①</span><div><code>brew install ollama</code> + 冒烟测试，2小时，验证本地推理可行性</div></div>
+      <div class="act"><span class="act-n">②</span><div>准备5条脱敏订单日志样本作为测试集，验证本地模型输出质量</div></div>
+      <div class="act"><span class="act-n">③</span><div>发5行邮件给法务：提前获得"数据不出内网"场景下的书面确认</div></div>
+    </div>
+  </div>
+
+  <div class="challenge">本地AI是数据主权解锁器，不是Claude平替。复杂推理、长文写作、新功能代码生成——继续用云端。最大风险是"花2个月部署，用例不如预期"——必须先用2小时冒烟测试验证，再作任何部署承诺。</div>
+</div>
+
+<!-- Proposal E -->
+<div class="proposal">
+  <div class="prop-header">
+    <span class="prop-label pe">E</span>
+    <div>
+      <div class="prop-title">CDH测试文化升级：从"语言安全"到"系统安全"的思维跃迁</div>
+      <div class="prop-connect">连接：Testing Excellence · Engineering Baseline · Tech Debt Manager</div>
+    </div>
+  </div>
+  <div class="claim">我们写的是类型安全的代码，但运行的是没有类型的世界——测试盲区正好长在团队最有安全感的地方：Java类型系统不能防止TOCTOU，GC不能防止连接泄漏，Spring不能防止原子性幻觉。</div>
+
+  <div class="section">
+    <h4>5类被遮蔽的Bug（均有IKEA订单/库存场景）</h4>
+    <div style="font-size:13px;color:var(--text2);">
+      <strong>① TOCTOU</strong>：库存检查与扣减之间的时间窗口 → 大促超卖<br>
+      <strong>② 资源泄漏</strong>：GC管不了HTTP连接和文件句柄 → 服务慢性退化<br>
+      <strong>③ 原子性幻觉</strong>：两个"安全"操作组合在一起就不安全 → 数据不一致<br>
+      <strong>④ Goroutine泄漏</strong>（Go服务）：便宜并发的慢性病 → OOM<br>
+      <strong>⑤ 配置漂移</strong>：测试环境通过了，生产超时了 → 难以复现的故障
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>System Safety Testing Checklist（PR模板用）</h4>
+    <div style="font-size:12.5px;color:var(--text2);">
+      ☐ <strong>并发检查</strong>：这段代码在两个线程同时执行时，是否仍正确？<br>
+      ☐ <strong>TOCTOU检查</strong>：check和use之间是否有时间窗口？（库存、余额、锁）<br>
+      ☐ <strong>资源释放</strong>：所有IO资源（连接、流、句柄）是否在finally/defer中释放？<br>
+      ☐ <strong>原子性边界</strong>：多步操作是否在同一事务/锁范围内？<br>
+      ☐ <strong>配置环境一致性</strong>：timeout/pool-size/batch-size在测试和生产是否一致？<br>
+      ☐ <strong>失败路径测试</strong>：下游服务超时/返回500时，主流程是否优雅降级？<br>
+      ☐ <strong>幂等性验证</strong>：同一请求执行两次，结果是否相同？（订单创建、支付）<br>
+      ☐ <strong>边界值覆盖</strong>：0、MAX_INT、空字符串、null——各触发一次
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>ROI</h4>
+    <div class="roi">
+      <div class="roi-box"><div class="n">¥27.5K</div><div class="l">SOP建设成本估算</div></div>
+      <div class="roi-box"><div class="n">¥56万</div><div class="l">大促超卖事故单次成本（含补偿+人力+商誉）</div></div>
+      <div class="roi-box"><div class="n">19:1</div><div class="l">保守ROI</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h4>立即行动（本周）</h4>
+    <div class="actions">
+      <div class="act"><span class="act-n">①</span><div>在下次代码Review中，用Checklist前3项（并发/TOCTOU/资源释放）做一次"试跑"</div></div>
+      <div class="act"><span class="act-n">②</span><div>找最近3个生产事故，归类到5类盲区，验证这个分类是否符合CDH实际</div></div>
+      <div class="act"><span class="act-n">③</span><div>在Sprint Retro中分享"Rust也救不了"的Canonical案例，建立"安全语言≠安全系统"的团队共识</div></div>
+    </div>
+  </div>
+
+  <div class="challenge">文化改变真实周期是12-18个月，并发测试flaky是最大执行风险（偶发失败会让工程师放弃测试）。建议聚焦3-5个最高风险路径（订单、支付、库存）而非追求全覆盖——完美是落地的敌人。</div>
+</div>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>
