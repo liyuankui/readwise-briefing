@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-05-05</title>
+<style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626}
+.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1000px;margin:0 auto;padding:24px 20px 80px}
+.header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:32px 0 24px;border-bottom:2px solid var(--border);margin-bottom:32px}
+.header h1{font-size:1.8rem;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--text3);font-size:0.9rem}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:1rem;color:var(--text);flex-shrink:0}
+.axiom-banner{background:linear-gradient(135deg,rgba(45,90,74,.12),rgba(99,102,241,.12));border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:28px;font-weight:600;font-size:1.05rem}
+/* Summary table */
+.summary-table{width:100%;border-collapse:collapse;margin-bottom:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.summary-table th{background:var(--surface2);padding:10px 14px;text-align:left;font-size:0.82rem;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border)}
+.summary-table td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:0.88rem;vertical-align:top}
+.summary-table tr:last-child td{border-bottom:none}
+/* Proposal card */
+.proposal{background:var(--surface);border:1px solid var(--border);border-radius:16px;margin-bottom:36px;overflow:hidden}
+.proposal-header{padding:24px 28px 20px;border-bottom:1px solid var(--border)}
+.proposal-num{font-size:0.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;opacity:.8}
+.proposal-title{font-size:1.35rem;font-weight:700;margin-bottom:6px}
+.proposal-subtitle{color:var(--text2);font-size:0.92rem;font-style:italic}
+.proposal-signal{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:0.8rem;color:var(--text3)}
+.proposal-body{padding:24px 28px}
+.section{margin-bottom:24px}
+.section h3{font-size:0.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.claim-box{background:var(--surface2);border-radius:10px;padding:16px;font-size:1rem;font-weight:600;color:var(--text);border-left:4px solid var(--accent4);line-height:1.6}
+.milestones{list-style:none}
+.milestone{display:flex;gap:12px;margin-bottom:8px}
+.milestone-tag{font-size:0.72rem;font-weight:700;padding:3px 8px;border-radius:99px;white-space:nowrap;height:fit-content;margin-top:3px}
+.milestone-text{color:var(--text2);font-size:0.88rem}
+ul.criteria{padding-left:18px}
+ul.criteria li{color:var(--text2);font-size:0.88rem;margin-bottom:4px}
+.risk-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.87rem}
+.risk-item:last-child{border-bottom:none}
+.risk-prob{color:var(--accent5);font-weight:600;flex-shrink:0;min-width:160px}
+.actions-list{list-style:none}
+.actions-list li{display:flex;gap:10px;align-items:flex-start;padding:8px 12px;background:var(--surface2);border-radius:8px;margin-bottom:6px;font-size:0.87rem;color:var(--text2)}
+.action-bullet{font-size:1rem;flex-shrink:0}
+.challenge-box{background:#fff8f6;border-radius:8px;padding:12px 16px;border-left:3px solid var(--accent5);margin-bottom:8px;font-size:0.85rem;color:var(--text2)}
+.dark .challenge-box{background:rgba(220,38,38,.08)}
+.roi-box{background:var(--surface2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text2);font-style:italic}
+@media(max-width:640px){.proposal-body{padding:16px}.proposal-header{padding:16px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div>
+    <h1>🎯 Readwise Proposals</h1>
+    <div class="subtitle">2026-05-05 · Phase 2 深度挖掘 · 5 subagents 并行推理</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom-banner">
+  ⚡ <strong>不可行动的信息 = 噪音</strong> — 每个 Proposal 都必须回答：谁做？本周做什么？怎么知道成功？
+</div>
+
+<table class="summary-table">
+  <tr><th>#</th><th>核心主张</th><th>连接项目</th><th>本周行动</th></tr>
+<tr><td style="font-weight:700;color:#6366f1;white-space:nowrap">P1</td><td style="font-size:0.85rem">Engineering Baseline 不是文档工程，是让下一个 AI session 比上一个更聪明的复利机制。...</td><td><span style="font-size:0.78rem;color:var(--text3)">Vibe Coding Stack · Life OS · Engineering Baseline</span></td><td style="font-size:0.82rem;color:var(--text3)">本周内统计 3 名工程师 session 重建时间（建立 baseline）</td></tr>
+<tr><td style="font-weight:700;color:#d97706;white-space:nowrap">P2</td><td style="font-size:0.85rem">AI 引用偏好正在 2026 年固化，IKEA 的窗口期是未来 3 个月——5/31 前必须有 IKEA 引用率的第一个数字。...</td><td><span style="font-size:0.78rem;color:var(--text3)">GEO for IKEA</span></td><td style="font-size:0.82rem;color:var(--text3)">联系姚金刚获取 GEO 论文全文（Twitter: @yaojingang），复用 602 prom...</td></tr>
+<tr><td style="font-weight:700;color:#7c3aed;white-space:nowrap">P3</td><td style="font-size:0.85rem">AI 采纳失败从不是工具问题，而是迁移失败问题——CDH 讲师团的真正使命，是将新行为从培训室迁移到业务现场，并让它在没有讲师的情况下也能存活。...</td><td><span style="font-size:0.78rem;color:var(--text3)">AI Upskill Trainer · AI Adoption Strategy</span></td><td style="font-size:0.82rem;color:var(--text3)">在讲师团大纲中加入一个新章节：为什么培训后会回退（5大原因 + 解法）</td></tr>
+<tr><td style="font-weight:700;color:#059669;white-space:nowrap">P4</td><td style="font-size:0.85rem">用一个工程化 Meta-Skill，把写出一个能用的 Skill 从两天砍到两小时，且生成物天然具备可测、可控的工程边界。...</td><td><span style="font-size:0.78rem;color:var(--text3)">IKEA Skill Hub · Life OS · Skills Development</span></td><td style="font-size:0.82rem;color:var(--text3)">grep 扫描现有 51 个 Skills，量化角色扮演比例（建立改造 baseline）</td></tr>
+<tr><td style="font-weight:700;color:#dc2626;white-space:nowrap">P5</td><td style="font-size:0.85rem">Agent Economy 信号把替代宝尊的瓶颈，从 AI 够不够聪明 移到了 IKEA 能不能拿到平台操作授权——这让商品管理域（KK）的优先级从次高升为最高...</td><td><span style="font-size:0.78rem;color:var(--text3)">宝尊运营 Ontology</span></td><td style="font-size:0.82rem;color:var(--text3)">约 KK 30分钟：重点问商品操作授权链路（本周内）</td></tr>
+</table>
+<div class="proposal" style="border-top:4px solid #6366f1">
+  <div class="proposal-header">
+    <div class="proposal-num" style="color:#6366f1">Proposal 1 of 5</div>
+    <div class="proposal-title">Agentic Engineering as the New Ceiling</div>
+    <div class="proposal-subtitle">Engineering Baseline 不是文档工程，是让下一个 AI session 比上一个更聪明的复利机制</div>
+    <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+      <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f115;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f130">Vibe Coding Stack</span> <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f115;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f130">Life OS</span> <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f115;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f130">Engineering Baseline</span>
+      <span class="proposal-signal">📡 信号来源: <a href="https://x.com/stephzhan/status/2049518659513852109" target="_blank" style="color:var(--text3)">Karpathy + Sequoia AI Ascent 2026 + Learn Harness Engineerin</a></span>
+    </div>
+  </div>
+  <div class="proposal-body">
+<div class="section"><h3>核心主张</h3><div class="claim-box">Engineering Baseline 不是文档工程，是让下一个 AI session 比上一个更聪明的复利机制。</div></div>
+<div class="section"><h3>锁定的具体痛点</h3><div class="claim-box" style="border-color:var(--accent5);font-weight:400;font-size:0.92rem">Order 团队 Java 工程师每次 agent session 花 30–45 分钟重建上下文，这就是复利的反面。</div></div>
+<div class="section"><h3>实施里程碑</h3><ul class="milestones">
+<li class="milestone"><span class="milestone-tag" style="background:#6366f120;color:#6366f1">M1 · 本周</span><span class="milestone-text">痛点量化：统计 3 名工程师的 session 重建时间（问卷或观察）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#6366f120;color:#6366f1">M2 · 2周内</span><span class="milestone-text">五机制 Harness 落地：指令/状态/验证/范围/会话，每个机制指定负责人</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#6366f120;color:#6366f1">M3 · 4周内</span><span class="milestone-text">机器可读 AGENTS.md 模板推广到全团队（Java + Golang 双版本）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#6366f120;color:#6366f1">M4 · 6周内</span><span class="milestone-text">确定性验证：CI 自动检查 AGENTS.md 存在且完整</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#6366f120;color:#6366f1">M5 · 8周内</span><span class="milestone-text">第一次复利验证：对比前后 session 启动时间，数字说话</span></li>
+</ul></div>
+<div class="section"><h3>成功标准（可测量）</h3><ul class="criteria">
+<li>Session 重建时间从 30-45 分钟降至 &lt;10 分钟</li>
+<li>11 名工程师 100% 有机器可读 AGENTS.md</li>
+<li>CI pipeline 覆盖 Harness 完整性检查</li>
+<li>下一轮 agent session 可直接接续上一轮，不丢失上下文</li>
+</ul></div>
+<div class="section"><h3>ROI / 业务影响</h3><div class="roi-box">按 11 人 × 20 分钟/天 × 250天/年 = 916 小时/年。按工程师时薪 200 RMB，= 18.3 万 RMB/年可回收的时间成本。</div></div>
+<div class="section"><h3>风险与缓解</h3>
+<div class="risk-item"><span class="risk-prob">⚠️ 团队抵触：&#x27;这不是新东西&#x27;</span><span style="color:var(--text2)">→ 强调这是 AI 时代的新基础设施，不是传统文档</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ 覆盖率目标可能错误</span><span style="color:var(--text2)">→ 先用 3 名志愿者验证框架，再全员推广</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ Harness 维护成本</span><span style="color:var(--text2)">→ 把 Harness 更新纳入 PR checklist，自动提醒</span></div>
+</div>
+<div class="section"><h3>立即行动（本周内）</h3><ul class="actions-list">
+<li><span class="action-bullet">①</span><span>本周内统计 3 名工程师 session 重建时间（建立 baseline）</span></li>
+<li><span class="action-bullet">②</span><span>阅读 Learn Harness Engineering 课程，提炼五机制模板</span></li>
+<li><span class="action-bullet">③</span><span>把 grapeot 的复利系统框架发给团队周会讨论</span></li>
+</ul></div>
+<div class="section"><h3>🔴 诚实挑战（主动找漏洞）</h3>
+<div class="challenge-box">这不是新东西——AGENTS.md 已存在，问题是没人更新它。工具不够，需要文化变革。</div>
+<div class="challenge-box">覆盖率目标（11人100%）可能误导——低质量 AGENTS.md 比没有更糟糕，质量比数量重要。</div>
+</div>
+</div>
+</div>
+<div class="proposal" style="border-top:4px solid #d97706">
+  <div class="proposal-header">
+    <div class="proposal-num" style="color:#d97706">Proposal 2 of 5</div>
+    <div class="proposal-title">GEO 专项论文 → IKEA 追踪框架</div>
+    <div class="proposal-subtitle">AI 引用偏好正在 2026 年固化，IKEA 的窗口期是未来 3 个月</div>
+    <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+      <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#d9770615;color:#d97706;font-size:0.72rem;font-weight:600;border:1px solid #d9770630">GEO for IKEA</span>
+      <span class="proposal-signal">📡 信号来源: <a href="https://x.com/yaojingang/status/2049298176935690588" target="_blank" style="color:var(--text3)">姚金刚 GEO 全球第二篇专项论文（602 prompts × 21143 引用 × 23745 AI抓取记录）</a></span>
+    </div>
+  </div>
+  <div class="proposal-body">
+<div class="section"><h3>核心主张</h3><div class="claim-box">AI 引用偏好正在 2026 年固化，IKEA 的窗口期是未来 3 个月——5/31 前必须有 IKEA 引用率的第一个数字。</div></div>
+<div class="section"><h3>锁定的具体痛点</h3><div class="claim-box" style="border-color:var(--accent5);font-weight:400;font-size:0.92rem">IKEA China 不知道自己在豆包/元宝/Kimi/千问/DeepSeek 上的引用率是多少，更不知道宝尊运营内容是否在被 AI 索引。</div></div>
+<div class="section"><h3>实施里程碑</h3><ul class="milestones">
+<li class="milestone"><span class="milestone-tag" style="background:#d9770620;color:#d97706">M1 · 本周</span><span class="milestone-text">完善 Prompt 库：参考论文 602 条框架，设计 IKEA 版 75 条（5品类×3意图×5平台）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#d9770620;color:#d97706">M2 · W19</span><span class="milestone-text">执行首轮收纳品类盲测（5个平台 × 15条 prompts），记录 IKEA 引用率</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#d9770620;color:#d97706">M3 · W20</span><span class="milestone-text">分析引用模式：IKEA 在哪些场景被引用/被忽略，对比竞品（宜家中文表达 vs IKEA）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#d9770620;color:#d97706">M4 · W21</span><span class="milestone-text">扩展到全部 5 品类，完成基线审计</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#d9770620;color:#d97706">M5 · 5/31</span><span class="milestone-text">交付给 Roman/Maggie：基线审计报告 + 追踪框架方案（哪怕 IKEA 引用率是 0%）</span></li>
+</ul></div>
+<div class="section"><h3>成功标准（可测量）</h3><ul class="criteria">
+<li>5/31 前有 IKEA 在 5 个国内 AI 平台的引用率具体数字</li>
+<li>至少 75 条 prompts 有测试记录</li>
+<li>识别出至少 2 个 IKEA 引用盲区（品类 or 平台）</li>
+<li>产出可重复执行的追踪框架（不是一次性测试）</li>
+</ul></div>
+<div class="section"><h3>ROI / 业务影响</h3><div class="roi-box">GEO 先动者优势：AI 搜索引擎引用逻辑固化后，补救成本是预防成本的 10 倍。IKEA China 年 GMV 数十亿，每提升 1% AI 引用率对应的品牌曝光价值保守估计数百万 RMB。</div></div>
+<div class="section"><h3>风险与缓解</h3>
+<div class="risk-item"><span class="risk-prob">⚠️ 没有 stakeholder 买单</span><span style="color:var(--text2)">→ 把 GEO 嵌入宝尊报告，不作为独立项目，借力 Roman 的 5/31 deadline</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ 时间线理想化</span><span style="color:var(--text2)">→ M1-M2 可以在 1 周内完成，关键是立即启动</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ 执行权在内容团队不在 CDH</span><span style="color:var(--text2)">→ Kyle 只负责框架和数据，内容改造推给酒令团队</span></div>
+</div>
+<div class="section"><h3>立即行动（本周内）</h3><ul class="actions-list">
+<li><span class="action-bullet">①</span><span>联系姚金刚获取 GEO 论文全文（Twitter: @yaojingang），复用 602 prompts 设计框架</span></li>
+<li><span class="action-bullet">②</span><span>本周执行首轮收纳品类盲测（5个平台 × 5条 prompts = 25次测试，2小时内完成）</span></li>
+<li><span class="action-bullet">③</span><span>给酒令团队发邮件，把 GEO 准备度问题加入内容模块访谈</span></li>
+</ul></div>
+<div class="section"><h3>🔴 诚实挑战（主动找漏洞）</h3>
+<div class="challenge-box">75 条样本量置信度有限——论文用 602 条才得到统计显著结论，75 条只是方向性参考。</div>
+<div class="challenge-box">中文 AI 平台引用逻辑不透明——豆包等不开放 API，只能人工测试，可重复性存疑。</div>
+<div class="challenge-box">CDH 是工程团队，内容改造不在职责范围内——框架建好后推进需要跨团队协作，存在阻力。</div>
+</div>
+</div>
+</div>
+<div class="proposal" style="border-top:4px solid #7c3aed">
+  <div class="proposal-header">
+    <div class="proposal-num" style="color:#7c3aed">Proposal 3 of 5</div>
+    <div class="proposal-title">Implementation Science for AI Adoption</div>
+    <div class="proposal-subtitle">AI 采纳失败从不是工具问题，而是迁移失败问题——讲师团的真正使命是让新行为在没有讲师的情况下也能存活</div>
+    <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+      <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#7c3aed15;color:#7c3aed;font-size:0.72rem;font-weight:600;border:1px solid #7c3aed30">AI Upskill Trainer</span> <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#7c3aed15;color:#7c3aed;font-size:0.72rem;font-weight:600;border:1px solid #7c3aed30">AI Adoption Strategy</span>
+      <span class="proposal-signal">📡 信号来源: <a href="https://x.com/rwayne/status/2048431659205403007" target="_blank" style="color:var(--text3)">@rwayne - Implementation Science + @HiTw93 - 非技术同学AI Coding基</a></span>
+    </div>
+  </div>
+  <div class="proposal-body">
+<div class="section"><h3>核心主张</h3><div class="claim-box">AI 采纳失败从不是工具问题，而是迁移失败问题——CDH 讲师团的真正使命，是将新行为从培训室迁移到业务现场，并让它在没有讲师的情况下也能存活。</div></div>
+<div class="section"><h3>锁定的具体痛点</h3><div class="claim-box" style="border-color:var(--accent5);font-weight:400;font-size:0.92rem">一个非技术业务用户参加 L0 培训后，回到岗位第一天就回退到旧习惯——不是她不想用 AI，是工作环境没有提示她用、没有让她成功的脚手架、没有同伴压力。</div></div>
+<div class="section"><h3>实施里程碑</h3><ul class="milestones">
+<li class="milestone"><span class="milestone-tag" style="background:#7c3aed20;color:#7c3aed">M1 · 本周</span><span class="milestone-text">在讲师团大纲中加入 Implementation Science 模块（为什么迁移失败的5大原因）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#7c3aed20;color:#7c3aed">M2 · W19-20</span><span class="milestone-text">为每期培训设计&#x27;30天行为追踪&#x27;：3个可观察的目标行为，每周打卡</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#7c3aed20;color:#7c3aed">M3 · W21</span><span class="milestone-text">第一期培训加入环境脚手架：给参与者配置好 Copilot CLI + Notebooks 工作环境</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#7c3aed20;color:#7c3aed">M4 · W22-23</span><span class="milestone-text">引入同伴学习小组（3-4人）：互相问责，替代讲师持续陪跑</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#7c3aed20;color:#7c3aed">M5 · W24</span><span class="milestone-text">30天后测量行为改变率（不是满意度），报告给 Nicole</span></li>
+</ul></div>
+<div class="section"><h3>成功标准（可测量）</h3><ul class="criteria">
+<li>30天行为追踪：70%+ 参与者保持至少 1 个目标行为（可观察，非自评）</li>
+<li>回退率 &lt;30%（培训后 2 周仍在用 AI 工具的比例）</li>
+<li>每期培训产出至少 1 个&#x27;内部传播者&#x27;（能自发向同事介绍工具的人）</li>
+<li>不用满意度问卷衡量——用工具使用率数据（PostHog 或日志）</li>
+</ul></div>
+<div class="section"><h3>ROI / 业务影响</h3><div class="roi-box">29人调研显示高意愿·低方法论。1个有效传播者 = 带动3-5人。11名 CDH 工程师中有 5 名讲师 = 潜在影响 15-25 名业务用户/期。</div></div>
+<div class="section"><h3>风险与缓解</h3>
+<div class="risk-item"><span class="risk-prob">⚠️ Implementation Science 对 IKEA 文化太学术</span><span style="color:var(--text2)">→ 只用概念，不说名词：&#x27;我们要确保培训效果持续到工作现场&#x27;</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ 行为追踪引发隐私顾虑</span><span style="color:var(--text2)">→ 用自愿打卡，不用强制监控；数据聚合不显示个人</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ 讲师团本身缺人（P0缺口）</span><span style="color:var(--text2)">→ 先用现有资源跑 1 期 pilot，边跑边招</span></div>
+</div>
+<div class="section"><h3>立即行动（本周内）</h3><ul class="actions-list">
+<li><span class="action-bullet">①</span><span>在讲师团大纲中加入一个新章节：为什么培训后会回退（5大原因 + 解法）</span></li>
+<li><span class="action-bullet">②</span><span>设计 3 个可观察的目标行为清单（培训后第 1/7/30 天各检查一次）</span></li>
+<li><span class="action-bullet">③</span><span>调研 Implementation Science 入门材料（Fixsen 2005 框架 + Greenhalgh 2004 扩散理论）</span></li>
+</ul></div>
+<div class="section"><h3>🔴 诚实挑战（主动找漏洞）</h3>
+<div class="challenge-box">Implementation Science 本身在中国企业文化中适用性存疑——它诞生于西方教育/公共卫生领域，IKEA 的科层结构可能覆盖它的作用机制。</div>
+<div class="challenge-box">Kyle 是工程师管理者，不是学习设计师——Implementation Science 需要专业 L&amp;D 背景，不能只是贴标签。</div>
+<div class="challenge-box">30天追踪可能测量的是&#x27;有时间用&#x27;而非&#x27;真的采纳&#x27;——业务压力期会让数据失真。</div>
+</div>
+</div>
+</div>
+<div class="proposal" style="border-top:4px solid #059669">
+  <div class="proposal-header">
+    <div class="proposal-num" style="color:#059669">Proposal 4 of 5</div>
+    <div class="proposal-title">元Skill 架构设计</div>
+    <div class="proposal-subtitle">用工程化 Meta-Skill 把写出一个能用的 Skill 从两天砍到两小时，且生成物天然具备可测、可控的工程边界</div>
+    <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+      <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966915;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966930">IKEA Skill Hub</span> <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966915;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966930">Life OS</span> <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966915;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966930">Skills Development</span>
+      <span class="proposal-signal">📡 信号来源: <a href="https://x.com/yaojingang/status/2049667713069731858" target="_blank" style="color:var(--text3)">@yaojingang 元Skill + @lencx_ Codex Pet Skill 解析 + Waza v3.11</a></span>
+    </div>
+  </div>
+  <div class="proposal-body">
+<div class="section"><h3>核心主张</h3><div class="claim-box">用一个工程化 Meta-Skill，把写出一个能用的 Skill 从两天砍到两小时，且生成物天然具备可测、可控的工程边界。</div></div>
+<div class="section"><h3>锁定的具体痛点</h3><div class="claim-box" style="border-color:var(--accent5);font-weight:400;font-size:0.92rem">一名 IKEA CDH 工程师想创建一个 Skill，他看了 SKILL.md 模板后不知道从哪里开始，写出来的 Skill 是角色扮演而非工程边界控制——2天后放弃。</div></div>
+<div class="section"><h3>实施里程碑</h3><ul class="milestones">
+<li class="milestone"><span class="milestone-tag" style="background:#05966920;color:#059669">M0 · 本周</span><span class="milestone-text">扫描现有 51 个 Skills，量化角色扮演比例（grep 角色/扮演/你是 等关键词）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#05966920;color:#059669">M1 · 2周内</span><span class="milestone-text">设计 Meta-Skill SKILL.md 骨架：五步流水线 DIAGNOSE→INTERROGATE→SCAFFOLD→VALIDATE→PACKAGE</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#05966920;color:#059669">M2 · 4周内</span><span class="milestone-text">实现 validate.ts (Bun + TypeScript)：12条可机器检查的工程边界规则</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#05966920;color:#059669">M3 · 6周内</span><span class="milestone-text">4种 Skill 类型模板：Workflow / Tool-Wrapper / Domain-Expert / Pipeline（禁 Persona）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#05966920;color:#059669">M4 · 8周内</span><span class="milestone-text">找 1 名工程师用 Meta-Skill 创建新 Skill，计时，目标 &lt;2 小时</span></li>
+</ul></div>
+<div class="section"><h3>成功标准（可测量）</h3><ul class="criteria">
+<li>新创建的 Skills 通过 validate.ts 的合格率 &gt;90%</li>
+<li>角色扮演型 Skill 比例从当前水平降至 &lt;10%</li>
+<li>新 Skill 创建时间从 2天 降至 &lt;2小时</li>
+<li>Meta-Skill 本身能被 validate.ts 验证（自引用测试）</li>
+</ul></div>
+<div class="section"><h3>ROI / 业务影响</h3><div class="roi-box">IKEA Skill Hub 当前 51 个 Skills，目标接入更多仓库（ODI/Platform/Global）。Meta-Skill 是规模化的前提——没有质量门禁，Skills 越多越乱。</div></div>
+<div class="section"><h3>风险与缓解</h3>
+<div class="risk-item"><span class="risk-prob">⚠️ Meta-Skill 降低供给门槛，但不解决贡献激励问题</span><span style="color:var(--text2)">→ 需要管理动作（1:1 OKR）配合，不是工具能解决的</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ 12条规则可能过于严格</span><span style="color:var(--text2)">→ 分 fatal/warning 两级，fatal 才阻断，warning 只提示</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ Bun + TypeScript 依赖</span><span style="color:var(--text2)">→ validate.ts 保持零外部依赖，只用 Bun 内置功能</span></div>
+</div>
+<div class="section"><h3>立即行动（本周内）</h3><ul class="actions-list">
+<li><span class="action-bullet">①</span><span>grep 扫描现有 51 个 Skills，量化角色扮演比例（建立改造 baseline）</span></li>
+<li><span class="action-bullet">②</span><span>找 1 名从未写过 Skill 的工程师，计时测试创建过程（暴露真实卡点）</span></li>
+<li><span class="action-bullet">③</span><span>写 Meta-Skill SKILL.md 骨架 M0 草案（3天内）</span></li>
+</ul></div>
+<div class="section"><h3>🔴 诚实挑战（主动找漏洞）</h3>
+<div class="challenge-box">Meta-Skill 是工具问题的解法，但工程师不主动贡献是激励问题——工具再好也无法替代管理动作。</div>
+<div class="challenge-box">五步流水线可能让简单 Skill 过度工程化——需要设计 fast track（简单场景 2步完成）。</div>
+<div class="challenge-box">validate.ts 12条规则是我设计的，缺乏实战验证——第一批 Skills 需要人工 review 对照，规则可能需要大幅调整。</div>
+</div>
+</div>
+</div>
+<div class="proposal" style="border-top:4px solid #dc2626">
+  <div class="proposal-header">
+    <div class="proposal-num" style="color:#dc2626">Proposal 5 of 5</div>
+    <div class="proposal-title">Agent 经济 → 宝尊能力边界新判断</div>
+    <div class="proposal-subtitle">Agent Economy 信号把替代宝尊的瓶颈，从 AI够不够聪明 移到了 IKEA能不能拿到平台操作授权</div>
+    <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+      <span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#dc262615;color:#dc2626;font-size:0.72rem;font-weight:600;border:1px solid #dc262630">宝尊运营 Ontology</span>
+      <span class="proposal-signal">📡 信号来源: <a href="https://x.com/fishkiller/status/2049531993931792556" target="_blank" style="color:var(--text3)">Stripe Agent Link + Agent Vault + 硅谷10人干100人活</a></span>
+    </div>
+  </div>
+  <div class="proposal-body">
+<div class="section"><h3>核心主张</h3><div class="claim-box">Agent Economy 信号把替代宝尊的瓶颈，从 AI 够不够聪明 移到了 IKEA 能不能拿到平台操作授权——这让商品管理域（KK）的优先级从次高升为最高。</div></div>
+<div class="section"><h3>锁定的具体痛点</h3><div class="claim-box" style="border-color:var(--accent5);font-weight:400;font-size:0.92rem">团队在分析哪些宝尊运营可以被 AI 替代，但分析框架是错的：不是问 AI 能不能做，而是问 IKEA 有没有权限让 AI 做——天猫 API 授权才是真正的瓶颈。</div></div>
+<div class="section"><h3>实施里程碑</h3><ul class="milestones">
+<li class="milestone"><span class="milestone-tag" style="background:#dc262620;color:#dc2626">M1 · 本周</span><span class="milestone-text">约 KK 30分钟访谈：重点问商品操作的授权链路（谁有权改商品信息？授权路径是什么？）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#dc262620;color:#dc2626">M2 · W19</span><span class="milestone-text">查阅天猫/JD Open Platform 文档：独立验证 API 可达性，建立授权能力地图</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#dc262620;color:#dc2626">M3 · W20</span><span class="milestone-text">给 Roman 发短邮件：明确 5/31 里程碑类型（是决策建议 or 技术 PoC？）</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#dc262620;color:#dc2626">M4 · W21</span><span class="milestone-text">完成商品域授权-能力矩阵：哪些操作可API化 / 哪些需人工审批 / 哪些平台封锁</span></li>
+<li class="milestone"><span class="milestone-tag" style="background:#dc262620;color:#dc2626">M5 · 5/31</span><span class="milestone-text">交付给 Roman：宝尊运营替代的优先级排序 + 授权瓶颈分析（不只是 AI 能力分析）</span></li>
+</ul></div>
+<div class="section"><h3>成功标准（可测量）</h3><ul class="criteria">
+<li>产出授权-能力矩阵（覆盖售后/商品/内容/投流四域）</li>
+<li>明确至少 3 个 IKEA 当前有权调用的 API 操作（商品域重点）</li>
+<li>识别至少 1 个真正的零阻力替代点（授权 + AI 能力双就绪）</li>
+<li>5/31 交付 Roman 可行动的优先级建议，不是技术概念报告</li>
+</ul></div>
+<div class="section"><h3>ROI / 业务影响</h3><div class="roi-box">宝尊运营成本数千万 RMB/年。即使只替代 20% 的操作，年节省保守估计数百万。但更重要的是：找到正确的瓶颈（授权而非 AI 能力），避免在错误方向浪费 3 个月。</div></div>
+<div class="section"><h3>风险与缓解</h3>
+<div class="risk-item"><span class="risk-prob">⚠️ Stripe Agent Link 在中国基本失效</span><span style="color:var(--text2)">→ 落地形式是规则化 RPA + 人工审批节点，非真正 Agent 授权——但逻辑不变</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ 天猫/JD API 授权申请周期长</span><span style="color:var(--text2)">→ 先做 API 可达性调研，再决定是否申请——不要先假设可以申请</span></div>
+<div class="risk-item"><span class="risk-prob">⚠️ Agent Vault 安全模式在国内无直接替代</span><span style="color:var(--text2)">→ 用权限最小化原则替代：IKEA 的 Agent 只拿只读权限，写权限须人工二次确认</span></div>
+</div>
+<div class="section"><h3>立即行动（本周内）</h3><ul class="actions-list">
+<li><span class="action-bullet">①</span><span>约 KK 30分钟：重点问商品操作授权链路（本周内）</span></li>
+<li><span class="action-bullet">②</span><span>给 Roman 发短邮件：5/31 的里程碑是什么类型？（2分钟内）</span></li>
+<li><span class="action-bullet">③</span><span>查阅天猫 Open Platform 文档，建立商品域 API 能力清单（半天内）</span></li>
+</ul></div>
+<div class="section"><h3>🔴 诚实挑战（主动找漏洞）</h3>
+<div class="challenge-box">Stripe Agent Wallet 逻辑在中国基本失效——天猫/JD 是封闭生态，实际落地是 RPA 而非 Agent 授权，信号的适用性有限。</div>
+<div class="challenge-box">这个 Proposal 把瓶颈从 AI 能力移到授权，但两者可能同时存在——不能用新框架完全替代旧分析。</div>
+<div class="challenge-box">KK 访谈和平台 API 调研是 Kyle 能控制的，但最终决策在 Roman——5/31 交付物的影响力取决于 Roman 的决策权限。</div>
+</div>
+</div>
+</div>
+<div style="text-align:center;padding-top:48px;color:var(--text3);font-size:0.8rem">
+  Readwise Proposals Phase 2 · 2026-05-05 · 5 subagents · 不可行动的信息=噪音
+</div>
+</div>
+<script>
+const btn=document.getElementById("theme-toggle");
+btn.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");btn.textContent=document.documentElement.classList.contains("dark")?"☀️":"🌙";localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light");});
+if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark");btn.textContent="☀️";}
+</script>
+</body>
+</html>

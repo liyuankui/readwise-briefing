@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-05-05</title>
+<style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626}
+.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+.header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:32px 0 24px;border-bottom:2px solid var(--border);margin-bottom:32px}
+.header h1{font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.subtitle{color:var(--text3);font-size:0.9rem}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:1rem;color:var(--text);transition:.2s;flex-shrink:0}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.stat-num{font-size:2rem;font-weight:700;color:var(--accent)}
+.stat-label{color:var(--text3);font-size:0.8rem;margin-top:4px}
+.section-title{font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:16px;padding-left:12px;border-left:4px solid var(--accent2)}
+.axiom-banner{background:linear-gradient(135deg,rgba(45,90,74,.1),rgba(99,102,241,.1));border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;font-weight:600;color:var(--text);font-size:1.05rem}
+.topics-table{width:100%;border-collapse:collapse;margin-bottom:32px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.topics-table th{background:var(--surface2);padding:12px 16px;text-align:left;font-size:0.85rem;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border)}
+.topics-table td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+.topics-table tr:last-child td{border-bottom:none}
+.signal-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;transition:border-color .2s}
+.signal-card:hover{border-color:var(--accent2)}
+.signal-card.high{border-left:4px solid var(--accent4)}
+.signal-card.medium{border-left:4px solid var(--accent3)}
+.signal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.signal-title{font-weight:700;color:var(--text);font-size:1rem}
+.signal-author{font-size:0.8rem;color:var(--text3);margin-top:2px}
+.signal-content{color:var(--text2);font-size:0.9rem;margin:10px 0;line-height:1.7}
+.signal-rel{background:var(--surface2);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:0.85rem;color:var(--text2);border-left:3px solid var(--accent4)}
+.signal-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;flex-wrap:wrap}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.action-list{list-style:none;margin-bottom:32px}
+.action-list li{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--accent2);color:white;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.action-text{color:var(--text2);font-size:0.92rem}
+.other-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:16px}
+.other-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .2s}
+.other-card:hover{border-color:var(--accent2)}
+details summary{cursor:pointer;user-select:none;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-weight:600;color:var(--text2);margin-bottom:8px}
+details[open] summary{border-radius:10px 10px 0 0;margin-bottom:0;border-bottom:none}
+details .dc{border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:16px;background:var(--surface)}
+@media(max-width:640px){.stats-row{grid-template-columns:repeat(2,1fr)}.header{flex-direction:column;gap:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="subtitle">2026-05-05 · 增量同步 (since 2026-04-30) · Phase 1 of 2</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+<div class="axiom-banner"><span style="font-size:1.5rem">⚡</span>不可行动的信息 = 噪音。本简报的终点不是阅读，是执行。</div>
+<div class="stats-row">
+  <div class="stat-card"><div class="stat-num">102</div><div class="stat-label">Twitter 高亮</div></div>
+  <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">⭐×5 高价值信号</div></div>
+  <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">⭐×4 中等价值</div></div>
+  <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">深挖方向 (Phase 2)</div></div>
+</div>
+<div class="section-title">🔭 Phase 2 深挖方向预览</div>
+<p style="color:var(--text3);font-size:0.85rem;margin-bottom:12px;">以下5个方向由 subagents 并行推理，Proposals 将在单独 HTML 中交付</p>
+<table class="topics-table"><tr><th>#</th><th>方向</th><th>连接项目</th></tr>
+<tr><td style="font-weight:700;color:var(--accent2);white-space:nowrap">1</td><td><div style="font-weight:600">Agentic Engineering as the New Ceiling</div><div style="font-size:0.8rem;color:var(--text3);margin-top:3px">IKEA CDH 从 Vibe Coding 到 Agentic Engineering 的战略跃迁</div></td><td><span style="font-size:0.8rem;color:var(--text3)">Vibe Coding Stack + Life OS + Engineering Baseline</span></td></tr>
+<tr><td style="font-weight:700;color:var(--accent2);white-space:nowrap">2</td><td><div style="font-weight:600">GEO 专项论文 -&gt; IKEA 追踪框架</div><div style="font-size:0.8rem;color:var(--text3);margin-top:3px">基于全球第二篇 GEO 论文，为 IKEA China 设计 AI 品牌引用追踪体系</div></td><td><span style="font-size:0.8rem;color:var(--text3)">GEO for IKEA</span></td></tr>
+<tr><td style="font-weight:700;color:var(--accent2);white-space:nowrap">3</td><td><div style="font-weight:600">Implementation Science for AI Adoption</div><div style="font-size:0.8rem;color:var(--text3);margin-top:3px">AI 落地的底层逻辑不是工具，是组织变革科学</div></td><td><span style="font-size:0.8rem;color:var(--text3)">AI Upskill Trainer + AI Adoption Strategy</span></td></tr>
+<tr><td style="font-weight:700;color:var(--accent2);white-space:nowrap">4</td><td><div style="font-weight:600">元Skill 架构设计</div><div style="font-size:0.8rem;color:var(--text3);margin-top:3px">用生成Skill的Skill提升 IKEA Skill Hub 的品质上限</div></td><td><span style="font-size:0.8rem;color:var(--text3)">IKEA Skill Hub + Life OS</span></td></tr>
+<tr><td style="font-weight:700;color:var(--accent2);white-space:nowrap">5</td><td><div style="font-weight:600">Agent 经济 -&gt; 宝尊能力边界新判断</div><div style="font-size:0.8rem;color:var(--text3);margin-top:3px">Agent 有了钱包和凭证管理后，宝尊运营替代还剩哪些真实阻碍？</div></td><td><span style="font-size:0.8rem;color:var(--text3)">宝尊运营 Ontology</span></td></tr>
+</table>
+<div class="section-title">⭐⭐⭐⭐⭐ 高价值信号（立即行动）</div>
+<div class="signal-card high">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/stephzhan/status/2049518659513852109" target="_blank">Vibe coding raised the floor; Agentic engineering raises the ceiling</a></div><div class="signal-author">@stephzhan (Sequoia) + Karpathy</div></div>
+    <div style="font-size:1.2rem;flex-shrink:0">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">At Sequoia AI Ascent 2026: Last year, Karpathy coined &#x27;vibe coding&#x27;. This year, he&#x27;s never felt more behind as a programmer. The big shift: vibe coding raised the floor. Agentic engineering raises the ceiling.</div>
+  <div class="signal-rel"><strong style="color:var(--accent4)">🎯 为什么相关：</strong>直接命名当前战略转型节点：Vibe Coding Stack 已完成地板建设，下一步是 Agentic Engineering（Life OS + Engineering Baseline）的天花板竞争。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#c026d320;color:#c026d3;font-size:0.72rem;font-weight:600;border:1px solid #c026d340;">Vibe Coding Stack</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f120;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f140;">Engineering Baseline</span></div><a href="https://x.com/stephzhan/status/2049518659513852109" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card high">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://read.readwise.io/read/01kbbt3ehgs93nyv0xfqps2nag" target="_blank">Effective harnesses for long-running agents (Anthropic)</a></div><div class="signal-author">Anthropic (anthropic.com)</div></div>
+    <div style="font-size:1.2rem;flex-shrink:0">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">Long-running agents lose context across sessions, so they struggle to make steady progress. Anthropic solved this with an initializer agent that sets up the environment at the start of each session.</div>
+  <div class="signal-rel"><strong style="color:var(--accent4)">🎯 为什么相关：</strong>直接回应 Life OS 的 Memory 痛点：跨 session 记忆。Initializer agent 模式是 project-harness 的实践验证。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f120;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f140;">Engineering Baseline</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#0369a120;color:#0369a1;font-size:0.72rem;font-weight:600;border:1px solid #0369a140;">Software Testing Excellence</span></div><a href="https://read.readwise.io/read/01kbbt3ehgs93nyv0xfqps2nag" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card high">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/wsl8297/status/2048929452579799164" target="_blank">Learn Harness Engineering — GitHub 开源课程</a></div><div class="signal-author">@wsl8297</div></div>
+    <div style="font-size:1.2rem;flex-shrink:0">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">在 GitHub 上挖到一门很实用的开源课：Learn Harness Engineering，专门教你给 AI 编程助手搭一套更可靠的工作台。它把 AI 协作拆成五个关键机制：指令、状态、验证、范围、会话，让每次任务都可追踪、可续接、可验证，不再靠运气出结果。</div>
+  <div class="signal-rel"><strong style="color:var(--accent4)">🎯 为什么相关：</strong>直接支持 Engineering Baseline + Software Testing Excellence：五机制框架（指令/状态/验证/范围/会话）是 IKEA CDH 团队 AI 工程规范化的操作手册。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f120;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f140;">Engineering Baseline</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#0369a120;color:#0369a1;font-size:0.72rem;font-weight:600;border:1px solid #0369a140;">Software Testing Excellence</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span></div><a href="https://x.com/wsl8297/status/2048929452579799164" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card high">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/grapeot/status/2049529405287076107" target="_blank">机器可读的上下文、确定性验证、可执行的团队标准</a></div><div class="signal-author">@grapeot</div></div>
+    <div style="font-size:1.2rem;flex-shrink:0">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">AI coding 最容易被高估的是生成代码更快。真正会复利的是另一组东西：机器可读的上下文、确定性验证、可执行的团队标准、问题定义和学习捕获。它们会让下一轮 agent session 比这一轮更容易、更安全、更可判断。</div>
+  <div class="signal-rel"><strong style="color:var(--accent4)">🎯 为什么相关：</strong>Engineering Baseline 的精确描述：不是代码更快，是复利系统。机器可读上下文=AGENTS.md/SPEC.md；确定性验证=CI/CD；团队标准=Engineering Baseline。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f120;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f140;">Engineering Baseline</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#4f46e520;color:#4f46e5;font-size:0.72rem;font-weight:600;border:1px solid #4f46e540;">AI Coding</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#0369a120;color:#0369a1;font-size:0.72rem;font-weight:600;border:1px solid #0369a140;">Software Testing Excellence</span></div><a href="https://x.com/grapeot/status/2049529405287076107" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card high">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/yaojingang/status/2049298176935690588" target="_blank">GEO 全球第二篇专项论文：602 Prompts x 21143 引用数据</a></div><div class="signal-author">@yaojingang (姚金刚)</div></div>
+    <div style="font-size:1.2rem;flex-shrink:0">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">我和张凯的GEO论文，在全球最大的论文平台。这应该是全球第二篇与GEO有关的专项论文。论文基于今年3月份最新的数据，包括602条 Prompt、21143 条引用、23745条AI抓取记录。</div>
+  <div class="signal-rel"><strong style="color:var(--accent4)">🎯 为什么相关：</strong>GEO for IKEA (deadline 5/31)：姚金刚是参考方法论作者。论文提供了追踪框架蓝本——602 prompts 设计方式可直接复用于 IKEA 5品类 x 5平台的基线测试。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#d9770620;color:#d97706;font-size:0.72rem;font-weight:600;border:1px solid #d9770640;">GEO for IKEA</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#dc262620;color:#dc2626;font-size:0.72rem;font-weight:600;border:1px solid #dc262640;">宝尊运营 Ontology</span></div><a href="https://x.com/yaojingang/status/2049298176935690588" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="section-title" style="margin-top:32px">⭐⭐⭐⭐ 中等价值信号</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://read.readwise.io/read/01kbbt3ej89wsxnqrkeb3rypb1" target="_blank">Skills 取代MCP？是agent落地最大的误解</a></div><div class="signal-author">mp.weixin.qq.com</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">一文读懂Skills、Prompts、Projects、Subagents、MCP区别与落地实战</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966920;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966940;">IKEA Skill Hub</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span></div><a href="https://read.readwise.io/read/01kbbt3ej89wsxnqrkeb3rypb1" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/rwayne/status/2048431659205403007" target="_blank">Implementation Science：为什么同样工具在A组织成功，B组织失败？</a></div><div class="signal-author">@rwayne</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">大部分讲AI落地的人，在讲怎么写prompt、怎么搭Agent、怎么挑模型。都只是工具层。真正要回答的问题是为什么同样的工具，在A组织成功了，在B组织失败了。这个问题有一门学科，叫Implementation Science。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#7c3aed20;color:#7c3aed;font-size:0.72rem;font-weight:600;border:1px solid #7c3aed40;">AI Upskill Trainer</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#0891b220;color:#0891b2;font-size:0.72rem;font-weight:600;border:1px solid #0891b240;">AI Adoption Strategy</span></div><a href="https://x.com/rwayne/status/2048431659205403007" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/yaojingang/status/2049667713069731858" target="_blank">元Skill：生成Skill的Skill，价值被大大低估</a></div><div class="signal-author">@yaojingang</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">元skill的价值和意义，其实被大大低估了。今年，我们花了不少时间和精力打磨自己的元skill。元Skill，可以理解为生成Skill的Skill。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966920;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966940;">IKEA Skill Hub</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#92400e20;color:#92400e;font-size:0.72rem;font-weight:600;border:1px solid #92400e40;">Skills Development</span></div><a href="https://x.com/yaojingang/status/2049667713069731858" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/lencx_/status/2050533256098185232" target="_blank">Codex Pet Skill：Skill本质是把模型能力关进可控工程边界</a></div><div class="signal-author">@lencx_</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">Skill 的本质不是角色扮演，也不只是轻量 workflow，而是把不可控的模型能力关进可控的工程边界里。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966920;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966940;">IKEA Skill Hub</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f120;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f140;">Engineering Baseline</span></div><a href="https://x.com/lencx_/status/2050533256098185232" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://read.readwise.io/read/01kbbt3ej89wsxnqrkeb3rypb1" target="_blank">Building agents with the Claude Agent SDK</a></div><div class="signal-author">Anthropic</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">Anthropic renamed Claude Code SDK to the Claude Agent SDK to power many non-coding agents. The SDK gives Claude a computer-like toolset — files, bash, web, editor.</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#c026d320;color:#c026d3;font-size:0.72rem;font-weight:600;border:1px solid #c026d340;">Vibe Coding Stack</span></div><a href="https://read.readwise.io/read/01kbbt3ej89wsxnqrkeb3rypb1" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/fishkiller/status/2049531993931792556" target="_blank">Stripe 推出 Agent Link 钱包：Agent 终于能独立购买了</a></div><div class="signal-author">@fishkiller</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">Stripe 推出了可以让 agent 使用的 Link 钱包。如果人工智能能攻克诺贝尔难题，却连域名都买不了，那肯定不对。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#dc262620;color:#dc2626;font-size:0.72rem;font-weight:600;border:1px solid #dc262640;">宝尊运营 Ontology</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span></div><a href="https://x.com/fishkiller/status/2049531993931792556" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/HiTw93/status/2049436090885357819" target="_blank">非技术同学用 AI Coding：最好懂点技术和产品基本逻辑</a></div><div class="signal-author">@HiTw93</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">非技术同学想用好 AI Coding，不能只会描述需求，最好补一点技术和产品的基本逻辑。技术上至少知道 React、Vue、Next.js 在解决什么，终端、Git、VS Code、Chrome DevTools 怎么用。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#7c3aed20;color:#7c3aed;font-size:0.72rem;font-weight:600;border:1px solid #7c3aed40;">AI Upskill Trainer</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#16a34a20;color:#16a34a;font-size:0.72rem;font-weight:600;border:1px solid #16a34a40;">AI Starter Kit</span></div><a href="https://x.com/HiTw93/status/2049436090885357819" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="signal-card medium">
+  <div class="signal-header">
+    <div><div class="signal-title"><a href="https://x.com/frxiaobei/status/2049516252281135554" target="_blank">Symphony：让产品和技术不被工具链锁住</a></div><div class="signal-author">@frxiaobei</div></div>
+    <div style="font-size:1.1rem;flex-shrink:0">⭐⭐⭐</div>
+  </div>
+  <div class="signal-content">过去这段时间团队手搓了一套系统，想解决一个很现实的问题：别再让产品和技术被各自的工具链锁住了。AI Coding 大家虽然玩的很溜，但认知上还未对齐，还在遵守老的规范。</div>
+  <div class="signal-footer"><div class="tags"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#6366f120;color:#6366f1;font-size:0.72rem;font-weight:600;border:1px solid #6366f140;">Engineering Baseline</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#c026d320;color:#c026d3;font-size:0.72rem;font-weight:600;border:1px solid #c026d340;">Vibe Coding Stack</span></div><a href="https://x.com/frxiaobei/status/2049516252281135554" target="_blank" style="font-size:0.8rem;color:var(--text3)">原文 →</a></div>
+</div>
+<div class="section-title" style="margin-top:32px">✅ 立即行动清单</div>
+<ul class="action-list">
+<li><div class="action-num">1</div><div class="action-text"><strong>阅读 Learn Harness Engineering 开源课程</strong><br>五机制框架（指令/状态/验证/范围/会话）可直接映射到 Engineering Baseline。本周整理 IKEA CDH 版草案。</div></li>
+<li><div class="action-num">2</div><div class="action-text"><strong>联系姚金刚获取 GEO 论文全文</strong><br>602 prompts 设计方式是 IKEA 5品类×5平台盲测的直接参考蓝本。5/31 deadline 前须本周启动。Twitter: @yaojingang</div></li>
+<li><div class="action-num">3</div><div class="action-text"><strong>阅读 Anthropic Harness 文章，提炼 Initializer Agent 模式</strong><br>对应 Life OS 的 Memory 痛点。Initializer agent = 每次 session 开始时自动加载上次状态。</div></li>
+<li><div class="action-num">4</div><div class="action-text"><strong>把 grapeot 的复利系统框架发给团队</strong><br>机器可读上下文+确定性验证+可执行团队标准 = Engineering Baseline 的操作定义。本周团队分享。</div></li>
+<li><div class="action-num">5</div><div class="action-text"><strong>调研 Implementation Science 基础概念</strong><br>研究后更新 AI Upskill Trainer 大纲，加入为什么同样工具在A成功B失败这个模块。</div></li>
+</ul>
+<details><summary>📚 其他值得关注的信号（可按需查阅）</summary>
+<div class="dc"><div class="other-grid">
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/dangtony98/status/2047447385966772684" target="_blank">Agent Vault：AI agent 凭证安全 (open source, HN front page)</a></div><div style="font-size:0.75rem;color:var(--text3)">@dangtony98</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#0891b220;color:#0891b2;font-size:0.72rem;font-weight:600;border:1px solid #0891b240;">AI Adoption</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/JoyLi629/status/2049142308163944487" target="_blank">Open CoDesign：Claude Design 开源平替，支持20+模型</a></div><div style="font-size:0.75rem;color:var(--text3)">@JoyLi629</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#16a34a20;color:#16a34a;font-size:0.72rem;font-weight:600;border:1px solid #16a34a40;">AI Starter Kit</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/1weiho/status/2050602481953181968" target="_blank">open-slide：为 agent 设计的幻灯片框架</a></div><div style="font-size:0.75rem;color:var(--text3)">@1weiho</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#16a34a20;color:#16a34a;font-size:0.72rem;font-weight:600;border:1px solid #16a34a40;">AI Starter Kit</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966920;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966940;">IKEA Skill Hub</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/wsl8297/status/2047932635620778414" target="_blank">Shimmy：5MB 单文件本地 AI 推理 (Rust, Ollama替代)</a></div><div style="font-size:0.75rem;color:var(--text3)">@wsl8297</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/nash_su/status/2050073203284869590" target="_blank">Qwen-Scope：给 AI 装透视眼（可解释性开源）</a></div><div style="font-size:0.75rem;color:var(--text3)">@nash_su</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#0891b220;color:#0891b2;font-size:0.72rem;font-weight:600;border:1px solid #0891b240;">AI Adoption</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/op7418/status/2049458103675191550" target="_blank">Moxt：AI Native 组织协作工具</a></div><div style="font-size:0.75rem;color:var(--text3)">@op7418</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/HiTw93/status/2049265151736770892" target="_blank">Waza v3.11 Lean：把工程习惯变成 Skills</a></div><div style="font-size:0.75rem;color:var(--text3)">@HiTw93</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966920;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966940;">IKEA Skill Hub</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/colinwu/status/2048428545828171816" target="_blank">10人干100人活：硅谷对劳动力替代的最新共识</a></div><div style="font-size:0.75rem;color:var(--text3)">@colinwu (五源孟醒)</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#0891b220;color:#0891b2;font-size:0.72rem;font-weight:600;border:1px solid #0891b240;">AI Adoption</span><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#dc262620;color:#dc2626;font-size:0.72rem;font-weight:600;border:1px solid #dc262640;">宝尊运营 Ontology</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/kevinma_dev_zh/status/2050265535745761622" target="_blank">LLM Wiki：内置 Claude/Codex/Gemini 的开源知识管理</a></div><div style="font-size:0.75rem;color:var(--text3)">@kevinma_dev_zh</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/wsl8297/status/2049005533223678042" target="_blank">daily-arXiv：每日论文自动中文摘要 (DeepSeek)</a></div><div style="font-size:0.75rem;color:var(--text3)">@wsl8297</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#2d5a4a20;color:#2d5a4a;font-size:0.72rem;font-weight:600;border:1px solid #2d5a4a40;">Life OS</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/bnu_chenshuo/status/2048061957979422933" target="_blank">Hamming 30小时讲座 The Art of Doing Science and Engineering</a></div><div style="font-size:0.75rem;color:var(--text3)">@bnu_chenshuo</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#65a30d20;color:#65a30d;font-size:0.72rem;font-weight:600;border:1px solid #65a30d40;">个人成长</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/xbanboo/status/2049888151079182364" target="_blank">AI 时代育儿：传统育儿目标会失效，积累稀缺能力策略已过时</a></div><div style="font-size:0.75rem;color:var(--text3)">@xbanboo</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#be185d20;color:#be185d;font-size:0.72rem;font-weight:600;border:1px solid #be185d40;">Human Connection</span></div></div>
+<div class="other-card"><div style="font-size:0.88rem;font-weight:600;margin-bottom:4px"><a href="https://x.com/yaojingang/status/2049738370679730562" target="_blank">姚金刚开源教程 Skill：定制高质量教程生成器</a></div><div style="font-size:0.75rem;color:var(--text3)">@yaojingang</div><div style="margin-top:6px"><span style="display:inline-block;padding:2px 8px;border-radius:99px;background:#05966920;color:#059669;font-size:0.72rem;font-weight:600;border:1px solid #05966940;">IKEA Skill Hub</span></div></div>
+</div></div></details>
+<div style="text-align:center;padding-top:48px;color:var(--text3);font-size:0.8rem">Readwise 情报简报 Phase 1 · 生成于 2026-05-05 · Phase 2 Proposals 生成中 🔄</div>
+</div>
+<script>
+const btn=document.getElementById("theme-toggle");
+btn.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");btn.textContent=document.documentElement.classList.contains("dark")?"☀️":"🌙";localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light");});
+if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark");btn.textContent="☀️";}
+</script>
+</body>
+</html>
