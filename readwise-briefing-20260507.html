@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-05-07</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体",
+               -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+.container { max-width: 900px; margin: 0 auto; }
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border);
+}
+.header-left h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+.header-left .subtitle {
+  color: var(--text3);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+#theme-toggle {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--text);
+  transition: background 0.2s;
+}
+#theme-toggle:hover { background: var(--border); }
+
+/* Stats Bar */
+.stats-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  flex: 1;
+  min-width: 130px;
+  text-align: center;
+}
+.stat-card .num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-card .label {
+  font-size: 0.8rem;
+  color: var(--text3);
+  margin-top: 0.2rem;
+}
+
+/* Section */
+.section {
+  margin-bottom: 2.5rem;
+}
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+/* Signal Card */
+.signal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+.signal-card:hover { border-color: var(--accent2); }
+.signal-card .signal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.signal-card .stars {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.signal-card .source {
+  font-size: 0.78rem;
+  color: var(--text3);
+  margin-top: 0.25rem;
+}
+.signal-card .text {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+.signal-card .why-relevant {
+  background: var(--surface2);
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text2);
+  border-left: 3px solid var(--accent3);
+}
+.signal-card .why-relevant::before {
+  content: "💡 相关性：";
+  font-weight: 600;
+  color: var(--accent3);
+}
+.signal-card .link {
+  font-size: 0.8rem;
+  color: var(--accent2);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+.signal-card .link:hover { text-decoration: underline; }
+
+/* Overview Table */
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.overview-table th {
+  background: var(--surface2);
+  text-align: left;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  color: var(--text2);
+  border-bottom: 2px solid var(--border);
+}
+.overview-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+}
+.overview-table tr:last-child td { border-bottom: none; }
+.overview-table tr:hover td { background: var(--surface2); }
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.tag-life-os { background: #d1fae5; color: #065f46; }
+.tag-engineering { background: #dbeafe; color: #1e40af; }
+.tag-skill-hub { background: #ede9fe; color: #5b21b6; }
+.tag-baozun { background: #fef3c7; color: #92400e; }
+.tag-upskill { background: #fce7f3; color: #9d174d; }
+html.dark .tag-life-os { background: #064e3b; color: #6ee7b7; }
+html.dark .tag-engineering { background: #1e3a5f; color: #93c5fd; }
+html.dark .tag-skill-hub { background: #3b2d7a; color: #c4b5fd; }
+html.dark .tag-baozun { background: #78350f; color: #fde68a; }
+html.dark .tag-upskill { background: #831843; color: #fbcfe8; }
+
+/* Action List */
+.action-list {
+  list-style: none;
+  padding: 0;
+}
+.action-list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--text2);
+}
+.action-list li::before {
+  content: "→";
+  color: var(--accent4);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* Collapsible */
+.collapsible-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  color: var(--text2);
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.collapsible-btn:hover { background: var(--border); }
+.collapsible-content {
+  display: none;
+  padding-top: 1rem;
+}
+.collapsible-content.open { display: block; }
+
+/* Medium value compact */
+.medium-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text2);
+}
+.medium-card .title { font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+.medium-card .source-line { font-size: 0.78rem; color: var(--text3); }
+.proposal-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.proposal-link:hover { opacity: 0.9; }
+.axiom-banner {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="header-left">
+    <h1>📚 Readwise 情报简报</h1>
+    <div class="subtitle">2026-05-07 · 增量同步自 2026-05-06 · Phase 1: 信号采集</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<!-- Axiom -->
+<div class="axiom-banner">
+  公理：不可行动的信息 = 噪音。本简报每一条信号都必须能回答：<strong>「我今天能做什么？」</strong>
+</div>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat-card">
+    <div class="num">34</div>
+    <div class="label">总计内容条数</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5</div>
+    <div class="label">⭐×5 高价值信号</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">7</div>
+    <div class="label">⭐×3 中等价值</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5</div>
+    <div class="label">🚀 深挖 Proposals</div>
+  </div>
+</div>
+
+<!-- 5大方向快速预览 -->
+<div class="section">
+  <div class="section-title">🗺️ 5 大深挖方向（→ Proposals）</div>
+  <table class="overview-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>方向</th>
+        <th>信号来源</th>
+        <th>关联意图</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>HeavySkill × Life OS 架构</strong></td>
+        <td>美团论文（李继刚）</td>
+        <td><span class="tag tag-life-os">Life OS</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>PageIndex RAG × 宝尊知识图谱</strong></td>
+        <td>币世王</td>
+        <td><span class="tag tag-baozun">宝尊 Ontology</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>软件工业化 × 工程团队价值重定义</strong></td>
+        <td>Lexi 勒西 + 反驳声音</td>
+        <td><span class="tag tag-engineering">Engineering Baseline</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>book-to-skill × AI 内训知识体系</strong></td>
+        <td>Geek Lite</td>
+        <td><span class="tag tag-upskill">AI Upskill Trainer</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>AI 项目管理框架 × Skill Hub 产品设计</strong></td>
+        <td>一只绿喵</td>
+        <td><span class="tag tag-skill-hub">IKEA Skill Hub</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 高价值信号 ⭐×5 -->
+<div class="section">
+  <div class="section-title">⭐⭐⭐⭐⭐ 高价值信号（立即行动）</div>
+
+  <!-- Signal 1 -->
+  <div class="signal-card">
+    <div class="signal-header">
+      <div>
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <div class="source">@lijigang on Twitter · 美团 HeavySkill 论文</div>
+      </div>
+    </div>
+    <div class="text">
+      美团这篇论文有意思：<br>
+      <strong>HeavySkill: Heavy Thinking as the Inner Skill in Agentic Harness</strong><br>
+      核心思想：把"重度思考（Heavy Thinking）"作为 Agent Harness 的内置技能（Inner Skill），而非外挂模块。
+    </div>
+    <div class="why-relevant">这与你正在建设的 Life OS 核心架构问题高度对齐：当 Agent 面对复杂任务时，"思考"本身应该是一个 skill 还是 infrastructure 层的能力？美团的答案（内置 Inner Skill）可以直接影响你的 Life OS Memory + Trust & Eval 设计。IKEA Skill Hub 也需要考虑：是否需要一个"重度思考型 skill" 作为其他 skills 的 meta-skill？</div>
+    <a class="link" href="https://x.com/lijigang/status/2051885157410648136" target="_blank">查看原推 →</a>
+  </div>
+
+  <!-- Signal 2 -->
+  <div class="signal-card">
+    <div class="signal-header">
+      <div>
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <div class="source">@0xKingsKuan · PageIndex 无向量 RAG</div>
+      </div>
+    </div>
+    <div class="text">
+      <strong>PageIndex — 树形索引 RAG 革命</strong>：无向量 DB、无嵌入、无切块、无相似搜索。直接给文档建树形索引，让 LLM 像人类读书一样逐层推理。FinanceBench 上准确率 98.7%，完爆所有向量 RAG 方案。100% 开源。
+    </div>
+    <div class="why-relevant">宝尊 Ontology 调研的核心挑战是如何让 AI 准确理解复杂业务规则（捆绑商品、SPS、平台 SKU 差异）。传统 RAG 向量检索在结构化业务知识上表现差，PageIndex 的树形索引方案可能直接适用于构建宝尊知识图谱并让 AI 准确回答业务规则问题。5/31 deadline 很近，值得立即测试。</div>
+    <a class="link" href="https://x.com/0xKingsKuan/status/2051856645060481166" target="_blank">查看原推 →</a>
+  </div>
+
+  <!-- Signal 3 -->
+  <div class="signal-card">
+    <div class="signal-header">
+      <div>
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <div class="source">@lexi_labs + @XRabo_ · 软件工业化时代</div>
+      </div>
+    </div>
+    <div class="text">
+      <strong>Lexi 勒西</strong>："真正的'软件工业'，才刚刚到来。之前的，是软件手工业。"<br>
+      <strong>反驳声音（@XRabo_）</strong>："软件工业一来，程序员从工匠变流水线质检员，听着挺高级，工资涨了没？这转变你还能笑着接受吗？"
+    </div>
+    <div class="why-relevant">这个反直觉组合对你的 Engineering Baseline 工作至关重要：你的团队面临的不只是"用 AI 写代码"，而是整个工程价值主张的重新定义。"质检员"的定位看似贬低，但实际上正是 Software Testing Excellence 的核心——谁最善于验证 AI 产出，谁就在新时代最有价值。这是一个向上管理（Nicole/Kirill）的叙事机会。</div>
+    <a class="link" href="https://x.com/lexi_labs/status/2051815804203844014" target="_blank">查看原推 →</a>
+  </div>
+
+  <!-- Signal 4 -->
+  <div class="signal-card">
+    <div class="signal-header">
+      <div>
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <div class="source">@QingQ77 (Geek Lite) · book-to-skill</div>
+      </div>
+    </div>
+    <div class="text">
+      <strong>book-to-skill</strong>：将技术书籍（PDF/EPUB）转化为 Claude Code 可加载的结构化 skill。自动提取并生成：按章节加载的摘要、术语表、设计模式速查表。让书中框架和知识点在工作时按需调用。
+    </div>
+    <div class="why-relevant">AI Upskill Trainer 正面临内容创作瓶颈（P0 缺口：PPT 讲师 + 业务讲师）。book-to-skill 的逻辑可以反向应用：把 IKEA 内部文档（产品手册、业务流程规范）转为结构化 skills，让新同事通过 AI Starter Kit 直接召唤 IKEA 知识库。这是 Skill Hub 的 killer feature 之一。</div>
+    <a class="link" href="https://x.com/QingQ77/status/2051630487282565428" target="_blank">查看原推 →</a>
+  </div>
+
+  <!-- Signal 5 -->
+  <div class="signal-card">
+    <div class="signal-header">
+      <div>
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <div class="source">@1greencat (一只绿喵) · 游戏开发 AI 项目管理</div>
+      </div>
+    </div>
+    <div class="text">
+      某开源项目把<strong>游戏开发方法论分门别类做成了几十个 SKILL、Agent 和钩子</strong>。"最大的问题不是没有创意，也不是没有技术，而是缺少项目管理——特别容易做着做着就失控。这个把 AI 变成了资深的项目经理替我管理，我只需提供创意和技术指导。"
+    </div>
+    <div class="why-relevant">这和你的 Life OS 中 "Software Factory" 支柱完全对齐——Agent 可自主完成需求→代码→测试→部署循环。游戏开发的方法论（有明确关卡/迭代/测试逻辑）比企业软件开发更结构化，可以直接借鉴。同时对 IKEA Skill Hub 的产品设计也有启示：是否需要一个 "project-harness" 类的元 skill？（你已经有一个！）</div>
+    <a class="link" href="https://x.com/1greencat/status/2052030819309695202" target="_blank">查看原推 →</a>
+  </div>
+</div>
+
+<!-- 中等价值 ⭐×3 -->
+<div class="section">
+  <div class="section-title">⭐⭐⭐ 中等价值信号（备用收藏）</div>
+
+  <div class="medium-card">
+    <div class="title">📌 Follow Builders, not Influencers — 每日 AI 圈 Digest</div>
+    <div class="source-line">@kevinma_dev_zh · 张咋啦的 Follow Builders 项目，精选5个顶尖 AI 播客 + 25位真正在 build 的人 + 官方技术博客，每天自动生成 digest</div>
+    <div style="font-size:0.85rem; color:var(--text2); margin-top:0.5rem;">关联：AI Adoption Strategy · 信息过滤方法论可应用于 AI Upskill Trainer 课程选材</div>
+  </div>
+
+  <div class="medium-card">
+    <div class="title">📌 开源提示词合集 — 100个覆盖9类场景</div>
+    <div class="source-line">@yaojingang · GitHub 开源，包含元提示词（简易版 + 进阶版），覆盖 AI方法/工作/学习/生活/编程/营销/思考</div>
+    <div style="font-size:0.85rem; color:var(--text2); margin-top:0.5rem;">关联：AI Upskill Trainer 课程素材 · 可用于 L1 Prompt 教案设计</div>
+  </div>
+
+  <div class="medium-card">
+    <div class="title">📌 llm_wiki v0.4.7 — 多 Provider 网页搜索 + 推理模型增强</div>
+    <div class="source-line">@nash_su · SerpApi 搜索支持，thinking/reasoning 控制，关系图过滤能力，Star 数突破6K</div>
+    <div style="font-size:0.85rem; color:var(--text2); margin-top:0.5rem;">关联：Life OS 工具选型候选 · 开源 LLM 知识管理工具</div>
+  </div>
+
+  <div class="medium-card">
+    <div class="title">📌 生成式AI放大职场形式主义 — HackerNews 热议</div>
+    <div class="source-line">2026-05-07 HN Top Stories · "生成式 AI 放大职场形式主义与文档膨胀，使产出与能力脱钩、阅读成本上升"</div>
+    <div style="font-size:0.85rem; color:var(--text2); margin-top:0.5rem;">关联：Engineering Baseline · 警示：AI Upskill Trainer 要避免培训 AI 生成无用文档</div>
+  </div>
+
+  <div class="medium-card">
+    <div class="title">📌 wanman — 垂直行业 Agent Matrix 全方位接管</div>
+    <div class="source-line">@turingou · "售前创意→设计交付→监理→施工→售后管理的不动产 AI 解决方案"，未来2-3年垂直行业 agent 接管工作本身</div>
+    <div style="font-size:0.85rem; color:var(--text2); margin-top:0.5rem;">关联：宝尊 Ontology 调研 · 电商垂直行业的 AI 接管路径参考</div>
+  </div>
+
+  <div class="medium-card">
+    <div class="title">📌 open-slide + frontend-slides — AI 驱动的 Slides 生成</div>
+    <div class="source-line">@dotey + @oxpsats · open-slide 开源，Agent + Skills 制作 Slides，支持动画和网页直接播放</div>
+    <div style="font-size:0.85rem; color:var(--text2); margin-top:0.5rem;">关联：AI Upskill Trainer 教材制作 · Vibe Coding Stack 演示材料</div>
+  </div>
+
+  <div class="medium-card">
+    <div class="title">📌 独立开发 validation skill — 解决"找 idea → 开干 → 没人用 → emo" 死亡循环</div>
+    <div class="source-line">@yanhua1010 · 一个 &lt;1K stars 小项目，补上独立开发最容易死的 validation 环节</div>
+    <div style="font-size:0.85rem; color:var(--text2); margin-top:0.5rem;">关联：Life OS · Software Factory 的 validation 层设计</div>
+  </div>
+</div>
+
+<!-- 行动清单 -->
+<div class="section">
+  <div class="section-title">✅ 行动清单（本周内可做）</div>
+  <ul class="action-list">
+    <li>【HeavySkill】阅读美团 HeavySkill 论文原文，提炼"Inner Skill"架构对 Life OS Memory/Trust&Eval 层的设计影响，写入 workspace/life-os/</li>
+    <li>【PageIndex】评估 PageIndex 是否可作为宝尊 Ontology 知识图谱的 RAG 引擎，在 deadline 5/31 前验证可行性</li>
+    <li>【Engineering Value】整理"程序员→质检员"叙事框架，用于下次 Nicole/Kirill 1:1 中展示工程团队在 AI 时代的核心价值（测试与验证能力）</li>
+    <li>【book-to-skill】调研能否将 IKEA 内部业务文档转为 Skill，设计 IKEA 知识 Skill 的技术规格，提案给 Skill Hub v6</li>
+    <li>【项目管理框架】研究该游戏开发 AI 项目管理开源项目的 Skill 设计，参考其钩子机制优化 project-harness skill</li>
+  </ul>
+</div>
+
+<!-- Proposals 入口 -->
+<div class="section">
+  <div class="section-title">🚀 深度 Proposals（Phase 2）</div>
+  <p style="color:var(--text2); font-size:0.95rem; margin-bottom:1rem;">5 个 subagents 正在并行深挖上述5个方向，生成可经得起推敲的可执行 Proposals。</p>
+  <p style="color:var(--text3); font-size:0.88rem;">生成完成后请打开 <code>/tmp/readwise-proposals-20260507.html</code></p>
+</div>
+
+<!-- 附录（低价值，折叠） -->
+<div class="section">
+  <button class="collapsible-btn" onclick="this.nextElementSibling.classList.toggle('open')">
+    📂 低价值附录（暂时无关内容）— 点击展开
+  </button>
+  <div class="collapsible-content">
+    <div style="margin-top:1rem;">
+      <div class="medium-card">
+        <div class="title">Harness — AI 代理在 iOS 模拟器/macOS 跑用户测试</div>
+        <div class="source-line">@geekbb · macOS 原生开发工具，模拟真实用户行为 UI 测试</div>
+      </div>
+      <div class="medium-card">
+        <div class="title">3D 交互网页 Skill — 教学主题转化</div>
+        <div class="source-line">@knowledgefxg · 适合物理/化学/生物/数学，辅助学习</div>
+      </div>
+      <div class="medium-card">
+        <div class="title">银行党建考察故事</div>
+        <div class="source-line">@crypto_daha · 娱乐内容，暂时无关</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

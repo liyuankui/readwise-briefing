@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-05-07</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+  --p1: #2d5a4a;
+  --p2: #7c3aed;
+  --p3: #1d4ed8;
+  --p4: #b45309;
+  --p5: #0f766e;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+  --p1: #34d399;
+  --p2: #c4b5fd;
+  --p3: #93c5fd;
+  --p4: #fde68a;
+  --p5: #5eead4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体",
+               -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+.container { max-width: 960px; margin: 0 auto; }
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--border);
+}
+.header h1 { font-size: 1.7rem; font-weight: 700; color: var(--accent); }
+.header .subtitle { font-size: 0.88rem; color: var(--text3); margin-top: 0.25rem; }
+#theme-toggle {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+#theme-toggle:hover { background: var(--border); }
+
+/* Axiom Banner */
+.axiom-banner {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* Signal Map Table */
+.map-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 2.5rem;
+}
+.map-table th {
+  background: var(--surface2);
+  text-align: left;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  color: var(--text2);
+  border-bottom: 2px solid var(--border);
+}
+.map-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  vertical-align: top;
+}
+.map-table tr:last-child td { border-bottom: none; }
+.map-table tr:hover td { background: var(--surface2); }
+
+/* Proposal Card */
+.proposal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+.proposal-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.proposal-num {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.proposal-title { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+.proposal-tagline {
+  font-size: 0.92rem;
+  color: var(--text2);
+  line-height: 1.6;
+  background: var(--surface2);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid currentColor;
+  margin-top: 0.5rem;
+}
+.proposal-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-right: 0.4rem;
+}
+
+.proposal-body { padding: 1.25rem 1.5rem; }
+.proposal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 640px) { .proposal-grid { grid-template-columns: 1fr; } }
+
+.info-block {
+  background: var(--surface2);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+}
+.info-block .label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+.info-block .value {
+  font-size: 0.88rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* Milestones */
+.milestones { margin: 1rem 0; }
+.milestone {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+.milestone:last-child { border-bottom: none; }
+.milestone-label {
+  font-weight: 700;
+  flex-shrink: 0;
+  color: var(--text);
+  min-width: 2rem;
+}
+.milestone-text { color: var(--text2); }
+
+/* Actions */
+.actions-list { list-style: none; padding: 0; margin: 0.75rem 0; }
+.actions-list li {
+  display: flex;
+  gap: 0.65rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface2);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--text2);
+  align-items: flex-start;
+}
+.actions-list li::before {
+  content: "→";
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Red flags */
+.red-flags { margin-top: 1rem; }
+.red-flag {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--accent5);
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--border);
+  align-items: flex-start;
+}
+.red-flag:last-child { border-bottom: none; }
+.red-flag-icon { flex-shrink: 0; }
+
+/* Color themes per proposal */
+.p1 .proposal-num { color: var(--p1); }
+.p1 .proposal-tagline { border-color: var(--p1); }
+.p2 .proposal-num { color: var(--p2); }
+.p2 .proposal-tagline { border-color: var(--p2); }
+.p3 .proposal-num { color: var(--p3); }
+.p3 .proposal-tagline { border-color: var(--p3); }
+.p4 .proposal-num { color: var(--p4); }
+.p4 .proposal-tagline { border-color: var(--p4); }
+.p5 .proposal-num { color: var(--p5); }
+.p5 .proposal-tagline { border-color: var(--p5); }
+
+.tag-life-os { background: #d1fae5; color: #065f46; }
+.tag-engineering { background: #dbeafe; color: #1e40af; }
+.tag-skill-hub { background: #ede9fe; color: #5b21b6; }
+.tag-baozun { background: #fef3c7; color: #92400e; }
+.tag-upskill { background: #fce7f3; color: #9d174d; }
+html.dark .tag-life-os { background: #064e3b; color: #6ee7b7; }
+html.dark .tag-engineering { background: #1e3a5f; color: #93c5fd; }
+html.dark .tag-skill-hub { background: #3b2d7a; color: #c4b5fd; }
+html.dark .tag-baozun { background: #78350f; color: #fde68a; }
+html.dark .tag-upskill { background: #831843; color: #fbcfe8; }
+
+.section-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 1rem 0 0.5rem;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--accent2);
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+.back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div>
+    <h1>🚀 深度 Proposals · 5 个方向</h1>
+    <div class="subtitle">2026-05-07 · 5 subagents 并行深挖 · Phase 2 输出</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom-banner">
+  ⚡ 公理：不可行动的信息 = 噪音。以下每个 Proposal 均包含<strong>本周内可做的3件事</strong>，以及<strong>主动挑漏洞的诚实挑战</strong>。
+</div>
+
+<!-- Signal × Project Map -->
+<table class="map-table">
+  <thead>
+    <tr><th>#</th><th>信号来源</th><th>核心主张（一句话）</th><th>关联意图</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>P1</strong></td>
+      <td>美团 HeavySkill 论文</td>
+      <td>把"推理深度"从 infrastructure 变成可调用的 Skill</td>
+      <td><span class="proposal-tag tag-life-os">Life OS</span></td>
+    </tr>
+    <tr>
+      <td><strong>P2</strong></td>
+      <td>PageIndex 无向量 RAG</td>
+      <td>用树形索引代替向量检索，让 AI 准确回答宝尊业务规则</td>
+      <td><span class="proposal-tag tag-baozun">宝尊 Ontology</span></td>
+    </tr>
+    <tr>
+      <td><strong>P3</strong></td>
+      <td>软件工业化 × 质检员叙事</td>
+      <td>夺回质量主权：制定 AI 代码准入门槛，才是工厂厂长而非流水线质检员</td>
+      <td><span class="proposal-tag tag-engineering">Engineering Baseline</span></td>
+    </tr>
+    <tr>
+      <td><strong>P4</strong></td>
+      <td>book-to-skill 技术</td>
+      <td>将 IKEA 内部文档转为可召唤的 Knowledge Skills，让知识从可读变为可调用</td>
+      <td><span class="proposal-tag tag-upskill">AI Upskill</span></td>
+    </tr>
+    <tr>
+      <td><strong>P5</strong></td>
+      <td>AI 游戏开发项目管理框架</td>
+      <td>Hooks = 把"人工记得调 skill"变成"系统自动在正确时机触发"</td>
+      <td><span class="proposal-tag tag-skill-hub">Skill Hub</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== PROPOSAL 1 ===== -->
+<div class="proposal-card p1">
+  <div class="proposal-header">
+    <div class="proposal-num">P1</div>
+    <div style="flex:1">
+      <div>
+        <span class="proposal-tag tag-life-os">Life OS</span>
+        <span class="proposal-tag tag-skill-hub">Skill Hub</span>
+      </div>
+      <div class="proposal-title">HeavySkill × Life OS — 把「推理深度」变成可调用的 Inner Skill</div>
+      <div class="proposal-tagline" style="color:var(--p1)">
+        当前 Life OS 的 Trust & Eval 层是定性"检查文件是否存在"；HeavySkill 架构让它升级为定量"K=2并行视角合成判断"——Morning Briefing 节省 8 分钟/天，delivery-closure 误报率下降。
+      </div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="proposal-grid">
+      <div class="info-block">
+        <div class="label">锁定痛点</div>
+        <div class="value">Morning Briefing 每天 Kyle 手动筛选 ~8 分钟，因为单路径推理无法区分"重要且紧急"vs"重要但不紧急"。delivery-closure 只验证文件存在，无法判断内容质量。</div>
+      </div>
+      <div class="info-block">
+        <div class="label">ROI 估算</div>
+        <div class="value">8 min/天 × 220 工作日 = 29 小时/年节省。delivery-closure 误报率若降 50%，每次节省 15 min 的人工复核。Skill Hub 新增 heavy-think 元 skill = 平台级差异化。</div>
+      </div>
+    </div>
+
+    <div class="section-title">实施里程碑</div>
+    <div class="milestones">
+      <div class="milestone"><span class="milestone-label">M1</span><span class="milestone-text">在 Morning Briefing 加 <code>--heavy</code> flag，启动 K=2 并行视角（行动优先级 + 风险识别）→ Summarizer 裁决。验证质量提升。</span></div>
+      <div class="milestone"><span class="milestone-label">M2</span><span class="milestone-text">delivery-closure 改为三视角评估（准确/完整/可行动）→ 合成 PASS/FAIL，替代现有文件存在检查。</span></div>
+      <div class="milestone"><span class="milestone-label">M3</span><span class="milestone-text">ingest-agent 改为三路径提取 <code>[FACT]/[PATTERN]/[RISK]</code> 分层记忆，不再单路径提取事实。</span></div>
+      <div class="milestone"><span class="milestone-label">M4</span><span class="milestone-text">将 heavy-think 打包为 Skill Hub 元技能，提交 PR 到 skills-cdh，供其他 IKEA 同事使用。</span></div>
+    </div>
+
+    <div class="section-title">本周立即行动</div>
+    <ul class="actions-list">
+      <li>手动跑一次 K=2 的 Morning Briefing 实验（2个不同 prompt 视角各跑一次，人工合并），计时质量评分。这是 go/no-go 门。</li>
+      <li>阅读美团 HeavySkill 论文原文，提炼"Inner Skill"架构的3个核心设计决策，写入 workspace/life-os/。</li>
+      <li>在 AGENTS.md 或 context/ 中记录：哪些 Life OS skill 目前是"单路径"，哪些应该升级为"multi-path"。</li>
+    </ul>
+
+    <div class="section-title">⚠️ 诚实挑战（漏洞）</div>
+    <div class="red-flags">
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>K=2 并行视角会把 token 消耗和延迟翻倍，如果 Morning Briefing 本来就要 2 分钟，heavy 模式可能变成 4+ 分钟，反而不实用。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>美团论文是标题分析，实际实现细节未知——整个 M1-M4 都建立在对论文标题的推理上，需要先读全文验证假设。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>Skill Hub 的 heavy-think 元技能需要 CDH 同事理解"并行推理"概念才能正确使用，学习曲线可能过高。</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 2 ===== -->
+<div class="proposal-card p2">
+  <div class="proposal-header">
+    <div class="proposal-num">P2</div>
+    <div style="flex:1">
+      <div><span class="proposal-tag tag-baozun">宝尊 Ontology</span></div>
+      <div class="proposal-title">PageIndex RAG × 宝尊售后知识图谱 — 5/31 前可验证</div>
+      <div class="proposal-tagline" style="color:var(--p2)">
+        售后 SOP 是可立即行动的文本资产，PageIndex 树形索引让 AI 准确回答"退款规则第5条适用于这个场景吗"——而不是向量 RAG 的模糊近似匹配。
+      </div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="proposal-grid">
+      <div class="info-block">
+        <div class="label">锁定痛点</div>
+        <div class="value">售后客服每天处理数百个"这种情况应该退款吗"的规则查询。宝尊 SOP 是层级结构文档，向量 RAG 切块后语义边界丢失，AI 回答准确率低。Jennifer team 不信任 AI 建议。</div>
+      </div>
+      <div class="info-block">
+        <div class="label">为何选售后而非商品域</div>
+        <div class="value">商品域规则在系统行为里（Bundled items/SPS/平台 SKU 差异），不在文档里，PageIndex 喂不进去。售后 SOP 是白纸黑字的文本，可立即行动。5/31 deadline 近，不能冒险选错域。</div>
+      </div>
+    </div>
+
+    <div class="section-title">实施里程碑（全部在 5/31 前）</div>
+    <div class="milestones">
+      <div class="milestone"><span class="milestone-label">M1</span><span class="milestone-text">本周：收集 Jennifer team 的售后 SOP 文档（PDF/Word），评估文档质量和数量。如果是微信截图 → 整个 Proposal 需要重评。</span></div>
+      <div class="milestone"><span class="milestone-label">M2</span><span class="milestone-text">第2周：在本地跑 PageIndex 开源版本，用 10 个真实售后规则问题测试准确率 vs 传统 RAG 对比。</span></div>
+      <div class="milestone"><span class="milestone-label">M3</span><span class="milestone-text">第3周：与 Jennifer 做 Review Session，验证知识图谱覆盖率，识别 AI 的盲区边界。</span></div>
+      <div class="milestone"><span class="milestone-label">M4</span><span class="milestone-text">5/28-5/31：交付售后域知识图谱 + AI 辅助决策规则集 Demo，向 Roman/Maggie 汇报。</span></div>
+    </div>
+
+    <div class="section-title">本周立即行动</div>
+    <ul class="actions-list">
+      <li>今天联系 Jennifer，约本周内 30 分钟：了解售后 SOP 文档现状（是否有电子版、多少页、多久更新一次）。</li>
+      <li>搜索 PageIndex 开源仓库，确认技术栈和本地运行门槛（Python？需要 API？），评估能否在 1 天内跑起来。</li>
+      <li>向 Roman/Maggie 发一条消息：宝尊售后规则知识化有新技术路径，请确认 5/31 交付范围是否包含 AI 可查询的规则库。</li>
+    </ul>
+
+    <div class="section-title">⚠️ 诚实挑战（漏洞）</div>
+    <div class="red-flags">
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>PageIndex 来自一条推文，未经生产验证。98.7% 准确率来自 FinanceBench（英文金融文档），中文业务 SOP 的表现未知。必须先跑 M2 实验再做承诺。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>没有 Jennifer 深度背书的知识图谱是"自嗨产出"。5/31 前锁定 Jennifer 的 Review Session 比跑技术实验更重要。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>商品域的 W17 Checkpoint #1 优先事项（Bundled items 复杂度地图）被这个 Proposal 完全绕过了。需要与 Roman 确认：售后域的知识图谱是否足以满足 5/31 交付预期。</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 3 ===== -->
+<div class="proposal-card p3">
+  <div class="proposal-header">
+    <div class="proposal-num">P3</div>
+    <div style="flex:1">
+      <div><span class="proposal-tag tag-engineering">Engineering Baseline</span></div>
+      <div class="proposal-title">质量主权宣言 — 当 AI 成为流水线，制定准入标准的人才是厂长</div>
+      <div class="proposal-tagline" style="color:var(--p3)">
+        Engineering Baseline 的本质不是"对抗 AI"，而是夺回质量定义权——谁制定 AI 代码的测试准入门槛，谁就在软件工业化时代不可替代。
+      </div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="proposal-grid">
+      <div class="info-block">
+        <div class="label">锁定痛点</div>
+        <div class="value">AI 辅助 PR 进入 Order/库存核心链路，测试覆盖由工程师"凭经验判断"，没有统一准入门槛。边界场景（库存超卖、支付状态机异常、物流回调乱序）靠线上事故而非测试拦截。</div>
+      </div>
+      <div class="info-block">
+        <div class="label">管理层语言（给 Nicole/Kirill）</div>
+        <div class="value">不说"测试覆盖率"。说：AI 工具的 license 费用已发生，没有测试体系 = 把 Copilot 费用烧在技术债上。1 次 P1 incident 成本 &gt; ¥50K。测试节省的工时 = 33-44 人时/周（11人团队）。</div>
+      </div>
+    </div>
+
+    <div class="section-title">实施里程碑（30-60 天）</div>
+    <div class="milestones">
+      <div class="milestone"><span class="milestone-label">M1</span><span class="milestone-text">第1-2周：写出 AI 代码测试准入规范 v1（边界场景清单模板，不超过1页 A4）。EM 2天起草 + 团队 Review 1天。</span></div>
+      <div class="milestone"><span class="milestone-label">M2</span><span class="milestone-text">第2周：跑全量覆盖率扫描，建 Before 快照 Dashboard（CI 接入 Jacoco/Go coverage，可见化）。1名工程师 3天。</span></div>
+      <div class="milestone"><span class="milestone-label">M3</span><span class="milestone-text">第3-4周：选1个服务跑 TDD 飞轮（AI 先写测试、后写实现），产出复盘报告。1名志愿工程师 × 2周。</span></div>
+      <div class="milestone"><span class="milestone-label">M4</span><span class="milestone-text">第5-6周：将测试指标（缺陷拦截率/覆盖率趋势/incident 减少数）映射到 IKEA 晋升维度。</span></div>
+      <div class="milestone"><span class="milestone-label">M5</span><span class="milestone-text">第8周：4页 Deck 向 Nicole/Kirill 汇报：Before/After + 业务影响 + 团队能力 + 下阶段目标。</span></div>
+    </div>
+
+    <div class="section-title">本周立即行动</div>
+    <ul class="actions-list">
+      <li>用 30 分钟写出 Order/库存/物流回调 3 个核心服务的"5大边界场景"清单（不超过 1 页 A4）。这是准入规范 v0 的骨干，不要召集会议，先自己写。</li>
+      <li>跑一次全量测试覆盖率扫描，把数字截图存档。这是 Before 快照，不需要好看，需要真实。</li>
+      <li>在本周 Nicole 1:1 中抛出探针问题："当 AI 辅助代码进入核心链路，我们现在的质量门槛足够吗？"——听她的回答，决定 M5 Deck 的主叙事。</li>
+    </ul>
+
+    <div class="section-title">⚠️ 诚实挑战（漏洞）</div>
+    <div class="red-flags">
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>覆盖率目标（60%/80%）是拍脑袋定的，无 IKEA 内部基准支撑。M2 快照后立即修正，Deck 里改写"提升 X%"而非绝对值。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>如果 11 个工程师全被业务需求压满，M3 的"2周 TDD 飞轮"根本拿不出人。需先做任务清单审计，没有 slack 时砍 M3，只做 M1+M2（需 4 人天）。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>"质量主权"叙事对管理层可能太抽象。M5 Deck 第一页用数字（incident 减少了多少），把哲学框架降级为内部文化语言，不放进高管沟通材料。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>测试文化建立需要 3-6 个月，30 天内"团队认知全面升级"是过度乐观。对内做长期预期管理，对外只展示 30 天可验证成果。</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 4 ===== -->
+<div class="proposal-card p4">
+  <div class="proposal-header">
+    <div class="proposal-num">P4</div>
+    <div style="flex:1">
+      <div>
+        <span class="proposal-tag tag-upskill">AI Upskill</span>
+        <span class="proposal-tag tag-skill-hub">Skill Hub</span>
+      </div>
+      <div class="proposal-title">IKEA Knowledge Skills — 让内部知识从「可读」变为「可召唤」</div>
+      <div class="proposal-tagline" style="color:var(--p4)">
+        book-to-skill 的逻辑反向应用：把 AI Upskill Trainer 自产的方法论手册转为结构化 Skills，解决 Survey 中"方法论空白"痛点，同时成为 Skill Hub 的杀手级差异化功能。
+      </div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="proposal-grid">
+      <div class="info-block">
+        <div class="label">锁定痛点</div>
+        <div class="value">AI Upskill 课程 Survey 最高需求："怎么让 AI 听懂我"（5次）。讲师 P0 缺口严重，内容创作瓶颈无法靠招人解决。知识在 PPT 里，不在工作流里——培训结束就忘。</div>
+      </div>
+      <div class="info-block">
+        <div class="label">首批文档选择（关键决策）</div>
+        <div class="value">选 AI 方法论手册（讲师团自产）而非业务文档：①质量可控 ②机密风险最低 ③对讲师团直接赋能 ④可快速验证效果。业务文档（宝尊/商品）留到 Phase 2，需要 Owner 背书。</div>
+      </div>
+    </div>
+
+    <div class="section-title">实施里程碑</div>
+    <div class="milestones">
+      <div class="milestone"><span class="milestone-label">M0</span><span class="milestone-text">本周：用 book-to-skill 处理1份已有的 AI 方法论文档（如 Prompt 教案草稿），验证输出质量。M0 失败 → 整个 Proposal 暂停。</span></div>
+      <div class="milestone"><span class="milestone-label">M1</span><span class="milestone-text">第2周：选3份最成熟的讲师团文档，转为结构化 Skills，接入 AI Starter Kit。</span></div>
+      <div class="milestone"><span class="milestone-label">M2</span><span class="milestone-text">第3-4周：在讲师团启动会上演示：用 Skill 召唤知识 vs 查 PPT 的对比体验。收集反馈。</span></div>
+      <div class="milestone"><span class="milestone-label">M3</span><span class="milestone-text">第6-8周：将成熟的 IKEA Knowledge Skills 上架 Skill Hub，作为 v6 差异化功能。</span></div>
+    </div>
+
+    <div class="section-title">本周立即行动</div>
+    <ul class="actions-list">
+      <li>找到 book-to-skill 开源仓库，在本地跑通一次（用任意 PDF），确认技术可行性。这是硬门槛，不能假设它能用。</li>
+      <li>盘点讲师团已有文档清单（课程大纲 v1 / Prompt 教案草稿 / Survey 报告），选出质量最好的1份作为 M0 实验素材。</li>
+      <li>在讲师团启动会议程中加1个 5 分钟的 Demo 节点："Knowledge Skills 概念验证"——即使 M0 还没完成，至少能播种这个想法。</li>
+    </ul>
+
+    <div class="section-title">⚠️ 诚实挑战（漏洞）</div>
+    <div class="red-flags">
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>book-to-skill 来自一条推文，未经 IKEA 环境验证。M0 实验是硬门槛，必须本周跑通再做后续计划。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>6 个月后"知识僵尸"是最可能的失败模式：Skills 内容过时但无人更新。需要在 M1 就设计文档 Owner 机制和更新触发条件。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>如果 Engineering 资源挤不出来，这应该是 Skill Hub M2 的子功能，而不是第三个独立项目。先评估当前 Engineering 负载。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>IKEA 内部文档涉及机密性分级，必须在 M1 前确认哪些文档可以被结构化为 Skill 并共享，避免合规风险。</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 5 ===== -->
+<div class="proposal-card p5">
+  <div class="proposal-header">
+    <div class="proposal-num">P5</div>
+    <div style="flex:1">
+      <div><span class="proposal-tag tag-skill-hub">Skill Hub</span></div>
+      <div class="proposal-title">Hook 驱动的 Skills — 把「人工记得调用」变成「系统自动触发」</div>
+      <div class="proposal-tagline" style="color:var(--p5)">
+        Skills 最大的使用障碍不是难用，是没人记得在正确时机调用。Hooks 机制把"人工记得"变成事件驱动的自动触发，project-harness 升级为智能编排引擎。
+      </div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="proposal-grid">
+      <div class="info-block">
+        <div class="label">锁定痛点</div>
+        <div class="value">工程师完成任务后忘记运行 delivery-closure。PR 打开后忘记调 crit。新 workspace 创建后忘记跑 project-harness。重要的 meta-skills 在最需要的时候被跳过——不是因为懒，是因为认知负担。</div>
+      </div>
+      <div class="info-block">
+        <div class="label">核心设计（HOOKS.md）</div>
+        <div class="value"><code>- event: "git:pr-opened" → skill: "crit" mode: "auto"</code><br><code>- event: "task:marked-done" → skill: "delivery-closure" mode: "auto"</code><br><code>- event: "workspace:created" → skill: "project-harness" mode: "suggest"</code></div>
+      </div>
+    </div>
+
+    <div class="section-title">实施里程碑</div>
+    <div class="milestones">
+      <div class="milestone"><span class="milestone-label">M1</span><span class="milestone-text">本周：读源头游戏开发项目，理解 Hook 实现机制（是 git hooks？还是 CLI wrapper？还是文件 watcher？），评估在 Copilot CLI 环境的可行性。</span></div>
+      <div class="milestone"><span class="milestone-label">M2</span><span class="milestone-text">第2周：对现有 3 个 workspace 做 Hook Gap 分析——哪些 skill 应该被自动触发但没有？手写第一个 HOOKS.md，发现 schema 设计问题。</span></div>
+      <div class="milestone"><span class="milestone-label">M3</span><span class="milestone-text">第3-4周：实现最简 Hook Runtime（先用 git post-commit hook 触发 delivery-closure），验证端到端流程。</span></div>
+      <div class="milestone"><span class="milestone-label">M4</span><span class="milestone-text">第6-8周：将 HOOKS.md 规范提交到 project-harness skill，Skill Hub v6 加入"workflow mode"入口。</span></div>
+    </div>
+
+    <div class="section-title">本周立即行动</div>
+    <ul class="actions-list">
+      <li>找到一只绿喵推文中的开源项目链接（https://t.co/zGcldBITY1），读其 Hook 实现代码，理解触发机制。</li>
+      <li>对自己当前最活跃的 workspace（如 ikea-skill-hub 或 baozun-decouple-research）做 Hook Gap 分析：列出应该自动触发但没有触发的 skill 清单。</li>
+      <li>手写第一个 HOOKS.md（不需要实现，只需要 schema 设计），找出3个 schema 设计问题记录下来。</li>
+    </ul>
+
+    <div class="section-title">⚠️ 诚实挑战（漏洞）</div>
+    <div class="red-flags">
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>Copilot CLI 无公开 Hook API，git hooks 只覆盖本地仓库操作。大部分 skill 触发场景（task:marked-done, workspace:created）没有标准 hook 点，需要自建 wrapper，技术复杂度被低估。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🔴</span><span>"工程师会更新 HOOKS.md" 是乐观假设——SPEC.md 都经常被跳过。如果 HOOKS.md 不自动维护，会和 SPEC.md 一样沦为装饰品。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>游戏开发类比有误导性：游戏项目边界清晰（开始/结束/关卡），CDH 的工程项目有外部约束（业务需求随时插入），Hook 的 bypass 机制设计至关重要，目前 Proposal 缺失。</span></div>
+      <div class="red-flag"><span class="red-flag-icon">🟡</span><span>Workflow Mode vs 单 Skill 的边界不清——什么情况下用 Hook 自动触发，什么情况下保持手动？缺乏决策框架，容易导致过度自动化（自动触发了不该触发的 skill）。</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="text-align:center; color:var(--text3); font-size:0.85rem; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+  <p>5 subagents · 并行深挖 · 2026-05-07 · 公理：不可行动的信息 = 噪音</p>
+  <p style="margin-top:0.5rem;"><a href="/tmp/readwise-briefing-20260507.html" style="color:var(--accent2); text-decoration:none;">← 返回 Phase 1 信号简报</a></p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
