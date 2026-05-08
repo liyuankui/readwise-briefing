@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-05-08</title>
+<style>
+  :root {
+    --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+    --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+    --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+  }
+  html.dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+    --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; line-height: 1.75; padding: 2rem 1rem; }
+  .container { max-width: 860px; margin: 0 auto; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 1rem; }
+  .header-left h1 { font-size: 1.6rem; color: var(--accent); }
+  .header-left p { color: var(--text3); font-size: 0.9rem; margin-top: 0.3rem; }
+  #theme-toggle { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1rem; color: var(--text); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-align: center; }
+  .stat-num { font-size: 2rem; font-weight: bold; color: var(--accent2); }
+  .stat-label { font-size: 0.8rem; color: var(--text3); }
+  section { margin-bottom: 2.5rem; }
+  h2 { font-size: 1.2rem; color: var(--accent); border-left: 4px solid var(--accent); padding-left: 0.75rem; margin-bottom: 1.2rem; }
+  h3 { font-size: 1rem; color: var(--text); margin-bottom: 0.5rem; }
+  .signal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; margin-bottom: 1rem; }
+  .signal-card.tier1 { border-left: 4px solid var(--accent3); }
+  .signal-card.tier2 { border-left: 4px solid var(--accent4); }
+  .signal-card.tier3 { border-left: 4px solid var(--border); }
+  .signal-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+  .badge-life-os { background: #dcfce7; color: #166534; }
+  html.dark .badge-life-os { background: #14532d; color: #86efac; }
+  .badge-skill-hub { background: #ede9fe; color: #4c1d95; }
+  html.dark .badge-skill-hub { background: #2e1065; color: #c4b5fd; }
+  .badge-testing { background: #fff7ed; color: #9a3412; }
+  html.dark .badge-testing { background: #431407; color: #fed7aa; }
+  .badge-vibe { background: #eff6ff; color: #1e3a8a; }
+  html.dark .badge-vibe { background: #1e3a5f; color: #93c5fd; }
+  .badge-ai-adoption { background: #fef2f2; color: #7f1d1d; }
+  html.dark .badge-ai-adoption { background: #450a0a; color: #fca5a5; }
+  .signal-text { color: var(--text2); font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .signal-why { background: var(--surface2); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.85rem; color: var(--accent3); font-style: italic; }
+  html.dark .signal-why { color: var(--accent3); }
+  .signal-why::before { content: "💡 "; }
+  .stars { color: var(--accent4); font-size: 0.85rem; margin-right: 4px; }
+  .source-link { color: var(--accent2); font-size: 0.8rem; text-decoration: none; }
+  .source-link:hover { text-decoration: underline; }
+  .overview-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .overview-table th { background: var(--accent); color: white; padding: 0.75rem 1rem; text-align: left; font-size: 0.85rem; }
+  .overview-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .overview-table tr:last-child td { border-bottom: none; }
+  .action-list { list-style: none; }
+  .action-list li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.6rem; }
+  .action-list li::before { content: "▶"; color: var(--accent3); font-size: 0.8rem; margin-top: 0.2rem; flex-shrink: 0; }
+  details { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.5rem; }
+  summary { padding: 0.75rem 1rem; cursor: pointer; font-size: 0.9rem; color: var(--text3); }
+  .low-item { padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--text3); border-top: 1px solid var(--border); }
+  .axion-banner { background: var(--accent); color: white; border-radius: 12px; padding: 1rem 1.5rem; text-align: center; font-size: 1rem; margin-bottom: 2rem; letter-spacing: 0.05em; }
+  .proposals-link { display: inline-block; background: var(--accent2); color: white; border-radius: 8px; padding: 0.5rem 1.2rem; text-decoration: none; font-size: 0.9rem; margin-top: 1rem; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="header-left">
+    <h1>📡 Readwise 情报简报</h1>
+    <p>2026-05-08 · 增量同步自 2026-05-07 · Kyle Li</p>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axion-banner">不可行动的信息 = 噪音 · 信号 → 洞察 → 行动</div>
+
+<!-- 统计 -->
+<div class="stats">
+  <div class="stat-card"><div class="stat-num">11</div><div class="stat-label">新 Highlights</div></div>
+  <div class="stat-card"><div class="stat-num">13</div><div class="stat-label">新 Documents</div></div>
+  <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">⭐⭐⭐⭐⭐ 高价值</div></div>
+  <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">⭐⭐⭐ 中等价值</div></div>
+  <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">深挖 Proposals</div></div>
+</div>
+
+<!-- 信号概览表 -->
+<section>
+  <h2>🗺️ 5个深挖方向预览</h2>
+  <table class="overview-table">
+    <thead><tr><th>#</th><th>信号</th><th>连接意图</th><th>核心主张</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>P1</td>
+        <td>Zano — AI Agent + MEMORY.md</td>
+        <td><span class="badge badge-life-os">Life OS</span></td>
+        <td>用 Zano 架构解决 Life OS Memory支柱</td>
+      </tr>
+      <tr>
+        <td>P2</td>
+        <td>Mirage — 虚拟文件系统</td>
+        <td><span class="badge badge-life-os">Life OS</span></td>
+        <td>AI Agent 统一工具接入层设计</td>
+      </tr>
+      <tr>
+        <td>P3</td>
+        <td>Codex self-awareness prompt</td>
+        <td><span class="badge badge-testing">Testing</span></td>
+        <td>让 AI 自驱验证到100%信心的工程实践</td>
+      </tr>
+      <tr>
+        <td>P4</td>
+        <td>Addy Osmani AI Skill 标准化</td>
+        <td><span class="badge badge-skill-hub">Skill Hub</span></td>
+        <td>将 CDH 工程师经验封装为 AI 操作手册</td>
+      </tr>
+      <tr>
+        <td>P5</td>
+        <td>百年AI内容系统 日更12万曝光</td>
+        <td><span class="badge badge-ai-adoption">AI Adoption</span></td>
+        <td>AI Upskill Trainer 内容生产系统化</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ⭐⭐⭐⭐⭐ 高价值 -->
+<section>
+  <h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+  <div class="signal-card tier1">
+    <div class="signal-meta">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="badge badge-life-os">Life OS</span>
+      <span class="badge badge-life-os">Agentic Engineering</span>
+      <a href="https://x.com/ZaynHao/status/2052243479833829620" target="_blank" class="source-link">@ZaynHao</a>
+    </div>
+    <h3>Zano — AI Agent + Slack 协作 + 持久 MEMORY.md</h3>
+    <div class="signal-text">开源了 zano：让 AI Agent 和人在类似 Slack 的界面中一起协作。每个 Agent 是常驻 Claude Code 进程，有自己工作目录和持久化 MEMORY.md，能在频道/DM 里聊。作者开源原因：精力放不到，但希望它在别人手里继续生长。</div>
+    <div class="signal-why">与 Life OS Memory 支柱直接命中——持久 MEMORY.md + 常驻 Agent 进程正是你下一步要解决的跨 session 记忆方案。开源即可拆解架构，零成本学习。</div>
+  </div>
+
+  <div class="signal-card tier1">
+    <div class="signal-meta">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="badge badge-life-os">Life OS</span>
+      <span class="badge badge-vibe">Vibe Stack</span>
+      <a href="https://x.com/zechengzh/status/2052105012172792061" target="_blank" class="source-link">@zechengzh</a>
+    </div>
+    <h3>Mirage — AI Agent 统一虚拟文件系统</h3>
+    <div class="signal-text">Introducing Mirage: 6周，1.1M+ 行代码，重写 bash，让 cat/grep/head/pipes 横跨异构服务工作——S3、Google Drive、Slack、Gmail、GitHub、Linear、Notion、Postgres、MongoDB、SSH 等。统一 AI Agent 的文件操作视图。</div>
+    <div class="signal-why">Life OS Software Factory 支柱的核心问题就是 Agent 如何跨服务操作——Mirage 提供了架构参考：虚拟化异构存储层，让 AI 用熟悉的 bash 接口跨服务工作。</div>
+  </div>
+
+  <div class="signal-card tier1">
+    <div class="signal-meta">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="badge badge-testing">Testing Excellence</span>
+      <span class="badge badge-life-os">AI Coding</span>
+      <a href="https://x.com/vikingmute/status/2052279836157362526" target="_blank" class="source-link">@vikingmute</a>
+    </div>
+    <h3>Codex 5.5 self-awareness hack — 自驱验证到100%信心</h3>
+    <div class="signal-text">Prompt hack："你对当前实现100%有信心吗？如果没有，请找出所有可能漏洞，提出修复方案，然后不断重复这个循环，直到你对新实现在事实上达到100%自信为止。" 作者：Codex 5.5 是唯一具备真正 self-awareness 的模型，绝不轻易做出高自信断言，除非真正验证过一切。</div>
+    <div class="signal-why">Software Testing Excellence 的核心痛点：AI 写代码但跳过边界情况。这个 prompt 把验证闭环内嵌进 AI 自身，与你的 Testing Excellence 原则"AI写代码→AI写测试"形成完整回路。</div>
+  </div>
+
+  <div class="signal-card tier1">
+    <div class="signal-meta">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="badge badge-skill-hub">IKEA Skill Hub</span>
+      <span class="badge badge-ai-adoption">AI Adoption</span>
+      <a href="https://x.com/lxfater/status/2052230188830998865" target="_blank" class="source-link">@lxfater</a>
+    </div>
+    <h3>Addy Osmani (Gemini主管) 开始编程 Skill</h3>
+    <div class="signal-text">谷歌 Gemini 团队主管 Addy Osmani 把资深工程师多年积累的工作流程和开发规范，整理成一套标准化技能库，让 AI 编程助手在写代码的每个环节都能按照统一的高标准执行。"给 AI 配了一本老工程师的操作手册。"</div>
+    <div class="signal-why">IKEA Skill Hub 的行业趋势信号：连 Google 主管都在做 Skills 标准化——意味着这是下一个工程基础设施方向。CDH 有机会成为 IKEA 内部的 Addy Osmani，将工程经验 Skill 化。</div>
+  </div>
+</section>
+
+<!-- ⭐⭐⭐ 中等价值 -->
+<section>
+  <h2>⭐⭐⭐ 中等价值信号</h2>
+
+  <div class="signal-card tier2">
+    <div class="signal-meta">
+      <span class="stars">⭐⭐⭐</span>
+      <span class="badge badge-vibe">Vibe Stack</span>
+      <span class="badge badge-life-os">Life OS架构</span>
+      <a href="https://read.readwise.io/read/01kr2ffyptp50s945q5whpf15e" target="_blank" class="source-link">HackerNews 2026-05-08</a>
+    </div>
+    <h3>HN：LLM 作组件而非大脑——控制流设计原则</h3>
+    <div class="signal-text">HN 热门讨论：将确定性控制流程与验证逻辑放在运行时，用 LLM 作组件而非大脑，通过任务拆分与子代理提升可靠性与可审计性。</div>
+    <div class="signal-why">Vibe Coding Stack 后端架构、Life OS 可靠性设计的参考原则。避免"让 AI 主控一切"的常见陷阱。</div>
+  </div>
+
+  <div class="signal-card tier2">
+    <div class="signal-meta">
+      <span class="stars">⭐⭐⭐</span>
+      <span class="badge badge-ai-adoption">AI Adoption</span>
+      <a href="https://x.com/dongxi_nlp/status/2052510258766008781" target="_blank" class="source-link">@dongxi_nlp</a>
+    </div>
+    <h3>中国 AI 实验室 6条 take away — 数据行业差距</h3>
+    <div class="signal-text">Anthropic/OpenAI 单环境花费 1000万美元+；中国 AI 实验室"自建而非购买"心态；无数实验室能访问华为芯片但渴望英伟达。</div>
+    <div class="signal-why">AI Adoption Strategy 背景知识：理解国内 AI 能力边界，对内部 AI 工具选型和预期设定有参考价值。</div>
+  </div>
+
+  <div class="signal-card tier2">
+    <div class="signal-meta">
+      <span class="stars">⭐⭐⭐</span>
+      <span class="badge badge-ai-adoption">AI Upskill</span>
+      <a href="https://x.com/yidabuilds/status/2052252982302200010" target="_blank" class="source-link">@yidabuilds</a>
+    </div>
+    <h3>一人日更长文，篇均12万曝光——AI 内容系统</h3>
+    <div class="signal-text">百年 AI×出海：用 AI 内容系统实现日更高质量长文，篇均12万曝光。系统化 AI 内容生产方法论。</div>
+    <div class="signal-why">AI Upskill Trainer 的内容生产参考——如何用 AI 系统化生产教学内容，解决讲师团内容生产效率问题。</div>
+  </div>
+</section>
+
+<!-- 行动清单 -->
+<section>
+  <h2>📋 立即行动清单</h2>
+  <ul class="action-list">
+    <li>研究 Zano 开源架构（<a href="https://github.com/ZaynHao/zano" target="_blank" class="source-link">github.com/ZaynHao/zano</a>），提炼 MEMORY.md 设计模式，作为 Life OS Memory 支柱的实现参考</li>
+    <li>在 Testing Excellence workspace 记录 Codex self-awareness prompt，作为 AI 代码质量标准提案</li>
+    <li>查看 Addy Osmani 的 Skills 仓库（<a href="https://github.com/addyosmani/engineering-skills" target="_blank" class="source-link">需验证链接</a>），提炼可迁移到 CDH 的 Skill 结构</li>
+    <li>将 Mirage 虚拟文件系统设计思路存入 Life OS / Agentic Engineering 的调研文档</li>
+    <li>阅读 Phase 2 Proposals 文件（生成中）</li>
+  </ul>
+</section>
+
+<!-- 低价值附录 -->
+<section>
+  <h2>📦 其他内容（暂时低优先级）</h2>
+  <details>
+    <summary>点击展开（6条无需行动内容）</summary>
+    <div class="low-item">⭐ 郭宇 guoyu.eth — 2026年 AI vibe coding 个人感悟（鼓励性，非可行动）</div>
+    <div class="low-item">⭐ Lexi 勒西 — "程序员，收入大于欲望的人"（哲学段子）</div>
+    <div class="low-item">⭐ Wei Du 杜唯 — 走线人纪录片《Walk the Line: ICE Nation》（非相关）</div>
+    <div class="low-item">⭐ HN SQLite — 美国国会图书馆推荐存储格式（非当前焦点）</div>
+    <div class="low-item">⭐ Edward Snowden — Insecurity Industry 文章（安全背景知识，旧文2022）</div>
+    <div class="low-item">⭐ Tumeng — 纯链接推文（无内容）</div>
+  </details>
+</section>
+
+<footer style="text-align:center;color:var(--text3);font-size:0.8rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);">
+  生成时间 2026-05-08 09:54 · Phase 2 Proposals 生成中 ⟳
+</footer>
+
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

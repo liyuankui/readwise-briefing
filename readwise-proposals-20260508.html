@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-05-08</title>
+<style>
+  :root {
+    --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+    --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+    --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+  }
+  html.dark{
+    --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+    --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+    --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;padding:2rem 1rem}
+  .container{max-width:900px;margin:0 auto}
+  header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem;border-bottom:2px solid var(--accent);padding-bottom:1rem}
+  .header-left h1{font-size:1.6rem;color:var(--accent)}
+  .header-left p{color:var(--text3);font-size:.9rem;margin-top:.3rem}
+  #theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:1rem;color:var(--text)}
+  .axiom-banner{background:var(--accent);color:white;border-radius:12px;padding:1rem 1.5rem;text-align:center;font-size:.95rem;margin-bottom:2rem;letter-spacing:.05em}
+  .signal-map{width:100%;border-collapse:collapse;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:2.5rem}
+  .signal-map th{background:var(--accent);color:white;padding:.75rem 1rem;text-align:left;font-size:.85rem}
+  .signal-map td{padding:.75rem 1rem;border-bottom:1px solid var(--border);font-size:.88rem}
+  .signal-map tr:last-child td{border-bottom:none}
+  .proposal-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:2rem;position:relative}
+  .proposal-num{position:absolute;top:-14px;left:24px;background:var(--accent2);color:white;border-radius:20px;padding:2px 14px;font-size:.85rem;font-weight:bold}
+  .proposal-card.p1{border-left:5px solid #059669}
+  .proposal-card.p2{border-left:5px solid #6366f1}
+  .proposal-card.p3{border-left:5px solid #d97706}
+  .proposal-card.p4{border-left:5px solid #0ea5e9}
+  .proposal-card.p5{border-left:5px solid #ec4899}
+  .proposal-title{font-size:1.2rem;font-weight:bold;color:var(--text);margin-bottom:.4rem;margin-top:.6rem}
+  .proposal-claim{background:var(--surface2);border-radius:8px;padding:.75rem 1rem;font-size:.95rem;color:var(--accent3);margin-bottom:1rem;font-style:italic}
+  .proposal-claim::before{content:"💎 核心主张："}
+  .tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:bold;margin-right:4px}
+  .tag-life{background:#dcfce7;color:#166534} html.dark .tag-life{background:#14532d;color:#86efac}
+  .tag-test{background:#fff7ed;color:#9a3412} html.dark .tag-test{background:#431407;color:#fed7aa}
+  .tag-skill{background:#ede9fe;color:#4c1d95} html.dark .tag-skill{background:#2e1065;color:#c4b5fd}
+  .tag-vibe{background:#eff6ff;color:#1e3a8a} html.dark .tag-vibe{background:#1e3a5f;color:#93c5fd}
+  .tag-adopt{background:#fce7f3;color:#831843} html.dark .tag-adopt{background:#500724;color:#f9a8d4}
+  h3{font-size:1rem;color:var(--accent4);margin:.8rem 0 .4rem}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.8rem}
+  @media(max-width:600px){.grid2{grid-template-columns:1fr}}
+  .mini-card{background:var(--surface2);border-radius:8px;padding:.75rem}
+  .mini-card-label{font-size:.75rem;color:var(--text3);margin-bottom:.3rem}
+  .milestone-list{list-style:none;padding:0}
+  .milestone-list li{display:flex;gap:.75rem;padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.88rem}
+  .milestone-list li:last-child{border-bottom:none}
+  .milestone-list .m-num{color:var(--accent2);font-weight:bold;min-width:28px}
+  .action-list{list-style:none;padding:0}
+  .action-list li{padding:.4rem 0;font-size:.88rem;color:var(--text2)}
+  .action-list li::before{content:"▶ ";color:var(--accent3)}
+  .challenge-box{background:var(--surface2);border-left:3px solid var(--accent5);border-radius:0 8px 8px 0;padding:.75rem 1rem;font-size:.88rem;color:var(--text2)}
+  .challenge-box::before{content:"⚠️ 诚实挑战：";color:var(--accent5);font-weight:bold;display:block;margin-bottom:.3rem}
+  .roi-box{background:var(--surface2);border-left:3px solid var(--accent3);border-radius:0 8px 8px 0;padding:.75rem 1rem;font-size:.88rem}
+  .roi-box::before{content:"📈 ROI：";color:var(--accent3);font-weight:bold;display:block;margin-bottom:.3rem}
+  footer{text-align:center;color:var(--text3);font-size:.8rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="header-left">
+    <h1>🚀 深挖 Proposals · 5个方向</h1>
+    <p>2026-05-08 · 基于 Readwise 增量信号 · 5 subagents 并行推理</p>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom-banner">不可行动的信息 = 噪音 · 每个 Proposal 都必须能回答：谁做、做什么、怎么知道成功</div>
+
+<!-- 信号×项目对应表 -->
+<table class="signal-map">
+  <thead><tr><th>#</th><th>信号</th><th>连接意图</th><th>核心主张（一句话）</th></tr></thead>
+  <tbody>
+    <tr><td>P1</td><td>Zano — AI Agent + MEMORY.md</td><td><span class="tag tag-life">Life OS</span></td><td>PRATA 通信层 + Zano MEMORY 架构 → 让 Readwise 自动推送到 Kyle</td></tr>
+    <tr><td>P2</td><td>Mirage — 虚拟文件系统</td><td><span class="tag tag-life">Life OS</span><span class="tag tag-vibe">Vibe Stack</span></td><td>构建 IKEA Agentic Service Mesh，用 POSIX 接口统一 GHES/Jira/Confluence</td></tr>
+    <tr><td>P3</td><td>Codex self-awareness prompt</td><td><span class="tag tag-test">Testing</span></td><td>Self-Review Loop 作为 CI 前置质量门控，不是 prompt trick 是工程实践</td></tr>
+    <tr><td>P4</td><td>Addy Osmani AI Skill 标准化</td><td><span class="tag tag-skill">Skill Hub</span></td><td>CDH 宜家电商领域知识 Skill 化，给 AI 配老工程师操作手册</td></tr>
+    <tr><td>P5</td><td>百年AI内容系统 日更12万曝光</td><td><span class="tag tag-adopt">AI Upskill</span></td><td>1人用 AI 内容流水线，让讲师团产出 5× 教案内容</td></tr>
+  </tbody>
+</table>
+
+<!-- P1 -->
+<div class="proposal-card p1">
+  <div class="proposal-num">P1</div>
+  <div style="margin-bottom:.5rem"><span class="tag tag-life">Life OS</span><span class="tag tag-life">Memory 支柱</span></div>
+  <div class="proposal-title">Zano Signal Processor — 让 Readwise 自动推送给 Kyle</div>
+  <div class="proposal-claim">用 PRATA（已有通信层）+ Zano 的持久 MEMORY.md 架构，构建 Life OS 的 Signal Processor：AI 主动过滤 Readwise 信号、与 intent 对齐后推送摘要——消灭每天手动查阅 Readwise 这个动作本身。</div>
+  <div style="margin-bottom:.5rem;font-size:.85rem;color:var(--text3)">🔑 关键洞察：今天手动粘贴 Zano 推文这个动作，就是要被消灭的那个动作。</div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <div class="mini-card-label">锁定痛点</div>
+      每天 Readwise 有新内容，但需要人工触发汇总、人工判断相关性——这是 Life OS 的"最高频手动动作"之一。
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-label">现有资产复用</div>
+      PRATA v0.2.0（266 tests，通信层已就绪）；my-readwise-briefing skill（汇总逻辑已有）；Readwise MCP（API 已接通）
+    </div>
+  </div>
+
+  <h3>实施里程碑</h3>
+  <ul class="milestone-list">
+    <li><span class="m-num">M1</span>今天验证：`curl` Readwise API，确认数据可达；拿到最新10条 highlights</li>
+    <li><span class="m-num">M2</span>Week 1：为 PRATA 注册一个 Readwise Agent 频道，能接收 push 消息</li>
+    <li><span class="m-num">M3</span>Week 2：构建 Signal Filter（与 intent/active.md 对齐，打相关性分）</li>
+    <li><span class="m-num">M4</span>Week 3-4：接入定时触发（每天早晨 8:00 自动推送当日高价值信号摘要）</li>
+    <li><span class="m-num">M5</span>Week 5+：MEMORY.md 持久化，Agent 记住"Kyle 上次说这个方向不感兴趣"</li>
+  </ul>
+
+  <div class="grid2" style="margin-top:.8rem">
+    <div class="roi-box">每天节省 20-30 分钟手动汇总；Readwise 信号处理延迟从「有空才看」→「每天 8:00 精准推送」。Life OS Memory 支柱的第一块砖。</div>
+    <div class="challenge-box">PRATA 是团队项目，需要确认在个人 Life OS 场景使用的边界；MEMORY.md 长期增长后如何压缩/检索是后续挑战。</div>
+  </div>
+
+  <h3>立即行动（本周内）</h3>
+  <ul class="action-list">
+    <li>今天：`curl -H "Authorization: Token $READWISE_TOKEN" https://readwise.io/api/v2/highlights/?updated__gt=2026-05-07` 验证 API 可达</li>
+    <li>本周：在 PRATA 注册 `readwise-signal-agent` 频道，写第一个 push handler</li>
+    <li>本周：把 intent/active.md 的关键词提取为 Signal Filter 规则（可先用 grep，后用 LLM）</li>
+  </ul>
+</div>
+
+<!-- P2 -->
+<div class="proposal-card p2">
+  <div class="proposal-num">P2</div>
+  <div style="margin-bottom:.5rem"><span class="tag tag-life">Life OS</span><span class="tag tag-vibe">Vibe Stack</span><span class="tag tag-life">Software Factory</span></div>
+  <div class="proposal-title">IKEA Agentic Service Mesh — 统一服务访问层</div>
+  <div class="proposal-claim">构建基于 VFS 抽象的 Agentic Service Mesh，让 IKEA 内部 AI Agent 通过单一接口访问 GHES/Jira/Confluence/OneDrive/Grafana，将"多工具配置地狱"变为"一次挂载，到处操作"。</div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <div class="mini-card-label">锁定痛点</div>
+      Tech Debt PR 全流程（Jira→GHES→修改→Confluence→PR→Jira状态）需要 5 个工具配置，Agent 跨步骤上下文碎片化，调试困难。
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-label">接入优先级</div>
+      P0: GHES + Jira | P1: Confluence + OneDrive | P2: Grafana
+    </div>
+  </div>
+
+  <h3>实施里程碑</h3>
+  <ul class="milestone-list">
+    <li><span class="m-num">M1</span>Week 1-2：本地部署 Mirage，接入 GitHub.com 验证可行性；输出 Go/No-Go 报告</li>
+    <li><span class="m-num">M2</span>Week 3-5：自建 GHES connector + Jira connector；跑第一个跨系统 Agent workflow</li>
+    <li><span class="m-num">M3</span>Week 6-8：纳入 Life OS Software Factory 架构；接入 Confluence；团队 demo</li>
+  </ul>
+
+  <div class="grid2" style="margin-top:.8rem">
+    <div class="roi-box">Kyle 个人：节省约 8h/周（Tech Debt PR 准备 5h + Oncall 聚合 1.25h + 跨系统汇总 1.75h）。400h/年。</div>
+    <div class="challenge-box">Mirage 6周大，稳定性存疑（可能大量 AI 生成代码）。IKEA 安全边界：数据路由需合规审计。GHES 兼容性未验证。策略：低风险探索，M1 失败则自建轻量 VFS 层。</div>
+  </div>
+
+  <h3>立即行动（本周内）</h3>
+  <ul class="action-list">
+    <li>Day 1-2：找 Mirage 官方 repo，检查开源协议/活跃度/connector 列表/自定义 SDK 支持</li>
+    <li>Day 3：确认 Mirage GitHub connector 是否兼容 GHES Enterprise API</li>
+    <li>Day 4-5：用个人 GitHub + Readwise API 跑 30 行 bash POC，验证 VFS 抽象透明度</li>
+  </ul>
+</div>
+
+<!-- P3 -->
+<div class="proposal-card p3">
+  <div class="proposal-num">P3</div>
+  <div style="margin-bottom:.5rem"><span class="tag tag-test">Testing Excellence</span><span class="tag tag-skill">AI Coding</span></div>
+  <div class="proposal-title">AI Self-Review Loop — CI 前置质量门控</div>
+  <div class="proposal-claim">将 Codex self-awareness prompt 工程化为 CI pipeline 的一个 stage，让 AI 在推送前强制自驱验证到"无已知漏洞"——不是 prompt trick，是团队可复现的质量门控机制。</div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <div class="mini-card-label">锁定痛点</div>
+      AI 生成的 Java/Golang 代码缺乏边界条件验证，review 发现问题时已进入 PR 阶段，修复成本高。
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-label">核心 Prompt</div>
+      "你对当前实现100%有信心吗？如果没有，找出所有可能漏洞，提出修复方案，不断重复循环，直到达到100%自信。"
+    </div>
+  </div>
+
+  <h3>实施里程碑</h3>
+  <ul class="milestone-list">
+    <li><span class="m-num">M1</span>本周：取 1 个真实 PR，手动跑一次，验证 Codex 5.5 在 Java/Golang 场景可复现</li>
+    <li><span class="m-num">M2</span>Week 2-3：编写标准化 Review Loop Prompt 模板（含 CDH Java/K8s 特定检查点）</li>
+    <li><span class="m-num">M3</span>Week 4-5：集成到 pre-commit hook 或 CI stage，团队试运行</li>
+    <li><span class="m-num">M4</span>Week 6-8：数据收集（发现 bug 数 vs 人工 review 对比），决定是否推广</li>
+  </ul>
+
+  <div class="grid2" style="margin-top:.8rem">
+    <div class="roi-box">每次 PR 节省 15-30 分钟认知加载；AI 提前发现 bug 减少 Review Round-trip；与 Testing Excellence 覆盖率目标直接对齐。</div>
+    <div class="challenge-box">模型依赖问题：Codex 5.5 有效，Claude Opus 4.7 退化为奉承。需建立模型无关的验证框架。M1 前不投资 M2-M4——先验证 Java/Golang 场景可复现。</div>
+  </div>
+
+  <h3>立即行动（本周内）</h3>
+  <ul class="action-list">
+    <li>今天：取最近 1 个真实 merged PR，用 Codex 5.5 跑 self-awareness prompt，记录发现的问题数量</li>
+    <li>本周：对比 AI 发现 vs 实际 review 发现，评估覆盖率（Go/No-Go for M2）</li>
+    <li>本周：整理 CDH 特有的质量检查点（宜家幂等性要求/数据库事务规范/K8s 资源限制）</li>
+  </ul>
+</div>
+
+<!-- P4 -->
+<div class="proposal-card p4">
+  <div class="proposal-num">P4</div>
+  <div style="margin-bottom:.5rem"><span class="tag tag-skill">IKEA Skill Hub</span><span class="tag tag-adopt">AI Adoption</span></div>
+  <div class="proposal-title">CDH Engineering Skills — 给 AI 配老工程师操作手册</div>
+  <div class="proposal-claim">CDH 工程师在宜家电商系统（Order/Delivery/Inventory）上积累的领域经验，是全球 IKEA 团队无法从公开资料获取的隐性知识——这是最值得 Skill 化的资产，从 `cdh-pr-reviewer` + `cdh-order-domain` 开始。</div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <div class="mini-card-label">锁定痛点</div>
+      PR review 质量依赖人不依赖系统；新人 onboarding 宜家业务知识靠口口相传，随人员流动流失。
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-label">P0 优先 Skills</div>
+      <strong>cdh-pr-reviewer</strong>（宜家幂等/API版本/日志规范）<br/>
+      <strong>cdh-order-domain</strong>（订单状态机/库存锁定/退款链路）
+    </div>
+  </div>
+
+  <h3>实施里程碑</h3>
+  <ul class="milestone-list">
+    <li><span class="m-num">M1</span>Week 1-2：访谈 2名 senior，收集"重复被问的问题"；翻 20个历史 PR 找 review 模式</li>
+    <li><span class="m-num">M2</span>Week 3-4：发布 `cdh-pr-reviewer` v0.1，跑 3个历史 PR 验证一致率 > 70%</li>
+    <li><span class="m-num">M3</span>Week 5-7：发布 `cdh-order-domain` v0.1，新人用它独立回答 5个 onboarding 问题</li>
+    <li><span class="m-num">M4</span>Week 8-9：全团队 demo，目标 5名工程师在 sprint 内主动使用 1次</li>
+    <li><span class="m-num">M5</span>Week 10-12：建立贡献机制，第 3个 Skill 由团队成员主导</li>
+  </ul>
+
+  <div class="grid2" style="margin-top:.8rem">
+    <div class="roi-box">11人 × 1h/周 × 50周 = 550h/年解放；Skill Hub CDH 自研从37→42+；Engineering Baseline 价值最可见化形式。</div>
+    <div class="challenge-box">工程师是否愿意贡献？解法：Kyle 先做一个（以身作则）→ 1页模板降低门槛 → Sprint Demo 可见化。维护成本：Owner制 + 季度 review。</div>
+  </div>
+
+  <h3>立即行动（本周内）</h3>
+  <ul class="action-list">
+    <li>发给 2名 senior 工程师的问题："上个月你被同事问过哪 3个重复问题？希望有 AI 代替你回答哪个？"</li>
+    <li>翻最近 20个 merged PR，找出 review comment 中出现 ≥3次的相同问题类型</li>
+    <li>参照 `cdhf-oncall-doctor` 格式，起草 `cdh-pr-reviewer` 的 1页 SPEC</li>
+  </ul>
+</div>
+
+<!-- P5 -->
+<div class="proposal-card p5">
+  <div class="proposal-num">P5</div>
+  <div style="margin-bottom:.5rem"><span class="tag tag-adopt">AI Upskill Trainer</span><span class="tag tag-adopt">AI Adoption</span></div>
+  <div class="proposal-title">AI 内容流水线 — 让讲师团产出 5× 教案内容</div>
+  <div class="proposal-claim">用 AI 内容生产流水线（Collect→Generate→QC+Voice→Publish）解决讲师团的三重瓶颈，让 1-2 名讲师产出原本需要 5 人才能完成的内容量——且不稀释讲师权威，反而把 AI 辅助本身作为 L2 课程示范。</div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <div class="mini-card-label">锁定痛点</div>
+      3重瓶颈叠加：教案慢（每模块 2-3天）+ PPT 黑洞（设计时间 > 内容时间）+ 内容碎片化（无法复用）
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-label">关键设计决策</div>
+      不隐藏 AI 辅助，把它作为 L2 课程案例示范——讲师权威来自"设计系统的能力"而非"手写每一行字"
+    </div>
+  </div>
+
+  <h3>实施里程碑</h3>
+  <ul class="milestone-list">
+    <li><span class="m-num">M1</span>Week 1：建立讲师 Prompt 模板库（L0认知/L1.1 Prompt 各 1套模板）</li>
+    <li><span class="m-num">M2</span>Week 2：搭建 PPT 模板（基于 ppt-as-code / ikea-slides skill）消灭设计黑洞</li>
+    <li><span class="m-num">M3</span>Week 3-4：跑第一期完整内容生产（L0+L1.1 教案 + PPT + 练习题），记录实际时间</li>
+    <li><span class="m-num">M4</span>Week 5-6：建立素材飞轮（Readwise/X 收集 → AI 过滤 → 教案片段库）</li>
+    <li><span class="m-num">M5</span>Week 7-8：第一期课程交付，收集学员反馈，验证内容质量未被 AI 稀释</li>
+  </ul>
+
+  <div class="grid2" style="margin-top:.8rem">
+    <div class="roi-box">效率 5×（教案生产从 2-3天→半天）；4.5个月时间差可加速业务 AI 覆盖；讲师招募压力从"找 5人"降为"找 2人"。</div>
+    <div class="challenge-box">质量红线：每个 AI 生成教案必须包含"真实锚点字段"（讲师亲身经历/真实案例），无锚点不发布。防 AI 稀释的硬机制。</div>
+  </div>
+
+  <h3>立即行动（本周内）</h3>
+  <ul class="action-list">
+    <li>取已有 L0 课程大纲，让 AI 生成第一份教案草稿，计时对比（目标：< 2小时 vs 原来 2天）</li>
+    <li>用 ikea-slides skill 生成 L0 PPT 模板，确认设计时间 < 30分钟</li>
+    <li>建立素材飞书/共享文件夹，讲师团成员每天保存 1条有价值的 AI 实践案例</li>
+  </ul>
+</div>
+
+<footer>
+  生成时间 2026-05-08 10:00 · 5 subagents 并行推理完成 · <a href="/tmp/readwise-briefing-20260508.html" style="color:var(--accent2)">← 返回 Phase 1 简报</a>
+</footer>
+
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
