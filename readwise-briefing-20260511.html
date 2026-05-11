@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-05-11</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --surface2: #f5f4f0;
+    --border: #e8e5df;
+    --text: #1a1a1a;
+    --text2: #4a4a4a;
+    --text3: #888880;
+    --accent: #2d5a4a;
+    --accent2: #6366f1;
+    --accent3: #059669;
+    --accent4: #d97706;
+    --accent5: #dc2626;
+  }
+  html.dark {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #242736;
+    --border: #2e3247;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --accent: #6c8ef5;
+    --accent2: #a78bfa;
+    --accent3: #34d399;
+    --accent4: #f59e0b;
+    --accent5: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体",
+                 -apple-system, BlinkMacSystemFont, serif;
+    line-height: 1.75;
+    padding: 2rem 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1.2rem;
+  }
+  .header-left h1 { font-size: 1.6rem; color: var(--accent); font-weight: 700; }
+  .header-left .date { color: var(--text3); font-size: 0.9rem; margin-top: 0.2rem; }
+  .stats { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.6rem; }
+  .stat { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+  .stat strong { color: var(--accent2); }
+  #theme-toggle { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.7rem; cursor: pointer; font-size: 1.1rem; }
+
+  .axiom-banner { background: var(--surface2); border-left: 4px solid var(--accent2); padding: 0.8rem 1.2rem; border-radius: 6px; margin-bottom: 2rem; color: var(--text2); font-size: 0.9rem; }
+  .axiom-banner strong { color: var(--accent2); }
+
+  h2 { font-size: 1.2rem; color: var(--accent); margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  h3 { font-size: 1rem; color: var(--text); margin: 0.3rem 0 0.5rem; font-weight: 600; }
+
+  .overview-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: 0.88rem; }
+  .overview-table th { background: var(--surface2); color: var(--text2); font-weight: 600; padding: 0.5rem 0.8rem; text-align: left; border-bottom: 2px solid var(--border); }
+  .overview-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .overview-table tr:hover td { background: var(--surface2); }
+
+  .signal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-bottom: 1.2rem; }
+  .signal-card.s5 { border-left: 4px solid var(--accent5); }
+  .signal-card.s3 { border-left: 4px solid var(--accent4); }
+  .signal-card.s1 { border-left: 4px solid var(--border); }
+  .stars { font-size: 1rem; margin-bottom: 0.4rem; }
+  .meta { color: var(--text3); font-size: 0.8rem; margin-bottom: 0.5rem; }
+  .meta a { color: var(--accent2); text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+  .content-text { color: var(--text2); font-size: 0.92rem; margin-bottom: 0.7rem; }
+  .why-box { background: var(--surface2); border-radius: 6px; padding: 0.6rem 0.9rem; font-size: 0.85rem; color: var(--accent); border-left: 3px solid var(--accent3); }
+  .why-box::before { content: "💡 为什么相关："; font-weight: 600; }
+
+  .action-list { list-style: none; padding: 0; }
+  .action-list li { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.7rem; }
+  .action-list li::before { content: "▶"; color: var(--accent3); flex-shrink: 0; margin-top: 0.05rem; }
+
+  details { margin-bottom: 0.8rem; }
+  details summary { cursor: pointer; color: var(--text3); font-size: 0.88rem; padding: 0.3rem 0; }
+  details summary:hover { color: var(--text); }
+
+  .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.75rem; color: var(--text3); margin-right: 0.3rem; }
+  .tag.ai { background: #ede9ff; color: #6366f1; border-color: #c4b5fd; }
+  html.dark .tag.ai { background: #1e1a35; color: #a78bfa; border-color: #4c3e8c; }
+  .tag.tool { background: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+  html.dark .tag.tool { background: #0a2e20; color: #34d399; border-color: #065f46; }
+  .tag.mgmt { background: #fffbeb; color: #d97706; border-color: #fcd34d; }
+  html.dark .tag.mgmt { background: #2c1e00; color: #f59e0b; border-color: #92400e; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="date">2026 年 5 月 11 日 · 上次同步：2026-05-08</div>
+    <div class="stats">
+      <div class="stat">🔦 新 Highlights <strong>16</strong></div>
+      <div class="stat">📄 新 Documents <strong>21</strong></div>
+      <div class="stat">⭐×5 高价值 <strong>6</strong></div>
+      <div class="stat">⭐×3 中等 <strong>5</strong></div>
+      <div class="stat">📋 行动项 <strong>5</strong></div>
+    </div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom-banner">
+  <strong>核心公理：</strong>不可行动的信息 = 噪音。本简报服务于意图，所有内容按与当前项目的相关性分层。
+</div>
+
+<!-- 信号概览表 -->
+<h2>🗺️ 信号概览 — 5 大深挖方向</h2>
+<table class="overview-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>方向</th>
+      <th>信号来源</th>
+      <th>连接项目</th>
+      <th>深挖价值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Skill ≠ 代码，Skill = 上下文</strong></td>
+      <td>Perplexity 内部规范</td>
+      <td>IKEA Skill Hub · Skills Dev</td>
+      <td>🔥 反直觉，重塑写法</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>AX 优化使 DAU 5× 增长</strong></td>
+      <td>@arvin17x</td>
+      <td>Vibe Coding Stack · AI Adoption</td>
+      <td>🔥 有量化数据的 AX 证据</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Arkon 企业知识枢纽 via MCP</strong></td>
+      <td>@QingQ77</td>
+      <td>AI Adoption · AI Starter Kit · 宝尊研究</td>
+      <td>🔥 内网知识变 AI 上下文</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>AI 时代 TDD 是方向性错误？</strong></td>
+      <td>@grapeot</td>
+      <td>Testing Excellence</td>
+      <td>⚡ 反直觉，挑战已有方向</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Claude Code → HTML 优于 Markdown</strong></td>
+      <td>Claude Code 团队</td>
+      <td>Life OS · Agent 通信</td>
+      <td>⚡ 改变 Agent 输出范式</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== 高价值内容 ===== -->
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+<div class="signal-card s5">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <h3>Perplexity 团队内部 Agent Skills 设计、迭代与维护之道</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span> <span class="tag tool">Skills</span>
+    来源：<a href="https://x.com/shao__meng/status/2053098123074105705" target="_blank">@Meng Shao on Twitter</a>
+  </div>
+  <div class="content-text">
+    核心论点：写 Skill 不是写代码，而是为模型构建上下文。把工程师写代码的本能直接套到 Skill 上，几乎一定会失败。以 Python 信条 vs Skill 反信条为例——"明确胜于隐式"在代码里是美德，在 Skill 里意味着把本该由模型推断的东西硬编码，反而降低灵活性。Skill 的核心是给模型提供足够的上下文，让模型能做正确的判断，而不是通过代码逻辑控制流程。
+  </div>
+  <div class="why-box">
+    你正在维护 IKEA Skill Hub (v5 多仓库)、推进 Skills 统一架构。这个反直觉的"Skill = 上下文"框架可以直接重塑你们写 Skill 的方法论，避免工程师将 Skill 写成"控制流代码"的陷阱。深挖方向一。
+  </div>
+</div>
+
+<div class="signal-card s5">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <h3>AX（Agent Experience）分从 40→80，DAU 5×、MAU +20%</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span>
+    来源：<a href="https://x.com/arvin17x/status/2053009474244558867" target="_blank">@arvin17x on Twitter</a>
+  </div>
+  <div class="content-text">
+    将产品的 Agent Friendly 分从 40 拉到 80，一天内 DAU 涨了 5 倍，MAU 涨了 20%。AX（Agent Experience）正在成为新的产品核心指标——当 AI Agent 是你的主要用户时，优化 AX 比优化传统 UX 的 ROI 高出数倍。
+  </div>
+  <div class="why-box">
+    Vibe Coding Stack 是面向内部开发者的基础设施，Agent 是主要"用户"之一。Arkon 型的企业工具也需要 AX 指标。AI Adoption Strategy 中有"让 AI 帮更多人"的意图——AX 优化是关键杠杆。深挖方向二。
+  </div>
+</div>
+
+<div class="signal-card s5">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <h3>Arkon — 企业 AI 知识枢纽：文档→Wiki→MCP→员工 AI 客户端</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span> <span class="tag tool">MCP</span>
+    来源：<a href="https://x.com/QingQ77/status/2052937851906510857" target="_blank">@Geek Lite on Twitter</a>
+  </div>
+  <div class="content-text">
+    Arkon：可自部署的企业 AI 知识中枢。上传 SOP、政策、产品文档后，LLM Agent 把它们编译成交叉链接的 Wiki。员工用 MCP Token 连上 Claude Desktop 等客户端，按权限自动拿到相关知识。核心价值：把公司文档变成每个员工 AI 的实时上下文，不再需要手动粘贴。
+  </div>
+  <div class="why-box">
+    AI Starter Kit 目标是让同事零障碍使用 AI——Arkon 模式解决了"AI 不了解公司内部知识"这个核心痛点。宝尊 Ontology 调研结果如果能接入 MCP，就能让所有 AI 自动理解宝尊的实体/规则。深挖方向三。
+  </div>
+</div>
+
+<div class="signal-card s5">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <h3>AI 时代 TDD 是方向性错误 — 人与 AI 跑的不是同一个目标函数</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span>
+    来源：<a href="https://x.com/grapeot/status/2052994988859122125" target="_blank">@鸭哥 on Twitter</a>
+  </div>
+  <div class="content-text">
+    核心论点：AI 时代的 TDD 听起来无懈可击（AI 不确定→用确定的测试拦住它），但这是方向性错误。人看 `test_admin_access` 时脑子里展开的是一套完整的业务场景；AI 看的是：怎么让这个 Test Green。两者面对同一个测试集时跑的根本是不同的目标函数——AI 会找到"让测试通过但不解决真实问题"的捷径。TDD 用在 AI 上，考核的是 AI 的"绕测"能力，不是代码质量。
+  </div>
+  <div class="why-box">
+    你在推进 Software Testing Excellence（团队覆盖率 >80%）。这个观点直接挑战现有方向——如果 AI 生成的测试+代码形成自我验证的闭环，质量反而可能更差。深挖方向四，需要给出替代方案。
+  </div>
+</div>
+
+<div class="signal-card s5">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <h3>Claude Code 团队：Agent 应输出 HTML 而非 Markdown</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span>
+    来源：<a href="https://x.com/berryxia/status/2052884681193144743" target="_blank">@Berryxia.AI on Twitter</a>
+  </div>
+  <div class="content-text">
+    Claude Code 团队核心成员发重磅长文：Markdown 已经越来越限制 Agent 的表达能力。强烈推荐让 Claude（尤其是 Claude Code）直接输出 HTML 文件而不是 Markdown，作为 Agent 与人类沟通的首选格式。Markdown 虽然简单，但面对越来越复杂的 Agent 输出（交互、图表、结构化数据），HTML 才是对的。
+  </div>
+  <div class="why-box">
+    Life OS 的核心是 Agent 与人的交互质量。你现在的 Remarker 循环、Readwise 简报、Skill 输出全都是 HTML——这个方向验证了你的选择。深挖方向五：如何系统化这个转变。
+  </div>
+</div>
+
+<div class="signal-card s5">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <h3>Kata — Agent 与人共用一套本地 Issue 数据（CLI+TUI+SQLite）</h3>
+  <div class="meta">
+    <span class="tag tool">Tool</span>
+    来源：<a href="https://x.com/QingQ77/status/2052762949350031414" target="_blank">@Geek Lite on Twitter</a>
+  </div>
+  <div class="content-text">
+    kata：CLI + TUI + daemon + SQLite 四件套。Agent 和人读写同一套本地 issue 数据。CLI 给 Agent 用（命令稳定、输出 JSON、创建可幂等、退出码可预测）；TUI 给人用（浏览/编辑任务）。核心洞察：不再靠 GitHub Issues 或聊天记录当任务真相源，而是本地 SQLite 成为单一数据源。
+  </div>
+  <div class="why-box">
+    Life OS 的"Memory"支柱需要跨 session 持久记忆。kata 的架构（Agent 用 CLI、人用 TUI、SQLite 为单一数据源）是一个可直接参考的 Agentic Memory 实现模式。
+  </div>
+</div>
+
+<!-- ===== 中等价值 ===== -->
+<h2>⭐⭐⭐ 中等价值</h2>
+
+<div class="signal-card s3">
+  <div class="stars">⭐⭐⭐</div>
+  <h3>以色列空军教学悖论：均值回归 vs 管理常识</h3>
+  <div class="meta">
+    <span class="tag mgmt">管理</span>
+    来源：<a href="https://x.com/wadezone/status/2052289306316722204" target="_blank">@Koda 一人公司</a>
+  </div>
+  <div class="content-text">卡尼曼：你表扬谁，是因为他这次发挥超常。超常之后，他下次本来就会回到正常水平——跟你的表扬没关系。批评也是同理。管理层的"骂人比夸人有效"结论，是把均值回归误认为了因果。</div>
+</div>
+
+<div class="signal-card s3">
+  <div class="stars">⭐⭐⭐</div>
+  <h3>李继刚：AI 将接管 Say Yes（要性）和 Say No（品味）</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span>
+    来源：<a href="https://x.com/lijigang/status/2051665843625627713" target="_blank">@李继刚</a>
+  </div>
+  <div class="content-text">人守着的最后两个能力——在起点注入意志（Say Yes）和在终点筛选（Say No）——可能也会交出去。这意味着"人的主体性"的最后防线正在收缩。</div>
+</div>
+
+<div class="signal-card s3">
+  <div class="stars">⭐⭐⭐</div>
+  <h3>/handoff Skill — 会话压缩为可接手的 handoff 文件</h3>
+  <div class="meta">
+    <span class="tag tool">Tool</span>
+    来源：<a href="https://x.com/vikingmute/status/2052660705166557535" target="_blank">@Viking</a>
+  </div>
+  <div class="content-text">将当前对话压缩成 handoff 文件，让新 Agent 或另一个 session 无缝接手。这是 Life OS Memory 支柱的一个轻量级实现：不需要复杂架构，一个 skill 搞定跨 session 记忆传递。</div>
+</div>
+
+<div class="signal-card s3">
+  <div class="stars">⭐⭐⭐</div>
+  <h3>Sourcegraph Amp Neo — 权限默认放行，重写 Agent 协作范式</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span> <span class="tag tool">Tool</span>
+    来源：<a href="https://x.com/rwayne/status/2052426044494504407" target="_blank">@Roland.W</a>
+  </div>
+  <div class="content-text">Amp CLI 完全重写，砍掉 handoff、权限弹窗、主题自定义。理由："Don't build for what once was"。权限默认放行——承认靠 string match 找 rm -rf 是虚假安全感。这是一个 Agentic Tool 从"受控"转向"信任"的设计哲学转变。</div>
+</div>
+
+<div class="signal-card s3">
+  <div class="stars">⭐⭐⭐</div>
+  <h3>HackerNews 5/11 — Meta 强制追踪员工键鼠屏幕用于 AI 训练</h3>
+  <div class="meta">
+    <span class="tag ai">AI</span>
+    来源：<a href="https://read.readwise.io/read/01kra7r902jra80q1b44q4r8h8" target="_blank">HN 5/11 摘要</a>
+  </div>
+  <div class="content-text">Meta 为训练 AI 强制追踪员工键鼠与屏幕且不可退出，引发隐私与士气反弹。与 AI 工具治理会议（2026-05-06）直接相关——你们正在讨论 IKEA 内部 AI 工具的治理框架。</div>
+</div>
+
+<!-- ===== 行动清单 ===== -->
+<h2>✅ 行动清单</h2>
+<ul class="action-list">
+  <li>
+    <div>
+      <strong>重新审视 IKEA Skill Hub 写 Skill 的方法论</strong> — 用"Skill = 上下文"原则 review 现有 Skill 写法，识别哪些 Skill 是在"控制流程"而不是"提供上下文"。
+    </div>
+  </li>
+  <li>
+    <div>
+      <strong>为 Vibe Coding Stack / AI Adoption 定义 AX 指标</strong> — 参考 Agent Friendly Score 概念，设计 IKEA 内部工具的 AX 评估维度（0-100），跟踪 Agent 使用量变化。
+    </div>
+  </li>
+  <li>
+    <div>
+      <strong>评估 Arkon 模式用于宝尊 Ontology 落地</strong> — 宝尊调研结果（Jennifer CS 模块 + KK 商品模块）如果结构化成 MCP 可访问的知识库，可大幅降低 AI 替代宝尊运营的实施难度。
+    </div>
+  </li>
+  <li>
+    <div>
+      <strong>更新 Testing Excellence 的 AI 测试方法论</strong> — TDD for AI 是方向性错误的论点需要认真对待，给团队提供替代框架：什么测试策略在 AI 辅助编码中真正有效？
+    </div>
+  </li>
+  <li>
+    <div>
+      <strong>在 1:1 中用均值回归视角校准反馈习惯</strong> — 表扬/批评的效果有相当一部分是均值回归在起作用，不是你的管理行为。这有助于更冷静地看待团队成员的表现波动。
+    </div>
+  </li>
+</ul>
+
+<!-- ===== 低价值附录 ===== -->
+<h2>📎 附录（暂时无关）</h2>
+<details>
+  <summary>展开查看全部低价值内容（5 条）</summary>
+  <div style="margin-top: 1rem;">
+    <div class="signal-card s1">
+      <div class="stars">⭐</div>
+      <h3>梅朗雄：台湾是中国的一部分，不会干涉</h3>
+      <div class="meta">来源：<a href="https://x.com/ji_chunsheng/status/2052874381634773461" target="_blank">@紀春生</a></div>
+      <div class="content-text">法国左翼政客梅朗雄再次宣布参选总统，表示台湾是中国一部分，不干涉。地缘政治信号，当前项目无直接关联。</div>
+    </div>
+    <div class="signal-card s1">
+      <div class="stars">⭐</div>
+      <h3>PlayCanvas — 手机扫描房屋，网页 3D 漫游</h3>
+      <div class="meta">来源：<a href="https://x.com/_FORAB/status/2052589805071134846" target="_blank">@AB Kuai.Dong</a></div>
+      <div class="content-text">开源项目，用 Gaussian Splatting + AI 重建室内场景，可在浏览器直接加载。技术有趣，当前无关联项目。</div>
+    </div>
+    <div class="signal-card s1">
+      <div class="stars">⭐</div>
+      <h3>Chromium C++ 源码级 fingerprint 硬改</h3>
+      <div class="meta">来源：<a href="https://x.com/NFTCPS/status/2052567879779008611" target="_blank">@鸟哥 Memecoin</a></div>
+      <div class="content-text">直接 C++ 修改 fingerprint，Cloudflare Turnstile/reCAPTCHA 全过。安全研究，与当前项目无关。</div>
+    </div>
+    <div class="signal-card s1">
+      <div class="stars">⭐</div>
+      <h3>Ghostty 终端 macOS 侧边栏</h3>
+      <div class="meta">来源：<a href="https://x.com/geekbb/status/2053024170322383039" target="_blank">@Geek</a></div>
+      <div class="content-text">Ghostty 终端的 macOS 侧边栏工具，快速创建/切换终端会话，支持网格/级联/并排布局。开发者工具，次优先级。</div>
+    </div>
+    <div class="signal-card s1">
+      <div class="stars">⭐</div>
+      <h3>如何成为精力旺盛的人 — 90 天反向路径</h3>
+      <div class="meta">来源：<a href="https://read.readwise.io/read/01kr3400b270g3esn7ztajhq4q" target="_blank">Readwise Reader</a></div>
+      <div class="content-text">五个关键齿轮：身体供能、神经唤醒、动机驱力、情绪基线、环境匹配。先修复睡眠和训练，再逐步启动自我驱动力。个人健康内容，可另行阅读。</div>
+    </div>
+  </div>
+</details>
+
+<footer style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.82rem; text-align: center;">
+  Phase 2 深挖 Proposals 正在生成... · <a href="/tmp/readwise-proposals-20260511.html" style="color: var(--accent2);">打开 Proposals →</a>
+</footer>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  });
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    btn.textContent = '☀️';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-05-11</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --surface2: #f5f4f0;
+    --border: #e8e5df;
+    --text: #1a1a1a;
+    --text2: #4a4a4a;
+    --text3: #888880;
+    --accent: #2d5a4a;
+    --accent2: #6366f1;
+    --accent3: #059669;
+    --accent4: #d97706;
+    --accent5: #dc2626;
+  }
+  html.dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+    --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+    --accent4: #f59e0b; --accent5: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体",
+                 -apple-system, BlinkMacSystemFont, serif;
+    line-height: 1.75; padding: 2rem 1rem; max-width: 900px; margin: 0 auto;
+  }
+  header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 1.2rem; }
+  .header-left h1 { font-size: 1.5rem; color: var(--accent); font-weight: 700; }
+  .header-left .sub { color: var(--text3); font-size: 0.88rem; margin-top: 0.3rem; }
+  #theme-toggle { background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 0.4rem 0.7rem; cursor: pointer; font-size: 1.1rem; }
+
+  .axiom-banner { background: linear-gradient(135deg, var(--surface2), var(--surface));
+    border: 1px solid var(--border); border-left: 5px solid var(--accent2);
+    padding: 1rem 1.4rem; border-radius: 8px; margin-bottom: 2rem; }
+  .axiom-banner p { color: var(--text2); font-size: 0.9rem; }
+  .axiom-banner strong { color: var(--accent2); font-size: 1rem; display: block; margin-bottom: 0.3rem; }
+
+  .signal-map { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; font-size: 0.87rem; }
+  .signal-map th { background: var(--surface2); color: var(--text2); font-weight: 600;
+    padding: 0.5rem 0.8rem; text-align: left; border-bottom: 2px solid var(--border); }
+  .signal-map td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .signal-map tr:hover td { background: var(--surface2); }
+  .signal-map a { color: var(--accent2); text-decoration: none; }
+
+  .proposal-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    margin-bottom: 2.5rem; overflow: hidden;
+  }
+  .card-header {
+    padding: 1.4rem 1.6rem 1rem; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+  }
+  .card-header-left { flex: 1; }
+  .card-num { font-size: 0.8rem; color: var(--text3); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+  .card-title { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+  .card-claim { font-size: 0.9rem; color: var(--accent); font-style: italic;
+    background: var(--surface2); padding: 0.5rem 0.8rem; border-radius: 6px;
+    border-left: 3px solid var(--accent); margin-top: 0.5rem; }
+  .card-badge { flex-shrink: 0; }
+  .badge { display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.4rem 0.7rem; font-size: 0.75rem; color: var(--text3); text-align: center; }
+  .badge .badge-num { font-size: 1.2rem; font-weight: 700; color: var(--accent2); }
+
+  .card-body { padding: 1.2rem 1.6rem; }
+  .card-body h3 { font-size: 0.88rem; font-weight: 700; color: var(--text3);
+    text-transform: uppercase; letter-spacing: 0.05em; margin: 1.2rem 0 0.5rem; }
+  .card-body h3:first-child { margin-top: 0; }
+
+  .pain-table, .milestone-table, .metrics-table { width: 100%; border-collapse: collapse;
+    font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .pain-table th, .milestone-table th, .metrics-table th {
+    background: var(--surface2); padding: 0.35rem 0.6rem; text-align: left;
+    border-bottom: 1px solid var(--border); color: var(--text2); font-weight: 600; }
+  .pain-table td, .milestone-table td, .metrics-table td {
+    padding: 0.35rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  .milestone-timeline { display: flex; flex-direction: column; gap: 0.6rem; }
+  .milestone-item { display: flex; gap: 0.8rem; align-items: flex-start; }
+  .milestone-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent3);
+    flex-shrink: 0; margin-top: 0.5rem; }
+  .milestone-content { flex: 1; }
+  .milestone-label { font-size: 0.8rem; color: var(--text3); }
+  .milestone-desc { font-size: 0.88rem; color: var(--text); }
+
+  .actions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.8rem; margin-top: 0.5rem; }
+  .action-item { background: var(--surface2); border-radius: 8px; padding: 0.8rem;
+    border: 1px solid var(--border); }
+  .action-day { font-size: 0.75rem; color: var(--accent3); font-weight: 700;
+    text-transform: uppercase; margin-bottom: 0.3rem; }
+  .action-text { font-size: 0.85rem; color: var(--text2); }
+
+  .challenge-box { background: var(--surface2); border-radius: 8px; padding: 0.9rem 1.1rem;
+    border: 1px solid var(--border); border-left: 3px solid var(--accent5); }
+  .challenge-box p { font-size: 0.85rem; color: var(--text2); margin-bottom: 0.5rem; }
+  .challenge-box p:last-child { margin-bottom: 0; }
+  .challenge-label { font-weight: 700; color: var(--accent5); }
+
+  .roi-box { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .roi-item { background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem;
+    border: 1px solid var(--border); flex: 1; min-width: 140px; }
+  .roi-num { font-size: 1.4rem; font-weight: 700; color: var(--accent3); }
+  .roi-label { font-size: 0.78rem; color: var(--text3); }
+
+  .tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
+    font-size: 0.75rem; margin-right: 0.3rem; }
+  .tag-blue { background: #ede9ff; color: #6366f1; border: 1px solid #c4b5fd; }
+  .tag-green { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
+  .tag-amber { background: #fffbeb; color: #d97706; border: 1px solid #fcd34d; }
+  .tag-red { background: #fef2f2; color: #dc2626; border: 1px solid #fca5a5; }
+  html.dark .tag-blue { background: #1e1a35; color: #a78bfa; border-color: #4c3e8c; }
+  html.dark .tag-green { background: #0a2e20; color: #34d399; border-color: #065f46; }
+  html.dark .tag-amber { background: #2c1e00; color: #f59e0b; border-color: #92400e; }
+  html.dark .tag-red { background: #2c0a0a; color: #f87171; border-color: #991b1b; }
+
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+  h2 { font-size: 1.1rem; color: var(--accent); margin: 2rem 0 1rem;
+    border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+
+  details summary { cursor: pointer; color: var(--text3); font-size: 0.85rem; padding: 0.3rem 0; }
+  details[open] summary { color: var(--accent2); }
+
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border);
+    color: var(--text3); font-size: 0.82rem; text-align: center; }
+  footer a { color: var(--accent2); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>🔬 深挖 Proposals · 5 个可执行方向</h1>
+    <div class="sub">2026-05-11 · 基于 16 highlights + 21 documents · 5 subagents 并行推理</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom-banner">
+  <strong>不可行动的信息 = 噪音</strong>
+  <p>每个 Proposal 必须能回答：解决谁的什么问题、为什么现在、怎么度量成功、如果失败在哪里。以下 5 个方向均经过独立深度推理，并主动识别自身漏洞。</p>
+</div>
+
+<!-- 信号×项目对应表 -->
+<h2>📡 信号 × 项目对应关系</h2>
+<table class="signal-map">
+  <thead>
+    <tr><th>#</th><th>信号</th><th>连接项目</th><th>核心主张</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="https://x.com/shao__meng/status/2053098123074105705" target="_blank">Perplexity Skill 设计规范</a></td>
+      <td><span class="tag tag-blue">Skill Hub</span></td>
+      <td>引入 CCI 评分体系，从"代码仓库"变成"上下文质量工程"</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="https://x.com/arvin17x/status/2053009474244558867" target="_blank">AX Score 40→80，DAU 5×</a></td>
+      <td><span class="tag tag-green">Vibe Stack</span> <span class="tag tag-blue">AI Adoption</span></td>
+      <td>Vibe Stack AX Score 当前约 30，改造至 75+ 是采用率的结构性杠杆</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="https://x.com/QingQ77/status/2052937851906510857" target="_blank">Arkon 企业知识枢纽 via MCP</a></td>
+      <td><span class="tag tag-amber">宝尊研究</span> <span class="tag tag-green">Starter Kit</span></td>
+      <td>用宝尊语料作 Pilot，5/31 前上线 MCP 知识分发原型</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="https://x.com/grapeot/status/2052994988859122125" target="_blank">AI 时代 TDD 是方向性错误</a></td>
+      <td><span class="tag tag-red">Testing Excellence</span></td>
+      <td>用 IAT（意图锚定测试）+ Mutation Testing 替代 TDD</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><a href="https://x.com/berryxia/status/2052884681193144743" target="_blank">Claude Code 团队：HTML > Markdown</a></td>
+      <td><span class="tag tag-blue">Life OS</span> <span class="tag tag-green">Skill 标准</span></td>
+      <td>建立 IKEA HTML 输出设计系统，从个人习惯升级为组织标准</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== PROPOSAL 1 ===== -->
+<div class="proposal-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-num">Proposal 01 · IKEA Skill Hub</div>
+      <div class="card-title">Skill Hub 2.0：从"代码仓库"到"上下文质量工程"</div>
+      <div class="card-claim">衡量一个 Skill 好坏的标准，不是代码有多干净，而是模型拿到它后行为正确率有多高。</div>
+    </div>
+    <div class="card-badge">
+      <div class="badge">
+        <span class="badge-num">~3</span>
+        <span>人·月</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <h3>🎯 核心痛点</h3>
+    <table class="pain-table">
+      <thead><tr><th>#</th><th>痛点</th><th>影响</th></tr></thead>
+      <tbody>
+        <tr><td>P1</td><td>工程师用写代码的本能写 Skill（DRY、单一职责）→ 模型缺上下文</td><td>触发率 / 完成率低</td></tr>
+        <tr><td>P2</td><td>无 Skill 质量评估标准，入库全凭感觉</td><td>质量无法改善</td></tr>
+        <tr><td>P3</td><td>迭代方向错误：归因"代码 bug"而非"措辞和上下文"</td><td>调试成本高</td></tr>
+        <tr><td>P4</td><td>AI 培训缺"写 Skill"模块，但用户最痛点是"怎么让 AI 听懂我"</td><td>培训效果打折</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🗺️ 实施里程碑</h3>
+    <div class="milestone-timeline">
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M0 · 第 1-2 周 · 0.5 人·周</div>
+          <div class="milestone-desc">基线摸底：随机抽 10 个 Skill，人工执行 5 个场景/Skill，建立"触发准确率"基线</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M1 · 第 2-4 周 · 1 人·周</div>
+          <div class="milestone-desc">设计 CCI（Context Completeness Index）评分表：6 维度（触发场景、边界声明、约束冗余、失败行为、输出格式、体积），满分 100，入库门槛 ≥65</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M2 · 第 4-8 周 · 2 人·周</div>
+          <div class="milestone-desc">Skill 作者工作流重塑：写场景卡 → 写触发词+边界 → 写 body → CCI 自评 → 盲测 5 场景 → 入库。配套"Skill 作者心法"一页纸</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M3 · 第 8-14 周 · 4 人·周</div>
+          <div class="milestone-desc">存量 Skill 改造：每周 5 个，6 周清完 CCI &lt;65 的 ~30 个 Skill（改 description+触发，不改功能）</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M4 · 第 10-16 周 · 1 人·周</div>
+          <div class="milestone-desc">纳入 AI Upskill 培训："写给模型看的代码" 2h 模块，15-20 名工程师</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>📊 成功标准</h3>
+    <table class="metrics-table">
+      <thead><tr><th>指标</th><th>当前（待测）</th><th>6 个月目标</th></tr></thead>
+      <tbody>
+        <tr><td>Skill 平均 CCI 分</td><td>预估 45-55</td><td>≥75</td></tr>
+        <tr><td>Skill 触发准确率</td><td>预估 50-60%</td><td>≥85%</td></tr>
+        <tr><td>入库后首月使用率</td><td>未追踪</td><td>≥60%</td></tr>
+        <tr><td>新 Skill 平均迭代轮次</td><td>估算 5-8 轮</td><td>≤3 轮</td></tr>
+      </tbody>
+    </table>
+
+    <h3>💰 ROI</h3>
+    <div class="roi-box">
+      <div class="roi-item"><div class="roi-num">+15</div><div class="roi-label">等效新增有效 Skill（触发率 55%→85%）</div></div>
+      <div class="roi-item"><div class="roi-num">200-500h</div><div class="roi-label">减少 Skill 迭代工时（少 2-5 轮 × 51 个）</div></div>
+      <div class="roi-item"><div class="roi-num">15-20人</div><div class="roi-label">掌握上下文工程思维的工程师</div></div>
+    </div>
+
+    <h3>⚡ 立即行动（本周）</h3>
+    <div class="actions-grid">
+      <div class="action-item"><div class="action-day">Action 1 · 周一-周三</div><div class="action-text">M0 基线：随机抽 10 个 Skill，手动跑 5 个场景，记录触发准确率</div></div>
+      <div class="action-item"><div class="action-day">Action 2 · 周三-周四</div><div class="action-text">起草"Skill 作者心法"一页纸（对照 Perplexity 信号，写 5 条反直觉规则）</div></div>
+      <div class="action-item"><div class="action-day">Action 3 · 周五</div><div class="action-text">在 Skill Hub PR template 增加 CCI 自评 4 个 checkbox（零成本，立即生效）</div></div>
+    </div>
+
+    <h3>🔴 诚实挑战</h3>
+    <div class="challenge-box">
+      <p><span class="challenge-label">⚠ 最大假设未经验证：</span>用户不用 Skill 的原因可能是"不知道存在"或"不信任 AI"，而非上下文质量。建议 M0 同时调查用户不用 Skill 的真实原因，确认瓶颈在质量而非发现性。</p>
+      <p><span class="challenge-label">⚠ Perplexity 经验的平台差异：</span>反信条（DRY 有害、冗余有益）在 Copilot CLI 架构下是否成立需实测。M0 加入 DRY vs 冗余对照实验，用数据验证。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 2 ===== -->
+<div class="proposal-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-num">Proposal 02 · Vibe Stack · AI Adoption</div>
+      <div class="card-title">AX（Agent Experience）优化：Vibe Stack 从 30 分到 75 分</div>
+      <div class="card-claim">Vibe Stack 的 AX Score（估计 ~30/100）是"非开发者 × AI"落地的唯一结构性瓶颈——不是培训问题，是接口可读性问题。</div>
+    </div>
+    <div class="card-badge">
+      <div class="badge">
+        <span class="badge-num">~3</span>
+        <span>人·月</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <h3>🎯 核心洞察</h3>
+    <p style="font-size:0.9rem; color:var(--text2); margin-bottom:0.8rem;">团队调查结论"方法论缺口"被错误归因到人的问题——根因是内部系统对 AI Agent 不可见。<strong style="color:var(--accent5)">AI Upskill Training 和 AX 改造必须并行，不能互相替代。</strong></p>
+    <p style="font-size:0.85rem; color:var(--text3);">核心证据：AX Score 40→80，一天 DAU 5×、MAU +20%。IKEA 内部工具虽非消费品，但 Agent 是工具的"第一用户"，AX 优化是可以先在 Vibe Stack 上自证的。</p>
+
+    <h3>🗺️ 实施里程碑</h3>
+    <div class="milestone-timeline">
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M0 · 第 1-2 周 · Kyle 0.5 天</div>
+          <div class="milestone-desc">AX 基线诊断：用 AX 评分框架（5 维度：AGENTS.md / OpenAPI / 语义错误码 / 幂等性 / 错误边界）对 Vibe Stack 打分，建立基线</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M1 · 第 3-6 周 · AX Sprint</div>
+          <div class="milestone-desc">Vibe Stack AX 25→75+：创建 AGENTS.md（API 能力声明）/ 补充 OpenAPI 描述 / 增加语义错误码（ERR_AUTH_EXPIRED vs 401）/ 接口幂等性改造</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M2 · 第 7-9 周 · 验证 + 扩展</div>
+          <div class="milestone-desc">让 Claude 直接调用 Vibe Stack API 完成真实任务，测量成功率变化；Skill Hub Registry 机器可读化</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M3 · 第 10-14 周 · 推广</div>
+          <div class="milestone-desc">将 AX 评分框架推广到团队 3 个内部工具；发布"IKEA AX 设计指南"</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>📊 成功标准</h3>
+    <table class="metrics-table">
+      <thead><tr><th>指标</th><th>基线</th><th>目标</th></tr></thead>
+      <tbody>
+        <tr><td>Vibe Stack AX Score</td><td>~30/100（待测）</td><td>≥75/100</td></tr>
+        <tr><td>Claude 直接调用 Vibe Stack 成功率</td><td>0%（Agent 读不懂）</td><td>≥80%</td></tr>
+        <tr><td>Skill Hub 机器可读 Registry 覆盖率</td><td>0%</td><td>100%</td></tr>
+        <tr><td>内部工具 AX 评分均值</td><td>未测</td><td>≥60/100</td></tr>
+      </tbody>
+    </table>
+
+    <h3>⚡ 立即行动（本周）</h3>
+    <div class="actions-grid">
+      <div class="action-item"><div class="action-day">Action 1 · 周一</div><div class="action-text">用 AX 5 维度框架自审 Vibe Stack，填写评分表，建立基线数字</div></div>
+      <div class="action-item"><div class="action-day">Action 2 · 周二</div><div class="action-text">为 Vibe Stack 创建 AGENTS.md（API 端点描述、调用示例、错误语义），2 小时可完成</div></div>
+      <div class="action-item"><div class="action-day">Action 3 · 团队会议</div><div class="action-text">抛出"Claude 能直接调用我们的 API 完成任务吗？"让团队感受 AX 差距</div></div>
+    </div>
+
+    <h3>🔴 诚实挑战</h3>
+    <div class="challenge-box">
+      <p><span class="challenge-label">⚠ 信号来源仅一条推文，无控制组：</span>消费品 DAU 5× 的 ROI 链路比企业内部工具短得多。建议先在 Vibe Stack 上自证（Kyle 自己用 Claude 调用），有具体数据再推广。</p>
+      <p><span class="challenge-label">⚠ AX 不能替代 UX：</span>内部工具的主要用户仍是人，过度优化 AX 可能损害人类用户体验。AX 和 HX（Human Experience）需要双向平衡。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 3 ===== -->
+<div class="proposal-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-num">Proposal 03 · 宝尊研究 · AI Starter Kit</div>
+      <div class="card-title">IKEA 内部知识 MCP 化：宝尊 Ontology Pilot 先行</div>
+      <div class="card-claim">用宝尊研究语料作 Pilot，5/31 前上线 MCP 知识分发原型——把"手动粘贴 SOP"变成"AI 按角色自动获取上下文"。</div>
+    </div>
+    <div class="card-badge">
+      <div class="badge">
+        <span class="badge-num">5/31</span>
+        <span>Deadline</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <h3>🎯 关键判断</h3>
+    <table class="pain-table">
+      <thead><tr><th>问题</th><th>答案</th></tr></thead>
+      <tbody>
+        <tr><td>建还是用 Arkon？</td><td><strong>先自建 Pilot，后评估 Arkon</strong>。Arkon 安全审计需 2-4 周，5/31 前来不及</td></tr>
+        <tr><td>首发 Pilot 是谁？</td><td><strong>宝尊 4 位调研员</strong>（Jennifer/KK/酒令/Jason）—— 角色差异大、语料已有、deadline 倒逼</td></tr>
+        <tr><td>与 Starter Kit 关系？</td><td>知识层是 Starter Kit 当前最大短板，填上后工具价值乘数显著提升</td></tr>
+        <tr><td>最大 Kill Signal？</td><td>M4 全团队使用率 &lt;50% → 停止，承认假设错误</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🗺️ 实施里程碑</h3>
+    <div class="milestone-timeline">
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M0 · 本周 · Spike（2天）</div>
+          <div class="milestone-desc">审查 baozun-kg-poc 可 MCP 化工作量；评估 Arkon 安全性（ikea-security 审计）；本地跑通最小 MCP Server（Bun + TypeScript）</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M1 · 第 2-3 周 · 语料结构化</div>
+          <div class="milestone-desc">将宝尊访谈记录（Jennifer CS + KK 商品）结构化为 MCP 可索引的 Markdown；按角色设置访问权限层</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M2 · 第 3-4 周 · MCP Server 上线</div>
+          <div class="milestone-desc">部署到 Vibe Stack（Cloud Function + GHES Pages）；4 位调研员各配 MCP Token，接入 Claude Desktop / Copilot CLI</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M3 · 5/25-5/31 · Pilot 验证</div>
+          <div class="milestone-desc">调研员实际使用 1 周；收集"AI 自动获取上下文 vs 手动粘贴"的时间对比；决定 5/31 交付使用 Pilot 数据</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>⚡ 立即行动（本周）</h3>
+    <div class="actions-grid">
+      <div class="action-item"><div class="action-day">Action 1 · 周一</div><div class="action-text">审查 baozun-kg-poc 语料质量，识别可直接 MCP 化的部分（Jennifer CS 模块优先）</div></div>
+      <div class="action-item"><div class="action-day">Action 2 · 周二</div><div class="action-text">Arkon 安全初评（ikea-security skill）→ 决定自建 or 等审计完再引入</div></div>
+      <div class="action-item"><div class="action-day">Action 3 · 周三</div><div class="action-text">最小 MCP Server Spike（Bun + TypeScript）：本地跑通"Claude 问一个宝尊 CS 规则，MCP 自动返回"</div></div>
+    </div>
+
+    <h3>🔴 诚实挑战</h3>
+    <div class="challenge-box">
+      <p><span class="challenge-label">⚠ 宝尊语料质量参差：</span>访谈记录是非结构化文本，MCP 化前需要相当的清洗工作。5/31 的 deadline 很紧，可能只能覆盖 1-2 个模块（Jennifer CS 优先），其余延后。</p>
+      <p><span class="challenge-label">⚠ 隐性知识难以文档化：</span>宝尊最有价值的知识往往是"边界判断"和"异常处理"，这些很难从访谈中完整提取。MCP 知识库的覆盖度上限受原始语料质量约束。</p>
+      <p><span class="challenge-label">⚠ IKEA 数据安全合规：</span>宝尊运营数据含商业敏感信息，MCP Server 的权限设计必须通过 IKEA 安全审查，不可跳过。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 4 ===== -->
+<div class="proposal-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-num">Proposal 04 · Testing Excellence</div>
+      <div class="card-title">IAT — 意图锚定测试法：替代 AI 时代失效的 TDD</div>
+      <div class="card-claim">AI 不理解测试背后的意图，只优化"让测试变绿"——解法是用「意图规约（Gherkin Spec）」+ Mutation Testing 让 AI 的优化目标与用户真实问题对齐。</div>
+    </div>
+    <div class="card-badge">
+      <div class="badge">
+        <span class="badge-num">~3</span>
+        <span>人·月</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <h3>🎯 四层防线机制</h3>
+    <table class="pain-table">
+      <thead><tr><th>层</th><th>机制</th><th>工具</th></tr></thead>
+      <tbody>
+        <tr><td>Layer 1</td><td>行为规约先行：工程师（非 AI）用 Gherkin 写业务意图</td><td>Cucumber (Java) / godog (Go)</td></tr>
+        <tr><td>Layer 2</td><td>AI 从 Spec 派生代码 + 测试（Prompt 强制引用 Scenario 编号）</td><td>Copilot / Claude</td></tr>
+        <tr><td>Layer 3</td><td>Mutation Testing CI 门禁（初始 60%，升至 75%）</td><td>PIT (Java) / gremlins (Go)</td></tr>
+        <tr><td>Layer 4</td><td>AI 代码 PR 专项 Checklist（意图追溯 + 边界验证）</td><td>GitHub PR Template</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🗺️ 实施里程碑</h3>
+    <div class="milestone-timeline">
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M1 · 第 1-2 周 · 2人×3天</div>
+          <div class="milestone-desc">诊断基线：对 3 个核心服务跑 Mutation Testing，建立 Mutation Score 基线（预估 &lt;40%）；收集 AI 生成测试占比</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M2 · 第 3-5 周 · 1 Workshop + 2人×5天</div>
+          <div class="milestone-desc">Gherkin 规约模板落地（Order/Inventory/Search 各一示例）；半天 Workshop 训练团队"人写意图 → AI 写实现"</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M3 · 第 4-6 周 · 2人×5天</div>
+          <div class="milestone-desc">CI 门禁接入：Java 服务 PIT（阈值 60%），Golang 服务 gremlins</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M4 · 第 5-6 周</div>
+          <div class="milestone-desc">PR template 更新 AI 专项 Checklist；用 M1 低质量测试案例做 Retro</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M5 · 第 10-12 周 · 1人×3天</div>
+          <div class="milestone-desc">对比 M1 基线：Mutation Score、逃逸 Bug 率；输出"CDH AI 测试实践"内部文档</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>📊 成功标准</h3>
+    <table class="metrics-table">
+      <thead><tr><th>指标</th><th>当前（待 M1 测）</th><th>6 个月目标</th></tr></thead>
+      <tbody>
+        <tr><td>核心服务 Mutation Score</td><td>预估 &lt;40%</td><td>≥75%</td></tr>
+        <tr><td>新 Feature 有 Gherkin Spec 的比例</td><td>0%</td><td>≥80%</td></tr>
+        <tr><td>生产 Bug 中"有测试但逃逸"的比例</td><td>无统计</td><td>同比下降 ≥30%</td></tr>
+        <tr><td>工程师 AI 代码可信度自评</td><td>待基线</td><td>≥4.0/5</td></tr>
+      </tbody>
+    </table>
+
+    <h3>⚡ 立即行动（本周）</h3>
+    <div class="actions-grid">
+      <div class="action-item"><div class="action-day">Action 1 · Day 1-2</div><div class="action-text">在 Order 服务跑 PIT，截图结果发全组——现实比任何演讲有说服力</div></div>
+      <div class="action-item"><div class="action-day">Action 2 · Day 3</div><div class="action-text">用一个近期 Bug，写出 Gherkin 规约示例（将成为 M2 Workshop 的锚点案例）</div></div>
+      <div class="action-item"><div class="action-day">Action 3 · Day 4-5</div><div class="action-text">更新 PR Template：加 AI 代码专项 Checklist（4 个 checkbox），本周 merge 生效</div></div>
+    </div>
+
+    <h3>🔴 诚实挑战</h3>
+    <div class="challenge-box">
+      <p><span class="challenge-label">⚠ Gherkin 有学习曲线：</span>如果团队不接受，可降级为"结构化注释 + ADR"，保留意图规约精神，去掉工具门槛。Gherkin 是理想，不是必要条件。</p>
+      <p><span class="challenge-label">⚠ Mutation Score 也可被"针对"：</span>Goodhart's Law 依然有效——团队可针对 Pitest 规则写杀突变体测试。Mutation Score 需与 Spec Review 联合使用，不能单独依赖。</p>
+      <p><span class="challenge-label">⚠ 3 人·月 在交付压力下是否现实：</span>先用 M1 数据（Mutation Score 基线）争取 Q3 OKR 中的"工程质量 Key Result"，有 Management 支持才能落地。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 5 ===== -->
+<div class="proposal-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-num">Proposal 05 · Life OS · Skill 标准</div>
+      <div class="card-title">HTML-First Agent Output Standard：从个人习惯到组织标准</div>
+      <div class="card-claim">Agent 的输出不是文档，是界面——IKEA 的 Skill 标准应从"生产 Markdown"转向"生产 HTML"，以"消费质量"而非"编辑便利"作为第一评价标准。</div>
+    </div>
+    <div class="card-badge">
+      <div class="badge">
+        <span class="badge-num">~2</span>
+        <span>人·月</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <h3>🎯 核心决策规则</h3>
+    <table class="pain-table">
+      <thead><tr><th>输出用途</th><th>格式</th></tr></thead>
+      <tbody>
+        <tr><td>人类最终消费（报告、摘要、briefing、邮件草稿）</td><td><strong>HTML</strong></td></tr>
+        <tr><td>Agent 继续处理的中间产物（Spec、prompt、代码注释）</td><td><strong>Markdown</strong></td></tr>
+        <tr><td>版本控制核心文档（VISION、AGENTS、CLAUDE）</td><td><strong>Markdown（永远）</strong></td></tr>
+        <tr><td>交互 / 可视化需求（dashboard、对比表、日志）</td><td><strong>HTML</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3>🗺️ 实施里程碑</h3>
+    <div class="milestone-timeline">
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M0 · 第 1 周 · 8h</div>
+          <div class="milestone-desc">固化决策规则到 context/info/output-format-decision.md；提取现有 Remarker HTML 模板作为设计系统种子</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M1 · 第 2-3 周 · 24h</div>
+          <div class="milestone-desc">IKEA HTML 输出设计系统 v1：5 个模板（report / comparison / review-loop / oncall / digest），零依赖，IKEA 色板，打印安全</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M2 · 第 3-4 周 · 16h</div>
+          <div class="milestone-desc">改造 5 个最常用 Skill 输出 HTML（readwise-briefing / cdhf-oncall-doctor / dayflow-insight / article-improver / delivery-closure）；Skill SPEC 新增 Output Contract 声明</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-dot"></div>
+        <div class="milestone-content">
+          <div class="milestone-label">M3 · 第 4-5 周 · 12h</div>
+          <div class="milestone-desc">AI Upskill Trainer 集成：增加"消费 Agent 输出"模块；Starter Kit 预装 3 个 HTML 输出 Skill；Remarker 循环作为标准演示场景</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>📊 成功标准</h3>
+    <table class="metrics-table">
+      <thead><tr><th>指标</th><th>基线</th><th>8 周目标</th></tr></thead>
+      <tbody>
+        <tr><td>交付类 Skill HTML 覆盖率</td><td>~20%（Kyle 个人习惯）</td><td>≥80%</td></tr>
+        <tr><td>Remarker 循环转换步骤</td><td>需额外 MD→HTML 转换</td><td>零转换，直出兼容 HTML</td></tr>
+        <tr><td>Upskill 学员首次成功率</td><td>无数据</td><td>≥70% 得到可理解输出</td></tr>
+        <tr><td>Remarker 循环时长</td><td>主观评估</td><td>缩短 ≥30%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>💰 ROI</h3>
+    <div class="roi-box">
+      <div class="roi-item"><div class="roi-num">14h</div><div class="roi-label">8 周节省 Kyle Remarker 循环时间（3次/天 × 5min）</div></div>
+      <div class="roi-item"><div class="roi-num">50h/周</div><div class="roi-label">50 名同事"看不懂 Agent 输出"时间潜在释放</div></div>
+      <div class="roi-item"><div class="roi-num">v1 上限</div><div class="roi-label">5 模板封顶，零依赖，防止工程化过度</div></div>
+    </div>
+
+    <h3>⚡ 立即行动（本周）</h3>
+    <div class="actions-grid">
+      <div class="action-item"><div class="action-day">Action 1 · 今天 · 2h</div><div class="action-text">在 context/info/output-format-decision.md 写下 HTML vs Markdown 决策规则，把隐式判断显式化</div></div>
+      <div class="action-item"><div class="action-day">Action 2 · 本周 · 4h</div><div class="action-text">从历史 journal/tmp 中提取最好用的 HTML 结构，存入 workspace/html-output-ds/report.html，作为设计系统种子</div></div>
+      <div class="action-item"><div class="action-day">Action 3 · 本周末 · 3h</div><div class="action-text">改造 readwise-briefing Skill 为 HTML 输出（Proof of Concept）——如果 Kyle 感觉"明显更好用"，假设成立</div></div>
+    </div>
+
+    <h3>🔴 诚实挑战</h3>
+    <div class="challenge-box">
+      <p><span class="challenge-label">⚠ Agent-to-Agent 场景 HTML 难处理：</span>article-improver 多版本迭代中，中间产物保持 Markdown，最终送 Remarker 审查的输出 HTML。"双格式输出"是部分 Skill 的正确答案，不是妥协。</p>
+      <p><span class="challenge-label">⚠ 设计系统容易过度工程化：</span>硬性约束：v1 永远 5 个模板上限，零依赖，零构建工具。需要第 6 个模板时，修改现有模板而非新增。</p>
+      <p><span class="challenge-label">⚠ 是否只是"包装个人习惯"：</span>系统化的价值在于可传授性——Kyle 的 HTML 习惯无法传给 51 个 Skill 的使用者，也无法传给 AI Upskill 学员。从"个人习惯"到"组织标准"是真实工作量。</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>📡 <a href="/tmp/readwise-briefing-20260511.html">← 返回 Phase 1 简报</a> &nbsp;·&nbsp; 生成时间：2026-05-11 · 5 subagents 并行推理 · Kyle Li @ IKEA China Digital Hub</p>
+  <p style="margin-top: 0.5rem;">公理：不可行动的信息 = 噪音 · 信号→洞察→行动</p>
+</footer>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  });
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    btn.textContent = '☀️';
+  }
+</script>
+</body>
+</html>
