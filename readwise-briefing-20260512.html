@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-05-12</title>
+<style>
+:root {
+  --bg:#faf9f7;--surface:#fff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark {
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi",serif;line-height:1.75;padding:2rem 1rem;max-width:900px;margin:0 auto;transition:background .3s,color .3s}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2rem}
+.hdr-left h1{font-size:1.6rem;font-weight:700}
+.hdr-left .sub{color:var(--text3);font-size:0.88rem;margin-top:0.2rem}
+.axiom{display:inline-block;background:var(--surface2);border:1px solid var(--border);color:var(--text3);padding:0.2rem 0.8rem;border-radius:20px;font-size:0.8rem;margin-top:0.4rem}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.7rem;cursor:pointer;font-size:1.1rem;color:var(--text)}
+
+.stats-row{display:flex;gap:0.8rem;flex-wrap:wrap;margin-bottom:2rem}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:0.7rem 1.2rem;text-align:center;flex:1;min-width:100px}
+.stat-n{font-size:1.5rem;font-weight:700;color:var(--accent2)}
+.stat-l{font-size:0.78rem;color:var(--text3)}
+
+.section-title{font-size:1rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin:2rem 0 0.8rem;border-bottom:1px solid var(--border);padding-bottom:0.4rem}
+
+/* Overview table */
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-bottom:1.5rem}
+th{background:var(--surface2);color:var(--text2);padding:0.5rem 0.8rem;text-align:left;font-weight:600;border-bottom:1px solid var(--border)}
+td{padding:0.5rem 0.8rem;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+
+/* Signal cards */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem;margin-bottom:1rem;border-left:4px solid var(--accent)}
+.card.high{border-left-color:var(--accent5)}
+.card.mid{border-left-color:var(--accent4)}
+.card.low{border-left-color:var(--border)}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:0.8rem;margin-bottom:0.6rem}
+.card-title{font-weight:600;font-size:0.95rem;flex:1}
+.stars{font-size:0.9rem;flex-shrink:0}
+.card-meta{font-size:0.78rem;color:var(--text3);margin-bottom:0.5rem}
+.card-text{font-size:0.87rem;color:var(--text2);margin-bottom:0.6rem}
+.card-why{background:var(--surface2);border-radius:6px;padding:0.5rem 0.8rem;font-size:0.82rem;color:var(--accent);border-left:3px solid var(--accent)}
+.card-why::before{content:"💡 为什么相关："}
+.tag{display:inline-block;background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:0.1rem 0.5rem;font-size:0.75rem;color:var(--text3);margin-right:0.3rem;margin-top:0.3rem}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Action list */
+.action-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.action-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.7rem 1rem;font-size:0.88rem;display:flex;gap:0.8rem;align-items:flex-start}
+.action-icon{font-size:1.1rem;flex-shrink:0}
+.action-body strong{color:var(--text);display:block;margin-bottom:0.2rem}
+.action-body span{color:var(--text2);font-size:0.82rem}
+
+/* Collapsible */
+details summary{cursor:pointer;color:var(--text3);font-size:0.88rem;padding:0.6rem 0;list-style:none}
+details summary::before{content:"▶ ";font-size:0.75rem}
+details[open] summary::before{content:"▼ "}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-left">
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="sub">2026-05-12 · 增量自 2026-05-11 03:05 UTC</div>
+    <div class="axiom">不可行动的信息 = 噪音</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<!-- 统计 -->
+<div class="stats-row">
+  <div class="stat"><div class="stat-n">18</div><div class="stat-l">新内容总数</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">⭐×5 立即行动</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">⭐×3 备用收藏</div></div>
+  <div class="stat"><div class="stat-n">5</div><div class="stat-l">深挖 Proposals</div></div>
+</div>
+
+<!-- 信号概览表 -->
+<div class="section-title">📊 5 大深挖方向 → Proposals</div>
+<table>
+  <tr><th>#</th><th>信号</th><th>连接项目</th><th>核心假设</th></tr>
+  <tr><td>A</td><td>代码生成速度↑但维护成本未↓</td><td>Engineering Baseline / Testing</td><td>IAT 是 IKEA 的技术债护栏</td></tr>
+  <tr><td>B</td><td>李继刚：3h框架+0.5h写+5min生成</td><td>AI Upskill Trainer</td><td>时间分配逆转 = 最有力的AI工作流证明</td></tr>
+  <tr><td>C</td><td>Claude 一人营销团队逆向工程</td><td>AI Upskill Trainer / AI Adoption</td><td>逆向工程 Demo = 可复制的培训方法论</td></tr>
+  <tr><td>D</td><td>Local AI needs to be the norm</td><td>Vibe Stack / AI Adoption</td><td>数据合规倒逼 on-premise 架构成标配</td></tr>
+  <tr><td>E</td><td>AI 适合产出功能非架构</td><td>Engineering Baseline</td><td>IKEA 需要"人守架构·AI守实现"的工程规范</td></tr>
+</table>
+
+<!-- 高价值内容 -->
+<div class="section-title">⭐⭐⭐⭐⭐ 立即行动</div>
+
+<div class="card high">
+  <div class="card-header">
+    <div class="card-title">HN 每日：代码生成提速若未同步降低维护成本将侵蚀长期生产力</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="card-meta">来源：HackerNews 2026-05-12 Top Stories (RSS) · <a href="https://read.readwise.io/read/01krcs1sbta88j1p6bxbz6kn19" target="_blank">原文</a></div>
+  <div class="card-text">核心论断：AI 代码生成让功能产出加速，但如果不同步降低维护成本（测试覆盖、依赖升级、重构），实际是在制造新的技术债。建议让 AI 聚焦减负维护（依赖升级、测试生成）而非堆砌新功能。附加信号：AI 适合产出功能而非架构，否则易产生"神对象"与耦合；人需主导演进不变量、模块化与定期重构。</div>
+  <div class="card-why">与 Engineering Baseline + Testing Excellence 直接相关。Kyle 正在推动 IAT（Intent-Anchored Testing）方案，此信号为其提供了"为何现在"的外部验证：代码生成速度提升已经发生，IKEA 需要测试作为护栏，否则技术债将以新形式累积。</div>
+  <span class="tag">Engineering Baseline</span><span class="tag">Testing Excellence</span><span class="tag">AI Adoption</span>
+</div>
+
+<div class="card high">
+  <div class="card-header">
+    <div class="card-title">HN 每日：本地 AI 应成为常态（Local AI needs to be the norm）</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="card-meta">来源：HackerNews 2026-05-12 Top Stories (RSS) · <a href="https://read.readwise.io/read/01krcs1sbta88j1p6bxbz6kn19" target="_blank">原文</a></div>
+  <div class="card-text">倡导本地优先 AI 以保护隐私和降低延迟，必要时再混合云端。受限于本地硬件内存/算力与成本，云端具规模化优势——但文章指出："先本地后混合"是更正确的架构决策方向。同期信号：硬件认证被银行/政府当成准入门槛，实质限制第三方系统，谷歌/苹果垄断强化。</div>
+  <div class="card-why">与 Vibe Stack 架构决策 + AI Adoption Strategy 直接相关。IKEA 的数据合规要求（宝尊数据不出境、内部文档敏感性）正是"本地优先"的天然驱动力。Arkon（昨天刚跑起来的企业知识 hub）恰好是本地部署路线——此信号验证了方向正确性。</div>
+  <span class="tag">Vibe Stack</span><span class="tag">AI Adoption</span><span class="tag">Arkon</span>
+</div>
+
+<div class="card high">
+  <div class="card-header">
+    <div class="card-title">李继刚：对外分享时间分配的逆转——3h AI框架 + 0.5h写稿 + 5min生成</div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+  </div>
+  <div class="card-meta">来源：@lijigang on Twitter · <a href="https://x.com/lijigang/status/2053774964302721355" target="_blank">原文</a></div>
+  <div class="card-text">现在如果要对外做分享，准备材料的时间分配：1. 与 AI 讨论我的思考框架：三小时；2. 撰写 orgmode 文稿：半小时；3. 调用 /ljg-present 生成HTML：五分钟。核心洞察：AI时代的高质量输出，时间花在"思考框架"而非"整理表达"。</div>
+  <div class="card-why">与 AI Upskill Trainer 直接相关。CDH 讲师团最大痛点是"怎么让AI听懂我"——这个案例完美展示了答案：不是 prompt 技巧，而是先花时间与AI讨论清楚思维框架。可作为 L1.1 课程的核心案例。</div>
+  <span class="tag">AI Upskill Trainer</span><span class="tag">Life OS</span><span class="tag">Human Connection</span>
+</div>
+
+<!-- 中等价值 -->
+<div class="section-title">⭐⭐⭐ 备用收藏</div>
+
+<div class="card mid">
+  <div class="card-header">
+    <div class="card-title">Claude 一人营销团队：逆向工程 AI 视频制作工作流</div>
+    <div class="stars">⭐⭐⭐</div>
+  </div>
+  <div class="card-meta">来源：@0xOliviaPp on Twitter · <a href="https://x.com/0xOliviaPp/status/2053074604365910018" target="_blank">原文</a></div>
+  <div class="card-text">作者逆向工程了 Claude 一人营销团队 demo 的视频制作工作流：① 投喂 Repo → ② 定制脚本 → ③ 放权生成。10分钟 AI 全自动完成，无需参与规划任何结构、文案、设计。</div>
+  <div class="card-why">AI Upskill Trainer 培训内容参考。"逆向工程公开 Demo"是低门槛高价值的培训方法——让学员先看结果，再拆解过程，降低认知门槛。可用于 L2 课程设计。</div>
+  <span class="tag">AI Upskill Trainer</span><span class="tag">AI Adoption</span>
+</div>
+
+<div class="card mid">
+  <div class="card-header">
+    <div class="card-title">fireworks-tech-graph：Claude Code Skill，7种画风生产级技术图</div>
+    <div class="stars">⭐⭐⭐</div>
+  </div>
+  <div class="card-meta">来源：@VincentLogic on Twitter · <a href="https://x.com/VincentLogic/status/2053705949848944970" target="_blank">原文</a></div>
+  <div class="card-text">一行命令 `npx skills add yizhiyanhua-ai/fireworks-tech-graph` 安装到 Claude Code。支持14种UML图、7种画风（深色终端风、工程蓝图风、毛玻璃风、OpenAI/Claude官方配色），输出SVG/PNG。</div>
+  <div class="card-why">IKEA Skill Hub 候选 skill。技术图生成是 CDH 工程师高频需求（汇报PPT/技术文档），这个 skill 直接解决。值得在 Skill Hub 中收录并推荐，安全审计后可加入 CDH skills。</div>
+  <span class="tag">IKEA Skill Hub</span><span class="tag">AI Adoption</span>
+</div>
+
+<div class="card mid">
+  <div class="card-header">
+    <div class="card-title">鸭哥：.env 不安全 — 威胁模型决定解决方案，而非通用建议</div>
+    <div class="stars">⭐⭐⭐</div>
+  </div>
+  <div class="card-meta">来源：@grapeot on Twitter · <a href="https://x.com/grapeot/status/2053915051283927191" target="_blank">原文</a></div>
+  <div class="card-text">核心论点：.env 是否安全取决于威胁模型——本地开发（笔记本前敲代码）vs 后台服务（无人值守运行）两个场景的威胁模型几乎没有交集，应该用不同的方案。</div>
+  <div class="card-why">Vibe Stack + Engineering Baseline 安全实践相关。Kyle 的 Vibe Stack 用 Google Sign-In + Cloud Function，secrets 管理是实际问题。此框架（先问威胁模型）可直接用于 CDH 工程师的安全培训内容。</div>
+  <span class="tag">Engineering Baseline</span><span class="tag">Vibe Stack</span>
+</div>
+
+<!-- 行动清单 -->
+<div class="section-title">✅ 行动清单（从高价值信号提炼）</div>
+<ul class="action-list">
+  <li class="action-item">
+    <span class="action-icon">🔥</span>
+    <div class="action-body">
+      <strong>将"代码生成≠生产力"信号加入 IAT Proposal 的 Why Now 部分</strong>
+      <span>HN 外部验证：IKEA 正在加速 AI 编码，测试护栏缺失风险真实存在 → 强化 Testing Excellence roadmap 的紧迫性</span>
+    </div>
+  </li>
+  <li class="action-item">
+    <span class="action-icon">🎓</span>
+    <div class="action-body">
+      <strong>将李继刚时间分配案例设计为 AI Upskill Trainer L1.1 的核心开场案例</strong>
+      <span>"3h思框架 + 0.5h写 + 5min生成" 直接回答了 CDH 同事最高频问题 "怎么让AI听懂我"</span>
+    </div>
+  </li>
+  <li class="action-item">
+    <span class="action-icon">🏗️</span>
+    <div class="action-body">
+      <strong>在 Arkon + Vibe Stack 架构文档中加入"本地优先"设计原则</strong>
+      <span>HN 信号 + IKEA 数据合规需求双重驱动，做明确的架构决策记录</span>
+    </div>
+  </li>
+  <li class="action-item">
+    <span class="action-icon">🔌</span>
+    <div class="action-body">
+      <strong>评估 fireworks-tech-graph 加入 IKEA Skill Hub</strong>
+      <span>先做 ikea-security 审计，通过后加入 CDH skills 推荐列表</span>
+    </div>
+  </li>
+</ul>
+
+<!-- 低价值附录 -->
+<details style="margin-top:2rem">
+  <summary>📎 低价值内容附录（暂时无关，6 条）</summary>
+  <div style="padding:0.8rem 0;font-size:0.85rem;color:var(--text2)">
+    <p>• RevPDF 离线PDF编辑器 — 工具推荐，暂无相关意图</p>
+    <p>• 人到中年财富清单 — 无关</p>
+    <p>• 预制菜识别方法（问服务员能否不放盐）— 无关</p>
+    <p>• 李继刚「给这个世界的一份答卷」链接 — 内容不可读</p>
+    <p>• Unnamed weixin article — 无摘要，无法评估</p>
+    <p>• 供应链攻击虚构案例（HN）— 与当前项目无直接连接</p>
+  </div>
+</details>
+
+<footer style="margin-top:3rem;text-align:center;color:var(--text3);font-size:0.8rem;border-top:1px solid var(--border);padding-top:1rem">
+  Readwise 情报简报 · 2026-05-12 · 增量 18 条 · 5 个 Proposals 正在生成…
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>

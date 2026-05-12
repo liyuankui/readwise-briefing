@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-05-12</title>
+<style>
+:root {
+  --bg:#faf9f7;--surface:#fff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+  --p1:#6366f1;--p2:#059669;--p3:#d97706;--p4:#0891b2;--p5:#7c3aed;
+}
+html.dark {
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+  --p1:#818cf8;--p2:#34d399;--p3:#fbbf24;--p4:#22d3ee;--p5:#a78bfa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi",serif;line-height:1.75;padding:2rem 1rem;max-width:960px;margin:0 auto;transition:background .3s,color .3s}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2.5rem}
+.hdr-left h1{font-size:1.6rem;font-weight:700}
+.hdr-left .sub{color:var(--text3);font-size:0.88rem;margin-top:0.2rem}
+.axiom-banner{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;font-size:0.85rem;color:var(--text3);margin-top:0.5rem;display:inline-block}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.7rem;cursor:pointer;font-size:1.1rem;color:var(--text)}
+
+/* Signal × Project matrix */
+table{width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem}
+th{background:var(--surface2);padding:0.5rem 0.8rem;text-align:left;font-weight:600;border-bottom:2px solid var(--border);color:var(--text2)}
+td{padding:0.5rem 0.8rem;border-bottom:1px solid var(--border);vertical-align:top}
+.badge{display:inline-block;border-radius:4px;padding:0.1rem 0.5rem;font-size:0.75rem;font-weight:600;color:#fff}
+.b1{background:var(--p1)}.b2{background:var(--p2)}.b3{background:var(--p3)}.b4{background:var(--p4)}.b5{background:var(--p5)}
+
+/* Proposal cards */
+.proposal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem;margin-bottom:2.5rem;border-top:4px solid}
+.p1-card{border-top-color:var(--p1)}
+.p2-card{border-top-color:var(--p2)}
+.p3-card{border-top-color:var(--p3)}
+.p4-card{border-top-color:var(--p4)}
+.p5-card{border-top-color:var(--p5)}
+
+.prop-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.2rem}
+.prop-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;color:#fff;flex-shrink:0}
+.n1{background:var(--p1)}.n2{background:var(--p2)}.n3{background:var(--p3)}.n4{background:var(--p4)}.n5{background:var(--p5)}
+.prop-title-block{flex:1}
+.prop-title{font-size:1.1rem;font-weight:700;margin-bottom:0.2rem}
+.prop-sub{font-size:0.82rem;color:var(--text3)}
+.prop-claim{background:var(--surface2);border-radius:8px;padding:0.7rem 1rem;margin-bottom:1.2rem;font-size:0.9rem;border-left:3px solid;font-style:italic}
+.c1{border-left-color:var(--p1)}.c2{border-left-color:var(--p2)}.c3{border-left-color:var(--p3)}.c4{border-left-color:var(--p4)}.c5{border-left-color:var(--p5)}
+.prop-claim::before{content:"💬 核心主张：";font-style:normal;font-weight:600;opacity:0.7}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+.info-box{background:var(--surface2);border-radius:8px;padding:0.8rem 1rem}
+.info-box h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);margin-bottom:0.5rem}
+.info-box ul{list-style:none;font-size:0.83rem;color:var(--text2)}
+.info-box ul li{padding:0.15rem 0}
+.info-box ul li::before{content:"→ ";color:var(--text3)}
+
+.milestones{margin-bottom:1rem}
+.milestones h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);margin-bottom:0.6rem}
+.ml-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.3rem}
+.ml-item{background:var(--surface2);border-radius:6px;padding:0.3rem 0.7rem;font-size:0.8rem;border:1px solid var(--border)}
+.ml-item strong{display:block;font-size:0.75rem;color:var(--text3)}
+
+.roi-box{background:linear-gradient(135deg,var(--surface2) 0%,var(--surface) 100%);border:1px solid var(--border);border-radius:8px;padding:0.8rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
+.roi-num{font-size:1.6rem;font-weight:700}
+.roi-desc{font-size:0.82rem;color:var(--text2)}
+
+.actions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-bottom:1rem}
+@media(max-width:640px){.actions-grid{grid-template-columns:1fr}}
+.action-card{background:var(--surface2);border-radius:8px;padding:0.7rem;font-size:0.82rem;border:1px solid var(--border)}
+.action-card .step{font-size:0.72rem;font-weight:700;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem}
+.action-card .desc{color:var(--text2);font-size:0.8rem;margin-top:0.2rem}
+
+.challenges{background:#fff8f0;border:1px solid #fed7aa;border-radius:8px;padding:0.8rem 1rem;font-size:0.83rem}
+html.dark .challenges{background:#1c1410;border-color:#7c3020}
+.challenges h4{color:var(--accent5);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:0.4rem}
+.challenges li{color:var(--text2);margin-left:1rem;margin-bottom:0.2rem}
+
+.section-title{font-size:0.95rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin:2rem 0 1rem;border-bottom:1px solid var(--border);padding-bottom:0.4rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-left">
+    <h1>🚀 Readwise Proposals</h1>
+    <div class="sub">2026-05-12 · 5 个可执行提案</div>
+    <div class="axiom-banner">☯ 不可行动的信息 = 噪音 · 每条提案必须能回答"谁来做、本周能做什么"</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<!-- Signal × Project matrix -->
+<div class="section-title">📡 信号 × 项目对应关系</div>
+<table>
+  <tr><th>信号</th><th>Proposal</th><th>连接项目</th><th>本周行动</th></tr>
+  <tr><td>HN: 代码生成≠生产力提升</td><td><span class="badge b1">A</span> IAT 护栏</td><td>Engineering Baseline / Testing</td><td>跑一次 PIT mutation test</td></tr>
+  <tr><td>李继刚: 3h框架+0.5h写+5min生成</td><td><span class="badge b2">B</span> Upskill L1.1</td><td>AI Upskill Trainer</td><td>确认IT内网AI白名单</td></tr>
+  <tr><td>Claude一人营销团队逆向工程</td><td><span class="badge b3">C</span> Demo解构法</td><td>AI Upskill Trainer</td><td>招募2名非技术员工验证</td></tr>
+  <tr><td>HN: 本地AI应成为常态</td><td><span class="badge b4">D</span> Arkon本地AI</td><td>Vibe Stack / 宝尊Ontology</td><td>Arkon接入Ollama，curl验证</td></tr>
+  <tr><td>HN: AI产出功能非架构</td><td><span class="badge b5">E</span> 人守架构规范</td><td>Engineering Baseline</td><td>跑SonarQube扫描神对象</td></tr>
+</table>
+
+<!-- ===== PROPOSAL A ===== -->
+<div class="proposal p1-card">
+  <div class="prop-header">
+    <div class="prop-num n1">A</div>
+    <div class="prop-title-block">
+      <div class="prop-title">AI 编码时代的测试护栏：IAT + 架构守卫规范</div>
+      <div class="prop-sub">Engineering Baseline · Testing Excellence · Owner: Kyle Li</div>
+    </div>
+  </div>
+  <div class="prop-claim c1">AI 加速了功能产出，但不知道什么不该改——测试护栏是唯一能在不降速的前提下阻止技术债累积的手段。</div>
+
+  <div class="milestones">
+    <h4>⏱ 里程碑（16周）</h4>
+    <div class="ml-row">
+      <div class="ml-item"><strong>M0 本周</strong>PIT扫描基线 + ArchUnit神对象分布</div>
+      <div class="ml-item"><strong>M1 W2-4</strong>IAT试点：1个服务，Gherkin+mutation CI gate</div>
+      <div class="ml-item"><strong>M2 W5-8</strong>架构守卫：ArchUnit规则 + PR Checklist</div>
+      <div class="ml-item"><strong>M3 W9-12</strong>供应链：依赖签名验证 + Dependabot</div>
+      <div class="ml-item"><strong>M4 W13-16</strong>文化固化：团队 Retro + 规范文档</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-box">
+      <h4>✅ 成功标准</h4>
+      <ul>
+        <li>Mutation score ≥ 75%（PIT/gremlins）</li>
+        <li>AI 生成代码测试附带率 ≥ 95%</li>
+        <li>新增架构违规 = 0（ArchUnit CI 拦截）</li>
+        <li>Tech Debt ratio 不增长（SonarQube）</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>⚠️ 最大风险</h4>
+      <ul>
+        <li>PIT 在复杂 Spring 服务上可能运行超时</li>
+        <li>Gherkin 文化成本：谁写 Spec？</li>
+        <li>ArchUnit 规则 Owner：规则腐烂问题</li>
+        <li>AI 生成的测试可能只测 happy path</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="roi-box">
+    <div class="roi-num" style="color:var(--p1)">~1人·月/季</div>
+    <div class="roi-desc">节省维护税（估算：3名工程师每季度各节省2周维护时间）<br>+ 供应链攻击风险期望值降低 ~¥100,000/年</div>
+  </div>
+
+  <div class="actions-grid">
+    <div class="action-card">
+      <div class="step">立即行动 1</div>
+      <strong>跑一次 PIT</strong>
+      <div class="desc">选 OrderService，`mvn org.pitest:pitest-maven:mutationCoverage`，拿到基线数字</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 2</div>
+      <strong>ArchUnit 神对象扫描</strong>
+      <div class="desc">加一个测试：`classes().should().notHaveSimpleName().containing("Service")` + 方法数限制</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 3</div>
+      <strong>例会讲供应链案例</strong>
+      <div class="desc">用 HN 虚构攻击案例讲"为什么 AI 时代供应链风险更高"，种下认知</div>
+    </div>
+  </div>
+
+  <div class="challenges">
+    <h4>🔴 诚实挑战（主动找漏洞）</h4>
+    <ul>
+      <li>PIT 在 K8s 微服务中的可行性未验证——复杂 Spring 上下文可能让 mutation 运行时间爆炸</li>
+      <li>Gherkin Spec 谁来写？工程师写 BDD 的文化成本可能比 mutation testing 本身更高</li>
+      <li>ArchUnit 规则需要人维护：如果 Owner 离职，规则会慢慢腐烂成摆设</li>
+      <li>AI 测试质量问题：AI 生成的测试覆盖率高但可能只覆盖 happy path，mutation score 仍然低</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL B ===== -->
+<div class="proposal p2-card">
+  <div class="prop-header">
+    <div class="prop-num n2">B</div>
+    <div class="prop-title-block">
+      <div class="prop-title">时间分配逆转：AI Upskill Trainer L1.1 核心课程设计</div>
+      <div class="prop-sub">AI Upskill Trainer · Owner: Kyle Li</div>
+    </div>
+  </div>
+  <div class="prop-claim c2">AI 让思考更值钱——CDH 同事卡壳不是因为不会 Prompt，而是自己还没想清楚，L1.1 要解决的是"先想框架"的习惯养成。</div>
+
+  <div class="milestones">
+    <h4>⏱ 课程模块（FAR 循环，90分钟4段）</h4>
+    <div class="ml-row">
+      <div class="ml-item"><strong>段1 触发 10min</strong>展示李继刚时间分配，问"你准备一个分享要多久"</div>
+      <div class="ml-item"><strong>段2 体验 30min</strong>强制关闭AI，手写一页框架；再开AI，对比差距</div>
+      <div class="ml-item"><strong>段3 精炼 35min</strong>带着框架与AI对话3轮，感受"AI听懂了"的时刻</div>
+      <div class="ml-item"><strong>段4 复盘 15min</strong>每人说"我的框架里什么是AI不知道的"</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-box">
+      <h4>✅ 成功标准</h4>
+      <ul>
+        <li>课后 72h：≥70% 学员能描述一个具体场景</li>
+        <li>2周后：≥50% 学员在真实工作中复用过一次</li>
+        <li>讲师团：能独立运营这门课（可复制）</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>⚠️ 最大风险</h4>
+      <ul>
+        <li>IT白名单：内网能否访问Claude/Copilot？本周确认</li>
+        <li>FAR循环本身是否可教：3h思考背后是积累，90min能教会吗？</li>
+        <li>讲师是否能hold住开放式对话场景</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="roi-box">
+    <div class="roi-num" style="color:var(--p2)">-60%</div>
+    <div class="roi-desc">AI 工具初始挫败率目标降低 60%（从"AI听不懂我"变成"我先想清楚再问AI"）<br>讲师团可复制系数：1名讲师可教 20人/轮</div>
+  </div>
+
+  <div class="actions-grid">
+    <div class="action-card">
+      <div class="step">立即行动 1</div>
+      <strong>设计 FAR 循环练习</strong>
+      <div class="desc">写出段2的「强制关闭AI」练习题（用真实 CDH 工作场景，非虚构案例）</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 2</div>
+      <strong>招募 3 名试跑学员</strong>
+      <div class="desc">来自不同部门（运营/产品/工程），下周内完成 90min 试跑，收集反馈</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 3 🔥</div>
+      <strong>确认 IT 白名单（最紧急）</strong>
+      <div class="desc">课程依赖 Claude/Copilot 可在内网访问，需 IT 本周确认，否则课程无法运行</div>
+    </div>
+  </div>
+
+  <div class="challenges">
+    <h4>🔴 诚实挑战（主动找漏洞）</h4>
+    <ul>
+      <li>FAR 循环核心前提未验证：@lijigang 的「3小时」背后是多年积累，90min 内能否让新手体验到"差距"？</li>
+      <li>IT 白名单风险：内网无法访问 Claude 会让整门课失效，需有备用方案（本地 Ollama？）</li>
+      <li>讲师技能要求：FAR 循环需要讲师能引导开放式对话，招募门槛比预期高</li>
+      <li>测量偏差：2周后跟踪依赖学员自报，可能存在社会期望偏差</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL C ===== -->
+<div class="proposal p3-card">
+  <div class="prop-header">
+    <div class="prop-num n3">C</div>
+    <div class="prop-title-block">
+      <div class="prop-title">逆向工程 Demo 作为 AI 培训方法论</div>
+      <div class="prop-sub">AI Upskill Trainer · AI Adoption Strategy · Owner: Kyle Li</div>
+    </div>
+  </div>
+  <div class="prop-claim c3">动机触发 > 知识传递——先让学员惊叹，再教工作流；倒转学习顺序能绕过"为什么要学AI"的抗拒期。</div>
+
+  <div class="milestones">
+    <h4>⏱ Demo 解构法（90分钟5段）</h4>
+    <div class="ml-row">
+      <div class="ml-item"><strong>段1 惊叹 10min</strong>播放 Demo，不解释，让学员猜"这是怎么做到的"</div>
+      <div class="ml-item"><strong>段2 解构 20min</strong>用解构画布拆工作流：输入→处理→输出→隐藏步骤</div>
+      <div class="ml-item"><strong>段3 复现 40min</strong>学员用自己的材料复现，允许失败，记录卡点</div>
+      <div class="ml-item"><strong>段4 迁移 15min</strong>每人说"我的工作里哪个场景可以用类似流程"</div>
+      <div class="ml-item"><strong>段5 行动 5min</strong>写下本周要尝试的一件事</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-box">
+      <h4>🎯 5个推荐 Demo 素材</h4>
+      <ul>
+        <li>Claude 一人营销团队视频（已验证有惊叹效果）</li>
+        <li>NotebookLM 多文档问答（中文支持好）</li>
+        <li>Cursor 重构遗留代码（工程师群体）</li>
+        <li>AI 竞品分析报告生成（产品/运营）</li>
+        <li>Arkon 知识库问答（IKEA 内部场景）</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>⚠️ 最大风险</h4>
+      <ul>
+        <li>🔴 数据安全：学员可能将内部数据投喂公开AI</li>
+        <li>Demo 陈旧：AI 工具迭代快，素材需持续更新</li>
+        <li>复现失败率高：降低信心而非提升</li>
+        <li>惊叹≠学习：触发动机后需结构化跟进</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="roi-box">
+    <div class="roi-num" style="color:var(--p3)">≥60%</div>
+    <div class="roi-desc">复现完成率目标（vs 传统讲授式培训 ~20%）<br>2周持续使用率目标 ≥50%（vs 传统培训 ~10%）</div>
+  </div>
+
+  <div class="actions-grid">
+    <div class="action-card">
+      <div class="step">立即行动 1（Day1-2）</div>
+      <strong>内部验证惊叹触发</strong>
+      <div class="desc">找2名 CDH 非技术员工看5个 Demo，记录哪个触发真实惊叹（不是礼貌反应）</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 2（Day3-4）</div>
+      <strong>制作解构画布模板</strong>
+      <div class="desc">设计"输入/处理/输出/隐藏步骤"四象限画布，A4可打印版</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 3（Day5）</div>
+      <strong>嵌入 L1.1 课程</strong>
+      <div class="desc">将 Demo 解构作为 L1.1 第一课（而非 Prompt 技巧），更新课程大纲</div>
+    </div>
+  </div>
+
+  <div class="challenges">
+    <h4>🔴 诚实挑战（主动找漏洞）</h4>
+    <ul>
+      <li>数据安全风险极高：学员在复现练习中极可能将真实工作数据投喂公开 AI，需强制使用模拟数据</li>
+      <li>Demo 选材的文化适配问题：Claude 营销团队 Demo 对 IKEA 运营员工是否有共鸣？需本地化</li>
+      <li>惊叹是一次性的：同一批学员看第二个 Demo 时惊叹阈值已提高，素材库需持续更新</li>
+      <li>复现阶段可能强化挫败感：40min 内复现失败会让学员觉得"AI 太难用"而非"我需要更多练习"</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL D ===== -->
+<div class="proposal p4-card">
+  <div class="prop-header">
+    <div class="prop-num n4">D</div>
+    <div class="prop-title-block">
+      <div class="prop-title">IKEA CDH 本地 AI 优先：Arkon + Ollama 知识中枢落地方案</div>
+      <div class="prop-sub">Vibe Stack · 宝尊 Ontology (Deadline 5/31) · Owner: Kyle Li</div>
+    </div>
+  </div>
+  <div class="prop-claim c4">合规不是阻碍，而是护城河——IKEA 数据合规要求天然倒逼本地优先架构，Arkon + Ollama 是宝尊知识 Pilot 的最短路径，也是 CDH 内部 AI 知识管理的模板。</div>
+
+  <div class="milestones">
+    <h4>⏱ 里程碑（5/31 为关键节点）</h4>
+    <div class="ml-row">
+      <div class="ml-item"><strong>M0 本周（5/12-5/16）</strong>Arkon 接入 Ollama，上传5份宝尊文档，验证 MCP 工具调用</div>
+      <div class="ml-item"><strong>M1 5/16 Go/No-Go</strong>评估 Arkon 质量是否满足需求，决定是否继续 or 切换方案</div>
+      <div class="ml-item"><strong>M2 5/17-5/23</strong>Jennifer + KK 访谈记录导入，完善 CS 和商品域节点</div>
+      <div class="ml-item"><strong>M3 5/24-5/28</strong>4名调研员接入 Claude Desktop（MCP Token），开始 Pilot 使用</div>
+      <div class="ml-item"><strong>M4 5/29-5/31</strong>对比评估：Arkon-增强 vs 纯 Claude 回答质量，产出报告</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-box">
+      <h4>✅ 成功标准（5/31 Pilot）</h4>
+      <ul>
+        <li>知识检索准确率 ≥80%（5道标准题）</li>
+        <li>网络抓包验证零数据出境</li>
+        <li>4名调研员实际使用 ≥3次/人</li>
+        <li>跨域问题回答质量 vs 纯Claude 提升可感知</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>⚠️ 关键风险</h4>
+      <ul>
+        <li>Arkon 是开源 PoC，生产级稳定性未验证</li>
+        <li>本地模型（Ollama Qwen 9B）质量 vs Claude 差距大</li>
+        <li>MRP 知识编译管线耗时：大批量文档可能要数小时</li>
+        <li>Bus Factor = 1（Kyle 一人维护）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="roi-box">
+    <div class="roi-num" style="color:var(--p4)">¥32,000</div>
+    <div class="roi-desc">节省工时估算（4名调研员 × 8次访谈 × 2h整理/次 × ¥500/h）<br>+ 数据合规风险规避（定性：避免违反《数据安全法》第36条）</div>
+  </div>
+
+  <div class="actions-grid">
+    <div class="action-card">
+      <div class="step">立即行动 1</div>
+      <strong>Arkon 接入 Ollama</strong>
+      <div class="desc">Settings → LLM provider: openai，base_url: http://host.docker.internal:11434/v1，model: qwen2.5:7b</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 2</div>
+      <strong>上传5份宝尊文档</strong>
+      <div class="desc">选已有的活动矩阵 + Jennifer CS 访谈记录，触发 MRP 编译，验证 Wiki 质量</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 3</div>
+      <strong>5/16 Go/No-Go 决策会</strong>
+      <div class="desc">如 Arkon 质量不达预期，切换到 baozun-kg-poc MCP Server 方案（已有代码基础）</div>
+    </div>
+  </div>
+
+  <div class="challenges">
+    <h4>🔴 诚实挑战（主动找漏洞）</h4>
+    <ul>
+      <li>Arkon 是否适合生产？目前是个人 PoC 项目，缺乏生产级测试，5/31 Pilot 用 Docker 本地跑可接受，但不能直接用于正式交付</li>
+      <li>本地模型能力差距：Qwen 9B 做知识检索可以，但综合推理质量远不如 Claude 3.5——混合策略（本地检索+Claude推理）可能更务实</li>
+      <li>IT 部署审批：在公司设备/网络部署 Docker 服务可能需要 IT 审批，本周确认</li>
+      <li>LiteLLM 不支持：如果调研员需要更多模型选择，当前 Arkon 不支持 LiteLLM，需手动配置</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL E ===== -->
+<div class="proposal p5-card">
+  <div class="prop-header">
+    <div class="prop-num n5">E</div>
+    <div class="prop-title-block">
+      <div class="prop-title">人守架构·AI守实现：IKEA CDH AI 编码规范 v1.0</div>
+      <div class="prop-sub">Engineering Baseline · Owner: Kyle Li</div>
+    </div>
+  </div>
+  <div class="prop-claim c5">AI 加速了实现，但不会守护架构边界——CDH 需要一个明确的分工规范：人负责模块边界/演进不变量/重构决策，AI 负责函数体/测试/样板代码。</div>
+
+  <div class="milestones">
+    <h4>⏱ 里程碑</h4>
+    <div class="ml-row">
+      <div class="ml-item"><strong>M0 本周</strong>SonarQube 扫描，拿到神对象分布图（数据比规范更有说服力）</div>
+      <div class="ml-item"><strong>M1 W2-3</strong>定义 CDH Bounded Context Map（Order/Inventory/Search 边界）</div>
+      <div class="ml-item"><strong>M2 W4-5</strong>发布规范 v1.0：边界定义 + PR Checklist + AI Prompt 模板</div>
+      <div class="ml-item"><strong>M3 W6-8</strong>试运行：2个团队在 PR Review 中使用 Checklist</div>
+      <div class="ml-item"><strong>M4 W12</strong>回顾：Checklist 使用率 + 架构违规拦截数</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="info-box">
+      <h4>📐 人 vs AI 边界定义</h4>
+      <ul>
+        <li><strong>人守</strong>：BC 边界、接口契约、数据库 schema、重构时机</li>
+        <li><strong>AI守</strong>：函数体实现、单测、样板、文档注释</li>
+        <li><strong>人+AI</strong>：PR 描述、集成测试、性能优化</li>
+        <li><strong>禁止AI单独做</strong>：新建 Module、修改核心接口</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>⚠️ 最大风险</h4>
+      <ul>
+        <li>Bounded Context Map 不存在：规范中的"跨BC调用检查"会是空洞仪式</li>
+        <li>谁来判断"这是架构还是实现"？边界模糊导致规范形同虚设</li>
+        <li>规范 Owner 缺失：Kyle 推出后需要指定团队接棒</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="roi-box">
+    <div class="roi-num" style="color:var(--p5)">-30%</div>
+    <div class="roi-desc">目标：12个月内架构相关 bug（神对象/循环依赖/跨层调用）减少 30%<br>基线：需 M0 SonarQube 扫描确认现状</div>
+  </div>
+
+  <div class="actions-grid">
+    <div class="action-card">
+      <div class="step">立即行动 1 🔥</div>
+      <strong>SonarQube 扫描神对象</strong>
+      <div class="desc">拿到 OrderService / InventoryService 的圈复杂度和方法数，数据比任何规范都有说服力</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 2</div>
+      <strong>草拟 Bounded Context Map</strong>
+      <div class="desc">Kyle 单人草稿：Order / Inventory / Search 三个 BC 的边界和接口契约，下次团队会议校验</div>
+    </div>
+    <div class="action-card">
+      <div class="step">立即行动 3</div>
+      <strong>讲 OrderService 神对象案例</strong>
+      <div class="desc">用真实代码中的一个反例（或构造接近真实的）开一次团队技术分享，播种文化认知</div>
+    </div>
+  </div>
+
+  <div class="challenges">
+    <h4>🔴 诚实挑战（主动找漏洞）</h4>
+    <ul>
+      <li>前置依赖未满足：Bounded Context Map 在 CDH 是否存在？如果不存在，规范中的"跨BC调用"检查是空洞的仪式</li>
+      <li>边界判断的主观性：「这是架构决策还是实现细节」在实践中经常模糊，规范需要大量具体例子才能落地</li>
+      <li>规范腐烂：发布后6个月如果无人维护，工程师会绕过而非遵守，需要指定 Steward</li>
+      <li>AI 工具本身的局限：Copilot 不理解 BC 边界，即使有规范，AI 仍会跨边界建议代码，需要人工审查兜底</li>
+    </ul>
+  </div>
+</div>
+
+<footer style="margin-top:3rem;text-align:center;color:var(--text3);font-size:0.8rem;border-top:1px solid var(--border);padding-top:1rem">
+  Readwise Proposals · 2026-05-12 · 5 个 Proposals · 基于 18 条增量信号 · IKEA CDH
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>
