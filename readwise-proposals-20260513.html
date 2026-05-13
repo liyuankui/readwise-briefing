@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-05-13</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0;
+  --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+  --card-a: #dc2626; --card-b: #2d5a4a; --card-c: #6366f1;
+  --card-d: #d97706; --card-e: #059669;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+  --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+  --card-a: #f87171; --card-b: #34d399; --card-c: #a78bfa;
+  --card-d: #f59e0b; --card-e: #6c8ef5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",
+    -apple-system, BlinkMacSystemFont, serif;
+  line-height: 1.75; padding: 2rem 1rem;
+}
+.container { max-width: 900px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+.header-left h1 { font-size: 1.6rem; color: var(--accent); }
+.header-left .sub { color: var(--text3); font-size: 0.9rem; margin-top: 0.25rem; }
+#theme-toggle {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.4rem 0.8rem; cursor: pointer;
+  font-size: 1.1rem; color: var(--text);
+}
+.axiom {
+  background: var(--accent); color: white;
+  border-radius: 10px; padding: 0.8rem 1.4rem;
+  font-size: 1rem; text-align: center; margin-bottom: 2rem; font-weight: 600;
+}
+/* Signal × Project matrix */
+.matrix { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-bottom: 2rem; }
+.matrix th { background: var(--surface2); color: var(--text2); padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid var(--border); }
+.matrix td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.matrix tr:hover td { background: var(--surface2); }
+/* Proposal cards */
+.proposal {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; margin-bottom: 2rem; overflow: hidden;
+}
+.proposal-header {
+  padding: 1.2rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.proposal-tag {
+  display: inline-block; font-size: 0.75rem; font-weight: 700;
+  padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.6rem;
+  color: white;
+}
+.proposal-header h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.thesis {
+  background: var(--surface2); border-left: 3px solid;
+  padding: 0.7rem 1rem; border-radius: 0 6px 6px 0;
+  font-size: 0.92rem; font-style: italic; margin-top: 0.5rem;
+}
+.proposal-body { padding: 1.2rem 1.5rem; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+@media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+.panel {
+  background: var(--surface2); border-radius: 8px; padding: 0.9rem 1rem;
+}
+.panel h4 { font-size: 0.8rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.panel ul { list-style: none; }
+.panel ul li { padding: 0.2rem 0; font-size: 0.9rem; }
+.panel ul li::before { content: "›  "; color: var(--accent3); font-weight: 700; }
+.milestones { margin-bottom: 1rem; }
+.milestones h4 { font-size: 0.8rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+.milestone-row { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.4rem; font-size: 0.88rem; }
+.m-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 0.4rem; flex-shrink: 0; }
+.actions-row {
+  background: var(--surface2); border-radius: 8px; padding: 0.9rem 1rem; margin-bottom: 1rem;
+}
+.actions-row h4 { font-size: 0.8rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.action-item { display: flex; gap: 0.6rem; margin-bottom: 0.4rem; font-size: 0.9rem; align-items: flex-start; }
+.action-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.8rem; height: 1.5rem; border-radius: 4px;
+  font-size: 0.7rem; font-weight: 700; color: white; flex-shrink: 0; margin-top: 0.1rem;
+}
+.challenge {
+  border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.88rem;
+}
+.challenge h4 { color: var(--accent5); font-size: 0.8rem; margin-bottom: 0.4rem; }
+.badge { display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; margin-right: 0.3rem; }
+.badge-r { background: #fee2e2; color: #991b1b; }
+.badge-b { background: #ede9fe; color: #4c1d95; }
+.badge-g { background: #d1fae5; color: #065f46; }
+.badge-y { background: #fef3c7; color: #92400e; }
+html.dark .badge-r { background: #450a0a; color: #fca5a5; }
+html.dark .badge-b { background: #2e1065; color: #c4b5fd; }
+html.dark .badge-g { background: #064e3b; color: #6ee7b7; }
+html.dark .badge-y { background: #451a03; color: #fcd34d; }
+.section-title { font-size: 1rem; font-weight: 700; color: var(--text2); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="header-left">
+    <h1>🔭 深挖 Proposals · 2026-05-13</h1>
+    <div class="sub">5 subagents 并行推理 · 信号 → 洞察 → 可执行行动</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom">不可行动的信息 = 噪音 · 每个 Proposal 必须能回答：谁来做？本周做什么？怎么知道成功？</div>
+
+<!-- Signal × Project 矩阵 -->
+<div class="section-title">📊 信号 × 项目 对应关系</div>
+<table class="matrix" style="margin-bottom:2rem;">
+  <thead><tr><th>#</th><th>信号来源</th><th>连接项目</th><th>核心主张（一句话）</th></tr></thead>
+  <tbody>
+    <tr><td style="color:var(--card-a);font-weight:700;">A</td><td>TanStack攻击 + pnpm冷却</td><td><span class="badge badge-r">Engineering Baseline</span></td><td>7天冷却期已是口头规则，今天变成一行配置</td></tr>
+    <tr><td style="color:var(--card-b);font-weight:700;">B</td><td>DOGROD "just for fun" → CEO</td><td><span class="badge badge-g">Vibe Stack</span></td><td>病毒传播不靠"有趣"，靠被目击的真实使用</td></tr>
+    <tr><td style="color:var(--card-c);font-weight:700;">C</td><td>Rob Pike失魂 + 开发者角色转向</td><td><span class="badge badge-b">AI Upskill</span></td><td>讲判断力，不讲工具——AOR模块让工程师知道AI何时错了</td></tr>
+    <tr><td style="color:var(--card-d);font-weight:700;">D</td><td>AI税/十五五劳动匹配</td><td><span class="badge badge-y">宝尊Ontology</span></td><td>3年内AI税概率&lt;5%，但"Augmentation vs Replacement"标注今天加进Ontology</td></tr>
+    <tr><td style="color:var(--card-e);font-weight:700;">E</td><td>GitLab裁员+CREDIT终止</td><td><span class="badge badge-g">Human Connection</span></td><td>价值观一旦只活在文档里，就已经在死——现在把它嵌进流程节点</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== PROPOSAL A ===== -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div class="proposal-tag" style="background:var(--card-a);">A · Engineering Baseline 安全</div>
+    <h2>🛡️ NPM 供应链防御加固：把口头的7天规则变成机器强制</h2>
+    <div style="margin-bottom:0.5rem;">
+      <span class="badge badge-r">Engineering Baseline</span>
+      <span class="badge badge-g">Skill Hub</span>
+      <span class="badge badge-b">AI Starter Kit</span>
+    </div>
+    <div class="thesis" style="border-color:var(--card-a);">
+      在攻击者的 6 分钟窗口之外安装依赖，是目前成本最低、收益最高的供应链防御。IKEA 已有 7 天口头规则，现在是用一行配置把它变成机器强制的时候了。
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="two-col">
+      <div class="panel">
+        <h4>⚠️ 具体暴露面</h4>
+        <ul>
+          <li>Bootstrap脚本：<code>npm install -g pkg</code> 无冷却期，以root权限执行</li>
+          <li>Skill Hub：<code>npx skills update</code> 推荐每周运行，每次是攻击入口</li>
+          <li>CI：<code>pull_request_target</code> 触发器未审计，外部PR可携带写权限</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>📏 成功标准</h4>
+        <ul>
+          <li>100% 受管理安装路径强制 7天冷却</li>
+          <li>0个未守护的 pull_request_target workflow</li>
+          <li>有 runbook，演练过一次凭证轮换</li>
+          <li>Bootstrap 无裸 <code>npm install -g</code></li>
+        </ul>
+      </div>
+    </div>
+    <div class="milestones">
+      <h4>🗓 里程碑</h4>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-a);"></div><div><strong>M1（本周2h）</strong>：bunfig.toml + .npmrc 写入 minimumReleaseAge=604800秒</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-a);"></div><div><strong>M2（第2周1天）</strong>：扫描 GHES/GitHub 所有 pull_request_target workflow</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-a);"></div><div><strong>M3（第3-4周）</strong>：Skills Hub 安装门控 + AGENTS.md R9.1 升级为机器强制</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-a);"></div><div><strong>M4（第4-6周）</strong>：Bootstrap脚本锁定版本 + checksum</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-a);"></div><div><strong>M5（第6-8周）</strong>：Dependabot/Socket.dev 每日扫描闭环</div></div>
+    </div>
+    <div class="actions-row">
+      <h4>⚡ 立即行动（本周，2小时内可完成）</h4>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-a);">1</span><div>在 <code>~/Work/ai-starter-kit/bunfig.toml</code> 加 <code>minimumReleaseAge = 604800</code>，在 <code>.npmrc</code> 加 <code>min-release-age=7d</code></div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-a);">2</span><div>在 Bootstrap脚本的 npm install 前加年龄检查函数（7天阻断，需2人签字豁免）</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-a);">3</span><div>发起 Skills CDH Workflow 审计 PR，在 <code>pull_request_target</code> 加 same-repo 守卫</div></div>
+    </div>
+    <div class="challenge">
+      <h4>🔴 诚实挑战</h4>
+      Bun minimumReleaseAge 是 tweet 来源，需先验证是否 GA。7天冷却无法防御潜伏 >7天的恶意包。Bootstrap 脚本的年龄检查依赖网络，需处理超时的 fail-safe 策略（fail-closed 还是 fail-open？）。
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL B ===== -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div class="proposal-tag" style="background:var(--card-b);">B · Vibe Coding Stack 推广</div>
+    <h2>🎲 Fun-First：内部工具病毒传播的正确打开方式</h2>
+    <div style="margin-bottom:0.5rem;">
+      <span class="badge badge-g">Vibe Coding Stack</span>
+      <span class="badge badge-y">Value Demonstration</span>
+      <span class="badge badge-r">Engineering Baseline</span>
+    </div>
+    <div class="thesis" style="border-color:var(--card-b);">
+      正式提案是在说服决策者投票；而一个真实运行的内部工具是在让决策者展示发现力。前者需要审批，后者需要的是被目击。
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="two-col">
+      <div class="panel">
+        <h4>�� 推广失速根因（3个断层）</h4>
+        <ul>
+          <li><strong>断层1</strong>：使用场景不可见——没有"哦这是Vibe Stack做的"的时刻</li>
+          <li><strong>断层2</strong>：第一步摩擦太高——文档默认面向开发者，BA/产品无法上手</li>
+          <li><strong>断层3</strong>：没有提供"展示他人"的素材——Manager无弹药向上传播</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>📏 成功标准（6周）</h4>
+        <ul>
+          <li>内部运行中的Vibe Stack应用 ≥ 5个</li>
+          <li>活跃日均UV ≥ 20（覆盖本团队以外）</li>
+          <li>≥1个非本团队成员用它做了东西</li>
+          <li>Nicole或Kirill 主动提及（未被Kyle引导）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="milestones">
+      <h4>🗓 里程碑</h4>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-b);"></div><div><strong>M1（Week1-2）</strong>：Vibe Hack Afternoon——14:00-17:00，每人做一个解决自己问题的工具，4:45 live demo，部署到 GHES Pages</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-b);"></div><div><strong>M2（Week2）</strong>：为每个产出制作"30秒展示卡"（工具名+问题+截图+URL），这是Manager向上传播的弹药</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-b);"></div><div><strong>M3（Week2-3）</strong>：1on1中向Nicole/Kirill live demo，说"这是[谁]用半天做的，每天被用N次"</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-b);"></div><div><strong>M4（Week3-4）</strong>：邀请1个非本团队成员尝试——跨团队尝试本身是可讲的故事</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-b);"></div><div><strong>M5（Week4-6）</strong>：Vibe Hack Afternoon变成双周例行活动，产出在内部channel展示</div></div>
+    </div>
+    <div class="actions-row">
+      <h4>⚡ 立即行动（本周，Kyle单独决定）</h4>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-b);">1</span><div>今天在团队 calendar 加 "Quick Build Afternoon"（最近两周内），不要解释太多</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-b);">2</span><div>本周内 Kyle 自己用 Vibe Stack 做一个真正在用的工具——体验摩擦点 + 有第一手案例</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-b);">3</span><div>设计"展示卡"模板（工具名/问题/链接/截图），Hack Afternoon后30分钟内产出可转发素材</div></div>
+    </div>
+    <div class="challenge">
+      <h4>🔴 诚实挑战</h4>
+      DOGROD的工具面向大众，IKEA内部传播天花板是组织内部，且Manager层是过滤器而非放大器。自然病毒扩散在企业内部不会自然发生，它需要被设计——Kyle必须主动创造"被目击"的时刻，不能等待。
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL C ===== -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div class="proposal-tag" style="background:var(--card-c);">C · AI Upskill Trainer</div>
+    <h2>🧠 工程灵魂注入：AI Output Review（AOR）判断力模块</h2>
+    <div style="margin-bottom:0.5rem;">
+      <span class="badge badge-b">AI Upskill Trainer</span>
+      <span class="badge badge-r">Engineering Baseline</span>
+      <span class="badge badge-g">Software Testing</span>
+    </div>
+    <div class="thesis" style="border-color:var(--card-c);">
+      AI Upskill Trainer 不是工具培训，是判断力培训——教人知道 AI 对了什么、错了什么、以及为什么。
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="two-col">
+      <div class="panel">
+        <h4>🎯 AOR的操作定义</h4>
+        <ul>
+          <li>给学员一段AI生成的代码/分析/建议</li>
+          <li>限时10分钟找出其中问题</li>
+          <li>评估3维：逻辑性·假设链·可维护性</li>
+          <li>终点：改出更好的Prompt（不停留在"AI不可信"）</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>📏 成功标准（可测量）</h4>
+        <ul>
+          <li>训练后 ≥70% 学员能识别≥1个假设（训练前 &lt;30%）</li>
+          <li>≥50% 学员能提出≥1个反驳（训练前 &lt;20%）</li>
+          <li>PR Review 中"AI生成代码存在X问题"评论 ≥3次/周（基准≈0）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="milestones">
+      <h4>🗓 里程碑（插入现有L0-L4，不另立体系，10周）</h4>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-c);"></div><div><strong>M-J1（第1-2周）</strong>：设计AOR框架（3维评估卡片），嵌入L1-CB结尾</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-c);"></div><div><strong>M-J2（第2-3周）</strong>：L1.1 FAR Cycle Review阶段加入AOR 10分钟练习，题库5道</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-c);"></div><div><strong>M-J3（第4-6周）</strong>：L3-AOR工程师模块——用真实Copilot代码做Review训练，60分钟课程包</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-c);"></div><div><strong>M-J4（第7-8周）</strong>：讲师校准——3名讲师达到"能带学员找出AI错误"的认证标准</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-c);"></div><div><strong>M-J5（第9-10周）</strong>：Pilot班AOR前后判断力对比，输出得分报告</div></div>
+    </div>
+    <div class="actions-row">
+      <h4>⚡ 立即行动（本周）</h4>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-c);">1</span><div>周二前：私信3-4名工程师收集"AI犯错"真实案例（脱敏），这是AOR模块的地基</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-c);">2</span><div>周三前：在L1.1教案FAR Cycle Review阶段预留"[预留10分钟] AOR练习"插槽</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-c);">3</span><div>周五前：找1名资深工程师做非正式AOR基准测试——给一段AI代码，看他发现了什么、用了多久</div></div>
+    </div>
+    <div class="challenge">
+      <h4>🔴 诚实挑战</h4>
+      Rob Pike说的是系统编程领域，CDH是零售业技术团队，IKEA版本的"失魂"是丧失业务逻辑判断力而非算法理解力。若课程只展示"AI会犯错"而不给修正工具，结果是更焦虑不更有能力——AOR必须以"发现→修正→预防"三段式结束。
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL D ===== -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div class="proposal-tag" style="background:var(--card-d);">D · 宝尊 Ontology（5/31）</div>
+    <h2>📊 AI税宏观信号：Ontology加一个属性字段，5/31前闭环</h2>
+    <div style="margin-bottom:0.5rem;">
+      <span class="badge badge-y">宝尊Ontology</span>
+      <span class="badge badge-r">Engineering Baseline</span>
+    </div>
+    <div class="thesis" style="border-color:var(--card-d);">
+      中国十五五"劳动报酬与生产率匹配"政策大概率不通过AI税落地，但它重塑了宝尊替代项目的合法性叙事框架——不是成本风险，是合规风险敞口设计的机会窗口。
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="two-col">
+      <div class="panel">
+        <h4>🎯 关键决策节点</h4>
+        <ul>
+          <li>D1 售后客服替代率目标——"减员"是否触发劳动合规</li>
+          <li>D2 宝尊合同叙事——"降本"vs"提升服务质量"哪种更抗政策风险</li>
+          <li>D5 立即：对外措辞改"AI替代"→"宝尊运营能力数字化"</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>📏 成功标准（5/31前）</h4>
+        <ul>
+          <li>ROI分析包含"AI附加成本+20%"情景，ROI仍为正</li>
+          <li>Ontology每个模块有 <code>替代类型</code> 字段（Complete/Augmentation）</li>
+          <li>正式表述中"AI替代"措辞已统一替换</li>
+        </ul>
+      </div>
+    </div>
+    <div class="milestones">
+      <h4>🗓 里程碑（嵌入主线，≤2天额外工作量）</h4>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-d);"></div><div><strong>M1（5/13-5/16）</strong>：政策边界扫描0.5天——确认十五五原文措辞，确认无AI税草案，输出1页风险定性表</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-d);"></div><div><strong>M2（5/19-5/23）</strong>：15分钟情景测算——+10/20/30% AI附加成本时ROI断点在哪</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-d);"></div><div><strong>M3（5/26-5/28）</strong>：Ontology架构决策嵌入——每个实体/流程标注"完全替代/辅助增强/人类必须保留"</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-d);"></div><div><strong>M4（5/31）</strong>：整合进主Ontology报告附录，给Roman一段风险摘要 + 情景测算表</div></div>
+    </div>
+    <div class="actions-row">
+      <h4>⚡ 立即行动（5/31前）</h4>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-d);">1</span><div>访谈Jennifer/KK时加问："如果AI来做这件事，人完全消失还是人在监督？"——零成本获取Augmentation属性</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-d);">2</span><div>立即统一对外话语："AI替代宝尊人工" → "宝尊运营环节数字化/自动化"</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-d);">3</span><div>向Roman要宝尊合同人力成本结构估算，跑一次敏感性分析，用数字关闭"AI税会不会让这件事不合算"</div></div>
+    </div>
+    <div class="challenge">
+      <h4>🔴 诚实挑战</h4>
+      AI税在中国3年内落地概率 &lt;5%（十五五实现路径是工资指导线，非税收；中国同时在推AI为新质生产力，对AI课税自相矛盾）。韩国信号来自民主民粹压力，迁移性有限。正确响应：花2天做分析，不花2周做专项研究；将政策风险放在附录而非主线。
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL E ===== -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div class="proposal-tag" style="background:var(--card-e);">E · Human Connection</div>
+    <h2>🛡️ 价值观韧性层：把 Human Connection 从Kyle的个人行为变成团队制度</h2>
+    <div style="margin-bottom:0.5rem;">
+      <span class="badge badge-g">Human Connection</span>
+      <span class="badge badge-r">Engineering Baseline</span>
+    </div>
+    <div class="thesis" style="border-color:var(--card-e);">
+      价值观一旦只活在文档里，就已经在死亡——GitLab 的 CREDIT 不是被裁员杀死的，是在无压力时就没有制度化，所以有压力时没有任何东西可以守。
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="two-col">
+      <div class="panel">
+        <h4>🔍 当前侵蚀面（5个）</h4>
+        <ul>
+          <li>P1 1:1工具化——进度同步替代真正看见人</li>
+          <li>P2 协作空洞化——个人AI效率↑，共同工作场景↓</li>
+          <li>P3 意义感稀释——AI写的代码，工程师的归属感模糊</li>
+          <li>P4 价值观=Kyle个人——Human Connection 5条行动全是Kyle在做</li>
+          <li>P5 沉默的不安——AI替代焦虑没有集体讨论空间</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>📏 成功标准</h4>
+        <ul>
+          <li>Peer Check-in 中Kyle不是发起者的比例 &gt;60%</li>
+          <li>PRINCIPLES.md 每条原则下 ≥2条 Evidence</li>
+          <li>工程师晋升Case能清晰表述AI时代角色定位</li>
+          <li>Kyle出差2周，Peer Check-in 仍然发生</li>
+        </ul>
+      </div>
+    </div>
+    <div class="milestones">
+      <h4>🗓 里程碑（嵌入现有流程，不加会议）</h4>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-e);"></div><div><strong>M1（第1-2周）</strong>：30分钟team meeting用GitLab案例引导讨论，产出3-5条 Engineering Principles（能被反例检验的陈述）</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-e);"></div><div><strong>M2（第3-4周）</strong>：在Retro加固定问题："本轮我们做了一件让彼此更容易工作的事——是什么？"轮流主持 + Evidence Log</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-e);"></div><div><strong>M3（第5-8周）</strong>：双周Peer Check-in——配对两名工程师15分钟非技术对话（Kyle不在场），连接在成员间流通</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-e);"></div><div><strong>M4（第8-12周）</strong>：2小时工作坊"AI做什么，我们做什么"——产出角色地图，进入Engineering Baseline + 晋升叙事</div></div>
+      <div class="milestone-row"><div class="m-dot" style="background:var(--card-e);"></div><div><strong>M5（第12-24周）</strong>：季度原则复盘——空的条目要么删，要么设行动；新成员入职由团队成员介绍PRINCIPLES.md</div></div>
+    </div>
+    <div class="actions-row">
+      <h4>⚡ 立即行动（本周，Kyle单独决定）</h4>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-e);">1</span><div>翻看最近4次1:1笔记：工作话题vs人话题比例是多少？有基线数据，才有改进方向</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-e);">2</span><div>给自己写一封不发的邮件：如果下个月离开，Human Connection哪些行为会停止？停止的=M3设计目标</div></div>
+      <div class="action-item"><span class="action-badge" style="background:var(--card-e);">3</span><div>本周team meeting结尾留5分钟，提GitLab CREDIT终止的信号，问："我们的第一条Engineering Principle会是什么？下周告诉我。"——探针，不是正式启动</div></div>
+    </div>
+    <div class="challenge">
+      <h4>🔴 诚实挑战</h4>
+      GitLab是2000+人远程公司，CDH是12人本地团队，规模不可类比（Handbook对远程的作用在本地有限）。GitLab砍CREDIT可能不是"没有制度化"，而是新CEO需要新符号系统。正确读法：当组织压力来临，没有被团队内化的东西会最先被上层宣布放弃——工作是让Human Connection内化在团队成员身上，而不是在Kyle的Intent列表里。
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;color:var(--text3);font-size:0.8rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);">
+  5 subagents 并行 · 2026-05-13 · 信号→洞察→行动闭环
+</div>
+
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

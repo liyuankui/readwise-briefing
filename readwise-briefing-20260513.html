@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-05-13</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0;
+  --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+  --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",
+    -apple-system, BlinkMacSystemFont, serif;
+  line-height: 1.75; padding: 2rem 1rem;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; }
+.header-left h1 { font-size: 1.6rem; color: var(--accent); }
+.header-left .sub { color: var(--text3); font-size: 0.9rem; margin-top: 0.25rem; }
+#theme-toggle {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.4rem 0.8rem; cursor: pointer;
+  font-size: 1.1rem; color: var(--text);
+}
+.stats { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem 1.5rem; text-align: center; flex: 1; min-width: 120px;
+}
+.stat-card .num { font-size: 2rem; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.8rem; color: var(--text3); margin-top: 0.2rem; }
+.section { margin-bottom: 2rem; }
+.section-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--text2);
+  border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem;
+}
+.signal-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.signal-table th {
+  background: var(--surface2); color: var(--text2);
+  padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid var(--border);
+}
+.signal-table td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.signal-table tr:hover td { background: var(--surface2); }
+.star5 { color: #f59e0b; }
+.star3 { color: var(--accent3); }
+.badge {
+  display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem;
+  border-radius: 4px; margin-right: 0.3rem; white-space: nowrap;
+}
+.badge-red { background: #fee2e2; color: #991b1b; }
+.badge-blue { background: #ede9fe; color: #4c1d95; }
+.badge-green { background: #d1fae5; color: #065f46; }
+.badge-yellow { background: #fef3c7; color: #92400e; }
+html.dark .badge-red { background: #450a0a; color: #fca5a5; }
+html.dark .badge-blue { background: #2e1065; color: #c4b5fd; }
+html.dark .badge-green { background: #064e3b; color: #6ee7b7; }
+html.dark .badge-yellow { background: #451a03; color: #fcd34d; }
+.signal-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: 1rem;
+  border-left: 4px solid var(--accent);
+}
+.signal-card.urgent { border-left-color: var(--accent5); }
+.signal-card.medium { border-left-color: var(--accent4); }
+.signal-card h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); }
+.signal-card .why {
+  background: var(--surface2); border-radius: 6px;
+  padding: 0.6rem 0.8rem; margin-top: 0.6rem;
+  font-size: 0.85rem; color: var(--text2);
+}
+.signal-card .why strong { color: var(--accent3); }
+.signal-card .source { font-size: 0.8rem; color: var(--text3); margin-top: 0.5rem; }
+.action-list { list-style: none; }
+.action-list li {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem;
+}
+.action-list li:last-child { border-bottom: none; }
+.action-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.5rem; height: 1.5rem; border-radius: 50%;
+  background: var(--accent); color: white; font-size: 0.75rem; flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+details { margin-bottom: 0.5rem; }
+details summary {
+  cursor: pointer; color: var(--text3); font-size: 0.9rem;
+  padding: 0.5rem 0; list-style: none; user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: "▶ "; transition: 0.2s; }
+details[open] summary::before { content: "▼ "; }
+.low-item {
+  padding: 0.5rem 0; font-size: 0.85rem; color: var(--text3);
+  border-bottom: 1px solid var(--border);
+}
+.axiom-banner {
+  background: var(--accent); color: white;
+  border-radius: 10px; padding: 0.8rem 1.2rem;
+  font-size: 0.95rem; margin-bottom: 2rem; text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="header-left">
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="sub">2026-05-13 · 增量同步自 2026-05-12T02:23 UTC</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom-banner">不可行动的信息 = 噪音 · 本简报只保留能转化为项目的信号</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="num">5</div><div class="lbl">新增 Highlights</div></div>
+  <div class="stat-card"><div class="num">6</div><div class="lbl">新增 Documents</div></div>
+  <div class="stat-card"><div class="num">3</div><div class="lbl">⭐×5 高价值</div></div>
+  <div class="stat-card"><div class="num">5</div><div class="lbl">⭐×3 中等价值</div></div>
+  <div class="stat-card"><div class="num">327</div><div class="lbl">累计 Highlights</div></div>
+</div>
+
+<!-- 信号概览表 -->
+<div class="section">
+  <div class="section-title">📊 深挖方向预览（链接到 Proposals）</div>
+  <table class="signal-table">
+    <thead>
+      <tr><th>#</th><th>信号</th><th>连接意图</th><th>核心问题</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>A</td>
+        <td><span class="star5">⭐×5</span> TanStack供应链攻击 + pnpm防御</td>
+        <td><span class="badge badge-red">Engineering Baseline</span><span class="badge badge-blue">Skill Hub</span></td>
+        <td>IKEA的GitHub Actions和npm依赖今天安全吗？</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td><span class="star5">⭐×5</span> "just for fun" → CEO病毒传播</td>
+        <td><span class="badge badge-green">Vibe Stack</span><span class="badge badge-yellow">Value Demo</span></td>
+        <td>轻量内部工具如何自然触达决策层？</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td><span class="star5">⭐×5</span> Rob Pike "计算失魂"</td>
+        <td><span class="badge badge-blue">AI Upskill</span><span class="badge badge-red">Engineering</span></td>
+        <td>AI讲师团教工具，还是应该教灵魂？</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td><span class="star3">⭐×3</span> AI税/劳动报酬与生产率匹配</td>
+        <td><span class="badge badge-yellow">宝尊AI替代</span></td>
+        <td>宏观政策对宝尊去人工化的风险窗口</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td><span class="star3">⭐×3</span> GitLab裁员+CREDIT价值观终止</td>
+        <td><span class="badge badge-green">Human Connection</span><span class="badge badge-red">Engineering</span></td>
+        <td>AI重组中，Kyle团队如何保持韧性？</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 高价值信号 -->
+<div class="section">
+  <div class="section-title">🔥 高价值信号 ⭐×5（立即行动）</div>
+
+  <div class="signal-card urgent">
+    <h3>🛡️ TanStack NPM供应链攻击事后分析 (2026-05-11)</h3>
+    <div>
+      <span class="badge badge-red">供应链安全</span>
+      <span class="badge badge-blue">GitHub Actions</span>
+      <span class="badge badge-yellow">Engineering Baseline</span>
+    </div>
+    <p style="margin-top:0.6rem;font-size:0.95rem;">
+      攻击者利用 <code>pull_request_target</code> 触发器权限 + 缓存中毒 + OIDC令牌滥用，在6分钟内向42个 @tanstack/* 包发布84个恶意版本。恶意脚本窃取 AWS/GCP/K8s/Vault/GitHub/SSH 凭证并自我传播。20分钟后被外部安全研究人员发现。
+    </p>
+    <div class="why">
+      <strong>为何与你相关：</strong> IKEA的CI/CD使用GitHub Actions，Skill Hub 和 AI Starter Kit 都依赖npm包。<code>pull_request_target</code>是IKEA仓库中常见触发器。这是本周发生的真实攻击，不是理论威胁。今天就应该审计GHES上所有使用<code>pull_request_target</code>的workflow。
+    </div>
+    <div class="source">📰 来源：HackerNews 2026-05-13 Top · <a href="https://tanstack.com/blog/npm-supply-chain-compromise-postmortem" target="_blank">TanStack官方事后分析</a> · 热度 1053分 440评论</div>
+  </div>
+
+  <div class="signal-card urgent">
+    <h3>🔒 pnpm/npm/bun minimumReleaseAge — 供应链攻击最实用防御</h3>
+    <div>
+      <span class="badge badge-red">供应链安全</span>
+      <span class="badge badge-green">Skill Hub依赖策略</span>
+    </div>
+    <p style="margin-top:0.6rem;font-size:0.95rem;">
+      强制新发布的包必须"冷却"一段时间才能被安装，完全避开攻击窗口：
+      <br>• pnpm: <code>minimumReleaseAge=10080</code>（分钟，=7天）
+      <br>• npm v11.10+: <code>min-release-age=7</code>（天）
+      <br>• bun: <code>minimumReleaseAge=604800</code>（秒，=7天）
+    </p>
+    <div class="why">
+      <strong>为何与你相关：</strong> 这与 Notebooks 的"7天冷却期 + ikea-security审查"原则完全对齐——但这是在包管理器层面的<em>强制执行</em>，而非口头规则。IKEA的npm工作流如果加这一行配置，TanStack式攻击窗口（11-31分钟）就无效了。立即行动：在AI Starter Kit的推荐配置中加入此项。
+    </div>
+    <div class="source">🐦 @vikingmute · <a href="https://x.com/vikingmute/status/2054178929548972513" target="_blank">原文链接</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h3>🎲 "just for fun"法则：随意之作→经理→CEO→LinkedIn</h3>
+    <div>
+      <span class="badge badge-green">Vibe Coding Stack</span>
+      <span class="badge badge-yellow">Value Demonstration</span>
+    </div>
+    <p style="margin-top:0.6rem;font-size:0.95rem;">
+      "随意做了一个 just for fun 的东西。被各级 manager 一层一层往上展示，最终到 CEO。CEO 连着两周在全员 channel 发这个东西。今天甚至还发了 LinkedIn 🫪"
+    </p>
+    <div class="why">
+      <strong>为何与你相关：</strong> 这是一个强力反直觉信号：<em>不是严肃的项目提案，而是"好玩"的东西触达最高决策层</em>。Vibe Coding Stack 的推广策略一直在做"正式工具"——但也许第一个 viral 的内部工具应该是 fun first。Kyle 作为 EM，可以给团队"一个下午just for fun"的时间，产出比千字 proposal 更有效。直接对应 Engineering Baseline 的 value demonstration 困境。
+    </div>
+    <div class="source">🐦 @dogrod_ · <a href="https://x.com/dogrod_/status/2053953863477313587" target="_blank">原文链接</a></div>
+  </div>
+</div>
+
+<!-- 中等价值 -->
+<div class="section">
+  <div class="section-title">💎 中等价值信号 ⭐×3（备用收藏）</div>
+
+  <div class="signal-card medium">
+    <h3>Rob Pike: "计算机行业正在自我毁灭"</h3>
+    <p style="font-size:0.9rem;margin-top:0.4rem;">Go语言创始人引用Rob Pike的话："虽然我曾怀着使命感工作40多年，如今只能旁观它无正当理由地自我毁灭……目睹自己热爱的事物刻意丧失灵魂，难以言喻的悲伤。"</p>
+    <div class="why"><strong>连接：</strong> AI Upskill Trainer设计核心问题——我们在教工具还是在传承工程师的使命感？</div>
+    <div class="source">🐦 @mistivia · <a href="https://x.com/mistivia/status/2054199242542170259" target="_blank">原文</a></div>
+  </div>
+
+  <div class="signal-card medium">
+    <h3>AI税/公民红利 + 中国十五五"劳动报酬与劳动生产率匹配"</h3>
+    <p style="font-size:0.9rem;margin-top:0.4rem;">韩国讨论AI公民红利。中国十五五规划新增"劳动报酬和劳动生产率匹配"目标——暗示通过AI税/机器人税反哺人力劳动。</p>
+    <div class="why"><strong>连接：</strong> 宝尊AI替代的宏观政策背景——如果中国跟进AI税，用AI替代人力的成本收益比会改变。5/31 deadline前需考量此风险。</div>
+    <div class="source">🐦 @MacroMargin · <a href="https://x.com/MacroMargin/status/2054026915040854385" target="_blank">原文</a></div>
+  </div>
+
+  <div class="signal-card medium">
+    <h3>强模型推动Rust/Go替代Python · 开发者角色转向架构与评审</h3>
+    <p style="font-size:0.9rem;margin-top:0.4rem;">HN讨论：AI代码生成推动类型严谨、编译快的系统语言（Rust/Go）替代部分Python场景。开发者角色从"写代码"转向"架构与评审"。</p>
+    <div class="why"><strong>连接：</strong> AI Upskill Trainer课程设计——L2课程应该聚焦"如何评审AI写的代码"而非"如何写代码"。</div>
+    <div class="source">📰 HackerNews 2026-05-13 Top Stories</div>
+  </div>
+
+  <div class="signal-card medium">
+    <h3>GitLab裁员 · 终止CREDIT价值观 · 重组为数十个自治团队</h3>
+    <p style="font-size:0.9rem;margin-top:0.4rem;">GitLab裁员并正式终止CREDIT价值观体系，重组为数十个自治团队，全面押注AI代理与基础设施重构。</p>
+    <div class="why"><strong>连接：</strong> Human Connection Investment的警示——当组织为AI转型牺牲价值观，连接与信任最先受损。Kyle团队如何在Engineering Baseline中保护文化连续性？</div>
+    <div class="source">📰 HackerNews 2026-05-13 Top Stories</div>
+  </div>
+
+  <div class="signal-card medium">
+    <h3>软件架构应随目标变化快速调整（康威定律实践）</h3>
+    <p style="font-size:0.9rem;margin-top:0.4rem;">架构应在实践与组织激励约束下演进，重视解耦与正确接口，以简化构建和模块化吸引多元贡献。</p>
+    <div class="why"><strong>连接：</strong> 宝尊系统重构 + Engineering Baseline——康威定律提醒，架构反映组织结构；宝尊的技术边界调整需同步考虑团队边界。</div>
+    <div class="source">📰 HackerNews 2026-05-13 Top Stories</div>
+  </div>
+</div>
+
+<!-- 行动清单 -->
+<div class="section">
+  <div class="section-title">✅ 本周行动清单（从高价值信号提炼）</div>
+  <ul class="action-list">
+    <li>
+      <span class="action-num">1</span>
+      <div><strong>审计GHES上所有使用 <code>pull_request_target</code> 的GitHub Actions workflow</strong>（对标TanStack攻击向量）— Engineering Baseline安全基线。Owner: Kyle + 团队安全负责人。本周内完成。</div>
+    </li>
+    <li>
+      <span class="action-num">2</span>
+      <div><strong>在AI Starter Kit推荐配置中加入 <code>minimumReleaseAge=7天</code></strong>（pnpm/npm/bun三选一）— 将口头"7天规则"变成机器执行的配置。Owner: Kyle。1小时内可完成。</div>
+    </li>
+    <li>
+      <span class="action-num">3</span>
+      <div><strong>安排一次团队"just for fun"下午</strong>（2小时）— 让每个人做一个好玩的东西，不需要提案，不需要审批。Vibe Coding Stack传播策略实验。Owner: Kyle。本周五可行。</div>
+    </li>
+    <li>
+      <span class="action-num">4</span>
+      <div><strong>在宝尊Ontology交付物中加入"宏观政策风险"章节</strong>（AI税/劳动匹配）— 5/31 deadline前给Roman一个完整的风险图谱。Owner: Kyle + Maggie。</div>
+    </li>
+    <li>
+      <span class="action-num">5</span>
+      <div><strong>AI Upskill Trainer L1课程增加"评审AI代码"模块</strong>（vs 写AI代码）— 开发者角色转向信号的直接响应。Owner: 讲师团。下期课程前。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 低价值附录 -->
+<div class="section">
+  <details>
+    <summary>📁 低价值附录（暂时无关，默认收起）</summary>
+    <div style="padding-top:0.5rem;">
+      <div class="low-item">🫀 BBC: 心跳间隔HRV是健康指标 — 个人健康信号，暂无工作关联</div>
+      <div class="low-item">🖥️ HN: 1983-1989年多平台GUI截图集 — 历史趣味，无行动项</div>
+      <div class="low-item">🇪🇺 HN: 欧盟限制未成年人无限滚动/算法 — 监管动态，暂无IKEA直接影响</div>
+      <div class="low-item">🧠 HN: UCLA发现小分子DDL-920可恢复中风后运动 — 医学研究，无关</div>
+      <div class="low-item">🌅 HN: 浏览器中用着色器实现真实天空渲染 — 技术美学，无行动项</div>
+      <div class="low-item">🛡️ HN: uBlock Origin Lite广告替换为《他们生活》标语 — 趣味项目，无关</div>
+    </div>
+  </details>
+</div>
+
+<div style="text-align:center;color:var(--text3);font-size:0.8rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);">
+  生成于 2026-05-13 10:22 CST · highlights累计322→327 · docs累计301→307
+</div>
+
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
