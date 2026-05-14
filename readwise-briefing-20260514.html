@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 — 2026-05-14</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:"LXGW WenKai","霞鹜文楷","STKaiti",-apple-system,BlinkMacSystemFont,serif; line-height:1.75; padding:2rem; max-width:900px; margin:0 auto; }
+h1 { font-size:1.8rem; margin-bottom:0.5rem; color:var(--accent); }
+h2 { font-size:1.3rem; margin:2rem 0 1rem; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:0.5rem; }
+h3 { font-size:1.1rem; margin:1.5rem 0 0.5rem; color:var(--text); }
+.meta { color:var(--text3); font-size:0.9rem; margin-bottom:2rem; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; margin:1.5rem 0; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1rem; text-align:center; box-shadow:var(--shadow); }
+.stat-num { font-size:2rem; font-weight:700; color:var(--accent); }
+.stat-label { font-size:0.85rem; color:var(--text3); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.2rem; margin:1rem 0; box-shadow:var(--shadow); transition:transform 0.15s; }
+.card:hover { transform:translateY(-2px); }
+.card-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; }
+.stars { color:var(--accent4); font-size:1.1rem; }
+.author { color:var(--text3); font-size:0.85rem; }
+.card-body { color:var(--text2); font-size:0.95rem; }
+.card-body a { color:var(--accent2); text-decoration:none; }
+.card-body a:hover { text-decoration:underline; }
+.tag { display:inline-block; background:var(--surface2); color:var(--accent); font-size:0.75rem; padding:2px 8px; border-radius:99px; margin:4px 4px 0 0; }
+.relevance { background:var(--surface2); border-left:3px solid var(--accent3); padding:0.6rem 1rem; margin-top:0.8rem; font-size:0.9rem; color:var(--text2); border-radius:0 8px 8px 0; }
+.action-list { list-style:none; }
+.action-list li { padding:0.5rem 0; border-bottom:1px solid var(--border); }
+.action-list li::before { content:"→ "; color:var(--accent3); font-weight:700; }
+.theme-toggle { position:fixed; top:1rem; right:1rem; font-size:1.5rem; cursor:pointer; background:var(--surface); border:1px solid var(--border); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; z-index:100; }
+details { margin:1rem 0; }
+summary { cursor:pointer; color:var(--accent2); font-weight:600; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; }
+th,td { padding:0.5rem 0.8rem; text-align:left; border-bottom:1px solid var(--border); font-size:0.9rem; }
+th { color:var(--text3); font-weight:600; }
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="theme-toggle">🌙</button>
+
+<h1>📡 Readwise 情报简报</h1>
+<p class="meta">2026-05-14 · 增量同步自 2026-05-13 02:36 UTC · Kyle Li</p>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">9</div><div class="stat-label">新 Highlights</div></div>
+  <div class="stat"><div class="stat-num">10</div><div class="stat-label">新 Documents</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">⭐⭐⭐⭐⭐ 高价值</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">⭐⭐⭐ 中等</div></div>
+</div>
+
+<h2>🔥 信号概览 — 5 个深挖方向</h2>
+<table>
+<tr><th>#</th><th>信号</th><th>连接项目</th><th>深挖理由</th></tr>
+<tr><td>1</td><td>GBrain — Agent 记忆系统</td><td>Life OS · Memory</td><td>Compiled Truth + Timeline 双层结构，与 IRA 同构</td></tr>
+<tr><td>2</td><td>Agent Harness 自动优化器</td><td>Project Harness · Agentic Eng</td><td>自动生成提案+评测，直击 harness 维护痛点</td></tr>
+<tr><td>3</td><td>TanStack 供应链攻击</td><td>IKEA Security · Skill Hub</td><td>CI/CD 缓存投毒新手法，GHES 需评估风险</td></tr>
+<tr><td>4</td><td>Cowork & Codex — 非开发者 AI 工具</td><td>AI Upskill Trainer</td><td>本地 AI App 趋势，影响培训策略</td></tr>
+<tr><td>5</td><td>Markdown 工具爆发</td><td>Remarker</td><td>竞品密集出现，需明确差异化定位</td></tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+<div class="card">
+  <div class="card-header">
+    <h3>GBrain — Y Combinator CEO 的 Agent 记忆系统</h3>
+    <span class="stars">⭐⭐⭐⭐⭐</span>
+  </div>
+  <span class="author">Akshay 🚀 (@akshay_pachaar) · <a href="https://x.com/akshay_pachaar/status/2054288847417340044">原文</a></span>
+  <div class="card-body">
+    <p>GBrain 用 <strong>Markdown 文件夹</strong>作为 Agent 记忆的 source of truth。每个实体一页，分两层：</p>
+    <ul>
+      <li><strong>Compiled Truth</strong>（上层）：当前最佳理解，随新证据重写</li>
+      <li><strong>Timeline</strong>（下层）：Append-only 证据链，永不编辑</li>
+    </ul>
+    <p>知识图谱自动生成（regex，零 LLM 调用）。搜索层叠 20+ 确定性技术。</p>
+  </div>
+  <div class="relevance">
+    <strong>为什么与你相关：</strong>GBrain 的 Compiled Truth + Timeline 结构与你的 IRA 框架（Intent/Reality/Archive）高度同构。Life OS 的 Memory 支柱正缺一个具体方案——GBrain 提供了一个已验证的架构参考。特别是"Markdown IS the system of record"理念，与 Notebooks 的设计哲学完全一致。
+  </div>
+  <div><span class="tag">Life OS</span><span class="tag">Memory</span><span class="tag">Agentic Engineering</span></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Agent Harness 自动优化器</h3>
+    <span class="stars">⭐⭐⭐⭐⭐</span>
+  </div>
+  <span class="author">astaxie (@astaxie) · <a href="https://x.com/astaxie/status/2054074591744835990">原文</a></span>
+  <div class="card-body">
+    <p>输入：一个基准测试命令 + 一个目标仓库。自动生成提案、跑评测、记结果、留好弃差，连 prompt/配置/源码都帮你改。开源。</p>
+  </div>
+  <div class="relevance">
+    <strong>为什么与你相关：</strong>你的 Project Harness 体系（VISION→SPEC→OPS→README→AGENTS）正面临"维护成本高"的瓶颈。这个工具自动化了 harness 的迭代循环——提案生成→评测→保留/丢弃。可以评估是否适配你的 skill-evolver 流程。
+  </div>
+  <div><span class="tag">Project Harness</span><span class="tag">Agentic Engineering</span></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>TanStack 供应链攻击 — CI/CD 缓存投毒</h3>
+    <span class="stars">⭐⭐⭐⭐⭐</span>
+  </div>
+  <span class="author">Viking (@vikingmute) · <a href="https://x.com/vikingmute/status/2054043244405928418">原文</a></span>
+  <div class="card-body">
+    <p><strong>攻击路径</strong>：恶意 PR → CI 运行时窃取 Actions 缓存写权限 + OIDC token → 投毒 pnpm-store 缓存 → release workflow 从污染缓存构建 → 84 个恶意版本发布到 npm。</p>
+    <p>官方建议：2026-05-11 当天安装过受影响版本的用户必须轮换所有凭证。</p>
+  </div>
+  <div class="relevance">
+    <strong>为什么与你相关：</strong>上周你刚花 3+ 小时处理 PII/安全问题。TanStack 攻击揭示了一个新攻击面——CI/CD 缓存投毒。IKEA GHES 的 GitHub Actions 和 Skill Hub 的多仓库 skill 安装链条需要评估此风险。特别是 <code>npx skills add</code> 的供应链安全。
+  </div>
+  <div><span class="tag">Security</span><span class="tag">IKEA Skill Hub</span><span class="tag">Supply Chain</span></div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值</h2>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Ethan Mollick: Cowork & Codex 竞赛 — 非开发者 AI 本地应用</h3>
+    <span class="stars">⭐⭐⭐</span>
+  </div>
+  <span class="author">Ethan Mollick (@emollick) · <a href="https://x.com/emollick/status/2054610285114097697">原文</a></span>
+  <div class="card-body">
+    <p>Mollick 关注 Gemini 何时加入"不仅面向开发者的本地 AI 应用"竞赛。OpenAI Codex 和 Anthropic 加速更新，Google Antigravity 沉默一月。</p>
+  </div>
+  <div class="relevance"><strong>连接：</strong>AI Upskill Trainer 的核心挑战是"非技术用户如何用 AI"。本地 AI 应用趋势可能改变培训策略——从"教用法"到"教选型"。</div>
+  <div><span class="tag">AI Adoption</span><span class="tag">Upskill Trainer</span></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>Markdown 工具爆发 — 6+ 新产品</h3>
+    <span class="stars">⭐⭐⭐</span>
+  </div>
+  <span class="author">Ding (@dingyi) · <a href="https://x.com/dingyi/status/2054336576600297845">原文</a></span>
+  <div class="card-body"><p>近期密集出现的小而美 Markdown 软件：6 个新产品链接。</p></div>
+  <div class="relevance"><strong>连接：</strong>Remarker 正处于开发密集期。竞品爆发意味着赛道拥挤，也意味着市场需求真实。需要明确 Remarker 的差异化——"AI 审阅循环"是现有工具未覆盖的。</div>
+  <div><span class="tag">Remarker</span><span class="tag">Competitive</span></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>HackerNews Top — DuckDB Quack / Google Notebook / GitHub 迁移</h3>
+    <span class="stars">⭐⭐⭐</span>
+  </div>
+  <span class="author">SuperTechFans HN 日报 · <a href="https://read.readwise.io/read/01krhxwmc3k99cdj9jaak3ewdj">Reader</a></span>
+  <div class="card-body">
+    <p>亮点：DuckDB 推出 Quack 远程协议（HTTP 原生，浏览器直连）；Google Notebook 以"智能即规格"理念整合 Gemini；开发者因安全顾虑从 GitHub 迁至 Forgejo。</p>
+  </div>
+  <div class="relevance"><strong>连接：</strong>DuckDB Quack → 数据分析基础设施潜力；GitHub 迁移讨论 → IKEA GHES 安全论据支撑。</div>
+  <div><span class="tag">Infrastructure</span><span class="tag">Security</span></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3>100gle: 退 AI 订阅，五条主线任务</h3>
+    <span class="stars">⭐⭐⭐</span>
+  </div>
+  <span class="author">100gle (@1ooogle) · <a href="https://x.com/1ooogle/status/2053845831858680301">原文</a></span>
+  <div class="card-body"><p>"这月起把AI的订阅全退了，只充一个DeepSeek画原型。人生五条主线：建模、建仓、建智、健身、健胃。"</p></div>
+  <div class="relevance"><strong>反直觉信号：</strong>在 AI 狂热期有人主动做减法。与昨天认知显微镜发现的"周日边界消融"形成对照——你在加速投入 AI，别人在做减法。值得思考的是"什么时候减法比加法更有力"。</div>
+  <div><span class="tag">Contrarian</span><span class="tag">Human Connection</span></div>
+</div>
+
+<h2>⭐ 低价值附录</h2>
+<details>
+<summary>展开查看全部（2 条）</summary>
+<div class="card" style="opacity:0.7">
+  <h3>NVIDIA OpenShell v0.0.40</h3>
+  <span class="author">@NVIDIAAI · <a href="https://x.com/NVIDIAAI/status/2054610877765275748">原文</a></span>
+  <div class="card-body"><p>K8s 调度 + TLS 信任链修复 + SecretResolver 不再泄露 secrets。</p></div>
+</div>
+<div class="card" style="opacity:0.7">
+  <h3>运动改善应激反应</h3>
+  <span class="author">瞎玩菌 (@Blind___Gamer) · <a href="https://x.com/Blind___Gamer/status/2054728404407054546">原文</a></span>
+  <div class="card-body"><p>"吵完架总觉得没发挥好，遇到突发大脑一片空白——通过运动来改善。"</p></div>
+</div>
+</details>
+
+<h2>📋 行动清单</h2>
+<ul class="action-list">
+  <li><strong>研究 GBrain 架构</strong>：克隆仓库，评估 Compiled Truth + Timeline 模式对 Notebooks Memory 的适用性</li>
+  <li><strong>评估 Agent Harness 优化器</strong>：用 project-harness 的一个项目做试点测试</li>
+  <li><strong>GHES Actions 缓存安全审计</strong>：检查 IKEA GHES 的 CI 缓存隔离策略，评估 TanStack 式攻击风险</li>
+  <li><strong>Remarker 差异化声明</strong>：写一段"Why Remarker"，锚定 AI 审阅循环这个未被满足的需求</li>
+  <li><strong>反思 AI 减法</strong>：100gle 的五主线与你的 intent/active.md 做对比——你的主线是否太多？</li>
+</ul>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

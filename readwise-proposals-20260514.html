@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals — 2026-05-14</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:"LXGW WenKai","霞鹜文楷","STKaiti",-apple-system,BlinkMacSystemFont,serif; line-height:1.75; padding:2rem; max-width:960px; margin:0 auto; }
+h1 { font-size:1.8rem; margin-bottom:0.3rem; color:var(--accent); }
+h2 { font-size:1.3rem; margin:2.5rem 0 1rem; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:0.5rem; }
+.meta { color:var(--text3); font-size:0.9rem; margin-bottom:1.5rem; }
+.axiom { background:var(--surface2); border-left:4px solid var(--accent4); padding:0.8rem 1.2rem; margin:1.5rem 0; font-style:italic; color:var(--text2); border-radius:0 8px 8px 0; }
+.proposal { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.5rem; margin:1.5rem 0; box-shadow:var(--shadow); }
+.proposal-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.8rem; }
+.proposal-num { background:var(--accent); color:white; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem; flex-shrink:0; margin-right:1rem; }
+html.dark .proposal-num { background:var(--accent2); }
+.proposal-title { font-size:1.15rem; font-weight:700; color:var(--text); flex:1; }
+.proposal-connect { display:inline-block; background:var(--surface2); color:var(--accent2); font-size:0.78rem; padding:2px 10px; border-radius:99px; margin-left:0.5rem; white-space:nowrap; }
+.claim { background:var(--surface2); border-left:3px solid var(--accent3); padding:0.7rem 1rem; margin:1rem 0; font-weight:600; color:var(--text); border-radius:0 8px 8px 0; }
+.section-label { font-weight:700; color:var(--accent); font-size:0.9rem; margin:1rem 0 0.3rem; }
+.milestone { display:grid; grid-template-columns:auto 1fr; gap:0.3rem 1rem; margin:0.5rem 0; }
+.milestone-tag { background:var(--surface2); color:var(--accent4); font-size:0.78rem; padding:2px 8px; border-radius:4px; font-weight:600; white-space:nowrap; justify-self:start; }
+.milestone-text { color:var(--text2); font-size:0.9rem; }
+.actions { list-style:none; }
+.actions li { padding:0.4rem 0; font-size:0.95rem; }
+.actions li::before { content:"⚡ "; }
+.challenge { background:#fef3c7; border:1px solid #f59e0b; border-radius:8px; padding:0.8rem 1rem; margin:1rem 0; font-size:0.9rem; color:#92400e; }
+html.dark .challenge { background:#422006; border-color:var(--accent4); color:#fbbf24; }
+.success { font-size:0.9rem; color:var(--text2); }
+.success li { margin:0.2rem 0; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.9rem; }
+th,td { padding:0.5rem 0.8rem; text-align:left; border-bottom:1px solid var(--border); }
+th { color:var(--text3); font-weight:600; }
+.theme-toggle { position:fixed; top:1rem; right:1rem; font-size:1.5rem; cursor:pointer; background:var(--surface); border:1px solid var(--border); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; z-index:100; }
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="theme-toggle">🌙</button>
+
+<h1>🎯 Readwise 深挖 Proposals</h1>
+<p class="meta">2026-05-14 · 5 个 subagents 并行推理 · 基于当日情报简报</p>
+
+<div class="axiom">不可行动的信息 = 噪音。以下每个 Proposal 都经得起追问"本周做什么"。</div>
+
+<table>
+<tr><th>#</th><th>信号</th><th>连接项目</th><th>核心主张</th></tr>
+<tr><td>1</td><td>GBrain</td><td>Life OS · Memory</td><td>Compiled Truth + Timeline 补 IRA 编译缺口</td></tr>
+<tr><td>2</td><td>Harness 优化器</td><td>Project Harness</td><td>先构造 benchmark 再决定自动化</td></tr>
+<tr><td>3</td><td>TanStack 攻击</td><td>IKEA Security</td><td>GHES 差异化风险：runner 持久化 + skill 源头</td></tr>
+<tr><td>4</td><td>非开发者 AI</td><td>AI Upskill Trainer</td><td>双轨并行：工具体感 + 元技能判断力</td></tr>
+<tr><td>5</td><td>Markdown 工具爆发</td><td>Remarker</td><td>护城河在协议层+工作流绑定，非功能</td></tr>
+</table>
+
+<!-- Proposal 1 -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div style="display:flex;align-items:center;">
+      <div class="proposal-num">1</div>
+      <div class="proposal-title">GBrain → Life OS Memory：给 IRA 补上"编译"步骤</div>
+    </div>
+    <span class="proposal-connect">Life OS · Memory</span>
+  </div>
+  <div class="claim">GBrain 最值得借鉴的不是知识图谱，而是 Compiled Truth + Timeline 双层结构——一个实体一页，顶部可重写综合结论，底部不可变证据链。这恰好补了 IRA 的关键缺口：ingest-agent 只做追加，没有"编译"步骤。</div>
+
+  <div class="section-label">🎯 锁定痛点</div>
+  <p>当前 context/ 目录只有"追加"没有"综合"——信息越多越难找，Agent 每次都从零搜索。缺少一个让知识自动复利的"编译器"。</p>
+
+  <div class="section-label">📍 里程碑</div>
+  <div class="milestone">
+    <span class="milestone-tag">M0</span><span class="milestone-text">创建 <code>context/entities/</code> 目录 + 写 SPEC 授权 compile-agent</span>
+    <span class="milestone-tag">M1</span><span class="milestone-text">手动对 3 个高频实体（Remarker / Baozun / Skill Hub）编写 Compiled Truth + Timeline</span>
+    <span class="milestone-tag">M2</span><span class="milestone-text">实现 compile-agent prompt：读 journal + context → 自动生成/更新 entity page</span>
+    <span class="milestone-tag">M3</span><span class="milestone-text">regex 关系提取（zero LLM）：实体间自动建 backlink</span>
+  </div>
+
+  <div class="section-label">✅ 成功标准</div>
+  <ul class="success">
+    <li>Agent 回答"Remarker 当前状态"时，命中 compiled truth 而非搜索 20+ journal</li>
+    <li>新 session 冷启动时间减少 50%（从读 context/ 到获得项目全貌）</li>
+  </ul>
+
+  <div class="section-label">⚡ 本周立即行动</div>
+  <ul class="actions">
+    <li>创建 <code>context/entities/</code> 目录 + README</li>
+    <li>手写 Remarker entity page（Compiled Truth + Timeline 格式）</li>
+    <li>在 SPEC.md 中授权 compile-agent 可重写 entity 顶部</li>
+  </ul>
+
+  <div class="challenge">
+    <strong>🔴 诚实挑战：</strong>"编译"什么时候触发？手动太累，自动可能产生幻觉。GBrain 用 regex 做关系提取（确定性），但"综合结论"仍需 LLM——LLM 编译的准确性谁来验证？需要设计 human-in-the-loop 的编译审核机制。
+  </div>
+</div>
+
+<!-- Proposal 2 -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div style="display:flex;align-items:center;">
+      <div class="proposal-num">2</div>
+      <div class="proposal-title">Agent Harness 自动优化器：先造尺子，再造机器</div>
+    </div>
+    <span class="proposal-connect">Project Harness</span>
+  </div>
+  <div class="claim">Prose harness（VISION/SPEC/OPS）的自动优化可行，但前提是先解决"评分信号稀疏"问题——你得先有 benchmark 才能谈优化。Meta-Harness 已证明 +33% 提升，但它依赖完整执行 trace（~10M tokens/轮）。</div>
+
+  <div class="section-label">🎯 锁定痛点</div>
+  <p>15+ 项目的 harness 维护全靠手动反馈循环。skill-evolver 依赖人发现问题→诊断→修复，没有自动化的"质量仪表盘"。</p>
+
+  <div class="section-label">📍 里程碑</div>
+  <div class="milestone">
+    <span class="milestone-tag">M0</span><span class="milestone-text">研究 Meta-Harness (Stanford IRIS Lab) 架构，判断适配性</span>
+    <span class="milestone-tag">M1</span><span class="milestone-text">构造 1 个 skill benchmark（定义任务 + 预期输出 + 评分规则）— Go/No-Go 决策点</span>
+    <span class="milestone-tag">M2</span><span class="milestone-text">对 benchmark 跑 A/B 测试：当前 harness vs 优化后 harness</span>
+    <span class="milestone-tag">M3</span><span class="milestone-text">自动化循环：优化器生成提案 → benchmark 评分 → 保留/丢弃</span>
+  </div>
+
+  <div class="section-label">✅ 成功标准</div>
+  <ul class="success">
+    <li>至少 1 个 skill 的 benchmark 通过率提升 >15%</li>
+    <li>Harness 迭代周期从"天"缩短到"小时"</li>
+  </ul>
+
+  <div class="section-label">⚡ 本周立即行动</div>
+  <ul class="actions">
+    <li>克隆 Meta-Harness 仓库，阅读架构文档</li>
+    <li>选定 1 个 skill（如 journal）设计 benchmark 任务集</li>
+    <li>定义"好 harness"的 3 个可量化维度</li>
+  </ul>
+
+  <div class="challenge">
+    <strong>🔴 诚实挑战：</strong>Prose 优化的评分信号天然稀疏——"VISION.md 写得好"怎么量化？代码有测试通过率，prose 没有。可能需要"代理指标"：Agent 在该 harness 下完成任务的成功率、hallucination 率、人工修正次数。这套评价体系本身的构建成本可能 > 直接手动优化。
+  </div>
+</div>
+
+<!-- Proposal 3 -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div style="display:flex;align-items:center;">
+      <div class="proposal-num">3</div>
+      <div class="proposal-title">CI/CD 缓存投毒防御：GHES 的差异化风险评估</div>
+    </div>
+    <span class="proposal-connect">IKEA Security · Skill Hub</span>
+  </div>
+  <div class="claim">GHES 封闭性降低外部攻击概率，但 self-hosted runner 持久化 + 内部人 PR 权限 + 无 skill 完整性校验构成差异化风险。<code>npx skills add</code> 的风险不在传输层，在源头——skill 仓库 CI 若被投毒，发布物本身就是恶意的。</div>
+
+  <div class="section-label">🎯 锁定痛点</div>
+  <p>上周 PII 事件耗时 3+ 小时，属于被动响应。没有前置防护机制（pre-commit hook / CI 缓存审计 / skill 签名验证）。</p>
+
+  <div class="section-label">📍 里程碑</div>
+  <div class="milestone">
+    <span class="milestone-tag">M0 本周</span><span class="milestone-text">30 分钟审计：扫描所有 GHES workflow，检查缓存使用和 runner 共享情况</span>
+    <span class="milestone-tag">M1</span><span class="milestone-text">实施 Quick Win：PR workflow 隔离（read-only token）+ 缓存 scope 限制</span>
+    <span class="milestone-tag">M2</span><span class="milestone-text">Skill 完整性校验：<code>npx skills add</code> 增加 checksum 验证</span>
+    <span class="milestone-tag">M3</span><span class="milestone-text">安全 runbook：CI/CD 事件响应 SOP + 定期审计机制</span>
+  </div>
+
+  <div class="section-label">✅ 成功标准</div>
+  <ul class="success">
+    <li>所有 PR workflow 使用 read-only token（零 cache 写权限）</li>
+    <li>skill 安装链有 checksum 校验，篡改可检测</li>
+    <li>安全事件响应从"小时级被动"降为"分钟级主动"</li>
+  </ul>
+
+  <div class="section-label">⚡ 本周立即行动</div>
+  <ul class="actions">
+    <li>扫描 china-digital-hub/skills 的 CI workflow 缓存配置</li>
+    <li>检查 GHES self-hosted runner 是否跨 repo 共享</li>
+    <li>将 TanStack 攻击分析分享给团队（安全意识提升）</li>
+  </ul>
+
+  <div class="challenge">
+    <strong>🔴 诚实挑战：</strong>GHES 的真实攻击面取决于 IKEA IT Infra 的 runner 配置，你可能没有 admin 权限查看。且 skill 生态还小（51 个），过度安全投入的 ROI 需要平衡。建议 M0 审计后根据发现再决定是否推进 M1-M3。
+  </div>
+</div>
+
+<!-- Proposal 4 -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div style="display:flex;align-items:center;">
+      <div class="proposal-num">4</div>
+      <div class="proposal-title">AI Upskill 双轨制：工具体感 + 元技能判断力</div>
+    </div>
+    <span class="proposal-connect">AI Upskill Trainer</span>
+  </div>
+  <div class="claim">不是从"教工具"转向"教判断力"，而是双轨并行——L0-L1 仍教具体工具建立体感，L2+ 重心转向评估、选择、迁移的元技能。课程架构设计为"框架+插槽"，工具可换但方法论不变。</div>
+
+  <div class="section-label">🎯 锁定痛点</div>
+  <p>AI 工具迭代速度 > 课程更新速度。如果课程绑死具体工具（如"Copilot 使用指南"），3 个月就过时。用户真正缺的不是"哪个按钮在哪"，而是"面对 10 个工具怎么选"。</p>
+
+  <div class="section-label">📍 里程碑</div>
+  <div class="milestone">
+    <span class="milestone-tag">M0</span><span class="milestone-text">设计 L0 对比体验课：同一任务用 3 个工具完成，让学员感受差异</span>
+    <span class="milestone-tag">M1</span><span class="milestone-text">起草"AI 工具评估模板" v0.1（维度：场景匹配度 / 数据安全 / 学习曲线 / 成本）</span>
+    <span class="milestone-tag">M2</span><span class="milestone-text">L2 课程改版：从"工具教学"改为"评估框架 + 工具实操"双模块</span>
+    <span class="milestone-tag">M3</span><span class="milestone-text">Pilot 验证：2 个非技术用户用评估模板自主选工具</span>
+  </div>
+
+  <div class="section-label">✅ 成功标准</div>
+  <ul class="success">
+    <li>学员能独立评估一个新 AI 工具（用模板，<15 分钟）</li>
+    <li>课程更新不因工具迭代而重写（框架不变，插槽换工具）</li>
+  </ul>
+
+  <div class="section-label">⚡ 本周立即行动</div>
+  <ul class="actions">
+    <li>设计 L0 对比体验课的任务和 3 个候选工具</li>
+    <li>起草 AI 工具评估模板 v0.1</li>
+    <li>找 2 个 Pilot 用户验证"评估模板"是否好用</li>
+  </ul>
+
+  <div class="challenge">
+    <strong>🔴 诚实挑战：</strong>"教判断力"比"教操作"难 10 倍——操作可以演示，判断力需要体验积累。L0-L1 的"工具体感"阶段不能跳过，否则"评估框架"变成纸上谈兵。风险是双轨制增加课程复杂度，P0 缺口的讲师更难招。
+  </div>
+</div>
+
+<!-- Proposal 5 -->
+<div class="proposal">
+  <div class="proposal-header">
+    <div style="display:flex;align-items:center;">
+      <div class="proposal-num">5</div>
+      <div class="proposal-title">Remarker 定位：护城河在协议层，不在功能层</div>
+    </div>
+    <span class="proposal-connect">Remarker</span>
+  </div>
+  <div class="claim">Remarker 的护城河不在功能（可抄），在三层递进：①协议层——颜色语义+行号定位的结构化反馈格式；②工作流层——嵌入 AGENTS.md 的标准操作，Agent 行为绑定；③习惯层——组织采纳后的切换成本。</div>
+
+  <div class="section-label">🎯 锁定痛点</div>
+  <p>6+ 新 Markdown 工具密集出现，纯"查看/编辑"是 table stakes。Remarker 如果只是"又一个 Markdown 查看器"，没有存活空间。唯一差异化：<strong>AI 审阅循环是现有工具未覆盖的交互模式</strong>。</p>
+
+  <div class="section-label">📍 里程碑</div>
+  <div class="milestone">
+    <span class="milestone-tag">M0</span><span class="milestone-text">写 Remarker Protocol Spec：定义颜色语义（🟡🟢🔵🩷）+ 行号格式 + Agent 响应规则</span>
+    <span class="milestone-tag">M1</span><span class="milestone-text">AGENTS.md 插件化：Remarker 规则从硬编码改为可选 include</span>
+    <span class="milestone-tag">M2</span><span class="milestone-text">团队 Dogfood：邀请 2-3 同事在真实 review 场景中使用</span>
+    <span class="milestone-tag">M3</span><span class="milestone-text">Protocol 开源：让其他 Agent 工具也能接入 Remarker 标注格式</span>
+  </div>
+
+  <div class="section-label">✅ 成功标准</div>
+  <ul class="success">
+    <li>Protocol Spec 发布，Agent 能按规范解析标注并精确修改</li>
+    <li>至少 1 个非 Kyle 用户在真实工作中持续使用 >2 周</li>
+  </ul>
+
+  <div class="section-label">⚡ 本周立即行动</div>
+  <ul class="actions">
+    <li>写 Remarker Protocol Spec v0.1（颜色语义 + 行号格式）</li>
+    <li>将 AGENTS.md 中的 Remarker 规则改为插件模式</li>
+    <li>回复 Ding 的推文，阐述 Remarker 的差异化定位</li>
+  </ul>
+
+  <div class="challenge">
+    <strong>🔴 诚实挑战：</strong>目前只有 Kyle 一人在用。如果 M2 阶段团队不自然采纳（不推不拉），就诚实承认这是个人工具而非产品。Protocol 开源的前提是协议本身足够好——如果标注格式在真实使用中频繁需要修改，说明还没稳定到可以固化的程度。
+  </div>
+</div>
+
+<h2 style="margin-top:3rem;">📊 优先级矩阵</h2>
+<table>
+<tr><th>Proposal</th><th>影响力</th><th>本周可启动</th><th>风险</th><th>建议</th></tr>
+<tr><td>1. GBrain Memory</td><td>🔥🔥🔥</td><td>✅</td><td>低</td><td><strong>本周启动</strong>（M0 成本极低）</td></tr>
+<tr><td>3. CI/CD 安全审计</td><td>🔥🔥🔥</td><td>✅</td><td>低</td><td><strong>本周启动</strong>（M0 仅 30 分钟）</td></tr>
+<tr><td>5. Remarker Protocol</td><td>🔥🔥</td><td>✅</td><td>中</td><td><strong>本周启动</strong>（你已在密集开发）</td></tr>
+<tr><td>4. Upskill 双轨制</td><td>🔥🔥</td><td>⚠️</td><td>中</td><td>下周启动（需先定讲师团）</td></tr>
+<tr><td>2. Harness Benchmark</td><td>🔥</td><td>⚠️</td><td>高</td><td>Research 阶段（先读 Meta-Harness）</td></tr>
+</table>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
