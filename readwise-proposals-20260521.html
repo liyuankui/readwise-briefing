@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深度 Proposals — 2026-05-21</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--accent); }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--text); }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; position: fixed; top: 1rem; right: 1rem; z-index: 100; }
+.banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; padding: 1.2rem 1.5rem; border-radius: 10px; margin-bottom: 2rem; }
+.banner strong { font-size: 1.1rem; }
+.overview-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+.overview-table th, .overview-table td { padding: 0.7rem 0.8rem; border: 1px solid var(--border); text-align: left; }
+.overview-table th { background: var(--surface2); color: var(--accent); font-weight: bold; }
+.proposal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+.proposal-card h2 { margin-top: 0; border-bottom: 2px solid var(--accent3); padding-bottom: 0.3rem; }
+.claim { background: var(--surface2); border-left: 4px solid var(--accent3); padding: 1rem 1.2rem; margin: 1rem 0; font-weight: bold; font-size: 1.05rem; border-radius: 0 8px 8px 0; }
+.milestone-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+.milestone-table th, .milestone-table td { padding: 0.5rem 0.6rem; border: 1px solid var(--border); }
+.milestone-table th { background: var(--surface2); }
+.action-box { background: var(--surface2); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.action-box li { margin: 0.4rem 0; }
+.challenge-box { border: 1px dashed var(--accent5); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; color: var(--text2); }
+.tag { display: inline-block; background: var(--surface2); border-radius: 12px; padding: 0.1rem 0.6rem; font-size: 0.75rem; color: var(--accent2); margin-right: 0.3rem; }
+.roi-highlight { color: var(--accent3); font-weight: bold; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+details { margin: 0.5rem 0; }
+summary { cursor: pointer; color: var(--accent2); font-weight: bold; }
+.toc { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-bottom: 2rem; }
+.toc ol { padding-left: 1.5rem; }
+.toc li { margin: 0.4rem 0; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<h1>🔬 Readwise 深度 Proposals</h1>
+<p style="color:var(--text3); margin-bottom: 1rem;">2026-05-21 | 5 个方向 × 并行推理 | 基于本周 Readwise 高价值信号</p>
+
+<div class="banner">
+<strong>公理：不可行动的信息 = 噪音。</strong><br>
+以下每个 Proposal 都必须回答：解决什么问题？为什么现在？怎么做？怎么知道成功？
+</div>
+
+<div class="toc">
+<strong>目录</strong>
+<ol>
+<li><a href="#p1">DESIGN.md → project-harness Overlay 升级</a></li>
+<li><a href="#p2">VS Code 供应链攻击 → IDE 扩展治理</a></li>
+<li><a href="#p3">TUI 式微 → 分层 AI 工具策略</a></li>
+<li><a href="#p4">Implementation Notes → 团队交付规范</a></li>
+<li><a href="#p5">软件免费 → 工程价值重定位</a></li>
+</ol>
+</div>
+
+<table class="overview-table">
+<tr><th>#</th><th>核心主张</th><th>关联项目</th><th>本周可做</th></tr>
+<tr><td>1</td><td>不加第6个必填文件，而是升级为"4 Core + Typed Overlays"</td><td>project-harness, Skill Hub</td><td>写决策 memo + 选 2 pilot</td></tr>
+<tr><td>2</td><td>IDE 扩展 = 可执行依赖，纳入 R9.1 供应链治理</td><td>AI Starter Kit, Security</td><td>全员扩展盘点 + Blessed List v0</td></tr>
+<tr><td>3</td><td>不赌 CLI/GUI 谁赢，建"右工具-右人群"双轨策略</td><td>AI Upskill, Life OS</td><td>人群-任务矩阵 + 对照试点</td></tr>
+<tr><td>4</td><td>非微小改动同步维护 implementation-notes，作为交付证据链</td><td>Engineering Baseline</td><td>定标准 + 2 个试点任务</td></tr>
+<tr><td>5</td><td>CDH 价值从"写代码"转向"定义问题 + 保障结果"</td><td>Value Demo, POS</td><td>1 页 narrative memo + 新指标看板</td></tr>
+</table>
+
+<!-- Proposal 1 -->
+<div class="proposal-card" id="p1">
+<h2>1. DESIGN.md → project-harness Overlay 升级</h2>
+<span class="tag">project-harness</span><span class="tag">Skill Hub</span><span class="tag">Agentic Engineering</span>
+
+<div class="claim">
+Kyle 不应把 DESIGN.md 机械加成第 6 个必填文件；更好的做法是把 project-harness 升级为"4 核心 + 可选 Overlay"，其中 DESIGN.md 只在 UI/体验密集型项目中启用。
+</div>
+
+<h3>痛点</h3>
+<ul>
+<li>现有 Harness 对"怎么做"没有统一、可机读的第二层表达</li>
+<li>"DESIGN.md"语义冲突：外部偏视觉设计，内部偏技术架构</li>
+<li>Skill Hub 真正缺的是 machine-readable skill contract，不是 UI design doc</li>
+</ul>
+
+<h3>推荐方案</h3>
+<p><strong>4 Core + Typed Overlays：</strong></p>
+<table class="milestone-table">
+<tr><th>Core（所有项目必备）</th><th>Overlay（按类型启用）</th></tr>
+<tr><td>VISION / SPEC / OPS / README</td><td>DESIGN.md（UI项目）· ARCHITECTURE.md（后端）· CONTRACTS.md（API）· DATA.md（分析）</td></tr>
+</table>
+
+<h3>里程碑</h3>
+<table class="milestone-table">
+<tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 定义 overlay taxonomy</td><td>3-5天</td><td>什么项目用什么 overlay</td></tr>
+<tr><td>M2 改造 project-harness skill</td><td>1周</td><td>Generate/Audit 支持按类型推荐</td></tr>
+<tr><td>M3 Skill Hub 增加 skill contract</td><td>1-2周</td><td>inputs/outputs/deps/sideEffects</td></tr>
+<tr><td>M4 选 2 pilot repo</td><td>2周</td><td>1 UI + 1 backend</td></tr>
+</table>
+
+<div class="action-box">
+<strong>⚡ 本周行动：</strong>
+<ol>
+<li>写决策 memo：project-harness 走 overlay 路线</li>
+<li>选 2 个 pilot repo（ikea-skill-hub + 1 个 agent/backend repo）</li>
+<li>给 Skill Hub 定最小 schema v0.1</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<strong>🎯 诚实挑战：</strong>这实际是推"harness 从固定文件制升级为类型化文档系统"——比"加一个文件"更大更慢。且如果 Skill Hub 没有真实消费结构化字段，schema 只会变成新的维护负担。
+</div>
+</div>
+
+<!-- Proposal 2 -->
+<div class="proposal-card" id="p2">
+<h2>2. VS Code 供应链攻击 → IDE 扩展治理</h2>
+<span class="tag">Security</span><span class="tag">AI Starter Kit</span><span class="tag">R9.1</span>
+
+<div class="claim">
+IKEA CDH 应把 IDE 扩展视为"可执行依赖"：对高风险扩展实行 versioned blessed list、冷静期+分环更新、库存盘点与快速例外机制。
+</div>
+
+<h3>痛点</h3>
+<ul>
+<li>R9.1 只覆盖代码/Skill/依赖，<strong>不覆盖 IDE 扩展与扩展更新</strong></li>
+<li>VS Code 扩展 auto-update 是隐形供应链通道</li>
+<li>团队缺少 extension inventory——出事后不知谁装了什么</li>
+</ul>
+
+<h3>里程碑</h3>
+<table class="milestone-table">
+<tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 盘点与止血</td><td>1周</td><td>全员扩展清单 + 临时冻结策略</td></tr>
+<tr><td>M2 Blessed Extensions Registry</td><td>2周</td><td>blessed-extensions.yml（Required/Allowed/Blocked）</td></tr>
+<tr><td>M3 Starter Kit 接入</td><td>1-2周</td><td>新机开箱即合规</td></tr>
+<tr><td>M4 ikea-security 扩展审查流</td><td>2周</td><td>extension-audit 流程</td></tr>
+<tr><td>M5 更新分环 + 响应预案</td><td>1周</td><td>Canary→Team rollout + 7天冷静期</td></tr>
+</table>
+
+<h3>成功标准</h3>
+<ul>
+<li>100% 团队设备完成扩展 inventory 基线</li>
+<li>≥90% 日常扩展来自 blessed registry</li>
+<li>&lt;24h 新扩展例外审批 SLA</li>
+<li>&lt;4h 高危安全公告完成影响识别</li>
+</ul>
+
+<div class="action-box">
+<strong>⚡ 本周行动：</strong>
+<ol>
+<li>收集全员 <code>code --list-extensions --show-versions</code></li>
+<li>发布临时 Blessed List v0（Top 10-20 必需扩展）</li>
+<li>在 AGENTS.md 增补：IDE 扩展纳入 R9.1 范围</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<strong>🎯 诚实挑战：</strong>没有设备侧强制能力，白名单本质上是治理信号而非硬控制。不要卖成"彻底防住"，而是"高风险通道纳入可见、可管、可回滚"。
+</div>
+</div>
+
+<!-- Proposal 3 -->
+<div class="proposal-card" id="p3">
+<h2>3. TUI 式微 → 分层 AI 工具策略</h2>
+<span class="tag">AI Upskill</span><span class="tag">Life OS</span><span class="tag">Browser Automation</span>
+
+<div class="claim">
+TUI 不是在死亡，而是在回归其最适人群；团队应从"统一 CLI"升级为"GUI 扩覆盖、CLI 保杠杆、Workflow 做桥梁"的双轨策略。
+</div>
+
+<h3>右工具-右人群策略</h3>
+<table class="milestone-table">
+<tr><th>人群</th><th>主界面</th><th>适合任务</th></tr>
+<tr><td>业务/BA/非技术</td><td>GUI/Desktop</td><td>临时任务、文档生成、信息整理</td></tr>
+<tr><td>普通工程师</td><td>Hybrid</td><td>日常开发、调试、PR 协作</td></tr>
+<tr><td>Senior/Staff</td><td>CLI/TUI</td><td>复杂改造、系统集成、长链路任务</td></tr>
+</table>
+
+<h3>对 Life OS 的含义</h3>
+<p>CLI 继续做"内核"，但要补 GUI 入口、模板化任务、可观察层。</p>
+
+<h3>对 Upskill Trainer 的含义</h3>
+<p>从"教工具"改成三层教学：L1 GUI-first → L2 Workflow literacy → L3 CLI power-user。</p>
+
+<div class="action-box">
+<strong>⚡ 本周行动：</strong>
+<ol>
+<li>做一个 2×2 人群-任务矩阵（复杂度 × 熟练度）</li>
+<li>发起 2 周对照试点（6-8 人，CLI vs GUI 同批任务）</li>
+<li>重写 Upskill Trainer 目录为三层结构</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<strong>🎯 诚实挑战：</strong>单一社交信号不足以证明"TUI 式微"。GUI 可能提升 adoption，却未必提升复杂任务产能。若没有 workflow 抽象层，双轨策略会变成双倍维护成本。
+</div>
+</div>
+
+<!-- Proposal 4 -->
+<div class="proposal-card" id="p4">
+<h2>4. Implementation Notes → 团队交付规范</h2>
+<span class="tag">Engineering Baseline</span><span class="tag">AI Coding</span><span class="tag">Code Review</span>
+
+<div class="claim">
+对所有"非微小改动"，要求同步维护 implementation-notes.md，把"为什么这样改"变成可审阅、可验证、可交接的交付物——它是 delivery closure 的证据链。
+</div>
+
+<h3>定位</h3>
+<p><strong>不是第 6 份 Harness 宪法文件，而是受 OPS 约束的标准执行证据。</strong>慢变量进 Harness，快变量进 Notes。</p>
+
+<h3>新工作流</h3>
+<p><code>VISION → SPEC → implementation-notes → code → OPS verification → delivery closure</code></p>
+
+<h3>对 Code Review 的影响</h3>
+<p><strong>Reviewer 顺序改为：先读 notes，再看 diff。</strong>预期减少 30%+ "解释型往返"。</p>
+
+<h3>成功标准</h3>
+<table class="milestone-table">
+<tr><th>指标</th><th>目标</th></tr>
+<tr><td>Reviewer "解释性问题"占比</td><td>下降 30%+</td></tr>
+<tr><td>PR 首次通过率</td><td>提升 20%+</td></tr>
+<tr><td>非微小改动 notes 覆盖率</td><td>>80%</td></tr>
+<tr><td>delivery-closure 有证据链占比</td><td>>90%</td></tr>
+</table>
+
+<div class="action-box">
+<strong>⚡ 本周行动：</strong>
+<ol>
+<li>定标准：何时必须写 notes + 最小模板 + reviewer 顺序</li>
+<li>选 2 个真实任务试跑（1 个 AI 主导 + 1 个多人协作）</li>
+<li>在 project-harness OPS 模板中加入 Implementation Notes Protocol</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<strong>🎯 诚实挑战：</strong>它默认团队已有稳定的 SPEC discipline。若 SPEC 本身松散，notes 只会记录混乱。前 2-3 周可能先变慢（学习期）。Notes 不能替代真正的验证——只能证明"你怎么想的"。
+</div>
+</div>
+
+<!-- Proposal 5 -->
+<div class="proposal-card" id="p5">
+<h2>5. 软件免费 → 工程价值重定位</h2>
+<span class="tag">Value Demo</span><span class="tag">Store POS</span><span class="tag">Vibe Stack</span>
+
+<div class="claim">
+当软件成本趋近于零，CDH 的稀缺价值不在"写出代码"，而在"定义正确问题、设计低风险解法、保障业务结果持续发生"。
+</div>
+
+<h3>给 Nicole / Kirill 的一句定位</h3>
+<p class="roi-highlight">"AI 让代码更便宜，不会让业务风险更便宜；CDH 的战略价值，是把廉价的软件生产能力，转化为可靠的零售变更能力。"</p>
+
+<h3>里程碑</h3>
+<table class="milestone-table">
+<tr><th>阶段</th><th>时间</th><th>交付</th></tr>
+<tr><td>1. 价值叙事重构</td><td>1-2周</td><td>统一话术 + 1 页指标框架</td></tr>
+<tr><td>2. POS 试点落地</td><td>3-5周</td><td>"问题定义→快速原型→上线保障"闭环</td></tr>
+<tr><td>3. Vibe Stack 运营化</td><td>4-8周</td><td>低成本验证平台 + guardrails</td></tr>
+<tr><td>4. 管理机制升级</td><td>6-10周</td><td>outcome review + stakeholder scorecard</td></tr>
+<tr><td>5. 人才与晋升对齐</td><td>8-12周</td><td>hiring/promotion rubric 更新</td></tr>
+</table>
+
+<h3>新指标看板（5 个）</h3>
+<ol>
+<li>Lead time（需求→pilot）</li>
+<li>Incident rate / MTTR / 回滚率</li>
+<li>Adoption rate（AI + Vibe Stack）</li>
+<li>需求质量（带 KPI/owner 占比）</li>
+<li>Business KPI linkage</li>
+</ol>
+
+<div class="action-box">
+<strong>⚡ 本周行动：</strong>
+<ol>
+<li>写 1 页 narrative memo："When software is free, CDH owns decision quality and operational outcomes."</li>
+<li>选 1 个 POS/backend 试点场景（最能体现业务风险与 ownership）</li>
+<li>定义新指标看板（5 个核心指标）</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<strong>🎯 诚实挑战：</strong>若团队没有 product/discovery 能力，这个 proposal 会沦为包装术。若上级只认短期 delivery，转型会被误判为"变慢"。若不改变 promotion/hiring，大家仍会回到"谁写得多谁重要"。
+</div>
+</div>
+
+<footer style="margin-top:3rem; padding-top:1rem; border-top:1px solid var(--border); color:var(--text3); font-size:0.8rem;">
+<p>Generated by <code>my-readwise-briefing</code> v3.0.0 Phase 2 | 5 subagents × parallel reasoning</p>
+<p>配套简报：<code>/tmp/readwise-briefing-20260521.html</code></p>
+</footer>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 — 2026-05-21</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--text2); }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; text-align: center; }
+.stat-num { font-size: 2rem; font-weight: bold; color: var(--accent2); }
+.stat-label { font-size: 0.85rem; color: var(--text3); }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; position: fixed; top: 1rem; right: 1rem; z-index: 100; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-bottom: 1rem; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.card-title { font-weight: bold; color: var(--text); margin-bottom: 0.3rem; }
+.card-meta { font-size: 0.8rem; color: var(--text3); margin-bottom: 0.5rem; }
+.card-body { color: var(--text2); font-size: 0.92rem; }
+.relevance { display: inline-block; background: var(--surface2); border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.78rem; color: var(--accent3); font-weight: bold; margin-left: 0.5rem; }
+.tag { display: inline-block; background: var(--surface2); border-radius: 12px; padding: 0.1rem 0.6rem; font-size: 0.75rem; color: var(--accent2); margin-right: 0.3rem; }
+.action-list { list-style: none; padding: 0; }
+.action-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.5rem; }
+.action-list li::before { content: "→"; color: var(--accent4); font-weight: bold; }
+.signal-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.signal-table th, .signal-table td { padding: 0.6rem 0.8rem; border: 1px solid var(--border); text-align: left; font-size: 0.88rem; }
+.signal-table th { background: var(--surface2); color: var(--accent); }
+details { margin: 1rem 0; }
+summary { cursor: pointer; color: var(--accent2); font-weight: bold; padding: 0.5rem 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 2rem; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<div class="header">
+<div>
+<h1>📡 Readwise 情报简报</h1>
+<p style="color:var(--text3)">2026-05-21 | 覆盖 2026-05-14 ~ 05-21</p>
+</div>
+</div>
+
+<div class="banner">
+<strong>公理</strong>：不可行动的信息 = 噪音。本简报只展示与当前意图对齐的高价值信号。
+</div>
+
+<div class="stats">
+<div class="stat-card"><div class="stat-num">58</div><div class="stat-label">新高亮</div></div>
+<div class="stat-card"><div class="stat-num">30</div><div class="stat-label">新文档</div></div>
+<div class="stat-card"><div class="stat-num">7</div><div class="stat-label">⭐×5 高价值</div></div>
+<div class="stat-card"><div class="stat-num">5</div><div class="stat-label">深挖方向</div></div>
+</div>
+
+<h2>🎯 信号 × 意图 对应关系</h2>
+<table class="signal-table">
+<tr><th>#</th><th>深挖方向</th><th>关联意图</th><th>信号来源</th></tr>
+<tr><td>1</td><td>DESIGN.md 公共注册表</td><td>Agentic Engineering / Skill Hub</td><td>@nozmen (designmdfile.com)</td></tr>
+<tr><td>2</td><td>VS Code 供应链攻击</td><td>AI Starter Kit / Security</td><td>@0xLogicrw (思维怪怪)</td></tr>
+<tr><td>3</td><td>TUI 式微 → GUI Agent 转型</td><td>Agentic Engineering / Browser Automation</td><td>@jakevin7 (kabikabi)</td></tr>
+<tr><td>4</td><td>implementation-notes 实时文档模式</td><td>Engineering Baseline / AI Coding</td><td>@trq212 (Thariq)</td></tr>
+<tr><td>5</td><td>软件免费 → 咨询收费模式</td><td>Vibe Stack / AI Adoption Strategy</td><td>MindfulReturn 身心修复局</td></tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+<div class="card">
+<div class="card-title">DESIGN.md 公共注册表 — designmdfile.com <span class="relevance">⭐×5</span></div>
+<div class="card-meta">@nozmen | <a href="https://read.readwise.io/read/01ks1fy1t2kafcp5024sadg8cq">原文</a></div>
+<div class="card-body">
+<p>"We're launching designmdfile.com — a public DESIGN.md registry. npx designmdfile add &lt;owner/repo&gt;"</p>
+<p style="margin-top:0.5rem;color:var(--accent3)"><strong>为什么与你相关</strong>：你在 project-harness 中强制 VISION.md / SPEC.md，这是同一思路的社区实践。DESIGN.md 标准化可以直接融入 Skill Hub 和你的 project-harness 框架。</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">GitHub 遭 VS Code 插件供应链攻击 — 3800 仓库被盗 <span class="relevance">⭐×5</span></div>
+<div class="card-meta">@0xLogicrw (思维怪怪) | <a href="https://read.readwise.io/read/01ks2w9n9my07nygqe8ekcr59p">原文</a></div>
+<div class="card-body">
+<p>VS Code 插件 Nx Console v18.95.0 被注入恶意代码，GitHub 员工安装后导致公司 3800+ 内部仓库泄露。</p>
+<p style="margin-top:0.5rem;color:var(--accent3)"><strong>为什么与你相关</strong>：直接验证了你 R9.1 规则（新代码/Skill 必须 ikea-security 审计）的正确性。可作为 AI Starter Kit "Responsible AI 指南"的真实案例。</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">TUI 将式微 — Slock/Codex Desktop 替代 Claude Code <span class="relevance">⭐×5</span></div>
+<div class="card-meta">@jakevin7 (kabikabi) | <a href="https://read.readwise.io/read/01krw49km3881dcz51bhb5t0jz">原文</a> (附近)</div>
+<div class="card-body">
+<p>"发表个暴论，TUI 会逐渐式微甚至被淘汰。我已经很久没有用 claude code 了。基本都是用 slock。对于临时任务，现在用的更多的是 codex desktop。"</p>
+<p style="margin-top:0.5rem;color:var(--accent3)"><strong>为什么与你相关</strong>：你的 Life OS 大量依赖 CLI Agent（Copilot CLI / Claude Code），这是一个需要关注的趋势信号——GUI Agent 可能更适合非开发者同事。影响 AI Upskill Trainer 教案设计。</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">implementation-notes.html 实时决策记录模式 <span class="relevance">⭐×5</span></div>
+<div class="card-meta">@trq212 (Thariq) | <a href="https://read.readwise.io/read/01ks1fy1nsvm5hb6rx13ct5bwe">原文</a></div>
+<div class="card-body">
+<p>"a prompt I've been using a lot recently: implement &lt;SPEC&gt; and while you do, keep a running implementation-notes.html file with decisions, changes, tradeoffs..."</p>
+<p style="margin-top:0.5rem;color:var(--accent3)"><strong>为什么与你相关</strong>：这与你 AGENTS.md 中 R12（先 VISION/SPEC 再代码）的理念完全对齐。可以作为 Engineering Baseline 实践推广给团队——让 AI 在编码时自动记录架构决策。</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">飞书录音→Codex自动处理 to-do 工作流 <span class="relevance">⭐×5</span></div>
+<div class="card-meta">@ring_hyacinth (Ring Hyacinth) | <a href="https://read.readwise.io/read/01krwaxk4wyys96m49w0szq1xz">原文</a> (附近)</div>
+<div class="card-body">
+<p>"下午和飞书的产品经理聊天，他们会用录音工具将一天所有会议录下来，自动飞书妙计总结。codex 再通过飞书 cli，每天将妙计内容晚上自动总结 to do，能干的 codex 干掉，需要人类的每天早上 8 点再发给人类。"</p>
+<p style="margin-top:0.5rem;color:var(--accent3)"><strong>为什么与你相关</strong>：这是 Life OS "Proactive Agents" 支柱的完美参考实现——录音→总结→自动执行→人类审批。你的 meeting-recorder skill 可以直接借鉴。</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">软件免费，收咨询费和服务费 <span class="relevance">⭐×5</span></div>
+<div class="card-meta">MindfulReturn 身心修复局 | <a href="https://read.readwise.io/read/01krw7be783nazfzb43dgpsbcf">原文</a></div>
+<div class="card-body">
+<p>"已经开始了。我现在报价，软件是免费的，不收钱了。收的是咨询费和服务费。"</p>
+<p style="margin-top:0.5rem;color:var(--accent3)"><strong>为什么与你相关</strong>：Vibe Stack 就是零成本基础设施——当软件变免费，研发团队价值从"写代码"转向"解决问题"。这是向管理层展示 Engineering Value 的新叙事。</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">Agent 只有几百万人高频使用，几十亿人置身事外 <span class="relevance">⭐×5</span></div>
+<div class="card-meta">@dontbesilent | <a href="https://read.readwise.io/read/01krw49kf113mam3rknzsfz970">原文</a></div>
+<div class="card-body">
+<p>"Agent 这么可怕的东西，竟然只有几百万人高频使用。几十亿人置身事外。想想觉得非常荒诞。"</p>
+<p style="margin-top:0.5rem;color:var(--accent3)"><strong>为什么与你相关</strong>：验证了你 AI Upskill Trainer 的时机窗口——先行者红利仍在。CDH 内部推广 AI 工具链不是"追赶"，是"领先"。</p>
+</div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值（备用收藏）</h2>
+
+<div class="card">
+<div class="card-title">Karpathy 加入 Anthropic 预训练团队 <span class="relevance">⭐×3</span></div>
+<div class="card-meta">HackerNews 2026-05-20 | <a href="https://read.readwise.io/read/01ks1fmj64hpdg2c4cm3whgrf0">原文</a></div>
+<div class="card-body">Karpathy 拟将 AutoResearch 扩展为递归训练以提升 Claude 核心能力。重大行业动向。</div>
+</div>
+
+<div class="card">
+<div class="card-title">Gemini 3.5 Flash 发布 <span class="relevance">⭐×3</span></div>
+<div class="card-meta">HackerNews 2026-05-21 | <a href="https://read.readwise.io/read/01ks40t3nb6634p6z2ff4j5arv">原文</a></div>
+<div class="card-body">低延迟低成本，适配大规模多步骤代理协作。可考虑用于 Vibe Stack 后端。</div>
+</div>
+
+<div class="card">
+<div class="card-title">MLX CUDA 后端全部测试通过 <span class="relevance">⭐×3</span></div>
+<div class="card-meta">@berryxia | <a href="https://read.readwise.io/read/01krw49km3881dcz51bhb5t0jz">原文</a> (附近)</div>
+<div class="card-body">MLX 杀进 NVIDIA 主场——Apple 生态 AI 推理扩展到 GPU 服务器。影响本地 AI 推理选型。</div>
+</div>
+
+<div class="card">
+<div class="card-title">7个 PPT Skill 横评 <span class="relevance">⭐×3</span></div>
+<div class="card-meta">超级个体｜柿子 | <a href="https://read.readwise.io/read/01krwaxk10gtpa1g7tcstjcb5v">原文</a></div>
+<div class="card-body">"AI 生成 PPT 丑的核心原因，不是 AI 能力不行，是你没给它正确的审美"。可参考优化 ikea-slides skill。</div>
+</div>
+
+<div class="card">
+<div class="card-title">姚金刚微信读书可视化 Skill <span class="relevance">⭐×3</span></div>
+<div class="card-meta">@yaojingang | <a href="https://read.readwise.io/read/01krw49km3881dcz51bhb5t0jz">原文</a> (附近)</div>
+<div class="card-body">yao-weread-skill 生成本地可视化读书报告。可参考其 Skill 设计模式。</div>
+</div>
+
+<div class="card">
+<div class="card-title">Linear 让工程师上瘾的 UX 设计 <span class="relevance">⭐×3</span></div>
+<div class="card-meta">Bear Liu | <a href="https://read.readwise.io/read/01krw49kx6d6f50jj6w62n8b90">原文</a></div>
+<div class="card-body">每个容器只显示3个项目减少认知负载 + 键盘快捷键。可借鉴到 Skill Hub UI。</div>
+</div>
+
+<div class="card">
+<div class="card-title">Tailscale + Termux + Codex 移动编码方案 <span class="relevance">⭐×3</span></div>
+<div class="card-meta">@virushuo | <a href="https://read.readwise.io/read/01kry5eb463p8y6qxawrbytawx">原文</a></div>
+<div class="card-body">"在手机上 tailscale+termux 连到家里 linux 电脑上 tmux + codex"——最短依赖移动开发方案。</div>
+</div>
+
+<div class="card">
+<div class="card-title">AI 时代大学专业选择底层逻辑 <span class="relevance">⭐×3</span></div>
+<div class="card-meta">By Ken Qi | <a href="https://read.readwise.io/read/01krxtp7sxh35hrwaq15667gc9">原文</a></div>
+<div class="card-body">文科未来在于判断力、创新和跨学科能力。与 AI Upskill Trainer "高意愿·中能力·低方法论"洞察呼应。</div>
+</div>
+
+<h2>📋 行动清单</h2>
+<ul class="action-list">
+<li>研究 designmdfile.com，评估是否整合到 project-harness（DESIGN.md 作为第6个标准文件）</li>
+<li>将 VS Code 供应链攻击写入 AI Starter Kit / Responsible AI 案例库</li>
+<li>在下次 AI Weekly 分享 implementation-notes 模式，推荐给团队</li>
+<li>评估 Slock / Codex Desktop 作为 AI Upskill Trainer L1 课程的备选工具</li>
+<li>将"飞书录音→Agent to-do"模式记入 Life OS Proactive Agent 参考实现</li>
+</ul>
+
+<h2>📊 内容分布</h2>
+<table class="signal-table">
+<tr><th>类别</th><th>数量</th><th>高价值占比</th></tr>
+<tr><td>Tweet (技术/AI)</td><td>48</td><td>~15%</td></tr>
+<tr><td>HackerNews RSS</td><td>4</td><td>~50%</td></tr>
+<tr><td>Article (长文)</td><td>2</td><td>~50%</td></tr>
+</table>
+
+<details>
+<summary>⭐ 低价值附录（点击展开全部内容）</summary>
+<div style="margin-top:1rem; font-size:0.85rem; color:var(--text3)">
+<p>• 西方白左评论 (政治) • 碰瓷解放军 (时政) • 笼子/防火墙隐喻 (政治) • 习近平判断特朗普 (政治) • 伊斯坦堡猫讨食 (趣味) • 枪炮黄金 (金融) • 10万+文章评论区 (趣闻) • Codex剪映插件 (营销) • seedance 2h视频 (趣味) • Meta裁员心态 (职场) • DeepMind王伦离职 (行业) • 公众号翻译机器批评 (媒体批评) • 逆向大航海时代2 (游戏) • 凯恩AI编程冠军 (教育) • 审美网站推荐 (设计) • opencli微信合集 (工具) • macOS Keychain安全 (参考) • 黄金圈法则提示词 (方法论) • PPT+Codex+Heygen (创意) • finance-skills (参考) • AG-UI协议 (参考) • Anthropic提示词工作坊 (教程) • 微信公众号批量抓取工具 (工具) • 杜绝AI味Skill (参考) • 代码质量评估Prompt (参考) • Why I Don't Vibe Code (观点)</p>
+</div>
+</details>
+
+<footer style="margin-top:3rem; padding-top:1rem; border-top:1px solid var(--border); color:var(--text3); font-size:0.8rem;">
+<p>Generated by <code>my-readwise-briefing</code> v3.0.0 | 数据源: Readwise API | 对齐: intent/active.md</p>
+<p>上次同步: 2026-05-14 → 本次同步: 2026-05-21</p>
+</footer>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
