@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals — 2026-05-25</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--accent); }
+h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; color: var(--text); }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; color: var(--text2); }
+#theme-toggle { position: fixed; top: 1rem; right: 1rem; font-size: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 999; }
+.axiom-banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; padding: 1.2rem 1.5rem; border-radius: 12px; margin-bottom: 2rem; font-size: 1.1rem; text-align: center; }
+.signal-map { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.signal-map th, .signal-map td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.signal-map th { background: var(--surface2); color: var(--text3); font-size: 0.8rem; text-transform: uppercase; }
+.proposal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; transition: box-shadow 0.2s; }
+.proposal-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.proposal-num { display: inline-block; background: var(--accent); color: white; width: 32px; height: 32px; border-radius: 50%; text-align: center; line-height: 32px; font-weight: bold; margin-right: 0.8rem; font-size: 0.9rem; }
+.proposal-title { display: inline; font-size: 1.2rem; font-weight: bold; color: var(--text); }
+.proposal-claim { background: var(--surface2); border-left: 4px solid var(--accent2); padding: 1rem 1.2rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; color: var(--text2); }
+.proposal-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 0.8rem 0; }
+.meta-badge { font-size: 0.8rem; padding: 3px 10px; border-radius: 12px; background: var(--surface2); color: var(--accent); border: 1px solid var(--border); }
+.milestone-table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+.milestone-table th { background: var(--surface2); padding: 0.5rem; text-align: left; color: var(--text3); }
+.milestone-table td { padding: 0.5rem; border-bottom: 1px solid var(--border); }
+.action-box { background: var(--surface2); border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.action-box ol { padding-left: 1.2rem; }
+.action-box li { margin: 0.4rem 0; font-size: 0.92rem; }
+.challenge-box { border: 1px dashed var(--accent5); border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.challenge-box p { font-size: 0.9rem; color: var(--text2); margin: 0.3rem 0; }
+details { margin: 0.8rem 0; }
+summary { cursor: pointer; color: var(--accent2); font-weight: 600; font-size: 0.95rem; padding: 0.3rem 0; }
+details[open] summary { margin-bottom: 0.5rem; }
+.roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.8rem 0; }
+.roi-item { background: var(--surface2); padding: 0.8rem; border-radius: 8px; font-size: 0.88rem; }
+.roi-label { color: var(--text3); font-size: 0.78rem; margin-bottom: 0.2rem; }
+.footer { text-align: center; color: var(--text3); font-size: 0.85rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<h1>🔬 深度 Proposals — 5 个可执行方向</h1>
+<p style="color: var(--text3); margin-bottom: 1.5rem;">2026-05-25 · 基于 Readwise 高价值信号 × 当前活跃项目</p>
+
+<div class="axiom-banner">不可行动的信息 = 噪音。每个 Proposal 必须回答：解决什么问题？为什么现在？怎么做？怎么知道成功？</div>
+
+<h2>信号 × 项目 对应关系</h2>
+<table class="signal-map">
+<tr><th>#</th><th>信号</th><th>来源</th><th>连接项目</th><th>核心主张</th></tr>
+<tr><td>1</td><td>Palantir Ontology</td><td>九原客</td><td>宝尊 Ontology 调研</td><td>用 Object/Action/Constraint 把调研压成可决策模型</td></tr>
+<tr><td>2</td><td>Multi-Agent + Google Runtime</td><td>Yetone + scnace</td><td>Life OS / PRATA</td><td>PRATA 从消息通道升级为 Trust Fabric</td></tr>
+<tr><td>3</td><td>GEO 开源社区成熟</td><td>向阳乔木</td><td>GEO for IKEA</td><td>先证伪盲区假设，再谈内容改造</td></tr>
+<tr><td>4</td><td>Karpathy Skills Top 50</td><td>JY Zhang</td><td>IKEA Skill Hub</td><td>从目录升级为可信发现+分发层</td></tr>
+<tr><td>5</td><td>Cloudflare AI 替代 20%</td><td>宝玉</td><td>AI Adoption Strategy</td><td>公开替代任务、明确升级方向、建立信任</td></tr>
+</table>
+
+<!-- Proposal 1 -->
+<div class="proposal-card" id="p1">
+<span class="proposal-num">1</span><span class="proposal-title">Palantir Ontology → 宝尊 Operating Graph</span>
+<div class="proposal-meta">
+  <span class="meta-badge">🔥 deadline 5/31</span>
+  <span class="meta-badge">宝尊 Ontology 调研</span>
+  <span class="meta-badge">~6天工作量</span>
+</div>
+<div class="proposal-claim">不要把 Ontology 当知识图谱项目；要当研究加速器：先在售后客服建立"对象 / 关系 / 动作 / 约束" operating graph，把调研从"访谈堆积"压成"可审计边界模型"。</div>
+
+<details><summary>📐 实施里程碑</summary>
+<table class="milestone-table">
+<tr><th>里程碑</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 售后垂直切片建模</td><td>1.5天</td><td>Top 12 活动的 Object/Action/Constraint 草模</td></tr>
+<tr><td>M2 领域专家验证</td><td>1天</td><td>对 Jennifer team 做 6 维验证</td></tr>
+<tr><td>M3 系统与平台映射</td><td>1天</td><td>每个动作绑系统依赖+人工兜底点</td></tr>
+<tr><td>M4 扩到商品/内容/投流</td><td>1.5天</td><td>3 域高层 action map</td></tr>
+<tr><td>M5 试点与 no-go 建议</td><td>0.5天</td><td>Top 3 pilot + Top 3 no-go</td></tr>
+</table>
+</details>
+
+<details><summary>📊 成功标准</summary>
+<p>· 售后 Top 12 活动 action-boundary 建模 100%<br>
+· 44 活动矩阵补充"替代模式/前置条件/human gate" ≥80%<br>
+· 可执行 decision rules ≥20 条<br>
+· 金额/责任动作 human gate 标注 100%</p>
+</details>
+
+<div class="action-box">
+<h4>🎯 本周立即行动</h4>
+<ol>
+<li>选售后 Top 12 活动做 ontology slice（Object-Action-Constraint map）</li>
+<li>约 Jennifer team 90 分钟验证 workshop（用具体案例，不问抽象）</li>
+<li>给 service-activity-matrix.md 加 4 列：对象/动作/human gate/系统依赖</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<h4>⚠️ 诚实挑战</h4>
+<p>· 最怕"没有真实工单/异常案例"，只有 SOP 会变成纸上结构</p>
+<p>· 宝尊真正难替代处是责任承担、平台关系、异常协商——不因建模而消失</p>
+<p>· 时间极紧，四域同时深挖大概率"术语多、判断少"</p>
+</div>
+</div>
+
+<!-- Proposal 2 -->
+<div class="proposal-card" id="p2">
+<span class="proposal-num">2</span><span class="proposal-title">PRATA → Life OS Trust Fabric</span>
+<div class="proposal-meta">
+  <span class="meta-badge">Life OS</span>
+  <span class="meta-badge">Agentic Engineering</span>
+  <span class="meta-badge">~11周完整周期</span>
+</div>
+<div class="proposal-claim">Life OS 下一阶段不该追求更强单体 Agent，而应先建立"可恢复、可归因、可审计"的多 Agent 协作底座：Google Runtime 做执行层试点，PRATA 演进成身份/委托/审计控制面。</div>
+
+<details><summary>📐 实施里程碑</summary>
+<table class="milestone-table">
+<tr><th>里程碑</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 统一 Agent Envelope</td><td>1-2周</td><td>PRATA v2 协议草案（identity/delegation/memory scope）</td></tr>
+<tr><td>M2 单一工作流试点</td><td>2周</td><td>需求→方案→代码→Review 端到端</td></tr>
+<tr><td>M3 Runtime 接入</td><td>2-3周</td><td>Google Runtime 跑试点，中断可恢复</td></tr>
+<tr><td>M4 Trust & Eval 闭环</td><td>2周</td><td>审计回放+失败归因+approval gate</td></tr>
+<tr><td>M5 PRATA 团队化</td><td>2-3周</td><td>agent-to-agent delegation + capability token</td></tr>
+</table>
+</details>
+
+<details><summary>📊 成功标准</summary>
+<p>· 100% 跨 Agent 消息带 agent_id + subject_id + task_id + delegation_chain<br>
+· 90%+ 中断任务可 1 次恢复<br>
+· 试点工作流人工编排时间 ↓50%<br>
+· 至少 1 条主动工作流稳定运行 2 周</p>
+</details>
+
+<div class="action-box">
+<h4>🎯 本周立即行动</h4>
+<ol>
+<li>写 PRATA v2 Envelope 草案（最少字段先定：actor/subject/delegate/approver）</li>
+<li>选唯一试点工作流（建议：需求→方案→代码→Review）</li>
+<li>做一次"失败回放演练"：故意中断工作流，验证需要哪些 runtime/audit 能力</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<h4>⚠️ 诚实挑战</h4>
+<p>· Google Runtime 解决的是"执行调度"，未必解决"身份、授权、评估语义"</p>
+<p>· 若没有 1 条高频刚需工作流，会沦为"先进基础设施，无持续使用者"</p>
+<p>· 结论：先证明一条黄金流，再证明平台</p>
+</div>
+</div>
+
+<!-- Proposal 3 -->
+<div class="proposal-card" id="p3">
+<span class="proposal-num">3</span><span class="proposal-title">GEO for IKEA — 先证伪再建设</span>
+<div class="proposal-meta">
+  <span class="meta-badge">🔥 deadline 5/31</span>
+  <span class="meta-badge">GEO for IKEA</span>
+  <span class="meta-badge">~3周</span>
+</div>
+<div class="proposal-claim">5/31 前先证明 IKEA China 在国内 AI 平台确有"品牌引用盲区"，再用 yao-geo-skills 做最小可运行追踪体系；不先证伪/证实，不谈大规模内容改造。</div>
+
+<details><summary>📐 实施里程碑</summary>
+<table class="milestone-table">
+<tr><th>里程碑</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 基线盲测</td><td>4-5天</td><td>5品类×5平台×3意图 = 75条记录 → 热力图</td></tr>
+<tr><td>M2 框架映射</td><td>3-4天</td><td>yao-geo-skills → IKEA 版追踪框架 v1</td></tr>
+<tr><td>M3 内容与组织访谈</td><td>3-5天</td><td>GEO 准备度评分 + 试点品类建议</td></tr>
+<tr><td>M4 试点设计</td><td>4-5天</td><td>1个品类改造 backlog + 最小归因补丁</td></tr>
+<tr><td>M5 Phase 2 决策门</td><td>1天</td><td>Go / No-Go 决策</td></tr>
+</table>
+</details>
+
+<details><summary>📊 成功标准</summary>
+<p>· 75 条有效基线记录（5品类×5平台×3意图）<br>
+· 明确 Top 10 引用盲区<br>
+· 统一口径 tracking dictionary<br>
+· 至少 1 试点品类 + 1 内容 owner + 1 业务 owner</p>
+</details>
+
+<div class="roi-grid">
+<div class="roi-item"><div class="roi-label">决策 ROI</div>3 周换来"GEO 是否值得做"的明确答案</div>
+<div class="roi-item"><div class="roi-label">组织 ROI</div>宝尊评估多一个维度：能否维护 AI 可见性</div>
+<div class="roi-item"><div class="roi-label">内容 ROI</div>结构化产品事实可复用到多渠道</div>
+<div class="roi-item"><div class="roi-label">品牌 ROI</div>被 AI 正确引用 = 第三方背书</div>
+</div>
+
+<div class="action-box">
+<h4>🎯 本周立即行动</h4>
+<ol>
+<li>冻结盲测矩阵并跑第一轮 25 条数据</li>
+<li>yao-geo-skills fit-gap review：哪些可直接复用，哪些需本地化</li>
+<li>约 3 个访谈：酒令/内容、电商运营、宝尊接口人</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<h4>⚠️ 诚实挑战</h4>
+<p>· 本 Proposal 最强点是"证明问题存在"，不是"证明增收"</p>
+<p>· 真正瓶颈可能是内容 ownership，不是方法</p>
+<p>· 如果基线显示 IKEA 已被充分引用，叙事要改成"准确性治理"</p>
+</div>
+</div>
+
+<!-- Proposal 4 -->
+<div class="proposal-card" id="p4">
+<span class="proposal-num">4</span><span class="proposal-title">Skill Hub → 企业级可信分发层</span>
+<div class="proposal-meta">
+  <span class="meta-badge">IKEA Skill Hub</span>
+  <span class="meta-badge">Skills Development</span>
+  <span class="meta-badge">~10周</span>
+</div>
+<div class="proposal-claim">趁 Karpathy 把 "skills" 推成主流名词的窗口，Skill Hub 不再只是目录，而要成为 IKEA 内部 AI Skills 的"可信发现 + 标准元数据 + 分发入口"层。</div>
+
+<details><summary>📐 实施里程碑</summary>
+<table class="milestone-table">
+<tr><th>里程碑</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 定位与标准收口</td><td>1-2周</td><td>Skill Metadata v0.1 + trust badge 定义</td></tr>
+<tr><td>M2 可信发现 MVP</td><td>2-4周</td><td>Top 20 skills 补齐 owner/verified/compatibility</td></tr>
+<tr><td>M3 联邦接入试点</td><td>2-3周</td><td>3 外部 repo 接入 playbook</td></tr>
+<tr><td>M4 Adoption 闭环</td><td>2周</td><td>usage telemetry + click-to-install + dead-skill 标记</td></tr>
+<tr><td>M5 影响力固化</td><td>1周</td><td>Top Skills showcase + champion network</td></tr>
+</table>
+</details>
+
+<details><summary>📊 成功标准</summary>
+<p>· 聚合 skills 51 → 80+<br>
+· 接入 repo 5 → 8-10<br>
+· Top 30 skills 80% 有 owner + verified + install path<br>
+· 月活 30+，复用率 > 40%<br>
+· North Star：同事遇 AI 问题，先搜 Skill Hub 而非重造轮子</p>
+</details>
+
+<div class="action-box">
+<h4>🎯 本周立即行动</h4>
+<ol>
+<li>发布锋利定位："Skill Hub = 可信发现与分发层，不是列表页"</li>
+<li>Top 15-20 skills 补齐 Trust Card（Owner/Verified/Repo/Install/Compatible/UseCase）</li>
+<li>拉 3 个试点方（1 CDH + 1 ODI + 1 Global），各提供 5 skills + 2 use cases</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<h4>⚠️ 诚实挑战</h4>
+<p>· 也许真正瓶颈不是 discovery，而是 skill 质量本身</p>
+<p>· 没有 usage instrumentation，90 天后无法证明 ROI</p>
+<p>· 页面不会自动创造 adoption，驱动力是明确 use case + 低摩擦安装</p>
+</div>
+</div>
+
+<!-- Proposal 5 -->
+<div class="proposal-card" id="p5">
+<span class="proposal-num">5</span><span class="proposal-title">AI 任务替代叙事 — 信任先于效率</span>
+<div class="proposal-meta">
+  <span class="meta-badge">AI Adoption Strategy</span>
+  <span class="meta-badge">Human Connection</span>
+  <span class="meta-badge">~8-10周</span>
+</div>
+<div class="proposal-claim">AI adoption 目标不是含糊"提效"，而是公开替代低价值任务；同时把节省时间明确转投工程判断、业务表达、人际协作，把 AI 贡献记为成长证据而非减员依据。</div>
+
+<details><summary>📐 实施里程碑</summary>
+<table class="milestone-table">
+<tr><th>里程碑</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 定义叙事与边界</td><td>1周</td><td>一页纸《AI 替代什么/不替代什么/不用于什么》</td></tr>
+<tr><td>M2 任务地图与焦虑地图</td><td>2周</td><td>Top 10 重复任务 + Top 5 焦虑点</td></tr>
+<tr><td>M3 双试点落地</td><td>3周</td><td>PPT包装工作流 + 工程工作流</td></tr>
+<tr><td>M4 讲师团固化</td><td>2周</td><td>blessed toolchain + 标准 prompts + teach-back</td></tr>
+<tr><td>M5 价值证明与制度化</td><td>2周</td><td>before/after case 库 + KPI 映射</td></tr>
+</table>
+</details>
+
+<details><summary>📊 成功标准</summary>
+<p>· 匿名调研："AI 重点是升级工作而非淘汰人" 同意率 ≥75%<br>
+· 团队 80% 每周使用 ≥1 条标准工作流<br>
+· PPT/汇报准备时间 ↓40%<br>
+· 每位成员沉淀 1 个 before/after case<br>
+· ≥4 个与 KPI/业务结果挂钩的案例</p>
+</details>
+
+<div class="roi-grid">
+<div class="roi-item"><div class="roi-label">效率 ROI</div>12人×1.75h/周 = 273h/季 ≈ 0.53 FTE</div>
+<div class="roi-item"><div class="roi-label">管理 ROI</div>把"AI替代焦虑"暗流转为可设计议题</div>
+<div class="roi-item"><div class="roi-label">业务 ROI</div>工程成果更快翻译为 stakeholder 可理解 impact</div>
+<div class="roi-item"><div class="roi-label">信任 ROI</div>透明 > 沉默，主动说 > 被动猜</div>
+</div>
+
+<div class="action-box">
+<h4>🎯 本周立即行动</h4>
+<ol>
+<li>写一页纸立场：《在我们团队，AI 替代什么，不替代什么，不用于什么》</li>
+<li>匿名小调查 + 2 个访谈（最想 AI 吃掉哪 3 类工作？最担心什么？）</li>
+<li>启动 PPT/汇报包装试点：选真实场景做 before/after</li>
+</ol>
+</div>
+
+<div class="challenge-box">
+<h4>⚠️ 诚实挑战</h4>
+<p>· Kyle 未必有权承诺"不会因 AI 减人"，只能承诺管理使用边界与透明机制</p>
+<p>· "任务替代不替代人"若没有真实再投资，会被视为空话</p>
+<p>· 真正决定信任的不是文档，是管理动作——一次不透明的资源分配足以毁掉叙事</p>
+</div>
+</div>
+
+<div class="footer">
+  <p>Generated by Readwise Briefing Skill v3.0 · 2026-05-25 · 5 subagents parallel reasoning</p>
+  <p style="margin-top: 0.5rem;">公理：不可行动的信息 = 噪音 · 势比力大 · 闭环即智能</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

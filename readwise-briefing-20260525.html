@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 — 2026-05-25</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--text2); }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1.2rem; text-align: center; }
+.stat-num { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.stat-label { font-size: 0.85rem; color: var(--text3); }
+#theme-toggle { position: fixed; top: 1rem; right: 1rem; font-size: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 999; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; margin-bottom: 1rem; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.card-title { font-weight: bold; margin-bottom: 0.3rem; }
+.card-title a { color: var(--accent2); text-decoration: none; }
+.card-title a:hover { text-decoration: underline; }
+.card-meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.5rem; }
+.card-text { color: var(--text2); font-size: 0.95rem; }
+.card-note { background: var(--surface2); border-left: 3px solid var(--accent3); padding: 0.6rem 1rem; margin-top: 0.8rem; font-size: 0.9rem; color: var(--text2); border-radius: 0 6px 6px 0; }
+.star { color: var(--accent4); }
+.tag { display: inline-block; background: var(--surface2); color: var(--accent); font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; margin-right: 4px; }
+.action-list { list-style: none; }
+.action-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.5rem; }
+.action-list li:last-child { border-bottom: none; }
+.action-icon { font-size: 1.1rem; }
+details { margin: 1rem 0; }
+summary { cursor: pointer; color: var(--accent); font-weight: bold; padding: 0.5rem 0; }
+.axiom-banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 2rem; font-size: 1.1rem; text-align: center; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--surface2); color: var(--text2); font-size: 0.85rem; }
+td { font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <p style="color: var(--text3);">2026-05-25 · 覆盖 2026-05-22 ~ 2026-05-25</p>
+  </div>
+</div>
+
+<div class="axiom-banner">不可行动的信息 = 噪音。信号 → 洞察 → 行动。</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">17</div><div class="stat-label">新高亮</div></div>
+  <div class="stat"><div class="stat-num">20</div><div class="stat-label">新文档</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">⭐⭐⭐⭐⭐ 高价值</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">⭐⭐⭐ 中等</div></div>
+  <div class="stat"><div class="stat-num">3天</div><div class="stat-label">距上次同步</div></div>
+</div>
+
+<h2>🎯 信号概览 — 5大深挖方向</h2>
+<table>
+<tr><th>#</th><th>方向</th><th>信号来源</th><th>连接项目</th></tr>
+<tr><td>1</td><td>Palantir Ontology → 宝尊替代路径</td><td>九原客 tweet</td><td>宝尊 Ontology 调研</td></tr>
+<tr><td>2</td><td>Multi-Agent 协作 + Google 分布式 Runtime</td><td>Yetone + Google OSS</td><td>Life OS / Agentic Engineering</td></tr>
+<tr><td>3</td><td>GEO 开源生态正在成形</td><td>向阳乔木 tweet</td><td>GEO for IKEA</td></tr>
+<tr><td>4</td><td>Skills 范式进入主流（Karpathy GitHub Top 50）</td><td>JY Zhang tweet</td><td>IKEA Skill Hub</td></tr>
+<tr><td>5</td><td>Cloudflare AI 替代决策框架</td><td>宝玉 tweet</td><td>AI Adoption Strategy</td></tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/9hills/status/2057844884443455799">Palantir 本体论（Ontology）研究</a></div>
+  <div class="card-meta"><span class="tag">Ontology</span><span class="tag">宝尊调研</span> 九原客 · tweet</div>
+  <div class="card-text">作为苦逼ToB 人，正在研究 Palantir的本体论（Ontology）。还不太搞的懂，到底是知识图谱？领域建模？还是什么。倒是解决的问题很直观，用模型解决生产中的问题（比如设备故障诊断等）。</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：宝尊 Ontology 调研正在进行（deadline 5/31）。Palantir 的 Ontology 是成熟的企业级知识建模方法论——知识图谱 + 领域建模 + 操作约束的统一框架。可直接借鉴其"实体-关系-操作"三层结构来建模宝尊运营。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/yetone/status/2057716426014867795">Multi-Agent 协作的两个核心问题</a></div>
+  <div class="card-meta"><span class="tag">Agent</span><span class="tag">Life OS</span> Yetone · tweet</div>
+  <div class="card-text">最近开发 Agent 的两个让我觉得很兴奋的点：1. 怎么解决多 Agent 之间协作的问题 2. 怎么解决 Personified Agent 的 identity subject attribution 问题</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：Life OS 核心支柱之一是 Proactive Agents。多 Agent 协作 + identity attribution 正是 PRATA（Agent Connect）和 Skills 协作在解决的问题。Google 同时开源了 distributed agent runtime，时机窗口明确。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/scnace/status/2057640611508056564">Google 开源 Distributed Agent Runtime 框架</a></div>
+  <div class="card-meta"><span class="tag">Agent</span><span class="tag">Infrastructure</span> 退役星灵艺术鉴赏家 · tweet</div>
+  <div class="card-text">Google 开源了 distribute agent runtime 框架</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：与 Yetone 的 multi-agent 信号组合。Google 的框架可能解决 agent 间通信、状态管理、任务分发问题——正是 Life OS 和 IKEA 内部 Agent 协作（PRATA）的技术底座候选。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/vista8/status/2058011543812685967">GEO 开源系统引行业惊叹</a></div>
+  <div class="card-meta"><span class="tag">GEO</span><span class="tag">开源</span> 向阳乔木 · tweet</div>
+  <div class="card-text">前几天见了做GEO的同行，他们都惊叹说这么牛逼的系统怎么都免费开源！可能是性格使然，姚老师不喜欢藏着掖着，好东西就要分享。至于赚钱，我们的理念：利他就是利己。</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：GEO for IKEA 项目 deadline 5/31，参考方法论正是姚金刚的 yao-geo-skills。此信号确认该工具链在行业中获认可 + 社区活跃，验证技术选型正确。"利他即利己"也与 IKEA Skill Hub 的开源分享理念一致。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/jiayuan_jy/status/2057771113837703594">andrej-karpathy-skills 成为 GitHub 历史 Top 50</a></div>
+  <div class="card-meta"><span class="tag">Skills</span><span class="tag">趋势</span> Jiayuan (JY) Zhang · tweet</div>
+  <div class="card-text">andrej-karpathy-skills 成为了 GitHub 历史前 50 的项目。</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：Skills 范式从小众走向主流。IKEA Skill Hub 正在 v5 多仓库支持阶段。Karpathy skills 的火爆验证了"人人可贡献 skill"的生态假设。需关注其 skill 格式和分发机制，看是否有可借鉴的标准化方向。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/dotey/status/2057641534225346990">Cloudflare CEO：我是怎么选择用 AI 替换哪些员工的</a></div>
+  <div class="card-meta"><span class="tag">AI替代</span><span class="tag">管理</span> 宝玉 · tweet</div>
+  <div class="card-text">Cloudflare CEO Matthew Prince 在《华尔街日报》发了一篇专栏，标题是：《我是怎么选择用 AI 替换哪些员工的》。Cloudflare 刚裁掉约 1100 人，占全员五分之一，是这家公司 16 年来第一次大规模裁。</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：AI Adoption Strategy 核心挑战——如何让团队"拥抱 AI"而非"恐惧 AI"。Cloudflare CEO 公开透明的决策框架（哪些工作被替代、为什么）提供了一个管理者视角的参考案例。对比 IKEA 的 Responsible AI 指南。</div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值（备用收藏）</h2>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/frxiaobei/status/2058367222637269363">非华裔在 Meta 的华人主导文化观察</a></div>
+  <div class="card-meta"><span class="tag">职场文化</span> 凡人小北 · tweet</div>
+  <div class="card-text">一个非华裔在 Meta 的吐槽。他说自己部门里 90% 都是华人，从一线到领导链都是。他观察到的 7 次裁员，6 次砍的是非华人。</div>
+  <div class="card-note">💡 团队多样性视角。与 Human Connection Investment 中"在已有交互中看见人"的原则有交集。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://twitter.com/HanyangWang/status/2051945367173029936">远东种了一千二百亩大豆 — 非虚构写作</a></div>
+  <div class="card-meta"><span class="tag">非虚构</span><span class="tag">写作</span> MasterPa · tweet</div>
+  <div class="card-text">去年我们几个在远东种了一千二百亩大豆。十月份秋收后，又用了俩月写了这篇文章。这是你能在中文互联网读到最好的非虚构类文章之一，我有底气这么说。</div>
+  <div class="card-note">💡 值得精读的中文非虚构。作为写作品味参考。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://supertechfans.com/cn/post/2026-05-25-HackerNews/">2026-05-25 HackerNews 精选</a></div>
+  <div class="card-meta"><span class="tag">Tech</span><span class="tag">综合</span> SuperTechFans · rss</div>
+  <div class="card-text">核心信号：DeepSeek V4-Pro 永久 75% 折扣加剧价格战 · AWS 前员工反思"迷失初心急推GenAI" · HBM 占 AI 芯片成本 2/3 · Reasonix 终端原生编码代理</div>
+  <div class="card-note">💡 DeepSeek 降价 + AWS 反思 对 IKEA AI 基础设施选型有参考（成本持续下降 + 大厂也在迷茫）。</div>
+</div>
+
+<h2>📋 行动清单</h2>
+<ul class="action-list">
+  <li><span class="action-icon">🔥</span><strong>本周</strong>：研究 Palantir Ontology 的"实体-关系-操作"框架，映射到宝尊运营模型（deadline 5/31）</li>
+  <li><span class="action-icon">🔥</span><strong>本周</strong>：查看 Google distributed agent runtime repo，评估与 Life OS / PRATA 的集成可能</li>
+  <li><span class="action-icon">⚡</span><strong>下周</strong>：对比 andrej-karpathy-skills 与 IKEA Skill Hub 的 skill 格式差异，看是否需要兼容</li>
+  <li><span class="action-icon">⚡</span><strong>下周</strong>：读 Cloudflare CEO 原文（WSJ），提炼其 AI 替代决策框架要素</li>
+  <li><span class="action-icon">💡</span><strong>跟踪</strong>：GEO 开源社区动态（向阳乔木 / 姚金刚），确认 yao-geo-skills 最新版本</li>
+</ul>
+
+<h2>📦 低价值附录</h2>
+<details>
+<summary>展开查看全部低价值内容（8条）</summary>
+<div class="card"><div class="card-text">🐦 bubble boi: People really need to stop hating on China man... BYD/DRAM 夸赞中国制造</div></div>
+<div class="card"><div class="card-text">🐦 泥伏雷闯关记: 太治愈！反复观看了几遍（视频推荐）</div></div>
+<div class="card"><div class="card-text">🐦 William Long: 毒杨梅报道，建议只吃能剥皮的水果</div></div>
+<div class="card"><div class="card-text">🐦 KK.aWSB: 给打酱油的奖励，伤了干活的人的心（管理观点）</div></div>
+<div class="card"><div class="card-text">🐦 Gyro: "我和Claude code对话的时候，就像绝望的李鸿章"（幽默）</div></div>
+<div class="card"><div class="card-text">🐦 招财猫: Apple 联合创始人 800 美元卖 10% 股份的故事</div></div>
+<div class="card"><div class="card-text">🐦 Jocy@IOSGVC: "负薪者冻毙于途" Web3 感慨</div></div>
+<div class="card"><div class="card-text">🐦 Dajun Zhang: 督促小孩学好中文的教育经验分享</div></div>
+</details>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
