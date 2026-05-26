@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 — 2026-05-26</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: var(--text2); }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1.2rem; text-align: center; }
+.stat-num { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.stat-label { font-size: 0.85rem; color: var(--text3); }
+#theme-toggle { position: fixed; top: 1rem; right: 1rem; font-size: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 999; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; margin-bottom: 1rem; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.card-title { font-weight: bold; margin-bottom: 0.3rem; }
+.card-title a { color: var(--accent2); text-decoration: none; }
+.card-title a:hover { text-decoration: underline; }
+.card-meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.5rem; }
+.card-text { color: var(--text2); font-size: 0.95rem; }
+.card-note { background: var(--surface2); border-left: 3px solid var(--accent3); padding: 0.6rem 1rem; margin-top: 0.8rem; font-size: 0.9rem; color: var(--text2); border-radius: 0 6px 6px 0; }
+.tag { display: inline-block; background: var(--surface2); color: var(--accent); font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; margin-right: 4px; }
+.action-list { list-style: none; }
+.action-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.5rem; }
+.action-list li:last-child { border-bottom: none; }
+.action-icon { font-size: 1.1rem; }
+details { margin: 1rem 0; }
+summary { cursor: pointer; color: var(--accent); font-weight: bold; padding: 0.5rem 0; }
+.axiom-banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 2rem; font-size: 1.1rem; text-align: center; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--surface2); color: var(--text2); font-size: 0.85rem; }
+td { font-size: 0.9rem; }
+.highlight-box { background: var(--surface2); border: 2px solid var(--accent4); border-radius: 12px; padding: 1.2rem; margin: 1rem 0; }
+.highlight-box h4 { color: var(--accent4); margin-bottom: 0.5rem; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <p style="color: var(--text3);">2026-05-26 · 覆盖 2026-05-25 ~ 2026-05-26（1天增量）</p>
+  </div>
+</div>
+
+<div class="axiom-banner">不可行动的信息 = 噪音。信号 → 洞察 → 行动。</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">11</div><div class="stat-label">新高亮</div></div>
+  <div class="stat"><div class="stat-num">15</div><div class="stat-label">新文档</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">⭐⭐⭐⭐⭐ 高价值</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">⭐⭐⭐ 中等</div></div>
+  <div class="stat"><div class="stat-num">1天</div><div class="stat-label">距上次同步</div></div>
+</div>
+
+<div class="highlight-box">
+<h4>🏆 今日最高价值信号</h4>
+<p><strong>Multi-Agent 生产环境存活报告</strong>——三份独立报告得出相同结论：只有 Pipeline、Orchestration、Generator-Validator 三种模式活下来。对等协作模式全部阵亡。<br>
+<em>直接影响昨日 Proposal #2（PRATA → Trust Fabric）的架构决策。</em></p>
+</div>
+
+<h2>🎯 信号概览 — 5大深挖方向</h2>
+<table>
+<tr><th>#</th><th>方向</th><th>信号来源</th><th>连接项目</th></tr>
+<tr><td>1</td><td>Multi-Agent 三种存活模式 → Life OS 架构</td><td>Yibie 深度分析</td><td>Life OS / PRATA</td></tr>
+<tr><td>2</td><td>Yansu 主动型 Agent → Proactive Agent 对标</td><td>Yetone ProductHunt</td><td>Life OS</td></tr>
+<tr><td>3</td><td>SW 工程师岗位逆势增长 → 价值叙事</td><td>David Sacks</td><td>AI Adoption / Engineering Baseline</td></tr>
+<tr><td>4</td><td>Vibe Coding 差距 = 专业术语 → 课程设计</td><td>Leon7hao</td><td>AI Upskill Trainer / Vibe Stack</td></tr>
+<tr><td>5</td><td>geohot "Agent≠程序员" + 四天工作制 → 团队定位</td><td>HN 2026-05-26</td><td>Engineering Baseline</td></tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/yibie/status/2058806911542464892">Multi-Agent 系统：生产环境只活下来三种模式</a></div>
+  <div class="card-meta"><span class="tag">Agent架构</span><span class="tag">Life OS</span><span class="tag">PRATA</span> Yibie · 深度thread</div>
+  <div class="card-text">三份独立报告（Cognition/Devin 复盘、Manning 行业报告、metaswarm 开源项目）得出同一结论：<br>
+  <strong>存活模式</strong>：1) Pipeline（流水线）2) Orchestration（编排 = map-reduce-manage）3) Generator-Validator（生成-验证）<br>
+  <strong>阵亡模式</strong>：对等协作（Agent 互聊、投票、协商）——因"操作携带隐式决策"导致设计哲学冲突 + "级联表面"误差指数放大。<br>
+  <strong>核心洞察</strong>：写操作的 Agent 只有一个。多 Agent 解决的不是"更聪明"，是"更便宜+更可靠"。</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：<br>
+  ① 直接回应昨日 Proposal #2 的架构问题——PRATA 应设计为 Orchestration 模式（管理者单写入），而非对等协作<br>
+  ② Life OS Software Factory 应采用 Pipeline（需求→代码→测试→审查）<br>
+  ③ 昨日 Yetone 问的"多 Agent 协作"问题在这里有了明确答案<br>
+  ④ Generator-Validator 模式 = rubber-duck agent 的理论依据（干净上下文的审查者更聪明）</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/yetone/status/2058816410063863928">Yansu — 主动型 Agent 应用正式发布</a></div>
+  <div class="card-meta"><span class="tag">Proactive Agent</span><span class="tag">Life OS</span><span class="tag">产品参考</span> Yetone · ProductHunt</div>
+  <div class="card-text">Yansu：后台默默记录截图/操作/声音 → 理解真实工作方式 → 沉淀结构化知识 → 主动生成定制工具（项目追踪器、AI spend 监控、会议 action item 提取器、专属 dashboard）。有虚拟光标，后台开 App/填表单/提工单。本地优先，SOC 2 Type II + ISO 27001。</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：Yansu 几乎是 Life OS 两大支柱的商业实现——<br>
+  ① <strong>Memory</strong>：截图/操作/声音 → 结构化知识（跨 session 持久记忆）<br>
+  ② <strong>Proactive Agents</strong>：主动生成工具 + 虚拟光标后台执行<br>
+  作为竞品/参考实现研究：哪些功能值得自建？哪些可以直接用？本地优先的安全设计如何借鉴？</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/DavidSacks/status/2058606722110107970">David Sacks：AI 时代 SW 工程师岗位为何逆势增长</a></div>
+  <div class="card-meta"><span class="tag">AI Adoption</span><span class="tag">Engineering Value</span> David Sacks · tweet</div>
+  <div class="card-text">Q: 为什么 AI agents 自动化编码的同时，软件工程师岗位还在快速增长？<br>A: Because there's far more code to manage than ever before.</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：与昨日 Cloudflare "AI 替代 20% 员工"形成<strong>对冲信号</strong>。关键区别：<br>
+  ① Cloudflare 替代的是重复性任务岗位；Sacks 说的是代码量爆炸导致工程师需求增加<br>
+  ② 启示：AI Adoption 叙事不是"替代vs不替代"的二元对立，而是"管理更多代码 + 消灭重复任务"的同时发生<br>
+  ③ 对 Engineering Baseline：团队价值不在"写代码"，在"管理代码复杂度"——系统稳定性、技术债、架构决策</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/leon7hao/status/2058904923769840103">Vibe Coding 差距的关键：专业术语</a></div>
+  <div class="card-meta"><span class="tag">Vibe Coding</span><span class="tag">AI Upskill</span> Leon7hao · tweet</div>
+  <div class="card-text">最能体现不同人 vibe coding 差距点之一：专业术语。</div>
+  <div class="card-note">💡 <strong>为什么相关</strong>：<br>
+  ① AI Upskill Trainer 课程设计的关键洞察——Survey 中"怎么让 AI 听懂我"的答案可能就是<strong>教会用户领域术语</strong><br>
+  ② Vibe Coding Stack 推广文档应包含"术语表"作为核心组件<br>
+  ③ 与 IKEA Skill Hub 结合：每个 Skill 应附带使用术语说明，降低 vibe coding 门槛</div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值（备用收藏）</h2>
+
+<div class="card">
+  <div class="card-title"><a href="https://luy.li/2026/05/14/keychain_and_security/">Keychain 和 Security 简介</a></div>
+  <div class="card-meta"><span class="tag">Security</span><span class="tag">macOS</span> bones7456 · article</div>
+  <div class="card-text">macOS Keychain 加密数据库原理、权限控制、开发者接口。安全存储密码和令牌的底层机制。</div>
+  <div class="card-note">💡 与 credential-manager skill 和 ikea-security 相关。了解 Keychain 底层有助于改进 .env → Keychain 迁移工具。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://x.com/yusan1776/status/2058631514766934271">字节最好技术决策：Go + Infra 中台战略级</a></div>
+  <div class="card-meta"><span class="tag">Engineering</span><span class="tag">组织设计</span> 吴思齐 Leo · tweet</div>
+  <div class="card-text">字节至今为止做出的最好技术决策就是用 Go 作为主力语言，第二好的技术决策就是把 Infra 和技术中台的建设提升到战略级别。</div>
+  <div class="card-note">💡 Engineering Baseline 参考：IKEA CDH 也在 MPC 层面做"中台"。字节的经验验证了 Infra 投资的战略回报。</div>
+</div>
+
+<div class="card">
+  <div class="card-title"><a href="https://supertechfans.com/cn/post/2026-05-26-HackerNews/">2026-05-26 HackerNews 精选</a></div>
+  <div class="card-meta"><span class="tag">Tech</span><span class="tag">综合</span> SuperTechFans · rss</div>
+  <div class="card-text">核心信号：① geohot: AI agent 当程序员是昂贵错误，LLM 只会分布拟合，真正能编程的 agent 需世界模型 ② 澳洲四天工作制试点无生产力下降 ③ Google AI 搜索引发反感，用户推荐 Kagi/DuckDuckGo ④ AI 不能充当架构师</div>
+  <div class="card-note">💡 geohot + "AI 不能当架构师" 共同指向：工程师价值在判断和架构决策，不在代码产出量。四天工作制验证精简+自动化可行。</div>
+</div>
+
+<h2>📋 行动清单</h2>
+<ul class="action-list">
+  <li><span class="action-icon">🔥</span><strong>立即</strong>：将 Multi-Agent 三模式结论写入 Life OS / PRATA 架构决策文档——Pipeline for Software Factory, Orchestration for task delegation, Generator-Validator for review</li>
+  <li><span class="action-icon">🔥</span><strong>本周</strong>：研究 Yansu 产品设计（producthunt.com/products/yansu），对标 Life OS 的 Memory + Proactive Agent 支柱</li>
+  <li><span class="action-icon">⚡</span><strong>本周</strong>：AI Upskill Trainer L1.1 课程加入"领域术语 → Prompt 质量"模块设计</li>
+  <li><span class="action-icon">⚡</span><strong>下周</strong>：整合 Sacks + Cloudflare + geohot 三方信号，更新《AI 替代什么/不替代什么》叙事文档</li>
+  <li><span class="action-icon">💡</span><strong>跟踪</strong>：Walden Yan (Cognition) 原文《Multi-Agent: What Actually Works》找到并精读</li>
+</ul>
+
+<h2>📦 低价值附录</h2>
+<details>
+<summary>展开查看全部低价值内容（7条）</summary>
+<div class="card"><div class="card-text">🐦 Ding: Helio AI 协作产品体验（一人公司工具）</div></div>
+<div class="card"><div class="card-text">🐦 遥远的诗歌: 2030 核心产业逆向拆解（Claude 制作网页）</div></div>
+<div class="card"><div class="card-text">🐦 Genpo Liu: 政治评论（垃圾焚烧发电）</div></div>
+<div class="card"><div class="card-text">🐦 灰狐: 陶哲轩 GitHub 账号</div></div>
+<div class="card"><div class="card-text">🐦 汪江徽: 按喇叭狗子视频（娱乐）</div></div>
+<div class="card"><div class="card-text">🐦 华尔街日报中文网: 中美地缘政治评论</div></div>
+<div class="card"><div class="card-text">🐦 Ian: 设计三层理论（基础/质感/品牌）</div></div>
+</details>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

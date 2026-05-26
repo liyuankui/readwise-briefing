@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals — 2026-05-26</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+  --shadow: rgba(0,0,0,0.06);
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+  --shadow: rgba(0,0,0,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.75; padding: 2rem; max-width: 1100px; margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.1rem; color: var(--accent2); margin: 1.2rem 0 0.5rem; }
+p { margin: 0.6rem 0; }
+strong { color: var(--accent); }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.header h1 { margin: 0; }
+#theme-toggle { font-size: 1.5rem; background: none; border: none; cursor: pointer; padding: 0.3rem; }
+.axiom-banner {
+  background: var(--surface2); border-left: 4px solid var(--accent4);
+  padding: 1rem 1.5rem; margin-bottom: 2rem; border-radius: 0 8px 8px 0;
+  font-size: 1.1rem; font-style: italic; color: var(--text2);
+}
+.signal-map {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.signal-map table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.signal-map th { text-align: left; padding: 0.5rem; border-bottom: 2px solid var(--border); color: var(--accent); }
+.signal-map td { padding: 0.5rem; border-bottom: 1px solid var(--border); }
+.signal-map td:first-child { font-weight: bold; }
+.proposal-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem; margin-bottom: 2rem;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.proposal-card .core-claim {
+  font-size: 1.15rem; font-weight: bold; color: var(--accent);
+  background: var(--surface2); padding: 1rem; border-radius: 8px;
+  margin: 0.5rem 0 1rem; border-left: 4px solid var(--accent3);
+}
+.proposal-card .tag {
+  display: inline-block; font-size: 0.75rem; padding: 0.2rem 0.6rem;
+  border-radius: 20px; margin-right: 0.4rem; margin-bottom: 0.3rem;
+}
+.tag-project { background: #dbeafe; color: #1e40af; }
+.dark .tag-project { background: #1e3a5f; color: #93c5fd; }
+.tag-signal { background: #fef3c7; color: #92400e; }
+.dark .tag-signal { background: #451a03; color: #fcd34d; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+th { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 2px solid var(--border); color: var(--accent2); }
+td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+li { margin: 0.3rem 0; }
+.actions-box {
+  background: var(--surface2); border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0;
+  border-left: 4px solid var(--accent3);
+}
+.challenge-box {
+  background: var(--surface2); border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0;
+  border-left: 4px solid var(--accent5); color: var(--text2);
+}
+.milestone-table td:first-child { white-space: nowrap; font-weight: bold; }
+.footer { text-align: center; color: var(--text3); margin-top: 3rem; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📡 Deep Proposals — 2026-05-26</h1>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom-banner">
+  💡 不可行动的信息 = 噪音。以下每个 Proposal 都必须能回答：解决什么？为什么现在？怎么做？怎么知道成功？
+</div>
+
+<div class="signal-map">
+  <h3 style="margin-top:0">信号 × 项目 对应关系</h3>
+  <table>
+    <tr><th>#</th><th>信号</th><th>连接项目</th><th>核心主张</th></tr>
+    <tr><td>1</td><td>Multi-Agent 三种存活模式</td><td>Life OS / PRATA</td><td>单写入信任控制平面</td></tr>
+    <tr><td>2</td><td>Yansu 主动型 Agent</td><td>Life OS Proactive</td><td>不比观察，比闭环执行</td></tr>
+    <tr><td>3</td><td>Sacks + geohot + 4天制</td><td>Engineering Value</td><td>AI 扩价值，非缩编</td></tr>
+    <tr><td>4</td><td>Vibe Coding = 专业术语</td><td>AI Upskill Trainer</td><td>术语即人机压缩协议</td></tr>
+    <tr><td>5</td><td>geohot + ByteDance + 4天制</td><td>Engineering Baseline</td><td>团队价值 = 判断而非代码量</td></tr>
+  </table>
+</div>
+
+<!-- PROPOSAL 1 -->
+<div class="proposal-card">
+  <h2>Proposal 1: PRATA Trust Fabric 修订</h2>
+  <span class="tag tag-project">Life OS</span>
+  <span class="tag tag-project">PRATA</span>
+  <span class="tag tag-signal">Multi-Agent 三存活模式</span>
+  <div class="core-claim">把 PRATA 修订为"单写入（single-writer）信任控制平面"，而非 agent mesh；Google Runtime 只负责并发执行，所有委托、提交、审计、回滚统一收口到 PRATA。</div>
+
+  <h3>架构约束（不可妥协）</h3>
+  <ul>
+    <li>只允许 3 种模式：Pipeline / Orchestration / Generator-Validator</li>
+    <li>禁止 peer collaboration 作为生产主路径</li>
+    <li>所有外部写操作单线程化：只由 Manager/Commit Agent 经 PRATA 执行</li>
+    <li>Sub-agent 只贡献 intelligence，不贡献 final decision</li>
+  </ul>
+
+  <h3>痛点</h3>
+  <ul>
+    <li>原方案最大风险：把"分布式 runtime"误当"分布式决策"</li>
+    <li>责任边界不清：谁有权写、谁能委托、谁对结果负责</li>
+    <li>错误会级联放大：agent 互聊互改时 debug 成本指数上升</li>
+    <li>缺少 clean-context 校验层</li>
+  </ul>
+
+  <h3>里程碑</h3>
+  <table class="milestone-table">
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>M1 Envelope + Trust Invariants</td><td>1-2周</td><td>envelope schema、delegation token、policy model</td></tr>
+    <tr><td>M2 单工作流试点</td><td>2-3周</td><td>Signal→Proposal→Validate→Commit 端到端跑通</td></tr>
+    <tr><td>M3 Google Runtime 集成</td><td>2-3周</td><td>worker 并发执行，manager 单点决策</td></tr>
+    <tr><td>M4 Trust & Eval Loop</td><td>2周</td><td>validator、seeded tests、指标面板</td></tr>
+    <tr><td>M5 第二工作流复制</td><td>1-2周</td><td>证明可复用而非一次性 demo</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>100% 外部写操作带 PRATA delegation + audit trace</li>
+    <li>0 起同一任务并发写冲突</li>
+    <li>试点 workflow 端到端成功率 ≥ 85%</li>
+    <li>Validator 对 seeded defect 拦截率 ≥ 70%</li>
+    <li>单位任务成本较单模型下降 30%+</li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>写一页 ADR：明确 single-writer / allowed patterns / no peer collab / clean-context validator</li>
+      <li>定义 PRATA v2 Envelope 字段：actor、delegator、scope、intent、TTL、resource、policy、trace_id</li>
+      <li>锁定试点 workflow：Readwise 信号 → proposal → validator → Jira Epic 草案</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>真正难的不是接入 Runtime，而是克制"让 agent 自己商量着干"的诱惑。若不坚持"并发智能、单点提交"，Trust Fabric 会退化成更昂贵的聊天系统。</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 2 -->
+<div class="proposal-card">
+  <h2>Proposal 2: Life OS vs Yansu 定位</h2>
+  <span class="tag tag-project">Life OS</span>
+  <span class="tag tag-project">Proactive Agent</span>
+  <span class="tag tag-signal">Yansu 主动型 Agent</span>
+  <div class="core-claim">Life OS 不与 Yansu 比"观察桌面"，而比"把意图转成结果"：从记忆、触发、执行到验证，形成可复用的个人软件工厂。</div>
+
+  <h3>定位决策</h3>
+  <table>
+    <tr><th>学什么</th><th>不学什么</th><th>差异化价值</th></tr>
+    <tr><td>后台运行、主动发现、低打扰自动化、本地优先</td><td>通用录屏桌面监工、跨平台大而全、enterprise 合规战</td><td>Intent + Memory + Agent + Eval 闭环；不是"看见一切"而是"把重要的事做完"</td></tr>
+  </table>
+
+  <h3>里程碑</h3>
+  <table class="milestone-table">
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>M1 定位与 Anti-Goals</td><td>1周</td><td>明确不做清单 + 选 1 个高频任务试点</td></tr>
+    <tr><td>M2 Memory + 首个主动任务</td><td>2周</td><td>接 Calendar/Email/Git/Readwise → 每日自动 briefing</td></tr>
+    <tr><td>M3 Event-driven Agent</td><td>2-3周</td><td>timer/webhook 触发 → 会后自动提 action items</td></tr>
+    <tr><td>M4 Bounded Software Factory</td><td>4-5周</td><td>窄范围 repo：读需求→改代码→跑测试→提PR</td></tr>
+    <tr><td>M5 Trust & Eval 闭环</td><td>2周</td><td>每次运行自动打分，失败样本更新 prompt/routing</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>主动任务连续 10 天自动运行，人工触发率 &lt; 20%</li>
+    <li>独立产出并提交 1 个被 merge 的 PR</li>
+    <li>自评与人工判断一致率 ≥ 70%</li>
+    <li>每周节省 4-8 小时切换/整理时间</li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>写清 Anti-Goals：明确 Life OS 不做什么，防止被 Yansu 带偏</li>
+      <li>上线第一个主动流程：晨间 briefing 自动生成并落到 dashboard</li>
+      <li>定义 PR 试点：选 1 个 repo + 1 类小改动，跑 shadow PR</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>若 6 周内还没有"一个每天自动跑、你离不开的任务"，就说明在造平台不是在造 OS。Life OS 的机会不在"看得更多"，而在更懂意图、更贴资产、更能闭环证明价值。</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 3 -->
+<div class="proposal-card">
+  <h2>Proposal 3: AI 时代工程价值叙事</h2>
+  <span class="tag tag-project">Engineering Baseline</span>
+  <span class="tag tag-project">AI Adoption</span>
+  <span class="tag tag-signal">Sacks + geohot + 4天制 + Cloudflare</span>
+  <div class="core-claim">AI 时代，工程师的价值不在"写更多代码"，而在"以 AI 为杠杆，把更多业务需求变成可设计、可治理、可稳定运行的系统"；优秀团队应扩价值、扩责任、扩影响。</div>
+
+  <h3>四信号合成</h3>
+  <table>
+    <tr><th>信号</th><th>核心洞察</th></tr>
+    <tr><td>Sacks</td><td>代码与系统治理需求只会更多</td></tr>
+    <tr><td>geohot</td><td>AI 不能替代架构判断与风险承担</td></tr>
+    <tr><td>4天制</td><td>自动化红利应转化为高价值工程活动</td></tr>
+    <tr><td>Cloudflare</td><td>若只讲"AI替代任务"，管理层会滑向"减人"</td></tr>
+  </table>
+
+  <h3>里程碑</h3>
+  <table class="milestone-table">
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>定义统一叙事</td><td>1-2周</td><td>一页 narrative：工程师 3 核心价值</td></tr>
+    <tr><td>建立度量基线</td><td>2-4周</td><td>Lead Time、MTTR、meeting time、tech debt</td></tr>
+    <tr><td>启动双试点</td><td>4-8周</td><td>POS + 稳定性各 1 个 AI assist 试点</td></tr>
+    <tr><td>首轮价值回顾</td><td>8-12周</td><td>向上汇报：速度↑ 稳定性↑ 风险↓</td></tr>
+    <tr><td>纳入 operating model</td><td>3-6月</td><td>AI 使用边界 + 工程价值指标 + 成长要求</td></tr>
+  </table>
+
+  <h3>一句 ROI 话术</h3>
+  <p style="font-style:italic;color:var(--accent)">"AI 不是让我们用更少工程师做同样的事，而是让同样的团队承接更大业务范围、以更低风险交付更多价值。"</p>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>写一页对上 narrative：把 4 个信号统一成管理层话术</li>
+      <li>拉 8-12 周工程基线数据：Lead Time、事故率、会议时间、返工率</li>
+      <li>定义 1 个 30 天试点：POS 一流程 + 稳定性一痛点</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>此叙事要站住，必须尽快拿出 1-2 个可量化试点结果。不是"AI 万能论"也不是"完全不减人"——真正被放大的是会设计、会治理、会度量价值的团队。</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 4 -->
+<div class="proposal-card">
+  <h2>Proposal 4: 术语即人机压缩协议</h2>
+  <span class="tag tag-project">AI Upskill Trainer</span>
+  <span class="tag tag-project">Vibe Coding Stack</span>
+  <span class="tag tag-signal">Vibe Coding 差距 = 专业术语</span>
+  <div class="core-claim">"怎么让 AI 听懂我"的答案，不是多背 Prompt 技巧，而是先建立可复用的领域术语体系：术语 = 人与 AI 的共享压缩协议。</div>
+
+  <h3>痛点</h3>
+  <ul>
+    <li>学员会说需求，不会说概念 → AI 只能给泛化答案</li>
+    <li>课程教了模板，没教"命名能力" → 一换场景就失效</li>
+    <li>Trainer 团队各讲各的，缺统一词库 → 难标准化/难扩散</li>
+    <li>Onboarding 只讲操作，不讲概念分类 → 新人不知从哪突破</li>
+  </ul>
+
+  <h3>里程碑</h3>
+  <table class="milestone-table">
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>术语建模</td><td>1周</td><td>首版 30-50 高频词表（Prompt/设计/前端/后端/数据/发布）</td></tr>
+    <tr><td>课程重构</td><td>1-2周</td><td>L1.1 改为"用术语让 AI 听懂你"：术语+场景+纠错</td></tr>
+    <tr><td>Onboarding 改写</td><td>1周</td><td>Vibe Stack 按任务学术语，每步附概念说明</td></tr>
+    <tr><td>小范围试点</td><td>2周</td><td>10-15 trainer + 20 用户，before/after 数据</td></tr>
+    <tr><td>固化为资产</td><td>1周</td><td>沉淀到 Skill Hub：词库+案例+误说→正说映射</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>术语识别率：给 10 场景，学员说出正确术语 ≥ 80%</li>
+    <li>AI 首轮产出可用率提升 30%+</li>
+    <li>完成任务所需追问轮次下降 30-50%</li>
+    <li>新人 Onboarding 完成率 ≥ 70%</li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>做一份《AI 听懂你之前，你得先会说的 30 个词》</li>
+      <li>重写 L1.1 大纲：从"Prompt 模板课"改为 说人话→术语化→结构化表达</li>
+      <li>给 Vibe Stack onboarding 加一页"词汇导航"</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>术语是放大器不是魔法：能放大清晰思考，也会放大伪理解。真正的难点在于讲师是否愿意统一语言、学员是否愿意从"凭感觉"升级到"按概念表达"。若只能做一件事：把 L1.1 改名改结构。</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 5 -->
+<div class="proposal-card">
+  <h2>Proposal 5: 团队价值重定位</h2>
+  <span class="tag tag-project">Engineering Baseline</span>
+  <span class="tag tag-project">Store POS</span>
+  <span class="tag tag-signal">geohot + ByteDance + 4天制</span>
+  <div class="core-claim">这支团队的价值，不在于产出多少代码，而在于为新 POS 架构做关键判断、控制系统复杂度、降低业务风险，并把 AI 与自动化转化为更高质量的工程决策能力。</div>
+
+  <h3>从"写代码"到"管理复杂度"</h3>
+  <table>
+    <tr><th>旧叙事</th><th>新叙事</th></tr>
+    <tr><td>Backend delivery team</td><td>POS complexity management team</td></tr>
+    <tr><td>交付了多少 ticket</td><td>降低了多少风险、治理了多少复杂度</td></tr>
+    <tr><td>AI 替代工程师</td><td>AI 辅助实现，人类负责设计/边界/风险判断</td></tr>
+  </table>
+
+  <h3>里程碑</h3>
+  <table class="milestone-table">
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>重定义团队叙事</td><td>1-2周</td><td>一页式 leadership narrative + 团队价值地图</td></tr>
+    <tr><td>"判断型工作"看板</td><td>2-4周</td><td>区分 AI 可做 vs 必须工程师负责的工作</td></tr>
+    <tr><td>稳定性与重复故障治理</td><td>4-8周</td><td>Top 5 重复故障清单 + RCA 闭环</td></tr>
+    <tr><td>POS 后端平台化</td><td>6-12周</td><td>领域边界、接口契约、可观测性标准</td></tr>
+    <tr><td>自动化换回判断时间</td><td>8-12周</td><td>告警分层、排障脚本、会议精简</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>重复故障数季度下降 30-50%</li>
+    <li>MTTR 下降 20-30%</li>
+    <li>每月 2-4 个架构决策记录（ADR）</li>
+    <li>低价值会议时长下降 20%+</li>
+    <li>每位核心工程师至少 1 个"复杂性管理"晋升案例</li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>写一页式价值主张：面向 Nicole/Kirill，定位为 POS complexity management team</li>
+      <li>拉出 3-6 个月重复事故与返工清单，区分代码问题 vs 架构/边界问题</li>
+      <li>做团队工作盘点：可被 AI 加速的实现型 vs 必须工程师承担的判断型</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>若领导最终只奖励"功能数"而不奖励"风险下降与复杂度治理"，此提案会半途失效。若 Kyle 不主动替团队守住架构/治理时间，日常交付会吞掉一切升级空间。最难的不是做自动化，而是把释放的时间真正用于高质量判断工作。</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Generated by Readwise Briefing Skill v3.0 · 2026-05-26 · 5 parallel subagents</p>
+  <p>信号来源：11 highlights + 15 documents since 2026-05-25</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
