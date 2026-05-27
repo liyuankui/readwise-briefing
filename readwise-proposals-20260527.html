@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals — 2026-05-27</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0;
+  --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626; --shadow: rgba(0,0,0,0.06);
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+  --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171; --shadow: rgba(0,0,0,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75;
+  padding: 2rem; max-width: 1100px; margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.05rem; color: var(--accent2); margin: 1.2rem 0 0.5rem; }
+p { margin: 0.5rem 0; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+#theme-toggle { font-size: 1.5rem; background: none; border: none; cursor: pointer; }
+.axiom-banner {
+  background: var(--surface2); border-left: 4px solid var(--accent4);
+  padding: 1rem 1.5rem; margin-bottom: 2rem; border-radius: 0 8px 8px 0;
+  font-size: 1.1rem; font-style: italic; color: var(--text2);
+}
+.signal-map {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.signal-map table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.signal-map th { text-align: left; padding: 0.5rem; border-bottom: 2px solid var(--border); color: var(--accent); }
+.signal-map td { padding: 0.5rem; border-bottom: 1px solid var(--border); }
+.proposal-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem; margin-bottom: 2rem;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.core-claim {
+  font-size: 1.1rem; font-weight: bold; color: var(--accent);
+  background: var(--surface2); padding: 1rem; border-radius: 8px;
+  margin: 0.5rem 0 1rem; border-left: 4px solid var(--accent3);
+}
+.tag { display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 12px; margin-right: 0.3rem; margin-bottom: 0.3rem; }
+.tag-project { background: #dbeafe; color: #1e40af; }
+.dark .tag-project { background: #1e3a5f; color: #93c5fd; }
+.tag-signal { background: #fef3c7; color: #92400e; }
+.dark .tag-signal { background: #451a03; color: #fcd34d; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.86rem; }
+th { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 2px solid var(--border); color: var(--accent2); }
+td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+li { margin: 0.3rem 0; }
+.actions-box {
+  background: var(--surface2); border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0;
+  border-left: 4px solid var(--accent3);
+}
+.challenge-box {
+  background: var(--surface2); border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0;
+  border-left: 4px solid var(--accent5); color: var(--text2);
+}
+.footer { text-align: center; color: var(--text3); margin-top: 3rem; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📡 Deep Proposals — 2026-05-27</h1>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom-banner">
+  🔬 今日主题：<strong>Skill 作为可训练的外部状态</strong> — SkillOpt 论文学术验证了 Kyle 的 harness 方法。这不是"有趣"，是"你已经在做的事被顶级团队证明正确了"。
+</div>
+
+<div class="signal-map">
+  <h3 style="margin-top:0">信号 × 项目 对应关系</h3>
+  <table>
+    <tr><th>#</th><th>信号</th><th>连接项目</th><th>核心主张</th></tr>
+    <tr><td>1</td><td>SkillOpt 框架</td><td>my-skill-evolver / Skill Hub</td><td>从修补器升级为训练系统</td></tr>
+    <tr><td>2</td><td>Taste Skill 20k stars</td><td>TASTE.md / Vibe Stack</td><td>先接入 onboarding，不急着发布私有品味</td></tr>
+    <tr><td>3</td><td>35岁判断力优势</td><td>Engineering Baseline</td><td>做一份向上沟通 1-pager</td></tr>
+    <tr><td>4</td><td>SkillOpt harness 验证</td><td>Life OS / Harness Runtime</td><td>统一闭环基础设施</td></tr>
+    <tr><td>5</td><td>Skill 生态爆发窗口</td><td>Skill Hub / AI Adoption</td><td>3 旗舰 + 2 元技能，占心智不占工时</td></tr>
+  </table>
+</div>
+
+<!-- PROPOSAL 1 -->
+<div class="proposal-card">
+  <h2>Proposal 1: my-skill-evolver 算法升级</h2>
+  <span class="tag tag-project">Skill Hub</span>
+  <span class="tag tag-project">my-skill-evolver</span>
+  <span class="tag tag-signal">SkillOpt 论文</span>
+  <div class="core-claim">保留 harness 思路，但升级为"有验证集、学习率、负样本记忆、可复现日志的外部状态训练系统"。引入 5 个算法部件。</div>
+
+  <h3>5 个算法升级</h3>
+  <table>
+    <tr><th>部件</th><th>作用</th><th>参数</th></tr>
+    <tr><td>独立 optimizer model</td><td>只负责读 trace + 产出 patch，不执行不评分</td><td>三角色分离</td></tr>
+    <tr><td>三段式评测集</td><td>train/val/holdout 门控</td><td>只有 val 提升才 accept</td></tr>
+    <tr><td>文本学习率</td><td>限制每步变更量</td><td>4-8 ops/步最佳</td></tr>
+    <tr><td>Rejected buffer</td><td>失败 patch 存档 + 去重降权</td><td>同类失败↓50%</td></tr>
+    <tr><td>Slow meta-update</td><td>每 N 轮跨 skill 沉淀成功模式</td><td>周期性 consolidation</td></tr>
+  </table>
+
+  <h3>里程碑</h3>
+  <table>
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>M1 Benchmark schema</td><td>3-4天</td><td>cases + score vector + train/val/holdout + manifest</td></tr>
+    <tr><td>M2 Patch Optimizer</td><td>4-5天</td><td>patch DSL (add/del/replace) + 4-8 ops budget</td></tr>
+    <tr><td>M3 Validation Gate</td><td>4-5天</td><td>独立 evaluator + rejected buffer</td></tr>
+    <tr><td>M4 Slow Memory + Pilot</td><td>1-2周</td><td>3 skill pilot → 扩展到 10 高频 skill</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>Pilot skill held-out 分数提升 <strong>+8pt</strong></li>
+    <li>Patch 接受率 10-30%（太高=门松，太低=搜索差）</li>
+    <li>同类失败 patch 再现率下降 <strong>50%</strong></li>
+    <li>最终有效版本只含 <strong>1-4 个核心 accepted modifications</strong></li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>定义 <code>evolution-manifest.json</code>：skill sha、dataset version、judge version、score、accept/reject reason</li>
+      <li>实现 patch DSL + op budget：每步最多 8 ops，不再自由重写</li>
+      <li>选 1 个 pilot skill 建 train/val/holdout v0（推荐格式明确、可自动评分的 skill）</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>真正难的不是 optimizer 而是 <strong>benchmark</strong>。没有好评测，优化只会放大噪声。且一旦做成，维护对象从"skill 文本"变成"skill + benchmark + memory"——更强但不更轻。</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 2 -->
+<div class="proposal-card">
+  <h2>Proposal 2: Taste Skill → Vibe Stack 接入</h2>
+  <span class="tag tag-project">Vibe Stack</span>
+  <span class="tag tag-project">TASTE.md</span>
+  <span class="tag tag-signal">Taste Skill 20k stars</span>
+  <div class="core-claim">主推路径 B：把开源 Taste Skill 接入 Vibe Stack onboarding，解决"最后 20% 观感信任差"。暂不直接把 TASTE.md 发布成团队 Skill。</div>
+
+  <h3>战略选择</h3>
+  <table>
+    <tr><th>选项</th><th>判断</th><th>原因</th></tr>
+    <tr><td>A. 发布 TASTE.md</td><td>暂不</td><td>过宽过深过私，产品化会失真</td></tr>
+    <tr><td><strong>B. 接入 Vibe Stack</strong></td><td><strong>主推</strong></td><td>打中 adoption 瓶颈，低成本可量化</td></tr>
+    <tr><td>C. IKEA 定制版</td><td>二阶段</td><td>先证明需求，再做品牌化</td></tr>
+  </table>
+
+  <h3>里程碑</h3>
+  <table>
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>M0 基线验证</td><td>2-3天</td><td>2 个 demo before/after 对比</td></tr>
+    <tr><td>M1 接入 onboarding</td><td>3天</td><td>"UI Polish"模块：何时用、三参数怎么调</td></tr>
+    <tr><td>M2 IKEA-lite preset</td><td>3-5天</td><td>Inter + 蓝黄点缀 + 克制动效 + 留白规则</td></tr>
+    <tr><td>M3 小范围试点</td><td>1周</td><td>3-5 位 builder 真实项目试跑</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>UI 打磨时间下降 <strong>50%</strong></li>
+    <li>主观观感评分提升到 <strong>≥4.0/5</strong></li>
+    <li>"界面太糙"评审反馈下降 <strong>60%</strong></li>
+    <li>试点参与者复用意愿 <strong>≥80%</strong></li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>做 2×2 样板实验：原版 vs Taste Skill 版，记录时间+截图+评分</li>
+      <li>定义 IKEA-lite preset 最小 5 条规则（字体/色板/留白/圆角/动效上限）</li>
+      <li>在 Vibe Stack onboarding 加可选步骤：<code>UI Polish Lane</code></li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>最需防的是做成"很 Kyle 但不很团队"的东西。团队需要的不是 Kyle 的世界观，而是可复制的结果："怎样让 AI 界面 30 分钟内从能用变成可信。"</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 3 -->
+<div class="proposal-card">
+  <h2>Proposal 3: Engineering 判断力 1-Pager</h2>
+  <span class="tag tag-project">Engineering Baseline</span>
+  <span class="tag tag-signal">35岁判断力 + Sacks + geohot</span>
+  <div class="core-claim">当 agent 把执行成本压低后，工程团队核心价值从"写更多代码"转向"用更强判断力管理复杂度、保障业务安全、把 AI 产出变成可信交付"。</div>
+
+  <h3>30 秒开场话术</h3>
+  <p style="font-style:italic;background:var(--surface2);padding:0.8rem;border-radius:6px">"AI 正在把执行力商品化，但不会同步商品化判断力。对我们高复杂度业务系统，真正稀缺的已不是多写代码，而是判断什么该写、什么能安全上线、什么会放大系统复杂度。"</p>
+
+  <h3>里程碑</h3>
+  <table>
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>对齐叙事</td><td>1周</td><td>Nicole/Kirill 沟通版 talking points</td></tr>
+    <tr><td>建立证据</td><td>1-2周</td><td>2-3 个案例：返工避免/事故避免/质量提升</td></tr>
+    <tr><td>小范围试点</td><td>2-4周</td><td>资深工程师承担 AI flow 的 judgment role</td></tr>
+    <tr><td>形成机制</td><td>5-6周</td><td>judgment playbook：审查/复盘/风险分类</td></tr>
+    <tr><td>向上复盘</td><td>6-8周</td><td>quarterly narrative：价值不在"多写"而在"更快且更稳"</td></tr>
+  </table>
+
+  <h3>收口句（给 Nicole/Kirill）</h3>
+  <p style="font-style:italic;color:var(--accent)">"我想申请的不是新框架，而是一个小规模可衡量的试点：验证 AI 时代团队核心价值如何从'执行更多'升级为'以更强判断力交付更可靠业务结果'。"</p>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>写出 1-pager（30秒/3分钟/10分钟三个版本话术）</li>
+      <li>选 2 个最能说明问题的案例（事故避免 + 返工减少）</li>
+      <li>约 Nicole 30 分钟校准：争取 6-8 周 pilot + 两个共同认可的成功指标</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>若没有真实案例，叙事会显得"政治正确但不硬"。最难的不是证明 AI 很强，而是证明"什么必须由人来判断"并把它制度化。</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 4 -->
+<div class="proposal-card">
+  <h2>Proposal 4: Harness Runtime 统一基础设施</h2>
+  <span class="tag tag-project">Life OS</span>
+  <span class="tag tag-project">Trust & Eval</span>
+  <span class="tag tag-signal">SkillOpt harness 验证</span>
+  <div class="core-claim">把分散在 5 个 skill 里的"定义→执行→评估→接受/拒绝→迭代"回路抽成可插拔的 Harness Runtime，让任何 Agent 输出都能被统一训练、验证、记忆与收敛。</div>
+
+  <h3>架构轮廓：5 个共享层</h3>
+  <table>
+    <tr><th>层</th><th>职责</th></tr>
+    <tr><td>Harness Contract</td><td>目标、约束、成功标准、预算、终止条件</td></tr>
+    <tr><td>Execution Engine</td><td>统一状态机：Plan→Act→Eval→Decide→Learn</td></tr>
+    <tr><td>Evidence Store</td><td>run/trace/评估结果/rejected edits/accepted patterns</td></tr>
+    <tr><td>Policy Layer</td><td>学习率预算、重试策略、reject buffer、meta-update</td></tr>
+    <tr><td>Skill Adapters</td><td>各 skill 只保留领域特有部分</td></tr>
+  </table>
+
+  <h3>里程碑</h3>
+  <table>
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>M1 定义协议</td><td>1周</td><td>状态机 + artifact schema + budget model</td></tr>
+    <tr><td>M2 双试点</td><td>2周</td><td>my-skill-evolver + delivery-closure 接入同一 runtime</td></tr>
+    <tr><td>M3 三大机制</td><td>2周</td><td>learning-rate + rejected buffer + weekly meta</td></tr>
+    <tr><td>M4 扩展</td><td>1周</td><td>接入 project-harness + bdd-testing</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>4 个 skill 接入，重复 eval 逻辑减少 <strong>≥60%</strong></li>
+    <li>新 skill 接入时间从天级降到 <strong>半天内</strong></li>
+    <li>重复失败 4 周内下降 <strong>≥40%</strong></li>
+    <li>100% 运行有可追溯 artifact</li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>写 RFC：Harness Runtime v0.1 状态机 + artifact schema + 三机制</li>
+      <li>选双试点：my-skill-evolver（训练型）+ delivery-closure（验收型）</li>
+      <li>先做最小共享层：run record + reject buffer + pass/fail evidence</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>最大风险不是技术而是纪律：如果后续新 skill 仍偷偷自带 bespoke loop，runtime 会沦为"又一个 skill"。成功条件只有一个：今后所有需改进的 Agent 输出，默认先接 Harness Runtime。</p>
+  </div>
+</div>
+
+<!-- PROPOSAL 5 -->
+<div class="proposal-card">
+  <h2>Proposal 5: Skill 生态窗口期 — 外部发布策略</h2>
+  <span class="tag tag-project">Skill Hub</span>
+  <span class="tag tag-project">AI Adoption</span>
+  <span class="tag tag-signal">SkillOpt + Taste 20k + 生态爆发</span>
+  <div class="core-claim">有窗口，但不该外放 50 个 skill。用 3 个公开旗舰 + 2 个半公开元技能，先占住"Skill = 可训练的外部化专家判断"这一心智。</div>
+
+  <h3>建议发布子集</h3>
+  <table>
+    <tr><th>Skill</th><th>角色</th><th>策略</th></tr>
+    <tr><td>idea-refine</td><td>入口款</td><td>立即公开 — 痛点普遍、演示成本低</td></tr>
+    <tr><td>ontology-engineering</td><td>思想高地</td><td>立即公开 — 体现知识结构化能力</td></tr>
+    <tr><td>article-improver / readwise-briefing</td><td>高频实用款</td><td>二选一 — 拉新与口碑</td></tr>
+    <tr><td>my-skill-creator</td><td>元技能</td><td>只公开 lite 版 — 方法论公开，完整工作流保留</td></tr>
+    <tr><td>my-skill-evolver</td><td>元技能</td><td>只公开 lite 版 — 展示"skill 自我改进"概念</td></tr>
+  </table>
+
+  <h3>统一叙事</h3>
+  <p style="font-style:italic;background:var(--surface2);padding:0.8rem;border-radius:6px">《从 Prompt 到 Skill：把专家判断变成可训练的外部状态》— 不是 prompt library，而是 skill system。</p>
+
+  <h3>里程碑</h3>
+  <table>
+    <tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+    <tr><td>资产审计 + 红线划分</td><td>1周</td><td>50+ skill 按外部痛点/独特性/安全风险打分</td></tr>
+    <tr><td>3 个公开样板间</td><td>2周</td><td>README + 示例 I/O + 适用边界 + 失败案例</td></tr>
+    <tr><td>小范围外部验证</td><td>2-3周</td><td>10-15 位试用者反馈</td></tr>
+    <tr><td>正式建立叙事</td><td>2周</td><td>1 篇总纲 + 3 篇深拆 + 统一入口页</td></tr>
+  </table>
+
+  <h3>成功标准</h3>
+  <ul>
+    <li>30 天内 <strong>20+ 高质量外部试用者</strong></li>
+    <li><strong>10 人完成真实复用</strong>（非只点赞）</li>
+    <li>获得 <strong>3+ 外部邀请</strong>（分享/采访/合作）</li>
+    <li>反哺内部 <strong>5+ 新 skill contributor</strong></li>
+  </ul>
+
+  <div class="actions-box">
+    <h3 style="margin-top:0">⚡ 立即行动</h3>
+    <ol>
+      <li>做技能筛选表：按外部痛点/独特性/安全风险/演示性给 50+ skill 打分</li>
+      <li>写总纲文章标题与摘要：《从 Prompt 到 Skill》</li>
+      <li>选 5 位外部试用对象（AI trainer / 内容创作者 / 独立开发者）</li>
+    </ol>
+  </div>
+
+  <div class="challenge-box">
+    <h3 style="margin-top:0">🔴 诚实挑战</h3>
+    <p>窗口奖励的不是"做得多"，而是"命名一个时代问题的人"。如果只是放几个好用工具，最多得到掌声。要证明 <strong>skill 是组织级 AI adoption 的最小复用单元</strong>，才能成为 thought leader。</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Generated by Readwise Briefing Skill v3.0 · 2026-05-27 · 5 parallel subagents</p>
+  <p>信号来源：5 highlights + 6 documents since 2026-05-26</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

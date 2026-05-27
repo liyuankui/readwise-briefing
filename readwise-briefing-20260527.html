@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Briefing — 2026-05-27</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0;
+  --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626; --shadow: rgba(0,0,0,0.06);
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+  --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171; --shadow: rgba(0,0,0,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75;
+  padding: 2rem; max-width: 1100px; margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+h2 { font-size: 1.3rem; color: var(--accent); margin: 1.5rem 0 0.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.05rem; color: var(--accent2); margin: 1rem 0 0.5rem; }
+p { margin: 0.5rem 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+#theme-toggle { font-size: 1.5rem; background: none; border: none; cursor: pointer; }
+.stats { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1.2rem; box-shadow: 0 1px 4px var(--shadow); }
+.stat-card .num { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+.stat-card .label { font-size: 0.8rem; color: var(--text3); }
+.signal-table { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px var(--shadow); }
+.signal-table table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.signal-table th { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 2px solid var(--border); color: var(--accent); }
+.signal-table td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 8px var(--shadow); }
+.card .title { font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem; }
+.card .source { font-size: 0.8rem; color: var(--text3); }
+.card .relevance { background: var(--surface2); border-left: 3px solid var(--accent3); padding: 0.6rem 1rem; margin-top: 0.5rem; border-radius: 0 6px 6px 0; font-size: 0.9rem; color: var(--text2); }
+.stars { color: var(--accent4); }
+.tag { display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 12px; margin-right: 0.3rem; background: #dbeafe; color: #1e40af; }
+.dark .tag { background: #1e3a5f; color: #93c5fd; }
+.actions-box { background: var(--surface2); border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0; border-left: 4px solid var(--accent3); }
+details { margin: 1rem 0; }
+summary { cursor: pointer; color: var(--accent2); font-weight: bold; }
+ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+li { margin: 0.3rem 0; }
+.footer { text-align: center; color: var(--text3); margin-top: 2rem; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📰 Readwise Briefing — 2026-05-27</h1>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="num">5</div><div class="label">Highlights</div></div>
+  <div class="stat-card"><div class="num">6</div><div class="label">Documents</div></div>
+  <div class="stat-card"><div class="num">2</div><div class="label">⭐×5 高价值</div></div>
+  <div class="stat-card"><div class="num">2</div><div class="label">⭐×3 中等</div></div>
+</div>
+
+<div class="signal-table">
+  <h3 style="margin-top:0">🎯 深挖方向预览（→ Proposals）</h3>
+  <table>
+    <tr><th>#</th><th>信号</th><th>连接项目</th><th>为什么值得深挖</th></tr>
+    <tr><td>1</td><td>SkillOpt: Skill 可被"训练"</td><td>Skill Hub / my-skill-evolver</td><td>学术验证 Kyle 的 harness 方法 + 具体算法升级</td></tr>
+    <tr><td>2</td><td>Taste Skill 20.3k stars</td><td>TASTE.md / Vibe Stack</td><td>Kyle 已有品味系统，市场刚爆发，窗口期决策</td></tr>
+    <tr><td>3</td><td>35岁判断力 + Agent执行力归零</td><td>Engineering Baseline</td><td>补充昨日叙事：经验者的结构性优势正在扩大</td></tr>
+    <tr><td>4</td><td>SkillOpt harness = project-harness</td><td>Life OS / Harness</td><td>Cross-domain 验证：harness 是通用 meta-pattern</td></tr>
+    <tr><td>5</td><td>Skill 生态爆发 + "Ideas > Languages"</td><td>Skill Hub / AI Adoption</td><td>发布 Kyle skills 的窗口期 + 生态定位</td></tr>
+  </table>
+</div>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+<div class="card">
+  <div class="title">🔥 SkillOpt: Skill 也能"训练"了 — 微软联合上交复旦同济</div>
+  <div class="source">karminski-牙医 · Twitter · <a href="https://read.readwise.io/read/01kskgc68qtctkvdw3nq1c5grk">原文</a></div>
+  <span class="tag">Skill Hub</span><span class="tag">my-skill-evolver</span><span class="tag">Life OS</span>
+  <p style="margin-top:0.8rem">微软联合上交复旦同济发布 <strong>SkillOpt</strong> 框架：让 AI 评估 skill 质量并不断优化。核心方法：</p>
+  <ul>
+    <li>独立优化器模型写 skill → Agent 执行试错 → 跑分验证 → 只有得分更高的 skill 变更才会留下来</li>
+    <li>文本层"学习率"：每次只改一小部分（4-8 编辑操作/步最佳），最终接受 1-4 个核心修改</li>
+    <li>被拒编辑缓冲区（反面教材记忆）+ 周期性元更新（盘点形成记忆）</li>
+    <li><strong>结论：Skill 应作为 Agent 的外部冻结状态被"训练"，Prompting 和 Training 界限模糊</strong></li>
+  </ul>
+  <div class="relevance">
+    <strong>为什么这是 THE 信号：</strong>Kyle 的 my-skill-evolver + project-harness 早已在做这件事——用 harness 闭环迭代 skill。SkillOpt 论文从学术角度验证了这条路，且提供了具体算法参数（学习率预算、编辑步数、rejected buffer）。GPT-5.5 准确率飙升 23.5 分说明 skill 训练 ROI 巨大。这不是"有趣"——这是"你已经在做的事被顶级团队证明正确了"。
+  </div>
+</div>
+
+<div class="card">
+  <div class="title">Taste Skill — 20.3k Stars，前端品味的大众化</div>
+  <div class="source">刘醒 · Twitter · <a href="https://read.readwise.io/read/01kskgc57e49xv10e0nacnwsjq">原文</a></div>
+  <span class="tag">TASTE.md</span><span class="tag">Vibe Stack</span><span class="tag">Skill Hub</span>
+  <p style="margin-top:0.8rem">开源 Taste Skill 已获 20.3k stars。提供多种设计方向（通用高级感/极简/粗野主义/审计修复），支持三个可调参数（布局实验度/动画丰富度/信息密度）。</p>
+  <div class="relevance">
+    <strong>为什么相关：</strong>Kyle 已有 context/taste/TASTE.md 品味体系。市场验证了"品味即 Skill"的方向。决策点：是否将 Kyle 的品味系统发布为 IKEA Skill Hub 的 skill？或者集成开源 Taste Skill 到 Vibe Stack？这是一个窗口期——品味 skill 刚爆发，先到者定义标准。
+  </div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值</h2>
+
+<div class="card">
+  <div class="title">Agent 时代：35岁判断力 > 25岁执行力</div>
+  <div class="source">夸克说 · Twitter · <a href="https://read.readwise.io/read/01ksj471z96emctyqvv19k8g0r">原文</a></div>
+  <p>Agent 把执行力打到地板价 → 竞争从"谁更能加班"变为"谁更能判断做出来的东西靠不靠谱" → 经验和判断力恰是被裁 35+ 那批人的优势。</p>
+  <div class="relevance">直接补充昨日 Engineering Value Narrative Proposal #3/#5。可用于 Nicole/Kirill 汇报话术。</div>
+</div>
+
+<div class="card">
+  <div class="title">Helio: AI Colleague in Same Channels</div>
+  <div class="source">Helio · Article · <a href="https://read.readwise.io/read/01kskew85rxd49j28areqcnb4r">原文</a></div>
+  <p>AI 同事在同一频道工作，独立管理任务、更新进度、保持全员同步。与 PRATA agent-to-agent 理念相似。</p>
+  <div class="relevance">Life OS Proactive Agent 参考实现。注意它仍是"channel-based"模式，未来 PRATA 的差异化在于 trust + delegation。</div>
+</div>
+
+<h2>⭐ 低价值附录</h2>
+<details>
+<summary>展开查看全部（3 条）</summary>
+<ul>
+  <li><strong>ReAct 源代码开启 Agent 时代</strong>（马东锡 NLP）— 哲学感悟：优秀思想开创时代，鄙视语言的被时代裹挟。</li>
+  <li><strong>"更大问题"观点</strong>（@dongxi_nlp）— 没有看到更大问题时，容易被小问题困住。通用智慧，无具体行动。</li>
+  <li><strong>智商碾压视频</strong>（megaforce）— 娱乐内容。</li>
+</ul>
+</details>
+
+<h2>📋 行动清单</h2>
+<div class="actions-box">
+  <ol>
+    <li><strong>阅读 SkillOpt 论文</strong> → 提取可直接应用于 my-skill-evolver 的算法改进（学习率预算、rejected buffer）</li>
+    <li><strong>Taste Skill 决策</strong> → 评估是否将 TASTE.md 发布为 Skill Hub skill，或集成开源方案到 Vibe Stack</li>
+    <li><strong>Engineering Narrative 补充</strong> → 将"35岁判断力优势"论据加入昨日一页式 narrative</li>
+    <li><strong>检查 Helio 产品</strong> → 对比 PRATA 当前能力，识别差距与差异化</li>
+  </ol>
+</div>
+
+<div class="footer">
+  <p>Sync: 2026-05-26T06:36:21Z → 2026-05-27 · 5 highlights + 6 documents</p>
+  <p>Cumulative: 428 highlights · 390 documents</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
