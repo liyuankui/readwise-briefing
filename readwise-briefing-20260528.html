@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 — 2026-05-28</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; color: var(--text); }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1.2rem; text-align: center; }
+.stat-num { font-size: 1.5rem; font-weight: bold; color: var(--accent2); }
+.stat-label { font-size: 0.8rem; color: var(--text3); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.5rem; margin: 1rem 0; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.card-title { font-weight: bold; color: var(--text); margin-bottom: 0.3rem; }
+.card-meta { font-size: 0.8rem; color: var(--text3); margin-bottom: 0.5rem; }
+.card-content { color: var(--text2); font-size: 0.9rem; }
+.card-relevance { margin-top: 0.8rem; padding: 0.5rem 0.8rem; background: var(--surface2); border-radius: 6px; font-size: 0.85rem; color: var(--accent); border-left: 3px solid var(--accent3); }
+.tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-right: 0.3rem; }
+.tag-tweet { background: #e0f2fe; color: #0369a1; }
+.tag-rss { background: #fef3c7; color: #92400e; }
+.tag-article { background: #ede9fe; color: #6d28d9; }
+html.dark .tag-tweet { background: #1e3a5f; color: #7dd3fc; }
+html.dark .tag-rss { background: #422006; color: #fbbf24; }
+html.dark .tag-article { background: #2e1065; color: #c4b5fd; }
+.stars { color: var(--accent4); }
+.theme-toggle { position: fixed; top: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; z-index: 100; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.action-list { list-style: none; }
+.action-list li { padding: 0.5rem 0; border-bottom: 1px dashed var(--border); }
+.action-list li::before { content: "→ "; color: var(--accent3); font-weight: bold; }
+details { margin: 1rem 0; }
+summary { cursor: pointer; color: var(--accent2); font-weight: bold; padding: 0.5rem 0; }
+.axiom-banner { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 2rem; text-align: center; font-style: italic; color: var(--text2); }
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="theme-toggle">🌙</button>
+
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <p style="color: var(--text3)">2026-05-28 · 上次同步: 2026-05-27 10:04 CST</p>
+  </div>
+</div>
+
+<div class="axiom-banner">
+  「不可行动的信息 = 噪音。」
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">9</div><div class="stat-label">新内容</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">⭐⭐⭐⭐⭐ 高价值</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">⭐⭐⭐ 中等</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">⭐ 低价值</div></div>
+</div>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+<div class="card">
+  <div class="card-title">🔥 AI Native Workforce — Helio: AI 当同事而非工具</div>
+  <div class="card-meta"><span class="tag tag-tweet">tweet</span> @DIYgod · 2026-05-27 · <a href="https://twitter.com/DIYgod/status/2059591666135392704/?rw_tt_thread=True">原文</a></div>
+  <div class="card-content">
+    <p>「这个方向我觉得值得看：AI Native Workforce，而不是又一个 AI sidebar」</p>
+    <p>Helio 不是把 AI 做成更聪明的输入框，而是把 AI 当成同事放进工作流：AI PM 拆 task、AI Engineer 写代码跑测试、AI Reviewer 过风险点——人只负责关键决策和最终 approve。</p>
+    <p>核心洞察：AI 写代码不新鲜，难的是让它<b>持续在线、有上下文、有责任边界、可审计</b>。</p>
+  </div>
+  <div class="card-relevance">
+    <b>为什么相关</b>：直接命中 <b>Life OS / Agentic Engineering / PRATA</b> — 你的系统正在构建的就是"AI 当同事"。Helio 的 AI PM/Engineer/Reviewer 分工模式可对标 PRATA 的 persona 系统 + skill 协作链。特别是"持续在线 + 有上下文 + 责任边界 + 可审计"四个要求，与 PRATA 的设计方向高度一致。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔥 用 AI 更慢但更高质量地写代码（多模型交叉审查）</div>
+  <div class="card-meta"><span class="tag tag-rss">HN</span> Nolan Lawson · HN 1132 点 · <a href="https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/">原文</a></div>
+  <div class="card-content">
+    <p>核心方法：Claude + Codex + Cursor Bugbot 三模型联合审查 PR，按严重度排序 bug，优先修复关键问题。</p>
+    <p>结论：不提升速度，但显著提升代码库健康度。发现从安全漏洞到性能问题的各类 bug。放慢节奏 + 多视角审查 = 深度理解代码。</p>
+    <p>社区共鸣：有团队开发多角色对抗式代码审查工具，不断迭代直到所有"角色"认可质量。</p>
+  </div>
+  <div class="card-relevance">
+    <b>为什么相关</b>：直接命中 <b>Engineering Baseline / Software Testing Excellence / AI Coding Practices</b> — "多模型交叉审查"可立即引入团队工作流。这是一个已验证的方法，与你推动的"AI 写代码→AI 写测试"和质量文化完全对齐。可作为 Digital Sharing Days 分享素材。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔥 Think and Make：Agent 时代精力的重分配</div>
+  <div class="card-meta"><span class="tag tag-tweet">tweet</span> @wquguru · 2026-05-27 · <a href="https://twitter.com/wquguru/status/2059597678955421740/?rw_tt_thread=True">原文</a></div>
+  <div class="card-content">
+    <p>Agent 时代人的精力从"做"转向"想"——Think and Make 的重新定义。当 Agent 能执行大部分 Make，人的核心价值转向 Think（设计、判断、审计）。</p>
+  </div>
+  <div class="card-relevance">
+    <b>为什么相关</b>：命中 <b>Life OS / Engineering Baseline</b> — 这正是你推动 Vibe Stack 和 Skill Hub 的底层哲学：当每个人都能"Make"（AI 辅助开发），研发团队的价值转向"Think"（平台设计、质量守护、架构决策）。可用于 AI Upskill Trainer 课程开篇。
+  </div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值（备用收藏）</h2>
+
+<div class="card">
+  <div class="card-title">「我厌倦了与 AI 对话」— 人机沟通信任危机</div>
+  <div class="card-meta"><span class="tag tag-rss">HN</span> theorchid · HN 1823 点 · <a href="https://orchidfiles.com/im-tired-of-ai-generated-answers/">原文</a></div>
+  <div class="card-content">
+    <p>向老板请教问题→收到 ChatGPT 截图→内容错误且无关。Reddit 交流→发现对方是 AI。</p>
+    <p>核心焦虑：AI 过度介入人际沟通 → 削弱信任 → 管理层应规范使用边界。</p>
+  </div>
+  <div class="card-relevance"><b>为什么相关</b>：呼应 <b>Human Connection Investment</b> — 「AI 应做繁琐事而非替代真实交流」正是你"Agent 留白"原则的外部验证。可用于 AI 使用白皮书中的反面案例。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">DuckDuckGo 搜索量暴涨 28% — AI 反噬效应</div>
+  <div class="card-meta"><span class="tag tag-rss">HN</span> PCGamer · 2026-05-28 · <a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/">原文</a></div>
+  <div class="card-content"><p>Google 强推 AI Mode 后用户反感，"可选 AI、重隐私"的替代搜索获得红利。</p></div>
+  <div class="card-relevance"><b>为什么相关</b>：间接相关 <b>GEO for IKEA</b> — AI 搜索生态正在分裂，非 Google 渠道崛起；GEO 策略需覆盖更多元的 AI 入口。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">Yansu 架构分析 — Wails (Go + JS) 跨平台方案</div>
+  <div class="card-meta"><span class="tag tag-tweet">tweet</span> @liumengxinfly · 2026-05-27 · <a href="https://twitter.com/liumengxinfly/status/2059638054290386989/?rw_tt_thread=True">原文</a></div>
+  <div class="card-content"><p>yetone 的 Yansu 用 Wails 做跨平台：Go 后端 + JS 前端。轻量且性能好。</p></div>
+  <div class="card-relevance"><b>为什么相关</b>：备选参考 <b>Agentic Engineering</b> — Wails 作为 Electron 替代方案，如果未来需要桌面 Agent 客户端可参考。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">一键网址转 design.md</div>
+  <div class="card-meta"><span class="tag tag-tweet">tweet</span> @dingyi · 2026-05-27 · <a href="https://twitter.com/dingyi/status/2059620404621377779/?rw_tt_thread=True">原文</a></div>
+  <div class="card-content"><p>输入网址，自动生成 design.md。适合快速逆向分析现有网站设计。</p></div>
+  <div class="card-relevance"><b>为什么相关</b>：工具参考 <b>Skills Development</b> — 可集成到 design-review / frontend-design skill 流程中。</div>
+</div>
+
+<h2>⭐ 低价值附录</h2>
+
+<details>
+<summary>展开查看 (2 项)</summary>
+
+<div class="card">
+  <div class="card-title">我所經歷的 Vibe Coding 發展史</div>
+  <div class="card-meta"><span class="tag tag-article">article</span> Mike Chong · <a href="https://www.realmikechong.com/zh-TW/article/the-vibe-coding-history-i-know">原文</a></div>
+  <div class="card-content"><p>从 Copilot beta 到 Cursor、Claude Code 的 AI 编码工具演进史。已知结论重复。</p></div>
+</div>
+
+<div class="card">
+  <div class="card-title">People Like You More Than You Know</div>
+  <div class="card-meta"><span class="tag tag-article">article</span> Scientific American · <a href="https://blogs.scientificamerican.com/illusion-chasers/people-like-you-more-than-you-know/">原文</a></div>
+  <div class="card-content"><p>"Liking gap"研究：人们常低估他人对自己的好感。对社交信心有帮助但非当前焦点。</p></div>
+</div>
+
+</details>
+
+<h2>📋 行动清单</h2>
+<ul class="action-list">
+  <li><b>研究 Helio</b>（AI Native Workforce）— 注册试用 or 阅读文档，对标 PRATA persona 分工模型</li>
+  <li><b>引入多模型交叉审查</b> — 在团队试点 Claude+Codex 联合 code review，作为 Engineering Baseline 实践</li>
+  <li><b>"Think and Make" 叙事框架</b> — 用于 AI Upskill Trainer L0 课程开篇 + Digital Sharing Days</li>
+  <li><b>AI 使用边界案例</b> — "I'm Tired of Talking to AI" 收录为 Responsible AI 指南反面案例</li>
+</ul>
+
+<h2>📊 深挖方向预览</h2>
+<table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
+<tr style="background: var(--surface2);">
+  <th style="padding: 0.5rem; text-align: left; border-bottom: 2px solid var(--border);">#</th>
+  <th style="padding: 0.5rem; text-align: left; border-bottom: 2px solid var(--border);">方向</th>
+  <th style="padding: 0.5rem; text-align: left; border-bottom: 2px solid var(--border);">连接项目</th>
+  <th style="padding: 0.5rem; text-align: left; border-bottom: 2px solid var(--border);">类型</th>
+</tr>
+<tr><td style="padding:0.5rem; border-bottom:1px solid var(--border);">1</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">AI Native Workforce vs PRATA 分工模型</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">Life OS / PRATA</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">跨域组合</td></tr>
+<tr><td style="padding:0.5rem; border-bottom:1px solid var(--border);">2</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">多模型交叉审查 → Engineering Baseline 实践</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">Engineering Baseline</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">技术切入</td></tr>
+<tr><td style="padding:0.5rem; border-bottom:1px solid var(--border);">3</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">Think→Make 精力分配框架化</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">AI Upskill / Value Demo</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">叙事框架</td></tr>
+<tr><td style="padding:0.5rem; border-bottom:1px solid var(--border);">4</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">AI 沟通边界 → Responsible AI 指南</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">Human Connection / AI Adoption</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">反直觉</td></tr>
+<tr><td style="padding:0.5rem; border-bottom:1px solid var(--border);">5</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">AI 搜索分裂 → GEO 多渠道覆盖</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">GEO for IKEA</td><td style="padding:0.5rem; border-bottom:1px solid var(--border);">窗口期</td></tr>
+</table>
+
+<p style="margin-top: 2rem; color: var(--text3); font-size: 0.8rem; text-align: center;">
+  Generated by my-readwise-briefing v4.0.0 · Total processed: 433 highlights + 396 docs · Next: Phase 1.5 验证 + Phase 2 深挖
+</p>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

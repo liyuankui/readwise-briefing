@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dive Proposals — 2026-05-28</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.8rem; margin-bottom: 0.3rem; color: var(--accent); }
+h2 { font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--accent); }
+h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; color: var(--text); }
+.theme-toggle { position: fixed; top: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; z-index: 100; }
+.axiom-banner { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 1.5rem 0; text-align: center; font-style: italic; color: var(--text2); }
+.proposal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin: 1.5rem 0; }
+.proposal-card h3 { margin-top: 0; color: var(--accent2); font-size: 1.2rem; }
+.core-claim { background: var(--surface2); border-left: 4px solid var(--accent3); padding: 0.8rem 1.2rem; margin: 0.8rem 0; font-weight: bold; color: var(--text); }
+.meta-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 0.8rem 0; font-size: 0.85rem; color: var(--text3); }
+.meta-item { display: flex; align-items: center; gap: 0.3rem; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+th { background: var(--surface2); padding: 0.5rem; text-align: left; border-bottom: 2px solid var(--border); }
+td { padding: 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.actions { list-style: none; padding: 0; }
+.actions li { padding: 0.4rem 0; border-bottom: 1px dashed var(--border); }
+.actions li::before { content: "→ "; color: var(--accent3); font-weight: bold; }
+.challenge { background: #fef2f2; border-left: 3px solid var(--accent5); padding: 0.6rem 1rem; margin: 0.5rem 0; font-size: 0.88rem; color: var(--text2); }
+html.dark .challenge { background: #1f1215; }
+.signal-map { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+.toc-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1rem; }
+.toc-item:hover { border-color: var(--accent2); }
+.toc-num { font-size: 1.5rem; font-weight: bold; color: var(--accent2); }
+.toc-title { font-size: 0.9rem; color: var(--text); margin-top: 0.2rem; }
+.toc-project { font-size: 0.75rem; color: var(--text3); }
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="theme-toggle">🌙</button>
+
+<h1>🔬 Deep Dive Proposals</h1>
+<p style="color: var(--text3);">2026-05-28 · 基于 Readwise 信号的 5 个可执行方案</p>
+
+<div class="axiom-banner">「不可行动的信息 = 噪音。」— 以下每个 Proposal 必须回答：解决谁的什么痛点？本周能做什么？</div>
+
+<div class="toc">
+  <a href="#p1" class="toc-item"><div class="toc-num">01</div><div class="toc-title">AI Native Workforce → PRATA 升级</div><div class="toc-project">Life OS / PRATA / Skill Hub</div></a>
+  <a href="#p2" class="toc-item"><div class="toc-num">02</div><div class="toc-title">多模型交叉审查 → Engineering Baseline</div><div class="toc-project">Engineering Baseline / Testing</div></a>
+  <a href="#p3" class="toc-item"><div class="toc-num">03</div><div class="toc-title">Think and Make 教学框架</div><div class="toc-project">AI Upskill / Value Demo</div></a>
+  <a href="#p4" class="toc-item"><div class="toc-num">04</div><div class="toc-title">AI 沟通边界指南</div><div class="toc-project">Human Connection / Responsible AI</div></a>
+  <a href="#p5" class="toc-item"><div class="toc-num">05</div><div class="toc-title">GEO 多渠道基线升级</div><div class="toc-project">GEO for IKEA</div></a>
+</div>
+
+<!-- ==================== PROPOSAL 1 ==================== -->
+<div class="proposal-card" id="p1">
+<h3>01 · PRATA Workforce Layer：从消息通道到 AI 岗位协作平面</h3>
+<div class="core-claim">不要再把 Persona 当"说话风格模板"，而要升级为"有职责、有技能边界、有审批闸门、有审计轨迹的数字岗位"——PRATA 成为控制平面，Skill Hub 成为能力供给平面。</div>
+<div class="meta-row">
+  <span class="meta-item">📡 信号源：@DIYgod · AI Native Workforce / Helio</span>
+  <span class="meta-item">⚠️ 验证：Partial（概念可信，产品未深度验证）</span>
+  <span class="meta-item">⏱️ 周期：9 周</span>
+</div>
+
+<h3>目标形态</h3>
+<table>
+<tr><th>角色</th><th>职责</th><th>边界</th></tr>
+<tr><td>AI PM</td><td>接收需求/反馈，拆成 Task Packet</td><td>不改代码，不批准上线</td></tr>
+<tr><td>AI Engineer</td><td>执行技能、改代码、跑测试</td><td>不自我 approve</td></tr>
+<tr><td>AI Reviewer</td><td>风险审查、回归检查、审批摘要</td><td>不改业务代码</td></tr>
+<tr><td>Kyle</td><td>关键决策、越权审批、最终 approve</td><td>不做日常上下文搬运</td></tr>
+</table>
+
+<h3>里程碑</h3>
+<table>
+<tr><th>阶段</th><th>时间</th><th>产出</th></tr>
+<tr><td>M1 Persona Contract 化</td><td>2周</td><td>PM/Engineer/Reviewer 三份 Contract + Task Packet schema</td></tr>
+<tr><td>M2 单线程协作闭环</td><td>2周</td><td>低风险 repo 跑通完整链路</td></tr>
+<tr><td>M3 Skill Hub 权限映射</td><td>2周</td><td>role → allowed skills → risk tier</td></tr>
+<tr><td>M4 审计与观测层</td><td>1.5周</td><td>完整 trace：任务源→调用→改动→审批</td></tr>
+<tr><td>M5 真实项目 Pilot</td><td>1.5周</td><td>1-2 个内部工程流程试点</td></tr>
+</table>
+
+<h3>本周立即行动</h3>
+<ul class="actions">
+<li>定义 PM / Engineer / Reviewer 三份 Persona Contract（职责、输入、输出、禁止、升级条件）</li>
+<li>选一个低风险 Pilot 流程（建议：内部 tooling repo 的 issue → fix → review）</li>
+<li>手工"Wizard of Oz"演练 3-5 个真实任务，记录 handoff 丢失信息与必要审批点</li>
+</ul>
+
+<div class="challenge">
+<b>诚实挑战</b>：(1) PRATA 擅长通讯，但核心难题是任务状态机而非消息传递；(2) Skill Hub 需补风险分级与 role-based allowlist；(3) 先把 Context Bundle 做对，比先做更多 Agent 更重要；(4) 必须证明比"单个强 Agent + 人工 review"更省时间。
+</div>
+</div>
+
+<!-- ==================== PROPOSAL 2 ==================== -->
+<div class="proposal-card" id="p2">
+<h3>02 · AI Cross-Review Gate：多模型交叉评审 → 可量化的 Engineering Baseline</h3>
+<div class="core-claim">不是用 AI 让开发更快，而是把 AI 变成 PR 阶段的第二道质量防线：用多模型交叉评审优先拦截高严重度问题，并用缺陷外溢率、回滚率、热修率的改善向管理层证明工程价值。</div>
+<div class="meta-row">
+  <span class="meta-item">📡 信号源：Nolan Lawson · HN 1132pts</span>
+  <span class="meta-item">✅ 验证：Verified（方法可复现，社区已验证）</span>
+  <span class="meta-item">⏱️ 周期：8 周</span>
+</div>
+
+<h3>工作流设计</h3>
+<p style="font-size:0.9rem; color:var(--text2);">PR 提交 → 模型A (correctness) → 模型B (risk/edge cases) → 模型C (security, 可选) → 汇总去重按严重度排序 → 作者修 Critical/High → 人工 Reviewer 审设计/业务 → 合并 → 跟踪缺陷外溢</p>
+
+<h3>成功标准</h3>
+<table>
+<tr><th>指标</th><th>目标</th></tr>
+<tr><td>AI Cross-Review 覆盖率</td><td>试点 repo ≥80% PR</td></tr>
+<tr><td>Critical/High 修复率</td><td>≥70% 合并前修复</td></tr>
+<tr><td>缺陷外溢率下降</td><td>-20~30%</td></tr>
+<tr><td>热修/rollback 频次</td><td>试点服务下降 20%+</td></tr>
+</table>
+
+<h3>本周立即行动</h3>
+<ul class="actions">
+<li>选 2 个试点 repo（一个订单核心，一个低风险服务），拉近 20 PR 基线</li>
+<li>定义一页纸 Severity Rubric（Critical/High/Medium/Low + 场景映射）</li>
+<li>启动 10 个 PR 的人工+多模型对照试验，记录命中率与采纳率</li>
+</ul>
+
+<div class="challenge">
+<b>诚实挑战</b>：如果团队 PR 粒度太大、测试纪律弱、无 severity 共识，多模型审查可能只是"放大混乱"。真正的落点不是"上 AI 工具"，而是定义 Engineering Baseline：高风险 PR 必须经过多模型交叉评审 + 测试补充 + 严重度分级处理。
+</div>
+</div>
+
+<!-- ==================== PROPOSAL 3 ==================== -->
+<div class="proposal-card" id="p3">
+<h3>03 · Think Layer Framework：把"Think and Make"做成课程框架 + 价值叙事</h3>
+<div class="core-claim">AI Upskill Trainer 不应教"更会写 prompt"，而应教"如何承担 Think 层职责"——把模糊意图转成可执行规格、校验标准与风险边界；工程团队提供平台与护栏，让 AI 安全完成 Make。</div>
+<div class="meta-row">
+  <span class="meta-item">📡 信号源：@wquguru + 多源交叉验证</span>
+  <span class="meta-item">✅ 验证：Verified（多独立信源确认趋势）</span>
+  <span class="meta-item">⏱️ 周期：8 周</span>
+</div>
+
+<h3>教学框架：TACO-5</h3>
+<table>
+<tr><th>要素</th><th>含义</th><th>回答的问题</th></tr>
+<tr><td><b>T</b>ask</td><td>任务</td><td>要做什么？</td></tr>
+<tr><td><b>A</b>udience/Context</td><td>对象/上下文</td><td>给谁？什么背景？</td></tr>
+<tr><td><b>C</b>onstraints</td><td>约束</td><td>什么不能做？</td></tr>
+<tr><td><b>O</b>utput</td><td>输出格式</td><td>长什么样？</td></tr>
+<tr><td><b>C</b>heck</td><td>校验标准</td><td>怎么算对？</td></tr>
+</table>
+
+<h3>对管理层的叙事</h3>
+<p style="font-size:0.9rem; background:var(--surface2); padding:0.8rem; border-radius:6px; color:var(--text2);">
+「我们不是在教大家怎么跟 AI 聊天，而是在建设组织的 Think Layer：让业务能清晰表达任务，让 AI 能稳定执行，让结果可审计、可复用、可规模化。工程团队的价值，不是替大家做，而是让全组织安全地做成。」
+</p>
+
+<h3>本周立即行动</h3>
+<ul class="actions">
+<li>定义一页纸课程框架：L0/L1.1 + TACO-5 + 3 个典型反例</li>
+<li>收集 10 个"AI 没理解我"的真实失败样本，反推缺了哪一格</li>
+<li>启动 1 次 60 分钟 trainer pilot，做课前/课后对比</li>
+</ul>
+
+<div class="challenge">
+<b>诚实挑战</b>：(1) 容易变成漂亮话，必须有案例+前后测；(2) 教了 Think 但组织没给 Make 基础设施则效果被吞；(3) 管理层可能说"既然人人都能做，工程还重要吗？"——必须完整讲清工程 = 放大组织级正确执行。
+</div>
+</div>
+
+<!-- ==================== PROPOSAL 4 ==================== -->
+<div class="proposal-card" id="p4">
+<h3>04 · AI Communication Boundary：保护组织最贵的资产——信任</h3>
+<div class="core-claim">AI 可以帮人准备沟通，但不能替人承担关系责任；凡涉及判断、承诺、反馈、关怀与建信，最后一公里必须由真人完成。</div>
+<div class="meta-row">
+  <span class="meta-item">📡 信号源：HN 1823pts "I'm Tired of Talking to AI"</span>
+  <span class="meta-item">✅ 验证：Verified（极高社区共鸣）</span>
+  <span class="meta-item">⏱️ 周期：6 周</span>
+</div>
+
+<h3>三层边界模型</h3>
+<table>
+<tr><th>层级</th><th>定义</th><th>例子</th></tr>
+<tr><td style="color:var(--accent3);font-weight:bold;">A. AI 可辅助</td><td>重复、信息型、低情绪负荷</td><td>会议纪要、FAQ、材料润色</td></tr>
+<tr><td style="color:var(--accent4);font-weight:bold;">B. AI 可参与，必须人工加工</td><td>需判断，风险可控</td><td>跨团队说明、方案初稿</td></tr>
+<tr><td style="color:var(--accent5);font-weight:bold;">C. AI 不可代答</td><td>涉及信任/情绪/责任</td><td>绩效反馈、1:1、冲突、道歉</td></tr>
+</table>
+
+<h3>五条红线</h3>
+<ol style="font-size:0.9rem; color:var(--text2); padding-left:1.5rem;">
+<li>绩效反馈与发展建议</li>
+<li>冲突、抱怨、升级处理</li>
+<li>1:1、关怀、脆弱性对话</li>
+<li>重大判断、优先级取舍、责任归属</li>
+<li>任何你不愿当面说、却想借 AI 发出去的话</li>
+</ol>
+
+<h3>本周立即行动</h3>
+<ul class="actions">
+<li>写出 v0.1 边界卡片（1页：三层边界 + 五条红线 + 两个必须）</li>
+<li>做 5 个真实场景校准（逐个标 A/B/C 并写理由）</li>
+<li>在下次 manager sync 做 15 分钟讨论：什么沟通绝不能让 AI 代答？</li>
+</ul>
+
+<div class="challenge">
+<b>诚实挑战</b>：(1) 最难的不是写规则而是改默认习惯；(2) 边界天然有灰区，规则不能消灭判断；(3) 若只做 policy 不做训练，会停留在道德表态；(4) 若 manager 不以身作则，文件沦为空文。
+</div>
+</div>
+
+<!-- ==================== PROPOSAL 5 ==================== -->
+<div class="proposal-card" id="p5">
+<h3>05 · GEO 基线升级：从"平台可见性"到"碎片化搜索生态归因"</h3>
+<div class="core-claim">IKEA 中国的 GEO 问题已不是"在不在 AI 答案里"，而是"在碎片化 AI/搜索/直达路径中，哪些高意图场景被看见、被引用、被带走、却没被 IKEA 捕获"。</div>
+<div class="meta-row">
+  <span class="meta-item">📡 信号源：DuckDuckGo +28% · PCGamer</span>
+  <span class="meta-item">✅ 验证：Verified（可量化市场数据）</span>
+  <span class="meta-item">⏱️ 周期：与 5/31 Deadline 对齐</span>
+</div>
+
+<h3>建议：轻量扩边，不做重型研究</h3>
+<p style="font-size:0.9rem; color:var(--text2);">5/31 baseline 升级为双层结构：层1 = 5×5 平台可见性审计；层2 = 迁移敏感层（AI原生 / 搜索回退 / 品牌直达 / 服务咨询）。不现在做重型"用户迁移研究"，只把迁移当作影响归因设计的变量。</p>
+
+<h3>追踪框架新增字段</h3>
+<table>
+<tr><th>字段</th><th>用途</th></tr>
+<tr><td>entry_surface_group</td><td>区分 AI原生/搜索回退/品牌直达</td></tr>
+<tr><td>fallback_surface</td><td>用户从 AI 回退到哪里</td></tr>
+<tr><td>service_intent</td><td>是否指向设计服务/门店/会员等</td></tr>
+<tr><td>recoverable_signal</td><td>能否通过口令/问卷/客服补捕获</td></tr>
+</table>
+
+<h3>本周立即行动</h3>
+<ul class="actions">
+<li>把 baseline 改成双层结构（可见性审计 + 迁移敏感层）</li>
+<li>选 2 个高意图试点类目（建议：厨房设计 / 收纳改造）</li>
+<li>定义最小追踪字段，新增 entry_surface_group 等维度</li>
+</ul>
+
+<div class="challenge">
+<b>诚实挑战</b>：(1) 碎片化信号来自 Google/DDG 语境，不能直接证明中国用户同样迁移；(2) 内容重构不一定改善引用率（受模型训练源影响）；(3) 若线下/客服不接入，框架仍会低估 GEO。正确做法：做一个更聪明的 baseline，而非扩大范围做大项目。
+</div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border);">
+<h2 style="font-size:1.1rem;">📊 信号 × 项目 对应关系</h2>
+<table>
+<tr><th>信号</th><th>连接项目</th><th>类型</th><th>验证</th></tr>
+<tr><td>AI Native Workforce (Helio)</td><td>Life OS / PRATA / Skill Hub</td><td>跨域组合</td><td>⚠️ Partial</td></tr>
+<tr><td>多模型交叉审查 (Nolan Lawson)</td><td>Engineering Baseline / Testing</td><td>技术切入</td><td>✅ Verified</td></tr>
+<tr><td>Think and Make 精力重分配</td><td>AI Upskill / Value Demo</td><td>叙事框架</td><td>✅ Verified</td></tr>
+<tr><td>"I'm Tired of Talking to AI"</td><td>Human Connection / Responsible AI</td><td>反直觉</td><td>✅ Verified</td></tr>
+<tr><td>DuckDuckGo +28%</td><td>GEO for IKEA</td><td>窗口期</td><td>✅ Verified</td></tr>
+</table>
+</div>
+
+<p style="margin-top: 2rem; color: var(--text3); font-size: 0.8rem; text-align: center;">
+  Generated by my-readwise-briefing v4.0.0 · Phase 2: 5 subagents × general-purpose · 2026-05-28
+</p>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
