@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-06-01</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; line-height: 1.75; }
+header { background: var(--accent); color: white; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.axiom { background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; font-style: italic; }
+.theme-btn { background: rgba(255,255,255,0.2); border: none; color: white; padding: 0.4rem 0.8rem; border-radius: 999px; cursor: pointer; font-size: 1rem; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+.map-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 2rem; }
+.map-table th { background: var(--surface2); padding: 0.8rem 1rem; text-align: left; font-size: 0.8rem; color: var(--text3); }
+.map-table td { padding: 0.65rem 1rem; border-top: 1px solid var(--border); font-size: 0.88rem; }
+.proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 2rem; overflow: hidden; }
+.proposal-header { padding: 1.4rem 1.6rem; display: flex; align-items: flex-start; gap: 1rem; }
+.proposal-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; flex-shrink: 0; }
+.n1 { background: var(--accent3); }
+.n2 { background: var(--accent2); }
+.n3 { background: var(--accent4); }
+.n4 { background: #8b5cf6; }
+.n5 { background: var(--accent5); }
+.proposal-title h2 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; }
+.proposal-title .intent-tag { display: inline-block; font-size: 0.72rem; background: var(--surface2); color: var(--text3); padding: 0.15rem 0.5rem; border-radius: 999px; margin-top: 0.3rem; }
+.proposal-body { padding: 0 1.6rem 1.6rem; }
+.claim { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; margin-bottom: 1rem; font-style: italic; font-size: 0.95rem; color: var(--accent); font-weight: 600; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.box { background: var(--surface2); border-radius: 10px; padding: 0.9rem 1rem; }
+.box h4 { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.box p, .box li { font-size: 0.87rem; color: var(--text2); }
+.box ul, .box ol { padding-left: 1.2rem; }
+.box li { margin-bottom: 0.25rem; }
+.milestones { margin-bottom: 1rem; }
+.milestone { display: flex; gap: 0.8rem; align-items: flex-start; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.milestone:last-child { border-bottom: none; }
+.milestone-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent3); flex-shrink: 0; margin-top: 0.6rem; }
+.milestone p { font-size: 0.88rem; color: var(--text2); }
+.actions { background: var(--surface2); border-radius: 10px; padding: 0.9rem 1rem; margin-bottom: 1rem; }
+.actions h4 { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.actions ol { padding-left: 1.3rem; }
+.actions li { font-size: 0.87rem; color: var(--text); margin-bottom: 0.3rem; }
+.challenge { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 0.9rem 1rem; }
+html.dark .challenge { background: #1f1010; border-color: #7f1d1d; }
+.challenge h4 { font-size: 0.78rem; color: var(--accent5); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.challenge p { font-size: 0.87rem; color: var(--text2); }
+.verify-chip { display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 6px; margin-left: 0.4rem; }
+.v-ok { background: #dcfce7; color: #15803d; }
+.v-partial { background: #fef9c3; color: #a16207; }
+a { color: var(--accent2); }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1 style="font-size:1.3rem;font-weight:700;margin-bottom:0.3rem">🔬 深度 Proposals · 2026-06-01</h1>
+    <div class="axiom">不可行动的信息 = 噪音</div>
+  </div>
+  <button class="theme-btn" id="theme-toggle">🌙</button>
+</header>
+
+<div class="container">
+  <!-- 信号 × 项目 对应关系表 -->
+  <table class="map-table">
+    <thead><tr><th>#</th><th>信号</th><th>验证</th><th>关联意图</th><th>核心主张（一句话）</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>EverMe 跨Agent记忆</td><td><span class="verify-chip v-partial">⚠️ Partial</span></td><td>Life OS 🌱</td><td>先验证统一记忆层，再决定是否引入 EverMe</td></tr>
+      <tr><td>2</td><td>Software Fundamentals（Matt Pocock）</td><td><span class="verify-chip v-ok">✅ Verified</span></td><td>Engineering Baseline 🔥</td><td>把"会用AI"升级为"能驾驭AI交付可维护系统"的团队标准</td></tr>
+      <tr><td>3</td><td>skill-cleaner 体检思路</td><td><span class="verify-chip v-partial">⚠️ Partial</span></td><td>IKEA Skill Hub 🛠️</td><td>把Skill体检内建为Hub质量评分层</td></tr>
+      <tr><td>4</td><td>ACP协议 + OpenCode/Gemini信息差</td><td><span class="verify-chip v-ok">✅ Verified</span></td><td>AI Upskill Trainer 🔥</td><td>让讲师团领先学员一个身位</td></tr>
+      <tr><td>5</td><td>Trustworthy Agents（Anthropic五原则）</td><td><span class="verify-chip v-ok">✅ Verified</span></td><td>Store POS + Life OS 🔥</td><td>建设面向POS交易链路的Trustworthy MPC Agent Guardrail Framework</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Proposal 1 -->
+  <div class="proposal">
+    <div class="proposal-header">
+      <div class="proposal-num n1">1</div>
+      <div class="proposal-title">
+        <h2>先验证「统一记忆层」，再决定是否引入 EverMe</h2>
+        <span class="intent-tag">Life OS 🌱 · Memory 支柱</span>
+        <span class="verify-chip v-partial">⚠️ Partial</span>
+      </div>
+    </div>
+    <div class="proposal-body">
+      <div class="claim">Kyle 当前不缺"更多记忆工具"，真正缺的是一层可被多 Agent 读写、可沉淀为 case/skill、且可验证 ROI 的统一记忆层。</div>
+      <div class="grid2">
+        <div class="box">
+          <h4>🎯 锁定痛点</h4>
+          <p>最痛缺口不是"记不住文本"，而是<strong>跨 session 决策脉络丢失</strong>。换到新 session/新 Agent 时，Life OS 已讨论过的优先级、约束、排障经验需要重讲；一次方案比较难自动升级为可复用 case。</p>
+        </div>
+        <div class="box">
+          <h4>📊 成功标准</h4>
+          <ul>
+            <li>二次启动补上下文时间↓70%</li>
+            <li>20+ 高价值 case 可检索</li>
+            <li>两个不同 Agent 共享同一记忆</li>
+            <li>自动召回历史约束并被采纳</li>
+          </ul>
+        </div>
+      </div>
+      <div class="milestones">
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第1周</strong>：盘点现有记忆流（session-state/context/store_memory/AGENTS.md）与缺口地图</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第1周</strong>：亲测 EverMe 最小链路（Agent A写入 → 新session Agent B查询 → 记录延迟/召回率/数据落点）</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第2周</strong>：并行做轻量自建 PoC（会话摘要→结构化 case→检索）</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第3周</strong>：AB 对比，决定 buy / build / hybrid</p></div>
+      </div>
+      <div class="actions">
+        <h4>⚡ 立即行动（本周）</h4>
+        <ol>
+          <li>画出当前记忆地图与高频失忆场景（30分钟）</li>
+          <li><strong>亲测 EverMe</strong>：从推文落地页拿真实仓库，按 README 安装，测试最小示例，记录"能否真正跨 session 召回"</li>
+          <li>同步做本地 PoC，用现有 context + session 摘要串联，对比可控性</li>
+        </ol>
+      </div>
+      <div class="challenge">
+        <h4>🚩 诚实挑战</h4>
+        <p>EverMe 的"越用越聪明"目前更像愿景而非证据。若无法回答"数据存哪、谁可读、如何删除、如何防泄露"，就不应进入 Kyle 的长期系统。EverMe 更可能是上层编排，而非替代现有方案。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proposal 2 -->
+  <div class="proposal">
+    <div class="proposal-header">
+      <div class="proposal-num n2">2</div>
+      <div class="proposal-title">
+        <h2>CDH「AI时代工程能力标准」计划</h2>
+        <span class="intent-tag">Engineering Baseline 🔥 · AI Upskill</span>
+        <span class="verify-chip v-ok">✅ Verified</span>
+      </div>
+    </div>
+    <div class="proposal-body">
+      <div class="claim">把"会用 AI 写代码"升级为"能驾驭 AI 交付可维护系统"的团队标准，并纳入 Engineering Baseline 与人才发展。</div>
+      <div class="grid2">
+        <div class="box">
+          <h4>🎯 锁定痛点</h4>
+          <ul>
+            <li>Junior 借 AI 快速产出，但无法评估代码质量 → "看似快、实则脆"</li>
+            <li>评审标准停留在代码表面，未覆盖 AI 生成内容可验证性</li>
+            <li>技术成果难映射到业务语言，向上管理只能讲效率</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>📊 成功标准</h4>
+          <ul>
+            <li>AI 相关 PR 测试覆盖率 ≥80%</li>
+            <li>高风险缺陷回滚率↓30%</li>
+            <li>PR 中"不可维护"问题占比↓</li>
+            <li>每月沉淀1份"技术→业务影响"案例</li>
+          </ul>
+        </div>
+      </div>
+      <div class="milestones">
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第1-2周</strong>：定义 AI Engineering Ladder，映射工程梯度、测试、评审、ownership（参考 jorgef/engineeringladders ⭐8.5K）</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第3-4周</strong>：选 1-2 个团队试点，建立 AI Coding Guardrails</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第5-8周</strong>：上线评审清单与测试门禁，纳入 PR 流程</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第9-12周</strong>：复盘数据，形成管理层可读的 Value Demo 模板</p></div>
+      </div>
+      <div class="actions">
+        <h4>⚡ 立即行动（本周）</h4>
+        <ol>
+          <li>拉 60 分钟 workshop，定义 CDH 的 AI Coding 失控案例与能力缺口</li>
+          <li>选一个活跃团队，试行 AI PR checklist + 测试门禁</li>
+          <li>基于 <a href="https://github.com/jorgef/engineeringladders" target="_blank">Engineering Ladders</a> 起草"AI时代工程能力标准"草案</li>
+        </ol>
+      </div>
+      <div class="challenge">
+        <h4>🚩 诚实挑战</h4>
+        <p>若没有真实项目数据支撑，此提案会沦为口号；若不接入晋升、评审、质量门禁，也只是培训材料。关键不在"讲 AI"，而在把能力标准嵌入日常交付流程。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proposal 3 -->
+  <div class="proposal">
+    <div class="proposal-header">
+      <div class="proposal-num n3">3</div>
+      <div class="proposal-title">
+        <h2>IKEA Skill Hub 质量评分层</h2>
+        <span class="intent-tag">IKEA Skill Hub 🛠️ · v5/v6</span>
+        <span class="verify-chip v-partial">⚠️ Partial</span>
+      </div>
+    </div>
+    <div class="proposal-body">
+      <div class="claim">把"Skill 体检"内建为 Skill Hub 的质量评分层，让 51 个 Skills 不只"能上架"，更能被准确发现、放心使用、持续优化。</div>
+      <div class="grid2">
+        <div class="box">
+          <h4>🎯 锁定痛点</h4>
+          <ul>
+            <li>description 过长挤占 prompt budget</li>
+            <li>功能重叠导致 Agent 误触发</li>
+            <li>部分 Skill 长期无人用却占曝光</li>
+            <li>用户"看得到多，看不清好坏"</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>📊 成功标准</h4>
+          <ul>
+            <li>Top 20 Skills description 长度↓30%</li>
+            <li>重复 Skill 识别准确率 ≥80%</li>
+            <li>高质量 Skills 点击转化率↑20%</li>
+            <li>低使用+低评分 Skills 8周内↓25%</li>
+          </ul>
+        </div>
+      </div>
+      <div class="milestones">
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M1</strong>：定义三类指标：描述长度、语义重复度、使用频率</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M2</strong>：在多仓索引流程中生成质量分与风险标签</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M3</strong>：前端展示质量 Banner、排序权重与筛选器</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M4</strong>：接入反馈闭环，支持维护者按指标整改</p></div>
+      </div>
+      <div class="actions">
+        <h4>⚡ 立即行动（本周）</h4>
+        <ol>
+          <li>对 51 个 Skills 跑一次离线审计，产出 baseline（description 长度分布图）</li>
+          <li>在 v5 PR 中预埋质量字段 schema，不阻塞多仓上线</li>
+          <li>选 10 个高曝光 Skill 做 description 压缩与去重试点</li>
+        </ol>
+      </div>
+      <div class="challenge">
+        <h4>🚩 诚实挑战</h4>
+        <p>这不是"再加一个功能"，而是给 Skill Hub 引入治理权。若没有 usage 数据、维护责任人与整改节奏，评分体系会迅速沦为装饰层。频率低 ≠ 价值低，评分需避免黑箱总分。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proposal 4 -->
+  <div class="proposal">
+    <div class="proposal-header">
+      <div class="proposal-num n4">4</div>
+      <div class="proposal-title">
+        <h2>让讲师团领先学员一个身位</h2>
+        <span class="intent-tag">AI Upskill Trainer 🔥 · ACP + 工具演进</span>
+        <span class="verify-chip v-ok">✅ Verified</span>
+      </div>
+    </div>
+    <div class="proposal-body">
+      <div class="claim">把"ACP 协议认知 + 新一代低成本 CLI/Agent 工具雷达"嵌入讲师团机制，不再只教 Prompt，而是教"未来工作界面 + 工具判断力"。</div>
+      <div class="grid2">
+        <div class="box">
+          <h4>🎯 锁定痛点</h4>
+          <p>当前课程若仍停留在通用 Prompt 与单点工具演示，6-8 周内内容将滞后：讲师无法解释 IDE 原生 Agent、ACP 协议互通、自主编码 Agent 的变化 → 学员转向外部博主 → 内部培训公信力下降。</p>
+        </div>
+        <div class="box">
+          <h4>📊 成功标准</h4>
+          <ul>
+            <li>4周内：1套更新课件 + 3个 demo + 8位讲师通过试讲</li>
+            <li>学员能正确说出"何时用 Chat/CLI/Agent"，正确率 >80%</li>
+            <li>至少 2 个团队开始试用新工具</li>
+          </ul>
+        </div>
+      </div>
+      <div class="milestones">
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第1周</strong>：建立"前沿信号池"：ACP、OpenCode、Gemini CLI、Goose/OpenHands 每周快报</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第2周</strong>：新增 L0.5《AI 工具演进地图》与 L2.5《CLI/IDE/Agent 实战分层》</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第3周</strong>：产出 3 个标准 demo：同任务分别用 Chat / CLI / Agent 完成</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>第4周</strong>：讲师团试讲与复盘，沉淀统一话术；对业务学员灰度开班</p></div>
+      </div>
+      <div class="actions">
+        <h4>⚡ 立即行动（本周）</h4>
+        <ol>
+          <li>完成《AI 工具演进地图》一页稿（Chat→CLI→Agent→ACP）</li>
+          <li>选 1 个真实开发任务做 Chat/CLI/Agent 三路对比</li>
+          <li>组织讲师团 30 分钟前沿 briefing，统一口径</li>
+        </ol>
+      </div>
+      <div class="challenge">
+        <h4>🚩 诚实挑战</h4>
+        <p>ACP 仍早期，不能包装成已成熟标准；OpenCode stars 数推文可能夸大，需交叉验证。信息差能带来领先，但缺少企业场景落地与合规约束时，领先只会变成"新工具猎奇"。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proposal 5 -->
+  <div class="proposal">
+    <div class="proposal-header">
+      <div class="proposal-num n5">5</div>
+      <div class="proposal-title">
+        <h2>Trustworthy MPC Agent Guardrail Framework</h2>
+        <span class="intent-tag">Store POS 🔥 · Life OS Trust层 · Responsible AI</span>
+        <span class="verify-chip v-ok">✅ Verified</span>
+      </div>
+    </div>
+    <div class="proposal-body">
+      <div class="claim">以"人控、边界、透明、问责、协作"五原则为骨架，先管住高风险决策，再逐步释放自动化能力。</div>
+      <div class="grid2">
+        <div class="box">
+          <h4>🎯 锁定痛点</h4>
+          <p>POS Agent 出错 ≠ 普通 Agent 出错。MPC 覆盖计价/下单/PosLog/逆向，任一失真直接引发<strong>财务错账、库存失真、退货欺诈、税务合规风险</strong>，且跨系统扩散。交易系统比知识型场景需要更强的 Trustworthy 框架。</p>
+        </div>
+        <div class="box">
+          <h4>📊 成功标准</h4>
+          <ul>
+            <li>计价正确率 ≥99.95%</li>
+            <li>PosLog 对账差异 &lt;0.1%</li>
+            <li>高风险动作 100% 可追溯</li>
+            <li>异常回滚 ≤5 分钟</li>
+            <li>人工介入率首季↓30%</li>
+          </ul>
+        </div>
+      </div>
+      <div class="milestones">
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M1</strong>：梳理 POS Agent 高风险决策清单与人工接管点</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M2</strong>：为计价/下单/退货建立 policy boundary 与 action allowlist</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M3</strong>：上线全链路 trace、decision log、evidence log</p></div>
+        <div class="milestone"><div class="milestone-dot"></div><p><strong>M4</strong>：建立离线 eval + 灰度演练 + 异常回滚机制</p></div>
+      </div>
+      <div class="actions">
+        <h4>⚡ 立即行动（本周）</h4>
+        <ol>
+          <li>召开 POS Agent 风险建模 workshop（邀 MPC 负责人）</li>
+          <li>选"Cart 计价"场景做 Trustworthy MVP（最小化验证）</li>
+          <li>起草《MPC Agent Control Standard》并标注 Responsible AI 白皮书复用章节</li>
+        </ol>
+      </div>
+      <div class="challenge">
+        <h4>🚩 诚实挑战</h4>
+        <p>五原则方向正确，但在中国 IKEA 语境下需补足四项本地化要求：<strong>数据出境、个人信息最小化、审计留痕、人工复核责任归属</strong>。否则框架易停留在原则层，难支撑真实监管与内控。</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
