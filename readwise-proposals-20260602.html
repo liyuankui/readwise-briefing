@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-06-02</title>
+<style>
+  :root {
+    --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0;
+    --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+    --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+    --accent4: #d97706; --accent5: #dc2626;
+  }
+  .dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+    --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+    --accent4: #f59e0b; --accent5: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,serif; line-height: 1.75; font-size: 15px; }
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem; }
+  header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border); }
+  .header-left h1 { font-size: 1.6rem; color: var(--accent); font-weight: 700; }
+  .header-left .sub { color: var(--text3); font-size: 0.85rem; margin-top: 0.3rem; }
+  #theme-toggle { background: var(--surface2); border: 1px solid var(--border); border-radius: 50%; width: 38px; height: 38px; font-size: 1.1rem; cursor: pointer; }
+
+  .axiom-banner { background: linear-gradient(135deg, #1a3a2e, #2d4a8a); color: #e2e8f0; border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 2.5rem; text-align: center; font-size: 0.88rem; letter-spacing: 0.06em; }
+
+  /* Signal-Project table */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 2.5rem; }
+  .matrix-table th { background: var(--surface2); color: var(--text2); padding: 0.5rem 0.9rem; text-align: left; border-bottom: 2px solid var(--border); font-weight: 600; }
+  .matrix-table td { padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--text2); }
+  .matrix-table tr:hover td { background: var(--surface2); }
+
+  /* Proposal card */
+  .proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2.5rem; position: relative; }
+  .proposal-num { position: absolute; top: -1px; left: -1px; background: var(--accent); color: white; font-size: 0.8rem; font-weight: 700; padding: 0.3rem 0.9rem; border-radius: 16px 0 12px 0; }
+  .proposal h2 { font-size: 1.25rem; color: var(--text); margin-bottom: 0.4rem; padding-top: 0.5rem; }
+  .proposal .tagline { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; display: block; }
+  .proposal .linked { color: var(--text3); font-size: 0.82rem; margin-bottom: 1.2rem; }
+  .linked-tag { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 0.15rem 0.6rem; font-size: 0.78rem; margin-right: 0.4rem; color: var(--text2); display: inline-block; margin-bottom: 0.2rem; }
+  
+  .section-h { font-size: 0.82rem; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.1em; margin: 1.2rem 0 0.5rem; }
+  .proposal-content { color: var(--text2); font-size: 0.9rem; }
+  .proposal-content p { margin-bottom: 0.7rem; }
+  
+  /* Milestone timeline */
+  .milestones { list-style: none; position: relative; padding-left: 1.5rem; }
+  .milestones::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .milestones li { position: relative; margin-bottom: 0.8rem; }
+  .milestones li::before { content: ''; position: absolute; left: -1.5rem; top: 0.5rem; width: 10px; height: 10px; background: var(--accent3); border-radius: 50%; border: 2px solid var(--surface); }
+  .milestone-time { font-size: 0.75rem; color: var(--accent3); font-weight: 700; }
+  .milestone-title { font-size: 0.88rem; color: var(--text); font-weight: 600; }
+  .milestone-desc { font-size: 0.82rem; color: var(--text3); }
+
+  /* Metrics grid */
+  .metrics { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 0.5rem; }
+  .metric-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1rem; }
+  .metric-label { font-size: 0.72rem; color: var(--text3); margin-bottom: 0.2rem; }
+  .metric-value { font-size: 0.9rem; color: var(--accent); font-weight: 700; }
+
+  /* Action steps */
+  .actions { list-style: none; }
+  .actions li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--text2); display: flex; gap: 0.7rem; }
+  .actions li:last-child { border-bottom: none; }
+  .action-n { background: var(--accent); color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; margin-top: 0.2rem; }
+
+  /* Risk & challenge */
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .risk-item { background: var(--surface2); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text2); border-left: 3px solid var(--accent5); }
+  .challenge-item { background: var(--surface2); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text2); border-left: 3px solid var(--accent4); }
+
+  .section-divider { height: 1px; background: var(--border); margin: 1.2rem 0; }
+
+  @media (max-width: 600px) {
+    .risk-grid { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="axiom-banner">不可行动的信息 = 噪音 &nbsp;·&nbsp; 信号 → 验证 → 洞察 → 行动 &nbsp;·&nbsp; 2026-06-02 Readwise Proposals</div>
+
+  <header>
+    <div class="header-left">
+      <h1>🚀 深挖 Proposals × 5</h1>
+      <div class="sub">5 subagents 并行推理 · 每个 Proposal 可独立执行</div>
+    </div>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <!-- 信号 × 项目对应表 -->
+  <table class="matrix-table">
+    <thead><tr><th>#</th><th>信号</th><th>连接项目</th><th>核心主张一句话</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>"MCP is dead" + MCPHub 宕机实证</td><td>Life OS · Agentic Eng</td><td>将 MCPHub 从"主干"降级为"兼容层"</td></tr>
+      <tr><td><strong>2</strong></td><td>12-Factor Agents ⭐22,916</td><td>Engineering Baseline · Life OS</td><td>建立"可控型 Agent Baseline"试点</td></tr>
+      <tr><td><strong>3</strong></td><td>yao-geo-skills ⭐383 活跃</td><td>GEO for IKEA（截止已过）</td><td>10天补齐基线审计，Recovery Sprint</td></tr>
+      <tr><td><strong>4</strong></td><td>Palantir Ontology（9hills 同行）</td><td>宝尊运营 Ontology 调研</td><td>先做边界再做 Agent，Object-Action-Boundary</td></tr>
+      <tr><td><strong>5</strong></td><td>OpenClaw k8s→Cloudflare 实战迁移</td><td>OpenMAIC Cloudflare 部署</td><td>7-10天 PoC 验证 Free Tier 可行性</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===================== Proposal 1 ===================== -->
+  <div class="proposal">
+    <div class="proposal-num"># 1</div>
+    <h2>MCPHub 架构重构：从主干到兼容层</h2>
+    <span class="tagline">Life OS 不应以 MCPHub 作主执行总线——应在 8-10 周内转向 CLI/API-first + MCP 仅作兼容层</span>
+    <div class="linked">
+      <span class="linked-tag">Life OS</span>
+      <span class="linked-tag">Agentic Engineering</span>
+      <span class="linked-tag">AI Starter Kit</span>
+    </div>
+
+    <div class="section-h">锁定痛点</div>
+    <div class="proposal-content">
+      MCPHub 单点失效会拖垮整个 agent workflow（本次简报生成时 MCPHub 已宕机，直接 API 反而更快）。工具 schema 占用 context、调试困难、缺乏 fallback——与 Life OS"自主运行"目标直接冲突。
+    </div>
+
+    <div class="section-h">里程碑</div>
+    <ul class="milestones">
+      <li><div class="milestone-time">M1 · 1周</div><div class="milestone-title">运行时盘点与分层</div><div class="milestone-desc">工具清单按"CLI优先/API直连/MCP保留/下线"四类归档</div></li>
+      <li><div class="milestone-time">M2 · 2周</div><div class="milestone-title">建立双通道执行框架</div><div class="milestone-desc">统一 Tool Router：优先 CLI/API，失败自动 fallback；记录耗时、成功率</div></li>
+      <li><div class="milestone-time">M3 · 3周</div><div class="milestone-title">迁移高频关键链路</div><div class="milestone-desc">先迁 Readwise、GitHub、Calendar/Tasks，MCP 作 backup</div></li>
+      <li><div class="milestone-time">M4 · 2-3周</div><div class="milestone-title">Trust & Eval 接入</div><div class="milestone-desc">健康检查、执行回执、fallback 触发日志、SLO dashboard</div></li>
+    </ul>
+
+    <div class="section-h">成功指标</div>
+    <div class="metrics">
+      <div class="metric-card"><div class="metric-label">关键链路成功率</div><div class="metric-value">≥ 99%</div></div>
+      <div class="metric-card"><div class="metric-label">调用延迟 P50</div><div class="metric-value">↓ 30%+</div></div>
+      <div class="metric-card"><div class="metric-label">MCP宕时自动降级</div><div class="metric-value">≥ 70%</div></div>
+      <div class="metric-card"><div class="metric-label">故障MTTR</div><div class="metric-value">↓ 50%</div></div>
+    </div>
+
+    <div class="section-h">立即行动（本周）</div>
+    <ul class="actions">
+      <li><div class="action-n">1</div><div>列出前 30 个 MCPHub 依赖工具，标记调用频次/失败影响/是否有 CLI 替代</div></li>
+      <li><div class="action-n">2</div><div>对 Readwise/GitHub/Calendar 做替换 PoC：primary path + fallback + latency logging</div></li>
+      <li><div class="action-n">3</div><div>定义 MCP 保留准则，冻结新能力默认走 MCP（只有无 CLI 替代才允许）</div></li>
+    </ul>
+
+    <div class="section-divider"></div>
+    <div class="section-h">诚实挑战</div>
+    <div class="risk-grid">
+      <div class="challenge-item">CLI-first 若无统一 Skill 封装，会变成不可维护脚本碎片</div>
+      <div class="challenge-item">MCP 的权限护栏和团队认证价值不应被忽视</div>
+      <div class="challenge-item">若 Trust & Eval 基础未打稳，过早大迁移是优化次要矛盾</div>
+      <div class="challenge-item">结论：降级为"兼容层"，而非"消灭 MCP"</div>
+    </div>
+  </div>
+
+  <!-- ===================== Proposal 2 ===================== -->
+  <div class="proposal">
+    <div class="proposal-num"># 2</div>
+    <h2>12-Factor Agents → IKEA 可控型 Agent Baseline 试点</h2>
+    <span class="tagline">先不做"万能 Agent"——在订单履约异常处理与规则测试生成两条链路上建立生产级样板</span>
+    <div class="linked">
+      <span class="linked-tag">Engineering Baseline</span>
+      <span class="linked-tag">Testing Excellence</span>
+      <span class="linked-tag">AI Adoption</span>
+    </div>
+
+    <div class="section-h">锁定痛点</div>
+    <div class="proposal-content">
+      A) 订单/履约异常排查依赖 senior 个人经验，路径隐性，结论不可复盘，同类 incident 重复劳动；B) 规则频变但测试补位慢，AI 生成代码无结构化验收标准；C) AI adoption 卡在"高意愿低方法论"，工程模式不统一。
+    </div>
+
+    <div class="section-h">里程碑（8-10周）</div>
+    <ul class="milestones">
+      <li><div class="milestone-time">M1 · 2周</div><div class="milestone-title">选场景与定边界</div><div class="milestone-desc">2个试点：履约异常 triage + 规则→测试生成；定义输入/输出契约与人工介入点</div></li>
+      <li><div class="milestone-time">M2 · 2周</div><div class="milestone-title">建 Agent Baseline</div><div class="milestone-desc">agent skeleton、structured schema、state machine、日志规范（CLI/API-first，不绑框架）</div></li>
+      <li><div class="milestone-time">M3 · 2周</div><div class="milestone-title">打通一条生产链路</div><div class="milestone-desc">可运行 PoC + review checklist，"查因→建议→人工确认→输出"全流程</div></li>
+      <li><div class="milestone-time">M4 · 2周</div><div class="milestone-title">接入可观测与验收</div><div class="milestone-desc">trace、成功率、人工接管率、错误分类报表</div></li>
+      <li><div class="milestone-time">M5 · 2周</div><div class="milestone-title">固化为团队标准</div><div class="milestone-desc">engineering guideline + 模板库 + 晋升/价值展示材料</div></li>
+    </ul>
+
+    <div class="section-h">成功指标</div>
+    <div class="metrics">
+      <div class="metric-card"><div class="metric-label">首次定位时间</div><div class="metric-value">↓ 30%+</div></div>
+      <div class="metric-card"><div class="metric-label">AI测试建议采纳率</div><div class="metric-value">≥ 60%</div></div>
+      <div class="metric-card"><div class="metric-label">测试覆盖提升</div><div class="metric-value">+10-15pct</div></div>
+      <div class="metric-card"><div class="metric-label">边界漏测率</div><div class="metric-value">↓ 30%</div></div>
+    </div>
+
+    <div class="section-h">立即行动（本周）</div>
+    <ul class="actions">
+      <li><div class="action-n">1</div><div>锁定两个试点场景：订单履约异常 triage + 规则变更→测试用例生成（各拉出10个真实 case）</div></li>
+      <li><div class="action-n">2</div><div>先写结构化契约（不是先写 prompt）：输入字段、输出 schema、状态流转、人工接管点</div></li>
+      <li><div class="action-n">3</div><div>做一周 spike：验证能否稳定输出结构化结论 + 保留完整 trace</div></li>
+    </ul>
+
+    <div class="section-divider"></div>
+    <div class="section-h">诚实挑战</div>
+    <div class="risk-grid">
+      <div class="challenge-item">若基础流程本身不稳定，Agent 只会把混乱自动化</div>
+      <div class="challenge-item">没有真实生产数据与 case 回放，价值难验证</div>
+      <div class="challenge-item">此提案比"全链路自治"更保守——但这是真正可落地的起点</div>
+      <div class="challenge-item">Human-in-the-loop 是安全阀，不是妥协</div>
+    </div>
+  </div>
+
+  <!-- ===================== Proposal 3 ===================== -->
+  <div class="proposal">
+    <div class="proposal-num"># 3</div>
+    <h2>GEO for IKEA China：Recovery Sprint（10工作日补齐基线）</h2>
+    <span class="tagline">用 yao-geo-skills 在 10 天内交付基线审计 + 追踪框架 v1，不再拖延</span>
+    <div class="linked">
+      <span class="linked-tag">GEO for IKEA（截止已过）</span>
+      <span class="linked-tag">宝尊/内容团队</span>
+    </div>
+
+    <div class="section-h">锁定痛点</div>
+    <div class="proposal-content">
+      5/31 截止已过但基线为零——豆包/元宝/Kimi/千问/DeepSeek 上，IKEA 在泛品类推荐问题里是否出现、排第几、说得准不准，目前没有任何证据。继续"研究"只会继续拖。
+    </div>
+
+    <div class="section-h">5×5 盲测方案</div>
+    <div class="proposal-content">
+      <strong>品类：</strong>收纳(KALLAX/BILLY) · 沙发(KIVIK/VIMLE) · 衣柜(PAX) · 卧室床架/床垫 · 儿童房<br>
+      <strong>平台：</strong>豆包 · 元宝 · Kimi · 千问 · DeepSeek<br>
+      <strong>评分维度：</strong>品牌出现率 · 候选率 · Top3推荐位 · 事实准确率 · 引用质量 · 竞品压制度
+    </div>
+
+    <div class="section-h">里程碑</div>
+    <ul class="milestones">
+      <li><div class="milestone-time">6/2–6/3 · 2天</div><div class="milestone-title">M1 冻结样本设计</div><div class="milestone-desc">15条主问题 + 评分规则 + 截图规范（用 yao-geo-intent-miner）</div></li>
+      <li><div class="milestone-time">6/4–6/6 · 3天</div><div class="milestone-title">M2 完成盲测采样</div><div class="milestone-desc">75组答案样本（15问×5平台），异常项再补追问</div></li>
+      <li><div class="milestone-time">6/9–6/11 · 3天</div><div class="milestone-title">M3 产出基线+追踪框架</div><div class="milestone-desc">baseline audit v1 + IKEA GEO tracking framework v1</div></li>
+      <li><div class="milestone-time">6/12–6/20 · 7天</div><div class="milestone-title">M4 收纳品类内容改造试点</div><div class="milestone-desc">事实卡、FAQ、页面蓝图、外部信源清单（yao-geo-brand-graph）</div></li>
+      <li><div class="milestone-time">6/23–6/27 · 5天</div><div class="milestone-title">M5 复测与汇报</div><div class="milestone-desc">试点前后对比 + Q3 扩面建议 + 宝尊/酒令输入清单</div></li>
+    </ul>
+
+    <div class="section-h">成功指标</div>
+    <div class="metrics">
+      <div class="metric-card"><div class="metric-label">基线完成度</div><div class="metric-value">75组100%</div></div>
+      <div class="metric-card"><div class="metric-label">收纳Top3候选率</div><div class="metric-value">↑ 20pp</div></div>
+      <div class="metric-card"><div class="metric-label">结构化事实卡</div><div class="metric-value">≥ 20张</div></div>
+      <div class="metric-card"><div class="metric-label">引用质量</div><div class="metric-value">↑ 15pp</div></div>
+    </div>
+
+    <div class="section-h">立即行动（今天/本周）</div>
+    <ul class="actions">
+      <li><div class="action-n">1</div><div>今天：用 yao-geo-intent-miner 填写 IKEA 输入简报（5品类+竞品），输出15条主问题</div></li>
+      <li><div class="action-n">2</div><div>本周三前：完成收纳+沙发两品类 30 组先行盲测（5平台×2品类×3问，截图留档）</div></li>
+      <li><div class="action-n">3</div><div>本周五前：交 baseline audit v1 + tracking framework v1，并在宝尊访谈中加入3个GEO问题</div></li>
+    </ul>
+
+    <div class="section-divider"></div>
+    <div class="section-h">诚实挑战</div>
+    <div class="risk-grid">
+      <div class="challenge-item">引用率提升未必短期转化为流量/销售 — 这是品牌可见性防守项目，非 sales 项目</div>
+      <div class="challenge-item">平台答案波动大，单次结论不稳 — 每题至少同日复采2次</div>
+      <div class="challenge-item">只改官网不够 — 国内 AI 也看公众号/百科/媒体</div>
+      <div class="challenge-item">若内容本身不结构化，GEO 改造效果有上限</div>
+    </div>
+  </div>
+
+  <!-- ===================== Proposal 4 ===================== -->
+  <div class="proposal">
+    <div class="proposal-num"># 4</div>
+    <h2>宝尊运营 Ontology：先定边界，再谈 AI 替代</h2>
+    <span class="tagline">先把宝尊运营定义成 Object–Action–Boundary 本体，AI 才能在高频低责场景替代，在高责场景只给建议</span>
+    <div class="linked">
+      <span class="linked-tag">宝尊运营 Ontology 调研</span>
+      <span class="linked-tag">AI Adoption</span>
+      <span class="linked-tag">CCM &amp; Personalization</span>
+    </div>
+
+    <div class="section-h">宝尊域 Object–Action 核心映射</div>
+    <div class="proposal-content">
+      <strong>10 个核心 Objects：</strong>Order · Shipment/DA · ReturnRefundCase · CustomerConversation · Product/SKU · Listing · Campaign · InventoryPosition · PlatformTicket · SettlementBill<br><br>
+      <strong>Action 分层（AI 边界即权限边界）：</strong><br>
+      🤖 AI可自动：READ · SUGGEST · PREPARE（不提交）<br>
+      🔐 AI发起+人工门：SUBMIT<br>
+      👤 默认人工：EDIT · DELETE/REVOKE<br>
+      <strong>原则：金额、承诺、责任、跨系统写操作 = 默认 human gate</strong>
+    </div>
+
+    <div class="section-h">里程碑（8-10周）</div>
+    <ul class="milestones">
+      <li><div class="milestone-time">M1 · 1周</div><div class="milestone-title">本体范围冻结</div><div class="milestone-desc">10-12个核心 Objects、命名表、边界定义</div></li>
+      <li><div class="milestone-time">M2 · 2周</div><div class="milestone-title">Action 权限矩阵</div><div class="milestone-desc">每个 Object 的动作、审批人、系统归属、风险级别</div></li>
+      <li><div class="milestone-time">M3 · 2周</div><div class="milestone-title">活动映射到本体</div><div class="milestone-desc">宝尊44个活动→Object→Action→Function→风险 全量映射</div></li>
+      <li><div class="milestone-time">M4 · 2周</div><div class="milestone-title">试点 Agent 设计</div><div class="milestone-desc">2个试点：客服查询/商品上架草稿，定义输入输出与 human gate</div></li>
+      <li><div class="milestone-time">M5 · 1-3周</div><div class="milestone-title">验证与立项</div><div class="milestone-desc">ROI粗算、路线图、是否进入 execution 决策</div></li>
+    </ul>
+
+    <div class="section-h">成功指标</div>
+    <div class="metrics">
+      <div class="metric-card"><div class="metric-label">活动映射覆盖率</div><div class="metric-value">≥ 90%</div></div>
+      <div class="metric-card"><div class="metric-label">试点处理效率</div><div class="metric-value">↓ 30%+</div></div>
+      <div class="metric-card"><div class="metric-label">AI自动处理率</div><div class="metric-value">≥ 50%</div></div>
+      <div class="metric-card"><div class="metric-label">越权事故</div><div class="metric-value">0</div></div>
+    </div>
+
+    <div class="section-h">立即行动（本周）</div>
+    <ul class="actions">
+      <li><div class="action-n">1</div><div>开2场本体验证访谈：Jennifer（客服）+ KK/Kay（商品），不谈 AI，先谈"什么是宝尊里的实体和操作"</div></li>
+      <li><div class="action-n">2</div><div>产出 Action 权限矩阵：至少覆盖 Order/ReturnRefundCase/Listing/Inventory/ServiceCase</div></li>
+      <li><div class="action-n">3</div><div>选2个试点：客服订单查询+回复草稿 / 商品上架草稿+规则预检</div></li>
+    </ul>
+
+    <div class="section-divider"></div>
+    <div class="section-h">诚实挑战</div>
+    <div class="risk-grid">
+      <div class="challenge-item">最大漏洞：知识可见 ≠ 可替代。宝尊真正壁垒可能是平台关系和异常协商，不是 SOP</div>
+      <div class="challenge-item">仅靠会议纪要不足：必须补系统日志或历史案例观察</div>
+      <div class="challenge-item">OMS价值大但最难，先从客服/商品运营入手，OMS后置</div>
+      <div class="challenge-item">本体若做成大而全学术图谱会拖慢试点——只建试点所需本体</div>
+    </div>
+  </div>
+
+  <!-- ===================== Proposal 5 ===================== -->
+  <div class="proposal">
+    <div class="proposal-num"># 5</div>
+    <h2>OpenMAIC Cloudflare Free Tier PoC：7-10天验证可行性</h2>
+    <span class="tagline">将 OpenMAIC 重构为 Workers + Durable Objects 状态机，在 Free Tier 完成可演示 K12 AI 课堂原型</span>
+    <div class="linked">
+      <span class="linked-tag">OpenMAIC Cloudflare 部署</span>
+      <span class="linked-tag">K12 Education</span>
+      <span class="linked-tag">Life OS</span>
+    </div>
+
+    <div class="section-h">关键技术决策</div>
+    <div class="proposal-content">
+      <strong>Durable Objects = 一个教室一个有状态 actor</strong>：串行处理保证课堂内一致性，WebSocket Hibernation 保连接而休眠，成本极低。<br>
+      <strong>生产验证信号</strong>：OpenClaw（500 pods k8s $5k/月）已成功迁至 Cloudflare——相同"多 Agent + 有状态协调"架构，不是理论。<br>
+      <strong>Free Tier 硬限制</strong>：Workers 100k req/day · 10ms CPU · 3MiB bundle；DO 5GB storage；D1 5M rows read/day；R2 10GB-month
+    </div>
+
+    <div class="section-h">里程碑（7-10工作日）</div>
+    <ul class="milestones">
+      <li><div class="milestone-time">M1 · 1-2天</div><div class="milestone-title">OpenNext 兼容性 Spike</div><div class="milestone-desc">跑通 @opennextjs/cloudflare 构建，识别 blocker（bundle超限/Node middleware/不兼容依赖）</div></li>
+      <li><div class="milestone-time">M2 · 2-3天</div><div class="milestone-title">ClassroomDO + adapter 骨架</div><div class="milestone-desc">classroomId→DO映射；接管 join/sendMessage/agentReply/getSnapshot 4个事件</div></li>
+      <li><div class="milestone-time">M3 · 1-2天</div><div class="milestone-title">存储切分落地</div><div class="milestone-desc">DO存活态/临时态 · D1元数据与索引 · R2大对象（课件/上传）</div></li>
+      <li><div class="milestone-time">M4 · 2天</div><div class="milestone-title">部署 + V&V</div><div class="milestone-desc">wrangler部署到dev；功能验证、配额验证、失败回退验证</div></li>
+      <li><div class="milestone-time">M5 · 0.5天</div><div class="milestone-title">Go/No-Go 评审</div><div class="milestone-desc">是否能继续坚持 Free Tier / 何时需要升级 Paid</div></li>
+    </ul>
+
+    <div class="section-h">成功指标</div>
+    <div class="metrics">
+      <div class="metric-card"><div class="metric-label">Worker bundle size</div><div class="metric-value">&lt; 3MiB ✓</div></div>
+      <div class="metric-card"><div class="metric-label">45分钟演示无故障</div><div class="metric-value">100%</div></div>
+      <div class="metric-card"><div class="metric-label">课堂状态恢复</div><div class="metric-value">断线可恢复</div></div>
+      <div class="metric-card"><div class="metric-label">演示规模</div><div class="metric-value">1师+30生</div></div>
+    </div>
+
+    <div class="section-h">立即行动（本周，极度具体）</div>
+    <ul class="actions">
+      <li><div class="action-n">1</div><div>在 cloudflare-deployment 分支安装 @opennextjs/cloudflare + wrangler，运行构建，记录4类 blocker（包/runtime冲突/size/API）</div></li>
+      <li><div class="action-n">2</div><div>新建最小 ClassroomDO：实现 join/sendMessage/agentReply/getSnapshot，内存状态机 + DO SQLite 持久化</div></li>
+      <li><div class="action-n">3</div><div>做 Free Tier 配额验算：1教室30学生45分钟→估算 Workers/DO/D1/R2 用量，输出 A/B/C 结论（Free可跑/仅单课堂/必须Paid）</div></li>
+    </ul>
+
+    <div class="section-divider"></div>
+    <div class="section-h">诚实挑战</div>
+    <div class="risk-grid">
+      <div class="challenge-item">此 PoC 证明"可演示"，不证明"免费生产可持续"</div>
+      <div class="challenge-item">真正硬点在 OpenMAIC 代码是否"可 actor 化"，而非 Cloudflare 本身</div>
+      <div class="challenge-item">Workers Free 10ms CPU 很可能逼你改代码结构（重逻辑下沉 DO）</div>
+      <div class="challenge-item">"纯免费"只是托管层：LLM token、开发改造、人力验证仍是真成本</div>
+    </div>
+  </div>
+
+  <div style="text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+    生成于 2026-06-02 · 5 subagents 并行推理 · Phase 1 简报 → /tmp/readwise-briefing-20260602.html
+  </div>
+</div>
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  });
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    btn.textContent = '☀️';
+  }
+</script>
+</body>
+</html>

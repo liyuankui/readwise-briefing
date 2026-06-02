@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-06-02</title>
+<style>
+  :root {
+    --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0;
+    --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+    --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+    --accent4: #d97706; --accent5: #dc2626;
+  }
+  .dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736;
+    --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+    --accent4: #f59e0b; --accent5: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; line-height: 1.75; font-size: 15px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+  header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border); }
+  .header-left h1 { font-size: 1.6rem; color: var(--accent); font-weight: 700; }
+  .header-left .subtitle { color: var(--text3); font-size: 0.9rem; margin-top: 0.25rem; }
+  .stats-row { display: flex; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
+  .stat-chip { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 0.2rem 0.75rem; font-size: 0.82rem; color: var(--text2); }
+  #theme-toggle { background: var(--surface2); border: 1px solid var(--border); border-radius: 50%; width: 38px; height: 38px; font-size: 1.1rem; cursor: pointer; transition: all 0.2s; }
+  #theme-toggle:hover { border-color: var(--accent); }
+  
+  .section { margin-bottom: 2.5rem; }
+  .section-title { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+  
+  /* Signal cards */
+  .signal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; transition: border-color 0.2s; }
+  .signal-card:hover { border-color: var(--accent); }
+  .signal-card.high { border-left: 4px solid var(--accent3); }
+  .signal-card.medium { border-left: 4px solid var(--accent4); }
+  .signal-card.low { border-left: 2px dashed var(--border); }
+  
+  .signal-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.6rem; }
+  .signal-title { font-weight: 600; font-size: 0.97rem; color: var(--text); }
+  .signal-title a { color: var(--text); text-decoration: none; }
+  .signal-title a:hover { color: var(--accent2); }
+  .signal-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+  .badge { font-size: 0.72rem; padding: 0.15rem 0.55rem; border-radius: 12px; font-weight: 600; white-space: nowrap; }
+  .badge-stars { background: #fef3c7; color: #92400e; }
+  .dark .badge-stars { background: #451a03; color: #fcd34d; }
+  .badge-verified { background: #d1fae5; color: #065f46; }
+  .dark .badge-verified { background: #064e3b; color: #6ee7b7; }
+  .badge-partial { background: #fef3c7; color: #92400e; }
+  .dark .badge-partial { background: #451a03; color: #fcd34d; }
+  .badge-category { background: var(--surface2); color: var(--text3); border: 1px solid var(--border); }
+  
+  .signal-content { color: var(--text2); font-size: 0.88rem; margin-bottom: 0.7rem; }
+  .signal-why { background: var(--surface2); border-radius: 8px; padding: 0.6rem 0.9rem; font-size: 0.83rem; color: var(--accent); border-left: 3px solid var(--accent); }
+  .signal-why strong { color: var(--accent); }
+  
+  /* Overview table */
+  .overview-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .overview-table th { background: var(--surface2); color: var(--text2); padding: 0.6rem 1rem; text-align: left; border-bottom: 2px solid var(--border); font-weight: 600; }
+  .overview-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+  .overview-table tr:hover td { background: var(--surface2); }
+  .dir-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; font-size: 0.75rem; font-weight: 700; margin-right: 0.4rem; }
+  
+  /* Action list */
+  .action-list { list-style: none; }
+  .action-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: var(--text2); }
+  .action-list li:last-child { border-bottom: none; }
+  .action-icon { flex-shrink: 0; font-size: 1rem; margin-top: 0.05rem; }
+  
+  /* Accordion for low value */
+  details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  summary { padding: 0.9rem 1.2rem; cursor: pointer; font-weight: 600; color: var(--text3); font-size: 0.9rem; }
+  summary:hover { color: var(--text2); }
+  .accordion-content { padding: 1rem 1.2rem; }
+  .mini-item { padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; color: var(--text3); }
+  .mini-item:last-child { border-bottom: none; }
+  .mini-item a { color: var(--text3); text-decoration: none; }
+  .mini-item a:hover { color: var(--accent2); }
+  
+  .axiom-banner { background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%); color: white; border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 2rem; font-size: 0.9rem; text-align: center; letter-spacing: 0.05em; }
+  
+  .verification-tag { display: inline-block; margin-left: 0.5rem; font-size: 0.75rem; }
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="axiom-banner">不可行动的信息 = 噪音 · 信号 → 验证 → 洞察 → 行动</div>
+  
+  <header>
+    <div class="header-left">
+      <h1>📡 Readwise 情报简报</h1>
+      <div class="subtitle">2026-06-02 · 上次同步 2026-06-01</div>
+      <div class="stats-row">
+        <span class="stat-chip">🔦 10 新 Highlights</span>
+        <span class="stat-chip">📄 9 文章</span>
+        <span class="stat-chip">🐦 97 推文</span>
+        <span class="stat-chip">📰 9 RSS</span>
+        <span class="stat-chip">⭐×5 6 高价值</span>
+      </div>
+    </div>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <!-- 5大方向预览表 -->
+  <div class="section">
+    <div class="section-title">🗺️ 5 大深挖方向（→ Proposals）</div>
+    <table class="overview-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>方向</th>
+          <th>连接项目</th>
+          <th>验证</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="dir-num">1</span></td>
+          <td><strong>MCP vs CLI 架构抉择</strong> — MCPHub 是否应该继续作为基础设施？</td>
+          <td>Life OS · Agentic Engineering</td>
+          <td><span class="badge badge-partial">⚠️ 待验证</span></td>
+        </tr>
+        <tr>
+          <td><span class="dir-num">2</span></td>
+          <td><strong>12-Factor Agents → IKEA AI 系统设计</strong> — 22K⭐工程原则落地</td>
+          <td>Engineering Baseline · Life OS</td>
+          <td><span class="badge badge-verified">✅ Verified</span></td>
+        </tr>
+        <tr>
+          <td><span class="dir-num">3</span></td>
+          <td><strong>yao-geo-skills 实操路径</strong> — GEO开源工具直接上手</td>
+          <td>GEO for IKEA（截止已过）</td>
+          <td><span class="badge badge-verified">✅ 383⭐ 活跃</span></td>
+        </tr>
+        <tr>
+          <td><span class="dir-num">4</span></td>
+          <td><strong>Palantir Ontology → 宝尊知识图谱</strong> — ToB 同行的踩坑路径</td>
+          <td>宝尊运营 Ontology 调研</td>
+          <td><span class="badge badge-partial">⚠️ 推文线索</span></td>
+        </tr>
+        <tr>
+          <td><span class="dir-num">5</span></td>
+          <td><strong>Cloudflare 免费迁移实战数据</strong> — k8s $5k/月 → Cloudflare $0</td>
+          <td>OpenMAIC Cloudflare 部署</td>
+          <td><span class="badge badge-verified">✅ 生产数据</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 高价值信号 ⭐×5 -->
+  <div class="section">
+    <div class="section-title">⭐⭐⭐⭐⭐ 立即行动信号</div>
+
+    <div class="signal-card high">
+      <div class="signal-header">
+        <div class="signal-title">
+          <a href="https://www.quandri.io/engineering-blog/mcp-is-dead" target="_blank">MCP is Dead — CLI工具胜过MCP的核心论点</a>
+        </div>
+        <div class="signal-meta">
+          <span class="badge badge-partial">⚠️ Partial</span>
+          <span class="badge badge-category">文章</span>
+        </div>
+      </div>
+      <div class="signal-content">Quandri工程团队：MCP消耗过多Context、速度慢、且与现有CLI工具重叠。用CLI命令 + Skills 方案节省Context、更可靠、更易调试。MCP仅在无CLI替代时有价值。</div>
+      <div class="signal-why">⚠️ <strong>为何相关</strong>：Kyle 整个工作流依赖 MCPHub（localhost:3088），本次简报运行中 MCPHub 已宕机，被迫改用直接 API。这不是巧合——正是"MCP is dead"论点的活体验证。需要认真评估：现有的 MCPHub 依赖是否应逐步 CLI 化？</div>
+    </div>
+
+    <div class="signal-card high">
+      <div class="signal-header">
+        <div class="signal-title">
+          <a href="https://zhuanlan.zhihu.com/p/2044978096890238825" target="_blank">12-Factor Agents — 构建生产级 LLM 应用的工程化方法论</a>
+        </div>
+        <div class="signal-meta">
+          <span class="badge badge-verified">✅ 22,916⭐</span>
+          <span class="badge badge-category">文章</span>
+        </div>
+      </div>
+      <div class="signal-content">Dex Horthy 提出的12条原则：用确定性代码控制流程，在关键节点插入 LLM 结构化工具调用，避免完全依赖框架。强调 Agent 可观察、稳健、支持人工干预且无框架锁定。GitHub: humanlayer/12-factor-agents ⭐22,916 forks:1,748。</div>
+      <div class="signal-why">✅ <strong>为何相关</strong>：Kyle 的 Life OS + Agentic Engineering 正需要一套生产级的 Agent 设计原则。22K Stars 是最强的社区验证信号。可直接作为 Engineering Baseline 中"AI Agent 设计规范"的骨架。</div>
+    </div>
+
+    <div class="signal-card high">
+      <div class="signal-header">
+        <div class="signal-title">
+          <a href="https://twitter.com/vista8/status/2058011543812685967" target="_blank">GEO开源系统 yao-geo-skills — 同行惊叹"这么牛还免费开源"</a>
+        </div>
+        <div class="signal-meta">
+          <span class="badge badge-verified">✅ 383⭐ 活跃</span>
+          <span class="badge badge-category">推文</span>
+        </div>
+      </div>
+      <div class="signal-content">vista8推文：见GEO同行，对方惊叹yao-geo-skills系统这么好还免费开源。yao-geo-skills: ⭐383 forks:70，最近更新2026-05-22，描述"面向 GEO 内容与工作流的 Skill 开源合集，持续更新中"。</div>
+      <div class="signal-why">✅ <strong>为何相关</strong>：Kyle 的 GEO for IKEA 项目截止5/31已过，但追踪框架尚未建立。yao-geo-skills 是现成的开源工具，active.md 中也提到"参考方法论: 姚金刚 yao-geo-skills"——直接上手验证即可，无需从零搭建。</div>
+    </div>
+
+    <div class="signal-card high">
+      <div class="signal-header">
+        <div class="signal-title">
+          <a href="https://twitter.com/9hills/status/2057844884443455799" target="_blank">Palantir 本体论（Ontology）研究 — ToB 同行踩坑实录</a>
+        </div>
+        <div class="signal-meta">
+          <span class="badge badge-partial">⚠️ 推文线索</span>
+          <span class="badge badge-category">推文</span>
+        </div>
+      </div>
+      <div class="signal-content">9hills（苦逼ToB人）正在研究 Palantir 的本体论（Ontology），这是企业级 Ontology 设计的最成熟参考系统，用于企业数据实体建模与操作边界定义。</div>
+      <div class="signal-why">⚠️ <strong>为何相关</strong>：Kyle 正在做宝尊运营 Ontology 调研（宝尊有哪些实体 · 哪些操作合法），Palantir Ontology 是这类问题的行业标杆答案。9hills 在同一问题上先行——值得查看他后续的研究输出。</div>
+    </div>
+
+    <div class="signal-card high">
+      <div class="signal-header">
+        <div class="signal-title">
+          <a href="https://twitter.com/idoubicc/status/2061405448356741364" target="_blank">OpenClaw：从 k8s 500 Pods + $5k/月 → Cloudflare 迁移成功</a>
+        </div>
+        <div class="signal-meta">
+          <span class="badge badge-verified">✅ 生产验证</span>
+          <span class="badge badge-category">推文</span>
+        </div>
+      </div>
+      <div class="signal-content">idoubicc：年初开始做 OpenClaw 托管服务，k8s集群500 Pods，4g内存限制，18台4c16g节点池，月成本近$5k。MRR突破$8k，利润极低。今天终于迁移到Cloudflare。</div>
+      <div class="signal-why">✅ <strong>为何相关</strong>：这是 OpenMAIC Cloudflare 纯免费部署方案的最强实证数据。同样是多 Agent 服务（OpenClaw = OpenMAIC）从 k8s 迁移到 Cloudflare，且是生产环境验证。可以直接联系 idoubicc 询问技术细节。</div>
+    </div>
+
+    <div class="signal-card high">
+      <div class="signal-header">
+        <div class="signal-title">
+          <a href="https://docs.google.com/document/d/1Vi2thlhowMYVN4HG6KOHVQDIzrDtnIE0/mobilebasic" target="_blank">Vibe Coding / Agentic Flow 面试题集 — AI 时代工程师能力评估框架</a>
+        </div>
+        <div class="signal-meta">
+          <span class="badge badge-verified">✅ 直接可用</span>
+          <span class="badge badge-category">文档</span>
+        </div>
+      </div>
+      <div class="signal-content">Claude Code 的 Skills/Sub-agents 使用、多 Agent 协作、上下文管理等的面试题集。涵盖：skills vs agents 区别、sub-agent 通信机制、Agentic Flow 设计模式。</div>
+      <div class="signal-why">✅ <strong>为何相关</strong>：Kyle 的 AI Upskill Trainer 课程缺少"Agentic Engineering 能力评估"维度，这份面试题集可以直接作为 L3-L4 课程的评估题库，同时也是 Kyle 自身技能对标的检查清单。</div>
+    </div>
+  </div>
+
+  <!-- 中等价值 ⭐×3 -->
+  <div class="section">
+    <div class="section-title">⭐⭐⭐ 备用收藏</div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/yaohui12138/status/2061458549419671845" target="_blank">AI Agent 外包坑：企业微信对机器人发消息的严格限制</a></div>
+        <div class="signal-meta"><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">浪费10天：企业微信对机器人给外部客户群聊发消息有严格限制，Agent 无法绕过。教训：企业系统集成 ≠ API 就能搞定，平台政策是硬墙。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：AI Adoption Strategy — 企业 AI Agent 项目的边界识别，避免盲目答应客户需求。</div>
+    </div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/dotey/status/2055307775417139447" target="_blank">Forward Deployed Engineer (FDE)：AI 时代最值钱的混合型岗位</a></div>
+        <div class="signal-meta"><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">FDE = 既懂技术又懂业务，在客户现场部署和定制 AI 系统的工程师。Palantir 的核心打法。AI 时代这个角色需求爆发。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：AI Adoption + 宝尊项目 — Kyle 团队承担的正是这个角色：在业务场景中落地 AI 能力。可以用 FDE 框架来定义和宣传团队价值。</div>
+    </div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/tuturetom/status/2054860276088860819" target="_blank">html-anything — 1:1 复刻 Claude Code "HTML一切皆可"效果</a></div>
+        <div class="signal-meta"><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">发布48小时突破2000 Star。将任何内容（数据/文档/想法）生成可视化 HTML。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：Vibe Coding Stack / IKEA Skill Hub — 可作为 Vibe Stack 的内置能力，让非技术用户一键生成可分享的 HTML 报告。</div>
+    </div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/yetone/status/2057716426014867795" target="_blank">Agent 开发两个让人兴奋的点：Context 管理 + 工具调用策略</a></div>
+        <div class="signal-meta"><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">yetone（Cursor 开发者）分享最近 Agent 开发的两个关键发现，涉及 Context 窗口管理和工具调用的新策略。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：Life OS / Agentic Engineering — 来自一线 Agent 开发者的实战洞见。</div>
+    </div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/erchenlu1/status/2055266404962861076" target="_blank">Marc Andreessen 的"杠铃式阅读"方法论</a></div>
+        <div class="signal-meta"><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">两端阅读法：一端是最新前沿（论文/推特），另一端是经典原著（50年以上），跳过中间的"流行书"。稀缺价值在两端。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：Social Output / 个人学习方法 — Kyle 大量阅读推文和文章，这个框架可以优化信息摄入的投资回报。</div>
+    </div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/0xLogicrw/status/2056967282157633574" target="_blank">GitHub 安全事件：VS Code 插件供应链攻击，3800个内部仓库被盗</a></div>
+        <div class="signal-meta"><span class="badge badge-verified">✅ HN RSS 已报道</span><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">GitHub 员工安装了带毒的 VS Code 插件，导致公司内部代码库遭黑客入侵，约3800个内部仓库数据被盗。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：AI Security / Engineering Baseline — IKEA 团队大量使用 VS Code + 插件，这是需要立即传达给团队的安全警示。对 AI Starter Kit 的插件推荐清单需要审计。</div>
+    </div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/scnace/status/2057640611508056564" target="_blank">Google 开源了 Distribute Agent Runtime 框架</a></div>
+        <div class="signal-meta"><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">Google 开源了分布式 Agent 运行时框架，支持多 Agent 协作和分布式任务调度。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：Life OS / OpenMAIC — 分布式 Agent 运行时是 Life OS 的核心基础设施问题之一。</div>
+    </div>
+
+    <div class="signal-card medium">
+      <div class="signal-header">
+        <div class="signal-title"><a href="https://twitter.com/yibie/status/2061377756659593577" target="_blank">训练小模型：2026年最被低估的AI技能</a></div>
+        <div class="signal-meta"><span class="badge badge-category">推文</span></div>
+      </div>
+      <div class="signal-content">Fine-tuning 开源模型（Unsloth + HF）正在被大众化。一条关于教普通人训练小模型的推文引发17.8万次观看、2538个赞。</div>
+      <div class="signal-why">🔗 <strong>相关</strong>：AI Upskill Trainer — L4 课程内容候选。让 CDH 团队掌握 fine-tuning 技能是差异化竞争力。</div>
+    </div>
+  </div>
+
+  <!-- 行动清单 -->
+  <div class="section">
+    <div class="section-title">⚡ 行动清单（本周）</div>
+    <ul class="action-list">
+      <li>
+        <span class="action-icon">🚨</span>
+        <div><strong>立即</strong>：向团队发安全警示 — VS Code 插件供应链攻击，审计 AI Starter Kit 推荐插件清单。参考：<a href="https://twitter.com/0xLogicrw/status/2056967282157633574" style="color: var(--accent2)">GitHub事件报告</a></div>
+      </li>
+      <li>
+        <span class="action-icon">🌐</span>
+        <div><strong>今天</strong>：访问 yao-geo-skills (github.com/yaojingang/yao-geo-skills)，运行一个 IKEA 品类的基线审计 demo，补完 5/31 的 GEO 截止目标。</div>
+      </li>
+      <li>
+        <span class="action-icon">📐</span>
+        <div><strong>本周</strong>：阅读 12-Factor Agents 原文（humanlayer/12-factor-agents），提炼与 IKEA 系统设计相关的5个原则，写入 Engineering Baseline。</div>
+      </li>
+      <li>
+        <span class="action-icon">🏗️</span>
+        <div><strong>本周</strong>：联系/关注 idoubicc，了解 OpenClaw → Cloudflare 迁移的技术细节，作为 OpenMAIC 部署方案的参考数据。</div>
+      </li>
+      <li>
+        <span class="action-icon">🤔</span>
+        <div><strong>本周</strong>：评估"MCP is dead"论点对现有 MCPHub 架构的影响 — 哪些 MCP 工具可以替换为 CLI？制作决策矩阵。</div>
+      </li>
+      <li>
+        <span class="action-icon">📋</span>
+        <div><strong>下周</strong>：用 Vibe Coding 面试题集做自测，识别团队 Agentic 能力的短板，融入 AI Upskill Trainer L3 课程。</div>
+      </li>
+      <li>
+        <span class="action-icon">🏢</span>
+        <div><strong>下周</strong>：研究 Palantir Ontology 架构（追踪 9hills 的研究输出），对照宝尊运营实体建模，验证 Ontology 调研方向。</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 低价值附录（折叠） -->
+  <div class="section">
+    <details>
+      <summary>📎 低价值内容附录（暂时无关，点击展开，共 ~80 条）</summary>
+      <div class="accordion-content">
+        <div class="mini-item">🐱 <a href="https://twitter.com/Fengyi1811/status/2054490088760127586" target="_blank">伊斯坦堡礼貌讨食的猫（娱乐）</a></div>
+        <div class="mini-item">🌾 <a href="https://twitter.com/HanyangWang/status/2051945367173029936" target="_blank">远东种一千二百亩大豆的非虚构纪实（好文但非当前焦点）</a></div>
+        <div class="mini-item">📱 各 PPT Skill 对比推文（7个项目测试）— AI Starter Kit 备用</div>
+        <div class="mini-item">🎬 Seedance 2.0 近2小时人类进化史视频（视频生成，娱乐）</div>
+        <div class="mini-item">🌍 HackerNews RSS 5条（已在信号中提取关键信息）</div>
+        <div class="mini-item">📰 多条微信文章（无摘要，待读）</div>
+        <div class="mini-item">🧒 K12孩子在AI时代的专业选择（K12 Education参考）</div>
+        <div class="mini-item">🗞️ Cloudflare CEO《我是怎么用AI替换员工的》（AI替代宏观讨论）</div>
+        <div class="mini-item">💼 Meta裁员新闻（科技行业宏观，非当前行动项）</div>
+        <div class="mini-item">🔐 macOS Keychain 开发者科普（已知内容）</div>
+        <div class="mini-item">📊 md2html 工具（Terminal → HTML，Vibe Stack 备选）</div>
+        <div class="mini-item">🎯 Karpathy CLAUDE.md 四条规则（已知但值得回顾）</div>
+        <div class="mini-item">🏗️ Claude 架构 → HTML + JSON 映射技巧（Agent 协作模式）</div>
+        <div class="mini-item">🌙 写作 Skill "杜绝AI味"（Social Output 备用）</div>
+        <div class="mini-item">📖 "为什么我不 Vibe Code"（反思文，有价值但非紧急）</div>
+        <div class="mini-item">💡 黄金圈法则 Prompt（通用技巧）</div>
+        <div class="mini-item">🤖 Anthropic 官方示范提示词写法</div>
+        <div class="mini-item">📬 DESIGN.md 公开注册表（设计文档标准化趋势）</div>
+      </div>
+    </details>
+  </div>
+
+  <div style="text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+    生成于 2026-06-02 · Phase 2 Proposals → /tmp/readwise-proposals-20260602.html
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  });
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    btn.textContent = '☀️';
+  }
+</script>
+</body>
+</html>
