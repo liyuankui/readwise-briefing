@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 2026-06-03</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  line-height: 1.75;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--accent);
+}
+.header-left h1 { font-size: 1.6rem; color: var(--accent); }
+.header-left .date { color: var(--text3); font-size: 0.9rem; margin-top: 0.3rem; }
+.header-left .axiom { 
+  font-size: 0.85rem; 
+  color: var(--text3); 
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+#theme-toggle {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+.stat-card .num { font-size: 1.8rem; font-weight: bold; color: var(--accent); }
+.stat-card .label { font-size: 0.8rem; color: var(--text3); margin-top: 0.2rem; }
+section { margin-bottom: 2.5rem; }
+section h2 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.signal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent3);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+}
+.signal-card.medium { border-left-color: var(--accent4); }
+.signal-card.low { border-left-color: var(--border); }
+.signal-card .title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.signal-card .title a { color: var(--accent2); text-decoration: none; }
+.signal-card .title a:hover { text-decoration: underline; }
+.signal-card .meta {
+  font-size: 0.8rem;
+  color: var(--text3);
+  margin-bottom: 0.6rem;
+}
+.signal-card .summary { font-size: 0.9rem; color: var(--text2); margin-bottom: 0.8rem; }
+.signal-card .relevance {
+  font-size: 0.85rem;
+  background: var(--surface2);
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  color: var(--text2);
+  border-left: 3px solid var(--accent3);
+}
+.signal-card.medium .relevance { border-left-color: var(--accent4); }
+.stars { color: var(--accent4); margin-right: 0.5rem; }
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-right: 0.4rem;
+  background: var(--surface2);
+  color: var(--text3);
+}
+.badge.verified { background: #d1fae5; color: #065f46; }
+.badge.partial { background: #fef3c7; color: #92400e; }
+.badge.enterprise { background: #e0e7ff; color: #3730a3; }
+.badge.agentic { background: #fce7f3; color: #9d174d; }
+.action-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+.action-list li {
+  list-style: none;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list .icon { font-size: 1rem; flex-shrink: 0; }
+.action-list .text { font-size: 0.9rem; color: var(--text2); }
+details summary {
+  cursor: pointer;
+  padding: 0.8rem;
+  background: var(--surface2);
+  border-radius: 6px;
+  color: var(--text3);
+  font-size: 0.85rem;
+}
+details[open] summary { border-radius: 6px 6px 0 0; }
+.appendix-item {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text3);
+}
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.overview-table th {
+  background: var(--surface2);
+  padding: 0.6rem 1rem;
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--text3);
+}
+.overview-table td {
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text3);
+  font-size: 0.8rem;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="date">2026-06-03 · 同步周期：2026-06-02 02:37 → 2026-06-03 14:11 CST</div>
+    <div class="axiom">「不可行动的信息 = 噪音」</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="num">5</div>
+    <div class="label">新增内容</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">2</div>
+    <div class="label">⭐⭐⭐⭐⭐ 高价值</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">3</div>
+    <div class="label">⭐⭐⭐ 中等</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5</div>
+    <div class="label">待深挖方向</div>
+  </div>
+</div>
+
+<!-- Overview Table -->
+<section>
+  <h2>📊 信号概览</h2>
+  <table class="overview-table">
+    <thead>
+      <tr>
+        <th>信号</th>
+        <th>类型</th>
+        <th>优先级</th>
+        <th>相关项目</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>OpenAI 前沿模型登陆 AWS</td>
+        <td>🏢 企业AI</td>
+        <td>⭐⭐⭐⭐⭐</td>
+        <td>AI Adoption / Vibe Stack</td>
+      </tr>
+      <tr>
+        <td>Chipotlai Max 免费AI推理</td>
+        <td>🔧 工具</td>
+        <td>⭐⭐⭐⭐⭐</td>
+        <td>AI Upskill / AI Governance</td>
+      </tr>
+      <tr>
+        <td>SpaceX/Anthropic/OpenAI IPO</td>
+        <td>📈 趋势</td>
+        <td>⭐⭐⭐</td>
+        <td>AI Adoption Strategy</td>
+      </tr>
+      <tr>
+        <td>Godot 开源游戏引擎（11.2万⭐）</td>
+        <td>🎮 工具</td>
+        <td>⭐⭐⭐</td>
+        <td>OpenMAIC K12</td>
+      </tr>
+      <tr>
+        <td>社交媒体年龄验证 = 互联网管控</td>
+        <td>🔒 隐私</td>
+        <td>⭐⭐⭐</td>
+        <td>GEO for IKEA</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- High Value Signals -->
+<section>
+  <h2>🔥 高价值信号 ⭐⭐⭐⭐⭐</h2>
+
+  <div class="signal-card">
+    <div class="title">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="badge enterprise">企业AI</span>
+      <span class="badge verified">✅ Verified</span>
+      OpenAI 前沿模型 + Codex 正式登陆 AWS
+    </div>
+    <div class="meta">来源：HN · <a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">OpenAI官宣</a> · HN 357pts</div>
+    <div class="summary">
+      OpenAI 的 GPT-4o / Codex 等前沿模型通过 Amazon Bedrock 正式上线。核心价值：<strong>企业不再需要单独与 OpenAI 签合同</strong>——用已有 AWS 账户、已有安全审查框架、已有采购流程即可接入。HN 评论揭示真相：大型企业选 AWS 不是因为功能，是因为<em>数据治理合规</em>和<em>减少供应商审查工作</em>。
+    </div>
+    <div class="relevance">
+      🎯 <strong>为什么与你相关：</strong>这直接影响 IKEA 的 AI 工具治理决策。如果 IKEA 已有 AWS 合同，OpenAI 能力接入的障碍降到最低。对 AI Upskill Trainer 讲师团来说，这意味着可以基于 Codex（而非私搭 Copilot）给团队提供有治理背书的 AI 编码工具。行动点：查一下 IKEA CDH 是否已有 AWS 合同 + 是否在 AWS 上有 Bedrock 配额。
+    </div>
+  </div>
+
+  <div class="signal-card">
+    <div class="title">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="badge agentic">AI治理</span>
+      <span class="badge partial">⚠️ 存在法律风险</span>
+      Chipotlai Max — 通过 Chipotle 客服机器人获得免费 AI 推理
+    </div>
+    <div class="meta">来源：HN · <a href="https://github.com/cyberpapiii/chipotlai-max">GitHub: cyberpapiii/chipotlai-max</a> · HN 371pts</div>
+    <div class="summary">
+      有人发现 Chipotle 快餐连锁的客服机器人 Pepper（由 IPsoft Amelia 驱动）可以解 LeetCode 题。随后有人逆向其 WebSocket 后端，发布了 OpenAI 兼容代理，无需 API Key 即可使用。项目<strong>将 chipotle-pepper 作为默认模型</strong>，API Key 随便填，推理成本为零。⚠️ 注意：可能违反 CFAA，法律风险存在。
+    </div>
+    <div class="relevance">
+      🎯 <strong>为什么与你相关：</strong>这个 hack 本身不是重点，重点是它揭示的模式——<strong>企业 AI chatbot 普遍安全配置不足</strong>，背后的推理能力往往超出预期。对 IKEA AI Governance 的意义：你们自己部署的客服 bot（如 Copilot for M365 中的各类助手）是否也有类似配置风险？同时，对 AI Upskill 讲师团：这是个极好的"AI 安全使用"教学案例——告诉大家为什么企业要有 AI 使用治理边界。
+    </div>
+  </div>
+</section>
+
+<!-- Medium Value Signals -->
+<section>
+  <h2>📚 中等价值信号 ⭐⭐⭐</h2>
+
+  <div class="signal-card medium">
+    <div class="title">
+      <span class="stars">⭐⭐⭐</span>
+      <span class="badge">📈 市场</span>
+      SpaceX + Anthropic + OpenAI 史上最大 IPO 潮（4万亿美元）
+    </div>
+    <div class="meta">来源：HN · <a href="https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai">The Economist</a> · HN 677pts</div>
+    <div class="summary">
+      SpaceX 6月11日上市（750亿美元），Anthropic 已提交 IPO 文件（600亿），OpenAI 随后（600亿）。指数规则被修改以强制被动基金买入。HN 评论将此比作"有组织犯罪盯上退休基金"——规则变更让被动投资者承接高估值筹码。
+    </div>
+    <div class="relevance">
+      🎯 <strong>相关性：</strong>AI 行业大势了解。意义在于：AI 公司估值泡沫化，但同时说明市场对 AI 未来的信心极强。对 IKEA 的 AI 投资决策有参考价值——现在投入 AI 能力的时机还在窗口内。
+    </div>
+  </div>
+
+  <div class="signal-card medium">
+    <div class="title">
+      <span class="stars">⭐⭐⭐</span>
+      <span class="badge">🎮 工具</span>
+      Godot — 11.2万⭐ 开源游戏引擎，Unity 完全免费替代
+    </div>
+    <div class="meta">来源：Twitter · <a href="https://x.com/laowangbabababa/status/2061779482143518738">原推文</a></div>
+    <div class="summary">
+      MIT 协议，专属 2D 渲染引擎，可用于教育游戏开发。与 Unity 完全兼容的工作流，无授权费。
+    </div>
+    <div class="relevance">
+      🎯 <strong>相关性：</strong>与 OpenMAIC K12 教育项目有潜在关联——如果要做游戏化教学场景（类似 Minecraft Education），Godot 是零成本切入点。可以作为 AI 教室的互动游戏层。
+    </div>
+  </div>
+
+  <div class="signal-card medium">
+    <div class="title">
+      <span class="stars">⭐⭐⭐</span>
+      <span class="badge">🔒 隐私</span>
+      社交媒体年龄验证 = 互联网身份管控滑坡
+    </div>
+    <div class="meta">来源：HN · <a href="https://mullvad.net/en/blog/age-verification-for-social-media-the-beginning-of-the-end-for-a-free-internet">Mullvad Blog</a></div>
+    <div class="summary">
+      年龄验证本质上是身份验证。匿名上网正在终结。英国已有每天 30 人因网络言论被捕的案例。VPN 管控也在滑坡。
+    </div>
+    <div class="relevance">
+      🎯 <strong>相关性：</strong>对 GEO for IKEA 项目有参考价值——国内 AI 平台的引用机制本质上也是一种"话语权管控"。理解互联网身份管控趋势，有助于预判 AI 搜索的内容监管走向。
+    </div>
+  </div>
+</section>
+
+<!-- Action List -->
+<section>
+  <h2>✅ 行动清单</h2>
+  <ul class="action-list">
+    <li>
+      <span class="icon">🔍</span>
+      <span class="text"><strong>查询 IKEA CDH 是否有 AWS/Bedrock 访问权限</strong>——如果有，OpenAI Codex 可以作为治理背书的 AI 编码工具推给团队，比私搭 Copilot 更合规。（AI Adoption Strategy）</span>
+    </li>
+    <li>
+      <span class="icon">📋</span>
+      <span class="text"><strong>将 Chipotlai Max 案例加入 AI 安全白皮书</strong>——作为"企业 AI chatbot 配置风险"章节的真实案例。告诉工程师这种漏洞的存在，同时用于 AI Upskill 培训课程 L1.1。（AI Upskill Trainer）</span>
+    </li>
+    <li>
+      <span class="icon">🎮</span>
+      <span class="text"><strong>调研 Godot + OpenMAIC 的结合可能性</strong>——K12 教育项目的游戏化层是否可以用 Godot 实现简单的互动场景？作为 OpenMAIC 的可选扩展。（OpenMAIC Cloudflare）</span>
+    </li>
+    <li>
+      <span class="icon">📊</span>
+      <span class="text"><strong>关注 Anthropic IPO 进展</strong>——IPO 后 Anthropic 的定价策略可能变化，影响 Claude API 的使用成本和企业合同谈判空间。（AI Adoption Strategy）</span>
+    </li>
+  </ul>
+</section>
+
+<!-- Appendix -->
+<details>
+  <summary>📎 低相关性内容附录（折叠）</summary>
+  <div class="appendix-item">Janet — 小型 Lisp 方言，可编译为小体积原生可执行文件。技术有趣，当前无直接应用场景。</div>
+  <div class="appendix-item">macOS GridLion — 恢复网格布局 Spaces 的第三方应用。个人工具，非当前焦点。</div>
+  <div class="appendix-item">systemd timer vs cron — 运维技术讨论。团队基础设施参考，无紧迫行动。</div>
+  <div class="appendix-item">RGB 归一化 255 vs 256 — 图像处理细节。与当前项目无关。</div>
+  <div class="appendix-item">西雅图监控设施导览 — 隐私与监控议题，知识储备。</div>
+  <div class="appendix-item">Gemini + Image 2 游戏资产生成 — 开源工具，批量生成游戏素材。与 K12 项目有边缘相关性。</div>
+  <div class="appendix-item">Adafruit vs Flux.ai 律师函 — 负责任披露 vs 企业法务。开源社区新闻，知道即可。</div>
+</details>
+
+<div class="footer">
+  <p>生成于 2026-06-03 14:11 CST · 同步间隔约 36 小时 · 新增 5 条内容</p>
+  <p>Phase 2 Proposals → <code>/tmp/readwise-proposals-20260603.html</code></p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
