@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-06-08</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  font-size: 16px;
+  line-height: 1.75;
+  padding: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+}
+.header-left h1 {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.header-left .date { color: var(--text3); font-size: 0.9rem; }
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+.stat-pill span { color: var(--accent); font-weight: bold; }
+#theme-toggle {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+section { margin-bottom: 36px; }
+h2 {
+  font-size: 1.2rem;
+  color: var(--accent2);
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.signal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.signal-card:hover { border-color: var(--accent2); }
+.signal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.stars { font-size: 0.95rem; flex-shrink: 0; }
+.signal-title {
+  font-weight: bold;
+  color: var(--text);
+  font-size: 1rem;
+}
+.signal-meta {
+  font-size: 0.82rem;
+  color: var(--text3);
+  margin-bottom: 8px;
+}
+.signal-content {
+  color: var(--text2);
+  font-size: 0.93rem;
+  margin-bottom: 10px;
+}
+.signal-why {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent3);
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.88rem;
+  color: var(--text2);
+  margin-top: 8px;
+}
+.signal-why strong { color: var(--accent3); }
+.verify-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  font-weight: normal;
+}
+.verified { background: #d1fae5; color: #065f46; }
+.partial { background: #fef3c7; color: #92400e; }
+.debunked { background: #fee2e2; color: #991b1b; }
+html.dark .verified { background: #065f46; color: #d1fae5; }
+html.dark .partial { background: #92400e; color: #fef3c7; }
+html.dark .debunked { background: #991b1b; color: #fee2e2; }
+.signal-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--accent2);
+  text-decoration: none;
+  margin-top: 4px;
+}
+.signal-link:hover { text-decoration: underline; }
+.mid-value-list { list-style: none; }
+.mid-value-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+}
+.mid-value-list a { color: var(--accent2); text-decoration: none; }
+.mid-value-list a:hover { text-decoration: underline; }
+.action-list { list-style: none; counter-reset: action-counter; }
+.action-list li {
+  counter-increment: action-counter;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.action-list li::before {
+  content: counter(action-counter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent2);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.axiom-banner {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  border-radius: 10px;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 0.92rem;
+  margin-bottom: 28px;
+  letter-spacing: 0.03em;
+}
+details summary {
+  cursor: pointer;
+  color: var(--text3);
+  font-size: 0.9rem;
+  padding: 8px 0;
+  user-select: none;
+}
+details summary:hover { color: var(--text2); }
+.low-item {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: var(--text3);
+  border-left: 2px solid var(--border);
+  margin-bottom: 4px;
+}
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+.overview-table th {
+  background: var(--surface2);
+  text-align: left;
+  padding: 8px 12px;
+  color: var(--text3);
+  font-weight: normal;
+  border: 1px solid var(--border);
+}
+.overview-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  color: var(--text2);
+}
+.overview-table tr:hover td { background: var(--surface2); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="date">2026-06-08 · 增量周期：2026-06-03 → 今日</div>
+    <div class="stats">
+      <div class="stat-pill">新 Highlights <span>21</span></div>
+      <div class="stat-pill">新文档 <span>100</span></div>
+      <div class="stat-pill">高价值 ⭐×5 <span>7</span></div>
+      <div class="stat-pill">已验证 ✅ <span>4</span></div>
+    </div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom-banner">
+  🧭 不可行动的信息 = 噪音 · 信号 → 验证 → 洞察 → 行动
+</div>
+
+<section>
+  <h2>📊 信号概览（5大深挖方向 → Phase 2 Proposals）</h2>
+  <table class="overview-table">
+    <tr>
+      <th>#</th><th>信号</th><th>连接意图</th><th>验证</th>
+    </tr>
+    <tr>
+      <td>①</td>
+      <td>VoidZero 被 Cloudflare 收购（Evan You 加入）</td>
+      <td>OpenMAIC Cloudflare 部署</td>
+      <td>✅ 确认</td>
+    </tr>
+    <tr>
+      <td>②</td>
+      <td>Boris："我写 loops，不写 prompts"</td>
+      <td>Life OS Software Factory</td>
+      <td>✅ 确认</td>
+    </tr>
+    <tr>
+      <td>③</td>
+      <td>Multi-Agent 生产三模式（Cognition 复盘）</td>
+      <td>Agentic Engineering / Engineering Baseline</td>
+      <td>✅ 确认</td>
+    </tr>
+    <tr>
+      <td>④</td>
+      <td>Language Agent 根据任务动态生成 Harness</td>
+      <td>Testing Excellence / AI Upskill Trainer</td>
+      <td>⚠️ 待深挖</td>
+    </tr>
+    <tr>
+      <td>⑤</td>
+      <td>企业应从组织而非个人加强 AI 运用</td>
+      <td>AI Adoption Strategy / Engineering Baseline</td>
+      <td>✅ 直觉对齐</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+  <div class="signal-card">
+    <div class="signal-header">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <div>
+        <div class="signal-title">
+          VoidZero 加入 Cloudflare · Vite 生态系统并入
+          <span class="verify-badge verified">✅ Verified</span>
+        </div>
+        <div class="signal-meta">tweet · @voidzerodev · 2026-06-04</div>
+      </div>
+    </div>
+    <div class="signal-content">
+      Cloudflare 收购 VoidZero（Vite, Vitest, Rolldown, Oxc 背后公司），Evan You 团队全员加入 Cloudflare ETI 部门。Vite 保持开源，承诺 $1M 生态基金。Cloudflare 目标：从本地代码到 CF 全球网络的「一键部署栈」。Vite 每周下载量 1.3 亿次。
+    </div>
+    <div class="signal-why">
+      <strong>为何与你相关：</strong>OpenMAIC 正在做 Cloudflare 纯免费部署，用的是 Next.js (依赖 Vite 生态)。Cloudflare + Vite/Vitest 原生整合意味着 OpenNext 的 CF Workers 适配将更平滑，Vitest 可能直接在 Worker 环境运行。这是架构决策的重要信号。
+    </div>
+    <a href="https://blog.cloudflare.com/voidzero-joins-cloudflare/" class="signal-link" target="_blank">→ 官方公告: blog.cloudflare.com/voidzero-joins-cloudflare</a>
+  </div>
+
+  <div class="signal-card">
+    <div class="signal-header">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <div>
+        <div class="signal-title">
+          Claude Code 创造者 Boris："我写 loops，不写 prompts"
+          <span class="verify-badge verified">✅ Verified</span>
+        </div>
+        <div class="signal-meta">tweet · @Mikocrypto11 · 2026-06-06</div>
+      </div>
+    </div>
+    <div class="signal-content">
+      "我现在不再给 Claude 写 prompts。我写 loops，然后让 loops 去完成工作。我的工作，就是写 loops。" —— 这是很多人用 Claude Code 卡住的地方：他们还在把它当聊天工具用，而不是编排工具用。
+    </div>
+    <div class="signal-why">
+      <strong>为何与你相关：</strong>Life OS 的核心支柱之一是「Software Factory」——Agent 可自主完成从需求→代码→测试→部署的循环。Boris 的 loops 范式就是这个工厂的基础原语。此时转变思维模式（从 prompts 到 loops），等于从工人升级为流水线设计师。
+    </div>
+    <a href="https://twitter.com/Mikocrypto11/status/2062792788706521333/" class="signal-link" target="_blank">→ 原推文</a>
+  </div>
+
+  <div class="signal-card">
+    <div class="signal-header">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <div>
+        <div class="signal-title">
+          Multi-Agent 生产环境三种存活模式（Cognition 复盘）
+          <span class="verify-badge verified">✅ Verified</span>
+        </div>
+        <div class="signal-meta">tweet · @yibie 转述 · 2026-06-03</div>
+      </div>
+    </div>
+    <div class="signal-content">
+      多 Agent 系统炒了一年，生产环境里真正活下来的只有三种：① Single-Writer/Multi-Advisor（一个写，多个审）② Context Engineering（共享状态容器）③ Task Decomposition + Delegation（主 Agent 拆解分派）。"并行写"方式还是太脆，没人敢上生产。
+    </div>
+    <div class="signal-why">
+      <strong>为何与你相关：</strong>Life OS 的 Proactive Agents 和 Software Factory 设计若不采用这三种模式，大概率会翻车。同时这也是 Engineering Baseline 的实战证据——向团队推广 Agentic Engineering 时，这个框架比"AI 很厉害"有说服力得多。
+    </div>
+    <a href="https://cognition.ai/blog/multi-agents-working" class="signal-link" target="_blank">→ Cognition 原文</a>
+    <a href="https://twitter.com/yibie/status/2058806911542464892/" class="signal-link" target="_blank">→ 推文</a>
+  </div>
+
+  <div class="signal-card">
+    <div class="signal-header">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <div>
+        <div class="signal-title">
+          Language Agent 根据任务动态生成不同 Harness（ReACT 进化）
+          <span class="verify-badge partial">⚠️ Partial</span>
+        </div>
+        <div class="signal-meta">tweet · @TaNGSoFT · 2026-06-04</div>
+      </div>
+    </div>
+    <div class="signal-content">
+      "不得了，language agent 可以根据任务不同生成不同的 harness。ReACT 的一大进步！" —— 引用 yaoshunyu 的 language agent 工作。意指 Agent 不再用固定工具集，而是动态生成适合当前任务的"测试/执行框架"。
+    </div>
+    <div class="signal-why">
+      <strong>为何与你相关：</strong>Testing Excellence 正在讨论如何提升测试覆盖率。如果 Agent 能根据代码特征动态生成 test harness，这是一个突破口。同时 AI Upskill Trainer 的高级课程（L3+）可以把这个能力演示给团队。
+    </div>
+    <a href="https://twitter.com/TaNGSoFT/status/2062282640842256843/" class="signal-link" target="_blank">→ 原推文</a>
+  </div>
+
+  <div class="signal-card">
+    <div class="signal-header">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <div>
+        <div class="signal-title">
+          12-Factor Agents：构建生产级 LLM 应用工程化方法论
+          <span class="verify-badge verified">✅ Verified</span>
+        </div>
+        <div class="signal-meta">article (知乎) · 2026-06-03</div>
+      </div>
+    </div>
+    <div class="signal-content">
+      由 Dex Horthy 提出，借鉴 12-Factor App。核心：用确定性代码控制 Agent 流程，在关键节点插入 LLM 生成的结构化工具调用，避免完全依赖框架。强调 Agent 是代码组件，不是黑盒对话。
+    </div>
+    <div class="signal-why">
+      <strong>为何与你相关：</strong>Life OS Software Factory 的工程化设计原则。同样适用于 Vibe Coding Stack 中 Agent-powered 内部工具的架构选择。这是让 Agent 真正「生产就绪」的方法论参考。
+    </div>
+    <a href="https://zhuanlan.zhihu.com/p/2044978096890238825" class="signal-link" target="_blank">→ 知乎文章</a>
+  </div>
+
+  <div class="signal-card">
+    <div class="signal-header">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <div>
+        <div class="signal-title">
+          Anthropic 发布《Trustworthy Agents in Practice》研究
+          <span class="verify-badge verified">✅ Verified</span>
+        </div>
+        <div class="signal-meta">article · Anthropic · 2026-06-03~08</div>
+      </div>
+    </div>
+    <div class="signal-content">
+      AI Agents 能独立完成复杂任务，但带来新风险（错误放大、安全漏洞）。Anthropic 给出生产环境中 Agent 可信部署的原则框架：最小权限、人工监督节点、可审计的行动链、沙盒隔离。
+    </div>
+    <div class="signal-why">
+      <strong>为何与你相关：</strong>Life OS 的 Proactive Agents 如果要做到"不需要 Kyle 手动触发"，信任和安全设计是 P0。这份研究是权威参考。同样适用于 Vibe Coding Stack 对外提供的 Agent 能力的安全设计。
+    </div>
+    <a href="https://www.anthropic.com/research/trustworthy-agents" class="signal-link" target="_blank">→ Anthropic 研究页面</a>
+  </div>
+
+  <div class="signal-card">
+    <div class="signal-header">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <div>
+        <div class="signal-title">
+          企业 AI 应从组织层面强化，而非依赖个人能力
+          <span class="verify-badge verified">✅ 观点交叉验证</span>
+        </div>
+        <div class="signal-meta">tweet · @xicilion · 2026-06-07</div>
+      </div>
+    </div>
+    <div class="signal-content">
+      "个人能力越强，企业越涣散。企业真正要做的是从组织上加强 AI 的运用，减少对个人个体的依赖。" —— 反直觉洞察：AI 让个人生产力提升，但企业的护城河应建在流程/组织，而非超级个体。
+    </div>
+    <div class="signal-why">
+      <strong>为何与你相关：</strong>直接映射 Engineering Baseline & AI Adoption Strategy。CDH 的 AI 推广不应止于"让每个工程师更强"，而应建立团队层面的 AI 工作流。这是你向 Nicole/Kirill 汇报时的强有力论据框架。
+    </div>
+    <a href="https://twitter.com/xicilion/status/2063247973904171038/" class="signal-link" target="_blank">→ 原推文</a>
+  </div>
+</section>
+
+<section>
+  <h2>⭐⭐⭐ 中等价值（备用收藏）</h2>
+  <ul class="mid-value-list">
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://lexfridman.com/dhh-david-heinemeier-hansson-transcript" target="_blank">DHH on Lex Fridman：编程的乐趣、AI、Rails 与生产力</a>
+        — Rails 创始人视角谈 AI 与编程本质，适合 Engineering Baseline 中"技术为何值得骄傲"的叙事
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://twitter.com/vintcessun/status/2062771146488160622/" target="_blank">编码 Agent 轻到 16MB 内存 (Rust, 17k LoC)</a>
+        — Agent 基础设施极简主义参考，与 Life OS 的 Proactive Agent 架构选型相关
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://twitter.com/DIYgod/status/2059591666135392704/" target="_blank">AI Native Workforce vs AI Sidebar 思维框架</a>
+        — AI 不是功能，而是同事。AI Adoption Strategy 的产品化方向参考（Helio 案例）
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://www.quandri.io/engineering-blog/mcp-is-dead" target="_blank">MCP is Dead (Quandri Engineering)</a>
+        — 单一公司观点，但值得批判性参考：CLI Skills 取代 MCP 是否适合 IKEA 场景？
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://twitter.com/elliotchen100/status/2059787895989469451/" target="_blank">EverMe：一行命令打通所有端侧记忆</a>
+        — Life OS Memory 支柱的工具参考，待进一步验证项目成熟度 ⚠️
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://danielmiessler.com/blog/companies-graph-of-algorithms" target="_blank">Companies Are Just a Graph of Algorithms</a>
+        — AI 重构企业工作流的思维框架，与 AI Adoption Strategy 高度相关
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://twitter.com/karminski3/status/2059409495303045579/" target="_blank">SkillOpt：Skill 也能"训练"了（微软+上交复旦同济）</a>
+        — Skills Development 方向重要信号，自动优化 Skill 的框架
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://twitter.com/geekbb/status/2062414546120139055/" target="_blank">微软 Windows Terminal：原生集成 ACP + GitHub Copilot CLI</a>
+        — AI Starter Kit 工具链更新，Ctrl+Shift+. 呼出侧边 Agent 面板
+      </div>
+    </li>
+    <li>
+      <span>⭐⭐⭐</span>
+      <div>
+        <a href="https://twitter.com/LufzzLiz/status/2062839043738780041/" target="_blank">AI 教育项目收到国际催稿（生物老师、土耳其友人）</a>
+        — OpenMAIC K12 方向验证：全球都有 AI+教育需求，不只是中国市场
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>⚡ 行动清单</h2>
+  <ul class="action-list">
+    <li>
+      <div>
+        <strong>读 Cloudflare×VoidZero 官方公告</strong>，评估 OpenMAIC 部署方案是否应升级：OpenNext + Vite/Vitest 原生 CF 集成路径是否比当前方案更省力
+        <br><small style="color:var(--text3)">→ blog.cloudflare.com/voidzero-joins-cloudflare/</small>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>将 Life OS 的 Agent 设计原则改为「写 loops」范式</strong>：第一个 Proactive Agent 不应是"更聪明的 prompt"，而是"一个自运行的定时 loop"
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>阅读 Cognition Multi-Agent 复盘博客</strong>，提炼 CDH Agentic Engineering 落地三原则，在团队技术分享中使用
+        <br><small style="color:var(--text3)">→ cognition.ai/blog/multi-agents-working</small>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>调研 Language Agent + Dynamic Harness</strong>：找 yaoshunyu 的原始 repo/论文，评估是否可用于 Testing Excellence 项目（降低测试编写成本）
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>准备"组织 AI vs 个人 AI"框架</strong>，用于下次 Nicole/Kirill 1:1：CDH 的 AI 战略从"工具推广"升级为"工作流基础设施建设"的论述
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>读 Anthropic Trustworthy Agents</strong>，提炼 3 条 Life OS Proactive Agent 的安全设计原则（最小权限、人工节点、可审计）
+        <br><small style="color:var(--text3)">→ anthropic.com/research/trustworthy-agents</small>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <details>
+    <summary>📂 低价值附录（折叠 · 64 条无关/娱乐内容）</summary>
+    <div style="margin-top:12px">
+      <div class="low-item">宏观市场吐槽类推文（多条）— 暂无关联意图</div>
+      <div class="low-item">无人驾驶讽刺段子、城市生活观点 — 暂时无关</div>
+      <div class="low-item">土耳其语/法语推文 — 语言不匹配</div>
+      <div class="low-item">大厂直招高中生辩论 — 参考但无行动点</div>
+      <div class="low-item">Gemma4 本地运行、GPT Pro 速度吐槽 — 工具参考，非优先</div>
+      <div class="low-item">中国传统配色 538 种开源 — 设计参考，适合 Vibe Coding UI 参考</div>
+      <div class="low-item">zellij 终端工具推荐 — 个人工具，低优先</div>
+      <div class="low-item">HackerNews 每日摘要（多期）— 已从中提炼关键信号</div>
+    </div>
+  </details>
+</section>
+
+<div style="text-align:center;color:var(--text3);font-size:0.8rem;margin-top:40px;padding-top:16px;border-top:1px solid var(--border)">
+  Generated by my-readwise-briefing v4.0 · 2026-06-08 · Phase 1 完成 · Phase 2 Proposals 见另一文件
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

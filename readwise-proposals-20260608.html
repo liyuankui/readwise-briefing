@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-06-08</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+  --p1: #6366f1; --p2: #059669; --p3: #d97706; --p4: #7c3aed; --p5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  font-size: 15px; line-height: 1.8; padding: 24px; max-width: 1000px; margin: 0 auto;
+}
+.hero {
+  background: linear-gradient(135deg, #2d5a4a 0%, #6366f1 100%);
+  color: white; border-radius: 14px; padding: 24px 28px; margin-bottom: 32px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.hero h1 { font-size: 1.6rem; margin-bottom: 6px; }
+.hero .axiom { font-size: 0.9rem; opacity: 0.85; font-style: italic; }
+.hero .meta { font-size: 0.82rem; opacity: 0.7; margin-top: 6px; }
+#theme-toggle {
+  background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1.1rem; color: white;
+}
+.signal-map {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; margin-bottom: 32px;
+}
+.signal-map h2 { font-size: 1rem; color: var(--text3); margin-bottom: 12px; font-weight: normal; letter-spacing: 0.05em; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+th { background: var(--surface2); text-align: left; padding: 8px 12px; color: var(--text3); border: 1px solid var(--border); font-weight: normal; }
+td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text2); }
+tr:hover td { background: var(--surface2); }
+.proposal { margin-bottom: 48px; }
+.proposal-header {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 24px; border-radius: 12px 12px 0 0;
+  color: white;
+}
+.p1-bg { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.p2-bg { background: linear-gradient(135deg, #059669, #047857); }
+.p3-bg { background: linear-gradient(135deg, #d97706, #b45309); }
+.p4-bg { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+.p5-bg { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+.proposal-num { font-size: 2rem; font-weight: bold; opacity: 0.4; flex-shrink: 0; width: 40px; }
+.proposal-title { flex: 1; }
+.proposal-title h2 { font-size: 1.2rem; margin-bottom: 4px; }
+.proposal-title .tagline { font-size: 0.85rem; opacity: 0.85; }
+.proposal-title .connects { font-size: 0.78rem; opacity: 0.7; margin-top: 4px; }
+.proposal-body {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 0 0 12px 12px;
+  padding: 24px;
+}
+.claim-box {
+  background: var(--surface2); border-left: 4px solid var(--accent2);
+  border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 20px;
+  font-style: italic; color: var(--text2);
+}
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+@media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+.mini-section { margin-bottom: 20px; }
+.mini-section h3 {
+  font-size: 0.82rem; letter-spacing: 0.08em; color: var(--text3);
+  text-transform: uppercase; margin-bottom: 10px; font-weight: normal;
+}
+.milestone-list { list-style: none; }
+.milestone-list li {
+  display: flex; gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid var(--border); font-size: 0.9rem;
+}
+.milestone-list li:last-child { border-bottom: none; }
+.ms-time { color: var(--accent4); flex-shrink: 0; font-size: 0.82rem; white-space: nowrap; min-width: 60px; }
+.action-steps { list-style: none; counter-reset: step; }
+.action-steps li {
+  counter-increment: step; display: flex; gap: 10px;
+  padding: 10px 12px; border-radius: 8px; margin-bottom: 6px;
+  background: var(--surface2); font-size: 0.9rem; color: var(--text2);
+}
+.action-steps li::before {
+  content: counter(step); display: flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%; background: var(--accent2);
+  color: white; font-size: 0.75rem; font-weight: bold; flex-shrink: 0; margin-top: 1px;
+}
+.red-flag {
+  background: #fff5f5; border: 1px solid #fed7d7; border-radius: 8px;
+  padding: 12px 16px; font-size: 0.88rem; color: #742a2a;
+}
+html.dark .red-flag { background: #2d1515; border-color: #7f1d1d; color: #fca5a5; }
+.metrics-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.metric-pill {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 20px; padding: 4px 14px; font-size: 0.82rem; color: var(--text2);
+}
+.metric-pill strong { color: var(--accent3); }
+code {
+  background: var(--surface2); padding: 1px 5px; border-radius: 4px;
+  font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.85em;
+}
+pre {
+  background: #1e1e2e; color: #cdd6f4; border-radius: 10px;
+  padding: 16px; overflow-x: auto; font-size: 0.82rem; line-height: 1.6;
+  margin: 12px 0; font-family: "SF Mono", Menlo, Consolas, monospace;
+}
+.footer { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div>
+    <h1>📡 深挖 Proposals · 2026-06-08</h1>
+    <div class="axiom">不可行动的信息 = 噪音 · 5 信号 × 5 可执行方向</div>
+    <div class="meta">基于 Readwise 新内容 · Phase 1.5 验证通过后 · 5 Subagents 并行推理</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="signal-map">
+  <h2>信号 × 项目 映射关系</h2>
+  <table>
+    <tr><th>#</th><th>信号核心</th><th>连接意图</th><th>验证状态</th></tr>
+    <tr><td>①</td><td>VoidZero 被 Cloudflare 收购（Vite/Evan You）</td><td>OpenMAIC Cloudflare 部署</td><td>✅ 已确认</td></tr>
+    <tr><td>②</td><td>Boris："我写 loops，不写 prompts"</td><td>Life OS Software Factory</td><td>✅ 已确认</td></tr>
+    <tr><td>③</td><td>Multi-Agent 生产三模式（Cognition 复盘）</td><td>CDH Agentic Engineering / Engineering Baseline</td><td>✅ 已确认</td></tr>
+    <tr><td>④</td><td>Language Agent 动态生成任务 Harness</td><td>Testing Excellence / AI Upskill Trainer</td><td>⚠️ 部分验证</td></tr>
+    <tr><td>⑤</td><td>企业应从组织而非个人加强 AI</td><td>AI Adoption Strategy / Engineering Baseline</td><td>✅ 交叉验证</td></tr>
+  </table>
+</div>
+
+<!-- PROPOSAL 1 -->
+<div class="proposal">
+  <div class="proposal-header p1-bg">
+    <div class="proposal-num">①</div>
+    <div class="proposal-title">
+      <h2>OpenMAIC × Cloudflare：Vite 原生栈加速部署验证</h2>
+      <div class="tagline">VoidZero×Cloudflare 信号不承诺兼容性，但承诺时机</div>
+      <div class="connects">→ 连接项目：OpenMAIC Cloudflare 纯免费部署 🔥</div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="claim-box">
+      VoidZero×Cloudflare 给 OpenMAIC 的实质优势，不在"更快 build"，而在把 <code>build → test → runtime → deploy</code> 收敛到同一条 Cloudflare-native toolchain，显著降低 OpenNext→Workers 的适配漂移与验证成本。
+    </div>
+    <div class="two-col">
+      <div class="mini-section">
+        <h3>🎯 具体痛点</h3>
+        <table style="font-size:0.84rem">
+          <tr><th>痛点</th><th>VoidZero 带来的变化</th></tr>
+          <tr><td>Next.js/OpenNext/Workers 不完全同构</td><td>Vite/workerd 路径成一等公民</td></tr>
+          <tr><td>本地验证与线上行为不一致</td><td>workerd dev/test 路径更可控</td></tr>
+          <tr><td>Free Tier 原型难做可复用方案</td><td>DO/R2/D1/AI Gateway 形成可运营骨架</td></tr>
+        </table>
+      </div>
+      <div class="mini-section">
+        <h3>📏 成功标准</h3>
+        <div class="metrics-row">
+          <div class="metric-pill">OpenNext build <strong>0 P0 blocker</strong></div>
+          <div class="metric-pill">1教师+30学生 <strong>不丢状态</strong></div>
+          <div class="metric-pill">平台增量成本 <strong>$0/月</strong></div>
+          <div class="metric-pill">创建/加入教室 <strong>&lt;2s p95</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-section">
+      <h3>🗓 里程碑</h3>
+      <ul class="milestone-list">
+        <li><span class="ms-time">2-3天</span><span>M1. OpenNext 兼容性验证：build 成功；P0/P1 blocker 列表</span></li>
+        <li><span class="ms-time">3-4天</span><span>M2. Cloudflare adapter 骨架：Workers 入口、Bindings、R2/D1/DO wiring</span></li>
+        <li><span class="ms-time">4-5天</span><span>M3. ClassroomDO 核心流：create/join/chat 最小闭环</span></li>
+        <li><span class="ms-time">2-3天</span><span>M4. 验证基线：local workerd + deployed smoke tests 双环境通过</span></li>
+      </ul>
+    </div>
+    <div class="mini-section">
+      <h3>⚡ 立即行动</h3>
+      <ul class="action-steps">
+        <li>做兼容性盘点：列出 OpenMAIC 所有 Next.js 特性、Node-only 依赖，逐项映射 OpenNext/Workers 支持矩阵</li>
+        <li>起最小验证分支：首页 + 创建教室 + ClassroomDO + 单轮 Agent 交互，直接部署到 CF</li>
+        <li>建双环境 smoke test：同一套测试跑 local workerd 与线上预览，优先验证 create/join/chat/persist</li>
+      </ul>
+    </div>
+    <div class="red-flag">
+      ⚠️ <strong>诚实挑战</strong>：此信号证明"方向对、时机好"，<strong>不能证明"OpenMAIC 现在就能低风险落地"</strong>。OpenMAIC 仍走 Next.js → OpenNext 转换层，VoidZero 利好命中的是 Vite-native 栈。真正决胜点仍是一周内跑通最小闭环。
+    </div>
+  </div>
+</div>
+
+<!-- PROPOSAL 2 -->
+<div class="proposal">
+  <div class="proposal-header p2-bg">
+    <div class="proposal-num">②</div>
+    <div class="proposal-title">
+      <h2>Life OS Software Factory：从 Prompts 到 Loops</h2>
+      <div class="tagline">人负责写状态机，LLM 只在不确定节点做判断</div>
+      <div class="connects">→ 连接项目：Life OS Software Factory 🌱</div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="claim-box">
+      "我写 loops" 的具体含义是：人负责写状态机（state, budget, stop condition, eval），LLM 只在不确定节点做判断；Software Factory 由代码驱动，不由一次性 prompt 驱动。
+    </div>
+    <div class="mini-section">
+      <h3>🔓 Loop 解锁的能力</h3>
+      <table style="font-size:0.84rem">
+        <tr><th>痛点</th><th>Prompt 模式做不到</th><th>Loop 模式解锁</th></tr>
+        <tr><td>跨时间执行</td><td>一次对话结束即失忆</td><td>持续 watch CI / retry / resume</td></tr>
+        <tr><td>可验证交付</td><td>常停在"已生成代码"</td><td>必须过 test / PR / eval 才结束</td></tr>
+        <tr><td>主动运行</td><td>需要 Kyle 召唤</td><td>schedule/event 自动触发</td></tr>
+        <tr><td>失败恢复</td><td>失败即人工接管</td><td>有状态重试、降级、告警</td></tr>
+      </table>
+    </div>
+    <div class="mini-section">
+      <h3>💻 PR Autopilot Loop 伪代码</h3>
+      <pre>while (factory.isOpen()) {
+  const task = queue.pickApproved("autopilot-safe");
+  if (!task) break;
+
+  const ctx  = loadContext(task);
+  if (!riskGate(task, ctx)) { notifyHuman(task, "risk"); continue; }
+
+  const branch = git.createBranch(task.id);
+  let passed = false;
+
+  for (let i = 0; i < 3; i++) {          // 最多 3 轮
+    const plan   = llm.plan(task, ctx, lastFailure);
+    apply(plan.diff);
+    const test   = runTests(plan.testScope);
+    const verify = evaluate(diff(), test, policy);
+
+    if (verify.pass) { passed = true; break; }
+    lastFailure = summarizeFailure(test, verify);
+    rollbackUnsafeChanges();
+  }
+
+  if (!passed) { escalate(task, lastFailure); continue; }
+
+  const pr = gh.openPR(task, diffSummary());
+  const ci = watchCI(pr, { timeoutMin: 30 });
+
+  if (ci.fixable) reenterLoop(task, ci.logs);
+  else            notifyHuman(task, ci.status);
+
+  recordMetrics(task, pr, ci);
+}</pre>
+    </div>
+    <div class="two-col">
+      <div class="mini-section">
+        <h3>📏 成功标准</h3>
+        <div class="metrics-row" style="flex-direction:column;gap:6px">
+          <div class="metric-pill">1个 autopilot-safe 任务 <strong>无需手动触发即生成 PR</strong></div>
+          <div class="metric-pill">PR 前 test 通过；CI 结果被系统追踪到终态</div>
+          <div class="metric-pill">连续2周 <strong>无重复取单/脏分支/无限重试</strong></div>
+          <div class="metric-pill">≥60% 自动 PR 可直接 merge 或仅需轻微 review</div>
+        </div>
+      </div>
+      <div class="mini-section">
+        <h3>⚡ 立即行动</h3>
+        <ul class="action-steps">
+          <li>定义安全任务类型：列出 10 个 autopilot-safe 样例任务（依赖升级、lint fix、测试补充）</li>
+          <li>先实现单仓 patch-test loop：不开 PR，只做到本地 test pass</li>
+          <li>接上 PR + CI watcher：在 Life OS 自仓跑通 1 次完整链路</li>
+        </ul>
+      </div>
+    </div>
+    <div class="red-flag">
+      ⚠️ <strong>诚实挑战</strong>：Loops 不是万能隐喻。它擅长 <em>bounded work</em>：状态清晰、验证明确、失败可分类。若问题本质是"该不该做"而非"怎么反复做到对"，loop 会把不清楚的战略问题包装成高效忙碌。先别让 Agent 写任何代码，先让它稳定完成一种小而闭环的代码循环。
+    </div>
+  </div>
+</div>
+
+<!-- PROPOSAL 3 -->
+<div class="proposal">
+  <div class="proposal-header p3-bg">
+    <div class="proposal-num">③</div>
+    <div class="proposal-title">
+      <h2>CDH Agentic Engineering Playbook：生产三模式落地</h2>
+      <div class="tagline">不投资"多 Agent 并行写代码"，构建受控型编排体系</div>
+      <div class="connects">→ 连接项目：Engineering Baseline + AI Adoption Strategy 🔥</div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="claim-box">
+      CDH 应构建"Single-Writer + Shared Context + Controlled Delegation"的 Agentic Engineering 体系，而不应投资"多 Agent 并行写代码"的自动化幻觉。
+    </div>
+    <div class="mini-section">
+      <h3>⚔️ 三种模式 vs 常见失败做法</h3>
+      <table style="font-size:0.84rem">
+        <tr><th>生产可活模式</th><th>常见失败做法</th><th>为何会死</th></tr>
+        <tr><td>Single-Writer / Multi-Advisor</td><td>多 Agent 同时改代码</td><td>冲突、覆盖、责任不清</td></tr>
+        <tr><td>Context Engineering（共享状态）</td><td>只优化 prompt</td><td>上下文碎裂，结果漂移</td></tr>
+        <tr><td>Task Decomposition + Delegation</td><td>放任 agent swarm 探索</td><td>成本失控，难验收</td></tr>
+      </table>
+    </div>
+    <div class="mini-section">
+      <h3>🗓 实施里程碑（12 周）</h3>
+      <ul class="milestone-list">
+        <li><span class="ms-time">W1-2</span><span>M1. 选 3 个场景（Incident RCA、PR Review Assist、Tech Debt Refactor）；建统一任务模板；定义 Single-Writer 规则；建 baseline 指标</span></li>
+        <li><span class="ms-time">W3-5</span><span>M2. 为每个场景建 Shared Context Pack（system map, runbook, ownership, constraints）；输出《CDH Context Playbook》</span></li>
+        <li><span class="ms-time">W6-8</span><span>M3. 落地 Writer/Advisor/Reviewer/Verifier 四角编排；禁止多 Agent 并发写同一 worktree</span></li>
+        <li><span class="ms-time">W9-12</span><span>M4. 度量 ROI；沉淀《CDH Agentic Engineering Playbook v1》；决策是否扩面</span></li>
+      </ul>
+    </div>
+    <div class="two-col">
+      <div class="mini-section">
+        <h3>📏 成功标准</h3>
+        <div class="metrics-row" style="flex-direction:column;gap:6px">
+          <div class="metric-pill">PR lead time 降低 <strong>15-25%</strong></div>
+          <div class="metric-pill">Incident MTTR 降低 <strong>20-30%</strong></div>
+          <div class="metric-pill">AI 生成代码被回滚 <strong>&lt;5%</strong></div>
+          <div class="metric-pill">≥70% 工程师每周 3次+ AI 工程任务</div>
+        </div>
+      </div>
+      <div class="mini-section">
+        <h3>⚡ 立即行动</h3>
+        <ul class="action-steps">
+          <li>选 3 个试点用例：1 个 incident、1 个 PR review、1 个 tech debt task</li>
+          <li>产出统一 Task Contract：Goal / Context / Constraints / Done / Evidence</li>
+          <li>开 60 分钟训练营：主题"怎么让 AI 听懂我：Prompt 不如 Context"</li>
+        </ul>
+      </div>
+    </div>
+    <div class="red-flag">
+      ⚠️ <strong>诚实挑战</strong>：CDH 适合受控型 multi-agent，尚未准备好 autonomous swarm。缺的前置条件：统一 Context Engineering discipline、标准化任务拆解方法、可追踪 ROI metrics、清晰 agent 权限模型。若今天直接推"多 Agent 自动写代码"，大概率制造更多 output，而非更多 outcome。
+    </div>
+  </div>
+</div>
+
+<!-- PROPOSAL 4 -->
+<div class="proposal">
+  <div class="proposal-header p4-bg">
+    <div class="proposal-num">④</div>
+    <div class="proposal-title">
+      <h2>Dynamic Harness Generation：让测试变便宜的机器</h2>
+      <div class="tagline">先造底座，再批量产测；AI 不只写 @Test，先建 CheckoutHarness</div>
+      <div class="connects">→ 连接项目：Testing Excellence + AI Upskill Trainer 🔥</div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="claim-box">
+      把测试策略从"人工补 testcase"升级为"AI 先按模块生成专用验证底座，再批量产测并迭代"——测试不再是手工艺，而是可复制能力。
+    </div>
+    <div class="mini-section">
+      <h3>💻 动态 Harness 示例（checkoutService）</h3>
+      <pre>class CheckoutHarness {
+    final FakeInventoryClient inventory = new FakeInventoryClient();
+    final FakePaymentGateway  payment   = new FakePaymentGateway();
+    final InMemoryOrderRepo   repo      = new InMemoryOrderRepo();
+    final CheckoutService     service   = new CheckoutService(repo, inventory, payment);
+
+    CheckoutRequestBuilder request() {
+        return new CheckoutRequestBuilder()
+            .withCurrency("CNY")
+            .withItem("SKU-1", 1, new BigDecimal("199.00"));
+    }
+
+    void givenStock(String sku, int qty)   { inventory.put(sku, qty); }
+    void givenPaymentTimeout()             { payment.timeoutNextCall(); }
+    void givenIdempotencyKeySeen(String k) { repo.saveIdempotency(k); }
+
+    void assertAmount(OrderResult r, String expected) {
+        assertThat(r.getPayableAmount()).isEqualByComparingTo(expected);
+    }
+    void assertSingleOrderCreated(String key) {
+        assertThat(repo.countByIdempotencyKey(key)).isEqualTo(1);
+    }
+}</pre>
+    </div>
+    <div class="mini-section">
+      <h3>🗓 里程碑（试点：checkoutService，6 周）</h3>
+      <ul class="milestone-list">
+        <li><span class="ms-time">W1</span><span>基线盘点：核心结算路径、现有测试/CI/JaCoCo 真实基线</span></li>
+        <li><span class="ms-time">W2</span><span>设计 Harness v1：fixture builders、fake adapters、BigDecimal assertions、idempotency helper</span></li>
+        <li><span class="ms-time">W3-4</span><span>AI 批量产测：覆盖 checkout / discount / payment fallback / idempotency</span></li>
+        <li><span class="ms-time">W5</span><span>接入 CI gate：PR 必跑测试；先设 core-path gate，不追全局 60%</span></li>
+        <li><span class="ms-time">W6</span><span>复盘推广：模板化为 Java/Golang 双栈 playbook</span></li>
+      </ul>
+    </div>
+    <div class="two-col">
+      <div class="mini-section">
+        <h3>📏 成功标准</h3>
+        <div class="metrics-row" style="flex-direction:column;gap:6px">
+          <div class="metric-pill">Core-path coverage <strong>≥40%</strong>（6周目标）</div>
+          <div class="metric-pill">新增/修改 PR 带测试率 <strong>≥80%</strong></div>
+          <div class="metric-pill">单个测试用例 lead time <strong>下降 50%</strong></div>
+          <div class="metric-pill">结算类 escaped defect <strong>下降 20%+</strong></div>
+        </div>
+      </div>
+      <div class="mini-section">
+        <h3>⚡ 立即行动</h3>
+        <ul class="action-steps">
+          <li>选定 checkoutService owner + tech lead，确认试点边界只含 1 条核心结算路径</li>
+          <li>做基线审计：真实 coverage、测试数、PR 流程、近3个月结算类 defect</li>
+          <li>定义 Harness v1 contract：金额精度/库存不足/幂等重试/支付超时 4 类场景</li>
+        </ul>
+      </div>
+    </div>
+    <div class="red-flag">
+      ⚠️ <strong>诚实挑战</strong>：AI-generated harness 不天然优于人写测试。更优之处：重复、结构化、场景可枚举的 service logic。更差之处：领域规则暧昧、跨服务契约不清、历史债极重时，AI 会把误解自动化。最佳定位：先把 70% 测试底座自动化，人力留给 30% 高价值判断。
+    </div>
+  </div>
+</div>
+
+<!-- PROPOSAL 5 -->
+<div class="proposal">
+  <div class="proposal-header p5-bg">
+    <div class="proposal-num">⑤</div>
+    <div class="proposal-title">
+      <h2>从"教个人用 AI"到"让团队以 AI 方式工作"</h2>
+      <div class="tagline">CDH AI Strategy 的范式升级：工具安装 → 工作流基础设施</div>
+      <div class="connects">→ 连接项目：AI Adoption Strategy + Engineering Baseline 🔥</div>
+    </div>
+  </div>
+  <div class="proposal-body">
+    <div class="claim-box">
+      CDH 的 AI Strategy 应从提升个人 prompt skill，转向把 AI 嵌入团队关键工作流，使产出可复用、能力可转移、结果可度量。
+    </div>
+    <div class="mini-section">
+      <h3>📊 两种模式对比</h3>
+      <table style="font-size:0.84rem">
+        <tr><th>维度</th><th>个人 AI 能力建设</th><th>组织 AI 能力建设</th></tr>
+        <tr><td>目标</td><td>让工程师更强</td><td>让团队交付系统更强</td></tr>
+        <tr><td>关注点</td><td>Prompt 技巧、工具熟练度</td><td>Workflow、artifact、reuse、measurement</td></tr>
+        <tr><td>成功标志</td><td>个别人很会用</td><td>新人也能按同样流程产出</td></tr>
+        <tr><td>知识载体</td><td>个人经验、私人对话</td><td>Shared prompt pack、playbook、template</td></tr>
+        <tr><td>管理视角</td><td>培训完成率</td><td>Lead time、quality、onboarding、resilience</td></tr>
+      </table>
+    </div>
+    <div class="mini-section">
+      <h3>🗓 实施里程碑（12 周）</h3>
+      <ul class="milestone-list">
+        <li><span class="ms-time">W1-2</span><span>M1. 定义"组织级 AI 关键工作流"：选 Incident analysis / Design ADR draft / Task breakdown 三个场景；建 baseline metrics</span></li>
+        <li><span class="ms-time">W3-5</span><span>M2. AI Upskill Trainer 改为"Workflow Clinic"：用真实 CDH case，统一输入模板 + context pack + prompt pack</span></li>
+        <li><span class="ms-time">W6-8</span><span>M3. 嵌入团队日常节奏（refinement / design review / incident review / onboarding）；在 Confluence 建可复用模板</span></li>
+        <li><span class="ms-time">W9-10</span><span>M4. 建"组织能力"度量面板：cycle time / reuse / onboarding time / dependency reduction</span></li>
+        <li><span class="ms-time">W11-12</span><span>M5. Keep/Scale/Stop 决策；沉淀 Engineering Baseline 叙事材料供 Nicole/Kirill</span></li>
+      </ul>
+    </div>
+    <div class="two-col">
+      <div class="mini-section">
+        <h3>📏 成功标准</h3>
+        <div class="metrics-row" style="flex-direction:column;gap:6px">
+          <div class="metric-pill">&gt;70% 试点任务按标准 AI workflow 执行</div>
+          <div class="metric-pill">试点场景 lead time 下降 <strong>20-40%</strong></div>
+          <div class="metric-pill">任一 workflow 至少 <strong>2 人可替代执行</strong></div>
+          <div class="metric-pill">新成员首个合格 artifact 时间 <strong>下降 30%</strong></div>
+        </div>
+      </div>
+      <div class="mini-section">
+        <h3>⚡ 立即行动</h3>
+        <ul class="action-steps">
+          <li>下次 AI Upskill Trainer 改主题：从"怎么让 AI 听懂我"→"团队如何用同一套 AI workflow 完成真实 CDH 任务"</li>
+          <li>选一个场景做 live workflow lab（推荐 incident analysis 或 ADR draft）：统一输入模板 + context pack</li>
+          <li>当场记录第一版组织指标：耗时/可复用/是否需专家返工/能否独立复现流程</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mini-section">
+      <h3>💬 给 Nicole / Kirill 的一句话</h3>
+      <div style="background:var(--surface2);border-radius:8px;padding:14px 18px;font-style:italic;color:var(--text2);font-size:0.95rem;">
+        "我们下一阶段不是继续培养少数会用 AI 的高手，而是把 AI 变成团队可复用、可衡量、可传承的工作方式；这样才能把 AI 投入稳定转化为 delivery capability 与 business impact。"
+      </div>
+    </div>
+    <div class="red-flag">
+      ⚠️ <strong>诚实挑战</strong>：11 人团队足够做 workflow design，但不该做重平台/重治理/重审批。若失败，会变成模板官僚主义 + 指标表演。成功判断标准只有一个：<em>90 天内能否回答"是否让团队交付系统更强了"？</em>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Generated by my-readwise-briefing v4.0 · 2026-06-08 · 5 Subagents 并行推理 · Phase 2 完成<br>
+  Phase 1 简报 → /tmp/readwise-briefing-20260608.html
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
