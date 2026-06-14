@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Readwise 简报 2026-06-14</title><style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626}
+html.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;margin:0;padding:0;transition:background .2s}
+.wrap{max-width:920px;margin:0 auto;padding:32px 20px 80px}
+header{border-bottom:2px solid var(--accent);padding-bottom:18px;margin-bottom:28px;position:relative}
+h1{font-size:1.7rem;margin:0 0 6px;color:var(--accent)}
+.sub{color:var(--text2);font-size:.92rem}
+#theme-toggle{position:absolute;top:0;right:0;font-size:1.4rem;cursor:pointer;background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:42px;height:42px;line-height:38px;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center}
+.stat .n{font-size:1.5rem;font-weight:bold;color:var(--accent)}
+.stat .l{font-size:.72rem;color:var(--text3);margin-top:2px}
+.banner{background:linear-gradient(90deg,var(--accent3),var(--accent2));color:#fff;padding:14px 18px;border-radius:10px;margin:18px 0;font-size:.95rem}
+h2{font-size:1.2rem;margin:34px 0 14px;padding-left:12px;border-left:4px solid var(--accent);color:var(--text)}
+h2 .cnt{font-size:.8rem;color:var(--text3);font-weight:normal;margin-left:8px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.85rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+th{background:var(--surface2);text-align:left;padding:10px;color:var(--accent);border-bottom:1px solid var(--border)}
+td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text2)}
+tr:last-child td{border-bottom:none}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:12px 0;transition:border-color .15s}
+.card:hover{border-color:var(--accent2)}
+.tier5{border-left:4px solid var(--accent3)}
+.tier4{border-left:4px solid var(--accent2)}
+.card-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.stars{font-size:.85rem}
+.who{color:var(--accent);font-weight:bold;font-size:.85rem}
+.src{margin-left:auto;font-size:.75rem;color:var(--accent2);text-decoration:none}
+.ann{background:var(--surface2);border-radius:8px;padding:8px 12px;margin:6px 0;font-size:.88rem;color:var(--text2)}
+.ann.intent{font-size:.78rem;padding:5px 12px}
+.tweet{color:var(--text);font-size:.92rem;white-space:pre-wrap;word-break:break-word;margin-top:8px}
+ul.compact{list-style:none;padding:0;margin:0}
+ul.compact li{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent4);border-radius:8px;padding:10px 14px;margin:8px 0;font-size:.88rem;color:var(--text2)}
+ul.compact li b{color:var(--text)}
+ul.compact li .who{font-size:.78rem}
+.action{background:var(--surface);border:1px solid var(--accent3);border-radius:12px;padding:16px 20px;margin:12px 0}
+.action h3{margin:0 0 10px;color:var(--accent3);font-size:1rem}
+.action ol{margin:6px 0 0;padding-left:22px;color:var(--text2);font-size:.9rem}
+.action li{margin:6px 0}
+.action li b{color:var(--text)}
+details{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 16px;margin-top:8px}
+details summary{cursor:pointer;color:var(--text3);font-size:.85rem;outline:none}
+details[open] summary{margin-bottom:12px;color:var(--text2)}
+.foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color:var(--text3);font-size:.75rem;text-align:center}
+.dir-emoji{font-size:1.1rem}
+.verified{color:var(--accent3);font-weight:bold;font-size:.75rem}
+.partial{color:var(--accent4);font-weight:bold;font-size:.75rem}
+.note{background:#fff8e1;border-radius:8px;padding:8px 12px;margin:10px 0;font-size:.82rem;color:var(--text2)}
+html.dark .note{background:rgba(217,119,6,.12)}
+</style></head>
+<body><div class="wrap">
+<header><button id="theme-toggle">🌙</button><h1>📡 Readwise 情报简报</h1><div class="sub">2026-06-14 · 上次同步 2026-06-03 · 增量 59 条高亮 / 49 源</div>
+<div class="stats">
+<div class="stat"><div class="n">59</div><div class="l">总高亮</div></div>
+<div class="stat"><div class="n" style="color:var(--accent3)">13</div><div class="l">⭐×5 深挖</div></div>
+<div class="stat"><div class="n" style="color:var(--accent2)">13</div><div class="l">⭐×4 高价值</div></div>
+<div class="stat"><div class="n" style="color:var(--accent4)">12</div><div class="l">⭐×3 备用</div></div>
+<div class="stat"><div class="n" style="color:var(--text3)">20</div><div class="l">⭐×1-2 待归档</div></div>
+</div></header>
+
+<div class="banner">⚡ <b>核心公理</b>：不可行动的信息 = 噪音。本简报完成 <b>信号 → 验证 → 洞察 → 行动</b> 闭环。5 个 subagent 正在并行深挖 → Proposals HTML 即将生成。</div>
+
+<div class="note">⚠️ <b>本次数据范围</b>：MCPHub 服务未运行，Reader API（文档）无法访问；本次仅采集到 <b>Highlights（推文高亮）</b>。59 条全部来自 X/Twitter。Reader 文档同步待 MCPHub 恢复后补采。</div>
+
+<h2>🗺️ 信号概览：5 个深挖方向 <span class="cnt">→ 见 Proposals HTML</span></h2>
+<table><thead><tr><th>方向</th><th>关联意图</th><th>汇聚信号</th><th>验证</th></tr></thead><tbody><tr><td><b>知识标准化</b><br><span style="color:var(--text3);font-size:.78rem">Google OKF v0.1</span></td><td>Life OS·Memory / Notebooks / Skill Hub</td><td style="font-size:.8rem">3 条推文+Google 6/12 官宣，生态当日萌发</td><td class="verified">✅ Verified</td></tr><tr><td><b>项目记忆框架</b><br><span style="color:var(--text3);font-size:.78rem">四层跨 session 记忆</span></td><td>Life OS·Memory / Claude Code</td><td style="font-size:.8rem">⭐✅ 社区多源验证，生产级 harness</td><td class="verified">✅ Verified</td></tr><tr><td><b>事故响应</b><br><span style="color:var(--text3);font-size:.78rem">9 段结构化复盘</span></td><td>System Stability / mbff 500·400</td><td style="font-size:.8rem">⭐105 今日更新，直击真实事故</td><td class="verified">✅ Verified</td></tr><tr><td><b>自主循环</b><br><span style="color:var(--text3);font-size:.78rem">写 loops 不写 prompts</span></td><td>Life OS·Proactive Agents</td><td style="font-size:.8rem">Boris+Mr Panda+Zed 4 源汇聚</td><td class="verified">✅ Verified</td></tr><tr><td><b>基建统一</b><br><span style="color:var(--text3);font-size:.78rem">密码/应用统一到 CF</span></td><td>OpenMAIC / AI Security</td><td style="font-size:.8rem">VoidZero→CF + CF 密码库 + Apple Container</td><td class="partial">⚠️ Partial</td></tr></tbody></table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值 · 立即行动 <span class="cnt">13 条</span></h2>
+<div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@Marie_Haynes on Twitter</span><a class="src" href="https://x.com/Marie_Haynes/status/2065531158356717721" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Google Open Knowledge Format (OKF v0.1)：给 Agent 的标准化 Markdown 知识格式。3 条推文汇聚 + Google Cloud 6/12 官宣。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Life OS·Memory / Ontology / Notebooks本身 / IKEA Skill Hub</div><div class="tweet">This is really big news. Google introduced the Open Knowledge Format (OKF) - a standardized way to store information in a directory of markdown files. Makes it really easy to make a digital brain that agents can use.
+
+These files can serve as a living wiki. You can give agents https://t.co/O8HSkoTiUF
+
+![](https://pbs.twimg.com/media/HKo776pWQAMLQZ_.jpg)</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@heycqing on Twitter</span><a class="src" href="https://x.com/heycqing/status/2065679818520515064" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 OKF 草案 = 最小知识库单位。Google 在所有人前面布局。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Ontology Research / Life OS</div><div class="tweet">谷歌一个草稿提案，
+
+很有意思，如果能知道 md文件 与 知识库的话，就能理解，这是一个很不错的概念。
+
+简单来说就是定义了最小知识库的单位。🥳
+
+不愧是谷歌，不声不响，其实深入层度在所有人前面。
+
+把最近的想法都串联起来了。
+
+https://t.co/ubO4iRBngu</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@zeddotdev on Twitter</span><a class="src" href="https://x.com/zeddotdev/status/2065089002445963435" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Zed DeltaDB：&#x27;生成代码的对话正在成为软件的真正源头，Git 跟不上了。&#x27; 对话即源码。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Harness / Life OS·Software Factory</div><div class="tweet">Great software always took shape in conversation, not the commit. With agents, the conversation that generates the code is becoming the true source of our software. And Git can&#x27;t keep up.  
+
+So we built something that can. Meet DeltaDB: https://t.co/x0UHntKy9m</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@cuisitekp on Twitter</span><a class="src" href="https://x.com/cuisitekp/status/2065059643597160911" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Trellis (mindfold-ai)：四层 harness 让 Claude Code 跨 session 记住项目。&#x27;让 AI 记住你项目&#x27;最接近的方案。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Life OS·Memory / Claude Code</div><div class="tweet">长期用 Claude Code 或 Codex 写项目的人，真该把 Trellis 装上试试。
+
+说它是现在最接近&quot;让 AI 记住你项目&quot;的方案，不算夸张。
+
+很多人写着写着觉得 AI https://t.co/YgOCZMMzWf
+
+![](https://pbs.twimg.com/media/HKiQyv2bUAAOh8D.jpg)</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@shibu_jp on Twitter</span><a class="src" href="https://x.com/shibu_jp/status/2064572435048145097" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Apple Container 1.0（实际最新 0.8.0，推文略超前）：Swift 原生 macOS Linux 容器。⚠️版本夸大</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Dev infra / AI Security·sandbox</div><div class="tweet">Apple Container、version 1.0がリリースされている！！！！！！！！！！ https://t.co/sNo1yY2O4P</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@Mikocrypto11 on Twitter</span><a class="src" href="https://x.com/Mikocrypto11/status/2062792788706521333" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Boris (Claude Code 之父)：&#x27;我不再写 prompts，我写 loops。&#x27; loop engineering 方法论正成型。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Life OS·Proactive Agents / Claude Code</div><div class="tweet">Claude Code 的创造者 Boris 讲了一个很关键的转变：
+
+“我现在不再给 Claude 写 prompts。
+我写 loops
+然后让 loops 去完成工作
+我的工作，就是写 loops。”
+这其实也是很多人用 Claude Code 卡住的地方
+
+他们还在把它当聊天工具用：
+输入一个需求
+等一次回答
+然后手动继续改
+
+但 Boris 在 30 https://t.co/mQOoSCm0nR https://t.co/7IDarYcOz8</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@voidzerodev on Twitter</span><a class="src" href="https://x.com/voidzerodev/status/2062520542121304146" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 VoidZero 加入 Cloudflare（Vite/Vitest/Rolldown/Oxc 仍 MIT）。JS 构建栈归入 CF 怀抱。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：OpenMAIC·Cloudflare / 技术栈</div><div class="tweet">VoidZero is joining Cloudflare.
+
+Our mission stays the same: to make JavaScript developers more productive than ever before. Vite, Vitest, Rolldown, Oxc, and Vite+ remain MIT-licensed. Evan and the VoidZero team will continue leading them.
+
+Cloudflare shares our commitment to https://t.co/GtaBFQFJva
+
+![](https://pbs.twimg.com/media/HJ-LgNTXkAAetvW.jpg)</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@seclink on Twitter</span><a class="src" href="https://x.com/seclink/status/2065679465259180092" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Vercel HarnessAgent (AI SDK 7, 6/12)：统一 API 编排 Claude Code/Codex/Pi。harness 抽象层。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Agentic Engineering</div><div class="tweet">Vercel 推出 HarnessAgent，助力轻松切换 AI 框架
+
+Vercel 于 6 月 12 日在 AI SDK 7 的 Canary（先行）版本中发布了 HarnessAgent。
+
+该工具提供统一的 API，支持在 Anthropic 的 Claude Code、OpenAI 的 Codex 和 Pi 等智能体运行环境（agent</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@nash_su on Twitter</span><a class="src" href="https://x.com/nash_su/status/2065719677582774724" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 karpathy llm_wiki → Google OKF v0.1 标准。命名权争夺战开始。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Knowledge standard / Life OS Memory</div><div class="tweet">llm_wiki 竟然被 Google 制定为知识标准：OKF v0.1 
+
+当然我说的是 karpathy 的那个 llm_wiki 方法论，现在被 Google 起草了一个 0.1 版本的 OKF 开放知识格式标准。
+
+我的那个 llm_wiki 项目看来要跟这个赶紧做个兼容，现在 11k star 了，得加紧更新
+
+项目地址：https://t.co/FHCxtJJm06
+
+Google OKF</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@PandaTalk8 on Twitter</span><a class="src" href="https://x.com/PandaTalk8/status/2064334354084745438" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 &#x27;Loop engineering&#x27;：定义目标→AI 持续循环迭代→直到完成。命名即存在。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Life OS / Software Factory</div><div class="tweet">这几天流行一个新词， 叫 loop engineering . 
+
+就是设计一套循环工程， 让智能体自主循环完成提示工作， 你定义目标， 然后AI 持续循环迭代， 直到任务完成的一种工程方法。  
+
+我不想讨论 loop engineering 具体实现。  
+
+我只想说， 人类正在通过各种 prompt 和 最基础的程序逻辑，</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@geekbb on Twitter</span><a class="src" href="https://x.com/geekbb/status/2064141676462121325" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Cloudflare 原生密码管理器：Workers+D1/R2/KV，Bitwarden 兼容，TOTP+WebDAV/S3 备份。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：AI Security / credential-manager</div><div class="tweet">把密码交给 Cloudflare 吗🤔
+
+跑在 Cloudflare Workers 上，用 D1 数据库和 R2/KV 存数据，跟 Bitwarden 客户端兼容。网页密码库、附件、Send、TOTP 都有，还多了一个云端备份中心，支持 WebDAV 或 S3 定时备份。部署可以在 Cloudflare 控制台一键搞定，也能用 CLI https://t.co/CGrt32L63h
+
+![](https://pbs.twimg.com/media/HKTDKUlaMAAJOpa.jpg)</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@geekbb on Twitter</span><a class="src" href="https://x.com/geekbb/status/2065780978203664892" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 AI Reliability Copilot (⭐105)：粘贴事故上下文→流式输出 9 段结构化分析→复盘草稿。直击 mbff 500/400 事故。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：System Stability / baozun-incident / Engineering Baseline</div><div class="tweet">AI Reliability Copilot 一个开源的 SRE 工具，粘贴事故上下文（日志、指标、报警）后，AI 即时流式输出 9 段结构化分析，覆盖从严重等级判定到事后复盘草稿的完整流程。
+
+https://t.co/rY37kiMwAY https://t.co/dIseH7fIWy
+
+![](https://pbs.twimg.com/media/HKsTHdzaMAA7ZsZ.jpg)</div></div><div class="card tier5"><div class="card-head"><span class="stars" style="color:var(--accent3)">⭐⭐⭐⭐⭐</span><span class="who">@@vikingmute on Twitter</span><a class="src" href="https://x.com/vikingmute/status/2065625707666182322" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Apple Container：macOS 原生容器，每容器一轻量 VM，OCI 兼容。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Dev infra / Browser Automation 隔离</div><div class="tweet">突然发现 Apple 官方出了这个 container 的好东西啊：https://t.co/Z0kpWd4Pkt
+
+一个 macOS 原生容器工具，主要意义在于为  Silicon 提供高效、安全的 Linux 容器运行环境，每个容器一个轻量 VM，性能优秀。
+
+看文档能直接 pull/run/build Docker 镜像，CLI 命令类似，container</div></div>
+
+<h2>⭐⭐⭐⭐ 备用收藏 <span class="cnt">13 条</span></h2>
+<div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@Xudong07452910 on Twitter</span><a class="src" href="https://x.com/Xudong07452910/status/2065607587224027475" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 brooks-lint (⭐1055, 今日更新)：基于《人月神话》《重构》《DDD》等 12 本经典 SE 书的 AI 代码审查。防 AI 造屎山。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Testing Excellence / AI Coding</div><div class="tweet">🛠️ 开源项目推荐：brooks-lint —— 让 AI 生成代码不再“腐烂”的工程化守护者
+
+brooks-lint解决的最大痛点就是避免了 AI 造 “屎山”的问题。
+
+它是基于《人月神话》、《重构》、《领域驱动设计》等 12 本经典软件工程书籍的 AI https://t.co/PFKYGElp6V
+
+![](https://pbs.twimg.com/media/HKnz_IhWYAAcUNp.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@Weixin_WeChat on Twitter</span><a class="src" href="https://x.com/Weixin_WeChat/status/2063971111298285802" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Weixin Open Platform：小程序接入微信 AI 生态（自动模式/开发模式）。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：GEO / Social Output·WeChat</div><div class="tweet">💡Weixin Open Platform now gives developers an easier way to connect Weixin Mini Program to the Weixin AI ecosystem.
+
+Pick the setup that fits your team:
+⚡ Automatic Mode: no extra development needed
+🛠️ Development Mode: customize it around your business needs
+
+And yes, you can https://t.co/xAcVeQyV34
+
+![](https://pbs.twimg.com/media/HKSyyPJbwAAO_dN.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@Eejoylove on Twitter</span><a class="src" href="https://x.com/Eejoylove/status/2064309711818932468" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 瑞幸咖啡 skill 上线：AI Agent 从概念走向实体消费场景商业化落地。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：AI Adoption / Vibe Stack·中国市场</div><div class="tweet">我去瑞幸咖啡skill也上线了！
+
+总体而言，这标志着AI智能体服务已从概念正式走向实体消费场景的商业化落地。 https://t.co/54ATojcS4M
+
+![](https://pbs.twimg.com/media/HKXmvDQa0AAEc1d.jpg)
+
+![](https://pbs.twimg.com/media/HKXmvDRaIAAiMGp.jpg)
+
+![](https://pbs.twimg.com/media/HKXmvDVbsAAIjgS.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@cjzafir on Twitter</span><a class="src" href="https://x.com/cjzafir/status/2063305526285578573" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Mac-1 模型：6.6B 本地运行，7GB RAM，487 个 macOS 原生工具，多工具链式任务，~65 tok/s。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Browser Automation / portal-cli / 本地 Agent</div><div class="tweet">Here&#x27;s a teaser of our Mac-1 model.
+
+&gt; 6.6B model
+&gt; runs locally (on any Mac)
+&gt; requires 7GB RAM (12GB ideal)
+&gt; can use 487 MacOS native tools
+&gt; perform multi-tool chained tasks
+&gt; reasoning: ON
+&gt; output: ~65 tok/s
+
+We built a robust application layer around the model to make https://t.co/TmKCTUuwfz https://t.co/PvDSDhlDzH</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@hxiao on Twitter</span><a class="src" href="https://x.com/hxiao/status/2063700998716297396" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Han Xiao 开源 Omni (Apache 2)：any2any 搜索 + 索引中搜索性能优化。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：RAG / Knowledge Base / Ontology</div><div class="tweet">Omni is now open sourced in apache 2 https://t.co/EYcL2PD12t 
+few things i fixed &amp; learned since friday
+- perf of search while indexing: a much more common issue for local use as file changes frequently.
+- any2any search: since omni embedding is used, one can now do find similar https://t.co/kpnnVDnnyT</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@tun2049 on Twitter</span><a class="src" href="https://x.com/tun2049/status/2062381534582313328" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 天机：大厂直接给高中生发 offer（1万月薪+50%内训CS+50%轮转），猛批大学是庞氏。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：K12 Education·战略信号</div><div class="tweet">刚刚看到有人建议大厂直接给高中生发offer：
+
+月薪1万，前两年50%公司内训CS核心课程（算法、OS、Deep Learning），50%轮转组别，两年后考核转正。
+猛批大学是“浪费时间、毒瘤、庞氏骗局”。
+
+想问下大家，如果大厂绕过大学直接招高中生，你觉得可行吗？ https://t.co/Dm5A2ciynA
+
+![](https://pbs.twimg.com/media/HJ8M7AsbEAAPKS9.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@seekjourney on Twitter</span><a class="src" href="https://x.com/seekjourney/status/2064630851015454915" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 lark-cli：Agent Native CLI 典范——把 skills embed 进二进制，先 list/read 能力再执行。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：portal-cli / IKEA Skill Hub / Skill 工程</div><div class="tweet">发现 lark-cli 有一个非常巧妙的设计啊，真是 Agent Native CLI 的典范设计，将 skills embed 到二进制执行文件中。
+
+内置 skills list/read：让 Agent 先发现能力、再读取当前版本 SOP，避免读错 README 或依赖联网。
+
+我准备借鉴一下，持续优化 md2wechat cli，补齐 skills command。 https://t.co/rqczLzcNLG
+
+![](https://pbs.twimg.com/media/HKcKEvdbEAA6R1d.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@TaNGSoFT on Twitter</span><a class="src" href="https://x.com/TaNGSoFT/status/2062282640842256843" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 TaNGSoFT：language agent 可按任务生成不同 harness，ReACT 的进步。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Harness / Agentic Engineering</div><div class="tweet">不得了，language agent可以根据任务不同生成不同的harness
+
+ReACT的一大进步！yaoshunyu的language agent在哪里？ https://t.co/SSCQQBvoXj</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@xicilion on Twitter</span><a class="src" href="https://x.com/xicilion/status/2063247973904171038" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 响马：个人能力越强企业越涣散；企业应从组织上加强 AI 运用，减少对个体的依赖。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Engineering Baseline / AI Adoption·团队</div><div class="tweet">并且对于企业而言，个人能力越强，企业越涣散。企业真正要做的是从组织上加强 ai 的运用，减少对个人个体的依赖。 https://t.co/VGMuEGjsyK</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@HiTw93 on Twitter</span><a class="src" href="https://x.com/HiTw93/status/2065724271486493084" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Tw93 Kami skill：优化简历版本，对着 AI /kami 产出简历。本地已有 kami skill。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Skills / 内容产出</div><div class="tweet">假如你的朋友最近需要更新简历，一定要把 Kami 推荐给他，我单独细致优化了一个版本，单独让 Kami 写简历变得非常好用好看清晰，让他把他的原生素材 md 准备好，然后对着 AI 说 /kami 帮我产出一个简历，然后调1-2下差不多就好了。
+https://t.co/XB5mfwU9rX https://t.co/h23z2RnfbG
+
+![](https://pbs.twimg.com/media/HKrtOlYbEAAmj90.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@aigclink on Twitter</span><a class="src" href="https://x.com/aigclink/status/2065732379424219363" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 drawio-skill：自然语言→drawio 图表 + 代码库自动生成结构图，生成-检查-修正闭环。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：可视化 / context/patterns</div><div class="tweet">用自然语言描述即能生成drawio图表的一套实用skill：
+drawio-skill，还能把现有代码库自动生成结构图
+
+自带生成-检查-修正闭环工作流，可导出PNG、SVG、PDF、JPG等
+
+生成后会自己检查有没有重叠、截断等问题，发现问题自动修正
+
+支持5轮迭代反馈循环定向优化，无需每次重新生成 https://t.co/nXkG6TbZqk
+
+![](https://pbs.twimg.com/media/HKrw-lhbsAAJipx.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@abskoop on Twitter</span><a class="src" href="https://x.com/abskoop/status/2065779454979592518" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 DropLock (⭐17, 昨日更新)：无后端 E2E 加密秘密共享，密文放 URL fragment，服务器只分发静态页。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：AI Security / PRATA / credential-manager</div><div class="tweet">发 API Key、Token 还在聊天软件里直接复制粘贴？🥲
+
+试试这个 DropLock ，一个无需后端的端到端加密秘密共享工具
+
+接收方先在浏览器本地生成“锁盒”，发送方只拿公钥加密内容。
+
+密文放在 URL fragment 里返回，服务器主要只是分发静态页面，不负责保存秘密内容。
+
+适合临时传递 API Key、Webhook https://t.co/y78fLs2N9W
+
+![](https://pbs.twimg.com/media/HKsfc7kawAAhnzT.jpg)</div></div><div class="card tier4"><div class="card-head"><span class="stars" style="color:var(--accent2)">⭐⭐⭐⭐</span><span class="who">@@oran_ge on Twitter</span><a class="src" href="https://x.com/oran_ge/status/2065566882774868125" target="_blank" rel="noopener">原文 ↗</a></div><div class="ann">💡 Orange AI：用最贵的 Claude Fable 打磨文案，越改越讲究但越缺人味。内容真实性悖论。</div><div class="ann intent" style="color:var(--text3)">🎯 关联意图：Human Connection / Social Output</div><div class="tweet">今天凌晨五点的时候，我让 AI 帮我打磨一段文案，打磨三遍给我看。
+AI 改完之后，我发现一遍比一遍讲究，但是一遍比一遍缺人味儿。
+我已经用上最贵的 Claude Fable 5 了，还这样，让我很生气。
+
+最后我跟 AI说，你改完之后，人味儿变少了。 https://t.co/XGZkcTmolr
+
+![](https://pbs.twimg.com/media/HKpeHXAbwAAwjGO.jpg)</div></div>
+
+<h2>✅ 行动清单 <span class="cnt">本周可做</span></h2>
+<div class="action"><h3>从高价值信号提炼的可执行任务</h3><ol>
+<li><b>OKF：本周读 OKF v0.1 spec</b><br><span style="color:var(--text3);font-size:.82rem">对比 Notebooks 现有结构（AGENTS.md + intent/ + context/），列出 gap 清单。2 小时。</span></li><li><b>Trellis：克隆到一个真实 repo 试用</b><br><span style="color:var(--text3);font-size:.82rem">mindfold-ai/Trellis 装到 portal-cli 或 OpenMAIC repo，跑 2 个 session 验证跨 session 记忆。</span></li><li><b>AI Reliability Copilot：跑一次 mbff 事故</b><br><span style="color:var(--text3);font-size:.82rem">clone YanpengQi7/ai-reliability-copilot，喂入脱敏的 6/12 mbff-checkout-400 上下文，看 9 段输出质量。</span></li><li><b>Loop Engineering：选定第一个自动化循环</b><br><span style="color:var(--text3);font-size:.82rem">从 readwise-briefing / journal / commit 中选一个最高频手动动作，写 loop 骨架（trigger→agent→verify）。</span></li><li><b>Cloudflare-first：确认那个 CF 密码库 repo</b><br><span style="color:var(--text3);font-size:.82rem">搜 vaultwarden-on-cf / cf-vault 真实仓库，评估能否自托管；同时审视哪些 secret 绝不上云。</span></li><li><b>brooks-lint：纳入 AI 代码审查候选</b><br><span style="color:var(--text3);font-size:.82rem">⭐1055 的 lint，对比团队现有 code-review skill，决定是否引入 Testing Excellence 实践。</span></li><li><b>lark-cli 模式：portal-cli 内嵌 skills</b><br><span style="color:var(--text3);font-size:.82rem">借鉴 skills list/read 嵌入二进制的设计，补齐 portal-cli skills 子命令。</span></li>
+</ol></div>
+
+<h2>⭐⭐⭐ 备选观察 <span class="cnt">12 条</span></h2>
+<ul class="compact">
+<li><span class="who">@@xiaohu on Twitter</span> — 实际上安装了我这个一系列的工具后
+
+还可以让codex或者claude code帮你自动剪切视频
+
+你看我让它翻译WWDC2026的视频 并按照视频内容进行片段裁切
+
+它可以自动分析精准将视频裁切成多个独立片段 https://t.co/ESSV513Q1K https://t.co/m09tLB3Xa7
+
+![](https://pbs.twimg.com/media/HKV6B15aQAAcvRw.jpg)</li><li><span class="who">@@vintcessun on Twitter</span> — 发现新思路：编码 agent 原来可以轻到这个程度。16MB 内存、0% 空闲 CPU、26MB 二进制——这数据在 agent 圈里有点离谱。
+它用 Rust 硬怼，17k LoC 就把所有标准工具、权限系统、会话管理、MCP 都塞进去了，核心思路是“能选配的都放 feature gate”，比如内存、ACP、多线程 subagent</li><li><span class="who">@@xiaoxiaodong01 on Twitter</span> — 这几天在疯狂优化这个开源项目
+
+争取把中国传统色这个项目，变得更加实用
+
+比如每个颜色：
+推导出同类、邻近、互补、分裂互补、三角、四角、冷暖、明暗、灰调、中性色及主辅点缀等配色
+
+更新的有：
+1. 网站
+https://t.co/K8bXoQI2FX 
+2. 742 色配色方案 Markdown
+https://t.co/qyRjBGvWjR
+3. 742 https://t.co/U8r9UL7R5r https://t.co/UcwNS4rO3Y
+
+![](https:/…</li><li><span class="who">@@KELMAND1 on Twitter</span> — 啊这…先认真去看看大学计算机科学技术专业课程表再做这种不切实际的白日梦…
+
+这个培养方案的设计者，大概是硅谷鸡汤喝多了，以为每个高中生都是少年黑客。 https://t.co/KfCtISi15v</li><li><span class="who">@@0xLogicrw on Twitter</span> — Anthropic 首席执行官 Dario Amodei 明确主张民主国家结盟封锁中国等对手的芯片与半导体设备供应链。
+
+他在最新发表的政策长文中警告，随着 1 至 2 年内超级人工智能的涌现，掌握先进 AI 的国家对落后国家将具备如同「二战陆战队对决中世纪剑客」的碾压性军事代差。 https://t.co/3nzQab8Urn</li><li><span class="who">@@PandaTalk8 on Twitter</span> — 1/ 最近读到一本很适合系统补 LLM 基础的书：
+
+《Foundations of Large Language Models》
+
+作者是 Tong Xiao 和 Jingbo Zhu，来自中国东北大学 NLP Lab 与 NiuTrans Research。 https://t.co/fWYjicwpa6
+
+![](https://pbs.twimg.com/media/HKmW3vpbIAAkzwF.jpg)</li><li><span class="who">@@LufzzLiz on Twitter</span> — 最近邮件与私信收到了好多国外友人的催稿，有生物老师，也有土耳其老哥的来信，希望我继续将项目做下去。
+
+我也大受鼓舞，只是最近工作太忙，先做一个demo页面看看，但我保证会持续迭代这个项目
+
+我希望AI技术真正能照进教育领域，给孩子们一些帮助，也希望有想法的伙伴贡献你的idea https://t.co/VNrg3LSCJ8 https://t.co/w3Cz09KHBw</li><li><span class="who">@@ewind_dev on Twitter</span> — 《那一夜》
+
+猛蹬 fable 通宵一晚上，八点多还带娃去医院，现在我人快没了……💀💀💀
+
+顺便推荐图中的 Superset 是我最爱的 vibe IDE，傻瓜式多 worktree 摇老虎机大杀器 https://t.co/MuMEQQ4FXm https://t.co/AcP17iqIrt
+
+![](https://pbs.twimg.com/media/HKsbYOQWQAA8RJB.jpg)</li><li><span class="who">@@xicilion on Twitter</span> — 看到一个讨论，说 ai 用多了，人会不会变笨。
+这就属于多虑了。人不会因为工具变笨，会变笨的人是自己喜欢变笨。
+工具的进化，只会高度压缩时间和信息，反过来倒逼人的思考速度变得更快。</li><li><span class="who">@@geekbb on Twitter</span> — 微软官方推出的智能终端，Windows Terminal 的实验分支，原生集成了 ACP 兼容的 AI 代理（默认 GitHub Copilot CLI）。
+按 Ctrl+Shift+. 就能呼出侧边代理面板，AI 自动看到你当前 Shell 的输出来给建议，不用手动复制粘贴。
+https://t.co/LjTmbafYfN https://t.co/ERO3osGr9h
+
+![](https://pbs.twimg.com/media/HJ8Bqo1bcAAg34g.jpg…</li><li><span class="who">@@python_xxt on Twitter</span> — 自从O1 Pro 开始，
+GPT pro模式，给的回答和建议，一直都是所有模型里最好的，缺点就两个： 慢 &amp; 贵。
+
+贵，不是它的问题，是我的问题，可以解决…
+慢，就很难受了，一个问题5-6分钟起步，长的十几分钟，最长20-30分钟…
+
+虽然回答质量，永远在线，但容易打断交流的节奏。
+
+最近我的习惯是，
+CodeX 5.5 https://t.co/D49Ns9uDI4</li><li><span class="who">@@Tz_2022 on Twitter</span> — 「Anthropic Mythos 褪去了神性，它就是个极其昂贵、偶尔抽风、但在特定领域强得离谱的超级干活机器」
+
+翻译+点评：
+
+说到做到，和 Anthropic 的未发布模型 Mythos 泡了一整天后，我的深度体验报告来了！祈祷 Anthropic 不要把我告到破产，但管他呢，YOLO（活在当下）！提前预警，本文干货很长。
+
+1. https://t.co/oVzYOLC9DV https://t.co/HwsAY2TFkm
+
+![](https://pbs.twimg…</li>
+</ul>
+
+<details><summary>📦 低价值附录（全部 20 条，默认收起）</summary><div class="card tier2" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐⭐</span><span class="who" style="font-size:.8rem">@@realPureNomad on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">作为一个运维，zellij 是我的最离不开的终端软件。让我付费我都愿意，真的。 https://t.co/zZ0pUcA0JL
+
+![](https://pbs.twimg.com/media/HJ5ihXnXAAANvDg.jpg)</div></div><div class="card tier2" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐⭐</span><span class="who" style="font-size:.8rem">@@Jackywine on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">光说不练假把式，Gemma4 已装
+
+就是有点卡，看来我得换电脑了 https://t.co/JmIEYrBg2O
+
+![](https://pbs.twimg.com/media/HJ-MGbKbsAANFF5.jpg)</div></div><div class="card tier2" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐⭐</span><span class="who" style="font-size:.8rem">@@cellinlab on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">Threejs 简直就是 Web 界的 乐高，
+如果你想要什么就直接渲染他！
+
+甚至，你可以渲染出你的乐高世界。
+
+在线体验这个作品 👉  https://t.co/QwCcD7tyyC https://t.co/ZQRKuc8wSd</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@iluciddreaming on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">在这里学习：https://t.co/mREy5HoKiX</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@iluciddreaming on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">https://t.co/DAvwWI7jSR</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@addyosmani on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">https://t.co/hIe0UX7z6T</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@dashen_wang on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">https://t.co/M3amGajMBs</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@dashen_wang on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">https://t.co/F619UbfsC8</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@45_206MHz on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">你们就继续发展无人吧
+无人驾驶，无人快递，无人工厂，无人工作，无人生育，无人消费，无人买房，最后无人生还</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@LuBtc888 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">有人问黄仁勋：AI会取代人类的工作吗？ 
+
+没想到黄仁勋的回答震惊了众人。 https://t.co/z3F0OtlAgQ</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@xiaoxiaodong01 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">https://t.co/brVVAnsIUn</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@xxm459259 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">1.你不光情绪稳定，你是见过周期。
+2.感觉你不像是装，更像真的认知外溢。
+3.以前不理解为什么有人会沉迷宏观，后
+来发现听你聊真的会上头。
+4.你这种人最可怕，别人还在焦虑，你已经开始布局下一轮了。
+5.你做最性感的地方，不是赚钱，是判断力。
+6.你讲话有种“长期主义已经刻进骨子里”的感觉。</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@macrotradecn on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">又安静了，怎么不AI革命了，妈的昨天晚上铺天盖地小作文各种算力爆发、AI重构世界、存储芯片供不应求，继续哇哇叫啊，什么GPU，什么HBM,什么“下一代英伟达”，一天天的不是抢服务器就是抢先进封装，聊天记录分分钟999+，怎么我一上车就不暴涨了？被我一手买崩了？我不在时你们天天又是财富自由，又是提</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@bbcchinese on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">中国国家主席习近平今天前往印度，与总统莫迪举行非正式会晤。在见面地点金奈的一间学校内，有约2000名学生戴上习近平的面具，为正式在机场进行的欢迎仪式作采排。 https://t.co/RWpLeX3wJF
+
+![](https://pbs.twimg.com/media/EGmLcOjWsAAX-tw.jpg)
+
+![](https://pbs.twimg.com/media/EGmLcciW4A…</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@yihong0618 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">#selected 最近看过最喜欢的网站了。能开心一整天，同样被惊喜的朋友可以来谢谢我！
+https://t.co/n4YxDkyU8G</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@yihong0618 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">这个人的博客写了非常多大模型相关的喜欢 #selected
+https://t.co/z8L99J0JHg https://t.co/WHHgaLWQIK
+
+![](https://pbs.twimg.com/media/HKgw5F5bgAAwZEw.jpg)
+
+![](https://pbs.twimg.com/media/HKgw9w4aQAAP5b0.png)</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@yihong0618 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">我今天中午按照顺序读大哥的文章，4 年前大哥还在照着吴恩达的课程一点一点学，在一篇的最后大哥写下了这段话，没想到 4 年过去了，大哥真的已经是在顶刊发论文的科研大牛，有点感慨。https://t.co/YCNCaaKPgr https://t.co/eyBXAbQdou https://t.co/usEezslaWe
+
+![](https://pbs.twimg.com/media/HKl8vOQ…</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@PandaTalk8 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">https://t.co/Bhse1NoPvO</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@yanhua1010 on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">https://t.co/HclIjm2pEC</div></div><div class="card tier1" style="padding:10px 14px"><div class="card-head"><span style="color:var(--text3);font-size:.8rem">⭐</span><span class="who" style="font-size:.8rem">@@StarKnight on Twitter</span></div><div class="tweet" style="font-size:.82rem;color:var(--text3)">提到对外国元首的欢迎仪式，最具创意的当属印度。2019年这一回过于抽象，印象深刻……  
+
+![Image](https://pbs.twimg.com/media/HKWCsIVaIAAIo60.jpg?name=orig) 
+
+![Image](https://pbs.twimg.com/media/HKWCsIVbUAARHDI.jpg?name=orig)</div></div></details>
+
+<div class="foot">Generated by my-readwise-briefing skill · 2026-06-14<br>数据源：Readwise Highlights API (v2/export) · 验证：gh + WebSearch</div>
+</div>
+" + JS_BLOCK + "</body></html>
