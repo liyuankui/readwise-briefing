@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Readwise 简报 2026-06-16</title><style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626}
+html.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;margin:0;padding:0;transition:background .2s}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
+.tbtn{position:fixed;top:16px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:999px;width:42px;height:42px;font-size:18px;cursor:pointer;z-index:99;color:var(--text)}
+h1{font-size:1.7rem;margin:0 0 4px}
+.sub{color:var(--text3);font-size:.9rem;margin-bottom:24px}
+.banner{background:var(--surface2);border-left:3px solid var(--accent);padding:12px 16px;border-radius:6px;margin-bottom:24px;font-size:.92rem;color:var(--text2)}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.stat{flex:1;min-width:110px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px}
+.stat b{display:block;font-size:1.8rem;color:var(--accent);font-family:-apple-system,sans-serif}
+.stat span{font-size:.8rem;color:var(--text3)}
+h2{font-size:1.2rem;border-bottom:2px solid var(--border);padding-bottom:8px;margin:36px 0 16px;display:flex;align-items:center;gap:8px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:16px;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:4px;background:var(--surface2);color:var(--text2);margin-right:6px;font-family:-apple-system,sans-serif}
+.t5{color:var(--accent5);font-weight:700}.vok{color:var(--accent3)}.vwarn{color:var(--accent4)}.vbad{color:var(--accent5)}
+.src{color:var(--text3);font-size:.82rem;font-family:-apple-system,sans-serif;margin:8px 0}
+.q{color:var(--text2);border-left:3px solid var(--border);padding:6px 0 6px 14px;margin:10px 0;font-size:.95rem}
+.why{background:var(--surface2);border-radius:6px;padding:10px 14px;margin-top:10px;font-size:.9rem}
+.why b{color:var(--accent2)}
+.note{font-size:.85rem;color:var(--text2);margin-top:8px}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.88rem}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--border)}
+th{background:var(--surface2);color:var(--text2);font-weight:600;font-family:-apple-system,sans-serif;font-size:.8rem}
+tr:hover td{background:var(--surface2)}
+.med{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;font-size:.92rem}
+.med .src{margin:4px 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 16px;margin-bottom:8px}
+summary{cursor:pointer;color:var(--text2);font-size:.88rem}
+.act{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent3);border-radius:6px;padding:10px 14px;margin-bottom:8px}
+.act b{color:var(--accent3)}
+.foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color:var(--text3);font-size:.78rem}
+</style></head><body>
+<button class="tbtn" id="theme-toggle">🌙</button>
+<div class="wrap">
+<h1>Readwise 情报简报</h1>
+<div class="sub">2026-06-16 · 增量窗口 06-14 → 06-16 · 数据源 Readwise Highlights API v2（MCPHub 回退直连）</div>
+
+<div class="banner">⚡ <b>本次增量：</b>21 来源 / 23 条高亮。其中 6 条高价值信号（验证后保留 5 个深挖方向），8 条中等，9 条噪音。公理：<b>不可行动的信息 = 噪音</b>。</div>
+
+<div class="stats">
+<div class="stat"><b>23</b><span>总高亮</span></div>
+<div class="stat"><b>6</b><span>高价值 ⭐×5</span></div>
+<div class="stat"><b>8</b><span>中等 ⭐×3</span></div>
+<div class="stat"><b>9</b><span>噪音 ⭐</span></div>
+</div>
+
+<h2>🗺️ 信号 × 项目 对应（5 个深挖方向）</h2>
+<table>
+<tr><th>#</th><th>方向</th><th>对齐意图</th><th>验证</th><th>提案</th></tr>
+<tr><td>1</td><td>autodev：Agent 自主 PR 流程（autoissue→autodev→review）</td><td>Life OS · Software Factory</td><td class="vok">✅ Verified</td><td>见 Proposals</td></tr>
+<tr><td>2</td><td>Code Review 归属重构：AI 增强 vs 人类守门</td><td>Eng Baseline · Tech Debt</td><td class="vwarn">⚠️ 框架夸大</td><td>见 Proposals</td></tr>
+<tr><td>3</td><td>多智能体编排（Omnigent→Metaswarm/编排模式）</td><td>Life OS · 多 Agent</td><td class="vwarn">⚠️ 产品未验证</td><td>见 Proposals</td></tr>
+<tr><td>4</td><td>Claude Code 工程工作流（可重复·可验证·协作）</td><td>Eng Baseline · AI Starter Kit</td><td class="vok">✅ Verified</td><td>见 Proposals</td></tr>
+<tr><td>5</td><td>AI 时代高效团队（Lovable 七条 / 主人翁意识）</td><td>Human Connection · Leadership</td><td class="vwarn">⚠️ 源未验证</td><td>见 Proposals</td></tr>
+</table>
+
+<h2>⭐×5 高价值信号</h2>
+
+<div class="card">
+<span class="tag t5">⭐×5</span><span class="tag">Software Factory</span><span class="tag vok">✅ Verified</span>
+<div class="src">@fengxia17063046 (OwlWorks) · 2026-06-14</div>
+<div class="q">「我现在主要用自己写的 3 个 skills：1、<b>autoissue</b>——按背景/目标/风险/测试计划/验收标准将需求拆成 issue 提交 GitHub；2、<b>autodev</b>——检索所有 issue 排优先级，从 main 开新分支开发，完成后提 PR，自动调用 review Pro，通过则合并…」</div>
+<div class="why"><b>为什么相关：</b>这正是 Life OS「Software Factory」支柱的成功标准原话——<i>「Agent 可独立完成一个完整 PR（需求→实现→测试→提交）」</i>。有人已用 3 个 Claude Code skills 把这条闭环跑通，是可借鉴的工程蓝本，而非概念。</div>
+<a href="https://x.com/fengxia17063046/status/2066139681075458348">↗ 原推</a>
+</div>
+
+<div class="card">
+<span class="tag t5">⭐×5</span><span class="tag">Eng Baseline</span><span class="tag vwarn">⚠️ 框架夸大（趋势真）</span>
+<div class="src">@Xudong07452910 (Xudong Han) · 2026-06-15 · 引论文</div>
+<div class="q">「这篇论文说：人工 Code Review 这道门，可能已经没有理由继续存在了……人类做审查的目的是发现 bug、传播知识、保障质量，而这些 AI Coding Agent 都能以更低成本、更高吞吐量完成。」</div>
+<div class="why"><b>验证降权：</b>工业共识（Cloudflare：「<i>This isn't a replacement for human code review, at least not yet</i>」；Graphite：「<i>complement rather than replace</i>」）<b>反驳</b>了「废除」框架。但 arXiv 2412.18531 确认 AI 增强 review 趋势为真。<b>真正可行动的问题不是"要不要废"，而是"AI 增强 review 后，人类守门人守哪道门"。</b></div>
+<a href="https://x.com/Xudong07452910/status/2066362561306505532">↗ 原推</a> · <a href="https://blog.cloudflare.com/ai-code-review/">↗ Cloudflare</a>
+</div>
+
+<div class="card">
+<span class="tag t5">⭐×5</span><span class="tag">Multi-Agent</span><span class="tag vwarn">⚠️ 产品未验证</span>
+<div class="src">@Phoenixyin13 (Phoenix Yin) · 2026-06-14</div>
+<div class="q">「现在的趋势就是 Agent Swarm。最顶尖的效果，是一堆术业有专攻的 AI 坐在一起相互合作、争论、PK，收敛最优解。<b>Omnigent</b> 把这个流程做成了标准化框架——把 Claude Code、Codex 和 Custom Agent 接入。」</div>
+<div class="why"><b>验证降权：</b>「Omnigent」这个具体产品查无可靠信源（可能极新或营销）。但<b>多智能体编排趋势本身确证</b>：Metaswarm（自改进编排）、Matei Zaharia 新开源项目（位于 Claude Code/Codex 之上）、orchestrator-worker 模式。→ 提案应基于<b>编排模式</b>而非具体产品。</div>
+<a href="https://x.com/Phoenixyin13/status/2066093175677071815">↗ 原推</a>
+</div>
+
+<div class="card">
+<span class="tag t5">⭐×5</span><span class="tag">Engineering Workflow</span><span class="tag vok">✅ Verified</span>
+<div class="src">@sitinme (Sitin) · 2026-06-14</div>
+<div class="q">「很多人把 AI 编程工具当成更聪明的聊天窗口……但工程师展示的是另一种用法：不单纯让 Claude Code 写代码，而是把它配置成<b>可重复、可验证、能协作的工程工作流</b>。」</div>
+<div class="why"><b>为什么相关：</b>双意图命中——① Engineering Baseline（工程标准 = 可重复可验证的流程，而非一次性产物）；② AI Starter Kit（新同事一键装的不只是工具，是<b>工作流模板</b>）。这条直接喂给 AI Starter Kit 的"交付物"定义。</div>
+<a href="https://x.com/sitinme/status/2066128830902010161">↗ 原推</a>
+</div>
+
+<div class="card">
+<span class="tag t5">⭐×5</span><span class="tag">Leadership</span><span class="tag vwarn">⚠️ 源未验证</span>
+<div class="src">@dotey (宝玉) 转 Felix Haas (Lovable) · 2026-06-15</div>
+<div class="q">「Lovable 设计负责人 Felix Haas 分享『AI 时代高效团队』七条经验……第一，<b>别像员工一样等安排</b>。影响力最大的人不问"这归谁管"，看到问题直接上手。主人翁意识不是靠分配的，只能靠自己拿。」</div>
+<div class="why"><b>为什么相关 + 验证降权：</b>原文源（Felix Haas 帖）未独立查到，内容为通用创业智慧。<b>但它与 Human Connection「真诚>策略」、Engineering Baseline「Lead by example」高度共鸣</b>——"主人翁意识不能分配，只能靠拿"对 11 人团队管理是即时可用的原则。</div>
+<a href="https://x.com/dotey/status/2066349458904744224">↗ 原推</a>
+</div>
+
+<h2>⭐×3 中等价值（精简）</h2>
+
+<div class="med">🪡 <b>Ponytail plugin</b>（@bryanonchain）— 让 AI coding agent 像"最懒资深工程师"思考，YAGNI 优先："The best code is the code you never wrote"。<span class="src">→ 与 Tech Debt「防过度生成」相关，可作 AI Code Review 规则。</span></div>
+<div class="med">🎯 <b>kepano 金句</b>（@kepano）— "your edge is whatever you know that the models don't know"。<span class="src">→ 一句话锚定 Human Connection 公理：AI 时代稀缺 = 模型不知道的（人际、上下文、隐性知识）。</span></div>
+<div class="med">🧩 <b>Claude fable 5 复活术</b>（@wadezone/Koda）— <code>--dangerously-skip-permissions --system-prompt-file</code> 切 opus 4.8 Max。<span class="src">→ AI Starter Kit 技巧备选（注意 skip-permissions 风险）。</span></div>
+<div class="med">🚀 <b>阿里云 Meoo</b>（@KELMAND1）— 描述生成小程序/游戏一键部署云服务器。<span class="src">→ OpenMAIC 部署可对比的"轮椅"方案。</span></div>
+<div class="med">📊 <b>A股+美港股数据源整合</b>（@BTCqzy1）— 两个 GitHub 开源整合成 AI 可用数据仓，封装成 Skill。<span class="src">→ Skill 生态案例（非核心意图，备查）。</span></div>
+<div class="med">📱 <b>AppStore 评价 LLM 分析</b>（@vista8）— 输入 App 名自动抓评论→LLM 分析→PM 可用信息，开源。<span class="src">→ 工具/Skill 案例，可迁移到门店 POS 用户反馈分析。</span></div>
+<div class="med">⚖️ <b>祛魅·诚实·敬畏</b>（@evilcos/余弦）— 红线/底线/边界线三观。<span class="src">→ 与 Human Connection「真诚」、IKEA Values「Responsibility」共鸣。</span></div>
+<div class="med">📈 <b>XQuant 开源量化书稿</b>（@geekbb）— 自然语言描述策略→AI 代写代码→成体系量化系统。<span class="src">→ 非核心意图，备查。</span></div>
+
+<h2>✅ 行动清单</h2>
+<div class="act"><b>1.</b> 拆解 OwlWorks autodev 三件套，提炼成 <code>workspace/life-os/</code> 的 Software Factory 骨架（autoissue→autodev→autoreview）。</div>
+<div class="act"><b>2.</b> 立 Code Review 新规：AI 跑首轮（lint/bug/安全），人类守"架构一致性 + 知识传播"门。写入 Engineering Baseline。</div>
+<div class="act"><b>3.</b> 选一个高频手动动作（候选：readwise-briefing / 周报）改造为首个 Proactive Agent（Life OS 里程碑）。</div>
+<div class="act"><b>4.</b> AI Starter Kit 交付物重定义：不只是工具链，含一份「可重复·可验证」工作流模板。</div>
+<div class="act"><b>5.</b> 本周一次 1:1 不聊工作只聊人（Human Connection「深度>频次」）。</div>
+
+<h2>⭐ 噪音/无关（折叠）</h2>
+<details><summary>9 条：课程广告 / 空 t.co 链接 / 八卦 / 视频娱乐</summary>
+<div class="note">
+• @HappyQQ_AI — Vibe Coding 课程广告（无信息量）<br>
+• @Arcadia_Bao / @satyanadella / @cnzoecomeback / @iluciddreaming / @dongxi_nlp — 仅 t.co 短链无正文<br>
+• @anindanet — 土耳其语狗咬人视频<br>
+• @miren_41319 — 中日墙角文化对比<br>
+• @Xudong07452910（另一条）— 小米工程师嘲讽国产大模型八卦
+</div></details>
+
+<div class="foot">
+📡 数据：Readwise Highlights API v2/export（updatedAfter=2026-06-14）· 21 来源 23 条<br>
+🔬 验证：WebSearch + 工业共识交叉验证 · MCPHub 不可用走直连回退<br>
+生成：my-readwise-briefing skill v4.0 · 2026-06-16 09:25 CST
+</div>
+</div>
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');const d=document.documentElement.classList.contains('dark');btn.textContent=d?'☀️':'🌙';localStorage.setItem('theme',d?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body></html>

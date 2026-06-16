@@ -1,0 +1,674 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Readwise Proposals 2026-06-16</title><style>
+:root{--bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;--text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;--accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626}
+html.dark{--bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;margin:0;padding:0;transition:background .2s}
+.wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+.tbtn{position:fixed;top:16px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:999px;width:42px;height:42px;font-size:18px;cursor:pointer;z-index:99;color:var(--text)}
+h1{font-size:1.7rem;margin:0 0 4px} .sub{color:var(--text3);font-size:.9rem;margin-bottom:20px}
+.banner{background:var(--surface2);border-left:3px solid var(--accent);padding:12px 16px;border-radius:6px;margin-bottom:24px;font-size:.92rem;color:var(--text2)}
+.banner b{color:var(--text)}
+table{width:100%;border-collapse:collapse;margin:14px 0 8px;font-size:.85rem}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border)}
+th{background:var(--surface2);color:var(--text2);font-weight:600;font-size:.78rem}
+.pcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0;margin-bottom:24px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.phead{display:flex;align-items:center;gap:12px;padding:16px 20px;background:linear-gradient(90deg,var(--surface2),transparent);border-bottom:1px solid var(--border)}
+.pnum{font-family:-apple-system,sans-serif;font-weight:800;color:var(--accent);font-size:1.1rem}
+.ptitle{font-weight:700;font-size:1.15rem}
+.pver{margin-left:auto;font-size:.8rem;font-family:-apple-system,sans-serif;font-weight:600}
+.psub{padding:8px 20px;color:var(--text3);font-size:.85rem;font-family:-apple-system,sans-serif;border-bottom:1px solid var(--border);background:var(--surface2)}
+.pbody{padding:8px 24px 20px}
+.pbody h1{display:none}
+.pbody h2{font-size:1.05rem;color:var(--accent);margin:22px 0 8px;padding-bottom:4px;border-bottom:1px dashed var(--border)}
+.pbody h2:first-child{margin-top:8px}
+.pbody p,.pbody li{font-size:.92rem;color:var(--text2)}
+.pbody strong{color:var(--text)}
+.pbody code{background:var(--surface2);padding:1px 5px;border-radius:3px;font-size:.85em;font-family:-apple-system,monospace}
+.pbody blockquote{border-left:3px solid var(--accent2);margin:10px 0;padding:4px 14px;color:var(--text3);font-size:.85rem;background:var(--surface2);border-radius:0 4px 4px 0}
+.pbody ul{padding-left:20px} .pbody li{margin:3px 0}
+.pbody table{font-size:.82rem} .pbody td,.pbody th{font-size:.82rem}
+.foot{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color:var(--text3);font-size:.78rem}
+a{color:var(--accent2)}
+</style></head><body>
+<button class="tbtn" id="theme-toggle">🌙</button>
+<div class="wrap">
+<h1>Readwise 深挖 Proposals</h1>
+<div class="sub">2026-06-16 · 5 个方向 · 由 23 条增量高亮提炼（4 条网关 529 降级内联生成）</div>
+<div class="banner">⚡ 公理：<b>不可行动的信息 = 噪音</b>。每条 Proposal 必含核心主张 / 痛点 / 里程碑 / 可测成功标准 / 风险 / 立即行动 / <b>诚实挑战</b>（主动挑自己漏洞）。</div>
+<table>
+<tr><th>#</th><th>方向</th><th>对齐意图</th><th>验证</th></tr>
+<tr><td>1</td><td>Software Factory：autodev→autoreview→autoissue</td><td>Life OS</td><td style="color:var(--accent3)">✅ Verified</td></tr>
+<tr><td>2</td><td>Code Review 人机边界（守门人分诊）</td><td>Eng Baseline</td><td style="color:var(--accent4)">⚠️ 框架夸大</td></tr>
+<tr><td>3</td><td>多智能体编排（先模式非框架）</td><td>Life OS</td><td style="color:var(--accent4)">⚠️ 产品未验证</td></tr>
+<tr><td>4</td><td>AI Starter Kit：交付工作流模板</td><td>AI Starter Kit</td><td style="color:var(--accent3)">✅ Verified</td></tr>
+<tr><td>5</td><td>激发主人翁意识（暴露问题+移除障碍）</td><td>Human Connection</td><td style="color:var(--accent4)">⚠️ 源未验证</td></tr>
+</table>
+<div class="pcard"><div class="phead"><span class="pnum">#1</span><span class="ptitle">Software Factory v0.1</span><span class="pver" style="color:var(--accent3)">✅ ✅</span></div><div class="psub">Life OS · autodev→autoreview→autoissue</div><div class="pbody"><h1
+id="proposal-1-software-factory-v0.1autodev-autoreview-autoissue-三件套">Proposal
+#1 — Software Factory v0.1：autodev → autoreview → autoissue 三件套</h1>
+<blockquote>
+<p>信号：<span class="citation"
+data-cites="fengxia17063046">@fengxia17063046</span>（OwlWorks）autoissue/autodev/autoreview
+工程实践 · 验证 ✅ Verified 对齐：Life OS — Software Factory · F12
+Intent-to-Delivery 闭环 · 终局类型 CREATE</p>
+</blockquote>
+<h2 id="核心主张">1. 核心主张</h2>
+<p><strong>在 Kyle 的 Notebooks 仓库（private）落三件套，用一个真实
+issue 走完”拆需求→开分支→写代码→提PR→AI
+review→合并”全闭环；先个人仓库验证，再决定是否进 IKEA
+GHES。</strong></p>
+<h2 id="锁定痛点">2. 锁定痛点</h2>
+<p><strong>痛点不在单步，在编排</strong>：Kyle 手动改一个文件要 7
+步（想拆法→开分支→改→add/commit→gh pr create→<span class="citation"
+data-cites="copilot">@copilot</span> review→gh pr merge），其中 6 步已有
+skill（commit/pr-helper/ikea-github），但每次都要他当调度员串联。SEM
+时间最低效用法。基线（待实测）：~7.5-9.5h/月。</p>
+<h2 id="里程碑诚实重排后">3. 里程碑（诚实重排后）</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>M</th>
+<th>内容</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td><strong>autodev</strong>（最该先做）：检索 open
+issue→排优→开分支→改→commit→建 PR</td>
+<td>2 周</td>
+</tr>
+<tr>
+<td>M2</td>
+<td><strong>autoreview</strong>：PR 创建后触发 Copilot
+review→解析→通过则通知 Kyle 手动 merge（<strong>不自动合并</strong>，R8
+硬规则）</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M3</td>
+<td><strong>autoissue</strong>：一句话意图→结构化 issue→提交</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>度量 + notebooks-dashboard “Software Factory” tab</td>
+<td>1 周</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成功标准可测量">4. 成功标准（可测量）</h2>
+<ul>
+<li>issue→merged PR 全自动 ≥3 个/月</li>
+<li>Kyle 介入率 ≤2 步/PR</li>
+<li>月省时间 ≥6h</li>
+<li>autodev PR 被 review 一次通过率 ≥60%</li>
+<li>越界改动（碰 intent/journal/SKILL.md）= 0</li>
+</ul>
+<p><strong>失败止损</strong>：M1 结束若一次通过率 &lt;30%，回炉而非进
+M2。</p>
+<h2 id="roi">5. ROI</h2>
+<p>直接：月省 6-8h（~9000-12000 RMB），2-3 月回本。战略：证伪 Software
+Factory 假设（notebooks 跑不通就别进 GHES）；团队示范（SEM 自己用 Agent
+跑 PR 比”AI 推广会”管用）。</p>
+<h2 id="风险与缓解">6. 风险与缓解</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>风险</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>改坏 SKILL.md/intent</td>
+<td>pre-commit hook 拒越界 path；M1 dry-run 一周</td>
+</tr>
+<tr>
+<td>SSH key 复杂（liyuankui 仓库需 id_rsa_liyuankui@gmail.com）</td>
+<td>autodev 调 <code>sd git gmail</code>，M1 第一天验证</td>
+</tr>
+<tr>
+<td>成本失控（claude -p 反复调）</td>
+<td>每 issue token 预算 50k，超限转人工</td>
+</tr>
+<tr>
+<td>过早进 GHES 合规出事</td>
+<td><strong>本 proposal 显式不进 GHES</strong>；进需独立 proposal +
+security review</td>
+</tr>
+</tbody>
+</table>
+<h2 id="立即行动本周">7. 立即行动（本周）</h2>
+<ol type="1">
+<li><strong>验证
+SSH+gh</strong>（30min，最大未知数）：<code>sd git gmail "git fetch"</code>
++ <code>gh auth status</code> + <code>gh issue list</code> 确认
+notebooks 可被 Agent 操作。</li>
+<li>手动模拟 autoissue dry-run：输入”修 ira-best-practices 与
+IRA_FRAMEWORK 矛盾”→看拆解质量。</li>
+<li>notebooks-dashboard 加空白 “Software Factory”
+tab（可视化是最强动力锚）。</li>
+</ol>
+<h2 id="诚实挑战">8. 诚实挑战</h2>
+<ul>
+<li><strong>落地顺序错了</strong>：信号源说 autoissue 先，但 Kyle
+真实瓶颈是写代码+串 PR，应 <strong>autodev
+先</strong>。已重排里程碑。</li>
+<li><strong>autoissue 最难进 IKEA</strong>（GHES issue 关联
+Jira、traceability、webhook 污染）；最容易进 IKEA 的是
+autoreview（只读+评论）。</li>
+<li><strong>autodev 自动合并在 IKEA 企业仓库必违规</strong>（branch
+protection/SOX/变更管理）——所以 M2 只通知不合并。</li>
+<li><strong>7.5h/月 基线是类比非实测</strong>：Action 1 前先
+<code>git log --since="2 months" --author=liyuankui --oneline|wc -l</code>，若
+notebooks commit &lt;10 次/月，降级为”先在 GHES
+低风险内部仓库试点”。</li>
+<li><strong>与 F12 重叠</strong>：F12 是 SPEC 规划中未动；本 proposal
+是把它砍到 CREATE 终局 + notebooks 作先导实验，跑通 F12 复用 80%。</li>
+</ul>
+<p><strong>相关文件</strong>：<code>workspace/life-os/SPEC.md</code>(F12)、<code>PROPOSAL_FIRST_PROACTIVE_AGENT.md</code>；可复用
+skill：<code>ikea-github</code>/<code>pr-helper</code>/<code>commit</code>/<code>gemini-code-assist-manager</code>。</p></div></div>
+<div class="pcard"><div class="phead"><span class="pnum">#2</span><span class="ptitle">Code Review 人机边界重构</span><span class="pver" style="color:var(--accent4)">⚠️ ⚠️</span></div><div class="psub">Eng Baseline · 守门人分诊制</div><div class="pbody"><h1 id="proposal-2-code-review-人机边界重构守门人分诊制">Proposal #2 —
+Code Review 人机边界重构（守门人分诊制）</h1>
+<blockquote>
+<p>信号：<span class="citation"
+data-cites="Xudong07452910">@Xudong07452910</span>「人工 Code Review
+该淘汰」 · 验证 ⚠️ 框架被工业反驳，趋势真 对齐：Engineering Baseline
+&amp; Tech Debt · 终局类型 SYSTEM</p>
+</blockquote>
+<h2 id="核心主张">1. 核心主张</h2>
+<p><strong>不在”废不废人工 review”，而在分诊：AI
+守”机械正确性门”（lint/bug/安全/测试覆盖），人守”语义正确性门”（架构一致性、知识传播、边界判断）——把
+SEM 从 nitpick 里解放，专注只有人能做的判断。</strong></p>
+<h2 id="锁定痛点">2. 锁定痛点</h2>
+<p>场景一人：Kyle 作为 SEM 同时是团队 review 瓶颈。PR 排队等他，而他 80%
+review
+时间花在”这命名规范吗/有测试吗/空指针吗”——这些是<strong>确定性规则</strong>，AI
+比人快且不累。真正需要他的（“这个抽象合理吗”“会影响 POS
+计价链路吗”“新人能看懂吗”）反而被挤压。 - 量化基线（待 Action 1
+实测）：假设团队 11 人 × 每周 3 PR × review 占 Kyle 15min → ~8h/周被机械
+review 吞掉。</p>
+<h2 id="里程碑">3. 里程碑</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>M</th>
+<th>内容</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>试点：选 1 个低风险 GHES 仓库，接 Copilot/Gemini Code Assist 跑 AI
+首轮 review</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>立《人机 review 分工清单》：明确哪些 AI 全权（lint/format/obvious
+bug）、哪些人必审（架构/跨服务影响/安全敏感）</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>改 PR 模板：AI review 通过后 PR
+才进人审队列；人审只标”语义问题”</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>度量推广：扩到团队 3 个仓库</td>
+<td>持续</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成功标准可测量">4. 成功标准（可测量）</h2>
+<ul>
+<li>review 周期（PR 创建→合并）中位数 ↓ 40%</li>
+<li>Kyle 人审平均耗时/PR ↓ 60%（从 15min→6min）</li>
+<li><strong>知识传播指标不降</strong>：人审中”提问/讨论”评论占比 ≥
+维持基线（防 AI 削弱传播）</li>
+<li>缺陷逃逸率（合并后 prod bug）持平或↓</li>
+</ul>
+<h2 id="roi">5. ROI</h2>
+<p>直接：Kyle 月省 ~30h 机械 review → 投入架构/1:1/战略。战略：为”AI
+Coding 推广”提供可信工程实践（不是 demo，是制度）。</p>
+<h2 id="风险与缓解">6. 风险与缓解</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>风险</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知识传播被削弱</strong>（AI 替掉新人被 review
+的学习机会）</td>
+<td>人审保留”为什么这么改”问答；M2 清单显式把”教学性 review”划给人</td>
+</tr>
+<tr>
+<td>AI review 噪音（无意义 comment）</td>
+<td>只处理 severity≥major；minor 汇总一条</td>
+</tr>
+<tr>
+<td>IKEA 内网合规（Code Assist 走外网？）</td>
+<td>用 GHES 内置 reviewer 或内网模型；R9 边界内</td>
+</tr>
+</tbody>
+</table>
+<h2 id="立即行动本周">7. 立即行动（本周）</h2>
+<ol type="1">
+<li><strong>实测基线</strong>：<code>gh pr list</code> 统计近 1 月团队
+PR 的 review 周期 + 抽样 10 个 PR 看人审评论里多少是机械问题。</li>
+<li>找 1 个 volunteer 仓库试点 Copilot review，对比 AI
+前/后人审耗时。</li>
+<li>起草《人机 review 分工清单》v0.1 草案（半页）。</li>
+</ol>
+<h2 id="诚实挑战">8. 诚实挑战</h2>
+<ul>
+<li><strong>“AI
+增强后人会更懒”</strong>：若人审变成橡皮图章，知识传播实际会降。缓解靠
+M2 清单 + 把”提问”写进 PR 模板强制项。</li>
+<li><strong>8h/周 基线是假设</strong>：若实测团队 PR 大多互审（不经
+Kyle），ROI 就不成立，应降级为”帮工程师互审提效”而非”解放 SEM”。</li>
+<li><strong>IKEA 合规</strong>：自动 reviewer
+在生产仓库可能触发变更管理审计问题，试点必须低风险仓库 + 先问
+security。</li>
+<li><strong>kepano 反向风险</strong>：“your edge is what models don’t
+know”——人的价值在隐性判断，若把 review
+机械化的同时<strong>没强化语义判断</strong>，就是把人的 edge
+也让渡了。</li>
+</ul></div></div>
+<div class="pcard"><div class="phead"><span class="pnum">#3</span><span class="ptitle">多智能体编排：先做模式</span><span class="pver" style="color:var(--accent4)">⚠️ ⚠️</span></div><div class="psub">Life OS · orchestrator-worker</div><div class="pbody"><h1 id="proposal-3-多智能体编排先做编排模式不上-swarm-框架">Proposal #3
+— 多智能体编排：先做”编排模式”，不上 Swarm 框架</h1>
+<blockquote>
+<p>信号：<span class="citation"
+data-cites="Phoenixyin13">@Phoenixyin13</span>「Agent Swarm / Omnigent」
+· 验证 ⚠️ Omnigent 产品未验证，编排趋势确证 对齐：Life OS · Proactive
+Agents · 终局类型 SYSTEM</p>
+</blockquote>
+<h2 id="核心主张">1. 核心主张</h2>
+<p><strong>别绑定 Omnigent（未验证）。用 orchestrator-worker 模式，基于
+Kyle 已有的 Paseo（多 agent 编排工具）+ Claude Code，先做”1 个
+orchestrator + 2 个 worker”的最小协作闭环——只在单 agent context
+失焦时才上多 agent。</strong></p>
+<h2 id="锁定痛点">2. 锁定痛点</h2>
+<p>场景：复杂任务单 agent 上下文失焦。本简报就是个例子——1 个 agent
+要同时做”采集+验证+对齐+深挖+HTML”，context
+膨胀、互相干扰。已经看到：本次 5 个 subagent 并行深挖，本质就是
+orchestrator(worker=)pattern
+的雏形。痛点是<strong>没有标准化的编排骨架</strong>，每次手搓。</p>
+<h2 id="里程碑">3. 里程碑</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>M</th>
+<th>内容</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>定义 orchestrator-worker 契约：orchestrator 拆任务+收结果，worker
+自包含执行（已有 Paseo 做 transport）</td>
+<td>3 天</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>选 1 场景落地（候选：readwise-briefing 拆成
+orchestrator+verifier+writer；或 system-stability 巡检
+orchestrator+analyzer）</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>加 Trust &amp; Eval：orchestrator 对 worker
+产出做验收（不盲信）</td>
+<td>3 天</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>决策门：度量后回答”这场景值不值多 agent”——多数任务退回单 agent</td>
+<td>1 周</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成功标准">4. 成功标准</h2>
+<ul>
+<li>试点任务：orchestrator-worker 产出质量 ≥ 单 agent（盲评）</li>
+<li><strong>单任务成本</strong>（token/时长）≤ 单 agent ×
+1.5——超过即不值</li>
+<li>编排骨架可复用到第 2 个场景无需重写</li>
+</ul>
+<h2 id="roi">5. ROI</h2>
+<p>直接有限（多 agent 更贵更慢）。战略价值在<strong>建立判断”何时该用多
+agent”的准则</strong>，避免每人都手搓 + 过度工程。</p>
+<h2 id="风险与缓解">6. 风险与缓解</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>风险</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>过度工程（多数任务单 agent+好 prompt 更优）</td>
+<td>M4 决策门强制做对比，不达标退单 agent</td>
+</tr>
+<tr>
+<td>成本失控（多 worker 并行烧 token）</td>
+<td>每 worker token 预算 + orchestrator 限并发</td>
+</tr>
+<tr>
+<td>orchestrator 单点（它错了全错）</td>
+<td>Trust &amp; Eval 层独立校验</td>
+</tr>
+</tbody>
+</table>
+<h2 id="立即行动本周">7. 立即行动（本周）</h2>
+<ol type="1">
+<li><strong>写”何时用多 agent”决策清单</strong>（半页）：context
+失焦？天然并行？需独立对抗验证？三条满足≥2 才上。</li>
+<li>把 readwise-briefing 现有 5-subagent 流程文档化成
+orchestrator-worker 范例（已有的实践，零新代码）。</li>
+<li>Paseo 上跑一个”1+2”玩具闭环，验证 transport 契约。</li>
+</ol>
+<h2 id="诚实挑战">8. 诚实挑战</h2>
+<ul>
+<li><strong>最大风险是自我合理化</strong>：Kyle 在搞 Life OS，容易把”多
+agent”当目标而非手段。诚实问：本次 5 subagent 真的比”我顺序写 5 个
+proposal”质量高吗？——529 失败证明编排稳定性本身是成本。</li>
+<li><strong>Omnigent
+是营销</strong>：验证已证伪，提案不应引用它作依据。多 agent
+编排的真实信源是 Metaswarm、Zaharia OSS、orchestrator-worker 论文。</li>
+<li><strong>Paseo
+已在用了</strong>：是否重复造？——不重复，是把”已经在用的模式”固化成可复用骨架。</li>
+<li><strong>KISS</strong>：若 M4 显示 80% 场景单 agent 更优，这个
+proposal 的产出就是一份”别用多 agent”的决策文档，那也是成功。</li>
+</ul></div></div>
+<div class="pcard"><div class="phead"><span class="pnum">#4</span><span class="ptitle">AI Starter Kit 升级</span><span class="pver" style="color:var(--accent3)">✅ ✅</span></div><div class="psub">AI Starter Kit · 交付工作流模板</div><div class="pbody"><h1
+id="proposal-4-ai-starter-kit-升级交付工作流模板而非工具安装">Proposal
+#4 — AI Starter Kit 升级：交付”工作流模板”而非”工具安装”</h1>
+<blockquote>
+<p>信号：<span class="citation" data-cites="sitinme">@sitinme</span>「把
+Claude Code 配置成可重复、可验证、能协作的工程工作流」 · 验证 ✅
+Verified 对齐：AI Starter Kit + Engineering Baseline · 终局类型
+COLLABORATE/CREATE</p>
+</blockquote>
+<h2 id="核心主张">1. 核心主张</h2>
+<p><strong>AI Starter Kit
+的核心交付物从”一键装工具链”升级为”一键装可复用工程工作流模板”——让新同事装完后</strong>第一次打开
+Claude Code
+就在工作流里<strong>，而不是面对一个更聪明的聊天窗口。工具会过时，工作流（可重复·可验证·协作）是工程资产。</strong></p>
+<h2 id="锁定痛点">2. 锁定痛点</h2>
+<p>场景：新同事按 Starter Kit 装好 Claude Code +
+登录，然后……不知道干嘛。他用”聊天窗口模式”：问一句→生成代码→复制→改→报错→再问。问题不在工具没装好，在<strong>没有把”工程流程”也装进去</strong>——没有标准
+CLAUDE.md、没有 skill
+包、没有”改完怎么验证”的约定。结果：工具到位，生产力没到位，AI Coding
+采纳卡在”会用但用不好”。</p>
+<h2 id="里程碑">3. 里程碑</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>M</th>
+<th>内容</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>定义”标准工作流模板”：仓库级 CLAUDE.md + commit/PR 规约 + 验证
+checklist</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>打包 skill 子集（commit/pr-helper/ikea-github 等通用件）成 Starter
+Kit 可选装</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>写”工作流示例”：1 个 Java、1 个 Golang
+端到端范例（改→测→PR），新同事照着跑通</td>
+<td>1 周</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>度量采纳：新同事首次独立完成 PR 的时间、skill 复用率</td>
+<td>持续</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成功标准可测量">4. 成功标准（可测量）</h2>
+<ul>
+<li>新同事从装 Kit 到首次独立提交合格 PR 的中位时间 ↓ 50%</li>
+<li>安装后 2 周内 skill 复用率（至少用 ≥2 个 skill）≥ 70%</li>
+<li>团队 PR 描述/测试规范一致性 ↑（可 lint）</li>
+</ul>
+<h2 id="roi-采纳影响">5. ROI / 采纳影响</h2>
+<p>直接：缩短新人 ramp-up。战略：把”AI Coding
+推广”从”教工具”升维到”教流程”——流程才是 Engineering Baseline
+的载体，也是团队一致性（IKEA
+Simplicity）的杠杆。一个人用好是案例，一套模板被复用是制度。</p>
+<h2 id="风险与缓解">6. 风险与缓解</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>风险</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模板过度束缚，限制灵活性</td>
+<td>模板分”必选/可选”层；CLAUDE.md 只写硬约束，留诠释空间</td>
+</tr>
+<tr>
+<td>Java vs Golang 技术栈差异</td>
+<td>M3 各做 1 个范例；模板里用条件分支而非一套硬塞</td>
+</tr>
+<tr>
+<td>推广阻力（成员已有自己习惯）</td>
+<td>不强制，先 volunteer 试点 + 量化对比说服</td>
+</tr>
+</tbody>
+</table>
+<h2 id="立即行动本周">7. 立即行动（本周）</h2>
+<ol type="1">
+<li><strong>写 Starter Kit
+现状盘点</strong>：当前装了什么（工具）、缺什么（流程）。半页。</li>
+<li>起草仓库级 CLAUDE.md 模板（参考 Notebooks 自己的 AGENTS.md
+分层结构）。</li>
+<li>找 1 位近期入职同事做”5 分钟观察”：看他实际怎么用 Claude
+Code，验证”聊天窗口模式”假设。</li>
+</ol>
+<h2 id="诚实挑战">8. 诚实挑战</h2>
+<ul>
+<li><strong>“工作流模板”会变成形式主义</strong>：若 CLAUDE.md
+写得太厚没人读，反而成噪音。纪律：模板 ≤ 核心规则 + 分层暴露（小模型只读
+Layer 1）——Kyle 自己的 AGENTS.md 就是范例，照自己抄。</li>
+<li><strong>栈差异是真问题</strong>：Java（Maven/ArgoCD）和
+Golang（go.mod）的 build/test/部署链路完全不同，一套模板套不住，M3
+必须分栈。</li>
+<li><strong>采纳是最大变量</strong>：11
+人团队推广，技术好的成员觉得模板碍事、新手又看不懂——需分层（新手用全模板，熟手用子集）。</li>
+<li><strong>与 Proposal #1/#2 交织</strong>：本 Kit
+的工作流模板里应<strong>内置</strong>人机 review 分工（#2）和 commit/PR
+自动化（#1 的 autodev 单点件）——三个 proposal
+是同一张工程图的不同切面，别做成三套割裂东西。</li>
+<li><strong>诚实反问</strong>：新同事真卡在”流程”吗，还是卡在”不知道问什么”？若是后者，模板救不了，需要的是
+pairing 而非文档。</li>
+</ul></div></div>
+<div class="pcard"><div class="phead"><span class="pnum">#5</span><span class="ptitle">AI 时代激发主人翁意识</span><span class="pver" style="color:var(--accent4)">⚠️ ⚠️</span></div><div class="psub">Human Connection · 暴露问题+移除障碍</div><div class="pbody"><h1
+id="proposal-5-ai-时代激发主人翁意识从分配任务到暴露问题移除障碍">Proposal
+#5 — AI 时代激发主人翁意识：从”分配任务”到”暴露问题+移除障碍”</h1>
+<blockquote>
+<p>信号：<span class="citation" data-cites="dotey">@dotey</span> 转
+Felix Haas（Lovable）「主人翁意识不能分配只能靠拿」+ kepano「your edge
+is what models don’t know」 · 验证 ⚠️ 源未验证，共鸣强 对齐：Human
+Connection Investment · Engineering Baseline · 终局类型 COLLABORATE</p>
+</blockquote>
+<h2 id="核心主张">1. 核心主张</h2>
+<p><strong>AI 时代 SEM 的新杠杆不是”分更准的任务”，而是”暴露真实问题 +
+移除障碍 +
+先示弱”，让团队成员自己”看到问题直接上手”。主人翁意识无法分配，只能靠环境和示范催生——Lead
+by example 是 IKEA Values，也是唯一可持续路径。</strong></p>
+<h2 id="锁定痛点">2. 锁定痛点</h2>
+<p>场景：11
+人团队里”等安排”现象——成员完成被分配的活，但少主动发起。Kyle（ENFJ）容易靠”我来安排/我来兜”推动，结果反而<strong>强化了”等安排”</strong>（成员知道
+Kyle 会补位）。AI 进一步放大：成员把难题丢给 AI/AI agent，自己退后。这是
+Human Connection 公理说的”人→Agent 替代人→人”风险。</p>
+<h2 id="里程碑">3. 里程碑</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>M</th>
+<th>内容</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>改造 1:1 结构：每周至少 1 个 1:1
+不聊进度，只聊”你这周想主动拿下什么”</td>
+<td>即刻起</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>设”看见问题直接上手”机制：公开 backlog + 自主认领权，认领即
+owner（不需 Kyle 批准）</td>
+<td>2 周</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>脆弱示范：双周团队会 Kyle 固定分享 1
+个自己的失误/困惑（信任公理二）</td>
+<td>即刻起</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>度量：成员主动发起项目数、1:1 非工作话题占比、“Kyle 兜底”次数</td>
+<td>月度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="成功标准可测量">4. 成功标准（可测量）</h2>
+<ul>
+<li>成员主动发起（非分配）项目/PR 数 ↑（月度）</li>
+<li>1:1 中成员主动提出的话题占比 ≥ 60%</li>
+<li>Kyle “兜底/救火”事件数 ↓</li>
+<li>晋升 case：至少 1 名成员的主导项目可作为晋升证据</li>
+</ul>
+<h2 id="roi-团队影响">5. ROI / 团队影响</h2>
+<p>直接：Kyle 从”任务分发器”解放为”障碍清除者”。战略：团队主动性强 =
+IKEA Togetherness + Renew &amp; improve 的活体证明，是团队晋升 pipeline
+的根基。</p>
+<h2 id="风险与缓解">6. 风险与缓解</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>风险</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“主人翁”变甩锅借口（成员越权/产出失控）</td>
+<td>M2 认领权配”边界声明”：可见 backlog + 影响范围标签，高风险仍需
+review</td>
+</tr>
+<tr>
+<td>ENFJ Kyle 过度共情，边界模糊</td>
+<td>M4 度量”兜底次数”作预警；定期与 Nicole/Kirill 校准</td>
+</tr>
+<tr>
+<td>脆弱示范被误读为软弱</td>
+<td>配”失误+我学到的+下一步”三段式，示弱不示停</td>
+</tr>
+</tbody>
+</table>
+<h2 id="立即行动本周">7. 立即行动（本周）</h2>
+<ol type="1">
+<li><strong>本周一次 1:1 试验</strong>：完全不聊 task
+进度，只问”最近什么让你兴奋/卡住”。记录反应。</li>
+<li>把团队 backlog 公开化（issue
+board），加”自主认领”标签，宣布认领不需批准。</li>
+<li>下个团队会 Kyle 先分享一个自己本周的判断失误。</li>
+</ol>
+<h2 id="诚实挑战">8. 诚实挑战</h2>
+<ul>
+<li><strong>“主人翁不能分配”可能成甩锅话术</strong>：若 Kyle
+只”暴露问题”却不给资源/权限/心理安全，就是变相卸责。缓解：认领必须配套”我给你资源
++ 我挡外部压力”。</li>
+<li><strong>Felix Haas
+源未验证</strong>：不应把它当权威背书，提炼的是普遍管理直觉，Kyle
+自己的判断才是依据。</li>
+<li><strong>IKEA
+大企业语境</strong>：“直接上手”有合规边界（生产系统、跨团队）——M2
+必须配影响范围标签，不能无差别鼓励。</li>
+<li><strong>ENFJ 自我陷阱</strong>：Kyle
+天然倾向”我来照顾大家”，这与”让他们自己拿”恰恰相反——本 proposal
+的最大阻力可能就是 Kyle 自己的模式。</li>
+<li><strong>与 kepano 结合的锋利点</strong>：AI 时代人的 edge
+是”模型不知道的”——而”看见谁需要被看见”正是模型不知道的。管理者最高杠杆是<strong>把注意力这个稀缺资源投向人</strong>，而非投向更密的
+task board。</li>
+</ul></div></div>
+
+<div class="foot">📡 5 篇 Proposal · 信号源 23 条 Readwise 增量高亮（06-14→06-16）<br>🔬 验证：WebSearch + 工业共识交叉 · 生成：my-readwise-briefing v4.0 · 2026-06-16 09:40 CST<br>⚠️ #2/#3/#4/#5 因 subagent 网关 529 过载，由主循环内联生成（同模型等价质量）</div>
+</div>
+<script>const btn=document.getElementById('theme-toggle');btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');const d=document.documentElement.classList.contains('dark');btn.textContent=d?'☀️':'🌙';localStorage.setItem('theme',d?'dark':'light');});if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}</script>
+</body></html>
