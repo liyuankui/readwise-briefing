@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深度 Proposals · 2026-06-19</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+:root.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, serif;
+  line-height: 1.75; padding: 2rem 1rem; transition: background 0.3s, color 0.3s;
+}
+.container { max-width: 1080px; margin: 0 auto; }
+header {
+  border-bottom: 2px solid var(--accent); padding-bottom: 1rem;
+  margin-bottom: 1.5rem; display: flex; justify-content: space-between;
+  align-items: flex-start; flex-wrap: wrap; gap: 1rem;
+}
+header h1 { margin: 0; font-size: 1.6rem; color: var(--accent); }
+header .meta { color: var(--text3); font-size: 0.88rem; }
+.theme-toggle {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+}
+.banner {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; padding: 1rem 1.5rem; border-radius: 8px; margin: 1rem 0 1.5rem;
+  font-style: italic; text-align: center;
+}
+h2 {
+  color: var(--accent); border-left: 4px solid var(--accent);
+  padding-left: 0.75rem; margin-top: 2.5rem; font-size: 1.3rem;
+}
+h3 { color: var(--text); font-size: 1.05rem; margin: 1rem 0 0.3rem; }
+section { margin-bottom: 1rem; }
+table {
+  width: 100%; border-collapse: collapse; margin: 0.75rem 0;
+  background: var(--surface); border-radius: 8px; overflow: hidden; font-size: 0.88rem;
+}
+th, td { padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); font-weight: 600; }
+tr:hover { background: var(--surface2); }
+.proposal {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.5rem 1.75rem; margin: 1.5rem 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.proposal .num {
+  display: inline-block; width: 32px; height: 32px; line-height: 32px;
+  text-align: center; background: var(--accent); color: #fff;
+  border-radius: 50%; font-weight: bold; margin-right: 0.5rem;
+}
+.proposal h2.prop-title {
+  display: inline; border: none; padding: 0; margin: 0;
+  font-size: 1.25rem; vertical-align: middle;
+}
+.claim {
+  background: var(--surface2); border-left: 4px solid var(--accent3);
+  padding: 0.8rem 1rem; border-radius: 6px; margin: 0.75rem 0;
+  font-size: 0.95rem;
+}
+.claim::before { content: "🎯 核心主张："; font-weight: 700; color: var(--accent3); }
+.meta-row { color: var(--text3); font-size: 0.85rem; margin: 0.5rem 0; }
+.meta-row .pill {
+  display: inline-block; padding: 0.1rem 0.6rem; border-radius: 10px;
+  background: var(--accent); color: #fff; font-size: 0.75rem; margin-right: 0.3rem;
+}
+.challenge {
+  background: #fef2f2; border-left: 4px solid var(--accent5);
+  padding: 0.8rem 1rem; border-radius: 6px; margin: 0.75rem 0; font-size: 0.9rem;
+}
+:root.dark .challenge { background: #450a0a; }
+.challenge::before { content: "⚔️ 诚实挑战："; font-weight: 700; color: var(--accent5); }
+.action {
+  background: #f0fdf4; border-left: 4px solid var(--accent3);
+  padding: 0.8rem 1rem; border-radius: 6px; margin: 0.75rem 0; font-size: 0.9rem;
+}
+:root.dark .action { background: #052e16; }
+.action::before { content: "⚡ 立即行动："; font-weight: 700; color: var(--accent3); }
+.action ol { margin: 0.3rem 0 0; padding-left: 1.5rem; }
+.action li { margin: 0.3rem 0; }
+.roi-box {
+  background: linear-gradient(135deg, var(--accent4), #f59e0b);
+  color: #fff; padding: 0.6rem 1rem; border-radius: 6px;
+  margin: 0.5rem 0; font-weight: 600; font-size: 0.9rem;
+}
+.toggle-details { margin-top: 0.5rem; }
+.toggle-details summary {
+  cursor: pointer; color: var(--accent); padding: 0.4rem 0;
+  font-size: 0.9rem; font-weight: 600;
+}
+.proposal a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+.proposal a:hover { text-decoration: underline; }
+code {
+  background: var(--surface2); padding: 0.1rem 0.35rem;
+  border-radius: 3px; font-size: 0.85em; font-family: "Maple Mono NF CN", monospace;
+}
+.signal-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem; margin: 1rem 0;
+}
+.signal-cell {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.6rem 0.8rem; font-size: 0.82rem;
+}
+.signal-cell .label { color: var(--text3); font-size: 0.75rem; }
+.signal-cell .val { color: var(--accent); font-weight: 600; }
+footer {
+  margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border);
+  color: var(--text3); font-size: 0.8rem; text-align: center;
+}
+.decision-box {
+  background: var(--surface); border: 2px dashed var(--accent);
+  border-radius: 8px; padding: 1rem 1.25rem; margin: 1.5rem 0;
+}
+.decision-box h3 { margin-top: 0; color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>Readwise 深度 Proposals</h1>
+    <div class="meta">2026-06-19 · 5 subagents 并行推理 · Phase 1.5 验证后深挖 · 全部含诚实挑战</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle">🌙</button>
+</header>
+
+<div class="banner">不可行动的信息 = 噪音。以下 5 个 Proposal 皆经独立验证 + 自我证伪，非营销话术。</div>
+
+<h2>🗺️ 信号 × 项目 对应矩阵</h2>
+<table>
+<thead><tr><th>Proposal</th><th>锚定信号</th><th>验证</th><th>主连接意图</th><th>工时估算</th><th>首年 ROI</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Life OS 自驱 Agent</strong></td><td>vercel/eve</td><td><span style="color:var(--accent3)">✅</span></td><td>Life OS · routine-manager</td><td>5 天</td><td>33-50h 回收</td></tr>
+<tr><td><strong>2. Skill OS 治理</strong></td><td>yao-meta-skill 2.0 + mattpocock/skills</td><td><span style="color:var(--accent3)">✅</span></td><td>Skills Dev · Skill Hub · GEO</td><td>7 周</td><td>token ↓40%+</td></tr>
+<tr><td><strong>3. PII 信任面闭合</strong></td><td>microsoft/presidio</td><td><span style="color:var(--accent3)">✅</span></td><td>AI Security · Vibe Stack</td><td>4 人周</td><td>单事件回本</td></tr>
+<tr><td><strong>4. 因果 AI 立场</strong></td><td>Aether AI / 黄碧薇</td><td><span style="color:var(--accent4)">⚠️</span></td><td>Ontology · 前沿探索</td><td>14 周</td><td>认知升级∞</td></tr>
+<tr><td><strong>5. AI 编码瓶颈位移</strong></td><td>Anthropic 40万会话 + 5信号</td><td><span style="color:var(--accent4)">⚠️</span></td><td>AI Coding · Upskill Trainer</td><td>6 周</td><td>~30% 产能</td></tr>
+</tbody>
+</table>
+
+<!-- ============ PROPOSAL 1 ============ -->
+<div class="proposal">
+  <h2 class="prop-title"><span class="num">1</span>以 vercel/eve 为 runtime，将 routine-manager 升格为自驱 Agent</h2>
+  <div class="meta-row">
+    <span class="pill">Life OS</span><span class="pill">Proactive Agents</span>
+    信号源：@vercel (2026-06-17) · 验证：<span style="color:var(--accent3)">✅ vercel/eve 1,522⭐ Apache-2.0 今日活跃</span>
+  </div>
+
+  <div class="claim">vercel/eve 的 <code>schedules/</code> 目录，正是 Kyle 现有 routine-manager 缺失的"自驱之心"——把它从"需召唤的 skill"升格为"会自己醒来巡逻的 agent"，便完成了 Life OS 第一支柱的闭环。</div>
+
+  <h3>🔒 锁定痛点</h3>
+  <p>每天早上手动召唤 <code>/routine-manager --run --frequency daily</code>。这是<strong>召唤式</strong>非<strong>自驱式</strong>——Kyle 必须主动打开会话、打出命令、等待 4 个 task 跑完、自己读报告。</p>
+  <div class="signal-grid">
+    <div class="signal-cell"><div class="label">每日耗时</div><div class="val">8-12 分钟</div></div>
+    <div class="signal-cell"><div class="label">年化开销</div><div class="val">33-50 小时</div></div>
+    <div class="signal-cell"><div class="label">真正成本</div><div class="val">认知带宽占用</div></div>
+    <div class="signal-cell"><div class="label">漏召风险</div><div class="val">routine 断档</div></div>
+  </div>
+
+  <h3>🏗️ 里程碑（5 个，Bun+TS）</h3>
+  <table>
+  <thead><tr><th>#</th><th>里程碑</th><th>工时</th><th>Gate</th></tr></thead>
+  <tbody>
+  <tr><td>M1</td><td>e2e 亲测 + 边界测绘（PROBE.md）</td><td>0.5 天</td><td>schedule 能脱离 Vercel 本地自跑</td></tr>
+  <tr><td>M2</td><td>首个 schedule：my-readwise-briefing 包成 eve tool</td><td>1 天</td><td>连续 3 工作日 Kyle 未手动召唤</td></tr>
+  <tr><td>M3</td><td>扩展到 ROUTINE-001~011（7 个 active）</td><td>1.5 天</td><td><code>/routine-manager</code> 仅作应急覆盖</td></tr>
+  <tr><td>M4</td><td>Memory 层：跨 session 状态沉淀</td><td>1 天</td><td>agent 引用"上周三漏掉的邮件"</td></tr>
+  <tr><td>M5</td><td>Trust & Eval：自评 + 失败回退</td><td>1 天</td><td>每周自动健康报告，零核查</td></tr>
+  </tbody>
+  </table>
+
+  <div class="roi-box">💰 ROI：投入 5 工作日，首年回收 33-50 小时（≈1 工作周）；隐性收益——Kyle 从"执行者"切到"系统设计者"</div>
+
+  <div class="action">
+    <ol>
+      <li><strong>周一 30min</strong>：<code>cd ~/Work && npx eve@latest init life-os-agent</code>，跑官方 example，确认 schedule 到点自触发</li>
+      <li><strong>周二 1h</strong>：写 PROBE.md 回答 4 问（脱离 Vercel？memory 机制？tools 类型？PRATA 兼容？）</li>
+      <li><strong>周三-四 2h</strong>：<strong>最小证伪实验</strong>——用 launchd + 30 行 Bun 脚本，工作日 9:00 自动 <code>claude -p '/my-readwise-briefing'</code>，跑 2 天看体感</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>最致命漏洞</strong>：eve 可能完全多余——Kyle 已有 routine-manager + launchd 就够了。若目标<strong>只是</strong>"让 routine 自跑"，一个 30 行 launchd plist 1 天搞定。eve 的价值在 M4(Memory)/M5(Trust)/未来 Software Factory。<strong>建议：Action 3 先用 launchd 证伪痛点，有数据再决定是否上 eve。</strong>另外"最高频手动动作"未用 dayflow-insight 实测——候选还有 Gmail triage、Confluence 扫描。
+  </div>
+
+  <details class="toggle-details"><summary>📖 PRATA vs eve 关系澄清（防重复造轮子）</summary>
+  <table>
+  <thead><tr><th>维度</th><th>PRATA (v0.2.0)</th><th>vercel/eve</th></tr></thead>
+  <tbody>
+  <tr><td>解决什么</td><td>Agent <strong>之间</strong>加密通信</td><td>单个 Agent <strong>自驱调度</strong></td></tr>
+  <tr><td>类比</td><td>电话线（ntfy + tweetnacl）</td><td>闹钟 + 大脑</td></tr>
+  <tr><td>PYA 层级</td><td>Physical + Your Agent</td><td>Application</td></tr>
+  <tr><td>关系</td><td colspan="2">eve schedule 触发后<strong>通过 PRATA channel 推送结果</strong>——组合非冲突</td></tr>
+  </tbody>
+  </table>
+  </details>
+</div>
+
+<!-- ============ PROPOSAL 2 ============ -->
+<div class="proposal">
+  <h2 class="prop-title"><span class="num">2</span>治 Skill 之道：以 Yao 2.0 治其行，以 Pocock 拆其形</h2>
+  <div class="meta-row">
+    <span class="pill">Skills Dev</span><span class="pill">Skill Hub</span><span class="pill">GEO</span>
+    信号源：@yaojingang + @mattpocockuk · 验证：<span style="color:var(--accent3)">✅ yao-meta-skill 914⭐ + mattpocock/skills 136,161⭐</span>
+  </div>
+
+  <div class="claim">Skill 既当治其行（Yao 2.0：IR + Eval Lab + Review Gate），亦当拆其形（Pocock：model-invocable vs user-invocable）——治行以防回归，拆形以省 token。两者合一，方为「Skill OS」之内核。</div>
+
+  <h3>🔒 锁定痛点（皆有实据）</h3>
+  <table>
+  <thead><tr><th>#</th><th>痛点</th><th>证据锚点</th></tr></thead>
+  <tbody>
+  <tr><td>1</td><td><code>my-skill-evolver</code> 验证是手工 checklist，无 eval/CI/回归闸门</td><td>SKILL.md line 314-326，仅 <code>head/grep/wc</code></td></tr>
+  <tr><td>2</td><td>Skill Hub v7 已 130 skills，frontmatter 无 <code>invocable-type</code>，token 无差别全量加载</td><td>SPEC.md line 64-80 数据结构</td></tr>
+  <tr><td>3</td><td>GEO F5"封装为 Skill"无质量验证手段</td><td>geo-for-ikea/SPEC.md F5</td></tr>
+  </tbody>
+  </table>
+
+  <h3>🏗️ 里程碑（Hybrid 路线：adopt + build）</h3>
+  <table>
+  <thead><tr><th>#</th><th>里程碑</th><th>路线</th><th>工时</th></tr></thead>
+  <tbody>
+  <tr><td>M1</td><td><code>skill-token-audit.ts</code> token 计量基线</td><td><strong>build</strong></td><td>1 周</td></tr>
+  <tr><td>M2</td><td><code>invocable-type</code> 字段落地 + frontmatter 升级</td><td><strong>build</strong></td><td>1.5 周</td></tr>
+  <tr><td>M3</td><td><code>skill-eval-lab.ts</code> 行为评估实验室</td><td><strong>adopt Yao</strong></td><td>2 周</td></tr>
+  <tr><td>M4</td><td><code>review-gate.html</code> 发布前审查门</td><td><strong>adopt Yao</strong></td><td>1 周</td></tr>
+  <tr><td>M5</td><td>Skill Hub 采纳遥测闭环（drift 报告）</td><td><strong>adopt Yao</strong></td><td>1.5 周</td></tr>
+  </tbody>
+  </table>
+
+  <div class="roi-box">💰 ROI：个人 token ↓40%，IKEA Hub（50用户×日均会话）6位数 token/日级节省；演进效率省 ~60h/年</div>
+
+  <div class="action">
+    <ol>
+      <li><strong>2h</strong>：写 ~50 行 <code>skill-token-audit.ts</code>（Bun），扫 <code>~/Notebooks/.agents/skills/</code>，输出每 skill desc token 数——<strong>先看清现状再优化</strong></li>
+      <li><strong>3h</strong>：给 3 个高频 skill（my-readwise-briefing/anti-slop-creator/GEO F5）标 invocable-type + 写首个 eval case</li>
+      <li><strong>2h</strong>：读 yao-meta-skill 的 Eval Lab + Review Studio 源码，判断 fork vs 自写</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>最致命漏洞：Kyle 是否在重造 Yao 已发之物？</strong>Yao 2.0（914⭐ 6语言文档 beta 就绪）已交付 Skill IR + Eval Lab + Review Studio + SkillOps——本提案 M3/M4/M5 几乎是其子集。<strong>裁决：Hybrid 路线</strong>——adopt Yao 的 Eval/Review（不重写），build invocable-type/token-audit（Yao 无此物，运行时 token 节省 vs 编译时多平台是不同问题）。<strong>一句话：Yao 治「行」（行为对不对），Kyle 治「知」（踩过的坑记不记得）。两者不替代，是叠加。</strong>另外本提案不独立立项，作为 thin-harness-proposal 的 Phase 0（逃生舱：若 thin-harness No-Go，M1/M2 仍独立有价值）。
+  </div>
+</div>
+
+<!-- ============ PROPOSAL 3 ============ -->
+<div class="proposal">
+  <h2 class="prop-title"><span class="num">3</span>Presidio × IKEA：闭合"数据在途"信任缺口</h2>
+  <div class="meta-row">
+    <span class="pill">AI Security</span><span class="pill">Vibe Stack</span>
+    信号源：@_vmlops (2026-06-18) · 验证：<span style="color:var(--accent3)">✅ microsoft/presidio 8,936⭐ MIT 昨日活跃</span>
+  </div>
+
+  <div class="claim">credential-manager 守住了 secrets-at-rest，但 Vibe Stack 的 Cloud Function 网关与 Custom Compute 路径是 PII"数据在途"的盲区——presidio 作为独立 sanitization 微服务接入网关，方能将"信任面=攻击面"公理从密钥层延伸至数据层。</div>
+
+  <h3>🔒 锁定痛点（SPEC.md 实据）</h3>
+  <table>
+  <thead><tr><th>#</th><th>痛点</th><th>SPEC 锚点</th></tr></thead>
+  <tbody>
+  <tr><td>1</td><td>Firestore/Sheets 直存用户自由文本，无字段级 PII 扫描</td><td>§13.5 <code>_data/votes</code>、§11.1</td></tr>
+  <tr><td>2</td><td>Custom Compute 转发用户 Node.js → 任意 HTTP（含 LLM），网关不审查 body</td><td>§11.3 仅 Auth/ACL</td></tr>
+  <tr><td>3</td><td>审计层 §11.8 是"事后扫描代码"非"事中拦截 payload"（周 cron vs 毫秒外泄）</td><td>§11.8 GitHub Action cron</td></tr>
+  </tbody>
+  </table>
+
+  <h3>🏗️ 里程碑（Python 微服务，隔离部署）</h3>
+  <p><strong>决断</strong>：presidio <strong>不进主栈</strong>（违反 R·技术栈），部署为网关侧 sanitization 微服务——属"现成SDK无替代"例外（须 README 立据）。</p>
+  <table>
+  <thead><tr><th>阶段</th><th>里程碑</th><th>投入</th></tr></thead>
+  <tbody>
+  <tr><td>M0</td><td>威胁建模 + Python 例外立据</td><td>1 人日</td></tr>
+  <tr><td>M1</td><td>presidio-as-sidecar PoC（Cloud Run <code>pii-gate</code>）</td><td>1 人周</td></tr>
+  <tr><td>M2</td><td>网关侧 opt-in 拦截（write/compute 路径）</td><td>1.5 人周</td></tr>
+  <tr><td>M3</td><td>Custom Compute 出站 payload 哨兵</td><td>1 人周</td></tr>
+  <tr><td>M4</td><td>效果度量 + 回退条件（误报率/延迟）</td><td>0.5 人周</td></tr>
+  </tbody>
+  </table>
+
+  <div class="roi-box">💰 ROI：M0-M4 ≈ 4 人周；Cloud Run 免费层 $0；单次 PII 出境事件即回本（≈200+ 人时应急）</div>
+
+  <div class="action">
+    <ol>
+      <li><strong>半天</strong>：写 <code>PII_GATEWAY_JUSTIFICATION.md</code>（含 TS 替代品调研表 + AGENTS.md 例外声明）——合规前置门</li>
+      <li><strong>1 天</strong>：presidio 本地 PoC，喂 20 条中文含 PII 样本，测姓名/手机/身份证识别率与误报</li>
+      <li><strong>1 小时</strong>：与 Platform Security Team 威胁建模工作坊，争取 M3 egress proxy 背书</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>三大挑战</strong>：① <strong>"Kyle 还没有 production LLM pipeline，presidio 过早？"</strong>——<strong>部分成立</strong>，M2/M3 应缓行，但痛点 1（Firestore 存用户文本）<strong>今日即存在</strong>，M0/M1 值得做。② <strong>"$0/月 stack 加 Python 微服务是 security theater？"</strong>——若强行 default 开启→是。故设计 opt-in、scales-to-zero。真正的 theater 是 §11.8 那种"周 cron 审计代码"——给安全感却不挡 PII。③ <strong>中文误报是最大真实风险</strong>——M4 设阈值：误报 &lt;10% 全量推进；10-20% 仅 M2；&gt;20% <strong>冻结提案</strong>转 Azure Comprehend。
+  </div>
+
+  <details class="toggle-details"><summary>📖 TS 替代品诚实比较（AGENTS.md Python 例外论证）</summary>
+  <table>
+  <thead><tr><th>候选</th><th>语言</th><th>中文</th><th>评估</th></tr></thead>
+  <tbody>
+  <tr><td>microsoft/presidio</td><td>Python</td><td>✅</td><td>基准（唯一"本地+中文+MIT"）</td></tr>
+  <tr><td>presidio-node</td><td>TS</td><td>依赖后端</td><td>仍是 Python 包装</td></tr>
+  <tr><td>tldraw/pii-detection</td><td>TS</td><td>❌弱</td><td>缺 NER，中文漏报</td></tr>
+  <tr><td>纯正则自写</td><td>TS</td><td>⚠️</td><td>姓名难，误报高</td></tr>
+  <tr><td>AWS/Azure 商业</td><td>API</td><td>✅</td><td>数据出境，违反主权</td></tr>
+  </tbody>
+  </table>
+  </details>
+</div>
+
+<!-- ============ PROPOSAL 4 ============ -->
+<div class="proposal">
+  <h2 class="prop-title"><span class="num">4</span>因果 AI 范式转移：一个工程管理者的立场提案</h2>
+  <div class="meta-row">
+    <span class="pill">Ontology</span><span class="pill">前沿探索</span>
+    信号源：@MindfulReturn (2026-06-19) · 验证：<span style="color:var(--accent4)">⚠️ 二手信源（Aether AI 融资新闻），但 Pearl 因果框架是一手真学问</span>
+  </div>
+
+  <div class="claim">因果 AI 不是 Kyle 下一个要部署的系统，而是他要为团队建立的"失效地图"——在相关性 AI 必然失败的 IKEA 决策点上，预先标注"此处相关性会撒谎"，这是 2026 年工程管理者的稀缺判断力。</div>
+
+  <h3>🔒 相关性 AI 在 IKEA 何处失效（分诊）</h3>
+  <table>
+  <thead><tr><th>痛点</th><th>确定性</th><th>因果问题</th></tr></thead>
+  <tbody>
+  <tr><td><strong>A. 库存"伪相关补货"</strong>：销量↑→建议补货，但可能由促销/缺货延迟/季节性构成</td><td>🔴 高</td><td>do(补货=高) 下销量如何？（反事实）</td></tr>
+  <tr><td><strong>B. Agent 行为无法解释</strong>：Agent 调工具 X 非 Y，只能说"训练中更相关"</td><td>🟡 中</td><td>是 X 导致成功，还是本会成功？（混杂偏倚）</td></tr>
+  <tr><td><strong>C. Ontology 投影损耗</strong>：公理"投影皆有损"目前是哲学命题</td><td>🟢 探索</td><td>因果图 DAG 可量化投影损失</td></tr>
+  </tbody>
+  </table>
+
+  <h3>🏗️ 里程碑（M1 为否决门）</h3>
+  <table>
+  <thead><tr><th>#</th><th>里程碑</th><th>产出</th><th>性质</th></tr></thead>
+  <tbody>
+  <tr><td><strong>M1</strong></td><td>读 Pearl《The Book of Why》+ 复述观察/干预/反事实三层</td><td>1 篇笔记 ≤2000 字</td><td><strong>🚪 否决门</strong>（2 周）</td></tr>
+  <tr><td>M2</td><td>因果考古：找 1 个 IKEA 相关性模型曾错判的真实案例</td><td>案例 dossier</td><td>证伪 M1</td></tr>
+  <tr><td>M3</td><td>do-calculus 微型原型（<code>dowhy</code> 库）</td><td>Jupyter + 对比报告</td><td>验证因果是否胜出</td></tr>
+  <tr><td>M4</td><td>因果层嫁接 Ontology（KG 标注 is-caused-by 边）</td><td>实验设计</td><td>衔接主线</td></tr>
+  <tr><td>M5</td><td>思想件《相关性天花板：IKEA 因果盲区》</td><td>3000-5000 字</td><td>领导力变现</td></tr>
+  </tbody>
+  </table>
+
+  <div class="roi-box">💰 ROI：思想领导力（"因果+本体+Agent"无人占领的山头）+ 职业差异化（多数 EM 停在"让 Agent 跑"，少数问"跑对了吗"）+ 决策质量永久升级（ROI≈∞）</div>
+
+  <div class="action">
+    <ol>
+      <li><strong>周一-二 2h</strong>：<strong>一手溯源</strong>——读 Pearl《The Book of Why》导论+第1章，一句话写"观察/干预/反事实"三层。写不出 = no-go 信号</li>
+      <li><strong>周三-四 1.5h</strong>：IKEA 因果考古——列最近 1 个"模型建议与运营直觉相悖"场景 + 可能的混杂变量</li>
+      <li><strong>周五 1h</strong>：写"反向结案"（Pre-mortem）——假设 14 周后彻底失败，写 3 个最可能原因</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>四大证伪挑战</strong>：① <strong>Web3 式流行词？</strong>——部分成立，但因果推断已在医药/经济/公共政策有几十年落地（非 Web3 式空诺）。② <strong>分散 15 intents 注意力？</strong>——很可能成立（最大风险），M1 仅 2 周硬时限，Ontology 是主线因果是支线。③ <strong>"相关性天花板"真的存在吗？</strong>——在感知/模式匹配任务上相关性已近天花板；但在<strong>闭环决策</strong>上系统性失败于混杂与反事实。④ <strong>EM 花一季读 Pearl 是否不务正业？</strong>——但 Kyle 的 Ontology 公理本身就是哲学性产出，因果是同谱系延伸非换赛道。<br><br>
+    <strong>终判（Kyle 自问）</strong>：<em>在 IKEA 闭环决策中，是否至少存在一个点，相关性 AI 已实际误导过运营，而因果框架能讲清为何误导？</em> 是→启动 M1；否→退守观察，归档（这本身就是证伪思维的胜利）。
+  </div>
+</div>
+
+<!-- ============ PROPOSAL 5 ============ -->
+<div class="proposal">
+  <h2 class="prop-title"><span class="num">5</span>夫器之下，明意为先：AI 编码瓶颈转移后的团队策略</h2>
+  <div class="meta-row">
+    <span class="pill">AI Coding</span><span class="pill">Upskill Trainer</span><span class="pill">Eng Baseline</span>
+    信号源：@Xudong07452910 + @KELMAND1 + @yibie + @XAMTO_AI + @Xudong Han · 验证：<span style="color:var(--accent4)">⚠️ 5 信号聚合（3 个同人，存在来源同质化偏差）</span>
+  </div>
+
+  <div class="claim">AI 编码的瓶颈已自「能写否」移于「所求者何」与「上下文之不坠」；故团队之胜，不在更善驱 AI 以写码，而在更善自陈其欲解之题、并令 AI 不致失忆上岗。</div>
+
+  <p><strong>Anthropic 实证（n≈400,000 sessions）</strong>：用户做 <strong>70% 规划决策</strong>，让渡 <strong>80% 执行决策</strong>给 Claude。专家级用户每 prompt 触发 <strong>12 次 action</strong>（新手 5 次，<strong>2.4 倍</strong>）——差距不在"会不会写代码"，而在"指令精确度与对问题的掌握"。测试型会话仅占 <strong>5%</strong>。</p>
+
+  <h3>🔒 三痛点汇于一处</h3>
+  <table>
+  <thead><tr><th>#</th><th>痛点</th><th>重新框定</th></tr></thead>
+  <tbody>
+  <tr><td>1</td><td>Survey #1"怎么让 AI 听懂我"实为<strong>问题陈述能力</strong>之缺，非 prompt 技巧之缺</td><td>分水岭是"指令精确 + 识别 AI 误入歧途 + 反向纠正"</td></tr>
+  <tr><td>2</td><td>测试文化之缺，被 AI<strong>"效率幻觉"</strong>放大（MIT/Stanford：人低估用 AI 频率、高估收益）</td><td>用主观感觉替代客观质量 = 幻觉温床</td></tr>
+  <tr><td>3</td><td>"木耳困境"指向<strong>工具选型 ROI</strong>（非"少投 AI"）</td><td>分层匹配：脚本用免费，架构/重构/测试设计用顶级</td></tr>
+  </tbody>
+  </table>
+
+  <h3>🏗️ 里程碑（4 个）</h3>
+  <table>
+  <thead><tr><th>#</th><th>里程碑</th><th>核心</th></tr></thead>
+  <tbody>
+  <tr><td>M1</td><td>重构 L0/L1 教案：Problem-Framing Checklist（5 要素）</td><td>业务问题→验收标准→边界→上下文锚点→AI 复述目标</td></tr>
+  <tr><td>M2</td><td>团队"上下文不坠"模式（AGENTS.md + 决策日志）</td><td>新会话"背景重述"从 3-4 次降到 ≤1</td></tr>
+  <tr><td>M3</td><td>测试红线：AI 写码→AI 写测试，覆盖率&gt;80% 才合并</td><td>测试型会话占比 ≥15%（行业 5% 的 3 倍）</td></tr>
+  <tr><td>M4</td><td>分层模型选型指南（回应木耳困境）</td><td>月度 token 成本降 ≥15%</td></tr>
+  </tbody>
+  </table>
+
+  <div class="roi-box">💰 ROI：不增人头 ~30% 产能提升；讲师团护城河（区别于千篇一律 prompt 课）；向上可见性（Digital Sharing Days 可讲"瓶颈转移"框架）</div>
+
+  <div class="action">
+    <ol>
+      <li><strong>半天</strong>：起草《问题框定清单》v0.1（L1.1 教案骨架），找 2 名工程师试点真实任务</li>
+      <li><strong>2h</strong>：盘点 3 个主力仓库的上下文文件现状，列缺失项作 M2 baseline</li>
+      <li><strong>约经理 30min</strong>：用"瓶颈转移"叙事 + 测试红线 KPI，争取纳入下季度工程目标（<strong>本周若只做一件事，做这个</strong>）</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>三大证伪挑战</strong>：① <strong>5 信号 cherry-picked？</strong>——部分是，3 个来自同人，缺传统测试工程师反方观点 + IKEA 同类企业实证 + AI 翻车案例。M1 试点主动收集团队"AI 误判"负样本平衡。② <strong>"problem-framing = 需求工程换皮？"</strong>——有道理但不完全：需求工程是人与人（可口头澄清），problem-framing for AI 必须<strong>一次性写进 prompt</strong>（因失忆问题），是新约束催生新技能。<strong>但 Kyle 应警惕别让讲师团把老课贴 AI 标签——真正增量只在 M2 + "AI 复述验收"。</strong> ③ <strong>"木耳困境"暗示少投顶级 AI？与现方向矛盾？</strong>——这是最大内部张力。CDH 不是"普通人"是 11 工程师做企业级系统。正确推论是 <strong>M4 分层匹配</strong>（顶级收窄到刀刃任务）。<strong>若工程师在刀刃任务也感知不出差异，需 A/B 盲测证伪——这是最该先做的实验。</strong>
+  </div>
+
+  <details class="toggle-details"><summary>📖 已验证的一手来源</summary>
+  <ul>
+    <li><a href="https://www.anthropic.com/research/claude-code-expertise">Anthropic: Agentic coding and persistent returns to expertise</a>（40万会话，70/80法则，专家2.4倍action chain，测试仅5%）</li>
+    <li><a href="https://github.com/mindfold-ai/trellis">mindfold-ai/Trellis</a>（真实 agent harness 项目）</li>
+    <li><a href="https://arxiv.org/html/2605.22687v1">The efficiency-gain illusion (MIT/Stanford/NYU)</a></li>
+    <li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">Claude Memory tool</a>（M2 上下文持久化依据）</li>
+  </ul>
+  </details>
+</div>
+
+<!-- ============ DECISION ============ -->
+<div class="decision-box">
+  <h3>🤔 Kyle 的决策矩阵（建议优先级）</h3>
+  <table>
+  <thead><tr><th>Proposal</th><th>紧急度</th><th>建议</th><th>理由</th></tr></thead>
+  <tbody>
+  <tr><td><strong>5. AI 编码瓶颈</strong></td><td>🔴 最高</td><td><strong>本周启动</strong></td><td>Digital Sharing Days 前置；向上管理窗口期；Action 3（约经理）零成本</td></tr>
+  <tr><td><strong>2. Skill OS 治理</strong></td><td>🟡 高</td><td><strong>本周 Action 1-2</strong></td><td>token-audit 2h 即出数据；Skill Hub v7 扩展在即，invocable-type 越早加越省迁移</td></tr>
+  <tr><td><strong>1. Life OS 自驱</strong></td><td>🟡 高</td><td><strong>先证伪</strong></td><td>Action 3（launchd 30 行）2 天出体感数据，再决定是否上 eve</td></tr>
+  <tr><td><strong>3. PII 闭合</strong></td><td>🟢 中</td><td><strong>M0/M1 缓行</strong></td><td>无 production LLM pipeline 前，M2/M3 过早；但 Firestore 存文本痛点今日存在</td></tr>
+  <tr><td><strong>4. 因果 AI</strong></td><td>🔵 探索</td><td><strong>M1 读 Pearl</strong></td><td>2 周否决门，读完再 go/no-go；不占主线资源</td></tr>
+  </tbody>
+  </table>
+  <p style="color:var(--text2); font-size:0.88rem; margin-top:0.5rem;">💡 <strong>一句话</strong>：本周若只做一件事——<strong>约经理讲"AI 编码瓶颈转移"叙事，把测试红线 + 分层选型锁进下季度目标</strong>（Proposal 5 Action 3）。其余皆可由此衍生。</p>
+</div>
+
+<footer>
+  Readwise Proposals v4.0 · 5 subagents 并行 · 全部含诚实挑战 + 可证伪标准<br>
+  生成：2026-06-19 · Phase 1+1.5+2 完整闭环 · 信号→验证→洞察→行动<br>
+  <a href="/tmp/readwise-briefing-20260619.html">← 返回 Phase 1 简报</a>
+</footer>
+
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

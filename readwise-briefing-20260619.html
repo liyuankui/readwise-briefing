@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-06-19</title>
+<style>
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface2: #f5f4f0;
+  --border: #e8e5df;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #888880;
+  --accent: #2d5a4a;
+  --accent2: #6366f1;
+  --accent3: #059669;
+  --accent4: #d97706;
+  --accent5: #dc2626;
+}
+:root.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242736;
+  --border: #2e3247;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #6c8ef5;
+  --accent2: #a78bfa;
+  --accent3: #34d399;
+  --accent4: #f59e0b;
+  --accent5: #f87171;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", -apple-system, BlinkMacSystemFont, serif;
+  line-height: 1.75;
+  padding: 2rem 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+.container { max-width: 980px; margin: 0 auto; }
+header {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+header h1 { margin: 0; font-size: 1.6rem; color: var(--accent); }
+header .meta { color: var(--text3); font-size: 0.9rem; }
+.theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  text-align: center;
+}
+.stat .num { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+.stat .lbl { font-size: 0.8rem; color: var(--text3); }
+.banner {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0 2rem;
+  font-style: italic;
+  text-align: center;
+}
+h2 {
+  color: var(--accent);
+  border-left: 4px solid var(--accent);
+  padding-left: 0.75rem;
+  margin-top: 2.5rem;
+  font-size: 1.3rem;
+}
+h3 { color: var(--text); font-size: 1.05rem; margin-bottom: 0.3rem; }
+section { margin-bottom: 1.5rem; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+th, td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th { background: var(--surface2); color: var(--accent); font-weight: 600; }
+tr:hover { background: var(--surface2); }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+.card.h5 { border-left-color: var(--accent5); }
+.card.h3 { border-left-color: var(--accent4); }
+.card .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.card .author { color: var(--accent2); font-weight: 600; font-size: 0.9rem; }
+.card .stars { color: var(--accent4); font-size: 0.85rem; }
+.card .text { color: var(--text2); margin: 0.5rem 0; white-space: pre-wrap; }
+.card .note {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--surface2);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--text);
+  border-left: 3px solid var(--accent3);
+}
+.card .note::before {
+  content: "💡 为何相关：";
+  font-weight: 600;
+  color: var(--accent3);
+}
+.card a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+.card a:hover { text-decoration: underline; }
+.verify {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+.verify.ok { background: #d1fae5; color: #065f46; }
+.verify.partial { background: #fef3c7; color: #92400e; }
+.verify.opinion { background: #ede9fe; color: #5b21b6; }
+:root.dark .verify.ok { background: #064e3b; color: #6ee7b7; }
+:root.dark .verify.partial { background: #78350f; color: #fcd34d; }
+:root.dark .verify.opinion { background: #4c1d95; color: #c4b5fd; }
+.action-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+.action-list ol { margin: 0.5rem 0; padding-left: 1.5rem; }
+.action-list li { margin: 0.4rem 0; }
+details summary {
+  cursor: pointer;
+  color: var(--text3);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+details[open] summary { color: var(--accent); }
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: var(--surface2);
+  color: var(--text2);
+  margin: 0.1rem;
+}
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text3);
+  font-size: 0.8rem;
+  text-align: center;
+}
+.proposals-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>Readwise 情报简报</h1>
+    <div class="meta">2026-06-19 · 增量自 2026-06-16 · 全部 Tweets 信号 · Phase 1.5 已验证</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" title="切换主题">🌙</button>
+</header>
+
+<div class="banner">不可行动的信息 = 噪音。本简报已对每条高价值信号做独立验证 ✅/⚠️。</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">31</div><div class="lbl">新增内容</div></div>
+  <div class="stat"><div class="num">8</div><div class="lbl">⭐×5 高价值</div></div>
+  <div class="stat"><div class="num">9</div><div class="lbl">⭐×3 备用</div></div>
+  <div class="stat"><div class="num">14</div><div class="lbl">⭐ 低价值</div></div>
+  <div class="stat"><div class="num">5</div><div class="lbl">已验证 repo</div></div>
+</div>
+
+<h2>📡 信号概览（5 大深挖方向 → Proposals）</h2>
+<table>
+<thead><tr><th>方向</th><th>锚定信号</th><th>验证</th><th>连接意图</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Agent 框架</strong></td><td>vercel/eve（filesystem-first agent）</td><td><span class="verify ok">✅ 1.5K⭐</span></td><td>Life OS · Agentic Eng</td></tr>
+<tr><td><strong>2. Skills 治理</strong></td><td>yao-meta-skill 2.0 + mattpocock/skills（136K⭐）</td><td><span class="verify ok">✅ 双重验证</span></td><td>Skills Dev · Skill Hub · GEO</td></tr>
+<tr><td><strong>3. AI 安全/PII</strong></td><td>microsoft/presidio（PII detection）</td><td><span class="verify ok">✅ 8.9K⭐</span></td><td>AI Security · Vibe Stack</td></tr>
+<tr><td><strong>4. 因果 AI 范式</strong></td><td>Aether AI / 黄碧薇（相关性天花板）</td><td><span class="verify partial">⚠️ 二手信源</span></td><td>Ontology · 前沿探索</td></tr>
+<tr><td><strong>5. AI 编码元位移</strong></td><td>Anthropic 40万会话 + 木耳困境 + 本地模型</td><td><span class="verify partial">⚠️ 五信号聚合</span></td><td>AI Coding · Upskill Trainer</td></tr>
+</tbody>
+</table>
+<p style="text-align:center;">
+  <a href="/tmp/readwise-proposals-20260619.html" class="proposals-link">📋 查看 5 个深度 Proposals →</a>
+</p>
+
+<h2>⭐⭐⭐⭐⭐ 高价值 · 立即行动（8 条）</h2>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@vercel</span> — Introducing eve, an agent framework</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"Introducing eve, an agent framework. agent/agent.ts, instructions.md, tools/, skills/, sandbox/, schedules/. Like Next.js, for agents."</div>
+  <div><a href="https://x.com/vercel/status/2067180054979936413">x.com/vercel/status/2067180054979936413</a> <span class="verify ok">✅ VERIFIED</span></div>
+  <div class="note">vercel/eve = 1,522⭐ Apache-2.0 今日活跃。"filesystem-first durable agents" — agent/ 目录约定 (tools/skills/channels/schedules)。schedules/ = cron = Life OS 的 Proactive Agents 支柱。Bun/TS 生态完美匹配。这是 Life OS 缺失的脚手架。</div>
+</div>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@mattpocockuk</span> — mattpocock/skills v1</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"Announcing mattpocock/skills v1 — Achieved a 63% reduction in token cost for skill descriptions. Split skills into model-invocable and user-invocable skills."</div>
+  <div><a href="https://x.com/mattpocockuk/status/2067259590488510471">x.com/mattpocockuk/status/2067259590488510471</a> <span class="verify ok">✅ VERIFIED</span></div>
+  <div class="note">mattpocock/skills = <strong>136,161⭐</strong>（!!）11.8K forks MIT。核心创新：model-invocable vs user-invocable 分离 → token 降 63%。IKEA Skill Hub v5 多仓库扩展正需要这个拆分模式。</div>
+</div>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@yaojingang</span> — 元Skill 2.0 升级（Skill OS）</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"完成了对元Skill（创建skill的skill）的2.0升级。YAO = Yielding AI Outcomes. 2.0 line expands factory into a Skill OS: governed system for modeling a skill once, compiling it for multiple targets, testing its behavior, reviewing release evidence, tracking next iteration."</div>
+  <div><a href="https://x.com/yaojingang/status/2067502677958050163">x.com/yaojingang/status/2067502677958050163</a> <span class="verify ok">✅ VERIFIED</span></div>
+  <div class="note">yaojingang/yao-meta-skill = 914⭐ MIT。Skill IR（平台中立中间表示）+ target compilers + Review Studio 2.0 + SkillOps loop。直接对应 Kyle 的 my-skill-creator/evolver 但成熟度高一个量级。姚金刚还有 GEOFlow 2.6K⭐、yao-geo-skills 425⭐ — 与 GEO for IKEA 意图方法论同源。</div>
+</div>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@_vmlops</span> — Microsoft Presidio (PII detection SDK)</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"MICROSOFT OPEN-SOURCED A PII DETECTION SDK. presidio detects and anonymizes sensitive data before it ever touches your model. Names, emails, SSNs, credit cards, medical records flowing through LLM pipelines unfiltered — presidio stops that."</div>
+  <div><a href="https://x.com/_vmlops/status/2067543602302230576">x.com/_vmlops/status/2067543602302230576</a> <span class="verify ok">✅ VERIFIED</span></div>
+  <div class="note">microsoft/presidio = 8,936⭐ MIT 昨日活跃。填补 Kyle AI Security 公理（信任面=攻击面）的数据层缺口：credential-manager 管 rest，presidio 管 transit。Vibe Stack Firestore 存用户数据 = PII 暴露面。⚠️ Python — 需按 AGENTS.md 例外论证。</div>
+</div>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@Xudong07452910</span> — Anthropic Claude Code 40万会话研究</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"Anthropic 分析了约 40 万个真实 Claude Code 会话。AI coding 真正拉开的差距，可能已经不只是「谁更会写代码」，而是「谁更懂自己要解决的问题」。典型会话里，人类主要负责决定做什么，Claude 负责决定怎么做。"</div>
+  <div><a href="https://x.com/Xudong07452910/status/2067812112299176086">x.com/Xudong07452910/status/2067812112299176086</a> <span class="verify partial">⚠️ PARTIAL</span></div>
+  <div class="note">人类=What，AI=How。这是 AI Upskill Trainer Survey 痛点"怎么让 AI 听懂我"的答案位移：不是教 prompt，是教 problem-framing。Survey 显示"高意愿·中能力·低方法论"——方法论缺口恰在问题定义。</div>
+</div>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@Xudong07452910</span> — MIT/Stanford: AI 效率提升幻觉</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"MIT、斯坦福联合论文：AI 可以让人「感觉」自己变得高效，但实际提升可能非常有限。3 个预注册研究，2691 名参与者。人们比预期更频繁使用 AI，尤其在算术、拼写、简单回忆、短文本改写这类基础任务上。"</div>
+  <div><a href="https://x.com/Xudong07452910/status/2066724949180694565">x.com/Xudong07452910/status/2066724949180694565</a> <span class="verify ok">✅ 可信研究</span></div>
+  <div class="note">反直觉信号（高价值类型）。Engineering Baseline & Value Demonstration 意图核心：不仅要 create value，更要 demonstrate value。这篇论文是向上管理的弹药——警惕团队 AI 采纳的"感觉高效"假象，需可测量指标。</div>
+</div>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@XAMTO_AI</span> — Trellis: Claude Code 记忆持久化</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"用 Claude Code 的兄弟，趁早把 Trellis 装上。别再抱怨 AI 编程不稳定——不是 Claude 不行，是你每次都让它'失忆上岗'。每次开工都得：项目背景重讲、需求重喂、代码规范重念、上次进度重解释。"</div>
+  <div><a href="https://x.com/XAMTO_AI/status/2067565738924118094">x.com/XAMTO_AI/status/2067565738924118094</a> <span class="verify partial">🔬 待验证</span></div>
+  <div class="note">直击 Life OS Memory 支柱痛点。需验证 Trellis 是什么（可能是 github.com/...trellis 或 Claude Code 内建功能）。与 vercel/eve 的 schedules/ + Kyle 现有 my-readwise-briefing state.json 模式同源——上下文持久化是 agent 工程化第一原理。</div>
+</div>
+
+<div class="card h5">
+  <div class="head">
+    <span><span class="author">@MindfulReturn</span> — 因果 AI：相关性的天花板</span>
+    <span class="stars">⭐×5</span>
+  </div>
+  <div class="text">"AI 的下一个范式：不是更大的模型，是因果关系。相关性天花板：为什么画面很美，物理很假。因果 AI 须解决：地基问题（你从没见过'导致'长什么样）、没法做实验问题（最需要因果答案的地方最不能做实验）、多时间尺度问题。"</div>
+  <div><a href="https://x.com/MindfulReturn/status/2067468665554174038">x.com/MindfulReturn/status/2067468665554174038</a> <span class="verify partial">⚠️ 二手信源</span></div>
+  <div class="note">Ontology Research 公理"投影皆有损"的延伸：相关是投影，因果是结构。IKEA 场景：促销→销量 是相关，促销→销量（剔除季节）是因果。这是 thinking 信号，非部署信号——用于 Kyle 的前沿探索与职业差异化。</div>
+</div>
+
+<h2>⭐⭐⭐ 备用收藏（9 条）</h2>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@zhouluobo</span> — Cloudflare 赛博菩萨（免费基础设施清单）</span><span class="stars">⭐×3</span></div>
+  <div class="text">"Cloudflare 把一堆本该收费的基础设施做成免费：R2 10GB 无 egress、Workers 10万 req/天、KV 10万 read/天、D1 500万行/天、Pages 托管、Tunnel。"</div>
+  <div><a href="https://x.com/zhouluobo/status/2067497355289764036">x.com/zhouluobo/status/2067497355289764036</a></div>
+  <div class="note">OpenMAIC Cloudflare 纯免费部署意图的直接弹药——这份免费额度清单是该 intent plan 的验证材料。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@thsottiaux (Tibo)</span> — Codex App/CLI/SDK 支持任意开源模型</span><span class="stars">⭐×3</span></div>
+  <div class="text">"Reminder: you can use the Codex App, CLI and SDK with any open source model, not just OpenAI models."</div>
+  <div><a href="https://x.com/thsottiaux/status/2067181377028538431">x.com/thsottiaux/status/2067181377028538431</a> <span class="verify ok">✅ openai/codex 92K⭐</span></div>
+  <div class="note">SLM Agent Benchmark Research + 本地模型编码信号。Codex 92K⭐ 昨日活跃，支持 BYO 开源模型。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@yibie</span> — 本地模型主力编码实战（HN 197条评论）</span><span class="stars">⭐×3</span></div>
+  <div class="text">"本地模型做主力编码工具：2026 年中的实战报告。HN 帖子'有人用本地模型做主力编码工具吗？'197 条评论，十几个真实用户讨论配置、踩坑、为什么明知不如 Claude 还是用。"</div>
+  <div><a href="https://x.com/yibie/status/2067440930324639977">x.com/yibie/status/2067440930324639977</a></div>
+  <div class="note">SLM Agent Research + AI Coding Practices 交叉。IKEA 内网数据敏感场景下本地模型的现实可行性参考。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@ericoding99</span> — Electrobun: Electron 体积杀手</span><span class="stars">⭐×3</span></div>
+  <div class="text">"Electrobun：纯 TypeScript + Bun 写跨平台桌面应用，系统 WebView 模式打包仅 ~14MB（大部分是 Bun 运行时），更新补丁最低 4KB！"</div>
+  <div><a href="https://x.com/ericoding99/status/2066750297943560279">x.com/ericoding99/status/2066750297943560279</a> <span class="verify ok">✅ 12.3K⭐</span></div>
+  <div class="note">Bun+TS 技术栈完美匹配。Apple Notes FileProvider / notebooks-dashboard 桌面化的候选栈。Electron 替代。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@HiTw93 (Tw93)</span> — AI 岗位面试必读文章汇总</span><span class="stars">⭐×3</span></div>
+  <div class="text">"我这几篇文章成了 AI 岗位面试准备必读。1. 你不知道的 Claude Code：架构、治理与工程实践。2. ... 汇总给传统岗位转 AI 的小伙伴。"</div>
+  <div><a href="https://x.com/HiTw93/status/2067851910464565374">x.com/HiTw93/status/2067851910464565374</a></div>
+  <div class="note">AI Upskill Trainer 课程素材 + 团队转型支持（Career Progression 意图）。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@victor207755822 (Deli Chen)</span> — AutoResearch SKILL 开源 + Self-play survey</span><span class="stars">⭐×3</span></div>
+  <div class="text">"Deli AutoResearch SKILL is now open source! 4th survey paper on Self-play. Inspired by AlphaZero: prior knowledge doesn't always lift the [performance]."</div>
+  <div><a href="https://x.com/victor207755822/status/2067259098584985954">x.com/victor207755822/status/2067259098584985954</a></div>
+  <div class="note">Skills Development + Literature Review 意图。AutoResearch skill 可参考；Self-play 论文与 SLM Agent Research 相关。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@KELMAND1 (Eason Mao)</span> — 大模型的"木耳困境"</span><span class="stars">⭐×3</span></div>
+  <div class="text">"大模型早晚和发烧音响一样有'木耳困境'——贵到一定程度后大部分人听不出好坏。普通人顶多写小脚本改报错，免费模型就够了，顶级模型再聪明写出的代码也看不出差别。"</div>
+  <div><a href="https://x.com/KELMAND1/status/2067123239793680398">x.com/KELMAND1/status/2067123239793680398</a> <span class="verify opinion">💡 观点</span></div>
+  <div class="note">反直觉观点。AI Starter Kit 工具选型的反论：是否该推荐免费模型而非顶级？需证伪——团队复杂 Java/K8s 任务可能不是"木耳"。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@oran_ge (Orange AI)</span> — OpenAI: emergent misalignment 涌现失调</span><span class="stars">⭐×3</span></div>
+  <div class="text">"OpenAI 新论文，探索人性底层原理。对齐大模型时的糟糕现象：emergent misalignment（涌现失调）。"</div>
+  <div><a href="https://x.com/oran_ge/status/2067739166331552179">x.com/oran_ge/status/2067739166331552179</a></div>
+  <div class="note">AI Security 公理"信任面=攻击面"的研究支撑。涌现失调=对齐失败=安全风险。Responsible AI 指南素材。</div>
+</div>
+
+<div class="card h3">
+  <div class="head"><span><span class="author">@alswl (Jingchao)</span> — 技术人的 storytelling + 增长优先</span><span class="stars">⭐×3</span></div>
+  <div class="text">"技术人的 story telling，要学。业务增长就是增长，有增长什么技术问题都能解决。不用特别考虑提前量，99% 都到不了瓶颈。"</div>
+  <div><a href="https://x.com/alswl/status/2067247873151156493">x.com/alswl/status/2067247873151156493</a></div>
+  <div class="note">Engineering Baseline & Value Demonstration 双重命中：storytelling=demonstrate value；增长优先=反对过度工程。</div>
+</div>
+
+<h2>⭐ 低价值附录（折叠）</h2>
+<details>
+<summary>展开查看 14 条低价值/纯娱乐/单链接内容</summary>
+<table>
+<thead><tr><th>作者</th><th>摘要</th><th>链接</th></tr></thead>
+<tbody>
+<tr><td>@MengkePM</td><td>纯链接（无文本）</td><td><a href="https://x.com/MengkePM/status/2067507383824253019">link</a></td></tr>
+<tr><td>@Easycompany333</td><td>剑桥医学博士 YouTube Claude Code 教程推荐</td><td><a href="https://x.com/Easycompany333/status/2067435405319020917">link</a></td></tr>
+<tr><td>@ba_niu80557</td><td>FDE 角色分析（长文，与当前 intent 弱相关）</td><td><a href="https://x.com/ba_niu80557/status/2067451499957919862">link</a></td></tr>
+<tr><td>@xin_pai88825</td><td>PDE（Product Design Engineer）复合岗位趋势</td><td><a href="https://x.com/xin_pai88825/status/2067432813524345181">link</a></td></tr>
+<tr><td>@Tanxinbuzu</td><td>M4 芯片绕开软件限制达 15.8 TFLOPS（硬件 hack）</td><td><a href="https://x.com/Tanxinbuzu/status/2066905294161293470">link</a></td></tr>
+<tr><td>@Xingyunfan6</td><td>GLM 5.2 codingplan 抢购脚本（OCR+并发）</td><td><a href="https://x.com/Xingyunfan6/status/2066707408227848519">link</a></td></tr>
+<tr><td>@LotusDecoder</td><td>glm-5.2 超 opus-4.6（自评，样本=1）</td><td><a href="https://x.com/LotusDecoder/status/2066794727215968407">link</a></td></tr>
+<tr><td>@LotusDecoder</td><td>知心伙伴 v7.0 提示词（心理咨询）</td><td><a href="https://x.com/LotusDecoder/status/2066809102400110619">link</a></td></tr>
+<tr><td>@dingyi</td><td>Bear 团队新 markdown 编辑器</td><td><a href="https://x.com/dingyi/status/2067759286894407734">link</a></td></tr>
+<tr><td>@0427SMtieshou</td><td>美国快乐教育是什么样</td><td><a href="https://x.com/0427SMtieshou/status/2067766813216444580">link</a></td></tr>
+<tr><td>@yetone</td><td>AI Slop 品味是一厢情愿（用户不在乎）</td><td><a href="https://x.com/yetone/status/2066901201531338809">link</a></td></tr>
+<tr><td>@nash_su</td><td>SubQ 技术报告发布（量子计算？需验证）</td><td><a href="https://x.com/nash_su/status/2067913028297990159">link</a></td></tr>
+<tr><td>@indigox</td><td>纯链接（无文本）</td><td><a href="https://x.com/indigox/status/2067834220970696855">link</a></td></tr>
+<tr><td>@Jackywine</td><td>人人都是量化交易员电子书</td><td><a href="https://x.com/Jackywine/status/2066675064062484894">link</a></td></tr>
+<tr><td>@tuturetom</td><td>Open Design Slides 80+ AI 模板</td><td><a href="https://x.com/tuturetom/status/2067224470922633475">link</a></td></tr>
+<tr><td>@punk2898</td><td>PunkType v1.2.0（Typeless 替代，输入法）</td><td><a href="https://x.com/punk2898/status/2067496803902366172">link</a></td></tr>
+</tbody>
+</table>
+</details>
+
+<h2>✅ 行动清单（从高价值信号提炼）</h2>
+<div class="action-list">
+<ol>
+<li><strong>立即（今日）</strong>：验证 <code>Trellis</code> 是什么——<code>gh search repos trellis claude code</code> 或查 Claude Code 文档。若真实且开源，评估是否纳入 Life OS Memory 支柱。</li>
+<li><strong>本周</strong>：<code>git clone --depth 1 https://github.com/vercel/eve /tmp/eve</code>，跑 <code>npx eve@latest init demo-agent</code>，10 分钟亲测 schedules/ + channels/ 是否匹配 Life OS 需求。</li>
+<li><strong>本周</strong>：读 mattpocock/skills 的 model-invocable vs user-invocable 拆分实现，评估能否移植到 IKEA Skill Hub v5 多仓库架构（解决 token 膨胀）。</li>
+<li><strong>本周</strong>：克隆 <code>yaojingang/yao-meta-skill</code>，对比 Kyle 的 <code>my-skill-creator/evolver</code>——识别 Skill IR / eval lab 缺口，决定 adopt vs fork vs 自建。</li>
+<li><strong>两周内</strong>：在 Vibe Stack 加 PII 检测层——先评估 presidio 微服务化（Python 例外需 README 论证）vs 找 TS 等价物。</li>
+<li><strong>持续</strong>：将"人类=What, AI=How"洞察写入 AI Upskill Trainer L0 教案，重设计"怎么让 AI 听懂我"模块为 problem-framing 训练。</li>
+<li><strong>思考</strong>：因果 AI 作为 Ontology Research 的下一层——读 Judea Pearl《The Book of Why》primer，识别 1 个 IKEA 因果用例（促销/库存预测）。</li>
+</ol>
+</div>
+
+<footer>
+  <p>Readwise Briefing v4.0 · Phase 1+1.5 完成 · Phase 2 Proposals 生成中<br>
+  数据源：Readwise Export API v2（direct, keychain token）· 31 tweets since 2026-06-16<br>
+  验证：5 repos independently verified via <code>gh repo view</code></p>
+</footer>
+
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
