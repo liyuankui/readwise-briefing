@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Readwise 情报简报 · 2026-06-22</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体",
+               -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.75; margin: 0; padding: 0;
+  transition: background 0.3s, color 0.3s;
+}
+.container { max-width: 980px; margin: 0 auto; padding: 32px 24px 80px; }
+header {
+  border-bottom: 2px solid var(--accent); padding-bottom: 16px; margin-bottom: 28px;
+  display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;
+}
+header h1 { margin: 0; font-size: 28px; color: var(--accent); font-weight: 700; }
+header .meta { color: var(--text3); font-size: 14px; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; cursor: pointer; font-size: 16px; color: var(--text);
+}
+.stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px; margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 16px;
+}
+.stat-card .num { font-size: 24px; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+h2 {
+  margin: 36px 0 12px; font-size: 20px; color: var(--accent);
+  border-left: 4px solid var(--accent); padding-left: 10px;
+}
+h3 { margin: 20px 0 8px; font-size: 16px; color: var(--text); }
+
+.signal-overview {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px; margin-bottom: 8px;
+}
+.signal-overview table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.signal-overview th, .signal-overview td {
+  padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border);
+}
+.signal-overview th { color: var(--text3); font-weight: 600; font-size: 12px; }
+.signal-overview td.topic { color: var(--accent2); font-weight: 600; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 20px; margin-bottom: 14px;
+}
+.card.high { border-left: 4px solid var(--accent5); }
+.card.mid { border-left: 4px solid var(--accent4); }
+.card.low { border-left: 4px solid var(--text3); opacity: 0.85; }
+
+.card .head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; gap: 12px; flex-wrap: wrap;
+}
+.card .head .title { font-size: 15px; font-weight: 600; color: var(--text); }
+.card .head .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--surface2); color: var(--text2); }
+.card .head .badge.verified { color: var(--accent3); }
+.card .head .badge.partial { color: var(--accent4); }
+.card .head .badge.debunk { color: var(--accent5); }
+.card .author { font-size: 12px; color: var(--text3); margin-bottom: 8px; }
+.card .body { font-size: 14px; color: var(--text2); }
+.card .body p { margin: 6px 0; }
+.card .why {
+  background: var(--surface2); border-radius: 8px; padding: 10px 12px;
+  margin-top: 10px; font-size: 13px; color: var(--text);
+}
+.card .why strong { color: var(--accent); }
+.card .verify {
+  margin-top: 10px; font-size: 12px; padding: 8px 10px;
+  background: var(--surface2); border-radius: 6px; color: var(--text2);
+}
+.card .verify strong { color: var(--accent3); }
+.card a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+.card a:hover { text-decoration: underline; }
+
+.actions {
+  background: var(--surface); border: 1px solid var(--accent); border-radius: 12px;
+  padding: 18px 20px; margin-top: 24px;
+}
+.actions ol { margin: 8px 0 0; padding-left: 22px; }
+.actions li { margin: 6px 0; font-size: 14px; }
+
+details summary {
+  cursor: pointer; color: var(--text3); font-size: 13px; padding: 8px 0;
+}
+details[open] summary { color: var(--text2); }
+
+footer {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text3); text-align: center;
+}
+.quote {
+  background: var(--surface2); border-radius: 8px; padding: 10px 14px;
+  margin: 8px 0; font-size: 13px; color: var(--text2);
+  border-left: 3px solid var(--accent4);
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="meta">2026-06-22 · 增量窗口 06-19 20:30 → 06-22 · 14 条新信号</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="stats">
+  <div class="stat-card"><div class="num">14</div><div class="lbl">新信号总数</div></div>
+  <div class="stat-card"><div class="num">5</div><div class="lbl">⭐×5 高价值</div></div>
+  <div class="stat-card"><div class="num">4</div><div class="lbl">⭐×3 备用</div></div>
+  <div class="stat-card"><div class="num">5</div><div class="lbl">⭐ 暂时无关</div></div>
+  <div class="stat-card"><div class="num">3</div><div class="lbl">独立验证 ✅</div></div>
+  <div class="stat-card"><div class="num">100%</div><div class="lbl">来源：Twitter</div></div>
+</div>
+
+<div class="signal-overview">
+  <table>
+    <tr><th>#</th><th>主题</th><th>关联 Intent</th><th>验证</th><th>Proposal</th></tr>
+    <tr><td>1</td><td class="topic">Codex Review Prompt = 反 bug 契约</td><td>Testing Excellence / Upskill Trainer</td><td>✅</td><td>→ P1</td></tr>
+    <tr><td>2</td><td class="topic">videocut-skills = Skill 工程化教科书</td><td>IKEA Skill Hub / Upskill Trainer</td><td>⚠️ Skill✅ 作者❓</td><td>→ P2</td></tr>
+    <tr><td>3</td><td class="topic">Pake/Tauri = Electron 减负</td><td>Apple Notes / AI Starter Kit</td><td>✅ 56.6K⭐</td><td>→ P3</td></tr>
+    <tr><td>4</td><td class="topic">EvoAgentBench = Life OS Δ-Eval 骨架</td><td>Life OS / Trust &amp; Eval</td><td>⚠️ 母公司✅ Bench弱</td><td>→ P4</td></tr>
+    <tr><td>5</td><td class="topic">浏览器即 OS = Agent 用户态抽象</td><td>Browser Automation / Agentic Eng</td><td>✅ 趋势确认</td><td>→ P5</td></tr>
+  </table>
+</div>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（5）</h2>
+
+<div class="card high">
+  <div class="head">
+    <span class="title">① Codex Review Prompt — 把"现在能跑但未来会坑你"契约化</span>
+    <span class="badge verified">✅ Verified</span>
+  </div>
+  <div class="author">@Xudong07452910 · 2026-06-20 · <a href="https://x.com/Xudong07452910/status/2068287746704073050">原文</a></div>
+  <div class="body">
+    <div class="quote">"请 review 当前 diff。不要只看语法和明显 bug，请重点检查：隐藏副作用、破坏兼容性、边界情况、性能风险、安全风险、命名误导、测试不足和未来维护成本。最后按严重程度排序。"</div>
+    <div class="why"><strong>为什么与你相关：</strong>这是"prompt 即合同"的范本——7 个可枚举检查维度 + 1 个排序要求，把模糊的 review 行为变成技术债预防契约。直击 Testing Excellence 的"AI 常忽略边界情况"痛点和 Upskill Trainer "怎么让 AI 听懂我"的诉求（5 次提及）。</div>
+  </div>
+</div>
+
+<div class="card high">
+  <div class="head">
+    <span class="title">② videocut-skills — Skill 工程化的教科书级样本</span>
+    <span class="badge partial">⚠️ Partial</span>
+  </div>
+  <div class="author">@EddaMikola12279 (Dudu) · 2026-06-20 · 真实 repo: <a href="https://github.com/Ceeon/videocut-skills">Ceeon/videocut-skills</a></div>
+  <div class="body">
+    <p>3 步使用（火山引擎 ASR + Skill 安装 + 一句"剪口播"），自动转录/识别口误口癖/生成可审核剪辑。</p>
+    <div class="verify"><strong>验证：</strong>✅ Skill 真实开源（Ceeon 出品，7+ 中文媒体背书）；❌ 推文作者 @EddaMikola12279 公开索引查无此人，信源链路断链。建议改口径引用为"中文社区开源的 videocut-skills"。</div>
+    <div class="why"><strong>为什么与你相关：</strong>这正命中 IKEA Skill Hub 三要素——窄场景定位 + 3 步零摩擦上手 + 多组件分工（ASR/LLM/UI/FFmpeg 各司其职可替换）。更妙的是 <code>用户习惯/</code> 目录把规则外置成 8 个可演化 Markdown，"自更新"Skill 让规则越用越准——这是"Skill 不是脚本，是可演化策略包"的活样本。</div>
+  </div>
+</div>
+
+<div class="card high">
+  <div class="head">
+    <span class="title">③ Pake (tw93) — Rust+Tauri 替代 Electron 的旗舰</span>
+    <span class="badge verified">✅ Verified</span>
+  </div>
+  <div class="author">@precisox · 2026-06-20 · repo: <a href="https://github.com/tw93/Pake">tw93/Pake</a></div>
+  <div class="body">
+    <p>56.6K stars · 最新 V3.12.0 (16h前) · 打包 5M（Electron 的 1/20）· 一条命令把任意网页打包成跨平台原生 app。</p>
+    <div class="verify"><strong>验证：</strong>✅ Tauri 生态旗舰，awesome-tauri 官方收录。Rust + 系统原生 webview 替代 Chromium+Node.js。</div>
+    <div class="why"><strong>为什么与你相关：</strong>与 Apple Notes FileProvider 同一品味公理——平台原生 &gt; 捆绑运行时。IKEA 内部多个 Electron app 占内存的痛点，可用 Pake 做 5 分钟 PoC（挑一个内网门户打包对比）。</div>
+  </div>
+</div>
+
+<div class="card high">
+  <div class="head">
+    <span class="title">④ EvoAgentBench — Agent 自进化评测方法论</span>
+    <span class="badge partial">⚠️ Partial</span>
+  </div>
+  <div class="author">@elliotchen100 · 2026-06-22 · repo: <a href="https://github.com/EverMind-AI/EvoAgentBench">EverMind-AI/EvoAgentBench</a></div>
+  <div class="body">
+    <p>train→extract→evaluate 控制实验：让 agent 在 train 集跑→抽取 skill→注入 test 集对比 Δ（with/without skills 的提升幅度）。5 域 benchmark，当前最佳 72.4%，平均 Δ +5.6%。</p>
+    <div class="verify"><strong>验证：</strong>⚠️ Bench 仅 11⭐/3fork/last push 1 月前，无 paper，SWE 子集 test 仅 26 任务（统计力弱），且被测方法含母公司自家产品（self-eval）。但母公司 EverMind-AI 真实（陈天桥 TCCI 孵化，旗舰 EverOS 8364⭐），方法论学术站得住。</div>
+    <div class="why"><strong>为什么与你相关：</strong>"with/without memory"的 Δ 对照实验思路，正好给 Life OS "系统能自我评估"success criteria 提供评测骨架。不照搬 bench，借鉴方法论——比如对 readwise-briefing 做"有 state.json 增量 vs 无全量"的 Δ 测量。</div>
+  </div>
+</div>
+
+<div class="card high">
+  <div class="head">
+    <span class="title">⑤ 浏览器即 OS — Agent 开发者的用户态 syscall</span>
+    <span class="badge verified">✅ Verified</span>
+  </div>
+  <div class="author">@Cander_zhu · 2026-06-22 · <a href="https://x.com/Cander_zhu/status/2068703401479995512">原文</a> · 引《How modern browsers work》</div>
+  <div class="body">
+    <div class="quote">"浏览器其实是现代最被低估的『操作系统』。如果前端/Agent 开发者还把浏览器当黑盒，只会越来越吃亏。"</div>
+    <div class="why"><strong>为什么与你相关：</strong>与 Browser Automation 工具栈完全同构——bb-browser (198 站点适配器) + opencli (语义操作层) 本质就是"浏览器 OS 的用户态 syscall 层"。重新框架后可识别新机会：Service Worker 做离线 Agent 任务队列、File System Access API 让 Agent 像写本地文件一样操作 Web 文件。</div>
+  </div>
+</div>
+
+<h2>⭐⭐⭐ 备用信号（4）</h2>
+
+<div class="card mid">
+  <div class="head"><span class="title">Token 上下文优化对比（Codex vs Claude Code vs Alma）</span><span class="badge">⭐×3</span></div>
+  <div class="author">@endearqb · 2026-06-22 · <a href="https://x.com/endearqb/status/2068639082943742362">原文</a></div>
+  <div class="body">yetone 早期更新 Alma 时做过类似上下文优化省 Token，问"为什么 Codex/ClaudeCode 不直接这么做"。→ 跟进 Alma 的 prompt 压缩方案。</div>
+</div>
+
+<div class="card mid">
+  <div class="head"><span class="title">Otty — Typora 团队的轻量原生终端</span><span class="badge">⭐×3</span></div>
+  <div class="author">@VersunPan + @laogui · 2026-06-20 · <a href="https://x.com/VersunPan/status/2068269140050317325">原文</a></div>
+  <div class="body">两位博主同时推荐 Otty，"简单文件编辑 + 轻量原生"，对标 Warp/Superset/Orca 但更轻。Versun 称"已卸载 cmux 和 Alacritty"。→ 可试用，与你"平台原生 &gt; 捆绑"品味一致。</div>
+</div>
+
+<div class="card mid">
+  <div class="head"><span class="title">GLM-5.2 = "Monster Thinker"（220K thinking trace）</span><span class="badge">⭐×3</span></div>
+  <div class="author">@mattpocockuk · 2026-06-21 · <a href="https://x.com/mattpocockuk/status/2068428955816759773">原文</a></div>
+  <div class="body">"3 turns, 2-3 file reads, nearly 220K of thinking traces"。→ <strong>Meta 信号</strong>：本 session 用的就是 GLM-5.2（builtin:bigmodel-coding-plan/GLM-5.2），Matt 的体验印证了 thinking trace 确实深，但 220K 是个人观感非 benchmark。</div>
+</div>
+
+<div class="card mid">
+  <div class="head"><span class="title">Addy Osmani URL-only 推文</span><span class="badge">⭐×3</span></div>
+  <div class="author">@addyosmani · 2026-06-22 · <a href="https://x.com/addyosmani/status/2068394292796871019">原文</a></div>
+  <div class="body">仅一个 t.co 链接，内容未展开。Addy 是 Chrome 团队技术领袖，值得手动点开跟进。</div>
+</div>
+
+<h2>⭐ 暂时无关（5）· <details><summary>展开查看</summary>
+
+<div class="card low">
+  <div class="head"><span class="title">瑞士全民公投否决"1000 万人口上限"动议</span><span class="badge">⭐</span></div>
+  <div class="author">@xiaojingcanxue · 2026-06-20</div>
+  <div class="body">社会议题，与当前 intent 无直接关联。</div>
+</div>
+<div class="card low">
+  <div class="head"><span class="title">免疫学家李卿：树木化学物质增强免疫系统</span><span class="badge">⭐</span></div>
+  <div class="author">@BoboLucyWisdom · 2026-06-21</div>
+  <div class="body">健康/科普类，个人兴趣非工程价值。</div>
+</div>
+<div class="card low">
+  <div class="head"><span class="title">"官吃鲁、商吃粤、文人吃淮扬"文化性格分析</span><span class="badge">⭐</span></div>
+  <div class="author">@Morris_LT · 2026-06-21</div>
+  <div class="body">文化观察，与 Human Connection Investment 有弱关联但非工程信号。</div>
+</div>
+<div class="card low">
+  <div class="head"><span class="title">BearTalk URL-only 推文</span><span class="badge">⭐</span></div>
+  <div class="author">@Bearlagcy · 2026-06-21</div>
+  <div class="body">仅链接未展开。</div>
+</div>
+<div class="card low">
+  <div class="head"><span class="title">EC Elliot Agent Benchmark（见 ④）</span><span class="badge">⭐</span></div>
+  <div class="author">@elliotchen100 · 2026-06-22</div>
+  <div class="body">已在信号 ④ 深度处理。</div>
+</div>
+</details></h2>
+
+<div class="actions">
+  <h2 style="margin-top:0;">✅ 本周行动清单</h2>
+  <ol>
+    <li><strong>立即试用 Codex review prompt</strong>：下个 PR diff 直接套用 7 维度 + 排序格式，记录是否真的比默认 review 多抓到 bug → 沉淀到 workspace/testing-excellence/</li>
+    <li><strong>Clone Ceeon/videocut-skills 解读</strong>：重点拆 <code>用户习惯/</code> 目录的 8 个规则文件，提炼"规则外置 + 自更新"模式 → 写成 IKEA Skill Hub 的 internal skill authoring guide 一节</li>
+    <li><strong>Pake 5 分钟 PoC</strong>：挑一个 IKEA 内部门户（如某个 SharePoint 页面），<code>npx pake-cli</code> 打包，对比内存/启动时间 vs 现有 Electron 方案</li>
+    <li><strong>readwise-briefing Δ 实验</strong>：从 state.json 和归档 HTML 提取数据，量化"有增量 vs 全量"的 token/时间差，作为 Life OS Trust &amp; Eval 的第一个 Δ 对照样本</li>
+    <li><strong>bb-browser 适配器 syscall 分级</strong>：对现有 198 个适配器做 file-like / ipc-like / syscall-like 分类，验证"浏览器 OS 用户态"框架是否成立</li>
+  </ol>
+</div>
+
+<footer>
+  公理：不可行动的信息 = 噪音 · 本次 5 个 Proposal 详见 <code>/tmp/readwise-proposals-20260622.html</code><br>
+  生成于 2026-06-22 · 数据源 Readwise Export API v2 · 验证：3 subagent 独立交叉 + 自验证
+</footer>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

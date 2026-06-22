@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Readwise 深度 Proposals · 2026-06-22</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体",
+               -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; margin: 0; padding: 0;
+  transition: background 0.3s, color 0.3s;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 32px 24px 80px; }
+header {
+  border-bottom: 2px solid var(--accent); padding-bottom: 16px; margin-bottom: 20px;
+  display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;
+}
+header h1 { margin: 0; font-size: 28px; color: var(--accent); font-weight: 700; }
+header .meta { color: var(--text3); font-size: 14px; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; cursor: pointer; font-size: 16px; color: var(--text);
+}
+.banner {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white; padding: 14px 20px; border-radius: 10px; margin-bottom: 24px;
+  font-size: 14px; text-align: center; font-weight: 600;
+}
+h2 {
+  margin: 32px 0 12px; font-size: 20px; color: var(--accent);
+  border-left: 4px solid var(--accent); padding-left: 10px;
+}
+table.matrix { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 8px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+table.matrix th, table.matrix td {
+  padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top;
+}
+table.matrix th { background: var(--surface2); color: var(--text2); font-weight: 600; font-size: 12px; }
+table.matrix td.signal { color: var(--accent2); font-weight: 600; }
+.proposal {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 22px; margin-bottom: 18px; border-top: 4px solid var(--accent);
+}
+.proposal .num {
+  display: inline-block; background: var(--accent); color: white; width: 28px; height: 28px;
+  border-radius: 50%; text-align: center; line-height: 28px; font-size: 14px; font-weight: 700;
+  margin-right: 10px;
+}
+.proposal h3 { display: inline; font-size: 17px; color: var(--text); margin: 0; }
+.proposal .claim {
+  background: var(--surface2); border-left: 3px solid var(--accent4);
+  padding: 10px 14px; margin: 12px 0; font-size: 14px; border-radius: 6px;
+}
+.proposal .claim strong { color: var(--accent); }
+.meta-row { font-size: 12px; color: var(--text3); margin: 4px 0 10px; }
+.meta-row .pill {
+  display: inline-block; padding: 2px 8px; border-radius: 10px; background: var(--surface2);
+  color: var(--text2); margin-right: 6px; font-size: 11px;
+}
+.meta-row .pill.verified { color: var(--accent3); }
+.meta-row .pill.partial { color: var(--accent4); }
+section { margin: 10px 0; }
+section h4 {
+  font-size: 13px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px;
+  margin: 14px 0 6px; font-weight: 600;
+}
+section p, section li { font-size: 14px; color: var(--text2); margin: 6px 0; }
+section ul, section ol { margin: 6px 0; padding-left: 22px; }
+section strong { color: var(--text); }
+.milestones li { margin: 8px 0; }
+.milestones li strong { color: var(--accent); }
+.roi-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
+.roi-table td { padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.roi-table td:first-child { color: var(--text3); width: 35%; }
+.actions {
+  background: var(--surface2); border-radius: 8px; padding: 12px 16px; margin-top: 10px;
+}
+.actions ol { margin: 6px 0 0; padding-left: 22px; }
+.actions li { font-size: 13px; margin: 5px 0; }
+.challenge {
+  background: rgba(220, 38, 38, 0.05); border-left: 3px solid var(--accent5);
+  padding: 10px 14px; margin: 8px 0; font-size: 13px; border-radius: 6px;
+}
+.challenge strong { color: var(--accent5); }
+.correction {
+  background: rgba(217, 119, 6, 0.08); border: 1px solid var(--accent4);
+  padding: 8px 12px; border-radius: 6px; font-size: 12px; margin: 8px 0; color: var(--text2);
+}
+footer {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text3); text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>🎯 深度 Proposals</h1>
+    <div class="meta">2026-06-22 · 5 个方向 · 5 个 subagent 并行推理 · 关联 intent/active.md</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="banner">⚡ 公理：不可行动的信息 = 噪音 · 每个 Proposal 必须本周可动手</div>
+
+<h2>📊 信号 × 项目 对应关系</h2>
+<table class="matrix">
+  <tr><th>#</th><th>信号</th><th>关联 Intent（🔥 active）</th><th>验证</th><th>本周投入</th></tr>
+  <tr><td>P1</td><td class="signal">Codex Review Prompt</td><td>Testing Excellence · Upskill Trainer · Eng Baseline</td><td>✅ Verified</td><td>2h 对比实验</td></tr>
+  <tr><td>P2</td><td class="signal">videocut-skills 架构</td><td>IKEA Skill Hub · Upskill Trainer · Skills Dev</td><td>⚠️ 信源已纠正</td><td>2h 通读源头</td></tr>
+  <tr><td>P3</td><td class="signal">Pake (Tauri) PoC</td><td>Apple Notes · AI Starter Kit · my-dotfiles</td><td>✅ 56.6K⭐</td><td>2h 5分钟 PoC</td></tr>
+  <tr><td>P4</td><td class="signal">EvoAgentBench Δ-Eval</td><td>Life OS · Trust &amp; Eval</td><td>⚠️ Partial</td><td>2h 数据抽取</td></tr>
+  <tr><td>P5</td><td class="signal">浏览器即 OS 抽象</td><td>Browser Automation · Agentic Eng</td><td>✅ 趋势确认</td><td>2-4h 适配器分级</td></tr>
+</table>
+
+<!-- ===== P1 ===== -->
+<div class="proposal">
+  <span class="num">1</span><h3>工程审查契约：把一个 prompt 变成可复用的质量原语</h3>
+  <div class="meta-row">
+    <span class="pill verified">✅ Verified</span>
+    <span class="pill">信号：@Xudong07452910 2026-06-20</span>
+    <span class="pill">关联：Testing Excellence / Upskill Trainer / Eng Baseline</span>
+  </div>
+  <div class="claim">
+    <strong>核心主张：</strong>「prompt 即合同」是 AI 编码时代质量保障的最小可复制单元——一个 7 维检查清单能在<strong>零基础设施下</strong>把 review 从"看可见 bug"升级为"预防未来的坑"。这同时绕过了 8 周未动的 dual-agent proposal 的三重依赖（GHES CI/安全审查/engineer owner），并直击 Upskill Trainer #1 痛点（"怎么让 AI 听懂我"提及 5 次）。
+  </div>
+
+  <section>
+    <h4>🎯 锁定痛点</h4>
+    <p>Senior Engineer 小A（ODI 团队 shoppingbff-service）：让 Copilot "review 一下这段代码"，得到 8 条全是命名/格式建议，<strong>零条</strong>触及并发竞态。两周后大促当天促销价计算错误。根因不是 Copilot 笨，是"review 一下"是没有契约的模糊指令——AI 默认产出"可见且安全的建议"。</p>
+  </section>
+
+  <section>
+    <h4>📅 里程碑（3 周，SEM 可推动）</h4>
+    <ul class="milestones">
+      <li><strong>M1（第1周，4h）</strong>：契约定义 + 手动验证。交付 <code>review-contract-v1.md</code>（7 维 + 排序 + IKEA Java/Golang 金额/状态机/并发本地化）+ 1 份对比实验记录。<strong>go/no-go 关卡</strong></li>
+      <li><strong>M2（第1-2周，1h）</strong>：dual-agent proposal 解耦——路径 A（人工 prompt，立即可跑）vs 路径 B（CI 自动，待基础设施）</li>
+      <li><strong>M3（第2周，3h）</strong>：契约泛化——deploy-checklist / dependency-upgrade / regression-test 3 个新契约，证明"prompt 即合同"是原语</li>
+      <li><strong>M4（第2-3周，3h）</strong>：Upskill Trainer Track B 教学单元——3 步法（枚举维度 + 输出格式 + 否定约束）</li>
+      <li><strong>M5（第3周末，2h）</strong>：效果数据 + Nicole/Kirill 1:1 汇报素材</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>💰 ROI</h4>
+    <table class="roi-table">
+      <tr><td>成本</td><td>~13h 分散 3 周 · API &lt;$1 · 基础设施 <strong>零</strong></td></tr>
+      <tr><td>直接收益</td><td>若 M1 命中 1 个未来事故（如促销价竞态），单次避损 &gt; ¥10 万</td></tr>
+      <tr><td>战略收益</td><td>Kyle 从 practitioner → methodologist 的关键一跃；dual-agent proposal 解冻</td></tr>
+    </table>
+  </section>
+
+  <div class="actions">
+    <strong>✅ 本周立即行动：</strong>
+    <ol>
+      <li><strong>周二/三（2h）跑对比实验</strong>：找本周真实 PR diff，A 组"请 review 这段代码" vs B 组套 7 维契约 prompt，记录命中数。<strong>结果决定整个 proposal 生死</strong></li>
+      <li><strong>周四（1.5h）写 review-contract-v1.md</strong>（基于行动 1 结果）</li>
+      <li><strong>周五（1h）更新 dual-agent proposal + 找 1 名工程师问 yes/no</strong>："这个契约你愿意下周试一次吗？"——不要群发，就找一个人</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>挑战 1：</strong>这是不是在给卡住的项目打补丁？→ 部分成立。但路径 A/B 解耦本身有价值。若 3 周后路径 B 仍无 owner，承认组织阻力 &gt; 技术阻力。<br>
+    <strong>挑战 2：</strong>7 维清单太"明显"？→ 旧酒装新瓶即价值——AI + 契约<strong>强制每次遍历 7 维</strong>，不依赖人纪律。但 M1 必须对比"契约 AI vs 资深人审"，不只对比"契约 AI vs 模糊 AI"。
+  </div>
+</div>
+
+<!-- ===== P2 ===== -->
+<div class="proposal">
+  <span class="num">2</span><h3>videocut-skills 架构解剖：三个可迁移的 Skill 工程模式</h3>
+  <div class="meta-row">
+    <span class="pill partial">⚠️ 信源已纠正</span>
+    <span class="pill">信号：@EddaMikola12279 2026-06-20（转发）</span>
+    <span class="pill">关联：IKEA Skill Hub / Upskill Trainer / Skills Dev</span>
+  </div>
+  <div class="correction">
+    ⚠️ <strong>信源纠正（subagent #2 实测）</strong>：Phase 1.5 报告的 repo <code>Ceeon/videocut-skills</code> 有误，实际是 <strong><code>Agentchengfeng/chengfeng-videocut-skills</code></strong>（作者 chengfeng / X: @chengfeng240928 / 公众号"AI产品自由"）。这本身是教学点——信源溯源要落到仓库 AUTHORSHIP 声明，不能停在推文转发链。
+  </div>
+  <div class="claim">
+    <strong>核心主张：</strong>不要复制 videocut-skills，而是把它解剖成<strong>三个可迁移模式</strong>，分别灌进 IKEA Skill Hub authoring guide、Upskill Trainer L1.5 模块、和两个新 IKEA 试点 Skill——让 Kyle 现有三个项目共享同一个架构升级。
+  </div>
+
+  <section>
+    <h4>🧩 三个可迁移模式</h4>
+    <ul>
+      <li><strong>① 外置规则层（Rule Pack）</strong>：把判断逻辑从 SKILL.md 拆成编号 Markdown（<code>1-核心原则.md</code> / <code>2-语气词检测.md</code>...），Agent 按需加载，用户可读可改</li>
+      <li><strong>② 审核页阀门（Review-Page Valve）</strong>：不可逆操作前强制生成可交互 HTML 审核页，人是阀门而非命令行确认</li>
+      <li><strong>③ 自进化闭环</strong>：纠错不写进"反馈日志"末尾，而是整合回正文规则层，越用越准</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>📅 里程碑</h4>
+    <ul class="milestones">
+      <li><strong>Phase 1（本周，Day 1-3）</strong>：模式萃取——3 份 pattern 文档（SKILL_ANATOMY 加节 + SKILL_EVOLUTION_PATTERN + REVIEW_PAGE_VALVE）</li>
+      <li><strong>Phase 2（下周，Day 4-7）</strong>：Upskill Trainer L1.5"如何写好 Skill"模块，以 videocut-skills 为 Demo 解剖对象</li>
+      <li><strong>Phase 3（Day 8-21）</strong>：两个试点 Skill——<code>ikea-confluence-to-deck</code>（Confluence→PPT）+ <code>ikea-kpi-brief</code>（内部 KPI 周报）</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>💰 ROI</h4>
+    <p>Skill Hub 从"工具集市"升级为"有工艺标准的工坊"（51 skills 中仅 21.5% 五 pattern 全有）；L1.5 填补 Upskill Trainer P0 缺口里"非技术业务讲师也能教"的一环（写规则文件 &lt; 写代码门槛）；两个试点 Skill 成为"用新模式写的示范"，带动贡献者模仿。</p>
+  </section>
+
+  <div class="actions">
+    <strong>✅ 本周立即行动：</strong>
+    <ol>
+      <li><strong>今天（2h）通读源头</strong>：clone <code>Agentchengfeng/chengfeng-videocut-skills</code>，重点读 3 处（剪口播/用户习惯/1-核心原则.md 的"❌常见错误+✅正确"对照、自进化/SKILL.md、HTML 注释"架构守护者"）</li>
+      <li><strong>明天（1.5h）给 SKILL_ANATOMY.md 加"外置规则层"节</strong></li>
+      <li><strong>后天（0.5h）Upskill Trainer SPEC.md 登记 L1.5 模块（F9）</strong></li>
+      <li><strong>本周内（2h）手写 ikea-confluence-to-deck 的 rules/ 骨架</strong>（不写代码，只写 3 个规则 Markdown，验证"外置规则"在 IKEA 场景是否更好改）</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>漏洞 1（最关键）：</strong>videocut-skills 成功高度依赖火山引擎 ASR 字级时间戳——IKEA 场景的"关键依赖"是什么？→ Confluence 页面<strong>结构化质量</strong>（PRD 模板可，自由格式会议纪要不行）；Metabase 指标<strong>口径稳定性</strong>。<br>
+    <strong>漏洞 2：</strong>自进化在多人协作下会 git merge conflict + 规则语义冲突。单人仓库的优雅模式搬到大组织会变重——需 CODEOWNERS。<br>
+    <strong>漏洞 3：</strong>审核页阀门在 CI/CD 或远程 Copilot CLI 会话跑不起来——限定"本地 Agent 场景"。<br>
+    <strong>依赖顺序（隐藏的坑）：</strong>外置规则层 → 审核页阀门 → 自进化闭环（后两者依赖前者），不能并行推进。
+  </div>
+</div>
+
+<!-- ===== P3 ===== -->
+<div class="proposal">
+  <span class="num">3</span><h3>用 Pake (Tauri) 给 IKEA CDH 做 Electron 减负 PoC</h3>
+  <div class="meta-row">
+    <span class="pill verified">✅ Verified · 56.6K⭐</span>
+    <span class="pill">信号：@precisox / tw93 2026-06-20</span>
+    <span class="pill">关联：Apple Notes / AI Starter Kit / my-dotfiles</span>
+  </div>
+  <div class="claim">
+    <strong>核心主张：</strong>用 tw93/Pake（Rust + Tauri）在<strong>1 天内</strong>把一个 IKEA 内部 Web 工具（Confluence 门户）重打包为 ~5MB 原生桌面应用，实测内存/启动/包体三项数据，作为 CDH"Electron 减负"的 Go/No-Go 决策依据——<strong>而非先去说服 IT 或写 RFC</strong>。
+  </div>
+
+  <section>
+    <h4>🎯 锁定痛点</h4>
+    <p>CDH 工程师日常挂 3-5 个 Electron 应用（Slack 600-900MB / Teams 400-600MB / 内部工具），合计常驻 1.2-1.9GB——占 16GB Mac 的 8-12%。Docker + IDE + Electron 叠加 → swap → 风扇 → 续航缩水。内部 Web 工具"桌面化"成本陡：Electron 太重，PWA 失全局快捷键，原生重写杀鸡牛刀。Pake 是缺失的中间态。</p>
+  </section>
+
+  <section>
+    <h4>📅 里程碑</h4>
+    <ul class="milestones">
+      <li><strong>M1（本周，1 天）</strong>：5 分钟 PoC + 数据采集。npx pake-cli 打包 Confluence，测包体/空载内存/冷启动。<strong>Go/No-Go：内存 &lt; Chrome 标签 50% &amp; 启动 &lt; 2s &amp; 包体 &lt; 20MB</strong></li>
+      <li><strong>M2（Week 1-2）</strong>：内部 brown-bag + 1 位 oncall 工程师志愿者（标签页地狱最严重的人）试用 1 周</li>
+      <li><strong>M3（Week 2-3）</strong>：扩展到 3 个工具（Confluence / AI Genie / Grafana dashboard）</li>
+      <li><strong>M4（Month 2）</strong>：仅当 M1-M3 全绿，才找 IT 谈 Windows image 分发</li>
+      <li><strong>M5（Q3）</strong>：Go（全团队推广）/ Narrow（仅 Mac）/ No-Go 决策</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>💰 ROI</h4>
+    <table class="roi-table">
+      <tr><td>保守年化（Mac 团队 30% 采纳）</td><td>~¥254K（内存释放 → 减少卡顿 → 节省时间），<strong>99% 来自不可验证推断，仅作上限不作预期</strong></td></tr>
+      <tr><td>定性</td><td>品味落地（Apple Notes FileProvider 同公理）、AIE Code 议题素材、Starter Kit 自然延伸</td></tr>
+    </table>
+  </section>
+
+  <div class="actions">
+    <strong>✅ 本周立即行动：</strong>
+    <ol>
+      <li><strong>今天（&lt;2h）5 分钟 PoC</strong>：<code>npx pake-cli https://confluence.build.ingka.ikea.com --name "IKEA Confluence"</code>，采集包体/内存/启动 3 个数字。<strong>无论好坏都有价值</strong></li>
+      <li><strong>周三前（1h）发 1 分钟问卷</strong>：团队 Electron 负债 + 浏览器标签地狱基线</li>
+      <li><strong>周五前（10min）私聊 1 位 oncall 工程师</strong>锁定 M2 志愿者</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>挑战 1（最致命）：</strong>Tauri/Pake 在 IKEA Windows image 几乎装不进去——<strong>Microsoft 已取消 EV 证书绕过 SmartScreen 的特权</strong>（Tauri 官方文档过时），MSI 缺 package identity 无法 Intune 管理。M4 可能耗时 2-6 个月。<strong>这就是为什么 M1-M3 全设计为"仅 Mac、不依赖 IT"——Windows 是天花板但不作 PoC 前提</strong>。<br>
+    <strong>挑战 2：</strong>WebView 本身不等于"零 Chromium 内存"——复杂 Confluence 页在 WKWebView 仍可能 200-300MB。M1 唯一目的就是证伪/证实。<br>
+    <strong>挑战 3：</strong>Apple Notes FileProvider 教训——原生扩展开发成本高，PoC 容易卡 UI 层。严格限定 Pake 为"现成工具打包"，<strong>绝不自己写 Tauri/Rust 扩展</strong>。<br>
+    <strong>挑战 4：</strong>PWA 会不会就够了？→ M1 应同时测 PWA 作对照组。若 PWA ≈ Pake，优先推 PWA（零 IT 审计）。
+  </div>
+</div>
+
+<!-- ===== P4 ===== -->
+<div class="proposal">
+  <span class="num">4</span><h3>为 Life OS 设计 Δ-Eval：借鉴 EvoAgentBench 的 with/without 对照实验</h3>
+  <div class="meta-row">
+    <span class="pill partial">⚠️ Partial · 方法✅ 数字❌</span>
+    <span class="pill">信号：@elliotchen100 2026-06-22</span>
+    <span class="pill">关联：Life OS · Trust &amp; Eval</span>
+  </div>
+  <div class="claim">
+    <strong>核心主张：</strong>把 EvoAgentBench 的"with skill vs without skill"Δ 对照方法论骨架移植到 Kyle 的 readwise-briefing 子系统，用<strong>已有 39 份归档 briefing</strong>作为零成本回溯数据集，量化"加 state.json 增量记忆"vs"裸跑全量"在 token/时延/信号命中率上的 Δ。EvoAgentBench 本身（11⭐、无 paper、self-eval 利益冲突）<strong>不值得复现；值得偷的是它的实验协议骨架</strong>。
+  </div>
+
+  <section>
+    <h4>🎯 锁定痛点</h4>
+    <p>Kyle 现在无法回答："my-readwise-briefing 里的 state.json 增量记忆，到底值不值？" F20 Agent Evaluator 能给打 8/10 分，但答不出"这个 8 分里有多少归功于记忆、多少归功于 prompt"——这是<strong>归因问题，不是评分问题</strong>。readwise-briefing 是 Kyle 手上唯一有 39 份历史数据 + 增量机制就绪的子系统。</p>
+  </section>
+
+  <section>
+    <h4>📅 里程碑</h4>
+    <ul class="milestones">
+      <li><strong>M1（本周，2 天，纯只读）</strong>：回溯 Δ 基线。用 39 份归档 briefing 算"如果当时没有 state.json"的反事实成本。交付 <code>M1-retrospective-baseline.md</code>（39 行表：日期/processed_count/实际bytes/估算全量bytes/Δ_%）</li>
+      <li><strong>M2（第2周，3 天 + 9 天等待）</strong>：前瞻 A/B 实验。<strong>硬触发条件：只在 Kyle 决定恢复 readwise-briefing 定时运行后才做</strong>。n≥10 配对，预设最小样本量避免 EvoAgentBench 的 26 任务陷阱</li>
+      <li><strong>M3（第3周，2 天）</strong>：Δ-Eval 协议固化。仅当 M1+M2 显示 Δ 显著才做。注入 F20 Agent Evaluator 作为 F22 子模式</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>💰 ROI</h4>
+    <p>Life OS 第 5 支柱（Trust &amp; Eval）从"评分"升级到"因果归因"的第一步。把 readwise-briefing 的"记忆值不值"从凭感觉变成有数据。协议可复用到 context-ingest / morning-briefing 恢复后。</p>
+  </section>
+
+  <div class="actions">
+    <strong>✅ 本周立即行动（纯只读，零副作用）：</strong>
+    <ol>
+      <li><strong>Day 1（2h）数据抽取</strong>：从 39 份 briefing 提取 [日期, processed_count, briefing_bytes]，从 git commit message 提取 highlights 数（抽样 5 份验证 commit message 准确性）</li>
+      <li><strong>Day 2（2h）Δ 计算 + 报告</strong>：配对、估算反事实全量、产出 M1 报告</li>
+      <li><strong>Day 3（30min）决策门</strong>：读报告回答"Δ 是否大到值得做 M2？"——是→等系统恢复；否→归档转评别的子系统</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>挑战 1（用户已点名，最强反对）：</strong>Life OS 还在 exploring 阶段，launchd 全暂停，做 Δ-Eval 是不是本末倒置？→ <strong>M1 是"盘点伪装成评测"</strong>（用已存在数据回答已存在问题），不是给没跑的系统装仪表盘。M2/M3 必须有"系统恢复运行"硬前置。若 M1 后觉得"知道了也没改变什么"，就停。<br>
+    <strong>挑战 2：</strong>11⭐ 的 repo 方法论可靠吗？→ 借的是骨架（with/without Δ 是因果推断金标准 Neyman 1923 / Rubin 1974），不是结论。72.4% 和 +5.6% 一个没用。<br>
+    <strong>挑战 3：</strong>commit message 的"N highlights"可信吗？→ 抽样 5 份验证，偏差 &gt;20% 降级为"只看字节趋势"。
+  </div>
+</div>
+
+<!-- ===== P5 ===== -->
+<div class="proposal">
+  <span class="num">5</span><h3>浏览器即 OS：把四工具栈升级为 Agent 用户态抽象层</h3>
+  <div class="meta-row">
+    <span class="pill verified">✅ Verified · 趋势确认</span>
+    <span class="pill">信号：@Cander_zhu 2026-06-22（How modern browsers work 读后感）</span>
+    <span class="pill">关联：Browser Automation / Agentic Engineering</span>
+  </div>
+  <div class="claim">
+    <strong>核心主张：</strong>浏览器是 OS；Kyle 的四个工具（bb-browser + opencli + chrome-devtools + /browse skill）<strong>已经是这个 OS 的用户态，只是还没有人把它们命名为"用户态"</strong>。提案的本质不是"第 5 个工具"，而是把 /web-browsing SKILL.md 里 Agent 每次重新解释的决策文档，变成编译期固化的 dispatcher 函数。
+  </div>
+
+  <section>
+    <h4>🗺️ 已验证的工具栈 → OS 原语映射</h4>
+    <ul>
+      <li><strong>chrome-devtools</strong>（Rust 直连 CDP）= 内核 syscall 接口</li>
+      <li><strong>bb-browser</strong>（198 适配器）= libc + 文件系统</li>
+      <li><strong>internal/sharepoint adapter</strong> = FUSE / 凭证挂载点</li>
+      <li><strong>opencli explore/generate</strong> = 动态加载器（运行时合成新 syscall）</li>
+      <li><strong>/browse skill</strong>（headless Chromium）= 独立沙盒 VM</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>🆕 三个未被占领的 OS 高地</h4>
+    <ul>
+      <li><strong>机会 A（Service Worker = Agent 守护进程）</strong>：离线任务队列，提交后断开、完成取回。但受同源约束，可行性 &lt; 机会 B</li>
+      <li><strong>机会 B（File System Access API = Agent 家目录）</strong>：Web 文件当本地文件写，跨会话持久。<strong>建议优先验证</strong>（纯客户端，无需站点配合）</li>
+      <li><strong>机会 C（Broadcast Channel + Web Locks = 跨 tab IPC + 互斥锁）</strong>：多 Agent 协作基础，优先级低</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>📅 路线图（每阶段有继续/停止判定门）</h4>
+    <ul class="milestones">
+      <li><strong>Phase 1（本周-下周，零生产改动）</strong>：198 适配器 syscall 分级（L0 file-like / L1 ipc-like / L2 mount-like / L3 syscall-like）+ IPv6 CDP 绕过脚本化 + OS 能力探针。<strong>判定门：L0 占比 &gt; 75% 且 FS Access API 可用 → 继续</strong></li>
+      <li><strong>Phase 2（1-2 周）</strong>：薄 dispatcher 原型（~50-100 行，固化 Decision Matrix）+ FS Access API 给 SharePoint 适配器加"下载到家目录"</li>
+      <li><strong>Phase 3（2-4 周）</strong>：给 1-2 个高频内部适配器增加 IndexedDB + 家目录支持</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>💰 ROI</h4>
+    <table class="roi-table">
+      <tr><td>Agent 决策 token</td><td>当前 ~3-5K（读 SKILL.md）→ 目标 &lt; 1K（dispatcher 固化）</td></tr>
+      <tr><td>文件下载手动步骤</td><td>SharePoint 场景 3 步 → 1 步（FS Access API 自动写家目录）</td></tr>
+      <tr><td>长任务可断开场景</td><td>0 → ≥1（证明 SW/IndexedDB 异步模型）</td></tr>
+    </table>
+  </section>
+
+  <div class="actions">
+    <strong>✅ 本周立即行动：</strong>
+    <ol>
+      <li><strong>2-4h 对 198 适配器做 OS syscall 分级</strong>：导出清单，按 readOnly/capabilities 字段分 L0/L1/L2/L3，产出分级表。<strong>用数据回答"抽象层是否值得做"</strong></li>
+      <li><strong>把 IPv6 CDP 绕过从"故障排查段"升级为标准启动脚本</strong>（SKILL.md 第 142-173 行已有方案，埋没了）</li>
+      <li><strong>跑 OS 能力探针</strong>：bb-browser eval 探测 showDirectoryPicker/serviceWorker/BroadcastChannel/Web Locks 可用性</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>挑战 1（最强）：</strong>已经有 4 个工具了，再加抽象层是不是过度工程？→ 抽象层不是第 5 个工具，是把<strong>已有的决策文档变成代码</strong>（~50 行）。判定标准：若 dispatcher 实际只用 2-3 条决策路径（90% 场景"有 adapter 用 adapter"），就<strong>不要做 dispatcher</strong>，保持文档形式。<br>
+    <strong>挑战 2：</strong>Chrome 自己在做 Agent 适配（WebDriver BiDi / Agent Mode），12 个月后还有价值吗？→ 内核演进不消灭用户态库（Linux glibc 至今健在）。<strong>但通用平台适配器可能被 Chrome 吃掉——企业内部适配器（Admin Portal/MIP）才是长期护城河</strong>。战略含义：精力从"维护 198 公开适配器"转向"深耕企业内部"。<br>
+    <strong>挑战 3：</strong>SW/FS Access API 是内核特性，Agent 在用户态能注入吗？→ FS Access API 可以（纯客户端，任意页面 eval 即可）；SW 受同源约束，对内部站点降级为"不可行"。<strong>优先验证机会 B</strong>。
+  </div>
+</div>
+
+<h2>🎬 优先级建议（Kyle 决策矩阵）</h2>
+<table class="matrix">
+  <tr><th>Proposal</th><th>本周投入</th><th>潜在 ROI</th><th>失败成本</th><th>推荐</th></tr>
+  <tr><td class="signal">P1 Codex Review 契约</td><td>2h 实验</td><td>避损 ¥10万+</td><td>极低</td><td>🔥 <strong>本周必做</strong></td></tr>
+  <tr><td class="signal">P3 Pake PoC</td><td>2h PoC</td><td>团队内存减负</td><td>极低</td><td>🔥 <strong>本周必做</strong></td></tr>
+  <tr><td class="signal">P4 Δ-Eval M1</td><td>2h 数据抽取</td><td>Life OS 评测骨架</td><td>低（纯只读）</td><td>✅ 本周做 M1</td></tr>
+  <tr><td class="signal">P5 浏览器分级</td><td>2-4h 分级</td><td>抽象层数据依据</td><td>低</td><td>✅ 本周做 Phase 1</td></tr>
+  <tr><td class="signal">P2 videocut 模式</td><td>2h 通读</td><td>3 项目共享升级</td><td>低</td><td>📅 下周启动</td></tr>
+</table>
+
+<footer>
+  ⚡ 公理：不可行动的信息 = 噪音 · 5 个 subagent 并行推理 · 关联 intent/active.md 8 个 🔥 intent<br>
+  本周总投入 ~10-12h，可产出 5 个 go/no-go 决策依据 · 简报见 <code>/tmp/readwise-briefing-20260622.html</code>
+</footer>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
