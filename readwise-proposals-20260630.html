@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-06-30</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background:var(--bg);color:var(--text);line-height:1.75;padding:24px;max-width:1040px;margin:0 auto;transition:background .3s,color .3s}
+header{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:24px;position:relative}
+h1{font-size:1.7rem;color:var(--accent);margin-bottom:6px}
+.meta{color:var(--text3);font-size:.92rem}
+#theme-toggle{position:absolute;top:24px;right:28px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.1rem;color:var(--text)}
+.axiom{background:linear-gradient(135deg,var(--accent),var(--accent3));color:#fff;border-radius:10px;padding:14px 18px;margin:18px 0;font-size:.95rem}
+section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 28px;margin-bottom:20px}
+h2{font-size:1.25rem;color:var(--accent);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.86rem}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--accent);background:var(--surface2)}
+.map-table th{font-size:.82rem}
+.map-table td:first-child{font-weight:600;color:var(--accent2);white-space:nowrap}
+
+/* Proposal 卡片 */
+.prop{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:0;margin-bottom:24px;overflow:hidden;border-top:4px solid var(--accent4)}
+.prop.p1{border-top-color:var(--accent2)}
+.prop.p2{border-top-color:var(--accent3)}
+.prop.p3{border-top-color:var(--accent4)}
+.prop.p4{border-top-color:var(--accent5)}
+.prop.p5{border-top-color:#7c3aed}
+.prop-head{padding:20px 28px 14px;background:var(--surface2)}
+.prop-head .num{display:inline-block;font-size:.78rem;color:var(--text3);letter-spacing:.1em}
+.prop-head h3{font-size:1.3rem;color:var(--accent);margin:4px 0 8px}
+.thesis{font-size:1rem;color:var(--text);background:var(--surface);border-left:4px solid var(--accent3);
+  padding:12px 16px;border-radius:0 8px 8px 0;margin-top:10px}
+.thesis b{color:var(--accent3)}
+.prop-body{padding:18px 28px}
+h4{font-size:.96rem;color:var(--accent2);margin:18px 0 8px;text-transform:uppercase;letter-spacing:.05em}
+h4:first-child{margin-top:0}
+p{margin:8px 0;color:var(--text2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--text2)}
+li{margin:4px 0}
+.milestone{display:grid;grid-template-columns:auto 1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--border);font-size:.9rem}
+.milestone:last-child{border-bottom:none}
+.milestone .m-tag{font-weight:700;color:var(--accent2);white-space:nowrap}
+.milestone .m-time{color:var(--text3);font-size:.84rem;white-space:nowrap}
+.chip{display:inline-block;font-size:.74rem;padding:2px 8px;border-radius:10px;margin-right:4px;vertical-align:middle}
+.chip.fix{background:var(--accent5);color:#fff}
+.chip.ok{background:var(--accent3);color:#fff}
+.chip.connect{background:var(--accent2);color:#fff}
+.flag{background:#fef3c7;color:#92400e;padding:12px 16px;border-radius:8px;margin:12px 0;font-size:.9rem;border-left:4px solid var(--accent4)}
+html.dark .flag{background:#422006;color:#fde68a}
+.challenge{background:#fef2f2;color:#7f1d1d;padding:12px 16px;border-radius:8px;margin:10px 0;font-size:.9rem;border-left:4px solid var(--accent5)}
+html.dark .challenge{background:#450a0a;color:#fecaca}
+.challenge b,.flag b{color:inherit}
+.connect{background:#eff6ff;color:#1e3a8a;padding:12px 16px;border-radius:8px;margin:10px 0;font-size:.88rem;border-left:4px solid var(--accent2)}
+html.dark .connect{background:#172554;color:#bfdbfe}
+.action{counter-reset:act;list-style:none;margin:8px 0}
+.action li{counter-increment:act;padding:8px 0 8px 36px;position:relative}
+.action li::before{content:counter(act);position:absolute;left:0;top:6px;width:24px;height:24px;
+  background:var(--accent3);color:#fff;border-radius:50%;text-align:center;line-height:24px;font-size:.82rem;font-weight:700}
+.roi-box{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
+.roi-box .b{background:var(--surface2);border-radius:8px;padding:12px;text-align:center}
+.roi-box .b .v{font-size:1.3rem;font-weight:700;color:var(--accent3)}
+.roi-box .b .l{font-size:.76rem;color:var(--text3);margin-top:2px}
+footer{text-align:center;color:var(--text3);font-size:.82rem;padding:20px}
+@media(max-width:640px){.roi-box{grid-template-columns:1fr}.milestone{grid-template-columns:1fr;gap:4px}}
+</style>
+</head>
+<body>
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>🚀 Readwise 深挖 Proposals</h1>
+  <div class="meta">2026-06-30 · 5 个并行 subagent 生成 · 每个含验证报告 + 诚实挑战</div>
+  <div class="axiom">⚖️ <b>不可行动的信息 = 噪音。</b> 每个 Proposal 必须回答：解决谁的什么痛点？为什么现在？怎么测成功？谁来兜底失败？</div>
+</header>
+
+<section>
+  <h2>🧭 信号 × 项目 对应关系</h2>
+  <table class="map-table">
+    <tr><th>Proposal</th><th>信号源</th><th>连接的进行中工作</th><th>验证</th></tr>
+    <tr><td>① 共享语义大脑</td><td>开源内存层 (Cloudflare+MCP)</td><td>Life OS · 150+ skill 记忆孤立</td><td><span class="chip ok">✅+🔬</span></td></tr>
+    <tr><td>② Proactive Scout (Discover 环)</td><td>Loop Engineering 5 步框架</td><td>Life OS · 第3个主动化 proposal</td><td><span class="chip fix">⚠️出处</span></td></tr>
+    <tr><td>③ FastContext 探索路由</td><td>微软 FastContext 论文</td><td>LLM 网关调研（进行中）</td><td><span class="chip fix">⚠️数字</span></td></tr>
+    <tr><td>④ GLM-5.2 主力路由</td><td>Cline/nutlope 实测 + Kirill 行动项</td><td>LLM 网关调研 · token 计费备牌</td><td><span class="chip ok">✅</span></td></tr>
+    <tr><td>⑤ 能力路由表</td><td>routing.md 范式 (reverse-skill/agent-reach)</td><td>my-skill-manager 生态</td><td><span class="chip ok">✅</span></td></tr>
+  </table>
+</section>
+
+<!-- Proposal 1 -->
+<div class="prop p1">
+  <div class="prop-head">
+    <div class="num">PROPOSAL 01 · 🔬 可试用</div>
+    <h3>给 150+ Skills 装一个共享语义大脑</h3>
+    <div><span class="chip connect">接 Life OS</span> <span class="chip ok">✅ 验证通过</span> <span class="chip">4h 裸跑即可决策</span></div>
+    <div class="thesis">把散落在 150+ 个 <code>state.json</code> 里、只记状态不记语义的孤立记忆，升级成部署在你 Cloudflare 账号里、按<b>语义检索</b>、被 Claude/Cursor/Copilot 共享的<b>只读事实层</b>——零月费、零代码入侵。</div>
+  </div>
+  <div class="prop-body">
+    <h4>🎯 锁定痛点（实测证据）</h4>
+    <ul>
+      <li><b>记忆是孤岛</b>：personal-content-ingester 的 state.json 581 行全是游标/去重，搜索 <code>vector|embedding|semantic</code> 在 .agents/skills 下<b>零命中</b>。</li>
+      <li><b>跨工具失忆</b>：日志显示你 Claude/Cursor/Copilot 多工具并行，但 Cursor 形成的判断开 Claude 全忘；ai-session-manager 只是按工具各存 session，靠"恢复单会话"硬扛。</li>
+      <li><b>判断无回流口</b>：TASTE.md(399行)、journal 高浓度判断只能靠 AGENTS.md 手动带进上下文，无语义召回。</li>
+    </ul>
+    <h4>🗺️ 里程碑</h4>
+    <div class="milestone"><span class="m-tag">M1 裸跑</span><span>fork → wrangler deploy → Claude+Cursor 挂 MCP → 塞 5 条记忆跨工具查</span><span class="m-time">4h · go/no-go 门</span></div>
+    <div class="milestone"><span class="m-tag">M2 种子灌入</span><span>选 ~20 篇 journal(taste/agentic) 做 embedding；1 个 skill 加写入 hook</span><span class="m-time">1 天</span></div>
+    <div class="milestone"><span class="m-tag">M3 边界 ADR</span><span>明确：second-brain 存"已形成判断"，state.json 继续管游标——不迁移不替换</span><span class="m-time">半天</span></div>
+    <div class="milestone"><span class="m-tag">M4 扩源双向</span><span>taste 库 + readwise 高亮 + SKILL.md 描述纳入；2-3 核心 skill 加 hook</span><span class="m-time">2-3 天</span></div>
+
+    <h4>📊 成功标准</h4>
+    <table>
+      <tr><th>指标</th><th>基线</th><th>目标</th></tr>
+      <tr><td>跨工具语义召回</td><td>0</td><td>≥2 工具命中</td></tr>
+      <tr><td>前3召回含目标</td><td>无</td><td>≥70%</td></tr>
+      <tr><td>月成本</td><td>—</td><td>¥0（免费额度）</td></tr>
+      <tr><td>代码入侵度</td><td>—</td><td>0 skill 被重写，仅加 hook</td></tr>
+    </table>
+
+    <div class="challenge"><b>🔥 诚实挑战（最致命）：</b>这真是痛点，还是"工具很酷"的合理化？你已经带孤立 state.json 高产了很多年。若跨工具失忆真痛到影响产出，你早该自己造一个。<b>诚实结论：痛点 B 真实但可能"低频中痛"。</b>M1-M2 的真正任务是<b>测量痛的频率</b>，而非假设它很大。若一周内没自然用到它 → 直接 archive。</div>
+
+    <div class="flag"><b>⚠️ 哲学冲突：</b>你的 IRA 框架里 Archive 是冷的、人可读 markdown；second-brain 是热的、人不可读 embedding。缓解：严格只读、不存唯一副本，向量库只是索引。</div>
+  </div>
+</div>
+
+<!-- Proposal 2 -->
+<div class="prop p2">
+  <div class="prop-head">
+    <div class="num">PROPOSAL 02 · 补前两个 proposal 的缺口</div>
+    <h3>给被动 Skills 补上「Discover 环」(Proactive Scout)</h3>
+    <div><span class="chip connect">接 Life OS 成功标准②</span> <span class="chip fix">⚠️ 出处非官方</span> <span class="chip">6 周</span></div>
+    <div class="thesis">你的 5 个 loop skill 全停在"被动响应"；前两个主动化 proposal 各盖了 Schedule 和 Build 半间房，<b>真正缺的是 Discover 环</b>——一个不需召唤、自己扫 CI 失败/卡住 issue/风险提交并决定干什么的巡查 Agent。</div>
+  </div>
+  <div class="prop-body">
+    <h4>🎯 锁定痛点（5 skill 实测全被动）</h4>
+    <table>
+      <tr><th>Skill</th><th>触发方式</th><th>Discover?</th></tr>
+      <tr><td>routine-manager</td><td><code>--run --frequency daily</code> 任务表人工预填</td><td>❌</td></tr>
+      <tr><td>journal</td><td>"journal this"（"proactive triggers"仅建议不跑）</td><td>⚠️</td></tr>
+      <tr><td>my-readwise-briefing</td><td><code>/my-readwise-briefing</code></td><td>❌</td></tr>
+      <tr><td>delivery-closure</td><td>"验收"/"检查一下"</td><td>❌</td></tr>
+      <tr><td>canary-tester</td><td><code>python3 inject_canary.py</code> 全手动</td><td>❌</td></tr>
+    </table>
+    <p>调度层也空：crontab 只有 git-sync/Teams/brew，<b>零 skill 执行</b>；LaunchAgents 零 Agent 调度器。</p>
+    <p><b>与前两 proposal 的精确区分</b>：hook-driven-skills(05-07) 和 PROPOSAL_FIRST_PROACTIVE_AGENT(04-16) 都解决"给定一件事自动做完"（Build）；本提案解决"<b>自动决定该做哪件事</b>"（Discover）。互补不重叠。</p>
+
+    <div class="flag"><b>⚠️ 出处声明（先说清避免假地基）：</b>所谓"Anthropic《Loop Engineering》"<b>不是官方文档</b>（anthropic.com 搜不到），是某工程师个人 11 页 PDF。但 5 步框架本身准确，且<b>方案论证不依赖 Anthropic 背书</b>——它依赖你 active.md 自己定的"至少一件高频事务不需手动触发"。对外讲故事别蹭"Loop Engineering"标签，用"Proactive Scout 模式"。</div>
+
+    <h4>🗺️ 里程碑</h4>
+    <div class="milestone"><span class="m-tag">M1 规则清单</span><span>写 DISCOVER_RULES.md：5-8 条 if-then（CI 红>2h→卡、issue 卡>5d→卡、提交碰盲区→卡）。<b>不写代码</b></span><span class="m-time">6h</span></div>
+    <div class="milestone"><span class="m-tag">M2 Scout 原型</span><span>执行规则，把候选卡写入 intent/discovered.md（<b>不直接改 active.md</b>）。Discover 严禁自动执行 Build</span><span class="m-time">12h</span></div>
+    <div class="milestone"><span class="m-tag">M3 接 Schedule</span><span>launchd 每日 9:00 跑（晨会前），推送到 discovered.md</span><span class="m-time">4h</span></div>
+    <div class="milestone"><span class="m-tag">M4 闭环收手</span><span>跑 2 周看采纳率；达标即<b>宣布收手不扩展</b>第二个 Agent</span><span class="m-time">6h</span></div>
+
+    <div class="challenge"><b>🔥 诚实挑战（最高风险）：</b>你已有 <b>2 份未落地的主动化 proposal</b>。本提案若也停在纸面，等于<b>第三次</b>。缓解只能靠把 M1 砍到最小——M1 只产出一份 DISCOVER_RULES.md（一个文件，6h）。如果连这个都做不完，结论很清晰：<b>问题不在方案，在你当前没有 life-os 带宽</b>，那应该先砍 life-os 而不是再加 proposal。</div>
+    <div class="challenge"><b>🔥 更深漏洞：</b>Discover 在你当前节奏下可能是<b>负收益</b>——active.md 同时挂 OpenMAIC/Store POS MPC/Life OS/Engineering Baseline/FY26 对齐，Discover 会每天往过载 backlog 继续塞东西。<b>真问题可能不是缺 Discover，是 Build 产能不足。</b></div>
+  </div>
+</div>
+
+<!-- Proposal 3 -->
+<div class="prop p3">
+  <div class="prop-head">
+    <div class="num">PROPOSAL 03 · ⚠️ 数字已修正</div>
+    <h3>FastContext 探索路由：小模型当仓库探索者</h3>
+    <div><span class="chip connect">接 LLM 网关调研</span> <span class="chip fix">⚠️ 60% 含义修正</span> <span class="chip">12 周</span></div>
+    <div class="thesis">在 IKEA LLM 网关加一条"探索路由"：把 Agent 工作流中"找相关代码"这步路由给自托管 4B 小模型，只让贵模型做真正代码生成——<b>不改 Agent 主框架</b>，降低单任务主模型 token。</div>
+  </div>
+  <div class="prop-body">
+    <div class="flag"><b>⚠️ 必读：先纠正一个会被追问翻车的数字。</b>原推"Agent 60% token 花在搜索代码"是<b>误读</b>。论文原文是"集成 FastContext 后<b>主 Agent token 降低（最多）60%</b>"——60% 是<b>节省幅度</b>，不是搜索占比。对外汇报若用错表述，会被任何读过论文的人当场抓包。<b>全程用"降低 60%"表述。</b></div>
+
+    <h4>🎯 锁定痛点（三层可量化）</h4>
+    <ol>
+      <li><b>大仓 bug fix 探索吃前沿模型 token</b>：IKEA Java/Golang 仓体量大，Agent 反复 grep/读文件按 GPT-4 级单价计费，而这些调用本质是检索——<b>用 GPT-4 做 grep 是 token 用错了地方</b>。</li>
+      <li><b>没有"单任务成本"度量</b>：网关调研阶段尚无按任务聚合的 token/成本埋点，省没省钱全靠感觉。这是比上不上 FastContext 更优先补的缺口。</li>
+      <li><b>探索与生成耦合在同一模型</b>，无法对探索单独换便宜模型或缓存。</li>
+    </ol>
+
+    <h4>🗺️ 里程碑</h4>
+    <div class="milestone"><span class="m-tag">W1 De-risk Spike</span><span>开源 4B 模型在 1 个真实 IKEA 仓跑 3-5 已知 bug，对比主 Agent token。<b>不立项也能跑</b></span><span class="m-time">1 周 · 命门</span></div>
+    <div class="milestone"><span class="m-tag">W2 基线+埋点</span><span>盘点探索发生在哪些 tool call + 网关加每任务 token/成本埋点。<b>痛点必须被数字证实，否则停</b></span><span class="m-time">1 周</span></div>
+    <div class="milestone"><span class="m-tag">W3-5 FC as Service</span><span>K8s+vLLM 自托管 4B，网关暴露 explore/context 端点（与 Bifrost 调研对齐）</span><span class="m-time">3 周</span></div>
+    <div class="milestone"><span class="m-tag">W6-8 接入灰度</span><span>探索→FastContext，生成→主模型；网关 fallback 回退主模型</span><span class="m-time">3 周</span></div>
+    <div class="milestone"><span class="m-tag">W9-12 试点决策</span><span>3-5 人真实任务跑，采集成本/延迟/成功率，给 scale-or-kill 决策包</span><span class="m-time">4 周</span></div>
+
+    <h4>📊 成功标准（区分两个 60%）</h4>
+    <table>
+      <tr><th>指标</th><th>目标</th><th>红线(回滚)</th></tr>
+      <tr><td>主 Agent 单任务 token</td><td>↓≥30%（论文上限60%）</td><td>&lt;15%</td></tr>
+      <tr><td><b>净</b>推理成本（含4B开销）</td><td>↓≥20%</td><td>&lt;10%</td></tr>
+      <tr><td>任务成功率</td><td>劣化≤2-3pp</td><td>劣化&gt;5pp</td></tr>
+    </table>
+    <p><b>注意：</b>"主 token 降 60%"是论文数，"净成本降 20%+"才是决策依据。</p>
+
+    <div class="challenge"><b>🔥 诚实挑战：</b>(1) 痛点可能被错诊——慢/贵真因也许是"反复回读同一大文件"而非探索本身贵，W1 必须先证伪。(2) <b>有更便宜的对照组</b>：更好的 embedding/BM25/长上下文窗口可能用 10% 复杂度拿一半收益，FastContext 要和"廉价检索基线"比而非"裸奔"比。(3) <b>净收益可能薄到不值得</b>——扣 4B 自身开销净省可能 10-20%，11 人团队年省几千刀，单独建 ML 服务性价比存疑。</div>
+
+    <div class="connect"><b>🔗 连接既有调研：</b>网关选型=Bifrost(0 CVE vs LiteLLM 6 CVE) · 架构=mac-mini+SiliconCloud · 路由=按任务分流(omniroute Tier 概念) · 成本逻辑=credit pricing analysis</div>
+  </div>
+</div>
+
+<!-- Proposal 4 -->
+<div class="prop p4">
+  <div class="prop-head">
+    <div class="num">PROPOSAL 04 · ✅ 本 session 即 GLM-5.2</div>
+    <h3>GLM-5.2 作为 AI Coding 主力：网关层成本/质量双优验证</h3>
+    <div><span class="chip connect">接 LLM 网关调研 + Kirill 行动项</span> <span class="chip ok">✅ 多源印证</span> <span class="chip">6 周</span></div>
+    <div class="thesis">通过 LLM 网关把 Claude Sonnet 级任务分流到 GLM-5.2，在代码质量持平前提下把单位 token 成本降至 1/3，<b>并为 IKEA 全球 token 计费从"中央统付"向"按量计费"切换提前备好可量化底牌</b>。</div>
+  </div>
+  <div class="prop-body">
+    <h4>🎯 锁定痛点（已有事实依据）</h4>
+    <ul>
+      <li><b>单模型押注成本不可控</b>：credit pricing 分析显示 per-token 在长上下文(>16K)最贵，11 人团队用量正落此区间。</li>
+      <li><b>选型缺本地实测</b>：Kirill 1:1 说"GLM 与 Sonnet 相当"是二手判断，无团队真实任务复测。</li>
+      <li><b>网关调研半年未产出"为什么必须上"的硬 ROI</b>：6 份调研停在选型层，未接到省钱数字。</li>
+      <li><b>token 计费政策是悬顶之剑</b>：Kirill 行动项已标记"监控政策、评估本地模型"。</li>
+    </ul>
+
+    <h4>🗺️ 里程碑</h4>
+    <div class="milestone"><span class="m-tag">M1 基准线</span><span>从真实已关 PR 抽 5-10 bug，同 prompt 跑 Sonnet vs GLM-5.2，复用 Cline 实测方法</span><span class="m-time">W1 · 6h</span></div>
+    <div class="milestone"><span class="m-tag">M2 网关分流</span><span>mac-mini Bifrost 跑通按任务路由，coding→GLM 优先；仅 Kyle+1 志愿者灰度</span><span class="m-time">W2-3 · 8h</span></div>
+    <div class="milestone"><span class="m-tag">M3 双盲对比</span><span>样本扩到 20-30（两周真实 PR），<b>review 时不告知模型来源</b></span><span class="m-time">W4-5 · 6h</span></div>
+    <div class="milestone"><span class="m-tag">M4 推广决策</span><span>≥60% 平替→推团队；&lt;40%→GLM 仅作 overflow 池；带数字简报给 Kirill</span><span class="m-time">W6 · 4h</span></div>
+
+    <div class="roi-box">
+      <div class="b"><div class="v">≥60%</div><div class="l">单位任务成本↓（硬指标）</div></div>
+      <div class="b"><div class="v">$4.3-7.2K</div><div class="l">年化节省（目标情景）</div></div>
+      <div class="b"><div class="v">¥50-100</div><div class="l">mac-mini 月运维成本</div></div>
+    </div>
+
+    <div class="flag"><b>⚠️ 灰产 token 明确排除：</b>petergyang 信号"中国灰产 Claude 便宜 70-90%"<b>不采用</b>。理由：(1) IKEA 合规红线 (2) 随时断供+可能注入恶意内容 (3) 真正可控的降本来自 GLM 这种有官方 API+定价透明的模型。灰产信号仅<b>侧面印证"中国模型价格结构性更低"</b>的宏观判断。</div>
+
+    <div class="challenge"><b>🔥 诚实挑战：</b>(1) <b>2x token 可能吃光优势</b>：GLM 产 1.1M vs Opus 660K，若单价只便宜 2x 则净节省接近 0——这正是 M1 要回答的核心。(2) <b>IKEA 中央统付，算的节省是假的</b>：当前账面成本=$0。所以 proposal 定位是"以最低成本储备可激活的降本开关"，<b>按 R&D 期权估值而非 NPV</b>。(3) 模型迭代极快，3 周后数据可能失效——但这恰是网关路线的优势：模型可热切换，产出物不是"GLM 胜出"而是"团队具备按周复测+热切换的能力"。</div>
+  </div>
+</div>
+
+<!-- Proposal 5 -->
+<div class="prop p5">
+  <div class="prop-head">
+    <div class="num">PROPOSAL 05 · 抄你已验证的范式</div>
+    <h3>给 100+ Skills 装一张能力路由表 (capability-router)</h3>
+    <div><span class="chip connect">接 my-skill-manager 生态</span> <span class="chip ok">✅ 6h 可见雏形</span> <span class="chip">6 天</span></div>
+    <div class="thesis">与其让 Agent 在 100+ SKILL.md 里做关键词模糊匹配猜技能，不如给它一张声明式"任务意图→技能"路由表，让 Agent 自决策走哪条路——<b>就像 agent-reach 已在 15 平台做到的，只是这次路由"能力"而非"平台"</b>。</div>
+  </div>
+  <div class="prop-body">
+    <h4>🎯 锁定痛点（实测证据）</h4>
+    <ul>
+      <li><b>靠子串匹配选不准</b>：skill-finder 用 <code>query in name/description</code> 子串包含，零语义零意图理解。</li>
+      <li><b>推荐是硬编码 if-else</b>：Node→react-component-dev、Go→go-engineering 是写死的，新增技能必须改代码——与"声明式"相反。</li>
+      <li><b>同域多技能必错选</b>：5 个安全技能（ikea-security/credential-manager/git-crypt-manager/cred-vault/cdh-client-skill-safer），Agent 搜"security"只命中部分且无法判断该用哪个。</li>
+      <li><b>3 个技能 description 残缺</b>（cloudflare 空、cred-vault/humanizer-zh 占位），在关键词搜索里等于隐形。</li>
+    </ul>
+    <p><b>一句话：</b>你有数据层(skill-manager 31k JSON)和检索层(skill-finder)，<b>缺决策层(routing table)</b>。</p>
+
+    <h4>🗺️ 里程碑</h4>
+    <div class="milestone"><span class="m-tag">M1 分类法</span><span>100+ 技能归 8-12 capability domain（dev/doc/test/security/ikea-ops/content/knowledge/infra...）</span><span class="m-time">0.5 天</span></div>
+    <div class="milestone"><span class="m-tag">M2 主路由表</span><span>照搬 agent-reach SKILL.md 结构：standing rules + routing table（单一事实源）</span><span class="m-time">1 天</span></div>
+    <div class="milestone"><span class="m-tag">M3 references</span><span>每域一个文件，存"辨析表"（任务→用谁/不用谁），<b>禁止抄 description</b></span><span class="m-time">2 天</span></div>
+    <div class="milestone"><span class="m-tag">M4 解耦</span><span>skill-finder 保留作表外 fallback；<b>删 _get_recommendations() 硬编码 if-else</b></span><span class="m-time">1 天</span></div>
+    <div class="milestone"><span class="m-tag">M5 补全+README</span><span>修残缺 description；写"何时查表/何时 fallback/如何加路由"运维手册</span><span class="m-time">1 天</span></div>
+
+    <h4>📊 成功标准</h4>
+    <table>
+      <tr><th>指标</th><th>当前</th><th>目标</th></tr>
+      <tr><td>20 真实任务 Top-1 命中率</td><td>未测(不可靠)</td><td>≥90%</td></tr>
+      <tr><td>同域歧义错选率</td><td>高</td><td>&lt;10%</td></tr>
+      <tr><td>新增技能成本</td><td>改 Python if-else</td><td>加一行 markdown</td></tr>
+      <tr><td>路由覆盖率</td><td>0</td><td>≥95%</td></tr>
+    </table>
+
+    <div class="challenge"><b>🔥 诚实挑战（单点成败）：</b>"会不会又是一个没人维护的中间层？" 真正风险。唯一缓解：把它钩进 my-skill-creator——新建技能 checklist 第一条加"已更新 routing.md"。<b>如果连这条都不做，路由表 3 个月后必漂移成废纸。这是成败单点。</b></div>
+    <div class="challenge"><b>🔥 为何不用 embedding 语义搜索？</b>合理质疑。但语义搜索仍是"检索"，不解决"同域 5 个安全技能该用哪个"的<b>辨析</b>问题；且引入 embedding=新运行时/新依赖，违背减法品味。路由表是声明式、零依赖、人读的——更 Unix。语义搜索可作表外 fallback 增强，但不是主干。</div>
+    <div class="challenge"><b>🔥 ikea-ops 域过载：</b>~20 技能挤一域，大概率需要 references/ikea-ops.md 内部再分（jira/gh/data/ops）= <b>二级路由</b>，违背"只加一层"承诺。该提前承认此妥协，不隐藏。</div>
+  </div>
+</div>
+
+<section>
+  <h2>📌 决策建议矩阵</h2>
+  <table>
+    <tr><th>Proposal</th><th>投入</th><th>本周可验证</th><th>建议</th></tr>
+    <tr><td>① 共享语义大脑</td><td>4h 裸跑</td><td>✅ M1 即 go/no-go</td><td><b>本周做 M1</b>，跨工具失忆是高频痛点</td></tr>
+    <tr><td>⑤ 能力路由表</td><td>30min 手写试表</td><td>✅ 立即验证意图→技能是否隐式存在</td><td><b>本周做 M1 前置实验</b>，100+ skill 选不准是每天成本</td></tr>
+    <tr><td>④ GLM-5.2 路由</td><td>2h 跑 5 样本</td><td>✅ 首轮通过率即决策点</td><td><b>本周做 M1</b>，为 token 计费备牌</td></tr>
+    <tr><td>③ FastContext</td><td>1 周 Spike</td><td>⚠️ 需真实仓+埋点</td><td><b>先做埋点(痛点3)，Spike 看带宽</b></td></tr>
+    <tr><td>② Proactive Scout</td><td>6h 写规则</td><td>⚠️ 但有 2 个未落地前作</td><td><b>谨慎</b>，先确认 life-os 带宽，否则是第3个空想</td></tr>
+  </table>
+  <p style="margin-top:14px;color:var(--text3);font-size:.9rem">💡 共性洞察：5 个 Proposal 中 3 个（①②⑤）都指向 <b>Life OS / Skill 生态</b>，2 个（③④）指向 <b>LLM 网关变现</b>。建议聚焦这两条主线，而非 5 个并行——避免再次陷入"多个未落地 proposal"陷阱。</p>
+</section>
+
+<footer>
+  Phase 2 Proposals · 5 个 subagent 并行生成 · 全部含验证报告 + 诚实挑战<br>
+  ⚠️ 关键修正已标注：FastContext 60%含义 · Loop Engineering 出处 · 零梯度归属<br>
+  配套 Phase 1 简报见 /tmp/readwise-briefing-20260630.html
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  const d=document.documentElement.classList.contains('dark');
+  btn.textContent=d?'☀️':'🌙';
+  localStorage.setItem('theme',d?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-06-30</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background:var(--bg);color:var(--text);line-height:1.75;padding:24px;max-width:980px;margin:0 auto;transition:background .3s,color .3s}
+header{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:24px;position:relative}
+h1{font-size:1.7rem;color:var(--accent);margin-bottom:6px}
+.meta{color:var(--text3);font-size:.92rem}
+#theme-toggle{position:absolute;top:24px;right:28px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.1rem;color:var(--text)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.stat{background:var(--surface2);border-radius:10px;padding:14px;text-align:center}
+.stat .n{font-size:1.6rem;font-weight:700;color:var(--accent2)}
+.stat .l{font-size:.78rem;color:var(--text3);margin-top:2px}
+.axiom{background:linear-gradient(135deg,var(--accent),var(--accent3));color:#fff;border-radius:10px;
+  padding:14px 18px;margin:18px 0;font-size:.95rem}
+section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 28px;margin-bottom:20px}
+h2{font-size:1.25rem;color:var(--accent);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+.card{border-left:4px solid var(--accent4);background:var(--surface2);border-radius:0 10px 10px 0;
+  padding:16px 18px;margin-bottom:14px}
+.card.s5{border-left-color:var(--accent5)}
+.card.s4{border-left-color:var(--accent4)}
+.card.s3{border-left-color:var(--accent2)}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.tag{font-size:.74rem;padding:2px 8px;border-radius:10px;background:var(--accent);color:#fff;white-space:nowrap}
+.tag.s5{background:var(--accent5)}.tag.s4{background:var(--accent4)}.tag.s3{background:var(--accent2)}
+.verified{font-size:.74rem;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.v-ok{background:var(--accent3);color:#fff}
+.v-warn{background:var(--accent4);color:#fff}
+.v-hands{background:#7c3aed;color:#fff}
+.by{color:var(--text3);font-size:.82rem;margin-bottom:8px}
+.body{color:var(--text2)}
+.note{margin-top:10px;padding:10px 12px;background:var(--surface);border-radius:8px;font-size:.9rem;
+  border:1px dashed var(--border)}
+.note b{color:var(--accent4)}
+.note .fix{color:var(--accent5)}
+a{color:var(--accent2);text-decoration:none;word-break:break-all}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88rem}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--accent);background:var(--surface2)}
+.actions{list-style:none}
+.actions li{padding:10px 0 10px 28px;position:relative;border-bottom:1px dashed var(--border)}
+.actions li:last-child{border-bottom:none}
+.actions li::before{content:"▸";position:absolute;left:6px;color:var(--accent3);font-weight:700}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--accent2);padding:8px;font-size:.9rem}
+.low-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+.low-item{font-size:.84rem;color:var(--text3);padding:6px 10px;background:var(--surface2);border-radius:6px}
+footer{text-align:center;color:var(--text3);font-size:.82rem;padding:20px}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="meta">2026-06-30 · 增量窗口 06-22 → 06-30 · 全部为 Twitter/X 信号</div>
+  <div class="axiom">⚖️ <b>不可行动的信息 = 噪音。</b> 本期 49 条信号 → 独立验证 → 6 条高价值 → 5 个可执行 Proposal</div>
+  <div class="stats">
+    <div class="stat"><div class="n">49</div><div class="l">总信号</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">⭐5 高价值</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">⭐3-4 中价值</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">⚠️ 传播加工</div></div>
+  </div>
+</header>
+
+<section>
+  <h2>🧭 五大深挖方向速览</h2>
+  <table>
+    <tr><th>#</th><th>方向</th><th>对齐意图</th><th>验证</th></tr>
+    <tr><td>1</td><td><b>自托管 AI 记忆层</b>（Cloudflare+MCP，跨 Claude/GPT/Cursor 共享大脑）</td><td>Life OS · Memory 支柱</td><td><span class="verified v-ok">✅+🔬</span></td></tr>
+    <tr><td>2</td><td><b>Loop Engineering</b>（Schedule→Discover→Build→Verify→Repeat）</td><td>Agent Harness · 自有 skill 进化</td><td><span class="verified v-warn">⚠️ 非官方</span></td></tr>
+    <tr><td>3</td><td><b>FastContext 仓库探索器</b>（小模型省主 Agent 60% token）</td><td>AI Coding 成本优化</td><td><span class="verified v-warn">⚠️ 数字修正</span></td></tr>
+    <tr><td>4</td><td><b>GLM-5.2 经济性</b>（Cline 实测 + 灰产 token + 本地 MTP）</td><td>LLM 路由/网关调研（进行中）</td><td><span class="verified v-ok">✅</span></td></tr>
+    <tr><td>5</td><td><b>routing.md 范式</b>（Agent-Reach + reverse-skill 的能力路由架构）</td><td>Skill 生态 · Agentic</td><td><span class="verified v-ok">✅</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>⭐5 高价值信号（已验证）</h2>
+
+  <div class="card s5">
+    <div class="card-head">
+      <div><b>① 开源内存层：跨 Claude/ChatGPT/Cursor/Codex 共享一个大脑</b></div>
+      <div><span class="tag s5">⭐5</span> <span class="verified v-ok">✅ 已验证</span> <span class="verified v-hands">🔬 可试用</span></div>
+    </div>
+    <div class="by">@geekbb · 06-28 · repo: <a href="https://github.com/rahilp/second-brain-cloudflare">rahilp/second-brain-cloudflare</a> · 456⭐ / 53 fork / MIT / 昨日 push</div>
+    <div class="body">部署在 Cloudflare Workers，对外走 MCP，数据落在自有 D1+Vectorize+KV+Workers AI，语义检索而非字面匹配，个人规模在免费额度内。</div>
+    <div class="note"><b>为什么相关：</b>你的 skills 生态已用 <code>state.json</code> 做记忆（本 skill 就是），但各 skill 记忆孤立。此项目正是"统一记忆层"的开箱实现，且命中你的 Cloudflare+Bun+TS 技术栈。<b>验证：</b>wrangler.jsonc 实测含 d1_databases/vectorize/ai/kv_namespaces 四件套，推文每一项声明逐条属实，无夸大。</div>
+  </div>
+
+  <div class="card s5">
+    <div class="card-head">
+      <div><b>② Loop Engineering：Schedule→Discover→Build→Verify→Repeat</b></div>
+      <div><span class="tag s5">⭐5</span> <span class="verified v-warn">⚠️ 出处修正</span></div>
+    </div>
+    <div class="by">@Easycompany333 · 06-26/27 · 原始：某 Anthropic 工程师个人 11 页 PDF（社区流传）</div>
+    <div class="body">让 Agent 自己找事：定时启动→查 CI 失败/卡住 issue/有风险提交→独立干活→验证→重复。无冗余提示词，无需一轮轮对话。</div>
+    <div class="note"><b class="fix">⚠️ 重要修正：</b>这不是 Anthropic 官方文档（anthropic.com 搜不到），而是<b>某工程师个人 PDF</b>，被社区冠以"Anthropic《Loop Engineering》"。但 5 步框架本身准确。<b>为什么仍有价值：</b>你已有的 routine-manager/journal/my-readwise-briefing/delivery-closure <b>本质就是 loop</b>，缺的正是"Discover（自己找事）"这一环——把它们从被动响应升级为主动巡检。</div>
+  </div>
+
+  <div class="card s5">
+    <div class="card-head">
+      <div><b>③ FastContext：小模型当仓库探索者，给主 Agent 省钱</b></div>
+      <div><span class="tag s5">⭐5</span> <span class="verified v-warn">⚠️ 数字修正</span></div>
+    </div>
+    <div class="by">@Xudong07452910 · 06-26 · 论文 <a href="https://arxiv.org/abs/2606.14066">arXiv 2606.14066</a> · repo <a href="https://github.com/microsoft/fastcontext">microsoft/fastcontext</a> · 模型 microsoft/FastContext-1.0-4B-RL</div>
+    <div class="body">训练一个 4B 小模型专门做"在大型代码库找相关代码"，再喂给主 Agent，大幅降低 Coding Agent 成本。</div>
+    <div class="note"><b class="fix">⚠️ 重要修正：</b>原推"60% token 花在搜索代码"是<b>误读</b>。论文原文是"集成 FastContext 后<b>主 Agent token 降低 60%</b>"——60% 是<b>节省幅度</b>，不是"搜索占比"。<b>为什么相关：</b>作为管 11 人的 SEM，这是 Agent 重度工作流的硬成本杠杆——用 4B 模型做粗筛，贵模型只做精写，路由思路与你的 LLM 网关调研直接接续。</div>
+  </div>
+
+  <div class="card s5">
+    <div class="card-head">
+      <div><b>④ Agent-Reach：一条命令通 15 平台</b></div>
+      <div><span class="tag s5">⭐5</span> <span class="verified v-ok">✅ 已验证</span></div>
+    </div>
+    <div class="by">@laowangbababapa · 06-25 · repo <a href="https://github.com/Panniantong/Agent-Reach">Panniantong/Agent-Reach</a> · <b>45,892⭐ / 3634 fork / MIT / 昨日 push</b></div>
+    <div class="body">免费开源，一条命令打通 X/Reddit/YouTube/B站/小红书等 14+ 平台，零 API 费用，解决 Agent 上网每平台一门槛的痛点。</div>
+    <div class="note"><b>为什么相关：</b>你<b>已安装此 skill</b>（本机 ~/.agents/skills/agent-reach）。本期简报的 Phase 1 情报采集本可用它替代裸 curl。<b>验证：</b>4.5 万星、极度活跃，是你的 Browser Automation 支柱的现成基座。</div>
+  </div>
+
+  <div class="card s5">
+    <div class="card-head">
+      <div><b>⑤ GLM-5.2 经济性：2x token 但 3x 便宜，本地 MTP 提速</b></div>
+      <div><span class="tag s5">⭐5</span> <span class="verified v-ok">✅ 多源印证</span></div>
+    </div>
+    <div class="by">@cline 06-24 / @nutlope 06-24 / @karminski3 06-24</div>
+    <div class="body">Cline 用仓库真实 bug 实测：GLM-5.2 用 1.1M token vs Opus 660K（2x），但总成本更低、代码质量相当；GLM Arena 显示同质量下 3x 便宜。自带 MTP 头可推测性解码，本地 vLLM 速度已上来。</div>
+    <div class="note"><b>为什么相关：</b>(1) <b>本 session 正跑在 GLM-5.2 上</b>，这是亲身体验；(2) 你的近期提交"LLM 路由与网关技术调研"正进行中，这是路由决策的硬数据。⚠️ 配套冷启动常识（零梯度困境）：GLM 靠蒸馏破冰、靠 RL 追平——Patrick Toulme 身份属实，但概念是 RL 通用常识非其原创。</div>
+  </div>
+
+  <div class="card s5">
+    <div class="card-head">
+      <div><b>⑥ reverse-skill：逆向工程做成 AI 技能包</b></div>
+      <div><span class="tag s5">⭐5</span> <span class="verified v-ok">✅ 已验证</span></div>
+    </div>
+    <div class="by">@seventhoce56019 · 06-22 · repo <a href="https://github.com/zhaoxuya520/reverse-skill">zhaoxuya520/reverse-skill</a> · <b>6,930⭐ / 1080 fork / MIT / 昨日 push</b></div>
+    <div class="body">塞一个 routing.md 告诉 AI 走哪条路，AI 自动分诊决定工具/方法。覆盖 20+ 子方向：apk-reverse、malware-analysis、firmware-pentest、supply-chain-security 等。</div>
+    <div class="note"><b>为什么相关：</b>不在逆向本身，而在<b>routing.md 范式</b>——这正是你 skill 生态（my-skill-manager/creator/evolver）的架构镜像：用路由矩阵让 Agent 自选能力。<b>验证：</b>skills/routing.md + 20+ 子技能目录实测存在，比推文说的更全。⚠️ 安全用途需授权场景，且需评估供应链与提示注入风险。</div>
+  </div>
+</section>
+
+<section>
+  <h2>⭐3-4 中价值信号</h2>
+  <div class="card s4">
+    <div class="card-head"><div><b>Paul David《The Dynamo and the Computer》—— AI 生产率悖论</b></div><span class="tag s4">⭐4</span></div>
+    <div class="by">@Xudong07452910 · 06-24 · 1990 经典</div>
+    <div class="body">电力出现后工厂生产率没立刻暴涨——因为只换了动力源，生产方式/布局/管理仍是旧的。映射今天 AI 焦虑：换模型不换流程，生产率不动。</div>
+    <div class="note"><b>为什么相关：</b>作为 SEM 推 AI Coding 落地，这是说服业务方"为何要改流程而非只买工具"的最佳叙事框架。</div>
+  </div>
+  <div class="card s4">
+    <div class="card-head"><div><b>Stanford CS153 / CS336</b></div><span class="tag s4">⭐4</span></div>
+    <div class="by">@FinanceYF5 / @0xLinehigher · 06-29/26</div>
+    <div class="body">CS153（AI 系列，嘉宾 Jensen/Satya/Sam）；CS336《Language Modeling from Scratch》——啃完 LLM 理解+英语国内前 1%。</div>
+  </div>
+  <div class="card s4">
+    <div class="card-head"><div><b>Richard Hipp：为何 SQLite 不接受外部 PR</b></div><span class="tag s4">⭐3</span></div>
+    <div class="by">@ruanyf · 06-26</div>
+    <div class="body">"PR 不是免费的——你要我开发、写文档、测试，并维护 25 年。"开源维护成本的清醒账。</div>
+  </div>
+  <div class="card s4">
+    <div class="card-head"><div><b>The Hitchhiker's Guide to Agentic AI（603 页免费书）</b></div><span class="tag s4">⭐3</span> <span class="verified v-ok">✅</span></div>
+    <div class="by">@cosmtrek · 06-27 · <a href="https://arxiv.org/abs/2606.24937">arXiv 2606.24937</a> · 作者 Haggai Roitman</div>
+    <div class="body">从 Transformer 底座→RLHF/GRPO→Agent 本体→多 Agent 协作(MCP)→生产部署，全栈覆盖。个人 arXiv 预印本（非同行评审教材）。</div>
+  </div>
+</section>
+
+<section>
+  <h2>✅ 本周行动清单</h2>
+  <ul class="actions">
+    <li><b>试用 second-brain-cloudflare</b>：clone 到 /tmp，10 分钟内跑通免费额度部署，评估能否统一你散落的 skill state.json 记忆。</li>
+    <li><b>给 routine-manager 加"Discover"环</b>：参考 Loop Engineering 框架，让现有被动 skill 主动巡检 CI/issue/提交，升级为自驱 loop。</li>
+    <li><b>把 FastContext 思路写入 LLM 网关调研</b>：4B 粗筛 + 贵模型精写的两级路由，作为成本优化章节的论据（注意引用原始"降低 60%"而非"搜索占 60%"）。</li>
+    <li><b>下期简报情报采集改用 agent-reach</b>：替代裸 curl，验证它对 X/小红书/B站的覆盖。</li>
+    <li><b>抄 routing.md 范式</b>：给 my-skill-manager 增加路由矩阵，让 Agent 自选 skill 而非硬编码。</li>
+  </ul>
+</section>
+
+<details>
+  <summary>📎 低价值信号附录（39 条，默认折叠）</summary>
+  <div class="low-grid">
+    <div class="low-item">@HenryXiao_SJ · 英国气候/空调吐槽（生活向）</div>
+    <div class="low-item">@python_xxt · 工厂如何对待工人=产品如何对待消费者（观点）</div>
+    <div class="low-item">@Astronaut_1216 · 中国 AI toC 活动全赔钱赚吆喝（市场观察）</div>
+    <div class="low-item">@dingyi · Aside 浏览器设计好（产品）</div>
+    <div class="low-item">@wadezone · 推特赚钱 7 步（运营技巧）</div>
+    <div class="low-item">@Manjusaka_Lee · 以 antirez 为榜样，40/50 岁目标（个人感悟）</div>
+    <div class="low-item">@CycleDecoded · AssppWeb 绕过 App Store（安全/越狱）</div>
+    <div class="low-item">@crypto_oldk · ChinaTextbook 教材 PDF 合集（资源）</div>
+    <div class="low-item">@xbanboo · 小学一年级暑期考试=全天生存任务（教育观察）</div>
+    <div class="low-item">@moxt_ai · 未来人人有一队 Agent（趋势口号）</div>
+    <div class="low-item">@petergyang · 中国灰产 Claude token 便宜 70-90%（市场）</div>
+    <div class="low-item">@Xudong07452910 · AI 公司招哲学家（趋势）</div>
+    <div class="low-item">@noahduck283 · 多 Apple ID 用备忘录账户挂载（技巧）</div>
+    <div class="low-item">@LotusDecoder · Mac/AMD/统一显存 PC 跑大模型性价比（硬件）</div>
+    <div class="low-item">@lichuang · Distributed System Illustrated 卖出首份（独立开发）</div>
+    <div class="low-item">@BetterCallMedhi · Sakana AI 成日本首个 AI 独角兽（行业）</div>
+    <div class="low-item">@vista8 · 用 Codex 扫电脑安全/查木马（安全实践）</div>
+    <div class="low-item">@seventhoce56019 · apivixtls 安全项目一天涨 1200 星（传播）</div>
+    <div class="low-item">@D931931 · 开复：中国大模型落后美国 15 个月（行业判断）</div>
+    <div class="low-item">@durov · 学生该学 MATH（观点）</div>
+    <div class="low-item">@RayDalio · （纯链接，内容未知）</div>
+    <div class="low-item">@george__mack/@blackanger/@mitchellh/@wquguru/@dashen_wang · 纯 t.co 短链，原文无法验证（降权）</div>
+    <div class="low-item">@DeepMindLion · Hermes Studio ESP32-C3 桌面 AI 硬件 88 元（硬件）</div>
+    <div class="low-item">其余：生活吐槽/无法验证的纯链接/已知结论重复</div>
+  </div>
+</details>
+
+<footer>
+  Phase 1 简报 · 数据源 Readwise Export API · 验证手段 gh + Explore subagent + arXiv<br>
+  ⚠️ 推文是二手信号，关键数字/出处均已一手核对 · 配套 Phase 2 Proposals 见 /tmp/readwise-proposals-20260630.html
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  const d=document.documentElement.classList.contains('dark');
+  btn.textContent=d?'☀️':'🌙';
+  localStorage.setItem('theme',d?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>
