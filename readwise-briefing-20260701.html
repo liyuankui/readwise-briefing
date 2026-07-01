@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-07-01</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 20px; max-width: 980px; margin: 0 auto;
+}
+h1,h2,h3 { color: var(--accent); line-height: 1.3; }
+h1 { font-size: 1.7em; margin-bottom: 4px; }
+h2 { font-size: 1.35em; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.1em; margin: 18px 0 8px; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+.meta { color: var(--text3); font-size: 0.85em; }
+button#theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 1.1em; }
+.stats { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; min-width: 90px; }
+.stat .num { font-size: 1.6em; font-weight: bold; color: var(--accent); }
+.stat .lbl { font-size: 0.78em; color: var(--text3); }
+.axiom { background: linear-gradient(135deg, var(--accent2), var(--accent)); color: #fff; padding: 12px 18px; border-radius: 10px; margin: 14px 0; font-style: italic; }
+.axiom b { font-style: normal; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9em; }
+th,td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--surface2); color: var(--accent); font-size: 0.85em; }
+td.star { white-space: nowrap; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin: 12px 0; }
+.card.high { border-left: 4px solid var(--accent5); }
+.card.mid { border-left: 4px solid var(--accent4); }
+.sig { font-size: 0.95em; }
+.sig .who { color: var(--accent2); font-weight: bold; }
+.sig .when { color: var(--text3); font-size: 0.82em; }
+.sig .url { color: var(--accent3); font-size: 0.8em; word-break: break-all; }
+.note { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 0.9em; }
+.note::before { content: "💡 为什么相关："; font-weight: bold; color: var(--accent4); }
+.tag { display: inline-block; background: var(--surface2); color: var(--text2); border-radius: 4px; padding: 1px 7px; font-size: 0.75em; margin: 2px; }
+.tag.verify-yes { background: #d1fae5; color: #065f46; }
+.tag.verify-no { background: #fee2e2; color: #991b1b; }
+.tag.verify-mid { background: #fef3c7; color: #92400e; }
+.tag.verify-hands { background: #dbeafe; color: #1e40af; }
+details summary { cursor: pointer; color: var(--accent2); font-weight: bold; padding: 8px 0; }
+.actions { background: var(--surface); border: 1px solid var(--accent3); border-radius: 12px; padding: 14px 18px; margin: 16px 0; }
+.actions li { margin: 6px 0; }
+a { color: var(--accent2); }
+.small { font-size: 0.82em; color: var(--text3); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="meta">2026-07-01 · 增量窗口 06-22 → 07-01 · <b>54 条新信号</b></div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom"><b>公理｜</b>不可行动的信息 = 噪音。本简报只保留能与当前意图交叉的信号。</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">54</div><div class="lbl">总信号</div></div>
+  <div class="stat"><div class="num">7</div><div class="lbl">⭐⭐⭐⭐⭐ 高价值</div></div>
+  <div class="stat"><div class="num">14</div><div class="lbl">⭐⭐⭐ 中价值</div></div>
+  <div class="stat"><div class="num">5</div><div class="lbl">已验证 ✓</div></div>
+</div>
+
+<h2>🗺️ 信号 × 意图 对应速览</h2>
+<table>
+<thead><tr><th>方向聚类</th><th>命中意图</th><th>代表信号</th><th>验证</th></tr></thead>
+<tbody>
+<tr><td><b>Agent Loop / 自进化</b></td><td>Life OS · Testing Excellence</td><td>Loop Engineering · Self-improving Bench</td><td><span class="tag verify-yes">✅ Verified</span></td></tr>
+<tr><td><b>Coding Agent 降本</b></td><td>AI Coding · Life OS (Software Factory)</td><td>FastContext 60% token↓</td><td><span class="tag verify-yes">✅ Verified</span></td></tr>
+<tr><td><b>共享记忆层</b></td><td>Life OS (Memory 支柱)</td><td>second-brain-cloudflare</td><td><span class="tag verify-yes">✅ Verified</span></td></tr>
+<tr><td><b>Agent 数据触达</b></td><td>Browser Automation · Content Digest</td><td>Agent-Reach (14 平台) · X MCP</td><td><span class="tag verify-yes">✅ Verified</span></td></tr>
+<tr><td><b>Skill 即路由</b></td><td>Skill Hub · Agentic Eng</td><td>reverse-skill (7K⭐ routing.md)</td><td><span class="tag verify-yes">✅ Verified</span></td></tr>
+<tr><td><b>本地大模型</b></td><td>SLM Bench · 个人基建</td><td>vLLM GLM-5.2 · 128G 统一显存 PC</td><td><span class="tag verify-mid">⚠️ Partial</span></td></tr>
+<tr><td><b>AI 商业/教育</b></td><td>K12 · AI Adoption</td><td>CS153 · 开复访谈 · ChinaTextbook</td><td><span class="tag verify-mid">⚠️ 观点</span></td></tr>
+</tbody>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（立即行动）</h2>
+
+<div class="card high">
+<div class="sig">
+<span class="who">@Easycompany333 ×2</span> <span class="when">06-26 / 06-27</span><br>
+<b>Anthropic《Loop Engineering》框架</b>：Schedule → Discover → Build → Verify → Repeat。定时任务自动启动，Agent 自己看 CI/issue/提交风险，独立干活。<br>
+<span class="url">https://x.com/Easycompany333/status/2070720309225992694</span>
+</div>
+<div class="note">这正是 Life OS 的「Proactive Agents」支柱直接落地的工程范式——把"召唤式 Agent"升级为"巡逻式 Agent"。Schedule(定时) + Discover(主动找事) 两步即可改造你现有的 readwise-briefing / canary-tester 等 skill 成自进化闭环。Testing Excellence 的"AI 写测试→AI 验测试"也由此框架统一。</div>
+<span class="tag verify-yes">✅ 多源验证</span> <span class="tag">Life OS</span> <span class="tag">Testing</span> <span class="tag">🔥本周可试</span>
+</div>
+
+<div class="card high">
+<div class="sig">
+<span class="who">@Xudong07452910</span> <span class="when">06-26</span><br>
+<b>微软 FastContext 论文</b>：4B 参数「侦察兵」subagent 先做 repo 探索，把代码搜索从主 solver 轨迹剥离，主模型 token 消耗 ↓60%，SWE-Bench 解决率 ↑5.5%。<br>
+<span class="url">https://x.com/Xudong07452910/status/2069986442617700857</span>
+</div>
+<div class="note">直击 AI Coding 最大成本痛点——"找代码"浪费 token。开源 4B 模型(microsoft/fastcontext + HF 权重)，可集成进你的 Software Factory 链路。与 Life OS「Trust & Eval」呼应：探索与求解分离 = 可分别评估。</div>
+<span class="tag verify-yes">✅ repo+论文+权重</span> <span class="tag">AI Coding</span> <span class="tag">🔬值得亲测</span>
+</div>
+
+<div class="card high">
+<div class="sig">
+<span class="who">@geekbb</span> <span class="when">06-28</span><br>
+<b>开源共享记忆层</b>：部署在 Cloudflare Workers，让 Claude/ChatGPT/Cursor/Codex 共享一个大脑。数据落在你自己的 D1+Vectorize+KV+Workers AI，MCP 对外，语义检索。个人规模在免费额度内。
+</div>
+<div class="note">这是 Life OS「Memory 支柱」的现成基座——跨工具记忆正是你列出的头号空缺。且与 OpenMAIC Cloudflare 部署同栈(Workers+D1)，可复用你的 Cloudflare 基建经验。repo: rahilp/second-brain-cloudflare (MIT)。</div>
+<span class="tag verify-yes">✅ rahilp/second-brain-cloudflare</span> <span class="tag">Life OS</span> <span class="tag">OpenMAIC</span> <span class="tag">🔬本周可部署</span>
+</div>
+
+<div class="card high">
+<div class="sig">
+<span class="who">@laowangbababapa</span> <span class="when">06-25</span><br>
+<b>Agent-Reach</b>：一条命令打通 14 个平台(Twitter/Reddit/YouTube/GitHub/B站/小红书/RSS…)。无 API key、零订阅费。给 Claude Code 等装上"全网眼睛"。<br>
+<span class="url">https://x.com/laowangbababapa/status/2069820358040174695</span>
+</div>
+<div class="note">直接补 Browser Automation 工具栈的"数据获取"短板（你已知 bb-browser 受 Arc CDP 限制）。Agent-Reach 走平台 scraping 而非浏览器控制，绕过了你的已知瓶颈。Content Digest 也能借此一键抓多源。repo: Panniantong/Agent-Reach (MIT)。</div>
+<span class="tag verify-yes">✅ Panniantong/Agent-Reach</span> <span class="tag">Browser Automation</span> <span class="tag">Content Digest</span> <span class="tag">🔬本周可装</span>
+</div>
+
+<div class="card high">
+<div class="sig">
+<span class="who">@seventhoce56019</span> <span class="when">06-22</span><br>
+<b>reverse-skill</b>：逆向工程做成 Skill 包喂给 AI。塞一个 routing.md，AI 自动分诊安全任务、自选工具方法。覆盖 20+ 子技能(APK/固件/内存…)。一天涨 1200⭐。<br>
+<span class="url">https://x.com/seventhoce56019/status/2068901168940745088</span>
+</div>
+<div class="note">这是 Skill Hub 的教科书级案例——「routing.md = 路由层」正是你 IKEA Skill Hub 统一架构的核心思想。7K⭐ 证明社区认可此模式。可借鉴其 routing.md 写法充实你的 Skill Hub 作者指南。⚠️ 安全领域，需 ikea-security 审计后内用。</div>
+<span class="tag verify-yes">✅ zhaoxuya520/reverse-skill ⭐7024</span> <span class="tag">Skill Hub</span> <span class="tag">Agentic Eng</span>
+</div>
+
+<div class="card high">
+<div class="sig">
+<span class="who">@XDevelopers (官方)</span> <span class="when">06-30</span><br>
+<b>Hosted X MCP 官方发布</b>：Agents 现可直接接入 X 实时信息，无需任何 setup，连 Grok/Cursor/任意 MCP 工具。<br>
+<span class="url">https://x.com/XDevelopers/status/2071752389183647758</span>
+</div>
+<div class="note">取代了你过去依赖 t.co 短链/Agent-Reach 抓推文的间接路径——官方 MCP 是一等公民数据源。对 Social Output、GEO 监测(推文舆情)、Content Digest 都是基础设施升级。需查是否免费/有 quota。</div>
+<span class="tag verify-yes">✅ 官方公告</span> <span class="tag">Browser Auto</span> <span class="tag">Social Output</span> <span class="tag">GEO</span>
+</div>
+
+<div class="card high">
+<div class="sig">
+<span class="who">@elliotchen100</span> <span class="when">06-22</span><br>
+<b>Self-improving Agent Benchmark</b>：专测 Agent 自进化能力。"在 Loop 架构中，memory-first 的自进化是最核心一环，没有之一。"
+</div>
+<div class="note">与 Life OS「系统能自我评估并反馈改进」成功标准完全对齐。可作为 Life OS 的评估层(Trust & Eval)选型输入——你需要一个能测"系统是否真的在变好"的尺子。需进一步查 benchmark 具体名/repo。</div>
+<span class="tag verify-mid">⚠️ 推文待查 repo</span> <span class="tag">Life OS</span> <span class="tag">SLM Bench</span>
+</div>
+
+<h2>⭐⭐⭐ 中价值信号（备选收藏）</h2>
+<table>
+<thead><tr><th>信号</th><th>要点</th><th>意图</th></tr></thead>
+<tbody>
+<tr><td><b>vLLM 跑 GLM-5.2</b> @karminski3</td><td>本地 MTP 头推测性解码提速，bf16 需 1.5TB，量化版可用</td><td>SLM Bench / 本地基建</td></tr>
+<tr><td><b>GLM Arena 测试</b> @nutlope</td><td>GLM-5.2 vs Opus 4.8：2× token 但更快+3× 便宜+质量相当</td><td>模型选型</td></tr>
+<tr><td><b>Cline 实测 GLM vs Opus</b> @cline</td><td>真实 bug 修复：GLM 1.1m vs Opus 660k token，GLM 成本/质量胜出</td><td>AI Coding 选型</td></tr>
+<tr><td><b>128G 统一显存 PC</b> @LotusDecoder</td><td>2026-06 mac+amd+nvidia 跑大模型性价比方案</td><td>本地基建</td></tr>
+<tr><td><b>CS336 啃完建议</b> @0xLinehigher</td><td>Stanford LLM from scratch，英文字幕，进国内前 1%</td><td>K12 / 个人学习</td></tr>
+<tr><td><b>ChinaTextbook</b> @crypto_oldk</td><td>小学→大学教材合集 PDF 无水印免费下载</td><td>K12 教育</td></tr>
+<tr><td><b>CS153 斯坦福 AI 课</b> @FinanceYF5</td><td>Jensen/Satya/Sam 嘉宾讲座</td><td>AI Adoption / 个人学习</td></tr>
+<tr><td><b>小学一年级暑期考试</b> @xbanboo</td><td>9:00-16:00，发钱、独立完成任务，观察员只记录</td><td>K12 教育方法论</td></tr>
+<tr><td><b>Paul David 1990</b> @Xudong07452910</td><td>电力→工厂生产率未立刻暴涨 = 今天 AI 焦虑的镜像</td><td>AI Adoption 策略</td></tr>
+<tr><td><b>开复访谈</b> @D931931</td><td>中国大模型落后美国从 3 月→15 月；中国用户不给软件付费</td><td>GEO / 商业策略</td></tr>
+<tr><td><b>哲学成 AI 硬技能</b> @Xudong07452910</td><td>经济学人：AI 实验室抢招哲学家</td><td>团队建设思考</td></tr>
+<tr><td><b>How modern browsers work</b> @Cander_zhu</td><td>浏览器=最被低估的"OS"；前端/Agent 当黑盒会吃亏</td><td>Browser Automation</td></tr>
+<tr><td><b>Hermes Studio ESP32-C3</b> @DeepMindLion</td><td>88 元桌面 AI 对话硬件，开源</td><td>K12 硬件 / 边缘 AI</td></tr>
+<tr><td><b>Aside 浏览器</b> @dingyi</td><td>设计用心的浏览器新品</td><td>Browser 趋势观察</td></tr>
+</tbody>
+</table>
+
+<h2>⚡ 本周行动清单（从高价值信号提炼）</h2>
+<div class="actions">
+<ol>
+<li><b>🔬 部署 second-brain-cloudflare</b>（2h，go/no-go）：clone → 部署到你的 Cloudflare 账号 → 给 Claude Code 接 MCP → 测一条跨 session 记忆。验证它能否成为 Life OS Memory 支柱基座。</li>
+<li><b>🔬 装 Agent-Reach</b>（30min）：一条命令给 Claude Code 装上 14 平台抓取，立即用于下次 readwise/social-output 抓取，对比现有 web-browsing skill。</li>
+<li><b>📋 落地 Loop Engineering 框架</b>：把 readwise-briefing 这个 skill 改造成 Schedule→Discover→Build→Verify 闭环（加 cron 定时触发 + 自我评估反馈）——这就是 Life OS 的第一个 Proactive Agent。</li>
+<li><b>📖 读 FastContext 论文 + 跑 demo</b>：microsoft/fastcontext，评估能否集成进 Software Factory 的"找代码"环节，降 60% token。</li>
+<li><b>📚 借 reverse-skill 的 routing.md</b>：充实 IKEA Skill Hub 作者指南，把"Skill 即路由"写进 v5 多仓库架构文档。</li>
+<li><b>🔌 测 X MCP 官方</b>：查定价/quota，若可用则 Social Output/GEO 监测改用它替代 scraping。</li>
+</ol>
+</div>
+
+<details>
+<summary>📎 低价值/噪声附录（点击展开 · 共 33 条）</summary>
+<div class="small">
+<p>· @wadezone 推特赚钱 7 步法（Reddit→AI 总结→GPT 配图→发推）— 灰产方法论，仅作 Social Output 参考</p>
+<p>· @petergyang 中国灰色 Claude token 经济（官价 70-90% off）— 市场观察，非行动项</p>
+<p>· @0xLogicrw GLM 5.2 蒸馏争议/零梯度困境 — 模型技术细节</p>
+<p>· @ruanyf SQLite 作者拒外部 PR 的理由 — 维护哲学</p>
+<p>· @Manjusaka_Lee ×2 与 CTO 闲聊学 MLSys/antirez 榜样 — 个人成长</p>
+<p>· @python_xxt 工厂待工人↔产品质量 — 管理隐喻</p>
+<p>· @HenryXiao_SJ 湾区装空调吐槽 — 噪声</p>
+<p>· @Astronaut_1216 AI toC 全赔钱 — 市场观察</p>
+<p>· @vista8 Mac Cookie 被盗/Codex 扫安全 — 安全提醒</p>
+<p>· @noahduck283 多 Apple ID 备忘录账户技巧 — 实用 tip</p>
+<p>· @lichuang Distributed System Illustrated 卖出首份 — 个人动态</p>
+<p>· @cosmtrek Hitchhiker's Guide to Agentic AI 书 — 待读</p>
+<p>· @karpathy Claude 新交互范式评论 — 趋势</p>
+<p>· @george__mack / @mitchellh / @wquguru / @dashen_wang / @RayDalio / @blackanger×2 / @BetterCallMedhi / @durov / @addyosmani / @endearqb / @CycleDecoded(App Store 偷家) / @moxt_ai(Agent 团队) / @FinanceYF5(CS153 链接) — 纯链接/短评/已知观点</p>
+</div>
+</details>
+
+<p class="small" style="margin-top:24px; border-top:1px solid var(--border); padding-top:10px;">
+数据源：Readwise Export API v2（增量 updatedAfter=2026-06-22）· 54 条 tweets · Phase 1.5 验证：5/7 信号 ✅Verified · 生成于 2026-07-01 11:23 CST
+</p>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
