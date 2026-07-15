@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-07-15</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px;
+  max-width: 1000px; margin: 0 auto;
+}
+#theme-toggle {
+  position: fixed; top: 20px; right: 20px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 44px; height: 44px; font-size: 1.2em; cursor: pointer; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+header { text-align: center; padding: 32px 0 24px; border-bottom: 2px solid var(--accent); margin-bottom: 24px; }
+header h1 { font-size: 1.8em; color: var(--accent); margin-bottom: 8px; }
+header .meta { color: var(--text3); font-size: 0.9em; }
+.banner { background: var(--surface2); border-left: 4px solid var(--accent4); padding: 12px 16px; border-radius: 6px; margin-bottom: 24px; font-size: 0.9em; color: var(--text2); }
+.banner strong { color: var(--accent4); }
+h2 { color: var(--accent); font-size: 1.3em; margin: 28px 0 14px; }
+.matrix-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.88em; }
+.matrix-table th { background: var(--surface2); color: var(--accent); padding: 10px; text-align: left; border: 1px solid var(--border); }
+.matrix-table td { padding: 10px; border: 1px solid var(--border); background: var(--surface); }
+.matrix-table td:first-child { font-weight: bold; }
+.proposal-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px; margin-bottom: 28px; border-top: 4px solid var(--accent);
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.proposal-card.p1 { border-top-color: var(--accent3); }
+.proposal-card.p2 { border-top-color: var(--accent2); }
+.proposal-card.p3 { border-top-color: var(--accent4); }
+.proposal-card.p4 { border-top-color: var(--accent); }
+.proposal-card.p5 { border-top-color: var(--accent5); }
+.proposal-card .num { display: inline-block; background: var(--accent); color: #fff; border-radius: 50%; width: 28px; height: 28px; text-align: center; line-height: 28px; font-size: 0.85em; margin-right: 8px; }
+.proposal-card h3 { font-size: 1.15em; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; }
+.proposal-card .thesis { background: var(--surface2); border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; font-size: 0.95em; color: var(--text); border-left: 3px solid var(--accent2); }
+.proposal-card .thesis strong { color: var(--accent); }
+.proposal-card h4 { color: var(--accent); font-size: 0.95em; margin: 16px 0 8px; }
+.proposal-card ul, .proposal-card ol { margin: 0 0 12px 20px; }
+.proposal-card li { margin: 4px 0; font-size: 0.9em; color: var(--text2); }
+.proposal-card .milestone { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; margin: 8px 0; font-size: 0.88em; }
+.proposal-card .milestone strong { color: var(--accent3); }
+.proposal-card .roi { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 10px; margin: 12px 0; }
+.proposal-card .roi-item { background: var(--surface2); border-radius: 6px; padding: 10px; text-align: center; }
+.proposal-card .roi-item .val { font-size: 1.1em; font-weight: bold; color: var(--accent3); }
+.proposal-card .roi-item .lbl { font-size: 0.75em; color: var(--text3); margin-top: 2px; }
+.proposal-card .actions { background: var(--accent3); color: #fff; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+.proposal-card .actions ol { margin: 0 0 0 20px; }
+.proposal-card .actions li { color: #fff; font-size: 0.88em; margin: 6px 0; }
+.proposal-card .challenge { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 14px; margin: 12px 0; font-size: 0.85em; color: #78350f; }
+html.dark .proposal-card .challenge { background: rgba(245,158,11,.1); border-color: var(--accent4); color: var(--accent4); }
+.proposal-card .challenge strong { color: var(--accent5); }
+.proposal-card table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.85em; }
+.proposal-card table th { background: var(--surface2); padding: 6px 8px; border: 1px solid var(--border); text-align: left; }
+.proposal-card table td { padding: 6px 8px; border: 1px solid var(--border); }
+.verified { color: var(--accent3); font-weight: bold; }
+.partial { color: var(--accent4); font-weight: bold; }
+footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.8em; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<header>
+  <h1>🎯 深挖 Proposals</h1>
+  <div class="meta">2026-07-15 · 5 个 subagent 并行推理 · 69 信号 → 5 可执行方案</div>
+</header>
+
+<div class="banner">
+  <strong>📌 公理</strong>：不可行动的信息 = 噪音。以下 5 个 Proposal 皆经 Phase 1.5 独立验证，含里程碑、成功标准、ROI 量化及诚实挑战。
+</div>
+
+<h2>🔗 信号 × 项目 对应关系</h2>
+<table class="matrix-table">
+  <tr><th>#</th><th>信号来源</th><th>连接项目</th><th>核心主张（一句话）</th><th>验证</th></tr>
+  <tr>
+    <td>1</td>
+    <td>Karpathy LOOPS.md + Andrew Ng + Boris Cherny</td>
+    <td>Life OS / AI Coding</td>
+    <td>将 readwise-briefing 从手动触发改造为 Proactive Loop，补齐 cadence+self-check+bookkeeping 三环</td>
+    <td><span class="verified">✅</span></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Anthropic J-Space 论文 (2026-07-06)</td>
+    <td>CS336 / AI Security</td>
+    <td>在 CS336 自建 Transformer 上安装 J-lens，验证"alignment 改了模型在想什么还是只改了它说什么"</td>
+    <td><span class="verified">✅</span></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Quesma Tau² benchmark +22%</td>
+    <td>AI Coding Eval / Skills</td>
+    <td>把 Skills/AGENTS.md 由散文改写为"决策树+checklist"，让弱模型追平强模型，token 省近半</td>
+    <td><span class="verified">✅</span></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Floci 13MiB 本地 AWS 模拟器</td>
+    <td>Store POS / Vibe Stack</td>
+    <td>以 Floci 替 LocalStack，解 CI token 续期之困 + POS 联调链 AWS 形环节就机可测</td>
+    <td><span class="verified">✅</span></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>AgentsView + AI Slop 反讽 + obelisk</td>
+    <td>Life OS Memory / Testing</td>
+    <td>测试即记忆之代码化形式——不造新器，只接"教训↔测试"断线，合 Memory 与 Code Quality 为一梁</td>
+    <td><span class="partial">⚠️</span></td>
+  </tr>
+</table>
+
+<!-- ===== PROPOSAL 1 ===== -->
+<div class="proposal-card p1">
+  <h3><span class="num">1</span>Loop Engineering → Life OS Proactive Loop</h3>
+  <div class="thesis">
+    <strong>核心主张：</strong>将 <code>my-readwise-briefing</code> 从「每两周手动触发」改造为「周一/四 09:00 自动触发、含 self-check 闸门、产出可追溯 bookkeeping」的 Proactive Loop——验证 Loop Engineering 三要素 (cadence / self-check / bookkeeping)，并为余下 8 个停摆 Agent 的复活提供模板。
+  </div>
+
+  <h4>🚨 实测铁证（先立论据）</h4>
+  <table>
+    <tr><th>查验项</th><th>结果</th><th>含义</th></tr>
+    <tr><td>launchctl 中 com.kylli.* 任务</td><td><strong>空</strong>（0 个 loaded）</td><td>9 个期望 Agent 全停</td></tr>
+    <tr><td>routine-log 最近执行</td><td>2026-03-09（4 月前）</td><td>4 个月无一次自动执行</td></tr>
+    <tr><td>agent-evaluator plist</td><td>存于磁盘但未 load</td><td>反馈环早已断线</td></tr>
+  </table>
+
+  <h4>📐 实施里程碑（4 个 · 2.5 周）</h4>
+  <div class="milestone"><strong>M1（2天）Cadence 复活：</strong>新建 launchd plist（周一/四 09:00）+ 薄 run.sh。验收：launchctl 非空。</div>
+  <div class="milestone"><strong>M2（3天）Self-Check Gate：</strong>自检清单（链接实存/Proposal可执行性/归档完整性/非空）。4项全过→✅；任一不过→⚠️ degraded + 通知。</div>
+  <div class="milestone"><strong>M3（2天）Bookkeeping：</strong>status.json 扩展 + <code>LOOPS.md</code>（致敬 Karpathy），一屏可知 loop 健康度。</div>
+  <div class="milestone"><strong>M4（2天）模板抽象：</strong>从 readwise-briefing 抽象「复活停摆 Agent」标准 checklist，排余下 8 Agent 优先级。</div>
+
+  <h4>📊 成功标准</h4>
+  <div class="roi">
+    <div class="roi-item"><div class="val">≥8 次/月</div><div class="lbl">自动执行（基线 0）</div></div>
+    <div class="roi-item"><div class="val">≤4 天</div><div class="lbl">信号入简报时延（基线 2-3 周）</div></div>
+    <div class="roi-item"><div class="val">85%</div><div class="lbl">gate 通过率</div></div>
+    <div class="roi-item"><div class="val">1 件</div><div class="lbl">高频事务全自治 ← Life OS 成功标准</div></div>
+  </div>
+
+  <div class="actions">
+    <strong>⚡ 本周立即行动：</strong>
+    <ol>
+      <li>（30min）load 已有 agent-evaluator plist，验证 launchd 链路通否——零成本探明水深</li>
+      <li>（1h）写 readwise-briefing plist + 薄 run.sh，手动触发一次全流程验证贯通</li>
+      <li>（30min）建 LOOPS.md 骨架，填入 loop 定义（cadence/gate/降级）</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>🤔 诚实挑战：</strong>「9 Agent 全停」本身是反信号——可能根本不依赖这些 Agent 产出。若如此，复活是制造「看起来很忙的自动化」。解药：今日即行第一步（30min load plist），若一周后仍停在纸面则证实此挑战，项目应砍。
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 2 ===== -->
+<div class="proposal-card p2">
+  <h3><span class="num">2</span>J-Space 可解释性 → CS336 + AI Security</h3>
+  <div class="thesis">
+    <strong>核心主张：</strong>在 CS336 自建的 Transformer 上安装 J-lens（Jacobian Lens），读取模型内部"正在想什么"——同时解 CS336 的"黑箱之憾"（residual stream 不再是术语）和 AI Security 的"止于代码层"（补上第七层：模型认知审计）。A5 Alignment 期间高潮：在自家 base vs aligned 模型上验证"alignment 改了模型在想什么，还是只改了它说什么"。
+  </div>
+
+  <h4>🎯 时机完美命中</h4>
+  <p style="font-size:0.9em;color:var(--text2);">今日为 2026-07-15，Kyle 正处于 CS336 A1 Basics 第 2 周，正在搭建 Transformer。J-lens 所读取的 residual stream，正是 Kyle 手写代码中 RMSNorm / RotaryEmbedding / attention / residual 的构成单元。<strong>本周末 A1 forward pass 跑通后立即做 M1，对着 J-lens pseudocode 逐行映射"这一步对应我代码哪一段"——记忆最深、阻力最小。</strong></p>
+
+  <h4>📐 实施里程碑（5 个 · 严格寄生 CS336 时间线，每周 ≤3h 额外）</h4>
+  <div class="milestone"><strong>M1（A1 周 · 7月底）Logit Lens 安装：</strong>在自建 Transformer forward pass 上加 logit lens，读取每层 residual stream 的 token 分布。</div>
+  <div class="milestone"><strong>M2（A2 周 · 8月中）Flash Attention 可解释性：</strong>在 Flash Attention 实现后，用 J-lens 观察 attention pattern 与 J-space 的关系。</div>
+  <div class="milestone"><strong>M3（A3 周 · 8月底）Scaling Laws × 可解释性：</strong>不同规模模型的 J-space 是否有质变？（Chinchilla 之外的新维度）</div>
+  <div class="milestone"><strong>M4（A5 周 · 10月初）🔥 高潮 — Base vs Aligned：</strong>在自己 SFT/DPO 前后的模型上，验证 alignment 是否改变了 J-space 的"思考"，还是只改了输出层。</div>
+  <div class="milestone"><strong>M5（10月中）AI Security 第七层：</strong>将 J-lens 方法论整理为 ikea-security 的"模型认知审计"补充层（论文 §9.2 自承 J-lens 不充分，定位为 AND 关系非替代）。</div>
+
+  <h4>📊 ROI（学习 × 安全双重）</h4>
+  <div class="roi">
+    <div class="roi-item"><div class="val">深层理解</div><div class="lbl">Transformer 内部机制（CS336 SPEC #2）</div></div>
+    <div class="roi-item"><div class="val">第 7 层</div><div class="lbl">AI Security 审计维度（补六层之外）</div></div>
+    <div class="roi-item"><div class="val">Trust & Eval</div><div class="lbl">Life OS 第 5 支柱实证</div></div>
+    <div class="roi-item"><div class="val">~3h/周</div><div class="lbl">额外投入（寄生 CS336 不另起炉灶）</div></div>
+  </div>
+
+  <div class="actions">
+    <strong>⚡ 本周立即行动：</strong>
+    <ol>
+      <li>本周末（A1 forward pass 跑通后）读论文 §2 Methods + §A.7 pseudocode</li>
+      <li>在自己 Transformer 代码中标注 residual stream 位置（为 M1 安装 J-lens 预备）</li>
+      <li>访问 Neuronpedia 交互 demo，感性理解 J-space 形态</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>🤔 诚实挑战：</strong>论文 §9.2 自承 J-lens 不充分——充分训练的恶意行为可不经过 J-space。故 M5 定位为"第七层补充"而非替代，与现有六步审计是 AND 关系。若过度信任 J-lens 而放松代码层审计，反而制造新的 false-confidence。
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 3 ===== -->
+<div class="proposal-card p3">
+  <h3><span class="num">3</span>Quesma 策略重写 → AI Coding Eval + Skills</h3>
+  <div class="thesis">
+    <strong>核心主张：</strong>把 Agent Skills 与 AGENTS.md 由散文改写为「决策树 + 检查清单」格式，可使弱模型（$0.25/$2.00）追平强模型（$5/$25）于例行任务，token 之费可省近半——内利 Skills 编写质量，外补 AI Coding Eval 评测维度，且正合讲师团「低方法论」者所缺。
+  </div>
+
+  <h4>🚨 自家 skill 实测（诊断）</h4>
+  <table>
+    <tr><th>Skill</th><th>行数</th><th>自家之训（my-skill-evolver）</th></tr>
+    <tr><td>project-harness</td><td>918</td><td>违「&lt;500行」</td></tr>
+    <tr><td>article-to-wechat</td><td>907</td><td>违</td></tr>
+    <tr><td>my-skill-creator</td><td>893</td><td>违</td></tr>
+    <tr><td>my-skill-evolver</td><td>325</td><td>合（但仍是散文）</td></tr>
+  </table>
+
+  <h4>📐 实施里程碑（5 个 · 8 周）</h4>
+  <div class="milestone"><strong>M1（W1）取一 skill 亲重写：</strong>取 my-skill-evolver 散文段→决策树，行数对半。产出 before/after diff + 重写模板。</div>
+  <div class="milestone"><strong>M2（W2-3）🔥 生死关 — 2×3 矩阵：</strong>同任务集 × 三模型（Opus/GPT-5-mini/Gemini Flash）× 两格式（散文/树）。测 Pass@1。复现或证伪 Quesma 结论。</div>
+  <div class="milestone"><strong>M3（W4）eval-builder skill v0.1：</strong>固化 prose→tree 重写流程为可调用 skill，入 Skill Hub。</div>
+  <div class="milestone"><strong>M4（W5-6）讲师团试点 5 人：</strong>教 5 名开发者重写各自 skill，量行数↓/token↓/Pass@1↑。</div>
+  <div class="milestone"><strong>M5（W8）纳入 AI Coding Eval：</strong>新增「policy 格式鲁棒性」评测维度。</div>
+
+  <h4>💰 ROI 量化（50 人团队）</h4>
+  <table>
+    <tr><th>方案</th><th>月费/开发者</th><th>年省/50人</th></tr>
+    <tr><td>现状（纯 Opus 4.5）</td><td>$75</td><td>—</td></tr>
+    <tr><td>方案A（50% 下放 mini + 决策树）</td><td>$40（-47%）</td><td><strong>~$21,000</strong></td></tr>
+    <tr><td>方案B（70% 下放 mini + 决策树）</td><td>$26（-65%）</td><td><strong>~$29,000</strong></td></tr>
+  </table>
+
+  <div class="actions">
+    <strong>⚡ 本周立即行动：</strong>
+    <ol>
+      <li>（半日）取 my-skill-evolver Token Audit 段，亲手重写为决策树，行数对半</li>
+      <li>（一日）列 5-10 个触发场景，跑 GPT-5-mini × 散文/决策树，记 Pass@1 → 出 2×2 小表</li>
+      <li>（半日）将重写模板投入 my-skill-creator，作 v1.7「决策树优先」条</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>🤔 诚实挑战：</strong>Tau² 是电信客服基准（本质是分类/路由任务），决策树天然适配。而 coding 含"生成未见之代码"，非纯分类，决策树未必胜散文。Kyle 须以 M2 自家场景证之，不可先信。<strong>M2 是生死关——若证伪，至少得一反例，省却团队盲目追随之费，亦不失为知。</strong>
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 4 ===== -->
+<div class="proposal-card p4">
+  <h3><span class="num">4</span>Floci 本地云 → Store POS + Vibe Stack</h3>
+  <div class="thesis">
+    <strong>核心主张：</strong>以 Floci——单二进制、13 MiB、24ms 启动、MIT 许可、零认证之 AWS 本地模拟器——替 LocalStack 入 CI 与开发机，解 CI token 续期之困 + POS 联调链 AWS 形环节就机可测。一举免 token 续命之劳、省联调往返之费。
+  </div>
+
+  <h4>⚠️ 信号校正（实测发现）</h4>
+  <ul>
+    <li><strong>非 Go 而是 Quarkus Native</strong>（GraalVM/Mandrel native image）</li>
+    <li><strong>服务数已增至 66+</strong>（非原推文的 45）</li>
+    <li><strong>Lambda 须 Docker</strong>，其余服务（S3/DynamoDB/SQS 等）进程内模拟</li>
+    <li><strong>LocalStack 临时豁免 2026-04-06 已终</strong>——团队须二选：注册 token 或钉死 4.4.0</li>
+  </ul>
+
+  <h4>📐 实施里程碑（4 个）</h4>
+  <div class="milestone"><strong>M1（本周 1 人日）开发机冒烟：</strong>下载 Floci → <code>floci start</code> → 验 S3+DynamoDB+SQS。产出 <code>make localstack-up</code> 替代命令。</div>
+  <div class="milestone"><strong>M2（W2 · 2 人日）CI 替换：</strong>择一支 LocalStack CI 流水线，以 Floci Testcontainers 模块替之。验证通过率不降，去 auth token。</div>
+  <div class="milestone"><strong>M3（W3-4 · 3 人日）POS 联调 AWS 环节：</strong>🚨 <strong>先核 POS 链是否真涉 AWS</strong>（PosLog→S3？事件→SNS/SQS？）。若涉，写就机集成测试；若不涉，此里程碑撤销。</div>
+  <div class="milestone"><strong>M4（W5-6 · 2 人日）Vibe Stack 本地原型：</strong>新增模板——"需 AWS 形后端之原型应用"，本地 Floci → 生产 GCP，守 $0/月。</div>
+
+  <h4>📊 成功标准</h4>
+  <table>
+    <tr><th>指标</th><th>基线</th><th>目标</th></tr>
+    <tr><td>CI AWS 模拟器需 auth token</td><td>是</td><td><strong>否</strong></td></tr>
+    <tr><td>POS AWS 环节测试耗时</td><td>~30 min（赴联调环境）</td><td><strong>~30 秒（开发机内）</strong></td></tr>
+    <tr><td>模拟器内存占用</td><td>~1-2 GiB (LocalStack)</td><td><strong>~13-50 MiB (Floci)</strong></td></tr>
+    <tr><td>冷启动</td><td>~20-40 秒</td><td><strong>~24 毫秒</strong></td></tr>
+  </table>
+
+  <div class="actions">
+    <strong>⚡ 本周立即行动：</strong>
+    <ol>
+      <li>（1h）下载 Floci macOS arm64 binary → <code>floci start</code> → <code>awslocal</code> 验 S3/DynamoDB/SQS</li>
+      <li>（半日）🚨 <strong>核 POS 链 AWS 依赖</strong>——查 PosLog 落地/事件流转/库存扣减是否真有 AWS 调用。此为痛点甲立不立之关键</li>
+      <li>（1 人日）择一 CI 流水线以 Floci Testcontainers 替 LocalStack，验通过</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>🤔 诚实挑战：</strong>IKEA POS 链主骨为 Solace 总线 + Global SAPI/MHS + 企业内部服务，AWS 形服务或仅边角甚至为零。若核后为零，痛点甲全不立——<strong>此提案当止于"CI 替 LocalStack"一用，万勿为用工具而造需求。</strong> Vibe Stack 生产用 GCP 非 AWS，Floci 之用宜窄不宜夸。
+  </div>
+</div>
+
+<!-- ===== PROPOSAL 5 ===== -->
+<div class="proposal-card p5">
+  <h3><span class="num">5</span>AgentsView + AI Slop → Memory + 代码质量合一</h3>
+  <div class="thesis">
+    <strong>核心主张：</strong>记忆者，教训之沉淀也；测试者，教训之执行也。二者本是一物之两面——跨 session 记忆防"人"重述旧事；回归测试防"码"重蹈旧 bug。<strong>测试，乃记忆之代码化形式。</strong>合之，则 Agent「记得痛处，故不再犯」。子已有砖有瓦有柱（ai-session-manager/testing axioms/RECORD_LESSON/qa-judge），唯缺一匠人将"教训"与"测试"砌成承重之墙。
+  </div>
+
+  <h4>🔍 工具验证（诚实标注）</h4>
+  <ul>
+    <li><span class="verified">✅ AgentsView</span> — 已验证：<a href="https://github.com/kenn-io/agentsview">kenn-io/agentsview</a>，local-first，20+ providers</li>
+    <li><span class="partial">⚠️ obelisk</span> — <strong>不可验证</strong>：无对应 repo/官网，疑为口误或小众项目。<strong>不依赖。</strong></li>
+  </ul>
+
+  <h4>📐 实施里程碑（5 个 · 皆就现有资产加钩，非重造）</h4>
+  <div class="milestone"><strong>M1（W1-2）教训统一索引：</strong>合并三处 LESSONS.md 为单一 INDEX，每条加 ID+tag。产出"未挂钩教训"清单。</div>
+  <div class="milestone"><strong>M2（W3-4）教训→测试挂钩：</strong>RECORD_LESSON 增 <code>regression_test:</code> 必填字段。CI 统计 unarmed 率。</div>
+  <div class="milestone"><strong>M3（W4-6）session 启动记忆注入：</strong>就 ai-session-manager 增 <code>/recall &lt;project&gt;</code>——启动时主动召回相关教训/公理/未决事项。自建此钩，不候 obelisk。</div>
+  <div class="milestone"><strong>M4（W5-7）AI Slop 代码护栏：</strong>立 <code>AI_SLOP_CODE_PATTERNS.md</code>（过度防御/空 catch/mock 掩盖 IO/无用 interface）+ lint 规则。llm-as-qa-judge 扩 slop 评分模式。</div>
+  <div class="milestone"><strong>M5（W8+）自评回路：</strong>每周统计新增教训/unarmed 率/slop 命中率/召回使用。某类 slop 反复→提为公理。</div>
+
+  <h4>📊 成功标准</h4>
+  <div class="roi">
+    <div class="roi-item"><div class="val">&lt;3 min</div><div class="lbl">跨 session 恢复（基线 ~20min）</div></div>
+    <div class="roi-item"><div class="val">70%</div><div class="lbl">教训挂钩测试率</div></div>
+    <div class="roi-item"><div class="val">-50%</div><div class="lbl">AI 代码 slop 缺陷率</div></div>
+    <div class="roi-item"><div class="val">100%</div><div class="lbl">核心链路 E2E 覆盖</div></div>
+  </div>
+
+  <div class="actions">
+    <strong>⚡ 本周立即行动：</strong>
+    <ol>
+      <li>（半日）跑 lessons-link.ts 雏形（~50行），扫三处 LESSONS.md，输出"记忆-质量缺口图"</li>
+      <li>（1h）就最近一次 AI 翻车，手填 RECORD_LESSON 的 <code>regression_test:</code> 字段 + 写一条回归测试。走通闭环一次</li>
+      <li>（30min）于 context/axioms/ 新建 AI_SLOP_CODE_PATTERNS.md，先只写 3 条最痛 slop 模式 + 反例/正例</li>
+    </ol>
+  </div>
+
+  <div class="challenge">
+    <strong>🤔 诚实挑战（最深）：</strong>AI slop 图鉴（@yetone 洞察）本身用 AI 作，是否"实现 AI slop 内循环"？解药：<strong>每条 slop 公理的"反例/正例"须子亲选、亲判，携具身伤疤。</strong> AI 可助枚举，判定权在人。留判定于人，则破环。<strong>AI 记不住痛，故须人先痛过、记下、化为测试，AI 方能"不再犯"。</strong>
+  </div>
+</div>
+
+<h2>📌 跨 Proposal 收敛洞察</h2>
+<div class="banner" style="border-left-color: var(--accent3);">
+  <strong style="color: var(--accent3);">5 个 Proposal 中 3 个指向同一范式：</strong>从"用 AI 工具"到"设计 AI 的循环/约束/记忆"。
+  <ul style="margin-top: 8px;">
+    <li><strong>P1（Loop Engineering）</strong>——设计 Agent 的运行循环（cadence + self-check）</li>
+    <li><strong>P3（策略重写）</strong>——设计 Agent 的决策约束（决策树 > 散文）</li>
+    <li><strong>P5（记忆×测试）</strong>——设计 Agent 的经验积累（教训→测试闭环）</li>
+  </ul>
+  三者共同回答 2026 下半年 AI 工程的核心问题：<strong>不再问"AI 能做什么"，而问"如何设计让 AI 可靠地、重复地、不犯错地做"。</strong>
+</div>
+
+<footer>
+  Generated by my-readwise-briefing v4.2 · Phase 2 · 5 subagents all succeeded · 2026-07-15
+</footer>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
