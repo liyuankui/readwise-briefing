@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-07-15</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px;
+  max-width: 960px; margin: 0 auto; transition: background .3s, color .3s;
+}
+header { text-align: center; padding: 32px 0 24px; border-bottom: 2px solid var(--accent); margin-bottom: 32px; }
+header h1 { font-size: 1.8em; color: var(--accent); margin-bottom: 8px; }
+header .meta { color: var(--text3); font-size: 0.9em; }
+#theme-toggle {
+  position: fixed; top: 20px; right: 20px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 44px; height: 44px; font-size: 1.2em; cursor: pointer; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1); transition: transform .2s;
+}
+#theme-toggle:hover { transform: scale(1.1); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: 12px; margin-bottom: 32px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+.stat-card .num { font-size: 1.8em; font-weight: bold; color: var(--accent); }
+.stat-card .label { font-size: 0.8em; color: var(--text3); margin-top: 4px; }
+h2 { color: var(--accent); font-size: 1.3em; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+h3 { color: var(--text); font-size: 1.05em; margin: 20px 0 10px; }
+.overview-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.9em; }
+.overview-table th { background: var(--surface2); color: var(--accent); padding: 10px; text-align: left; border: 1px solid var(--border); }
+.overview-table td { padding: 10px; border: 1px solid var(--border); background: var(--surface); }
+.signal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; border-left: 4px solid var(--accent); }
+.signal-card.high { border-left-color: var(--accent3); }
+.signal-card.med { border-left-color: var(--accent4); }
+.signal-card .title { font-size: 1.05em; font-weight: bold; color: var(--text); margin-bottom: 8px; }
+.signal-card .source { font-size: 0.8em; color: var(--text3); margin-bottom: 8px; }
+.signal-card .text { color: var(--text2); font-size: 0.92em; margin-bottom: 12px; white-space: pre-wrap; }
+.signal-card .annotation { background: var(--surface2); border-radius: 6px; padding: 10px 12px; font-size: 0.85em; color: var(--text2); border-left: 3px solid var(--accent2); }
+.signal-card .annotation strong { color: var(--accent); }
+.verified { color: var(--accent3); font-weight: bold; }
+.partial { color: var(--accent4); font-weight: bold; }
+.debunked { color: var(--accent5); font-weight: bold; }
+.action-list { background: var(--surface); border: 2px solid var(--accent); border-radius: 10px; padding: 20px; margin: 24px 0; }
+.action-list li { margin: 8px 0; padding-left: 8px; }
+.life-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; margin-bottom: 24px; }
+.life-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.life-card .icon { font-size: 1.5em; }
+.life-card .title { font-weight: bold; color: var(--accent); margin: 4px 0; }
+.life-card .desc { font-size: 0.85em; color: var(--text2); }
+details { background: var(--surface2); border-radius: 8px; padding: 12px; margin: 8px 0; }
+summary { cursor: pointer; color: var(--text3); font-size: 0.9em; }
+.low-value-item { font-size: 0.85em; color: var(--text3); padding: 6px 0; border-bottom: 1px dashed var(--border); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: bold; margin-right: 4px; }
+.badge.s5 { background: var(--accent3); color: #fff; }
+.badge.s3 { background: var(--accent4); color: #fff; }
+.badge.life { background: var(--accent2); color: #fff; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+
+<header>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="meta">2026-07-15 · 增量同步自 2026-07-01 · 双透镜对齐（Intent + Life）</div>
+</header>
+
+<div class="stats">
+  <div class="stat-card"><div class="num">69</div><div class="label">新信号</div></div>
+  <div class="stat-card"><div class="num">7</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat-card"><div class="num">11</div><div class="label">中价值 ⭐×3</div></div>
+  <div class="stat-card"><div class="num">4</div><div class="label">生活维度 🌿</div></div>
+  <div class="stat-card"><div class="num">5</div><div class="label">深挖候选 🔬</div></div>
+</div>
+
+<h2>🔭 信号概览 — 5 大深挖方向</h2>
+<table class="overview-table">
+  <tr><th>#</th><th>方向</th><th>连接项目</th><th>验证</th></tr>
+  <tr><td>1</td><td>Loop Engineering → Life OS 主动循环</td><td>Life OS / AI Coding</td><td><span class="verified">✅</span></td></tr>
+  <tr><td>2</td><td>J-Space 可解释性 → CS336 + AI Security</td><td>CS336 / AI Security</td><td><span class="verified">✅</span></td></tr>
+  <tr><td>3</td><td>Quesma 策略重写 → AI Coding Eval + Skills</td><td>AI Coding Eval / Skills</td><td><span class="verified">✅</span></td></tr>
+  <tr><td>4</td><td>Floci 本地云 → Store POS + Vibe Stack</td><td>Store POS / Vibe Stack</td><td><span class="verified">✅</span></td></tr>
+  <tr><td>5</td><td>AgentsView + AI Slop → Memory + 代码质量</td><td>Life OS Memory / Testing</td><td><span class="partial">⚠️</span></td></tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（7条）</h2>
+
+<div class="signal-card high">
+  <div class="title"><span class="badge s5">⭐×5</span> Loop Engineering — Karpathy 的 LOOPS.md 与 Andrew Ng 长文</div>
+  <div class="source">来源：@eng_khairallah1 · @AndrewYNg · @yaogangqiang · @i5ting</div>
+  <div class="text">Karpathy 加入 Anthropic 五周，其使用的 LOOPS.md 文件曝光——第一个 response 就"completely different"。Andrew Ng 发长文定义 Loop Engineering：从 prompting agents → designing their loops。Boris Cherny（Claude Code 创造者）与 Peter Steinheimer（OpenClaw）推波助澜。反对声音："SDD 不就是 BDD？Loop 不就是持续交付？"——但这类解构忽略新范式的真实差异。</div>
+  <div class="annotation"><strong>为什么相关：</strong>直击 Life OS「Proactive Agents」支柱——成功标准#1"至少一件高频事务不需要手动触发"。Loop Engineering 提供了从"被动响应"到"主动巡逻"的工程方法论。同时关联 AI Coding Practices（团队推广）和 CS336（理解模型行为）。
+  <br><span class="verified">✅ Verified</span> — 多源确认：TechTimes(06-28)、MindStudio、Medium、Andrew Ng 原文、Boris Cherny 引言。Karpathy 的 autoresearch（630行Python, 2026-03-07）是 Loop 概念起源。</div>
+</div>
+
+<div class="signal-card high">
+  <div class="title"><span class="badge s5">⭐×5</span> Anthropic J-Space — 语言模型中的"全局工作空间"</div>
+  <div class="source">来源：@AnthropicAI (4条) · @MaxForAI · @cyandev · @realWeZZard</div>
+  <div class="text">Anthropic 2026-07-06 发表论文：发现 Claude 内部存在类似大脑"全局工作空间"的结构（J-space），可读取、审计、塑造模型"正在思考什么"。社区反应："这解释了为什么 Karpathy 等人要加入 Anthropic"。@cyandev 用 A 社 J-Lens 检查 Qwen 发现模型"会装傻"——后期 alignment 让它不说出来。@realWeZZard 开源了 J-Space visualizer（Apple Silicon MLX）。</div>
+  <div class="annotation"><strong>为什么相关：</strong>三重连接：(1) CS336 学习——理解 Transformer 内部表征机制；(2) AI Security——Trust&Eval 支柱，可解释性是 Agent 信任的基础；(3) 模型"装傻"现象对 Prompt Engineering 有直接影响。
+  <br><span class="verified">✅ Verified</span> — 官方论文 anthropic.com/research/global-workspace + transformer-circuits.pub 技术版 + HN 讨论活跃。Neuronpedia 交互 demo 已上线。</div>
+</div>
+
+<div class="signal-card high">
+  <div class="title"><span class="badge s5">⭐×5</span> Quesma: Prompt 重写让小模型准确率提升 22%（Tau² 基准）</div>
+  <div class="source">来源：@yibie 推荐</div>
+  <div class="text">Quesma 团队实验：用 Claude 重写 GPT-5-mini 的 agent policy，准确率提升 22%，解锁一半之前无法解决的任务。方法论比结果更有价值——把冗长策略描述重写为"决策树 + checklist"格式，让推理能力有限的小模型也能正常工作。Tau² 基准（电信客服场景）。</div>
+  <div class="annotation"><strong>为什么相关：</strong>直接关联 AI Coding Eval（model×harness 评测）和 Skills Development。核心洞察："策略的结构化重写"可让便宜模型达到贵模型的效果——这对团队 AI 成本优化有硬数据支撑。方法论可迁移到 Skills 编写（决策树格式 > 散文描述）。
+  <br><span class="verified">✅ Verified</span> — Quesma 官方博客 quesma.com/blog/tau2-benchmark + HN 197 points + LinkedIn 传播。数据可溯源。</div>
+</div>
+
+<div class="signal-card high">
+  <div class="title"><span class="badge s5">⭐×5</span> Floci — 单 Go binary 本地跑 45 个 AWS 服务（LocalStack 替代）</div>
+  <div class="source">来源：@sweexx9（西语推文）</div>
+  <div class="text">13 MiB 单二进制，启动 45 个 AWS 服务（S3/Lambda/DynamoDB/SQS/SNS/IAM/CloudFormation/Step Functions）。GraalVM native image，24ms 启动，零配置零认证。MIT 许可。LocalStack 社区版 2026-03 起要求 auth token 并冻结安全更新，Floci 填补空白。</div>
+  <div class="annotation"><strong>为什么相关：</strong>两个连接点：(1) Vibe Coding Stack——内部开发者零成本全栈基建的新选项；(2) Store POS Modernization——本地测试环境搭建，尤其 C&C 订单/退货逆向链路的集成测试。比 LocalStack 更轻量。
+  <br><span class="verified">✅ Verified</span> — floci.io 官网 + HN 讨论 + Reddit r/aws + Quarkus GitHub issue #53218（评估集成）。多源确认，活跃项目。</div>
+</div>
+
+<div class="signal-card high">
+  <div class="title"><span class="badge s5">⭐×5</span> Claude Code From Scratch — 开源电子书复现 Agent Loop 架构</div>
+  <div class="source">来源：@dotey（宝玉）· @i5ting</div>
+  <div class="text">用 ~4300 行代码（TypeScript + Python 双版本）复现 Claude Code 核心架构：Agent Loop、13 个工具（含并行执行）、context compaction、subagent spawning、task management。配套 i5ting 推荐《Harness Engineering for Self-Improvement》文章。不需要读 50 万行源码即可理解。</div>
+  <div class="annotation"><strong>为什么相关：</strong>Agentic Engineering Exploration 的学习资产。理解 Agent Loop 内部机制 → 更好地设计 Skills 和 MCP Server。与 Loop Engineering 信号叠加：先学架构原理，再设计自己的 loop。
+  <br><span class="verified">✅ Verified</span> — shareAI-lab/learn-claude-code + alchaincyf/loop-engineering-orange-book 系列开源书。多源确认。</div>
+</div>
+
+<div class="signal-card high">
+  <div class="title"><span class="badge s5">⭐×5</span> improve-codebase-architecture skill — AI Slop 清理的反讽</div>
+  <div class="source">来源：@liumengxinfly</div>
+  <div class="text">作者说定期跑这个 skill 可以清理 AI Slop。结果跑了一下，"清理的都是用 AI 前我手写的代码 🤡"。反讽但也揭示真相：人类手写的"屎山"往往比 AI 生成的更乱。</div>
+  <div class="annotation"><strong>为什么相关：</strong>Testing Excellence + AI Coding 的反思材料。挑战了"AI 代码=低质量"的假设——代码质量取决于结构化方法（测试、审查、规范），而非"谁写的"。可用于团队 AI 编码推广的话术。
+  <br><span class="partial">⚠️ Partial</span> — 推文为个人体验，skill 本身（geekbb 也有推荐"代码屎山分析"）需独立验证。但反讽洞察有价值。</div>
+</div>
+
+<div class="signal-card high">
+  <div class="title"><span class="badge s5">⭐×5</span> AgentsView — 跨 AI 统一 Session 管理器</div>
+  <div class="source">来源：@LinearUncle</div>
+  <div class="text">开源工具，统一索引 Claude Code / Codex / Cursor 等工具的历史记录，快速搜索旧对话、查看项目记录、统计 token 和成本。全平台客户端（含 Web & CLI）。</div>
+  <div class="annotation"><strong>为什么相关：</strong>Life OS Memory 支柱的候选方案——跨 session 记忆是当前最大缺口。配合 obelisk（@QuantumTransf 推荐的 session 总结工具）可形成记忆层。AI Coding Eval 也需要 token/成本统计。
+  <br><span class="partial">⚠️ Partial</span> — 推文推荐，搜索未直接解析到 repo（可能是新产品或命名不同）。需 clone 验证。同类竞品：Orca（@VersunPan/@msjiaozhu 推荐，统一管理+手机远程）。</div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值信号（11条）</h2>
+
+<div class="signal-card med">
+  <div class="title">Qwen3.6 27B — 本地开发的理想选择</div>
+  <div class="source">@Xudong07452910 · HN 热文 · @PrismML · @0xkeenz</div>
+  <div class="text">密集参数模型，原生 256k 上下文。MacBook Max M5 Q8_0 量化 30 tok/s，RTX 5090 50 tok/s。PrismML（Caltech Babak Hassibi 联创）把 27B 压到 iPhone 17 Pro（54GB→4GB）。Unsloth 新版引入 FP8_E4M3 中间精度层。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">美团 LongCat-2.0 开源 1.6T MoE — SWE-bench Pro 超 GPT-5.5</div>
+  <div class="source">@guansi（管四）</div>
+  <div class="text">国产模型编码场景正面抢位。"闭源像豪车，开源像国产新能源，真能跑还不心疼油钱"。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">Meta Muse Spark 1.1 — 医疗/税务/法律 Agent 榜全 SOTA</div>
+  <div class="source">@Lonely__MH · ValsAI 实测</div>
+  <div class="text">超 Fable 5，便宜 10 倍，快 2 倍。Grok 4.5 昨天拿法律第一今天被超。领域 Agent 评测已成新战场。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">OmniRoute — 免费 AI 网关聚合 237 提供商</div>
+  <div class="source">@geekbb</div>
+  <div class="text">TypeScript 编写，4 层自动回退（订阅→API Key→便宜→免费），17 种路由策略，RTK + Caveman 压缩省 token。90+ 提供商有免费额度。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">Google Colab + VS Code 直连 — 白嫖 T4 GPU</div>
+  <div class="source">@tool_hopper</div>
+  <div class="text">本地编辑器 + Google 算力，代码文件在本地。"掀了 GPU 黄牛的桌子"。CS336 实验的可选项。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">AI Slop 图鉴 — yetone 的反讽工程</div>
+  <div class="source">@yetone（2条）</div>
+  <div class="text">Vibe Coding 有"后发劣势"——越晚开始越不知道 AI slop 是什么。国产产品（含阿里大厂）充斥 AI slop。做图鉴本身也是 AI 开发，"实现了 AI slop 的内循环"。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">端到端测试 > 单元测试 + 尽早用 Rust</div>
+  <div class="source">@cyandev（2条）</div>
+  <div class="text">Jarred 总结：代码随时被 AI "扬了"，但 use case 迭代不会这么快。Zig/C 在协作上是灾难。Rust + AI 重度参与项目是当前最优解。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">定期会议是长期项目的强制函数</div>
+  <div class="source">@ruanyifeng（科技爱好者周刊 #403）</div>
+  <div class="text">每次会议开始回顾上次会议待办 → 带来压力 → 促使推进。适用于团队内外的长期协作（含与客户的甲乙方关系）。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">Colibri — 纯 C 跑 GLM-5.2（744B MoE）于 25GB RAM 笔记本</div>
+  <div class="source">@chenzeling4 · @karminski3（质疑）</div>
+  <div class="text">2400 行 C 代码，零依赖。40B 激活参数保持常驻，expert 按需从磁盘流式加载。@karminski3 质疑可行性（8bit 光激活参数需 40G）。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">80MB 内存跑完整 S3 兼容对象存储</div>
+  <div class="source">@XAMTO_AI</div>
+  <div class="text">比一个 Chrome 标签页还少。企业级 S3 存储服务塞进 80MB。</div>
+</div>
+
+<div class="signal-card med">
+  <div class="title">PostgreSQL 19 引入图风格查询</div>
+  <div class="source">@alxshp</div>
+  <div class="text">customer→bought→product←bought←similar customer→follows→brand。适用于推荐、访问控制。MPC 技术栈关注项。</div>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+<div class="life-grid">
+  <div class="life-card">
+    <div class="icon">🧠</div>
+    <div class="title">健脑</div>
+    <div class="desc"><strong>心流被 AI 破坏</strong>（ruanyifeng）：AI 让人同时处理五件事，但整天切换上下文，心流时间大减。"程序员从冥想者变成餐厅服务员"。<br><strong>MIT《How to Speak》</strong>（mubeitech）：Patrick Winston 讲了 40 年的演讲课，与 AI/算法无关。</div>
+  </div>
+  <div class="life-card">
+    <div class="icon">🏋️</div>
+    <div class="title">健身</div>
+    <div class="desc"><strong>臀大肌科普</strong>（zcwzhy）：人体最大最表浅肌肉，起于髂骨/骶骨/尾骨，止于股骨臀肌粗隆，主功能伸髋。足球员臀翘=臀大肌发达。</div>
+  </div>
+  <div class="life-card">
+    <div class="icon">📈</div>
+    <div class="title">建仓</div>
+    <div class="desc"><strong>欧洲装空调与地球资源</strong>（Chinaview0022）："如果欧洲 5 亿人都开空调像中国人那样生活，将给地球带来真正麻烦。"<br><span class="partial">⚠️ 需交叉验证</span> — 观点性内容，反映的是资源博弈视角，非投资信号。</div>
+  </div>
+  <div class="life-card">
+    <div class="icon">🥗</div>
+    <div class="title">健胃</div>
+    <div class="desc">本批次无强相关信号。</div>
+  </div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="action-list">
+  <ol>
+    <li><strong>本周</strong>：clone <code>shareAI-lab/learn-claude-code</code>，通读 Agent Loop 架构 → 为 Life OS Proactive Agent 设计打基础</li>
+    <li><strong>本周</strong>：读 Anthropic J-Space 论文（anthropic.com/research/global-workspace），记入 CS336 学习笔记</li>
+    <li><strong>本周</strong>：试用 Floci（<code>brew</code> 或下载 binary），评估能否替代 Store POS 本地测试的 LocalStack</li>
+    <li><strong>本周</strong>：读 Quesma Tau² 博客，提取"决策树+checklist"策略重写方法论 → 迁移到 Skills 编写</li>
+    <li><strong>下周</strong>：验证 AgentsView / Orca，评估作为 Life OS Memory 层的可行性</li>
+    <li><strong>持续</strong>：关注 Loop Engineering 在 Claude Code <code>/loop</code> 命令的落地，设计自己的第一个主动循环</li>
+  </ol>
+</div>
+
+<h2>📦 低价值附录（折叠）</h2>
+<details>
+  <summary>点击展开全部低价值信号（45条）</summary>
+  <div class="low-value-item">Codex 自动黑进腾讯电脑管家绕过杀毒规则（@MaxForAI）— 趣闻，AGI 段子</div>
+  <div class="low-value-item">DGX Spark 跑 Qwen3.6-35B：64用户 700+ tok/s（@WescheNex1q）— 硬件炫技</div>
+  <div class="low-value-item">Qwythos-9B-v2 修复 looping behavior（@EmperoAI）— 小众模型</div>
+  <div class="low-value-item">Rust 重写 PostgreSQL 通过 100% Regression Test（@RonVonng/@greatony）— 已有深度文章，关注但不行动</div>
+  <div class="low-value-item">用水蒸馏 Claude Fable 5 到 Qwen3-4B，0 熵（@waterloo_intern）— 段子/ satire</div>
+  <div class="low-value-item">pi agent 核心代码阅读收获（@justone_he）— 无具体内容</div>
+  <div class="low-value-item">家庭培养成功人士（@Kongkongda5882）— 心灵鸡汤</div>
+  <div class="low-value-item">徐波代孕 100+ 孩子（@_FORAB）— 社会新闻</div>
+  <div class="low-value-item">改变文明的神级机构排名（@Phoenixyin13）— 贝尔实验室/卡文迪许</div>
+  <div class="low-value-item">Shadowrocket + Tailscale 教程（@Lonely__MH）— 工具技巧</div>
+  <div class="low-value-item">$12/年 Claude + 免费全家桶创业栈（@skaas777，越南语）— indie hacker 清单</div>
+  <div class="low-value-item">Lenny's Newsletter + Fable 5 生成顾问 Skill（@kevinma_dev_zh）— 内容营销</div>
+  <div class="low-value-item">OpenTools / Right to Repair / homelab（@feltanimalworld）— 极客文化</div>
+  <div class="low-value-item">智谱唐杰《巨浪已来》公开信（@sagacity）— 行业动态</div>
+  <div class="low-value-item">J-Space visualizer 开源（@realWeZZard）— 已在高价值提及</div>
+  <div class="low-value-item">harness does play an important role（@adityab29_）— 配图梗</div>
+  <div class="low-value-item">ClaudeDevs / CMGS / dashen_wang / Lonely 纯链接推文 — 无内容</div>
+  <div class="low-value-item">高瑜文章/习总打车（@liaoping2020）— 政治内容</div>
+  <div class="low-value-item">中国人不希望欧洲人装空调（@Chinaview0022）— 已在建仓</div>
+  <div class="low-value-item">improve-codebase-architecture 反讽（@liumengxinfly）— 已在高价值</div>
+  <div class="low-value-item">AI 明显提高效率但破坏心流（ruanyifeng）— 已在健脑</div>
+  <div class="low-value-item">定期会议推动长期项目（ruanyifeng）— 已在中价值</div>
+  <div class="low-value-item">出版社收入崩塌（@zoomq）— 行业段</div>
+  <div class="low-value-item">代码屎山分析 Skills（@geekbb）— 与 improve-codebase 相关</div>
+  <div class="low-value-item">Astryx Meta 开源反应式 Agent 框架（@axiaisacat）— 待观察</div>
+  <div class="low-value-item">卡兹克第一性原理+对抗式审查优化 Agent.md（@xiaohua_888）— Prompt 技巧</div>
+  <div class="low-value-item">obelisk session 总结工具（@QuantumTransf）— 与 AgentsView 叠加</div>
+  <div class="low-value-item">Whoever moved the mouse ruined it（@CNviolations）— 段子</div>
+  <div class="low-value-item">Demis Hassabis 推文（@demishassabis）— 纯链接</div>
+  <div class="low-value-item">社区笔记违规（@CNviolations）— 元梗</div>
+  <div class="low-value-item">...其余均为纯链接或段子推文</div>
+</details>
+
+<footer style="text-align:center; margin-top:40px; padding-top:20px; border-top:1px solid var(--border); color:var(--text3); font-size:0.8em;">
+  Generated by my-readwise-briefing v4.2 · 69 signals · 7 verified · 2 partial · Phase 2 Proposals 进行中
+</footer>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
