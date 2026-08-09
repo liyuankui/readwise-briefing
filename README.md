@@ -1,21 +1,35 @@
-# Readwise Briefing Archive
+# Readwise 情报简报档案
 
-> AI 生成的情报简报归档
+> AI 驱动的个人情报简报归档 · 基于 [Readwise](https://readwise.io)
 
-## About
+📡 **[浏览全部简报 →](https://liyuankui.github.io/readwise-briefing/)**
 
-基于 Readwise API 自动生成的内容情报简报，使用 Claude Code + my-readwise-briefing skill 生成。
+## 关于
+
+这是 Kyle Li 的个人 Readwise 情报简报公开档案。基于 Readwise 收集的高亮与文章，经 AI 对齐分析后生成。
+
+每期包含：
+- **📡 简报** — 分层展示高价值内容（⭐×5 深挖 / ⭐×3 高价值 / ⭐ 备用）
+- **🎯 Proposals** — 对最值得深挖方向的深度推理与可执行提案（可选）
+
+🤖 **自动生成，非人工编辑**。内容为个人学习参考，不构成任何建议。
 
 ## 文件命名
 
-- `readwise-briefing-YYYYMMDD.html` - 按日期命名的简报
+| 类型 | 格式 |
+|------|------|
+| 简报 | `readwise-briefing-YYYYMMDD.html` |
+| 提案 | `readwise-proposals-YYYYMMDD.html` |
+| 索引 | `index.html`（由 `scripts/generate-index.ts` 生成） |
 
-## 工作流
+## 生成
 
-1. 定期运行 `/my-readwise-briefing` 生成简报
-2. 文件保存在 `/tmp/`
-3. 自动复制到 `~/Work/readwise-briefing/`
-4. symlink 到 `Notebooks/workspace/readwise-briefing.link`
+```bash
+# 新增简报后重建索引页
+cd ~/Work/readwise-briefing && bun run scripts/generate-index.ts
+```
+
+技术栈：[Bun](https://bun.sh) + TypeScript。索引页复用简报主题（LXGW WenKai 字体 + Light/Dark 切换）。
 
 ---
 
