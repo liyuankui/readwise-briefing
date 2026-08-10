@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-08-10（周一·上周回顾）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+body {
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; margin: 0; padding: 0;
+  transition: background .2s, color .2s;
+}
+.container { max-width: 880px; margin: 0 auto; padding: 32px 24px 80px; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 16px; margin-bottom: 28px; position: relative; }
+header h1 { font-size: 1.8em; margin: 0 0 6px; color: var(--accent); }
+header .meta { color: var(--text3); font-size: .92em; }
+#theme-toggle { position: absolute; top: 0; right: 0; cursor: pointer; font-size: 1.3em; border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 4px 10px; color: var(--text); }
+.stats { display: flex; gap: 14px; flex-wrap: wrap; margin: 16px 0 24px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; flex: 1; min-width: 110px; }
+.stat .num { font-size: 1.7em; font-weight: bold; color: var(--accent2); display: block; }
+.stat .lbl { font-size: .82em; color: var(--text3); }
+.banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; padding: 14px 20px; border-radius: 10px; margin-bottom: 24px; font-size: .96em; }
+section { margin: 28px 0; }
+h2 { color: var(--accent); border-left: 4px solid var(--accent2); padding-left: 12px; font-size: 1.3em; }
+h3 { color: var(--accent2); font-size: 1.08em; margin-bottom: 6px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .92em; }
+th, td { padding: 9px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); font-weight: bold; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin: 14px 0; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+.card.hi { border-left: 4px solid var(--accent4); }
+.card .tag { display: inline-block; font-size: .76em; padding: 2px 8px; border-radius: 12px; margin-right: 6px; vertical-align: middle; }
+.t5 { background: #fef3c7; color: #92400e; } html.dark .t5 { background: #78350f; color: #fbbf24; }
+.t3 { background: #dbeafe; color: #1e40af; } html.dark .t3 { background: #1e3a5f; color: #93c5fd; }
+.t-v { background: #d1fae5; color: #065f46; } html.dark .t-v { background: #064e3b; color: #6ee7b7; }
+.t-l { background: #fce7f3; color: #9d174d; } html.dark .t-l { background: #831843; color: #f9a8d4; }
+.note { background: var(--surface2); border-left: 3px solid var(--accent3); padding: 10px 14px; margin: 10px 0; font-size: .9em; color: var(--text2); border-radius: 0 8px 8px 0; }
+.note b { color: var(--accent); }
+.why { color: var(--text2); font-size: .92em; margin-top: 8px; }
+.why::before { content: "💡 为什么相关："; color: var(--accent4); font-weight: bold; }
+ul { padding-left: 20px; } li { margin: 4px 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+details { background: var(--surface2); border-radius: 8px; padding: 8px 14px; margin: 8px 0; }
+summary { cursor: pointer; color: var(--text3); font-size: .9em; }
+.weekly { background: linear-gradient(135deg, rgba(45,90,74,.08), rgba(99,102,241,.08)); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin: 20px 0; }
+html.dark .weekly { background: linear-gradient(135deg, rgba(108,142,245,.1), rgba(167,139,250,.1)); }
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text3); font-size: .82em; text-align: center; }
+.life-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 14px 0; }
+.life-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+.life-card h4 { margin: 0 0 6px; font-size: 1em; }
+</style>
+</head>
+<body>
+<div class="container">
+<button id="theme-toggle">🌙</button>
+
+<header>
+<h1>📋 Readwise 情报简报</h1>
+<div class="meta">📅 2026-08-10（周一） · 覆盖窗口 08-03 → 08-09（完整一周） · 周一专章：上周回顾</div>
+</header>
+
+<div class="banner">⚙️ <b>核心公理</b>：不可行动的信息 = 噪音。本简报只筛选与当前项目对齐的信号，每条高价值内容附「为什么相关」批判性注释，并经 Phase 1.5 独立验证（✅/⚠️/❌/🔬）。</div>
+
+<div class="stats">
+  <div class="stat"><span class="num">13</span><span class="lbl">个人高亮</span></div>
+  <div class="stat"><span class="num">22</span><span class="lbl">Reader 文档</span></div>
+  <div class="stat"><span class="num">7</span><span class="lbl">天 HN 榜单</span></div>
+  <div class="stat"><span class="num">14</span><span class="lbl">分类信号</span></div>
+  <div class="stat"><span class="num">5</span><span class="lbl">高价值⭐⁵</span></div>
+  <div class="stat"><span class="num">5</span><span class="lbl">深挖方向</span></div>
+</div>
+
+<!-- ============ 周一专章：上周回顾 ============ -->
+<section class="weekly">
+<h2>🗓️ 上周回顾（08-03 → 08-09）</h2>
+<p style="color:var(--text2)">今日周一，按惯例对上周信号做一次结构性回顾。本周信号密度极高，<b>主线是「AI Agent 平台化 + 模型经济性拐点 + Agent 工程伦理」三大浪潮同时涌来</b>。</p>
+
+<h3 style="margin-top:14px">🌊 三股浪潮</h3>
+<table>
+<tr><th style="width:22%">浪潮</th><th style="width:40%">标志性事件</th><th>对你的意义</th></tr>
+<tr><td><b>① Cloudflare 化</b></td><td>OS（Agent 工作环境）+ Kitesurf（Agent 专用浏览器）+ CloudflareDev 推 Kimi/GLM 加速</td><td>你的 OpenMAIC 纯 Cloudflare 部署方向被「官方背书」，本周是该路线窗口期</td></tr>
+<tr><td><b>② 模型经济性拐点</b></td><td>DeepSeek V4 Flash 89% ARC-AGI @ $0.02/task · Qwen3.8-Max 2.4T MoE 95B active</td><td>Life OS 的「Agent 自主跑任务」从理论可行 → 经济可行，0.02 USD/任务意味着可大规模并行</td></tr>
+<tr><td><b>③ Agent 工程伦理</b></td><td>"Don't be a meat proxy"(1669 HN) · "LLMs reward expertise"(1319 HN) · "Code was never the hard part" 反驳(528 HN)</td><td>Agent 时代人的价值不在"产出代码量"，在「专业判断 + 验证闭环」。这正是 FY27 简化工作要交付的核心能力</td></tr>
+</table>
+
+<h3 style="margin-top:14px">📊 一句话定调</h3>
+<div class="note"><b>上周是 Agent 平台从「概念」转向「可部署基础设施」的转折周</b>。三件事同时发生：① 官方开源 Agent 工作平台出现；② 单任务成本降到几乎免费；③ 社区开始反思「人在 Agent 循环里的真正价值」。三者叠加 = <b>窗口期已开</b>，本月是先动者优势最大的时点。</div>
+</section>
+
+<!-- ============ 信号概览表 ============ -->
+<section>
+<h2>🔭 5 大深挖方向速览</h2>
+<p style="color:var(--text3);font-size:.9em">→ 完整 Proposal 见 <code>readwise-proposals-20260810.html</code></p>
+<table>
+<tr><th>#</th><th>方向</th><th>触发信号</th><th>连接项目</th></tr>
+<tr><td>1</td><td>Cloudflare OS 作为内部 Agent 沙箱的可行性</td><td>Cloudflare OS 开源</td><td>Life OS / OpenMAIC</td></tr>
+<tr><td>2</td><td>极低成本模型驱动的「自动化巡逻 Agent」</td><td>DeepSeek V4 Flash $0.02/task</td><td>Life OS Proactive Agents</td></tr>
+<tr><td>3</td><td>Kitesurf 接入：Agent 浏览器自动化替换方案</td><td>Cloudflare Kitesurf</td><td>Life OS / 浏览器自动化</td></tr>
+<tr><td>4</td><td>「不是 meat proxy」：建立 AI 输出验证纪律</td><td>"Don't be a meat proxy" 1669 HN</td><td>Engineering Baseline / 团队能力</td></tr>
+<tr><td>5</td><td>专业知识作为 LLM 杠杆：CS336 第一性原理的复利</td><td>"LLMs reward expertise" 1319 HN</td><td>CS336 自学 / Skills Investment</td></tr>
+</table>
+</section>
+
+<!-- ============ 高价值内容 ============ -->
+<section>
+<h2>⭐×5 高价值信号</h2>
+
+<div class="card hi">
+<span class="tag t5">⭐⁵</span><span class="tag t-v">✅ Verified</span><span class="tag t-v">🔬 值得试用</span>
+<h3>1. Cloudflare OS — 开源 Agent 工作平台（Sandstorm 重制版）</h3>
+<p>作者 <a href="https://x.com/KentonVarda/status/2084990137180590572">Kenton Varda</a>（Sandstorm.io 原作者）发布。把公司内部 AI 工作环境开源：<b>员工可让 AI 干活、造小应用，权限与风险由系统兜底</b>，其他公司可整套复制改造成自家版本。</p>
+<p><b>核心三块</b>：① Agent 工作区（每员工一个 AI agent + 公司上下文）② Gatekeepers 安全层（零权限默认 + 集中治理）③ 个人应用发布管道。<b>不是传统 OS</b>，而是「公司怎么用 AI 才安全 + AI 工作负载谁管」。</p>
+<div class="note"><b>验证</b>：✅ 官方 <a href="https://blog.cloudflare.com/cloudflare-os/">blog</a> + <a href="https://www.cloudflare.com/press/press-releases/2026/cloudflare-os-is-the-first-ai-workspace-built-around-how-companies-actually-work/">press release</a> + <a href="https://github.com/cloudflare/cloudflare-os-starter">cloudflare-os-starter ⭐173</a> + <a href="https://news.ycombinator.com/item?id=49182996">HN 讨论</a>。Starter repo 2026-08-05 push，活跃。</div>
+<p class="why">与 <b>OpenMAIC Cloudflare 纯免费部署</b>方向高度重叠——你正在做的「Workers + DO + R2 + D1」架构，Cloudflare OS 正好是同源基础设施的官方 Agent 编排层；与 <b>Life OS</b> 的「Software Factory + Trust & Eval」支柱直接对应，Gatekeepers 模型是现成的安全参考实现。</p>
+</div>
+
+<div class="card hi">
+<span class="tag t5">⭐⁵</span><span class="tag t-v">✅ Verified</span>
+<h3>2. DeepSeek V4 Flash 0731 — 模型经济性拐点</h3>
+<p>在 <a href="https://arcprize.org/results/deepseek-v4-flash-0731">ARC-AGI</a>：<b>ARC-AGI-1 半私有集 89.0% @ $0.02/task · ARC-AGI-2 半私有集 61.4% @ $0.04/task</b>。输入 $0.14/M tokens、输出 $0.28/M tokens。Together AI 报告：DeepSWE 上每 $100 解 532 题 vs GPT-5.6 Luna 110 题（<b>4.8× 性价比</b>）。</p>
+<div class="note"><b>验证</b>：✅ ARC-AGI 官方验证 + 多源一致（Reddit r/LocalLLaMA、Artificial Analysis、Together AI）。社区原话：「DSv4F 只需一条短指令 + 几秒就能完成」。</div>
+<p class="why">这是 <b>Life OS「Proactive Agents」的经济可行性临界点</b>。之前「Agent 定时跑」最大顾虑是成本；现在 $0.02/task 意味着每天跑 1000 次巡逻任务 = $20/天 = 月 $600，对一个能自主修 CI、写测试、审日志的 Agent 来说 ROI 极高。<b>HN 评论的关键洞察</b>：低成本智能模型打开了「自动修复 CI 失败、PR 自动生成测试、持续安全审计」等新场景。</p>
+</div>
+
+<div class="card hi">
+<span class="tag t5">⭐⁵</span><span class="tag t-v">✅ Verified</span>
+<h3>3. Cloudflare Kitesurf — Agent 专用无头浏览器（Rust+Wasm）</h3>
+<p>Cloudflare <a href="https://blog.cloudflare.com/kitesurf/">发布</a>全新无头浏览器，<b>Rust 写、编译成 Wasm、跑在 Workers V8 isolate 里</b>。针对 Chromium 在 AI 智能体与大规模网页抓取中的资源冗余，<b>比 Chromium 省 3-7× CPU/内存</b>。通过 21.5 万项 Web Platform Tests。</p>
+<div class="note"><b>验证</b>：✅ 官方 blog + EnterpriseDNA + The Next Web + Reddit r/rust + <a href="https://news.ycombinator.com/item?id=49208393">HN 讨论</a>。定位明确：浏览器自动化 / 抓取 / 测试 / 内容生成，成本远低于 headless Chrome。</div>
+<p class="why">直击 Agent 工程的「最后一公里」——<b>浏览器自动化</b>。Life OS 里「日历/邮件/任务自动化」很多要操作 Web UI，传统 Playwright/Puppeteer 重且贵。Kitesurf 跑在 Workers = 全球边缘 + 按调用付费 + 无服务器维护，是「Proactive Agent 操作网页」的理想底层。</p>
+</div>
+
+<div class="card hi">
+<span class="tag t5">⭐⁵</span><span class="tag t-v">✅ Verified</span>
+<h3>4. "Don't be a meat proxy" — Agent 工程伦理（1669 HN · 677 评论）</h3>
+<p><a href="https://gruhn.me/blog/2026-08-03/">原文</a>：在 Slack / 代码评审 / 聊天里直接转发 AI 长篇回答而不消化 = <b>零价值</b>，对方本可直接问 AI。<b>正确做法</b>：主动读、理解、验证 AI 结果，再用<b>自己的话重写</b>。HN 评论尖锐指出：「命令行 agent 把复制粘贴循环包装成『智能体工程』，实则是以牺牲理解力为代价加速重复操作」。</p>
+<div class="note"><b>关键警句</b>：「AI 让高技能劳动者也沦为被压榨对象，可能加剧不平等」「当前 AI 效率提升被高责任感的人承担所有剩余工作，QoL 下降 > 产出提升」。这是 1669 热度、677 评论的现象级讨论。</div>
+<p class="why">这是 <b>FY27 简化工作（FA2）的反面教材库</b>。FA2 要证明「效率收益可持续」，最大的 adoption 风险就是员工把 AI 当甩锅工具（生成→转给别人验证）。建立「AI 输出验证纪律」应成为团队能力基线的核心条款——与你的 Engineering Baseline 2025 focus 直接咬合。</p>
+</div>
+
+<div class="card hi">
+<span class="tag t5">⭐⁵</span><span class="tag t-v">✅ Verified</span>
+<h3>5. "LLMs reward expertise" — 专业知识是 LLM 的最大杠杆（1319 HN）</h3>
+<p><a href="https://www.seangoedecke.com/llms-reward-expertise/">Sean Goedecke</a> 用<b>陶哲轩与 ChatGPT 讨论雅可比猜想</b>的案例论证：提示词最重要的技巧恰恰是<b>所问领域的专业知识</b>。陶哲轩的 prompt 简短精准，不逐条回应模型、只抓要点；模型输出也更简洁（进入「与数学家对话」而非「向业余者解释」模式）；他不采纳模型的下一步建议，而是自己提跳跃性思路。</p>
+<div class="note"><b>核心论点</b>：瓶颈在人不在模型。「信息已在模型中，但需要非常聪明的人才能提取出来」。即使模型更强，人类专业知识持续有用。</div>
+<p class="why">这是 <b>CS336 自学的最大战略依据</b>。4 个月手搓 LLM 不是为「学会写 transformer」，而是为建立「LLM 工程第一性原理心智模型」——让你在写 prompt、选模型、设计 Agent 时能像陶哲轩那样「识别看起来不对劲的地方」。Skills Investment Q3 的 ROI 不在代码，在认知杠杆。</p>
+</div>
+</section>
+
+<!-- ============ 中等价值 ============ -->
+<section>
+<h2>⭐×3 中等价值</h2>
+
+<div class="card">
+<span class="tag t3">⭐³</span><span class="tag t-v">✅ Verified</span>
+<h3>6. AMD 收购 Taalas — 模型蚀刻进硅片，16960 tok/s</h3>
+<p><a href="https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344">The Register</a> + <a href="https://ir.amd.com/news-events/press-releases/detail/1296/">AMD IR 官宣</a>。Taalas 把模型权重刻进硅片金属层，形成「模型专用集成电路（MSIC）」。首款 HC1 在 TSMC 6nm 跑 Llama 3.1 8B = <b>16960 tok/s</b>，比 Nvidia GPU 快 48×、比 Cerebras 快 8.5×。<b>代价</b>：模型刻入后无法更改，更新需重新流片（但只需换两层金属层）。</p>
+<p class="why">技术趋势观察——未来汽车/家电内置芯片级 LLM 实现瞬时响应。短期与你无关，但 CS336 学习「Scaling Laws」时这是「专用 vs 通用」权衡的极端案例。</p>
+</div>
+
+<div class="card">
+<span class="tag t3">⭐³</span><span class="tag t-v">✅ Verified</span>
+<h3>7. Qwen3.8-Max — 2.4T MoE，95B active，1M 上下文</h3>
+<p><a href="https://qwen.ai/blog?id=qwen3.8">官方</a>（08-03 发布）。2.4 万亿参数稀疏 MoE，每 token 激活 95B，100 万 token 上下文，多模态（文/图/视频→文）。API $2/M input · $6/M output。进入 Frontend Code Arena 第 4。开放权重近期发布。</p>
+<p class="why">CS336 学习需跟踪 SOTA 模型架构。Qwen3.8-Max 的「2.4T 总参/95B 激活」是 MoE 极致稀疏化的样本，对应 CS336 A3 Scaling Laws 的真实数据点。</p>
+</div>
+
+<div class="card">
+<span class="tag t3">⭐³</span>
+<h3>8. "Code was never the hard part" 反驳（528 HN）</h3>
+<p><a href="https://blog.senko.net/code-was-never-the-hard-part-is-an-insult-to-all-programmers">senko</a> 反驳「编程很容易，难的是决定做什么」：若容易为何程序员薪资高压力大？为何经典书籍和学位这么多？<b>结论</b>：优秀软件开发需同时兼顾「理解系统如何构建」和「理解为何构建」。资深者应拓展 UX/商业理解，初级者扎实掌握指针/递归/网络协议。</p>
+<p class="why">与信号 4、5 同属「Agent 时代人的价值」三连击，可组合成团队能力建设的讨论材料。</p>
+</div>
+
+<div class="card">
+<span class="tag t3">⭐³</span><span class="tag t-v">⚠️ Partial</span>
+<h3>9. Firecrawl 出品 Rust 文档转换库（14 格式 → Markdown）</h3>
+<p>把 Word/PPT/Excel/ODT/RTF/EPUB/CSV/PDF 等 14 种办公格式转成干净 GitHub 风格 Markdown，输出统一、速度快，可直接喂 LLM。</p>
+<div class="note"><b>验证</b>：⚠️ 推文提及但未给出明确 repo 路径。Firecrawl 主仓库是 <a href="https://github.com/mendableai/firecrawl">mendableai/firecrawl</a>，此 Rust 库可能在其 mono repo 或独立项目，需进一步确认。</div>
+<p class="why">若属实，对 Life OS 的「Software Factory」输入处理有用——Agent 消化办公文档时的预处理工具。</p>
+</div>
+
+<div class="card">
+<span class="tag t3">⭐³</span>
+<h3>10. Discovery Loop — Jeff Dean 等创办 AI 自动化科研循环</h3>
+<p><a href="https://www.discoveryloop.com/">官网</a>。自动完成实验的提出、执行、评估，并行跑数千实验。创始团队 <b>Jeff Dean、Sanjay Ghemawat、Quoc Le、Oriol V</b>（Google 三巨头）。先用自动化 ML 优化自身，再扩展到药物研发/清洁能源/网络安全。</p>
+<p class="why">「以自身为第一个客户」的 dogfooding 哲学 = Life OS「系统自我改进」的最佳范例。</p>
+</div>
+</section>
+
+<!-- ============ 行动清单 ============ -->
+<section>
+<h2>✅ 本周可执行行动</h2>
+<div class="card" style="border-left:4px solid var(--accent3);">
+<table>
+<tr><th style="width:6%">#</th><th style="width:52%">行动</th><th style="width:24%">连接项目</th><th>优先级</th></tr>
+<tr><td>1</td><td>Clone <code>cloudflare/cloudflare-os-starter</code>，跑通本地 demo，评估 Gatekeepers 模型能否复用到 OpenMAIC</td><td>OpenMAIC / Life OS</td><td>🔴 高</td></tr>
+<tr><td>2</td><td>用 DeepSeek V4 Flash 跑一个最小「PR 自动生成测试」原型，验证 $0.02/task 成本真实性</td><td>Life OS Proactive Agent</td><td>🔴 高</td></tr>
+<tr><td>3</td><td>读 Kitesurf 文档，写一个 Workers 抓取脚本对比 Playwright 的 CPU/成本</td><td>Life OS 浏览器自动化</td><td>🟡 中</td></tr>
+<tr><td>4</td><td>在团队 Engineering Baseline 文档加一节「AI 输出验证纪律」，引用 "meat proxy" 原文作反面教材</td><td>FY27 FA2 / Eng Baseline</td><td>🔴 高</td></tr>
+<tr><td>5</td><td>CS336 A1 本周收尾：用「陶哲轩式 prompt」(简短精准+自己主导方向) 驱动 Copilot 写 BPE</td><td>CS336 / Skills Investment</td><td>🟡 中</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ============ 生活维度 ============ -->
+<section>
+<h2>🌿 生活维度信号</h2>
+<div class="life-grid">
+<div class="life-card">
+<h4>🧠 健脑 · 受助者恶意</h4>
+<p style="font-size:.88em;color:var(--text2)">心理学概念：当对方认知层次较低，越帮助越滋长恨意。善良喂不饱贪婪，爱填不满自私。</p>
+<p style="font-size:.85em;color:var(--text3)">来源：@HotmailfromSH（Dr.Wang）</p>
+</div>
+<div class="life-card">
+<h4>🧠 健脑 · 文学片段</h4>
+<p style="font-size:.88em;color:var(--text2)">「二十岁时我以为生活是一条可以蹚过去的河…二十六岁才知道根本没有什么河，我们只是被扔进了一场收不到尾的梅雨。」</p>
+<p style="font-size:.85em;color:var(--text3)">来源：@kenw_2（Ken W）</p>
+</div>
+</div>
+</section>
+
+<!-- ============ 低价值附录 ============ -->
+<section>
+<h2>📦 其他信号（折叠）</h2>
+<details>
+<summary>展开查看（HN 周边 · 工具 · 开源治理等）</summary>
+<ul>
+<li><b>Go 1.27</b> — 泛型方法、结构体字面量字段选择、更快内存分配（<a href="#">可运行示例</a>）。技术跟踪。</li>
+<li><b>FFmpeg 9.0</b> — 动画 WebP 解码、GPU 执行等更新。</li>
+<li><b>NetBSD 11.0</b> 发布 — 因 AI 导致安全问题增多而公开已知漏洞。</li>
+<li><b>Nixpkgs 核心团队解散</b> — 系统性问题和人员流失，但项目本身未受影响。开源治理警示。</li>
+<li><b>Neon+Castform</b> — 低成本开源模型 + RL 后训练，在搜索任务上超越前沿模型。</li>
+<li><b>Meta Muse Code / Muse Spark 1.2</b> — 终端编码代理 + 模型更新。</li>
+<li><b>MIT 研究</b> — AI 财务建议整体不错但过度依赖经验法则，因用户性别/素养差异导致建议差异，可能加剧贫富差距。</li>
+<li><b>维基媒体基金会</b> 拒绝承认员工工会，引发社群不满。</li>
+<li><b>15 岁 3D 打印摆线齿轮箱</b> — 三个版本迭代实现 1:9 减速比，完整工程实践分享。</li>
+<li><b>帕累托前沿（Mario Meets Pareto）</b> — 用马力欧卡丁车讲多目标优化，830 HN 热度。HN 评论：「管理层常以『权衡』为借口削减成本，牺牲开发者未来福祉」。</li>
+<li><b>柔雨将至（There Will Come Soft Rains）</b> — 智能房屋核战后徒劳运行，反思科技与人类命运脆弱。</li>
+<li><b>OpenAI Astra 模型</b> — 数学/理论计算机十项新进展，用 Lean 完成形式化验证。</li>
+<li><b>AMD/Taalas</b> HN 讨论：未来汽车家电内置芯片级 LLM、全晶圆 1.4 万亿参数 DeepSeek-V4-Pro 级。</li>
+<li><b>Oracle 禁止 OpenJDK 用 AI 生成代码</b>，但自身推广 AI 写代码 — 双重标准质疑。</li>
+<li><b>能源部 Genesis 开放模型计划</b> — 首个开放权重科学模型。</li>
+<li><b>CloudflareDev</b> — Kimi/GLM 是最佳开源模型但最难高效 serve，Cloudflare 在让它们更快更便宜。</li>
+<li><b>阮一峰周刊 407</b> — 「评判 AI 领导地位不取决于单一前沿模型，而取决于能否构建强大开放生态系统」。</li>
+<li><b>摄影 Skill</b>（@another_dayu）— 把照片提取成抽象元素的优雅 Skill。</li>
+<li><b>ASD-STE100 简化技术英语</b>（@gkxspace）— 大佬在全局 CLAUDE.md 要求用简化技术英语，防 GPT/Claude 啰嗦。</li>
+<li><b>「速度优先」提示词</b>（@dashen_wang）— 让 Agent 在受信本地开发机上「不请示、不铺垫、不解释计划，直接做」。</li>
+</ul>
+</details>
+</section>
+
+<div class="footer">
+<p>📋 Generated by <code>my-readwise-briefing</code> skill v4.3 · Phase 1 简报 · 验证标注体系：✅ Verified / ⚠️ Partial / ❌ Debunked / 🔬 Hands-on</p>
+<p>归档：<a href="https://liyuankui.github.io/readwise-briefing/">GitHub Pages</a> · 覆盖窗口 2026-08-03 → 08-09 · 数据源 Readwise (highlights + Reader v3)</p>
+</div>
+
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  const dark = document.documentElement.classList.contains('dark');
+  btn.textContent = dark ? '☀️' : '🌙';
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

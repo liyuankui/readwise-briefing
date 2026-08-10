@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-08-10</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+  --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+  --accent4: #f59e0b; --accent5: #f87171;
+}
+body {
+  font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; margin: 0; padding: 0;
+  transition: background .2s, color .2s;
+}
+.container { max-width: 920px; margin: 0 auto; padding: 32px 24px 80px; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 16px; margin-bottom: 28px; position: relative; }
+header h1 { font-size: 1.8em; margin: 0 0 6px; color: var(--accent); }
+header .meta { color: var(--text3); font-size: .92em; }
+#theme-toggle { position: absolute; top: 0; right: 0; cursor: pointer; font-size: 1.3em; border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 4px 10px; color: var(--text); }
+.banner { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; padding: 14px 20px; border-radius: 10px; margin-bottom: 20px; font-size: .96em; }
+section { margin: 28px 0; }
+h2 { color: var(--accent); border-left: 4px solid var(--accent2); padding-left: 12px; font-size: 1.3em; margin-top: 36px; }
+h3 { color: var(--accent2); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .9em; }
+th, td { padding: 9px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); }
+.proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 26px; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,.05); border-top: 4px solid var(--accent2); }
+.proposal.p1 { border-top-color: #6366f1; }
+.proposal.p2 { border-top-color: #059669; }
+.proposal.p3 { border-top-color: #d97706; }
+.proposal.p4 { border-top-color: #dc2626; }
+.proposal.p5 { border-top-color: #2d5a4a; }
+.proposal h3 { margin-top: 0; font-size: 1.2em; display: flex; align-items: center; gap: 10px; }
+.badge { display: inline-block; background: var(--accent2); color: #fff; border-radius: 50%; width: 28px; height: 28px; line-height: 28px; text-align: center; font-size: .9em; font-weight: bold; }
+.thesis { background: linear-gradient(135deg, rgba(99,102,241,.1), rgba(45,90,74,.1)); border-left: 3px solid var(--accent2); padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: .95em; }
+.thesis::before { content: "🎯 核心主张："; font-weight: bold; color: var(--accent2); }
+.connect { font-size: .9em; color: var(--text3); margin: 8px 0; }
+.connect b { color: var(--accent); }
+.actions { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+.actions ol { margin: 6px 0; padding-left: 20px; }
+.challenge { border: 1px dashed var(--accent5); background: rgba(220,38,38,.04); border-radius: 8px; padding: 10px 14px; margin: 12px 0; font-size: .9em; }
+html.dark .challenge { background: rgba(248,113,113,.08); }
+.challenge::before { content: "🚩 诚实挑战"; font-weight: bold; color: var(--accent5); display: block; margin-bottom: 6px; }
+.detail { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.detail.open { max-height: 4000px; }
+.detail-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--accent2); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: .85em; margin: 8px 0; font-family: inherit; }
+.detail-btn:hover { background: var(--border); }
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text3); font-size: .82em; text-align: center; }
+.quote { color: var(--text2); font-style: italic; border-left: 3px solid var(--accent3); padding-left: 12px; margin: 10px 0; }
+a { color: var(--accent2); }
+.mini-table td { font-size: .88em; }
+</style>
+</head>
+<body>
+<div class="container">
+<button id="theme-toggle">🌙</button>
+
+<header>
+<h1>🚀 Readwise 深挖 Proposals</h1>
+<div class="meta">📅 2026-08-10（周一·上周回顾专题） · 5 个方向 · 5 个 subagent 并行推理</div>
+</header>
+
+<div class="banner">⚙️ <b>公理</b>：不可行动的信息 = 噪音。每个 Proposal 必须能回答：解决谁的什么痛点？为什么现在？怎么做？怎么知道成功？如果失败？以下 5 个 Proposal 均含「诚实挑战」节，主动暴露自身漏洞。</div>
+
+<!-- 信号 × 项目 对应表 -->
+<section>
+<h2>🔗 信号 × 项目 对应</h2>
+<table>
+<tr><th>#</th><th>Proposal</th><th>触发信号</th><th>验证</th><th>连接项目</th><th>本周优先级</th></tr>
+<tr><td>1</td><td>Cloudflare OS：借设计不借代码</td><td>CFOS 开源 (Kenton Varda)</td><td>✅ Verified</td><td>Life OS / OpenMAIC</td><td>🟡 中</td></tr>
+<tr><td>2</td><td>DSv4F 成本拐点驱动巡逻 Agent</td><td>DeepSeek V4 Flash $0.02/task</td><td>✅ Verified</td><td>Life OS Proactive Agents</td><td>🔴 高</td></tr>
+<tr><td>3</td><td>Kitesurf：锋利偏科工具</td><td>Cloudflare Kitesurf 浏览器</td><td>✅ Verified</td><td>OpenMAIC 抓取</td><td>🟢 低（验证型）</td></tr>
+<tr><td>4</td><td>AI 输出验证纪律入 Baseline</td><td>"Don't be a meat proxy" 1669 HN</td><td>✅ Verified</td><td>FY27 FA2 / Eng Baseline</td><td>🔴 高</td></tr>
+<tr><td>5</td><td>CS336 × 专业知识杠杆</td><td>"LLMs reward expertise" 1319 HN</td><td>✅ Verified</td><td>CS336 / Skills Investment</td><td>🔴 高（A2 截止 08-16）</td></tr>
+</table>
+</section>
+
+<!-- ============ Proposal 1: Cloudflare OS ============ -->
+<section>
+<div class="proposal p1">
+<h3><span class="badge">1</span> Cloudflare OS：借 Gatekeepers 设计，不借代码与定位</h3>
+<div class="connect">📡 信号：Kenton Varda 发布 <a href="https://blog.cloudflare.com/cloudflare-os/">Cloudflare OS</a>（Sandstorm 重制版） · 🔗 连接：<b>Life OS</b> 安全层 / <b>OpenMAIC</b> 部署</div>
+
+<div class="thesis">CFOS 是一面镜子，照出 Life OS F12 缺的安全层——抄它的<b>思想</b>（capability binding + zero-access），不抄它的<b>代码</b>（Workers 运行时）也不抄它的<b>定位</b>（企业员工治理）。OpenMAIC 走自己的路，CFOS 最大价值是让你更清楚<b>为什么不直接用它</b>。</div>
+
+<p><b>双轨判断</b>：</p>
+<table class="mini-table">
+<tr><th style="width:18%">目标</th><th style="width:42%">判断</th><th>理由</th></tr>
+<tr><td><b>Life OS</b></td><td>✅ 抄设计（Gatekeepers capability 模型 → 写 RFC）</td><td>F12 Intent-to-Delivery 缺安全层；R9 隔离靠 prompt 自觉无技术兜底</td></tr>
+<tr><td><b>OpenMAIC</b></td><td>❌ 远离 starter</td><td>哲学冲突——CFOS 假设"员工需被治理"，K12 假设"学生是 Principal"；starter 的 Access/admin/Gatekeepers 对 K12 是错误抽象层</td></tr>
+</table>
+
+<button class="detail-btn" onclick="this.nextElement.classList.toggle('open');this.textContent=this.nextElement.classList.contains('open')?'▲ 收起详情':'▼ 展开里程碑/ROI/风险'">▼ 展开里程碑/ROI/风险</button>
+<div class="detail">
+<h4>里程碑（Track A Life OS · 推荐主推）</h4>
+<table>
+<tr><th>ID</th><th>里程碑</th><th>工作量</th><th>验收</th></tr>
+<tr><td>A1</td><td><b>Capability Manifest RFC</b>：定义所有 agent 的 capability schema，zero-access 默认</td><td>1 周末 ~6h</td><td>覆盖 5 个现有 agent 的 capability 矩阵；critique skill 审查通过</td></tr>
+<tr><td>A2</td><td><b>Gatekeeper Shim 原型</b>：run-agent.sh 与 AI CLI 间加 capability gate</td><td>2 周 ~15h</td><td>1 个 agent 从"能访问所有 MCP"变为受限；故意越权→被拒+记录</td></tr>
+<tr><td>A3</td><td>F12 安全前提就绪</td><td>1 月（依赖 A1/A2）</td><td>端到端 demo：intent→capability request→批准→执行→审计</td></tr>
+</table>
+
+<h4>ROI</h4>
+<ul>
+<li><b>F12 解锁</b>：capability 层是 F12 唯一安全前提，没有它 F12 永远是 🔮</li>
+<li><b>R8/R9 技术化</b>：从"监督每个 agent"升级为"定义 capability 边界"——这才是 Life OS VISION「从执行者到系统设计者」</li>
+<li><b>Agentic Engineering 实战素材</b>：FY27 FA2 可演示的"AI 安全治理"原型</li>
+</ul>
+</div>
+
+<div class="challenge">
+<b>是不是在强行给 CFOS 找用处？</b>部分是。CFOS 目标用户是"公司 IT 给员工配 AI 环境"，Kyle 两个场景都不是。真实价值可能 80% 来自「负空间启发」——CFOS 让你意识到 F12 缺安全层，但解法未必是它的解法。<b>A1 RFC 必须与 CFOS 解耦</b>，它是 Life OS 自己需要的。如果写着写着发现"我在硬塞 CFOS 概念"，立刻停。
+<br><br>
+<b>capability manifest 挡不住 prompt injection。</b>它防的是"agent 误用授权凭证"（如 morning-briefing 不该 force push），不防"agent 被骗泄露已读内容"。别 oversell。
+</div>
+
+<div class="actions">
+<b>本周 3 件事</b>（按 CFOS 评估优先——实证结论会校准 RFC）：
+<ol>
+<li>clone + 跑通 cloudflare-os-starter（周六 4h），记"借/不借"清单</li>
+<li>起草 Capability Manifest RFC 骨架，覆盖 5 个 agent（周日 3h）</li>
+<li>给 OpenMAIC 重写最小 CF 部署 plan + commit cloudflare-deployment branch 空骨架（周一晚 2h）</li>
+</ol>
+</div>
+</div>
+</section>
+
+<!-- ============ Proposal 2: DSv4F 巡逻 Agent ============ -->
+<section>
+<div class="proposal p2">
+<h3><span class="badge">2</span> DSv4F 成本拐点：8 个手动 routine 全量改造为巡逻 Agent</h3>
+<div class="connect">📡 信号：<a href="https://arcprize.org/results/deepseek-v4-flash-0731">DeepSeek V4 Flash</a> 89% ARC-AGI @ $0.02/task · 🔗 连接：<b>Life OS</b> Proactive Agents（Success Criteria #1：至少一件高频事务完全不需手动触发）</div>
+
+<div class="thesis">DSv4F 把单次巡逻成本压到 <b>$0.0013</b>（比 Sonnet 便宜 35.7×），使 Kyle 的 8 个全手动 routine 可全量改造——3 个月内达成"每日 30+ 次自动巡逻、月成本 &lt; $3、手动触发归零"。<b>关键转折：成本不再是约束，触发摩擦才是</b>。</div>
+
+<p><b>算账</b>（亲验）：5K input + 2K output tokens × DSv4F 定价（$0.14/$0.28 per M）= <b>$0.00126/次</b>。50 次/天 × 30 天 = <b>月 $1.89</b>。按 EM 全成本 ~$150/h，月省 14h ≈ <b>$2,100 价值 / $3 成本 ≈ 700× 杠杆</b>。</p>
+
+<p><b>Skills 改造优先级</b>（按"高频 × 低幻觉 × 个人域"打分）：</p>
+<table class="mini-table">
+<tr><th>优先级</th><th>Skill</th><th>触发</th><th>月成本</th></tr>
+<tr><td><b>P0</b></td><td>my-readwise-briefing → 每日 08:00 自动跑</td><td>cron 每日</td><td>$0.5</td></tr>
+<tr><td><b>P0</b></td><td>outlook-helper（邮件部分）→ 每日 3 次分类不回复</td><td>cron 每 4h</td><td>$0.3</td></tr>
+<tr><td><b>P0</b></td><td>dayflow-insight → 每日 22:00 生成回顾叙事</td><td>cron 每日</td><td>$0.2</td></tr>
+<tr><td>P1</td><td>confluence-watcher → 仅标题+摘要（合规）</td><td>cron 每日</td><td>$0.4</td></tr>
+<tr><td>P1</td><td>oneon1-prep → 会议前 2h 触发</td><td>事件驱动</td><td>$0.1</td></tr>
+</table>
+<p style="font-size:.88em;color:var(--text3)">总月成本估算：P0+P1 ≈ $2.0，全量 ≈ $2.5</p>
+
+<button class="detail-btn" onclick="this.nextElement.classList.toggle('open');this.textContent=this.nextElement.classList.contains('open')?'▲ 收起详情':'▼ 展开里程碑/风险'">▼ 展开里程碑/风险</button>
+<div class="detail">
+<h4>里程碑（5 个，~5 周）</h4>
+<table>
+<tr><th>#</th><th>里程碑</th><th>时长</th><th>验收</th></tr>
+<tr><td>M1</td><td>模型成本/质量基线（3 个真实任务实测）</td><td>1 天</td><td>实测成本 ≤ 估算 ±20%</td></tr>
+<tr><td>M2</td><td>launchd 调度层接入 routine-manager</td><td>3 天</td><td>cron 触发率 100%（日志验证）</td></tr>
+<tr><td>M3</td><td>3 个每日 routine 上线（005/008/007）</td><td>1 周</td><td>连跑 7 天无人工干预</td></tr>
+<tr><td>M4</td><td>5 个周期 routine + 巡逻</td><td>2 周</td><td>周报自动生成，Kyle 仅审</td></tr>
+<tr><td>M5</td><td>自我评估环 + 成本仪表盘</td><td>1 周</td><td>月成本可视化、采纳率追踪</td></tr>
+</table>
+
+<h4>关键风险</h4>
+<ul>
+<li><b>🔴 内网合规</b>：DSv4F 是公网 API。<b>内网内容严禁直传</b>。改造限定"个人域"（Gmail/Readwise/DayFlow）。内网域需走内部 LLM gateway 或本地小模型</li>
+<li><b>🟡 API 稳定性</b>：DeepSeek 历史多次宕机。必须 OpenRouter fallback + 失败重试队列</li>
+<li><b>🟡 幻觉/误分类</b>：routine 输出只写 journal 不改既有文件；destructive 动作必须 human-in-the-loop</li>
+</ul>
+</div>
+
+<div class="challenge">
+<b>ARC-AGI 89% ≠ 业务任务高分。</b>巡逻是琐碎分类+轻推理，DSv4F 在长上下文/字段抽取上未必强。M1 基线测试就是验证这点；准确率 &lt;80% 则降级为"摘要+人工 triage"而非全自动。
+<br><br>
+<b>4 月 Meta-Harness 提案为何没动？</b>不是成本问题，是<b> Kyle 没有时间投入</b>。DSv4F 不解决时间问题。诚实评估：若本月仍被其他项目占满，<b>建议只做 P0 三项（~2 周可成），其余等 Q4</b>。本提案最大瓶颈是 Kyle 时间和合规边界，非模型能力。
+</div>
+
+<div class="actions">
+<b>本周 3 件事</b>：
+<ol>
+<li>跑 DSv4F 真实基线（1h）：OpenRouter 调 DSv4F，3 个真实任务测成本/延迟/准确率</li>
+<li>改造 ROUTINE-005 邮件分类为最小 Proactive Agent（半天）：launchd plist + prompt + 输出 journal → 连跑 3 天对比</li>
+<li>更新 4 月 Meta-Harness 提案经济约束章节：把"5k token 上限"改为"DSv4F 下 $0.0013，熔断阈值改调用次数"</li>
+</ol>
+</div>
+</div>
+</section>
+
+<!-- ============ Proposal 3: Kitesurf ============ -->
+<section>
+<div class="proposal p3">
+<h3><span class="badge">3</span> Kitesurf：锋利的偏科工具，非通用升级</h3>
+<div class="connect">📡 信号：Cloudflare <a href="https://blog.cloudflare.com/kitesurf/">Kitesurf</a>（Rust+Wasm 无头浏览器，省 3-7× CPU/mem） · 🔗 连接：<b>OpenMAIC</b> 教育资源抓取（<b>不</b>适用 Life Automation）</div>
+
+<div class="thesis">Kitesurf 是 OpenMAIC 教育资源抓取的精确补刀，但对 Life Automation 登录态自动化是<b>错误工具</b>——不要寄望它替代现有浏览器栈。</div>
+
+<p><b>关键发现</b>（官方文档核实）：Cloudflare 官方明示 Kitesurf <b>不支持持久状态的认证会话</b>。这直接命中 Life Automation 痛点——日历/邮件/任务/健康全部需登录态。</p>
+
+<table class="mini-table">
+<tr><th>场景</th><th>状态需求</th><th>Kitesurf 适配</th><th>现有栈</th></tr>
+<tr><td>OpenMAIC 公开教育内容抓取</td><td>无状态</td><td>✅ 天然匹配</td><td>裸 Chromium 太贵</td></tr>
+<tr><td>Life Automation（日历/邮件/任务）</td><td>持久登录态</td><td>❌ 设计上不支持</td><td>已有可用栈</td></tr>
+</table>
+
+<p><b>成本对比</b>（每 1000 页公开内容）：Kitesurf Workers 内存 57.8 MiB/页（beta 免费）vs Playwright+Chromium VPS 271 MiB/页（$5-20/月+维护）。<b>4.7× 内存差距</b>正好卡进 Workers 128MiB isolate 上限。</p>
+
+<div class="challenge">
+<b>Kitesurf 对 Life Automation 几乎无用。</b>这些站全部需登录态。官方白纸黑字"不能用于持久认证会话"。这是设计选择（ephemeral stateless），非缺陷。强行用要么每次重登（触发风控），要么自建 cookie 持久层（违背架构）。
+<br><br>
+<b>Kyle 可能不需要新工具。</b>OpenMAIC 抓教育内容量多大？若只几十页，curl+readability 就够。Kitesurf 价值在<b>规模</b>——千页级成本敏感。若抓取量未到这级别，是过度工程。
+<br><br>
+<b>真实瓶颈不在浏览器引擎。</b>HN 最犀利一条：agent 自动化的缺失原语不是浏览器，而是<b>可移植的身份</b>（CAPTCHA/SMS/卡片验证）。Kitesurf 优化渲染成本，没碰真问题。
+</div>
+
+<div class="actions">
+<b>本周 3 件事</b>（定位"试验"，不承诺交付）：
+<ol>
+<li>最小 demo：Worker 用 Kitesurf 渲染一个公开页 → 输出 markdown+截图存 R2。验证 CPU/mem/壁钟时间</li>
+<li>划定边界：在 openmaic workspace 加 <code>kitesurf-fit-analysis.md</code>，记"公开内容走 Kitesurf / 登录态走现有栈"架构决策</li>
+<li>追踪 beta pricing：订阅 changelog，beta 结束前评估是否仍划算</li>
+</ol>
+</div>
+</div>
+</section>
+
+<!-- ============ Proposal 4: AI 输出验证纪律 ============ -->
+<section>
+<div class="proposal p4">
+<h3><span class="badge">4</span> 「AI 输出验证纪律」入 Engineering Baseline</h3>
+<div class="connect">📡 信号：<a href="https://gruhn.me/blog/2026-08-03/">"Don't be a meat proxy"</a> (1669 HN) + "LLMs reward expertise" (1319 HN) + "Code was never the hard part 反驳" (528 HN) · 🔗 连接：<b>FY27 FA2</b> 效率收益可持续 / <b>Eng Baseline</b> 2025 focus</div>
+
+<div class="thesis">AI 提升产出速度，但理解与责任不可外包——团队任何 AI 生成产物，必须经具名 owner 完成「读·验·改·担」四步并标注，否则不视为 Done。<b>未验证的 AI 产出不是资产，是负债</b>。</div>
+
+<div class="quote">验证纪律不是"限制 AI"，而是让 AI 的效率收益变得<b>可采纳、可维护、可转化</b>的唯一机制——这正是 FY27 FA2 的承重墙。</div>
+
+<p><b>四步法（meat proxy 解药）</b>：</p>
+<table class="mini-table">
+<tr><th>步骤</th><th>动作</th><th>反面（meat proxy）</th></tr>
+<tr><td><b>读</b> Read</td><td>逐行消化，能复述要点</td><td>直接转发</td></tr>
+<tr><td><b>验</b> Verify</td><td>对照源数据/运行/边界验证，主动找反例</td><td>"应该是"</td></tr>
+<tr><td><b>改</b> Rewrite</td><td>用自己话或团队风格重写关键部分</td><td>照搬照抄</td></tr>
+<tr><td><b>担</b> Own</td><td>具名背书，出事第一责任人</td><td>匿名/甩给 AI</td></tr>
+</table>
+
+<button class="detail-btn" onclick="this.nextElement.classList.toggle('open');this.textContent=this.nextElement.classList.contains('open')?'▲ 收起详情':'▼ 展开里程碑/成功标准/ROI'">▼ 展开里程碑/成功标准/ROI</button>
+<div class="detail">
+<h4>实施里程碑（M1-M5）</h4>
+<table>
+<tr><th>#</th><th>里程碑</th><th>节奏</th></tr>
+<tr><td>M1</td><td><b>团队宣贯</b>：Lunch & Learn 分享三篇 HN 讨论，匿名收集团队真实案例</td><td>第 1 周</td></tr>
+<tr><td>M2</td><td><b>规范入 Baseline</b>：起草《AI 产物验证 SOP》，定义四步法+PR 标注+风险分级</td><td>第 2-3 周</td></tr>
+<tr><td>M3</td><td><b>PR Checklist 上线</b>：PR 模板加 <code>[ ] AI 生成部分已由我完成读·验·改·担</code></td><td>第 3 周</td></tr>
+<tr><td>M4</td><td><b>度量看板</b>：retro 固定"meat proxy 回顾"环节；采 AI 标注率/拦截案例数</td><td>第 4 周起</td></tr>
+<tr><td>M5</td><td>季度迭代：复盘调整，表彰"拦下 AI 错误"案例</td><td>季度</td></tr>
+</table>
+
+<h4>成功标准（可测量）</h4>
+<ul>
+<li>PR AI 标注率 ≥ 95%</li>
+<li>Meat proxy 事件 retro 点名次数季度环比 ↓ ≥ 50%</li>
+<li>AI-PR post-merge 缺陷率 ≤ 同期人工 PR 缺陷率</li>
+<li>责任错配指数：验证工作在团队内分散（非集中 1-2 人，季度匿名问卷监测）</li>
+</ul>
+
+<h4>ROI（接 FA2）</h4>
+<table class="mini-table">
+<tr><th>链路</th><th>无验证纪律</th><th>有验证纪律</th></tr>
+<tr><td>速度</td><td>前端快（虚假效率）</td><td>真实快（含维护成本）</td></tr>
+<tr><td>可采用</td><td>业务不敢用（黑盒）</td><td>可放心采用</td></tr>
+<tr><td>可维护</td><td>出事无人能改</td><td>owner 清晰</td></tr>
+<tr><td>降本</td><td>短期降，长期反弹</td><td>持续降</td></tr>
+</table>
+</div>
+
+<div class="challenge">
+<b>会否滑向反 AI 保守主义？</b>会，风险真实。防御：把"验证纪律"与"AI 采用率"设为<b>双 KPI</b>，任一掉头都要解释。"验证是安全带，不是刹车——系安全带不是为了不开车。"
+<br><br>
+<b>最大漏洞：依赖个人自觉。</b>文化手段止步于此。必须叠加<b>工具强制</b>（PR 模板、CI gate、agent 验证 skill）与<b>管理问责</b>（绩效体现），否则规范随记忆淡化。
+<br><br>
+<b>高责任感者兜底反噬。</b>HN 最尖锐之论——AI 效率提升被高责任感者承担所有剩余工作，QoL 下降 &gt; 产出提升。EM 须主动分配验证工作，不让"靠谱的人"无限兜底。
+</div>
+
+<div class="actions">
+<b>本周 3 件事</b>：
+<ol>
+<li>下个 retro 抛信号：分享 "Don't be a meat proxy" 原文，开放式提问"我们有没有这种时刻？"——<b>先听，不定调</b></li>
+<li>起草 PR 模板 checkbox：自己在最近 PR 先用起来（EM 不例外，以身作则）</li>
+<li>收集 2-3 个真实案例：过去 AI 产出未验证导致的返工/事故，作 M1 宣贯素材（真实 &gt; 抽象）</li>
+</ol>
+</div>
+</div>
+</section>
+
+<!-- ============ Proposal 5: CS336 专业知识杠杆 ============ -->
+<section>
+<div class="proposal p5">
+<h3><span class="badge">5</span> CS336 × 专业知识杠杆：买的是「入场券」非「终点线」</h3>
+<div class="connect">📡 信号：<a href="https://www.seangoedecke.com/llms-reward-expertise/">"LLMs reward expertise"</a> (1319 HN) 陶哲轩案例 · 🔗 连接：<b>CS336 自学</b>（A2 Flash Attention 截止 <b>08-16，距今 6 天</b>）/ Skills Investment Q3</div>
+
+<div class="thesis">CS336 给 Kyle 的不是「能造模型」，而是<b>「能与模型对等博弈的领域词汇与判别力」</b>——这正是 Goedecke 所说 LLM 时代唯一不贬值的资产。160 小时买的是「让模型进入专家模式」的入场券，而非又一项 prompt 技巧。</div>
+
+<p><b>6 个"不专业"时刻</b>（模型在你身上启动"向业余者解释"模式）：</p>
+<table class="mini-table">
+<tr><th>#</th><th>时刻</th><th>解药</th></tr>
+<tr><td>1</td><td>Copilot 给"看起来合理"的 ML 代码直接 accept</td><td>看出"这是 2020 年写法"</td></tr>
+<tr><td>2</td><td>"这个超参是标准做法"无锚点反驳</td><td>知 frontier 默认行为来自哪段训练</td></tr>
+<tr><td>3</td><td>问"这样做对吗？"而非"我赌 X，你补 Y"</td><td>用 Tao 式跳跃假设逼模型</td></tr>
+<tr><td>4</td><td>接受模型"下一步建议"顺着走</td><td>没意识到"接受 next-step"=让出主导权</td></tr>
+</table>
+
+<button class="detail-btn" onclick="this.nextElement.classList.toggle('open');this.textContent=this.nextElement.classList.contains('open')?'▲ 收起详情':'▼ 展开里程碑/ROI'">▼ 展开里程碑/ROI</button>
+<div class="detail">
+<h4>5 个 Assignment × 5 种杠杆转化</h4>
+<table>
+<tr><th>Assignment</th><th>截止</th><th>杠杆转化（学到后能对模型做什么）</th></tr>
+<tr><td>A1 Basics ✅</td><td>07-26</td><td>识破 tokenization 伪命题，能问"loss 曲线说明什么"</td></tr>
+<tr><td><b>A2 Systems</b></td><td><b>08-16</b></td><td><b>按 context 经济学设计 agentic workflow</b>——判"长 context 慢"是真约束还是借口</td></tr>
+<tr><td>A3 Scaling</td><td>08-30</td><td>预测 frontier 模型行为，反驳"加数据就行"</td></tr>
+<tr><td>A4 Data</td><td>09-20</td><td>一眼看出 RAG"垃圾进垃圾出"——数据质量是护城河</td></tr>
+<tr><td>A5 Alignment</td><td>10-11</td><td><b>核心解锁</b>：看懂模型为何谄媚/绕弯/拒绝。Tao"不接受 next-step"能力来源</td></tr>
+</table>
+<p style="font-size:.9em"><b>A2/A5 是两个关键杠杆点</b>：A2 解 agentic 系统设计，A5 解模型行为判读。</p>
+
+<h4>ROI 分析</h4>
+<table class="mini-table">
+<tr><th>层级</th><th>回报</th><th>复利性</th></tr>
+<tr><td>直接（个人）</td><td>每周 agentic 工作省 2-3h（少踩坑少返工）</td><td>线性，年化 ~120h，<b>单年回本</b></td></tr>
+<tr><td>复利（个人）</td><td>每代新模型出现，相对优势变大而非变小</td><td>指数——懂底层=懂 diff</td></tr>
+<tr><td>团队杠杆</td><td>11 工程师 × Kyle 的判别力</td><td>乘数效应</td></tr>
+<tr><td>战略层</td><td>能否决/支持 AI 投入</td><td>单次错误决策省下的钱 &gt; 160h 成本</td></tr>
+</table>
+<p style="font-size:.9em"><b>关键判断</b>：专业知识是<b>瓶颈因子</b>，投瓶颈因子 = 最高 ROI。Prompt 技巧、工具使用是非瓶颈因子（学了很快贬值）。<b>这 160h 是 Kyle 2026 年性价比最高的自我投资，前提是 §桥接成立。</b></p>
+</div>
+
+<div class="challenge">
+<b>CS336 学完真的会更会用 LLM 吗？还是只是会手搓模型、prompt 工程原地踏步？</b>
+<br><br>
+<b>诚实答：CS336 是必要条件，不是充分条件。两者间有一道必须主动架设的桥。</b>
+<table class="mini-table" style="margin-top:8px">
+<tr><th>维度</th><th>CS336 给的</th><th>CS336 不给的</th></tr>
+<tr><td>对模型的理解</td><td>第一性原理、行为根源、能力边界</td><td>—</td></tr>
+<tr><td>与模型的交互</td><td>—</td><td>Workflow 设计、tool-use 编排、context engineering、eval 设计</td></tr>
+</table>
+<b>三道必须主动跨的桥</b>：① 应用桥（每个概念落到真实 agentic 问题）② 交互桥（刻意练 Tao 式提问）③ 同伴桥（作业是"教科书复现"，Tao 是"前沿辩论"，差距大）。
+<br><br>
+<b>最狠一句</b>：Tao 的杠杆是<b>前沿数学世界级专长</b>。CS336 5 个 A 跑通 = LLM 工程的<b>识字</b>，不是<b>专家</b>。学完后仍是"懂底层的从业新人"。但这<b>不削弱 ROI</b>——"识字"已把你从"被模型带偏的 99%"拉进"能与模型协作的 1%"。<b>把 CS336 当起点线而非终点线。</b>
+</div>
+
+<div class="actions">
+<b>本周 3 件事</b>（A2 截止 08-16 前）：
+<ol>
+<li><b>建基线（30 min，今天）</b>：记录一次真实 Copilot/Agent 任务，统计 (a) 接受模型框架 vs 主动提方向的次数 (b) 有几次问"这样做对吗"。这是 t0 基线</li>
+<li><b>A2 北极星（15 min 写下）</b>：列出关于 Flash Attention 目前答不清的 3 个最尖锐问题。A2 未答清这 3 问不算完成</li>
+<li><b>启动 Tao-mode log（本周起）</b>：每次 agentic 会话记 1 个"本该 override 但顺从了模型"的瞬间。一周后看模式——多半集中在你对模型内部无知的地方</li>
+</ol>
+</div>
+</div>
+</section>
+
+<!-- ============ 汇总判断 ============ -->
+<section>
+<h2>📊 本周优先级总览</h2>
+<table>
+<tr><th>优先级</th><th>Proposal</th><th>本周关键动作</th><th>判定门槛</th></tr>
+<tr><td>🔴 高</td><td>#2 DSv4F 巡逻 Agent</td><td>跑 DSv4F 基线 + 改造邮件分类</td><td>准确率 ≥80% 才全自动</td></tr>
+<tr><td>🔴 高</td><td>#4 AI 验证纪律</td><td>retro 抛信号 + PR checkbox</td><td>双 KPI 防保守主义</td></tr>
+<tr><td>🔴 高</td><td>#5 CS336 A2</td><td>建 t0 基线 + 列 3 尖锐问题</td><td>A2 截止 08-16</td></tr>
+<tr><td>🟡 中</td><td>#1 CFOS 借设计</td><td>跑 starter demo + 起 RFC</td><td>5h 跑不通即归档</td></tr>
+<tr><td>🟢 低</td><td>#3 Kitesurf</td><td>最小 demo（定位试验）</td><td>仅公开内容，不碰登录态</td></tr>
+</table>
+
+<div class="thesis" style="background:linear-gradient(135deg,rgba(5,150,105,.1),rgba(45,90,74,.1));">
+<b>一句话定调</b>：上周是 Agent 平台从"概念"转向"可部署基础设施"的转折周。本周三个🔴高优先级动作的共同主题——<b>「让 AI 的效率收益变得可持续、可验证、可专业驾驭」</b>——恰好咬合 FY27 FA2「效率收益可持续可采用」的核心目标。这不是巧合，是 Readwise 信号与个人意图的共振。
+</div>
+</section>
+
+<div class="footer">
+<p>🚀 Generated by <code>my-readwise-briefing</code> v4.3 · Phase 2 深挖 Proposals · 5 subagents 并行推理（全部成功完成）</p>
+<p>每个 Proposal 含「诚实挑战」节，主动暴露漏洞 · 归档：<a href="https://liyuankui.github.io/readwise-briefing/">GitHub Pages</a></p>
+</div>
+
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  const dark = document.documentElement.classList.contains('dark');
+  btn.textContent = dark ? '☀️' : '🌙';
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
