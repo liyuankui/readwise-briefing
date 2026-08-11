@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-08-11（周二）</title>
+<style>
+  :root {
+    --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+    --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+    --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+    --accent4: #d97706; --accent5: #dc2626;
+    --warn-bg: #fef3c7; --warn-border: #d97706;
+    --danger-bg: #fee2e2; --danger-border: #dc2626;
+    --ok-bg: #d1fae5; --ok-border: #059669;
+  }
+  html.dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+    --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+    --accent4: #f59e0b; --accent5: #f87171;
+    --warn-bg: #3a2e1a; --warn-border: #f59e0b;
+    --danger-bg: #3a1a1a; --danger-border: #f87171;
+    --ok-bg: #1a3a2a; --ok-border: #34d399;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+    line-height: 1.75;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 32px 24px 80px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 16px; margin-bottom: 24px; position: relative; }
+  h1 { margin: 0 0 8px; font-size: 1.9em; color: var(--accent); }
+  .axiom { background: linear-gradient(135deg, var(--accent4), var(--accent5)); color: #fff; padding: 14px 20px; border-radius: 10px; margin: 16px 0 24px; font-weight: 700; text-align: center; font-size: 1.05em; }
+  .meta { color: var(--text3); font-size: 0.95em; }
+  #theme-toggle {
+    position: absolute; top: 0; right: 0;
+    background: var(--surface); border: 1px solid var(--border);
+    width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 18px;
+    transition: transform 0.2s;
+  }
+  #theme-toggle:hover { transform: scale(1.1); }
+  h2 { color: var(--accent2); border-left: 5px solid var(--accent2); padding-left: 12px; margin-top: 40px; font-size: 1.4em; }
+  .proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+  .proposal h3 { color: var(--accent); margin-top: 0; font-size: 1.3em; border-bottom: 1px dashed var(--border); padding-bottom: 8px; }
+  .thesis { background: var(--surface2); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 1.05em; }
+  .thesis b { color: var(--accent); }
+  .signal-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92em; }
+  .signal-table th { background: var(--surface2); color: var(--accent); text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--accent); font-size: 0.9em; }
+  .signal-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .signal-table tr:hover { background: var(--surface2); }
+  h4 { color: var(--accent2); margin-top: 22px; margin-bottom: 8px; font-size: 1.05em; }
+  .section { margin: 18px 0; }
+  .section > h4 { padding-left: 10px; border-left: 3px solid var(--accent2); }
+  ul, ol { margin: 6px 0; padding-left: 24px; }
+  li { margin: 5px 0; }
+  b, strong { color: var(--text); }
+  .milestone-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9em; }
+  .milestone-table th { background: var(--surface2); color: var(--accent); padding: 7px 8px; text-align: left; border-bottom: 2px solid var(--accent); }
+  .milestone-table td { padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .milestone-table td:first-child { font-weight: 700; color: var(--accent2); white-space: nowrap; }
+  .callout { padding: 12px 16px; border-radius: 8px; margin: 12px 0; font-size: 0.95em; }
+  .callout-warn { background: var(--warn-bg); border-left: 4px solid var(--warn-border); }
+  .callout-danger { background: var(--danger-bg); border-left: 4px solid var(--danger-border); }
+  .callout-ok { background: var(--ok-bg); border-left: 4px solid var(--ok-border); }
+  .callout b { color: inherit; }
+  .challenge { background: var(--surface2); border: 1px dashed var(--accent5); border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+  .challenge h4 { color: var(--accent5); margin-top: 0; }
+  .actions { background: var(--ok-bg); border-radius: 10px; padding: 16px 22px; margin: 14px 0; }
+  .actions h4 { color: var(--ok-border); margin-top: 0; }
+  .actions ol { margin: 6px 0 0; }
+  .actions li { margin: 10px 0; }
+  .actions li b { color: var(--ok-border); }
+  code { background: var(--surface2); padding: 1px 6px; border-radius: 3px; font-size: 0.9em; color: var(--accent4); font-family: ui-monospace,SFMono-Regular,monospace; }
+  a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+  a:hover { text-decoration: underline; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 700; margin-right: 6px; vertical-align: middle; }
+  .tag-p0 { background: rgba(220,38,38,0.15); color: var(--accent5); }
+  .tag-pg { background: rgba(99,102,241,0.15); color: var(--accent2); }
+  .tag-intent { background: rgba(45,90,74,0.15); color: var(--accent); }
+  .roi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; margin: 12px 0; }
+  .roi-card { background: var(--surface2); padding: 12px 14px; border-radius: 8px; border-top: 3px solid var(--accent3); }
+  .roi-card h5 { margin: 0 0 4px; color: var(--accent3); font-size: 0.95em; }
+  .roi-card p { margin: 0; font-size: 0.88em; color: var(--text2); }
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85em; }
+  @media (max-width: 600px) {
+    .container { padding: 20px 14px 60px; }
+    h1 { font-size: 1.4em; }
+    .milestone-table, .signal-table { font-size: 0.82em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>🎯 Readwise Proposals</h1>
+  <div class="meta">
+    2026-08-11（周二）· 2 个深挖方向 · 增量窗口 8-10 → 8-11<br>
+    所有信号已通过 Phase 1.5 独立验证（✅ Verified）
+  </div>
+</header>
+
+<div class="axiom">
+  ⚡ 不可行动的信息 = 噪音 · 信号 → 验证 → 洞察 → 行动
+</div>
+
+<h2>📡 信号 × 项目 对应</h2>
+<table class="signal-table">
+  <thead>
+    <tr><th>信号</th><th>验证</th><th>买单的 Intent</th><th>Proposal</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Stanford CS329A Self-Improving AI Agents</b><br><small>9 讲公开录像 + 官网 20 讲 syllabus</small></td>
+      <td>✅ Verified<br><small>官网+YouTube 实证；讲师头衔修正</small></td>
+      <td>CS336 · Agentic Eng · Life OS(Trust&Eval) · AI Coding Eval</td>
+      <td><b>P1</b></td>
+    </tr>
+    <tr>
+      <td><b>Shopify MySQL SKIP LOCKED 替代 Redis 库存预留</b><br><small>$5.1M/min 峰值，writer CPU&lt;50%</small></td>
+      <td>✅ Verified<br><small>Shopify Eng 官方 + HN/Reddit 多源</small></td>
+      <td>Store POS · Eng Baseline · AI Coding Eval · Order/库存</td>
+      <td><b>P2</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===================== P1 CS329A ===================== -->
+<div class="proposal">
+<h3>Proposal 1：CS329A 整合进 CS336 + Agentic/Life OS</h3>
+<span class="tag tag-intent">CS336</span>
+<span class="tag tag-intent">Agentic Eng</span>
+<span class="tag tag-intent">Life OS</span>
+<span class="tag tag-pg">seminar</span>
+
+<div class="callout callout-danger">
+  <b>⚠️ 题目预设建立在沙地上 —— 诚实修正先行。</b><br>
+  Agent 核查发现：CS336 <b>A1 已逾期 16 天</b>（截止 07-26），<code>~/Work/cs336-stanford</code> repo <b>不存在</b>，<code>PROGRESS.md</code> 全 <code>⬜ not started</code>。A2 截止 <b>08-16（5 天后）</b>。故"不打乱节奏"的前提失真——本 Proposal 的真实价值在<b>"CS329A 只许在 CS336 红灯变绿后启动"</b>。
+</div>
+
+<div class="section">
+<h4>核心主张</h4>
+<div class="thesis">
+  <b>CS329A 不与 CS336 争时，而作 Agentic Engineering + Life OS「Trust &amp; Eval」之概念骨架；其启动闸门为 CS336 A2 提交——在此之前零消费。</b> 全程音频优先 + 每讲 1 页 note，上限 1.5h/周。
+</div>
+<p>为何不并轨？CS336 是动手型 assignment 课（10h/周已满），CS329A 是论文研讨课（无 code），二者抢同一池认知预算，非互补时段。</p>
+</div>
+
+<div class="section">
+<h4>锁定痛点（具体到时间表）</h4>
+<table class="milestone-table">
+  <thead><tr><th>痛点</th><th>证据</th><th>后果</th></tr></thead>
+  <tbody>
+    <tr><td>CS336 A1 实质逾期 16 天</td><td>PROGRESS.md 全空、repo 未建</td><td>A2 (08-16) 5 天内无法承接，连锁压垮 A3-A5</td></tr>
+    <tr><td>题目预设失真</td><td>"不打乱节奏"——节奏已断</td><td>任何"并行整合"方案皆沙地筑塔</td></tr>
+    <tr><td>CS329A 与 CS336 重叠窄</td><td>仅 L6 与 A5 Alignment 相交</td><td>当"CS336 补充课"卖，货不对板</td></tr>
+    <tr><td>CS329A 与 Agentic/Life OS 重叠宽</td><td>L2/L3→Trust&Eval；L4/L5→Workflow；L13/L17→SW Factory + Eval</td><td>真正买单的是这两条 intent</td></tr>
+  </tbody>
+</table>
+<p><b>结论</b>：CS329A 的正名是"Agentic/Life OS 的学术骨架"，不是"CS336 的甜点"。定位错了，必成分心。</p>
+</div>
+
+<div class="section">
+<h4>实施里程碑（5 个，与 CS336 A2-A5 对齐）</h4>
+<table class="milestone-table">
+  <thead><tr><th>M</th><th>时窗</th><th>CS329A 内容</th><th>CS336 同期</th><th>协调点</th><th>估算</th></tr></thead>
+  <tbody>
+    <tr><td>M0</td><td>08-11~08-17</td><td><b>零消费</b>，仅收藏 playlist + syllabus</td><td>A1 收尾 + A2 冲刺</td><td><b>闸门：A2 不提交，M1 不启动</b></td><td>0h</td></tr>
+    <tr><td>M1</td><td>08-18~08-31</td><td>L1 Overview + L2 Test-Time Compute（通勤音频）</td><td>A3 Scaling (08-30)</td><td>无重叠；note 写"TTC 三范式"</td><td>2h</td></tr>
+    <tr><td>M2</td><td>09-01~09-20</td><td>L3 Robust Verification + L4 Learning from Feedback</td><td>A4 Data (09-20)</td><td><b>L3→Trust&Eval 支柱</b>，verifier 选型清单输出</td><td>3h</td></tr>
+    <tr><td>M3</td><td>09-21~10-11</td><td>L5 Planning + L6 Train-Time Scaling/RL</td><td><b>A5 Alignment (10-11)</b></td><td><b>唯一硬协同点</b>：L6 (STaR) × A5 (DPO) 互文</td><td>4h</td></tr>
+    <tr><td>M4</td><td>10-12~10-26</td><td>L7 + 选听 L13(SW Eng Agents)/L17(Agentic Eval)</td><td>博客 (10-26)</td><td>直接进博客末章"从手搓 LLM 到自改进 Agent"</td><td>3h</td></tr>
+  </tbody>
+</table>
+<p><b>总计</b>：CS329A ≈ 12h / 10 周 ≈ 1.2h/周。相对 CS336 10h/周，占比 12%——可控底线。</p>
+</div>
+
+<div class="section">
+<h4>成功标准（可测量）</h4>
+<ol>
+  <li>能口述 <b>Test-Time Compute 三范式</b>（majority voting / verifier-guided search / process reward）— taught-back 5min</li>
+  <li>产出 <b>Life OS Trust&Eval verifier 选型清单</b>（rule-based / model-based × outcome / process）— 1 页 doc</li>
+  <li>能讲清 <b>RLHF vs DPO vs RFT vs STaR 适用边界</b>（同时服务 CS336 A5）— 短文 commit</li>
+  <li>博客含一节 <b>"Self-Improving Agents 迁移到 IKEA Order/Inventory 运营"</b></li>
+</ol>
+</div>
+
+<div class="section">
+<h4>ROI / 业务影响</h4>
+<div class="roi-grid">
+  <div class="roi-card"><h5>Life OS — Trust &amp; Eval</h5><p>verifier taxonomy 直接成骨架（目前该支柱仅一句"系统知道做对了"）。对应 L2/L3</p></div>
+  <div class="roi-card"><h5>Life OS — Software Factory</h5><p>CodeMonkeys/KernelBench 参考，Agent 自主 PR 的评测基线。对应 L13</p></div>
+  <div class="roi-card"><h5>AI Coding Eval (CNODI)</h5><p>Long-Horizon Task 评测方法论（METR time-horizon）迁移；补 swe-eval 理论底。L17</p></div>
+  <div class="roi-card"><h5>FY27 FA2 效率</h5><p>Agent 自验证 → 减少人工 review 闭环；可写进 FA2 benefit story。L3/L4</p></div>
+  <div class="roi-card"><h5>AI Upskill Trainer</h5><p>新增 L4 课件素材"自改进 Agent"，补现有大纲（目前止于 prompt）</p></div>
+  <div class="roi-card"><h5>CS336 A5</h5><p>L6 RL/STaR 与 DPO 互文，加深 alignment 第一性原理</p></div>
+</div>
+</div>
+
+<div class="section">
+<h4>风险与缓解</h4>
+<table class="milestone-table">
+  <thead><tr><th>风险</th><th>等级</th><th>缓解</th></tr></thead>
+  <tbody>
+    <tr><td><b>R1（最大）：CS336 A1 已逾期，A2 在即。此刻加任何新课 = 火上浇油</b></td><td>🔴</td><td><b>M0 强制零消费</b>；全程 1.5h/周硬上限 + 音频优先；A2 不提交则 M1 不启动</td></tr>
+    <tr><td>R2：seminar 无 code，Kyle 是动手型学习者，纯看视频易滑过</td><td>🟡</td><td>每讲强制 1 页 note + taught-back（复述给 ZCode）；不产出 note 视同未看</td></tr>
+    <tr><td>R3：YouTube 只发 Part 1-6(7)，后续可能延迟</td><td>🟡</td><td>跟官网 syllabus 读论文兜底；不追 guest lectures</td></tr>
+    <tr><td>R4：intent 列表已 20+ in_progress，又一 side-quest</td><td>🟡</td><td>设退出闸：10-26 前若未产出至少 1 篇迁移到 IKEA/Life OS 的文字 → 归档</td></tr>
+    <tr><td><b>R5：SPEC 退出条件已触发</b>（连续 2 周 &lt;5h → 重评）</td><td>🔴</td><td>本周日 standup 必须直面</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="actions">
+<h4>✅ 立即行动（本周 08-11~08-17）—— 关键词：CS336 救火，CS329A 零消费</h4>
+<ol>
+  <li><b>CS336 紧急（每天 2h+）</b>：08-16 前完成 A1（BPE + Transformer + TinyStories loss&lt;4.0）收尾 + A2 至少 Flash Attention 2 Triton kernel 跑通 naive→快 3x。今天起每天 2h，周末全天。</li>
+  <li><b>CS329A 仅做 Bookmark</b>：<code>~/Work/cs336-stanford</code> 建好后，把 playlist + 官网 syllabus 存入 <code>context/areas/ai-coding/researches/</code>，不动手、不看。</li>
+  <li><b>周日 (08-17) standup 决策点</b>：若 A2 完成度 &lt;50%，触发 SPEC 退出条件审查——<b>正式决定推迟 A2 一周</b>（而非偷偷延后），并冻结 CS329A M1 至 09 月。诚实记录于 PROGRESS.md。</li>
+</ol>
+</div>
+
+<div class="challenge">
+<h4>💣 诚实挑战（主动挑漏洞）</h4>
+<ol>
+  <li><b>最致命——题目预设建立在沙地上。</b>"如何不打乱 CS336 节奏"——但节奏已断。本 Proposal 的真实价值不在"如何整合 CS329A"，而在<b>"CS329A 只许在 CS336 红灯变绿后启动"</b>。若 A2 于 08-16 再失守，应整体冻结 CS329A 至 10 月。</li>
+  <li><b>信号含未证实断言。</b>"授课教授是 MLSys 2026 Program Chair"经核未证实；实为 Aakanksha Chowdhery（PaLM lead）+ Azalia Mirhoseini（Gemini 预训练），一年内 taught twice。权威性真实，但勿因虚荣指标决策。</li>
+  <li><b>"9 讲"是公开子集，贪心必崩。</b>官网 20 讲含 Denny Zhou / Thang Luong / Misha Laskin 等 guest。本 Proposal 限定公开 9 讲 + M4 选听 2 讲 = 11 讲。守边界是底线。</li>
+  <li><b>是否又一 side-quest？</b>Intent 列表已 20+ in_progress。CS329A 唯一正当性 = 它<b>同时喂养 Agentic + Life OS 两条已存 intent</b>。10-26 前无迁移文字 → 归档。</li>
+  <li><b>"音频优先"可能是自欺。</b>通勤听讲座若无主动 recall，留存 &lt;10%。强制 taught-back（成功标准 1/3）是承重柱；不愿 taught-back 不如不听。</li>
+</ol>
+</div>
+
+<p style="color:var(--text3);font-size:0.88em;">📁 关键文件：<code>workspace/stanford-cs336/PROGRESS.md</code>（全 not started）· <code>SPEC.md</code>（退出条件）· <code>~/Work/cs336-stanford/</code>（当前不存在，需建）</p>
+</div>
+
+<!-- ===================== P2 Shopify ===================== -->
+<div class="proposal">
+<h3>Proposal 2：Shopify SKIP LOCKED 洞察 → IKEA MPC 迁移</h3>
+<span class="tag tag-intent">Store POS</span>
+<span class="tag tag-intent">Eng Baseline</span>
+<span class="tag tag-intent">AI Coding Eval</span>
+<span class="tag tag-pg">PostgreSQL</span>
+
+<div class="section">
+<h4>核心主张</h4>
+<div class="thesis">
+  <b>不要照搬"一行一单位"——那可能是过度工程化。真正可迁移的是三件可立刻产生价值的东西：</b><br>
+  ① 一个 PG 版的 SKIP LOCKED 并发预留范式（PG 比 MySQL 更干净，无 gap lock 坑）；<br>
+  ② 把 Shopify 的"瓶颈不在预期处"反教训变成 MPC 的诊断 checklist（连接池/PosLog 同步路径）；<br>
+  ③ 把这份 Shopify → PG → MPC 的迁移推演本身，做成 AI Coding Eval 的高信号 judge case。
+</div>
+<p style="font-size:0.9em;color:var(--text2);"><b>诚实版</b>：Shopify 的 schema 设计是否适用，取决于 IKEA 库存模型是不是"离散可售单位"型——这点<b>现在不确定</b>，§诚实挑战 详述。</p>
+</div>
+
+<div class="section">
+<h4>锁定痛点（三个候选，推荐 A）</h4>
+<table class="milestone-table">
+  <thead><tr><th>候选场景</th><th>匹配度</th><th>现实依据</th><th>本周可验证</th></tr></thead>
+  <tbody>
+    <tr><td><b>A. C&amp;C 订单结算的并发防超卖</b>（高并发收银）</td><td>🟢 最高</td><td>C&amp;C 结算 2MM；全国 rollout 后同一商场多台 ECO 机台并发；POS Phase 2 是新代码，无历史包袱</td><td>是</td></tr>
+    <tr><td>B. 退单退库存的幂等/并发</td><td>🟡 中</td><td>0.5MM 但 fragile；退款合规会议要简化二次操作 → 并发简化后更易撞</td><td>是</td></tr>
+    <tr><td>C. 叠券计价</td><td>🔴 低</td><td>计价是价格计算，非库存争用；SKIP LOCKED 不解决</td><td>—</td></tr>
+  </tbody>
+</table>
+<p><b>推荐锁定 A（C&amp;C 防超卖）</b>。理由：新代码<b>现在介入成本最低</b>；并发曲线随 rollout 陡增（latent 风险）；C 的痛点在 SPE/计价引擎，不在 Kyle 主控路径。</p>
+<p style="font-size:0.88em;color:var(--accent4);"><b>反诚实提醒</b>：A 现在可能并不痛。试点 3 家门店、每店几台机，QPS 低到看不见。<b>SKIP LOCKED 的价值只在 rollout 后兑现</b>——这正是"工程基线"而非"救火"的定位。</p>
+</div>
+
+<div class="callout callout-warn">
+  <b>🔑 PG vs MySQL 诚实处理（不可跳过）—— 这是 Proposal 严谨性的命门</b>
+  <table class="milestone-table" style="margin-top:10px;">
+    <thead><tr><th>Shopify（MySQL）坑</th><th>PG 是否同样有</th><th>IKEA 该怎么做</th></tr></thead>
+    <tbody>
+      <tr><td>REPEATABLE READ 下 gap lock（含 supremum）阻塞补货→死锁</td><td>❌ <b>PG 无 gap lock</b>（MVCC，默认 READ COMMITTED）</td><td>PG 不用为这个降级隔离；保持默认</td></tr>
+      <tr><td>自增主键→双索引双锁</td><td>⚠️ PG 用 heap 表，但 secondary index 仍可能二次锁</td><td>复合主键思路可借鉴，但动机不同（索引选择性）</td></tr>
+      <tr><td>SKIP LOCKED 跳过被锁行</td><td>✅ PG 9.5+ 同语义，官方明确推荐</td><td>直接可用</td></tr>
+      <tr><td>inline 补货防惊群</td><td>✅ 通用模式</td><td>直接可用</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;"><b>结论</b>：PG 比 Shopify 的 MySQL 路径<b>更简单</b>——不需要隔离降级 hack。但"一行一单位 vs 数量列"的 schema 抉择<b>与 DB 无关</b>，取决于业务模型。</p>
+  <p style="margin:4px 0 0;font-style:italic;color:var(--accent4);">MySQL 之坑（gap lock、supremum），PG 无之；MySQL 之巧（SKIP LOCKED、inline 补货），PG 亦有之。故迁移之难，不在 DB，在业务模型。</p>
+</div>
+
+<div class="section">
+<h4>实施里程碑（5 个）</h4>
+<table class="milestone-table">
+  <thead><tr><th>M</th><th>里程碑</th><th>时长</th><th>产出</th><th>谁做</th></tr></thead>
+  <tbody>
+    <tr><td>M1</td><td><b>现状测绘</b>：C&amp;C 库存扣减路径的实际锁模型</td><td>3 天</td><td>时序图：POS→Order Hub→MHS/DL→DB；标出所有锁点</td><td>Kyle + 1 SSE</td></tr>
+    <tr><td>M2</td><td><b>PG 并发 PoC</b>：SKIP LOCKED vs 现状的 bench</td><td>1 周</td><td>可运行 PG benchmark（pgbench+JMH），吞吐/p99/死锁数；<b>含反例测试</b>（连接耗尽）</td><td>Kyle pair 1 工程师</td></tr>
+    <tr><td>M3</td><td><b>ADR</b>（Architecture Decision Record）</td><td>2 天</td><td>选/不选 SKIP LOCKED 理由；触发条件（rollout N 家/QPS&gt;X）；与 MHS/DL 团队对齐</td><td>Kyle</td></tr>
+    <tr><td>M4</td><td><b>嵌入 Phase 2</b>：C&amp;C 结算新代码预留扩展点</td><td>随 Phase 2</td><td><code>InventoryReserver</code> 接口边界，默认走 MHS，未来可替换本地池</td><td>SSE 团队</td></tr>
+    <tr><td>M5</td><td><b>反哺 AI Coding Eval</b>：M2 PoC 做成 judge case</td><td>3 天</td><td>swe-eval case：Shopify 博客 + MPC 代码快照 + PG 文档 → model 产迁移方案</td><td>Kyle + swe-eval-builder</td></tr>
+  </tbody>
+</table>
+<p><b>总时长</b>：约 3 周（与 Phase 2 FY26 Sprint 24 启动节奏并行）。</p>
+</div>
+
+<div class="section">
+<h4>成功标准（可测量）</h4>
+<table class="milestone-table">
+  <thead><tr><th>层</th><th>指标</th><th>目标</th></tr></thead>
+  <tbody>
+    <tr><td>工程</td><td>M2 bench：PG SKIP LOCKED vs 现状</td><td>100 并发下吞吐 ≥ 2×，p99 ≤ 50ms，0 死锁</td></tr>
+    <tr><td>工程</td><td>反例测试：连接池 80% 时系统行为</td><td>文档化失败模式 + 缓解，非"CPU 低就没事"</td></tr>
+    <tr><td>基线</td><td>ADR 通过 Architecture Review</td><td>1 份 signed-off ADR 入 <code>context/decision/</code></td></tr>
+    <tr><td>基线</td><td>团队普及：能讲清 PG vs MySQL 差异的工程师数</td><td>≥ 3 人（团队 11 人，目标 27%）</td></tr>
+    <tr><td>Eval</td><td>M5 case 进入 swe-eval pool</td><td>1 个 judge case，quality gate 通过</td></tr>
+    <tr><td>业务（滞后）</td><td>rollout 后 3 月内 C&amp;C 因库存争用的事故数</td><td>0（基线对照需 M1 给出）</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="section">
+<h4>ROI / 业务影响（三维）</h4>
+<div class="roi-grid">
+  <div class="roi-card"><h5>POS Phase 2</h5><p>防 rollout 并发事故；降低 MHS/DL 依赖耦合（DL 是 24-week effort）；新代码工程基线</p></div>
+  <div class="roi-card"><h5>Engineering Baseline <b>（最强杠杆）</b></h5><p>本案天然是"把技术成就 translate 到 Business Impact"的 reference implementation。bench 数字+ADR+反例测试 = 晋升 case 硬证据。建议归档 <code>workspace/engineering-baseline/</code></p></div>
+  <div class="roi-card"><h5>AI Coding Eval <b>（当前最稀缺）</b></h5><p>STATUS.md 明确 judge_only 占 96%、急需真实企业 case。本案<b>本周就能产生价值</b>——PG vs MySQL 并发语义差异是 model 盲区，正好测推理</p></div>
+</div>
+</div>
+
+<div class="section">
+<h4>风险与缓解</h4>
+<table class="milestone-table">
+  <thead><tr><th>风险</th><th>等级</th><th>缓解</th></tr></thead>
+  <tbody>
+    <tr><td>PG vs MySQL 差异被误用（团队照抄 MySQL 解法）</td><td>🟡</td><td>PG 对照表写进 ADR；M2 bench 硬验证</td></tr>
+    <tr><td><b>IKEA 库存系统耦合度（MHS/DL 不在 Kyle 手里）</b></td><td>🔴</td><td>M1 先画清边界；C&amp;C 本地池作 MHS <b>前置缓存层</b>而非替代</td></tr>
+    <tr><td>过度工程化（试点 QPS 太低，3 周投入打水漂）</td><td>🟡</td><td>M3 ADR 明确触发条件；M4 只做接口预留</td></tr>
+    <tr><td>团队接受度（"为什么为没发生的问题花时间"）</td><td>🟡</td><td>用 $5.1M/min 数字 + 反教训叙事建立紧迫感；pair 而非指派</td></tr>
+    <tr><td>Global 团队抵触本地库存池</td><td>🟡</td><td>定位为"DL 延期降级方案"，非长期架构；ADR 抄送 Sara Widmark</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="actions">
+<h4>✅ 立即行动（本周内 3 件事）—— 皆可在退款合规会议和 Sprint 24 启动前完成</h4>
+<ol>
+  <li><b>30 分钟 M1 启动</b>：画 C&amp;C 订单从 POS 到库存扣减的时序图，标出所有锁点。产出 <code>workspace/store-pos-modernization/20260811-inventory-concurrency-mapping.md</code>。<b>目标：回答离散 vs 数量模型问题</b>。</li>
+  <li><b>建 PG PoC 骨架</b>：Docker 起 PG，2 个表（一行一单位 vs 数量列），跑 <code>pgbench</code> 压并发。代码放 <code>~/Work/pg-skip-locked-poc/</code>（遵守 File Placement）。<b>必含反例</b>：连接池打到 80%，复现"瓶颈不在预期处"。</li>
+  <li><b>写 ADR 草案</b>（即使 M1/M2 未完成）：标题 <code>ADR: C&amp;C Inventory Reservation Concurrency Strategy</code>，先写 PG vs MySQL 对照表 + 诚实挑战。归档 <code>context/decision/</code>。<b>这份草案本身就是退款合规会议的输入</b>。</li>
+</ol>
+</div>
+
+<div class="challenge">
+<h4>💣 诚实挑战（主动挑漏洞）</h4>
+<ol>
+  <li><b>这是不是"别人家的故事"？</b>部分是。Shopify 的"一行一单位"成立前提：单一品类、单一仓库、1000/品/仓能覆盖峰值、checkout 链路自己 own。IKEA 库存走 FMS/iSell/MHS/DL 多系统，<b> Kyle 不 own 库存本体</b>；Demand Ledger 24-week effort 说明 Global 在重写，<b>现在加本地池可能建在流沙上</b>。<b>诚实结论</b>：不要复刻全量 schema，<b>只在 C&amp;C 这一层</b>（Kyle 主控新代码、DL 边界之外）做本地预留池。</li>
+  <li><b>IKEA 库存模型是不是"一行一单位"型？</b><b>不确定</b>。三种可能（离散 / 数量列 / 混合）。→ <b>M1 第一个 deliverable 就是回答这个问题。回答前不写任何代码。</b></li>
+  <li><b>会不会是过度工程化？</b>会，如果直接进 M4 实现。<b>所以 M4 只做接口预留</b>（<code>InventoryReserver</code> 抽象），默认走 MHS。把下行风险限制在 1 个接口的成本。</li>
+</ol>
+</div>
+
+<p style="color:var(--text3);font-size:0.88em;">📁 关键文件：<code>workspace/store-pos-modernization/</code> · <code>workspace/ai-coding-eval/STATUS.md</code>（judge_only 96%）· <code>workspace/engineering-baseline/</code> · PG 隔离语义：PostgreSQL 官方文档 §13.2.1 + The Locking Clause</p>
+</div>
+
+<footer>
+  Generated by my-readwise-briefing skill v4.3 · 2026-08-11 · 2 Proposals via parallel subagents<br>
+  公理：不可行动的信息 = 噪音 · 每个 Proposal 含"诚实挑战"——主动挑自己的漏洞
+</footer>
+
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('rw-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('rw-theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

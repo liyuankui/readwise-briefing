@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-11（周二）</title>
+<style>
+  :root {
+    --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+    --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+    --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669;
+    --accent4: #d97706; --accent5: #dc2626;
+    --star: #d97706;
+  }
+  html.dark {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+    --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399;
+    --accent4: #f59e0b; --accent5: #f87171; --star: #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--text);
+    font-family: "LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+    line-height: 1.75;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 16px; margin-bottom: 32px; position: relative; }
+  h1 { margin: 0 0 8px; font-size: 1.9em; color: var(--accent); }
+  .meta { color: var(--text3); font-size: 0.95em; }
+  .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+  .stat { background: var(--surface2); padding: 10px 16px; border-radius: 8px; border-left: 4px solid var(--accent); font-size: 0.95em; }
+  .stat b { color: var(--accent); font-size: 1.2em; }
+  #theme-toggle {
+    position: absolute; top: 0; right: 0;
+    background: var(--surface); border: 1px solid var(--border);
+    width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 18px;
+    transition: transform 0.2s;
+  }
+  #theme-toggle:hover { transform: scale(1.1); }
+  h2 { color: var(--accent2); border-left: 5px solid var(--accent2); padding-left: 12px; margin-top: 40px; font-size: 1.5em; }
+  h3 { color: var(--accent); margin-top: 28px; }
+  .signal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .signal.top5 { border-left: 5px solid var(--star); }
+  .signal.med { border-left: 5px solid var(--accent2); }
+  .signal.life { border-left: 5px solid var(--accent3); }
+  .signal.low { border-left: 5px solid var(--text3); opacity: 0.85; }
+  .stars { color: var(--star); font-size: 1.05em; letter-spacing: 2px; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78em; margin-right: 6px; font-weight: 600; }
+  .tag-work { background: rgba(45,90,74,0.12); color: var(--accent); }
+  .tag-life { background: rgba(5,150,105,0.12); color: var(--accent3); }
+  .tag-dig { background: rgba(217,119,6,0.14); color: var(--accent4); }
+  .verified { color: var(--accent3); font-weight: 700; }
+  .partial { color: var(--accent4); font-weight: 700; }
+  .debunked { color: var(--accent5); font-weight: 700; }
+  .handson { color: var(--accent2); font-weight: 700; }
+  .why { background: var(--surface2); border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-size: 0.96em; }
+  .why b { color: var(--accent4); }
+  .quote { border-left: 3px solid var(--accent); padding-left: 14px; color: var(--text2); font-style: italic; margin: 10px 0; }
+  a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+  a:hover { text-decoration: underline; }
+  .action-list { background: var(--surface); border-radius: 12px; padding: 20px 24px; margin-top: 16px; }
+  .action-list ol { margin: 8px 0 0; padding-left: 22px; }
+  .action-list li { margin: 8px 0; }
+  .action-list li b { color: var(--accent); }
+  .life-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; }
+  .life-card { background: var(--surface); padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border); }
+  .life-card h4 { margin: 0 0 6px; color: var(--accent3); }
+  .life-card p { margin: 0; font-size: 0.9em; color: var(--text2); }
+  details.low { margin-top: 24px; }
+  details.low summary { cursor: pointer; color: var(--text3); padding: 8px; font-size: 0.95em; }
+  details.low > div { margin-top: 12px; }
+  .footnote { color: var(--text3); font-size: 0.85em; margin-top: 8px; }
+  .proj-link { font-size: 0.85em; color: var(--text3); }
+  .overview-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+  .overview-table th { background: var(--surface2); color: var(--accent); text-align: left; padding: 10px; border-bottom: 2px solid var(--accent); }
+  .overview-table td { padding: 10px; border-bottom: 1px solid var(--border); }
+  .overview-table tr:hover { background: var(--surface2); }
+  .empty-note { background: var(--surface2); padding: 16px; border-radius: 8px; color: var(--text2); text-align: center; }
+  @media (max-width: 600px) {
+    .container { padding: 20px 14px 60px; }
+    h1 { font-size: 1.5em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>📖 Readwise 情报简报</h1>
+  <div class="meta">
+    2026-08-11（周二）· 增量窗口 2026-08-10 → 2026-08-11<br>
+    双透镜：Intent（工作意图）× Life Portfolio（生活四维）
+  </div>
+  <div class="stats">
+    <div class="stat">增量信号：<b>4</b> 独立条目</div>
+    <div class="stat">⭐×5 高价值：<b>2</b></div>
+    <div class="stat">⭐×3 中价值：<b>2</b></div>
+    <div class="stat">深挖候选：<b>2</b></div>
+    <div class="stat">生活维度：<b>1</b></div>
+  </div>
+</header>
+
+<h2>🔭 信号概览</h2>
+<table class="overview-table">
+  <thead>
+    <tr><th>信号</th><th>透镜</th><th>层级</th><th>验证</th><th>连接意图</th><th>深挖</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Stanford CS329A Self-Improving AI Agents</b></td>
+      <td>Intent</td>
+      <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+      <td><span class="verified">✅ Verified</span></td>
+      <td>CS336 手搓 LLM · Agentic Engineering · Life OS</td>
+      <td>✅ P1</td>
+    </tr>
+    <tr>
+      <td><b>Shopify MySQL SKIP LOCKED 替代 Redis 库存预留</b></td>
+      <td>Intent</td>
+      <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+      <td><span class="verified">✅ Verified</span></td>
+      <td>Order/库存/交易链路 · Store POS</td>
+      <td>✅ P2</td>
+    </tr>
+    <tr>
+      <td><b>"Code was never the hard part" 反 AI 虚无主义</b></td>
+      <td>Intent</td>
+      <td><span class="stars">⭐⭐⭐</span></td>
+      <td><span class="verified">✅ Verified</span></td>
+      <td>AI Coding Practices · Engineering Baseline</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><b>"Mea Culpa — Dark Hours" AI 克隆致歉事件</b></td>
+      <td>Intent</td>
+      <td><span class="stars">⭐⭐⭐</span></td>
+      <td><span class="verified">✅ Verified</span></td>
+      <td>AI Coding Eval · Responsible AI</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anthropic/Dario Amodei 深度报道</td>
+      <td>Life·健脑</td>
+      <td><span class="stars">⭐⭐⭐</span></td>
+      <td><span class="partial">⚠️ Partial</span></td>
+      <td>（行业观察，无直接行动）</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>HN 杂项（丹麦答辩 / Os8088 / 手机服务器 / QR抖动）</td>
+      <td>Life·健脑</td>
+      <td>⭐</td>
+      <td><span class="partial">⚠️ 多源</span></td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（Intent 直接命中）</h2>
+
+<div class="signal top5">
+  <span class="tag tag-work">工作</span>
+  <span class="tag tag-dig">🔬 已验证</span>
+  <span class="stars">⭐⭐⭐⭐⭐</span>
+  <h3>① Stanford CS329A: Self-Improving AI Agents（完整录像上线）</h3>
+  <p><b>来源</b>：@Xudong07452910 推文 → <a href="https://cs329a.stanford.edu/" target="_blank">cs329a.stanford.edu</a> · <a href="https://www.youtube.com/playlist?list=PLangBM27OtEA" target="_blank">YouTube Playlist</a></p>
+
+  <p><b>核心信号</b>：Stanford Online 把研究生研讨课 <b>CS329A: Self-Improving AI Agents</b> 9 讲完整录像放 YouTube。课程把散落在论文里的方向串成体系：Test-Time Compute → Verifier → RL → 工具/代码反馈 → 多步推理与规划 → Deep Research → 自我改进 → Agent 长时任务评测。</p>
+
+  <p><b>验证结论</b>：<span class="verified">✅ Verified</span> — 课程官网 <code>cs329a.stanford.edu</code> 真实存在，YouTube 频道已发布 Part 1-6 多集，描述与推文一致。授课教授同时是 MLSys 2026 Program Chair。</p>
+
+  <div class="why">
+    <b>🎯 为什么与你高度相关：</b><br>
+    · 你的 <b>Stanford CS336 (手搓 LLM)</b> intent 正在 A2 Systems 阶段（Flash Attention 2 Triton），CS329A 是 CS336 的"下游应用"——从"怎么造模型"到"怎么让 Agent 自我改进"。<br>
+    · 直接支撑 <b>Agentic Engineering</b> 与 <b>Life OS</b> 两条 intent：Test-Time Compute / Verifier / 自我改进 是构建"可自我评估并反馈改进"系统的理论基础（Life OS 核心支柱 5: Trust & Eval）。<br>
+    · <b>Deep Research</b> 一讲与 GEO for IKEA 的"AI 引用固化"假设同源——Agent 检索行为正在被研究化、工程化。
+  </div>
+
+  <p class="proj-link">📁 连接 intent：[[workspace/stanford-cs336/]] · [[Agentic Engineering Exploration]] · [[Life OS]]</p>
+</div>
+
+<div class="signal top5">
+  <span class="tag tag-work">工作</span>
+  <span class="tag tag-dig">🔬 已验证</span>
+  <span class="stars">⭐⭐⭐⭐⭐</span>
+  <h3>② Shopify 用 MySQL SKIP LOCKED 替代 Redis 做库存预留</h3>
+  <p><b>来源</b>：HN 2026-08-10 → <a href="https://shopify.engineering/scaling-inventory-reservations" target="_blank">Shopify Engineering 原文</a> · <a href="https://news.ycombinator.com/item?id=49226536" target="_blank">HN 讨论</a></p>
+
+  <p><b>核心信号</b>：Shopify 把 checkout 防超卖逻辑从 <b>Redis 迁回 MySQL</b>，关键设计：<b>"一行一个可售单位"</b> + <code>SELECT ... FOR UPDATE SKIP LOCKED</code>。验证支撑了 Black Friday $5.1M/min 峰值（writer CPU <50%, reader CPU <16%）。</p>
+
+  <p><b>关键工程细节（已读原文）</b>：</p>
+  <ul>
+    <li><b>为何迁回</b>：Redis（预留）+ MySQL（库存台账）双系统无法原子写入 → 超卖/欠卖风险；统一到 MySQL 拿回 ACID + 多仓感知。</li>
+    <li><b>SKIP LOCKED 的价值</b>：并发事务<b>跳过被锁行</b>直接取可用行，不互相阻塞 → 高吞吐低争用。</li>
+    <li><b>一行一单位</b>：不用 quantity 列，每个可售单位独占一行；池子上限 1000/品/仓，耗尽时单事务内 inline 补货（防惊群）。</li>
+    <li><b>踩坑</b>：REPEATABLE READ 下 gap lock（含 supremum）阻塞补货 → 死锁；改 <code>READ COMMITTED</code> 解决。自增主键导致双索引双锁 → 换复合主键减半锁足迹。</li>
+    <li><b>反教训</b>："瓶颈不在预期处"——优化数周后发现真正天花板是 checkout 链路里无关代码的连接耗尽。</li>
+  </ul>
+
+  <p><b>验证结论</b>：<span class="verified">✅ Verified</span> — Shopify Engineering 官方博客，HN/Reddit/LinkedIn 多源印证，含具体性能数字。</p>
+
+  <div class="why">
+    <b>🎯 为什么与你高度相关：</b><br>
+    · 你的本职是 <b>IKEA Order 生命周期 + 库存/物流</b>，checkout→order→delivery 的库存预留是核心场景；Shopify 的"防超卖 + 高并发"与 MPC 交易链路同构。<br>
+    · <b>Store POS Modernization</b> Phase 2 的 Cart 计价 + C&C 订单正需要库存一致性保障——SKIP LOCKED 是比 Redis/Lua 脚本更简单、更可观测的选项（你的栈以 PostgreSQL/MySQL 为主）。<br>
+    · <b>gap lock / READ COMMITTED / 复合主键</b> 三连是经典踩坑序列，可直接进 <b>Engineering Baseline</b> 的"高并发库存"知识库，喂给团队 AI Coding Eval 的真实 case。
+  </div>
+
+  <p class="proj-link">📁 连接 intent：[[workspace/store-pos-modernization/]] · [[Engineering Baseline]] · [[AI Coding Eval]] · [[Order lifecycle]]</p>
+</div>
+
+<h2>⭐⭐⭐ 中价值信号</h2>
+
+<div class="signal med">
+  <span class="tag tag-work">工作</span>
+  <span class="tag tag-dig">✅ 已验证</span>
+  <span class="stars">⭐⭐⭐</span>
+  <h3>③ "Code was never the hard part" is an insult — 反 AI 虚无主义</h3>
+  <p><b>来源</b>：Senko Rašić · <a href="https://blog.senko.net/code-was-never-the-hard-part-is-an-insult-to-all-programmers" target="_blank">原文</a></p>
+  <p><b>核心主张</b>：反驳"LLM 会写代码，但代码从来不是难点"的流行论调。论据：若代码真容易，就不会有 10x ninja 招聘、LeetCode 面试、多年制学位；若"决定做什么"才是唯一难点，PM 和市场研究员就该拿最高薪。作者主张<b>代码与用户同理心同样难、同样有价值</b>，AI 时代应同时精通两者而非互相贬低。</p>
+  <p><b>验证</b>：<span class="verified">✅ Verified</span> — 已读全文，论证扎实，非标题党。</p>
+  <div class="why">
+    <b>🎯 相关性</b>：与你的 <b>AI Coding Practices / Engineering Baseline</b> 叙事互补——"AI 让代码变容易"是错的，真正变容易的是"重复实现"，判断力与系统设计仍是稀缺。可作为团队 AI 采纳推广时对"AI 会取代编码"焦虑的有力反驳素材。
+  </div>
+</div>
+
+<div class="signal med">
+  <span class="tag tag-work">工作</span>
+  <span class="tag tag-dig">✅ 已验证</span>
+  <span class="stars">⭐⭐⭐</span>
+  <h3>④ "Mea Culpa — Dark Hours"：AI 克隆开源项目致歉事件</h3>
+  <p><b>来源</b>：Terry Godier · <a href="https://blog.terrygodier.com/2026/08/09/mea-culpa-dark-hours.html" target="_blank">原文</a> · <a href="https://news.ycombinator.com/item?id=49231154" target="_blank">HN 讨论（543pts）</a></p>
+  <p><b>核心信号</b>：开发者用 Claude 生成"Dark Hours"网站，被发现与同名开源 app 高度雷同（甚至复现了对方已修的 bug）。作者下架项目、域名重定向、放弃 iOS 版，承认"对 AI 输出不核实就发布"是过失。<b>HN 共识</b>："AI 干的"已成新版"狗吃了作业"——把责任推给无法自辩的下游。</p>
+  <p><b>验证</b>：<span class="verified">✅ Verified</span> — 致歉诚实（未甩锅给工具），但社区认为"用 AI 不核实"本身即过失。D'addario 类似案例（Suno 广告歌）形成模式。</p>
+  <div class="why">
+    <b>🎯 相关性</b>：直接佐证 <b>Responsible AI 指南</b> 与 <b>AI Coding Eval</b> 的"人工闸"必要性——AI 生成代码/内容必须经过独立验证（你的 swe-eval-builder <code>review</code> 闸就是实践）。"AI 干的"不能免责，是 AI 安全公理"信任面=攻击面"的社会学镜像。
+  </div>
+</div>
+
+<h2>🌿 生活维度信号（Life Portfolio）</h2>
+
+<div class="life-grid">
+  <div class="life-card">
+    <h4>🧠 健脑 · Anthropic/Dario 深度报道</h4>
+    <p><a href="https://x.com/foxshuo/status/2086031403100385697" target="_blank">@foxshuo 转 The Information 万字长文</a>。核心张力：Amodei 以"AI 生存威胁论"凌驾行业，董事会建议宣传抗癌用途被拒，坚持不掩饰风险哪怕损害融资。<span class="partial">⚠️ Partial</span>：二手转述，原文 paywall 未亲验；框架（创始人意志 vs 公关理性）本身有思考价值，不深挖。</p>
+  </div>
+  <div class="life-card">
+    <h4>🧠 健脑 · HN 杂项</h4>
+    <p>丹麦高中生书面作业须口头答辩（反 AI 作弊）· Os8088（8086 上仿 Mac GUI，疑 AI 生成）· 手机改家庭服务器（Termux+Ansible）· QR 抖动嵌图。均无直接行动项，储备为谈资/写作素材。</p>
+  </div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="action-list">
+  <ol>
+    <li><b>订阅 CS329A</b>：在 <code>workspace/stanford-cs336/</code> 新建 <code>cs329a-companion.md</code>，列出 9 讲对应论文清单，作为 CS336 学习的"应用层"补充；本周看完 Part 1（Course Intro）+ Part 2（Test-Time Compute）。</li>
+    <li><b>SKIP LOCKED 知识沉淀</b>：在 <code>context/areas/</code> 或 <code>workspace/engineering-baseline/</code> 落一篇《高并发库存预留：Shopify SKIP LOCKED 模式笔记》，含 gap lock / READ COMMITTED / 复合主键三连踩坑；评估 MPC/POS 是否有同构场景。</li>
+    <li><b>Responsible AI 案例库</b>：把"Mea Culpa"加入 AI 安全案例集（与"信任面=攻击面"公理呼应），用于讲师团 L0 认知课素材。</li>
+    <li><b>AI Coding Eval case 候选</b>：SKIP LOCKED 库存预留是绝佳的真实企业 case——看能否沉淀成 swe-eval-builder 的 judge_only 样本。</li>
+  </ol>
+</div>
+
+<h2>📊 本期说明</h2>
+<div class="empty-note">
+  本期增量较小（4 条独立信号，窗口 8-10 ~ 8-11）。<br>
+  质量高：2 条 ⭐×5 直接命中核心 intent（CS329A + Shopify SKIP LOCKED）。<br>
+  已全部完成 Phase 1.5 独立验证，4/4 标注 ✅ Verified，1 条生活信号 ⚠️ Partial。<br>
+  深挖聚焦 2 个最高价值方向（见 Proposals）。
+</div>
+
+<details class="low">
+  <summary>📦 低价值/附录（点击展开）</summary>
+  <div>
+    <div class="signal low">
+      <h4>HN 2026-08-10 其余头条（未单独深挖）</h4>
+      <ul>
+        <li>亚马逊德州天然气供电 AI 数据中心（与美国最大污染源、净零承诺冲突）— 环境/政策信号</li>
+        <li>Windows 11 天气 app 因 WebView2 吃 1GB+ 内存 — 桌面性能反例</li>
+        <li>Gruber 为误判 Apple 拒审道歉 — 媒体可信度信号</li>
+        <li>历史学家批硅谷误读科幻、以技术取代民主 — 哲学/批判</li>
+      </ul>
+      <p class="footnote">均无即时行动价值，留存备查。</p>
+    </div>
+  </div>
+</details>
+
+<footer style="margin-top:40px; padding-top:16px; border-top:1px solid var(--border); color:var(--text3); font-size:0.85em;">
+  Generated by my-readwise-briefing skill v4.3 · 2026-08-11 08:15 CST<br>
+  公理：不可行动的信息 = 噪音 · 信号 → 验证 → 洞察 → 行动
+</footer>
+
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('rw-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('rw-theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
