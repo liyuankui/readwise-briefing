@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-12</title>
+<style>
+  :root{
+    --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df;
+    --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880;
+    --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626;
+    --star:#d97706;
+  }
+  html.dark{
+    --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247;
+    --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b;
+    --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171;
+    --star:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+    line-height:1.75; padding:24px 16px 80px;
+    transition:background .25s, color .25s;
+  }
+  .wrap{max-width:920px; margin:0 auto}
+  header.hero{
+    background:linear-gradient(135deg,var(--surface),var(--surface2));
+    border:1px solid var(--border); border-radius:16px; padding:28px 28px 22px; margin-bottom:22px;
+    position:relative;
+  }
+  header.hero h1{margin:0 0 4px; font-size:1.55rem; letter-spacing:.5px}
+  header.hero .sub{color:var(--text2); font-size:.92rem}
+  .stats{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+  .chip{
+    background:var(--surface2); border:1px solid var(--border); border-radius:999px;
+    padding:6px 14px; font-size:.82rem; color:var(--text2);
+  }
+  .chip b{color:var(--accent); font-weight:700}
+  #theme-toggle{
+    position:absolute; top:20px; right:20px; cursor:pointer; border:1px solid var(--border);
+    background:var(--surface); color:var(--text); border-radius:10px; padding:6px 10px; font-size:1rem;
+  }
+  .axiom{
+    background:var(--surface2); border-left:4px solid var(--accent2); color:var(--text2);
+    padding:12px 16px; border-radius:8px; font-size:.9rem; margin-bottom:22px;
+  }
+  section{margin-bottom:30px}
+  h2{
+    font-size:1.18rem; margin:0 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border);
+    display:flex; align-items:center; gap:8px;
+  }
+  h2 .bar{width:4px; height:18px; background:var(--accent); border-radius:2px; display:inline-block}
+  table{width:100%; border-collapse:collapse; font-size:.9rem; margin-bottom:8px}
+  th,td{padding:9px 10px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top}
+  th{color:var(--text3); font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.4px}
+  td a{color:var(--accent2); text-decoration:none; word-break:break-all}
+  td a:hover{text-decoration:underline}
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:18px 20px; margin-bottom:14px;
+  }
+  .card .title{font-size:1.02rem; font-weight:700; margin-bottom:4px; display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+  .stars{color:var(--star); letter-spacing:1px; font-size:.85rem}
+  .badge{
+    display:inline-block; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:6px; letter-spacing:.3px;
+  }
+  .b-v{background:rgba(5,150,105,.14); color:var(--accent3)}
+  .b-p{background:rgba(217,119,6,.16); color:var(--accent4)}
+  .b-d{background:rgba(220,38,38,.14); color:var(--accent5)}
+  .b-h{background:rgba(99,102,241,.16); color:var(--accent2)}
+  .why{
+    background:var(--surface2); border-radius:8px; padding:10px 14px; margin-top:10px;
+    font-size:.88rem; color:var(--text2);
+  }
+  .why::before{content:"🎯 为什么相关 · "; color:var(--accent); font-weight:700}
+  .meta{color:var(--text3); font-size:.8rem; margin-top:6px}
+  .tags{margin-top:8px}
+  .tag{
+    display:inline-block; font-size:.74rem; padding:2px 9px; border-radius:999px;
+    background:var(--surface2); color:var(--text2); border:1px solid var(--border); margin-right:5px;
+  }
+  .life-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px}
+  .life-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px;
+  }
+  .life-card .h{font-weight:700; margin-bottom:6px; font-size:.95rem}
+  .life-card .d{font-size:.85rem; color:var(--text2)}
+  .actionlist{list-style:none; padding:0; margin:0}
+  .actionlist li{
+    padding:10px 14px; background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent3);
+    border-radius:8px; margin-bottom:8px; font-size:.9rem;
+  }
+  .actionlist li b{color:var(--accent3)}
+  details{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:6px 16px}
+  details summary{cursor:pointer; padding:8px 0; color:var(--text2); font-size:.88rem}
+  details[open] summary{padding-bottom:10px; border-bottom:1px solid var(--border); margin-bottom:8px}
+  .low-item{font-size:.84rem; color:var(--text3); padding:6px 0; border-bottom:1px dashed var(--border)}
+  .skip-note{font-size:.82rem; color:var(--text3); font-style:italic; padding:8px 0}
+  footer{color:var(--text3); font-size:.78rem; text-align:center; margin-top:36px; line-height:1.6}
+  .prop-link{color:var(--accent2); font-size:.78rem; text-decoration:none}
+  .prop-link:hover{text-decoration:underline}
+  @media(max-width:600px){ header.hero{padding:22px 18px} .stats{gap:6px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <button id="theme-toggle" title="切换主题">🌙</button>
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="sub">2026-08-12（周三） · 增量窗口：2026-08-11 08:15 → now · <b>今日非周一，无周报</b></div>
+    <div class="stats">
+      <span class="chip">新增源：<b>1 HN 摘要 (10 热榜) + 2 推文</b></span>
+      <span class="chip">⭐×5：<b>3</b></span>
+      <span class="chip">⭐×3：<b>3</b></span>
+      <span class="chip">🌿 生活维度：<b>3</b></span>
+      <span class="chip">已验证：<b>3 / 3 ✅</b></span>
+    </div>
+  </header>
+
+  <div class="axiom">
+    <b>公理</b>｜不可行动的信息 = 噪音。今日三巨头同向——<b>本地 · 隔离 · 自主</b>，恰好拼成 Life OS「Software Factory」的底座。信号少但浓度高。
+  </div>
+
+  <!-- Signal overview -->
+  <section>
+    <h2><span class="bar"></span>🔭 信号概览 · 5 个深挖方向</h2>
+    <table>
+      <thead><tr><th>#</th><th>信号</th><th>连接意图</th><th>验证</th><th>Proposal</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>Muse Glimmer</b> · Meta 30B 本地 agent 模型</td><td>OpenMAIC / CS336 / Life OS</td><td>✅</td><td><a class="prop-link" href="readwise-proposals-20260812.html#p1">→ P1</a></td></tr>
+        <tr><td>2</td><td><b>Docker Sandboxes</b> · agent microVM 隔离</td><td>Life OS · Software Factory</td><td>✅</td><td><a class="prop-link" href="readwise-proposals-20260812.html#p3">→ P3</a></td></tr>
+        <tr><td>3</td><td><b>Claude Code auto-mode</b> · 分类器默认放行</td><td>Engineering Baseline / Life OS</td><td>✅</td><td><a class="prop-link" href="readwise-proposals-20260812.html#p4">→ P4</a></td></tr>
+        <tr><td>4</td><td>Muse Glimmer 作 CS336 A2 教材</td><td>Stanford CS336（A2 08-16 ddl）</td><td>✅</td><td><a class="prop-link" href="readwise-proposals-20260812.html#p2">→ P2</a></td></tr>
+        <tr><td>5</td><td><b>本地 Agentic Coding Rig</b>（三者合成）</td><td>Life OS 旗舰 · 最高杠杆</td><td>✅</td><td><a class="prop-link" href="readwise-proposals-20260812.html#p5">→ P5</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- High value -->
+  <section>
+    <h2><span class="bar"></span>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+    <div class="card">
+      <div class="title">① Muse Glimmer — Meta 30B 开源本地 agent 模型 <span class="badge b-v">✅ Verified</span> <span class="stars">★★★★★</span></div>
+      <div style="font-size:.9rem; color:var(--text2)">
+        30B 参数、Apache 2.0、为「always-on 本地 agent」设计。4-bit 量化 &lt;20GB，推测解码加速，多模态感知编码器，~76% SWE-Bench Verified。已上 HuggingFace <code>meta-models/Muse-Glimmer-30B</code>，支持 Ollama/MLX/llama.cpp。HN 991 分 / 561 评论。
+      </div>
+      <div class="meta">
+        源：<a href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model">Meta Research</a> ·
+        <a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">HF 模型卡</a> ·
+        <a href="https://news.ycombinator.com/item?id=49241679">HN 讨论</a>
+      </div>
+      <div class="why">OpenMAIC 当前依赖云端 BYOK 模型 → 本地 30B 可解「教室离线/低延迟/零 token 费」三痛点；CS336 A2 可借其量化+推测解码做真实工业案例；Life OS 的本地 agent 有了大脑。<b>但 Kyle 的 M4 Pro 仅 24GB</b>，8-bit（~30GB）跑不动，4-bit 是唯一可行档，需诚实评估。</div>
+      <div class="tags"><span class="tag">OpenMAIC</span><span class="tag">CS336</span><span class="tag">Life OS</span><span class="tag">本地推理</span><span class="tag">Apache-2.0</span></div>
+    </div>
+
+    <div class="card">
+      <div class="title">② Docker Sandboxes — AI 编码 agent 的 microVM 隔离 <span class="badge b-v">✅ Verified</span> <span class="stars">★★★★★</span></div>
+      <div style="font-size:.9rem; color:var(--text2)">
+        Docker 新独立产品。每个 sandbox = 一个自带内核的轻量 microVM（macOS 走 Hypervisor.framework），Docker 自研 VMM。让 Claude Code / Gemini CLI / Codex / Copilot CLI 在 <b>YOLO 模式</b>（全自动、无逐条确认）下安全隔离运行。即起即弃。
+      </div>
+      <div class="meta">
+        源：<a href="https://www.docker.com/blog/docker-sandboxes-run-agents-in-yolo-mode-safely/">Docker Blog</a> ·
+        <a href="https://andrewlock.net/running-ai-agents-safely-in-a-microvm-using-docker-sandbox/">Andrew Lock 实测</a> ·
+        <a href="https://news.ycombinator.com/item?id=49239751">HN 讨论</a>
+      </div>
+      <div class="why">Life OS「Software Factory」的物理隔离底座——agent 敢真放权写代码的前提是炸不坏主机；Trust & Eval pillar 缺的就是这道墙。<b>缺口</b>：microVM 不挡外发网络（有案例 agent 上传 5.1GB），需另配 egress 控制。Kyle 已装 docker 29.4，未装 <code>sbx</code> CLI。</div>
+      <div class="tags"><span class="tag">Life OS</span><span class="tag">Software Factory</span><span class="tag">隔离</span><span class="tag">YOLO</span></div>
+    </div>
+
+    <div class="card">
+      <div class="title">③ Claude Code auto-mode 默认化 — LLM 分类器接管放行 <span class="badge b-v">✅ Verified</span> <span class="badge b-p">⚠️ 17% 漏报</span> <span class="stars">★★★★★</span></div>
+      <div style="font-size:.9rem; color:var(--text2)">
+        Anthropic 宣布 <b>8/14 起 auto-mode 成 Claude Code 默认</b>（Pro/Max/Team）。两段式 LLM 安全分类器实时审每个 tool call：安全自动执行、危险拦截。内部 1,053 人测试：<b>拦截 89% 危险命令 vs 人工 13.6%</b>。分类器 token 不另收费。
+      </div>
+      <div class="meta">
+        源：<a href="https://thenewstack.io/claude-code-auto-mode/">TheNewStack</a> ·
+        <a href="https://devops.com/anthropic-makes-claude-codes-auto-mode-the-default-betting-automation-beats-manual-review/">DevOps.com</a> ·
+        <a href="https://news.ycombinator.com/item?id=49239021">HN 讨论</a> ·
+        <a href="https://arxiv.org/html/2604.04978v2">arXiv 压力测试</a>
+      </div>
+      <div class="why">89% vs 13.6% 是团队级生产力杠杆——手动审批的注意力税可卸下；与 ② Docker Sandbox 叠加 = 双保险（分类器 + 物理隔离）。<b>必须直面</b>：独立压测显示 ~17% 漏报；分类器宕机时 auto-mode 全锁（连只读 Bash 都拦，见 issue #39259）；IKEA 内网合规需评估「LLM 分类器看命令内容」是否允许。</div>
+      <div class="tags"><span class="tag">Engineering Baseline</span><span class="tag">团队规范</span><span class="tag">WellDone</span><span class="tag">安全</span></div>
+    </div>
+  </section>
+
+  <!-- Medium value -->
+  <section>
+    <h2><span class="bar"></span>⭐⭐⭐ 中价值</h2>
+    <div class="card">
+      <div class="title">④ 用 LLM 学复杂主题：AI 生成基础知识 + 验证 + 低多边形模拟 <span class="stars">★★★</span></div>
+      <div style="font-size:.88rem; color:var(--text2)">作者以「芯片制造」为例，用 LLM 生成结构化基础知识、人工交叉验证、再做低多边形模拟动画（ChipTycoon），形成「学懂→看见」闭环。</div>
+      <div class="why">方法论直接服务 CS336（从零实现 LLM 也需「先把抽象变成可见」）；也是 Life OS「健脑」学习法资产。</div>
+    </div>
+    <div class="card">
+      <div class="title">⑤ tl;dv Firestore 全开 — 18 万场会议记录泄露 <span class="badge b-p">⚠️ 安全教训</span> <span class="stars">★★★</span></div>
+      <div style="font-size:.88rem; color:var(--text2)">AI 会议记录平台 tl;dv 的 Firestore 数据库完全开放，超 18 万场会议 + 8 万用户信息暴露，且长期未修。</div>
+      <div class="why">Engineering Baseline 的反面教材：agent/会议类工具的默认权限是最常见爆炸点。提醒团队做第三方 SaaS 的数据分类审查。</div>
+    </div>
+    <div class="card">
+      <div class="title">⑥ HackerOne 的「垃圾化」— 2020 起销售驱动、背离黑客社区 <span class="stars">★★★</span></div>
+      <div style="font-size:.88rem; color:var(--text2)">长文回顾 HackerOne 自 2017 以来的变化，指其 2020 起转向销售驱动，背离社区初心。</div>
+      <div class="why">产品演进的反面镜——平台型产品的「enshittification」周期，对 WellDone SaaS 定位是预警。</div>
+    </div>
+  </section>
+
+  <!-- Life dimensions -->
+  <section>
+    <h2><span class="bar"></span>🌿 生活维度信号</h2>
+    <div class="life-grid">
+      <div class="life-card">
+        <div class="h">📈 建仓 · 缩水式通胀</div>
+        <div class="d">英国发现 1991 年 Mars 巧克力棒 62.5g，当今同款仅 ~42.5g（-32%）。<b>通胀不在 CPI，在克重</b>——一个直观的「真实通胀」体感数据点。弱信号，仅作宏观体感。</div>
+      </div>
+      <div class="life-card">
+        <div class="h">🧠 健脑 · 心态疗愈</div>
+        <div class="d">作者把耳鸣「当作朋友」与之和平共处后症状消失。认知/接纳疗法的极端案例——心理框架对躯体感受的杠杆。<b>单一来源，非临床证据</b>，作启发不作依据。</div>
+      </div>
+      <div class="life-card">
+        <div class="h">🧠 健脑 · 学习法</div>
+        <div class="d">即 ④「LLM 学复杂主题」——同时命中健脑透镜：结构化知识 + 可视化验证 = 高效学习回路。</div>
+      </div>
+    </div>
+    <div class="skip-note">🏋️ 健身 · 🥗 健胃：本期无匹配信号。</div>
+  </section>
+
+  <!-- Action checklist -->
+  <section>
+    <h2><span class="bar"></span>✅ 行动清单（本周）</h2>
+    <ul class="actionlist">
+      <li><b>① 装 sbx + 跑通第一个 sandbox</b>：在 docker 29.4 基础上装 Docker Sandboxes CLI，让一个 coding agent 在 microVM 内完成一次无害任务（验证隔离墙）。</li>
+      <li><b>② Muse Glimmer 4-bit 可行性评估</b>：不急着下 30B；先读模型卡的 4-bit/MLX 指南，算 M4 Pro 24GB 能否同时跑模型 + sandbox（大概率要先择一）。</li>
+      <li><b>③ Claude Code auto-mode 团队试点设计</b>：选 1-2 个非内网敏感仓库开 auto-mode，记录拦截/漏报样本；同步问 IKEA 合规「LLM 分类器看命令」是否在允许域。</li>
+      <li><b>④ CS336 A2 借 Muse Glimmer 讲一节</b>：A2 deadline 08-16，用其量化+推测解码做 15 分钟「工业界怎么用」补充，不挤掉从零实现时间。</li>
+      <li><b>⑤ 三者合成 PoC 范围框定</b>：为 Life OS「本地 Agentic Rig」写一页 SPEC，明确本月只做「一个 sandbox 内 agent 完成单文件 PR」最小闭环。</li>
+    </ul>
+  </section>
+
+  <!-- Low value appendix -->
+  <section>
+    <details>
+      <summary>📦 低价值附录（折叠）· 4 条噪音 / 已脱敏</summary>
+      <div class="low-item">🔊 <b>滑动变祖器</b>（推文）— 谐音梗小装置（滑动变阻器→变祖），娱乐向，无行动价值。</div>
+      <div class="low-item">🔁 <b>扎克伯格抨击封闭 AI 对手</b> — 与 ① Muse Glimmer 同主题，观点冗余，已并入 ①。</div>
+      <div class="low-item">🪵 <b>Sawdust 木工模拟器</b>（被裁开发者 side project）— 与当前意图无交集。</div>
+      <div class="skip-note">🚫 <b>1 条敏感话题推文已主动剔除</b>（政治向 + 公开仓库纪律），不入简报、不入归档。</div>
+    </details>
+  </section>
+
+  <footer>
+    由 <code>my-readwise-briefing</code> skill v4.3 生成 · 增量去重（不重复处理）· 公开仓库已脱敏<br>
+    下一站：<a href="readwise-proposals-20260812.html">5 个深度 Proposal →</a> · <a href="index.html">← 返回索引</a>
+  </footer>
+
+</div>
+<script>
+  const btn=document.getElementById('theme-toggle');
+  const apply=t=>{document.documentElement.classList.toggle('dark',t==='dark');btn.textContent=t==='dark'?'☀️':'🌙';};
+  const saved=localStorage.getItem('theme')||'light';apply(saved);
+  btn.addEventListener('click',()=>{const t=document.documentElement.classList.contains('dark')?'light':'dark';apply(t);localStorage.setItem('theme',t);});
+</script>
+</body>
+</html>
