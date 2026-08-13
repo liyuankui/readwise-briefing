@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深度 Proposals · 2026-08-13</title>
+<style>
+:root{
+  --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df;
+  --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880;
+  --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247;
+  --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b;
+  --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.8;padding:24px 16px 64px;transition:background .3s,color .3s;}
+.wrap{max-width:920px;margin:0 auto;}
+header{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid var(--border);border-radius:16px;padding:28px 28px 22px;margin-bottom:20px;position:relative;}
+header h1{margin:0 0 6px;font-size:1.6rem;color:var(--accent);letter-spacing:.5px;}
+header .date{color:var(--text3);font-size:.92rem;margin-bottom:10px;}
+#theme-toggle{position:absolute;top:22px;right:22px;background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:38px;height:38px;font-size:1.1rem;cursor:pointer;color:var(--text);}
+.banner{background:linear-gradient(90deg,#fef2f2,var(--surface));border:1px solid var(--accent5);border-radius:10px;padding:12px 18px;font-size:.9rem;color:var(--text2);margin-bottom:20px;}
+html.dark .banner{background:linear-gradient(90deg,#2a1212,var(--surface));}
+.banner b{color:var(--accent5);}
+section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin-bottom:20px;}
+h2{font-size:1.15rem;margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border);color:var(--accent);}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin:8px 0;}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--border);vertical-align:top;}
+th{color:var(--text2);font-weight:600;background:var(--surface2);}
+a{color:var(--accent2);text-decoration:none;border-bottom:1px dotted var(--accent2);}
+a:hover{opacity:.7;}
+.prop{border:1px solid var(--border);border-radius:14px;margin-bottom:18px;overflow:hidden;background:var(--surface2);}
+.prop>.head{padding:16px 20px;border-left:5px solid var(--accent2);cursor:pointer;}
+.prop.p1>.head{border-left-color:var(--accent3);}
+.prop.p2>.head{border-left-color:var(--accent2);}
+.prop.p3>.head{border-left-color:var(--accent5);}
+.prop.p4>.head{border-left-color:var(--accent4);}
+.prop.p5>.head{border-left-color:#0891b2;}
+.prop>.head h3{margin:0 0 6px;font-size:1.08rem;color:var(--text);}
+.prop>.head .claim{font-size:.92rem;color:var(--text2);margin:4px 0;}
+.prop>.head .claim b{color:var(--accent);}
+.prop>.head .meta{font-size:.78rem;color:var(--text3);margin-top:6px;}
+.prop>.body{padding:0 20px 16px;display:none;}
+.prop.open>.body{display:block;}
+.prop>.head::after{content:"▸ 展开";float:right;font-size:.8rem;color:var(--accent);background:none;border:none;}
+.prop.open>.head::after{content:"▾ 收起";}
+.tag{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:20px;margin-right:4px;font-family:-apple-system,sans-serif;background:var(--surface);border:1px solid var(--border);color:var(--text2);}
+.act{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 16px;margin:10px 0;}
+.act ol{margin:6px 0;padding-left:22px;}
+.act li{margin:5px 0;font-size:.88rem;}
+.flag{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:.85rem;color:#7f1d1d;}
+html.dark .flag{background:#2a1212;border-color:#7f1d1d;color:#fca5a5;}
+.flag b{color:var(--accent5);}
+.prop>.body h4{margin:14px 0 6px;font-size:.95rem;color:var(--accent);}
+.prop>.body p{margin:6px 0;font-size:.88rem;color:var(--text);}
+.note{font-size:.8rem;color:var(--text3);text-align:center;margin-top:8px;}
+code{background:var(--surface2);padding:1px 6px;border-radius:4px;font-size:.85em;font-family:ui-monospace,monospace;}
+.tl{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;}
+.tl .step{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:.78rem;flex:1;min-width:120px;}
+.tl .step b{color:var(--accent2);display:block;font-size:.72rem;text-transform:uppercase;}
+@media(max-width:600px){header{padding:20px 16px;}section,.prop>.head{padding:16px;}.tl{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>🧠 Readwise 深度 Proposals</h1>
+  <div class="date">2026-08-13（周四）· 5 个方向 · 5/5 subagent 成功 · 信号源：2026-08-12 Hacker News</div>
+</header>
+
+<div class="banner">⚖️ <b>不可行动的信息 = 噪音。</b> 以下每个 Proposal 均经「信号采集 → Phase 1.5 独立验证 → 深度推理」三关，含核心主张、可测里程碑、ROI 与<b>诚实自我挑战</b>。</div>
+
+<!-- 信号 × 项目 对应 -->
+<section>
+  <h2>🔗 信号 × 项目 对应关系</h2>
+  <table>
+    <tr><th>#</th><th>信号</th><th>验证</th><th>核心 Proposal</th><th>连接项目</th></tr>
+    <tr><td>P1</td><td>Needle 2（14MB 边缘智能体）</td><td style="color:var(--accent3)">✅+🔬</td><td>SLM Agent Pareto 下界 + 置信门控路由</td><td>SLM Benchmark · K12</td></tr>
+    <tr><td>P2</td><td>h3.c（纯 C 推理引擎）</td><td style="color:var(--accent3)">✅+🔬</td><td>读源码证伪「Python 栈不可替换」</td><td>CS336 · opencode · Rust</td></tr>
+    <tr><td>P3</td><td>窃取加密推理痕迹</td><td style="color:var(--accent3)">✅</td><td>TraceGuard：trace 当明文级敏感数据</td><td>AI Security</td></tr>
+    <tr><td>P4</td><td>互联网集体记忆消失</td><td style="color:var(--accent4)">⚠️</td><td>GEO：锁定 AI 引用席位（窗口期）</td><td>GEO 品牌可见性</td></tr>
+    <tr><td>P5</td><td>Claude 水印 + C2PA</td><td style="color:var(--accent3)">✅</td><td>Provenance-first 作为 WellDone 架构</td><td>WellDone · Responsible AI</td></tr>
+  </table>
+  <div class="note">点击各卡片「展开」查看完整 Proposal（含里程碑 / 成功标准 / 风险 / 诚实挑战）。</div>
+</section>
+
+<!-- P1 Needle 2 -->
+<div class="prop p1" id="p1">
+  <div class="head" onclick="this.parentElement.classList.toggle('open')">
+    <h3>① Needle 2 接入 — SLM Agent Pareto 下界与置信门控边缘路由</h3>
+    <div class="claim"><b>核心主张：</b>45M/14MB 模型不是又一个 benchmark 候选，而是 Kyle GAIA 的 Pareto 极端下界 + 一个可验证假设：作为 <b>confidence-gated 前置路由器</b>，低置信时升级到 8B，能否砍掉 50% 云端 API 调用？同时为 K12 提供 28MB 级离线推理引擎。</div>
+    <div class="meta">代号 Needle-Kyle-GAIA · 连接 SLM Agent Benchmark / K12 · 验证 ✅+🔬 · 工时约 7-8 工作日</div>
+  </div>
+  <div class="body">
+    <h4>🎯 锁定痛点</h4>
+    <p>P1 路由层无智能（Kyle GAIA 的 QuestionRouter 是 regex，<code>general</code> 类无脑 fallback 搜索）｜P2 Pareto 曲线缺 sub-100M 下界（"多小算太小"无答案）｜P3 8B 本身准确率已低（qwen3-8b 仅 20%）｜P4 K12 依赖云端无离线方案。</p>
+    <h4>📅 里程碑</h4>
+    <div class="tl">
+      <div class="step"><b>M1 · 2h</b>基线复现：M4 Pro 验证 tok/s≥800、RAM≤35MB</div>
+      <div class="step"><b>M2 · 1d</b>Adapter：7 路由 label 注册为 tools，输出 {label,confidence}</div>
+      <div class="step"><b>M3 · 2d</b>路由对决：regex vs Needle vs Needle+置信升级(θ=0.7→8B)</div>
+      <div class="step"><b>M4 · 2d</b>Pareto 曲线：45M→230M→8B→30B→70B 五点</div>
+      <div class="step"><b>M5 · 周末</b>K12 边缘原型：RPi5 离线 quiz 路由 demo</div>
+      <div class="step"><b>M6 · 1d</b>发布 GitHub Pages：数据+图表+复现脚本</div>
+    </div>
+    <h4>📊 成功标准（可测量）</h4>
+    <p>M4 Pro decode ≥800 tok/s ｜ RAM ≤35MB ｜ API 调用节省率 ≥30% ｜ Pareto 数据点 ≥5 ｜ RPi5 端到端延迟 &lt;100ms。</p>
+    <h4>💰 ROI</h4>
+    <p>研究独创（首个公开 sub-100M agent router + 置信门控级联实验）｜补全 thesis 极端端证据｜K12 离线隐私零暴露｜HN/r/LocalLLaMA 话题性。</p>
+    <div class="act"><b>⚡ 立即行动（本周）</b>
+      <ol>
+        <li><code>pip install cactus-needle && needle playground</code>（localhost:7860 手测 5 个 tool-call，30min）</li>
+        <li>7 路由 label 注册为 tools，跑 10 题 Kyle-GAIA，记 confusion matrix（2h）</li>
+        <li>M4 Pro 量 decode_tps + 峰值 RAM，达标即进 M2（1h）</li>
+      </ol>
+    </div>
+    <div class="flag"><b>🚩 诚实挑战（最大风险）：</b>范畴错误——Needle 2 是 router 不是 agent（256-token 窗口装不下 GAIA L2 问题）。且 regex 在可匹配 6 类已 100%，仅 <code>general</code> 类有缺口；而 general 恰是所有模型都失败处。用 42.6% 的 Needle 替代"无脑搜索"可能整体更差。<b>成败不在 Needle 准确率，而在 M3 置信门控曲线是否有意义。</b></div>
+  </div>
+</div>
+
+<!-- P2 h3.c -->
+<div class="prop p2" id="p2">
+  <div class="head" onclick="this.parentElement.classList.toggle('open')">
+    <h3>② h3.c 学习提案 — 用 antirez 33B 推理引擎，把"从零构建"拧到工业级</h3>
+    <div class="claim"><b>核心主张：</b>花两周通读 h3.c（antirez 仅凭 C+Metal+FFmpeg 三依赖跑通 33B 多模态），亲证 <b>"Python/PyTorch 运行时不是本地推理的必要条件"</b>，为 CS336 补工业级推理引擎下半程，为 opencode-proposal 提供"本地依赖下限在哪"的硬数据点。</div>
+    <div class="meta">连接 CS336 / opencode-proposal / Rust · 验证 ✅+🔬 · 工时约 22h / 4 周 · ⚠️ 24GB 跑不了满血（H3 需 ~40GB）</div>
+  </div>
+  <div class="body">
+    <h4>🎯 锁定痛点</h4>
+    <p>A. CS336 A1 止步 toy model forward pass，<b>推理侧是黑盒</b>（说不清 KV cache 布局/Metal dispatch）｜B. opencode-proposal 缺"本地推理能多轻"硬证据（现有路径全带 Python 依赖债）｜C. Rust 学习缺"系统级语言如何驾驭 GPU"活样本｜D. 24GB vs 40GB——但这恰好逼回"读引擎+文本路径"。</p>
+    <h4>📅 里程碑（4 周 / 22h）</h4>
+    <div class="tl">
+      <div class="step"><b>M1 · 3h</b>工具链点亮：make test 退出码 0，记 M4 Pro 余量</div>
+      <div class="step"><b>M2 · 4h</b>源码解剖图：文件树+prompt→MP4 数据流+Metal dispatch 点</div>
+      <div class="step"><b>M3 · 7h</b>三子系统精读(KV cache/int8量化/SSD流式)+≤100行复现</div>
+      <div class="step"><b>M4 · 4h</b>本地推理依赖债横评：h3.c vs llama.cpp vs MLX vs vLLM</div>
+      <div class="step"><b>M5 · 4h</b>公开 writeup《一个零依赖推理引擎教给我们的事》</div>
+    </div>
+    <h4>💰 ROI</h4>
+    <p>CS336 从 toy-scale 抬到 industrial-scale ｜ opencode 拿到可贴进提案的横评表 ｜ Rust 桥接语法→工程结构 ｜ 一篇 antirez×中国开源模型×本地降本的差异化文章。成本 ~22h / $0 硬件。</p>
+    <div class="act"><b>⚡ 立即行动（本周）</b>
+      <ol>
+        <li>clone h3.c 到 ~/Work，<code>make -j8</code> + <code>make test</code>，记构建报错（~1h）</li>
+        <li>核查 HuggingFace MiniMax-H3 快照体积/许可证，判 24GB 走 ssd-streaming 还是纯静态读（~1h）</li>
+        <li>起 anatomy 骨架：<code>find . -name '*.c' -o -name '*.metal'</code>，每文件一句"我猜它干嘛"（~1h）</li>
+      </ol>
+    </div>
+    <div class="flag"><b>🚩 诚实挑战（最大风险）：</b>"读源码"是最经典自我欺骗——22h 读一遍可能什么都没沉淀。H3 多模态≠下游文本 LLM，很多 Metal 优化是 diffusion 专属迁移不过去；"读懂"≠"会写"。故 M3 强制 ≤100 行复现，否则提案降级为阅读理解。<b>试金石：opencode-proposal 真会引用 M4 横评表吗？不会则 M4 是虚荣指标。</b></div>
+  </div>
+</div>
+
+<!-- P3 TraceGuard -->
+<div class="prop p3" id="p3">
+  <div class="head" onclick="this.parentElement.classList.toggle('open')">
+    <h3>③ TraceGuard — Reasoning Trace 侧信道防御与数据卫生</h3>
+    <div class="claim"><b>核心主张：</b>既然同源弱模型能作解密预言机还原 API 返回的加密推理链，Agent 系统就必须把 reasoning trace 当 <b>明文级敏感数据</b>——trace 不可读 ≠ trace 不可解码，任何能观测响应者即能窃取沉淀在推理链中的私有上下文与凭据。</div>
+    <div class="meta">代号 TraceGuard · 连接 AI Security / credential-manager / PRATA · 论文 arXiv:2608.09867 ✅ · 工时约 6 人日 / 3 周</div>
+  </div>
+  <div class="body">
+    <h4>🎯 锁定痛点</h4>
+    <p>P1 IP 经 trace 侧信道外泄（trace 是 prompt/代码/架构的蒸馏版，比最终回答更值钱）｜P2 凭据渗入 CoT（secret 被模型"推理过"残留于 trace，trace=第二秘密存储且无 TTL）｜P3 本地 trace 明文堆积（一次端点失陷即整库泄露）｜P4 多 Agent 放大面｜P5 代理/MCP/可观测工具记录响应即捕获可解码 trace。</p>
+    <h4>📅 里程碑（3 周 / 6 人日）</h4>
+    <div class="tl">
+      <div class="step"><b>M1 · 1d</b>威胁建模+trace 流向审计：trace-flow 图+exposure register</div>
+      <div class="step"><b>M2 · 2d</b>traceguard sanitizer PoC：拦截响应→检测/分类/脱敏/标记</div>
+      <div class="step"><b>M3 · 1d</b>凭据上下文隔离：tool-call 域内临时上下文，返回即脱敏</div>
+      <div class="step"><b>M4 · 1d</b>本地持久化加固：store/journal/SQLite 内 trace 加密+TTL+purge</div>
+      <div class="step"><b>M5 · 1d</b>自有 PoC 表征+公开 writeup（发方法不发 payload）</div>
+    </div>
+    <h4>📊 成功标准</h4>
+    <p>经 sanitizer 的 agent API 调用占比 100% ｜明文 trace 存量 0 条 ｜ secret 召回 ≥0.98 ｜ p95 延迟开销 &lt;5% ｜脱敏误伤 &lt;1% ｜公开 repo+threat-model one-pager。</p>
+    <h4>💰 ROI</h4>
+    <p>收紧 trace 侧信道，降低 crown-jewel IP + 凭据暴露面 ｜ traceguard 开源沉淀公开安全资产 ｜ 把"信任面=攻击面"从口号变可度量能力 ｜ <b>data hygiene 永久有效——即便 provider 修补此 CVE，收益不归零</b>。</p>
+    <div class="act"><b>⚡ 立即行动（本周）</b>
+      <ol>
+        <li>审计定位：grep agent session stores / journals / SQLite（关键词 thinking/reasoning/signature），画 trace 持久化点清单</li>
+        <li>自有表征：取一条自有非敏感 trace，自查 secret/IP token 残留，评估 sibling 解码可行性（限定自有数据）</li>
+        <li>立项骨架：起草 threat-model one-pager，开 traceguard public repo 骨架</li>
+      </ol>
+    </div>
+    <div class="flag"><b>🚩 诚实挑战（最大风险）：</b>高估了个人风险——该 CVE 主受害者是 provider（被蒸馏的是它们的模型），个人暴露是次级的（trace 内 IP+本地持久化）。窗口可能极短（provider 旋转编码即失效）。"不让 secret 进 CoT"有功能张力（Agent 本就要用凭据推理），故 M3 是"降低概率"非"消除"。成功指标多为 activity 而非 outcome（"未泄露"不可直接测）。须与 credential-manager/PRATA 明确分工，只补"响应内容层"空白带。</div>
+  </div>
+</div>
+
+<!-- P4 GEO -->
+<div class="prop p4" id="p4">
+  <div class="head" onclick="this.parentElement.classList.toggle('open')">
+    <h3>④ GEO 提案 — 在 AI 成为发现层的窗口期，锁定品牌引用席位</h3>
+    <div class="claim"><b>核心主张：</b>当 AI 搜索成消费者发现品牌主路径，<b>"品牌被 AI 引用且首先被引用"就是新的货架位置</b>——而这个货架此刻无人看守，谁先占位、先建测量闭环，谁就在引用逻辑固化临界点前筑护城河。</div>
+    <div class="meta">连接 GEO 品牌可见性 · 信号 ⚠️(单一来源观点) · 总周期约 6-8 周达成闭环 · 指某零售品牌（脱敏）</div>
+  </div>
+  <div class="body">
+    <h4>🎯 锁定痛点（三个可观测失效模式，全在盲区）</h4>
+    <table>
+      <tr><th>模式</th><th>表现</th><th>为何痛</th></tr>
+      <tr><td><b>缺席</b></td><td>问"买家具哪个品牌好"，AI 答案无本品牌</td><td>认知归零，且无人知晓</td></tr>
+      <tr><td><b>错位</b></td><td>被提及但排竞品后，或仅追问才出现</td><td>首提及份额被锁死</td></tr>
+      <tr><td><b>失真</b></td><td>被引但信息错误/幻觉（signal 核心警示）</td><td>信任反噬，比缺席更危险</td></tr>
+    </table>
+    <p><b>根因：</b>组织内无人能答"用户在豆包/Kimi 提及本品类，我们是否出现、排第几、说得对不对"——零仪表盘的关键渠道。</p>
+    <h4>📅 里程碑</h4>
+    <div class="tl">
+      <div class="step"><b>M1 · 3-5人日</b>基线盲测：5品类×5平台人工矩阵(被引率/位次/准确率/竞品份额)</div>
+      <div class="step"><b>M2 · 1.5-2周</b>自动化监测：Bun+TS 轮询+标准化 prompt+评分 rubric，周度跑批</div>
+      <div class="step"><b>M3 · 1周</b>诊断缺口：结构化内容/第三方信源/知识缺口归因</div>
+      <div class="step"><b>M4 · 2-3周</b>内容投喂干预：结构化内容播种，2 周后重测 delta</div>
+      <div class="step"><b>M5 · 1周+</b>测量看板+双周复盘+平台版本追踪</div>
+    </div>
+    <h4>📊 成功标准</h4>
+    <p>品牌被引率均值 ≥70% ｜首提及率 ≥40% ｜与 Top1 竞品 SoV 差距 ≤15pp ｜被引准确率 ≥90% ｜监测自动化覆盖 5×5 周度。<b>诚实边界：可观测部分约 20-30%</b>，锚定"趋势可解释"非"完整归因"。</p>
+    <h4>💰 ROI</h4>
+    <p>进攻（moat）：抢占固化前引用席位，占位成本极低 ｜防御（reputation）：早期捕获品牌幻觉/失真 ｜成本：基线仅数人日 ｜方法论可复用外溢。<b>下行有限、上行结构化的早期窗口。</b></p>
+    <div class="act"><b>⚡ 立即行动（本周）</b>
+      <ol>
+        <li>跑一次 5×5 人工基线盲测：5 品类 × {豆包/元宝/Kimi/通义/DeepSeek}，每问 3 轮，记被引/位次/准确/竞品</li>
+        <li>冻结 prompt 模板 + 评分 rubric（四维：被引0/1、位次1-N、准确0/1、竞品并列）</li>
+        <li>圈定 3 竞品 benchmark + 敲定 5 品类中性问题清单（无品牌诱导）</li>
+      </ol>
+    </div>
+    <div class="flag"><b>🚩 诚实挑战（最大风险）：</b>"引用率"未必驱动购买（被提及到进店转化因果链未证）；整个品类可能为时尚早（中文 AI 搜索排序逻辑未稳，引用作计量单位未必持久）；signal 为单一社论源含轶事断言；"护城河"假设依赖路径依赖（平台可能随机轮换引用）；5×5 在统计上是轶事。<b>故押注的是"在零可见性渠道建测量闭环此刻成本最低、后悔最小"——即便进攻落空，防御+情报价值仍成立。</b></div>
+  </div>
+</div>
+
+<!-- P5 Provenance -->
+<div class="prop p5" id="p5">
+  <div class="head" onclick="this.parentElement.classList.toggle('open')">
+    <h3>⑤ AI 内容溯源 — 把可验证性做成 WellDone 的底层架构</h3>
+    <div class="claim"><b>核心主张：</b>在 Google review 生态被 AI 污染、EU AI Act 与 FTC fake-review 法规同步收紧的 <b>12-18 个月窗口</b>内，把 "provenance-first" 做成 WellDone <b>底层架构而非上线后补丁</b>——事后给既有内容补来源追溯，改造成本是建设期 5-10 倍。</div>
+    <div class="meta">连接 WellDone SaaS / Responsible AI · 信号 Claude 水印+C2PA ✅ · 3 人团队约 10 周</div>
+  </div>
+  <div class="body">
+    <h4>🎯 锁定痛点</h4>
+    <table>
+      <tr><th>#</th><th>痛点</th><th>不做 provenance 后果</th></tr>
+      <tr><td>P1</td><td>法律暴露：FTC fake-review 单条最高 $50k</td><td>罚款+平台下架+集体诉讼</td></tr>
+      <tr><td>P2</td><td>平台惩罚：Google 反 fake-review + 水印检测</td><td>review 被过滤、商家降权→客户 churn</td></tr>
+      <tr><td>P3</td><td>内部信任断层：AI 洞察无法溯源原始评价</td><td>产品价值稀释为"不可信摘要"</td></tr>
+      <tr><td>P4</td><td>商品化红海：review 采集+AI 回复数十家在做</td><td>无定价权、CAC 上升</td></tr>
+    </table>
+    <p><b>关键洞察：</b>P1-P4 的共同解是同一套数据原语——<b>每条内容都带不可篡改的"来源链"</b>。这不是四个功能，是一个架构。</p>
+    <h4>📅 里程碑（10 周）</h4>
+    <div class="tl">
+      <div class="step"><b>M1 · W1-2</b>内容审计+Schema 设计：内容分类法+数据模型字段定义</div>
+      <div class="step"><b>M2 · W3-4</b>🔥Provenance 标签字段落地：新内容 100% 打标（数据层，越晚越贵）</div>
+      <div class="step"><b>M3 · W5-6</b>Claude 水印检测+策略闸门：AI 内容永不进"已验证评价"桶</div>
+      <div class="step"><b>M4 · W7-8</b>C2PA 签名导出：洞察报告/图片附 C2PA 签名可验真</div>
+      <div class="step"><b>M5 · W9-10</b>透明度 UX+公开 Trust 页（对齐 EU AI Act Art.50）</div>
+    </div>
+    <h4>💰 ROI</h4>
+    <p>风险规避（FTC $50k 暴露面→可追溯内容近零）｜留存（降 Google 惩罚致 churn，每提 5% 留存 LTV+25%）｜差异化定价（"唯一可证明评价真实性的 SMB review 平台"）｜Kyle 个人 Responsible-AI 获真实落地案例。</p>
+    <div class="act"><b>⚡ 立即行动（本周）</b>
+      <ol>
+        <li>内容审计（1 天）：列出 WellDone 所有 AI 文本生成/存储点，暴露"现在不做的改造成本"</li>
+        <li>水印 Spike（1-2 天）：Claude API 生成文本跑检测路径，记可检测边界</li>
+        <li>起草 PROVENANCE.md + 联合创始人 30 分钟决策会：争取明确决议"provenance-first 作为架构原则 Y/N"</li>
+      </ol>
+    </div>
+    <div class="flag"><b>🚩 诚实挑战（最大风险）：</b>过早优化？信号仅来自单一 provider，若 provenance 永不成 SMB 购买决策项是否沉没成本？（回应：监管+平台会强制，下行保护已证 M2 schema 合理）｜3 人 bootstrap 团队给 pre-PMF SaaS 加架构是否挤占变现？（只做 M2 schema，其余按营收排）｜"信任护城河"是否伪命题？schema+标签竞品数周可复制（护城河在数据飞轮+先发品牌+集成深度，非 schema 本身）｜<b>水印反助欺诈：非 Claude 模型不水印，故重心应在 DB 级 provenance 而非水印检测。</b>｜个人一致性考验：Kyle 愿不愿给所有 Gemini 摘要加来源标注（吃自己狗粮）？</div>
+  </div>
+</div>
+
+<div class="note">🔒 全部 Proposal 已脱敏（无内部域名/Jira/员工信息），适合公开发布 · Generated by <code>my-readwise-briefing</code> skill (Phase 2)<br>5/5 subagent 全部成功（0 触发内容安全过滤，无需内联兜底）</div>
+
+</div>
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');const d=document.documentElement.classList.contains('dark');btn.textContent=d?'☀️':'🌙';localStorage.setItem('theme',d?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>
