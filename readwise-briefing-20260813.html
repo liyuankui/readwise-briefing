@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-13</title>
+<style>
+:root{
+  --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df;
+  --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880;
+  --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247;
+  --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b;
+  --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;padding:24px 16px 64px;transition:background .3s,color .3s;}
+.wrap{max-width:880px;margin:0 auto;}
+header{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid var(--border);border-radius:16px;padding:28px 28px 22px;margin-bottom:24px;position:relative;}
+header h1{margin:0 0 6px;font-size:1.6rem;color:var(--accent);letter-spacing:.5px;}
+header .date{color:var(--text3);font-size:.95rem;margin-bottom:14px;}
+.stats{display:flex;flex-wrap:wrap;gap:10px;}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 14px;font-size:.85rem;}
+.stat b{color:var(--accent2);font-size:1.05rem;}
+#theme-toggle{position:absolute;top:22px;right:22px;background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:38px;height:38px;font-size:1.1rem;cursor:pointer;color:var(--text);}
+section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin-bottom:20px;}
+h2{font-size:1.18rem;margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border);color:var(--accent);display:flex;align-items:center;gap:8px;}
+h2 .en{color:var(--text3);font-size:.8rem;font-weight:normal;}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:8px 0;}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;}
+th{color:var(--text2);font-weight:600;background:var(--surface2);}
+a{color:var(--accent2);text-decoration:none;border-bottom:1px dotted var(--accent2);}
+a:hover{opacity:.7;}
+.card{border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:16px;}
+.card.hi{border-left-color:var(--accent3);}
+.card.warn{border-left-color:var(--accent4);}
+.card.low{border-left-color:var(--text3);}
+.tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:20px;margin-right:4px;font-family:-apple-system,sans-serif;}
+.t5{background:#dcfce7;color:#166534;}
+.t3{background:#fef3c7;color:#92400e;}
+.t1{background:#f1f5f9;color:#64748b;}
+html.dark .t5{background:#052e1b;color:#86efac;}
+html.dark .t3{background:#3b2a06;color:#fcd34d;}
+html.dark .t1{background:#1e293b;color:#94a3b8;}
+.verified{color:var(--accent3);font-weight:600;}
+.partial{color:var(--accent4);font-weight:600;}
+.hands{color:var(--accent2);font-weight:600;}
+.why{background:var(--surface);border:1px dashed var(--border);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.88rem;color:var(--text2);}
+.why b{color:var(--accent);}
+.action{background:var(--surface2);border-radius:10px;padding:6px 0;margin:0;}
+.action li{margin:6px 0;}
+details{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:6px 14px;margin-top:8px;}
+summary{cursor:pointer;color:var(--text2);font-size:.9rem;padding:6px 0;}
+.life{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.life .box{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.life .box h4{margin:0 0 6px;font-size:.95rem;}
+.note{font-size:.82rem;color:var(--text3);margin-top:16px;padding-top:12px;border-top:1px dashed var(--border);}
+.banner{background:linear-gradient(90deg,var(--surface2),var(--surface));border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:.85rem;color:var(--text2);margin-bottom:18px;}
+.banner b{color:var(--accent5);}
+code{background:var(--surface2);padding:1px 6px;border-radius:4px;font-size:.85em;font-family:ui-monospace,monospace;}
+ul{padding-left:20px;margin:8px 0;}
+@media(max-width:600px){header{padding:20px 18px;}section{padding:16px;}header h1{font-size:1.3rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-08-13（周四）· 数据源：2026-08-12 Hacker News 热榜（上次遗漏，本次补处理）</div>
+  <div class="stats">
+    <span class="stat">本期总量 <b>10</b></span>
+    <span class="stat">⭐×5 高价值 <b>3</b></span>
+    <span class="stat">⭐×3 中价值 <b>2</b></span>
+    <span class="stat">✅ 已验证 <b>4</b></span>
+    <span class="stat">🔬 值得亲测 <b>2</b></span>
+    <span class="stat">🌿 生活维度 <b>0</b></span>
+  </div>
+</header>
+
+<div class="banner">⚖️ <b>不可行动的信息 = 噪音。</b> 本期主线三主题收敛：<b>极致压缩（45M 边缘智能体）· 本地原生（纯 C 推理引擎）· 信任面裂痕（推理痕迹可窃取）</b>。三条 ⭐×5 全部独立验证通过。</div>
+
+<!-- 信号概览 -->
+<section>
+  <h2>🔭 信号概览 <span class="en">Signal Overview</span></h2>
+  <table>
+    <tr><th>方向</th><th>信号</th><th>验证</th><th>连接意图</th></tr>
+    <tr><td><b>极致压缩</b></td><td>Needle 2 — 14MB/45M 边缘智能体</td><td class="verified">✅+🔬</td><td>SLM Agent Benchmark · K12</td></tr>
+    <tr><td><b>本地原生</b></td><td>h3.c — 纯 C+Metal 跑 MiniMax-H3</td><td class="verified">✅+🔬</td><td>CS336 · 国内模型 · 本地推理</td></tr>
+    <tr><td><b>信任面裂痕</b></td><td>窃取专有 LLM 加密推理痕迹</td><td class="verified">✅</td><td>AI Security · Agentic 安全</td></tr>
+    <tr><td><b>AI 即发现层</b></td><td>互联网集体记忆随 AI 吞噬而消失</td><td class="partial">⚠️</td><td>GEO 品牌可见性</td></tr>
+    <tr><td><b>内容溯源</b></td><td>Claude 全输出水印 + C2PA 签名</td><td class="verified">✅</td><td>Responsible AI · WellDone</td></tr>
+  </table>
+  <div class="note">5 个方向 → 各自一份可执行 Proposal，见 <code>readwise-proposals-20260813.html</code>。</div>
+</section>
+
+<!-- 高价值 -->
+<section>
+  <h2>⭐×5 高价值信号 <span class="en">High Value · 全部 ✅ Verified</span></h2>
+
+  <div class="card hi">
+    <span class="tag t5">⭐×5</span> <span class="tag t5">极致压缩</span>
+    <b>① Needle 2 — 14 MB 的智能体大模型，跑在树莓派/微控制器</b><br>
+    Cactus Compute 出品，45M 参数、单文件 14MB、全 session 仅 28MB RAM（2-bit 量化）。专为 <b>工具调用 / 设备控制 / 结构化抽取</b> 设计，树莓派 5 上 ~500 tok/s，ESP32-S3 也能跑。<br>
+    <span class="verified">✅ 已验证</span> · <span class="hands">🔬 值得亲测</span> |
+    <a href="https://cactuscompute.com/needle" target="_blank">官网</a> ·
+    <a href="https://github.com/cactus-compute/needle" target="_blank">GitHub</a> ·
+    <a href="https://huggingface.co/Cactus-Compute/needle2" target="_blank">HF 模型</a>
+    <div class="why"><b>为什么相关：</b>直接喂给 SLM Agent Benchmark 研究——验证「小模型 + 工具 &gt; 大模型裸奔」的最极端一端（45M vs 32B）。14MB 能跑在 ESP32 上 = K12 教育里"每个学生口袋一个 AI"的硬件基线。Kyle 的 M4 Pro 跑它绰绰有余，甚至无需 GPU。</div>
+  </div>
+
+  <div class="card hi">
+    <span class="tag t5">⭐×5</span> <span class="tag t5">本地原生</span>
+    <b>② h3.c（H3-metal）— Redis 之父用纯 C+Metal 在 Mac 上跑 MiniMax-H3</b><br>
+    作者 antirez（Salvatore Sanfilippo，Redis 创造者）。纯 C + Metal，<b>无 Python / 无 PyTorch</b>，原生优化 Apple Silicon，测试 M3/M5 Max。MiniMax-H3 是开源全模态模型（文本/视频 2K/音频）。<br>
+    <span class="verified">✅ 已验证</span> · <span class="hands">🔬 值得亲测</span> |
+    <a href="https://github.com/antirez/h3.c" target="_blank">GitHub</a> ·
+    <a href="https://news.ycombinator.com/item?id=49252179" target="_blank">HN 讨论</a> ·
+    <a href="https://www.minimax.io/news/minimax-h3-open-source" target="_blank">MiniMax 开源公告</a>
+    <div class="why"><b>为什么相关：</b>三重价值——(1) <b>CS336 第一性原理</b>：一个顶级系统程序员从零写推理引擎，是读"推理引擎如何工作"的最佳活教材；(2) <b>国内模型 + 本地</b>：MiniMax 是中国开源模型，呼应 opencode-proposal 的国产模型方向；(3) ⚠️ Kyle 的 M4 Pro 24GB 对完整视频生成偏紧（社区在 M5 Pro 64GB 上跑），但文本/音频 + 读源码完全可行。</div>
+  </div>
+
+  <div class="card hi">
+    <span class="tag t5">⭐×5</span> <span class="tag t5">信任面裂痕</span>
+    <b>③ 可从 Anthropic/OpenAI/Google 的 API 窃取加密推理痕迹</b><br>
+    论文 arXiv:2608.09867：把前沿模型返回的<b>加密 CoT 推理块</b>重放给同厂商更弱、防护更弱的"兄弟模型"，即可解码出隐藏推理，绕过反蒸馏机制。可批量收割用于训练竞品模型。<br>
+    <span class="verified">✅ 已验证</span> |
+    <a href="https://arxiv.org/html/2608.09867v1" target="_blank">论文</a> ·
+    <a href="https://cybersecuritynews.com/top-ai-models-apis-flaw-exposes-hidden-reasoning/" target="_blank">CyberSecurityNews</a>
+    <div class="why"><b>为什么相关：</b>这把刀直接架在 Kyle 每天调用的 Claude/GPT API 上——他的 Agent 大量依赖这些 API 的推理输出。公理"信任面=攻击面"的活教材：(a) 评估自家 Agent 的推理数据暴露面；(b) 作为 AI Security 的真实案例沉淀到 credential-manager / 安全公理库。</div>
+  </div>
+</section>
+
+<!-- 中价值 -->
+<section>
+  <h2>⭐×3 中价值信号 <span class="en">Medium Value</span></h2>
+
+  <div class="card warn">
+    <span class="tag t3">⭐×3</span> <span class="tag t3">AI 即发现层</span>
+    <b>④ AI 吞噬网络，互联网"集体记忆"正在消失</b><br>
+    thewalrus.ca 观点文：Google AI 摘要开始编造基本事实（如日落时间）；链接腐烂 + AI 错误居间，真实信息更难被发现，文化主权受威胁。<br>
+    <span class="partial">⚠️ Partial</span>（单一来源观点文，方向成立但论据含轶事）|
+    <a href="https://thewalrus.ca/google-search-is-dying/" target="_blank">原文</a>
+    <div class="why"><b>为什么相关：</b>强化 GEO 论点——AI 已成"发现层"，对 AI 不可见的品牌 = 不存在。是 GEO 基线盲测的舆论弹药。</div>
+  </div>
+
+  <div class="card warn">
+    <span class="tag t3">⭐×3</span> <span class="tag t3">内容溯源</span>
+    <b>⑤ Claude 全输出水印 + C2PA 签名（2026-08-02 上线）</b><br>
+    Anthropic 对所有 Claude 文本输出嵌入不可察觉水印（不影响可读性，抗复制粘贴）；对 SVG/PNG/JPG 附加 C2PA 签名元数据。对标 EU AI Act 透明度。<br>
+    <span class="verified">✅ 已验证</span> |
+    <a href="https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content" target="_blank">官方文档</a>
+    <div class="why"><b>为什么相关：</b>WellDone 用 AI 生成评价内容 → 水印/溯源既是合规风险也是<b>差异化护城河</b>（主动标注溯源 = 信任）；Responsible AI 指南需纳入此趋势。</div>
+  </div>
+</section>
+
+<!-- 行动清单 -->
+<section>
+  <h2>✅ 行动清单 <span class="en">Action Items · 本周可做</span></h2>
+  <ul class="action">
+    <li><b>🔬 clone Needle 2</b>：M4 Pro 上跑通 tool-calling demo（预计 &lt;30min），纳入 Kyle GAIA benchmark 作为"45M 极端组"。</li>
+    <li><b>📖 读 h3.c 源码</b>：作为 CS336 A2（Systems）的配套阅读，理解纯 C 推理引擎的 Metal 内存/性能优化（不急于跑完整视频生成）。</li>
+    <li><b>🛡️ 评估推理暴露面</b>：盘点 Agent 链路中调用 Claude/GPT 推理输出的环节，判断是否承载敏感 IP，写入 AI Security 笔记。</li>
+    <li><b>📍 GEO 基线盲测</b>：5 品类 × 5 国内 AI 平台启动，把"AI 即发现层"作为立项论据。</li>
+    <li><b>🔖 水印纳入 WellDone 设计</b>：在 SaaS 评价内容流程里预埋溯源位（即使暂不启用），作为合规 + 信任卖点。</li>
+  </ul>
+</section>
+
+<!-- 生活维度 -->
+<section>
+  <h2>🌿 生活维度信号 <span class="en">Life Portfolio</span></h2>
+  <div class="life">
+    <div class="box"><h4>🏋️ 健身</h4><span class="tag t1">无强信号</span><br><small>本期 HN 无运动/睡眠/补剂内容。</small></div>
+    <div class="box"><h4>🧠 健脑</h4><span class="tag t1">无强信号</span><br><small>Chicken Scheme 6.0 属编程语言旁支，非当前认知重点。</small></div>
+    <div class="box"><h4>📈 建仓</h4><span class="tag t1">无强信号</span><br><small>无财经/宏观内容。</small></div>
+    <div class="box"><h4>🥗 健胃</h4><span class="tag t1">弱命中</span><br><small>英格兰消除丙肝属公共卫生，与饮食/家庭弱相关，不单列。</small></div>
+  </div>
+  <div class="note">本轮生活维度信号稀薄——本期 HN 热榜偏技术/政策。生活信号不占 Phase 2 深挖名额。</div>
+</section>
+
+<!-- 低价值附录 -->
+<section>
+  <h2>📎 低价值附录 <span class="en">（折叠，默认收起）</span></h2>
+  <details>
+    <summary>展开查看其余 5 条 HN 热榜（⭐ 政策/社会/旁支）</summary>
+    <table>
+      <tr><th>#</th><th>标题</th><th>要点</th></tr>
+      <tr><td>6</td><td>法国禁止未经同意的电话营销</td><td>违规企业最高罚 37.5 万欧元；摩洛哥呼叫中心 4–5 万岗位受威胁。⭐ 政策/社会，无技术行动点。</td></tr>
+      <tr><td>7</td><td>英国 NGO 借"儿童安全"推数字身份法案</td><td>试图剥夺成年人网络匿名权。⭐ 隐私政策，弱相关。</td></tr>
+      <tr><td>8</td><td>英格兰有望消除丙型肝炎</td><td>80% 已知病例治疗目标达成，死亡降 36%。⭐ 公共卫生。</td></tr>
+      <tr><td>9</td><td>伊利诺伊州 HB5511 年龄验证法</td><td>要求 OS 收集用户年龄，Linux 等开源系统面临责任。⭐ 政策/隐私，旁支。</td></tr>
+      <tr><td>10</td><td>Chicken Scheme 6.0 发布</td><td>UTF-8 字符串、R7RS 兼容、FFI 改进、安全漏洞修复。⭐ 编程语言旁支，非当前栈。</td></tr>
+    </table>
+  </details>
+  <div class="note">另有 1 条 Readwise "Unnamed Document"（mp.weixin.qq.com 保存，内容为空）与 0 条新 highlight ——本期未进简报。</div>
+</section>
+
+<div class="note" style="text-align:center;">
+  🔒 本简报已脱敏（无内部域名/Jira/员工信息），适合公开发布 ·
+  Generated by <code>my-readwise-briefing</code> skill ·
+  下一期增量窗口自 2026-08-12T08:25Z 起
+</div>
+
+</div>
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');const d=document.documentElement.classList.contains('dark');btn.textContent=d?'☀️':'🌙';localStorage.setItem('theme',d?'dark':'light');});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>
