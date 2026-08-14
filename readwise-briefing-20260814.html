@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-14</title>
+<style>
+:root{
+  --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df;
+  --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880;
+  --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247;
+  --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b;
+  --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  background:var(--bg); color:var(--text); line-height:1.75; padding:24px; max-width:960px; margin:0 auto;
+  transition:background .25s,color .25s;
+}
+#theme-toggle{position:fixed;top:18px;right:24px;cursor:pointer;font-size:20px;background:var(--surface);
+  border:1px solid var(--border);border-radius:999px;width:42px;height:42px;line-height:42px;text-align:center;z-index:99;}
+header{border-bottom:2px solid var(--accent);padding-bottom:16px;margin-bottom:24px;}
+header h1{font-size:1.7rem;color:var(--accent);}
+header .meta{color:var(--text3);font-size:.9rem;margin-top:6px;}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 16px;flex:1;min-width:120px;}
+.stat .n{font-size:1.6rem;font-weight:bold;color:var(--accent);}
+.stat .l{font-size:.82rem;color:var(--text3);}
+section{margin:28px 0;}
+h2{font-size:1.25rem;color:var(--accent2);margin-bottom:14px;border-left:4px solid var(--accent2);padding-left:10px;}
+h3{font-size:1.05rem;margin-bottom:8px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+.card.high{border-left:4px solid var(--accent5);}
+.card.mid{border-left:4px solid var(--accent4);}
+.tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:6px;background:var(--surface2);color:var(--text2);margin-right:6px;}
+.tag.star5{background:var(--accent5);color:#fff;}
+.tag.star3{background:var(--accent4);color:#fff;}
+.tag.verif-ok{background:var(--accent3);color:#fff;}
+.tag.verif-warn{background:var(--accent4);color:#fff;}
+.tag.life{background:var(--accent2);color:#fff;}
+.note{background:var(--surface2);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.9rem;color:var(--text2);}
+.note b{color:var(--accent);}
+.url{color:var(--accent2);word-break:break-all;font-size:.85rem;}
+.url:hover{text-decoration:underline;}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;}
+th{background:var(--surface2);color:var(--accent);}
+details{background:var(--surface2);border-radius:10px;padding:6px 16px;margin-top:8px;}
+summary{cursor:pointer;padding:8px 0;color:var(--text2);font-weight:bold;}
+.actions{background:var(--surface);border:1px solid var(--accent3);border-radius:12px;padding:16px 20px;}
+.actions ol{padding-left:20px;}
+.actions li{margin:8px 0;}
+.life-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+.life-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;}
+.life-card h4{color:var(--accent2);font-size:.95rem;margin-bottom:6px;}
+.thin-note{background:var(--surface2);border-radius:8px;padding:10px 14px;color:var(--text2);font-size:.88rem;margin:10px 0;}
+footer{text-align:center;color:var(--text3);font-size:.8rem;margin-top:36px;border-top:1px solid var(--border);padding-top:16px;}
+.axiom{background:linear-gradient(90deg,var(--accent),var(--accent3));color:#fff;border-radius:10px;padding:12px 18px;margin-bottom:20px;font-weight:bold;text-align:center;}
+</style>
+</head>
+<body>
+<div id="theme-toggle">🌙</div>
+
+<header>
+  <h1>🔭 Readwise 情报简报</h1>
+  <div class="meta">2026-08-14（周五）· 增量窗口 2026-08-13 00:11 → 至今 · 双透镜对齐（Intent × Life Portfolio）</div>
+  <div class="axiom">不可行动的信息 = 噪音。信号 → 验证 → 洞察 → 行动</div>
+  <div class="stats">
+    <div class="stat"><div class="n">1</div><div class="l">RSS 文档</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Highlights</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Tweets</div></div>
+    <div class="stat"><div class="n">10</div><div class="l">故事条目</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">⭐×5</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">⭐×3</div></div>
+  </div>
+  <div class="thin-note">⚠️ <b>今日内容偏薄</b>：仅 1 篇 HackerNews RSS digest（2026-08-13 头条），无 highlights/tweets。digest 中仅 Tailscale、DeepSeek 两篇有完整正文，其余 8 条为一句话摘要。简报如实分层呈现，不注水。</div>
+</header>
+
+<section>
+  <h2>🎯 信号 × 项目 对应（5 个深挖方向）</h2>
+  <table>
+    <tr><th>#</th><th>信号</th><th>连接意图</th><th>验证</th><th>层级</th></tr>
+    <tr><td>1</td><td>DeepSeek V4 Pro 0813 GA</td><td>opencode-proposal · AI Coding Eval</td><td>✅ Verified</td><td>⭐×5</td></tr>
+    <tr><td>2</td><td>AI 淘汰软件工程"中产阶级"</td><td>Engineering Baseline · Human Connection</td><td>⚠️ 观点</td><td>⭐×3</td></tr>
+    <tr><td>3</td><td>Tailscale 16年 SQLite WAL bug</td><td>System Stability · Engineering Baseline</td><td>✅ Verified</td><td>⭐×3</td></tr>
+    <tr><td>4</td><td>压缩即预测</td><td>Stanford CS336</td><td>✅ 经典定理</td><td>⭐×3</td></tr>
+    <tr><td>5</td><td>Grok 4.6 长程 Agent</td><td>Life OS · Agentic Engineering</td><td>⚠️ 推文</td><td>⭐×3</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>⭐×5 高价值 · 可立即行动</h2>
+
+  <div class="card high">
+    <h3>① DeepSeek V4 Pro 0813 正式发布（8/12-13 GA）<span class="tag star5">⭐×5</span> <span class="tag verif-ok">✅ Verified</span></h3>
+    <p>深度求索大规模混合专家（MoE）模型，1M token 上下文窗口。OpenRouter 官方托管定价：<b>$0.435 / $0.87</b>（输入/输出，每百万 token），缓存命中输入低至 <b>$0.14</b>（BenchLM 数据缓存 $0.003625）。</p>
+    <div class="note">
+      <b>为什么与你直接相关</b>：你的 <b>opencode-proposal</b> 意图正是"推动 opencode + 国内模型（DeepSeek/GLM-5.2）降低 AI 编程成本"。V4 Pro 的发布给提案注入了最新弹药——价格透明、1M 长上下文、已 GA。SCMP 报道称其"部分通用 benchmark 略弱、但 cybersecurity 任务突出"，意味着选型不能只看跑分，需在你的真实 CNODI 代码库上做 <b>AI Coding Eval</b> 验证。
+    </div>
+    <div class="note">
+      <b>验证细节</b>：OpenRouter 页面确认 live；多源（BenchLM / Artificial Analysis / SCMP / DeepSeek API Docs）价格一致；新定价 8/16 生效。Artificial Analysis 称其相对中位价（~$0.33 输入）"略贵"，但带 thinking/reasoning mode（Max Effort $1.32/$3.96）。
+    </div>
+    <p class="url">🔗 <a class="url" href="https://openrouter.ai/deepseek/deepseek-v4-pro-0813">openrouter.ai/deepseek/deepseek-v4-pro-0813</a> · <a class="url" href="https://benchlm.ai/models/deepseek-v4-pro-0813">benchlm.ai 对比</a> · <a class="url" href="https://api-docs.deepseek.com/quick_start/pricing">官方定价</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>⭐×3 中等价值 · 值得关注</h2>
+
+  <div class="card mid">
+    <h3>② AI 正在淘汰软件工程的"中产阶级" <span class="tag star3">⭐×3</span> <span class="tag verif-warn">⚠️ 观点</span></h3>
+    <p>核心论点：AI 让糟糕决策的破坏速度远超修复速度，两端（优秀工程师）反而更值钱，中间层被挤压。</p>
+    <div class="note"><b>连接</b>：<b>Engineering Baseline & Value Demonstration</b>——团队价值要从"能写代码"转向"能做对的决策"。对 <b>Human Connection Investment</b> 是反向印证：AI 时代"真正看见人"、提升决策质量的领导力更稀缺。⚠️ 此为单篇观点，需交叉验证。</div>
+  </div>
+
+  <div class="card mid">
+    <h3>③ Tailscale 将数据库损坏追溯至 16 年前 SQLite WAL-Reset bug <span class="tag star3">⭐×3</span> <span class="tag verif-ok">✅ Verified</span></h3>
+    <p>checkpoint 期间的罕见 data race → WAL 页面"以为已写实则丢失"→ 永久损坏。6 个月 19 次。Tailscale 雇佣 SQLite 核心开发者、付费资助开源调试工具 <code>tmstmpvfs</code>，定位并修复（SQLite 3.52.0）。HN 743 分 / 120 评论。</p>
+    <div class="note"><b>连接</b>：<b>System Stability</b> + <b>Engineering Baseline</b> 三条铁律——①"标准配置更安全"，偏离 boring tech 的常规用法引入独特风险；②专业支持合同值得；③<b>正面证明（positive proof）</b>胜过"没有新事故"。你的 PRATA 用 Bun SQLite，本课同样适用。公司资助开源的模式也与 <b>IKEA Skill Hub / Innersource</b> 呼应。</div>
+    <p class="url">🔗 <a class="url" href="https://tailscale.com/blog/sqlite-wal-reset-bug">tailscale.com/blog/sqlite-wal-reset-bug</a> · <a class="url" href="https://news.ycombinator.com/item?id=49272832">HN 讨论</a></p>
+  </div>
+
+  <div class="card mid">
+    <h3>④ "压缩即预测"（Compression is Prediction） <span class="tag star3">⭐×3</span> <span class="tag verif-ok">✅ 经典定理</span></h3>
+    <p>压缩与大语言模型的本质联系：更好的概率模型 → 更好的压缩。这是 LLM 的第一性原理之一。</p>
+    <div class="note"><b>连接</b>：<b>Stanford CS336</b>——你正在手搓 LLM。这条信号是把"玄学"钉死为可推导定理的关键概念，可直接用于博客分享与 A1/A2 的理论锚点。</div>
+  </div>
+
+  <div class="card mid">
+    <h3>⑤ Grok 4.6 专注长程 Agent 与复杂交互 <span class="tag star3">⭐×3</span> <span class="tag verif-warn">⚠️ 推文</span></h3>
+    <p>基准前沿，但系统提示词无法根除越狱风险。</p>
+    <div class="note"><b>连接</b>：<b>Life OS</b> 的 Proactive Agents 支柱与 <b>Agentic Engineering</b>——长程（long-horizon）能力正是自主巡逻/月报共创/值班协作的瓶颈。⚠️ 推文无原始 benchmark 可验，降权；但"长程 Agent 是新前沿"的框架已被多源印证。</div>
+  </div>
+
+  <div class="card mid">
+    <h3>⑥ Qwen3.8-2.4T-A95B 开源最强之一 <span class="tag star3">⭐×3</span></h3>
+    <p>参数量巨大但可量化部署，许可证有收入限制。</p>
+    <div class="note"><b>连接</b>：与 DeepSeek 并列，是 <b>opencode-proposal / AI Coding Eval</b> 的开源备选。"许可证有收入限制"是 IKEA 商用合规的关键变量，需法务确认。</div>
+  </div>
+</section>
+
+<section>
+  <h2>🌿 生活维度信号</h2>
+  <div class="life-grid">
+    <div class="life-card">
+      <h4>🧠 健脑 · CS336 锚点</h4>
+      <p>"压缩即预测"是认知/学习维度的硬通货——把概率模型与压缩统一，强化 LLM 第一性原理心智模型。本周 CS336 A2（Flash Attention）冲刺期正好用上。</p>
+    </div>
+    <div class="life-card">
+      <h4>🧠 健脑 · 决策质量</h4>
+      <p>"AI 淘汰中产阶级"的反面是：决策质量成为新稀缺。与 Life Purpose 探索（Designing Your Life）共振——人机协作中，"人"的价值在于判断而非执行。</p>
+    </div>
+    <div class="life-card">
+      <h4>🏋️ 健身</h4>
+      <p>本期无匹配信号。</p>
+    </div>
+    <div class="life-card">
+      <h4>📈 建仓</h4>
+      <p>本期无匹配信号。</p>
+    </div>
+    <div class="life-card">
+      <h4>🥗 健胃</h4>
+      <p>本期无匹配信号。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>✅ 行动清单</h2>
+  <div class="actions">
+    <ol>
+      <li><b>本周</b>：把 DeepSeek V4 Pro 0813 定价（$0.435/$0.87，1M ctx，GA）写入 <code>workspace/opencode-proposal/</code> 成本对比表，作为 Ingka AUG 合规提案的最新数据点。</li>
+      <li><b>本周</b>：在 <b>AI Coding Eval</b> 小矩阵（≥3 model）中加入 <code>deepseek-v4-pro-0813</code>，跑 ≥5 judge_only cases，验证其在 CNODI 真实场景的相对表现。</li>
+      <li><b>CS336</b>：A2 Flash Attention Triton 作业（8/16 截止）里，用"压缩即预测"作为理解 attention 概率的锚点。</li>
+      <li><b>System Stability</b>：把 Tailscale 的"positive proof > 无新事故"与"标准配置更安全"沉淀为团队 incident review checklist。</li>
+      <li><b>合规</b>：Qwen3.8 许可证收入限制——提交前请法务/AUG 确认 IKEA 商用是否触发。</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2>📎 低价值附录（折叠）</h2>
+  <details>
+    <summary>展开查看 4 条低相关信号</summary>
+    <div class="card">
+      <h3>车牌识别：历史搜索需搜查令，实时警报豁免</h3>
+      <p>需州立法强制实施。<span class="tag">⭐ 法律/隐私</span></p>
+    </div>
+    <div class="card">
+      <h3>Meta 货币化计划间接奖励争议创作者</h3>
+      <p>商业模式鼓励"愤怒诱饵"获高互动。<span class="tag">⭐ 平台经济</span></p>
+    </div>
+    <div class="card">
+      <h3>LinkedIn CringeBot 3000</h3>
+      <p>恶搞工具，生成"思想领袖"尴尬帖子。<span class="tag">⭐ 娱乐</span></p>
+    </div>
+    <div class="card">
+      <h3>2026 日食网络摄像头页面</h3>
+      <p>实时展示日食观测，全食阶段已结束。<span class="tag">⭐ 事件</span></p>
+    </div>
+  </details>
+</section>
+
+<footer>
+  Readwise Briefing · my-readwise-briefing v4.3 · 生成于 2026-08-14 CST<br>
+  数据源：Readwise API v3 (Reader RSS) · 验证：OpenRouter / BenchLM / Tailscale 博客 · 公开仓库已脱敏
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  const d=document.documentElement.classList.contains('dark');
+  btn.textContent=d?'☀️':'🌙';
+  localStorage.setItem('theme',d?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️';}
+</script>
+</body>
+</html>
