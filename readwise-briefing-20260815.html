@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-08-15</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { text-align: center; padding: 2rem 0 1.5rem; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.3rem; }
+.subtitle { color: var(--text3); font-size: 0.95rem; }
+.theme-btn {
+  position: fixed; top: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; z-index: 10;
+}
+.stats { display: flex; gap: 1rem; justify-content: center; margin: 1.2rem 0; flex-wrap: wrap; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem 1.4rem; text-align: center; }
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent2); }
+.stat .label { font-size: 0.8rem; color: var(--text3); }
+h2 { color: var(--accent); font-size: 1.25rem; margin: 2rem 0 1rem; padding-left: 0.6rem; border-left: 4px solid var(--accent); }
+h3 { font-size: 1.05rem; margin: 1.2rem 0 0.5rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1rem; }
+.card.high { border-left: 4px solid var(--accent4); }
+.badge { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 99px; margin-right: 0.4rem; vertical-align: middle; }
+.b5 { background: var(--accent4); color: #fff; }
+.b3 { background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
+.blife { background: var(--accent3); color: #fff; }
+.bver { background: var(--accent3); color: #fff; }
+.bpart { background: var(--accent4); color: #fff; }
+.bsci { background: var(--accent2); color: #fff; }
+.meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.5rem; }
+.why { background: var(--surface2); border-radius: 8px; padding: 0.8rem 1rem; margin: 0.8rem 0; font-size: 0.92rem; }
+.why strong { color: var(--accent); }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.9rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface2); color: var(--accent); }
+code { background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.85em; }
+pre { background: var(--surface2); border-radius: 8px; padding: 0.8rem 1rem; overflow-x: auto; font-size: 0.82rem; line-height: 1.5; }
+a { color: var(--accent2); }
+.action li { margin: 0.4rem 0; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.4rem; margin: 1rem 0; }
+summary { cursor: pointer; color: var(--text3); font-size: 0.9rem; }
+.footer { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.axiom { text-align: center; background: var(--surface2); border-radius: 10px; padding: 0.8rem; margin-bottom: 1.5rem; color: var(--text2); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<button class="theme-btn" id="theme-toggle">🌙</button>
+<div class="container">
+
+<header>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="subtitle">2026-08-15（周六）· 增量窗口：08-14 06:30 UTC → 今晨</div>
+</header>
+
+<div class="axiom">⚖️ 核心公理：<strong>不可行动的信息 = 噪音</strong> · 信号 → 验证 → 洞察 → 行动</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">2</div><div class="label">新信号</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">生活维度</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">🔬 亲测通过</div></div>
+</div>
+
+<h2>🔭 信号概览</h2>
+<table>
+  <tr><th>信号</th><th>来源</th><th>验证</th><th>分层</th><th>去向</th></tr>
+  <tr>
+    <td><strong>AgentsView</strong> — 本地优先 AI 编程会话分析器</td>
+    <td>@dingyi</td>
+    <td><span class="badge bsci">🔬 亲测</span></td>
+    <td>⭐×5</td>
+    <td>→ 2 个深挖 Proposal</td>
+  </tr>
+  <tr>
+    <td>《"三个代表"与驾驭 AGI》长文</td>
+    <td>@ewind_dev</td>
+    <td><span class="badge bpart">⚠️ Partial</span></td>
+    <td>🧠 健脑</td>
+    <td>→ 简报收录，不深挖</td>
+  </tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+<div class="card high">
+  <h3><span class="badge b5">⭐×5</span><span class="badge bsci">🔬 亲测通过</span>AgentsView — 你的 Agent 会话，终于可观测了</h3>
+  <div class="meta">来源：@dingyi「发现这个有点牛逼」→ <a href="https://www.agentsview.io/">agentsview.io</a> · 开源 <a href="https://github.com/kenn-io/agentsview">kenn-io/agentsview</a> · Go · MIT（待确认）</div>
+
+  <p><strong>是什么</strong>：本地优先的桌面/CLI 应用，自动发现 20+ AI 编程工具（Claude Code、Codex、Copilot、Cursor、Gemini、Zed…）的会话 JSONL，入 SQLite + 全文索引，提供会话浏览、全文/语义搜索、token 成本报告、Activity 仪表盘、Recent Edits。</p>
+
+  <div class="why">
+    <strong>为什么与你相关</strong>：直击 Life OS「Trust & Eval」支柱的数据底座缺口——你已有 notebooks-dashboard 监控仓库，但 agent 会话级观测（花了多少 token、哪些会话质量差）是空白。同时是 AI Coding Eval 的互补数据源：任务级 Pass@1（swe-eval）× 会话级真实使用数据（AgentsView）= 完整的团队 AI 编码效能画像。
+  </div>
+
+  <h3>🔬 亲测报告（2026-08-15, macOS arm64）</h3>
+  <table>
+    <tr><th>环节</th><th>结果</th></tr>
+    <tr><td>安装</td><td>✅ <code>uvx agentsview</code>，32.9MB，秒装，v0.40.1</td></tr>
+    <tr><td>sync</td><td>✅ 191 sessions / 10,147 messages，<strong>3.5 秒</strong>（速度与宣传一致）</td></tr>
+    <tr><td>projects</td><td>✅ 正确识别多项目（Notebooks 163 sessions）</td></tr>
+    <tr><td>health</td><td>✅ 惊喜——按日列出 GRADE（A/B/D）+ OUTCOME + FAILS，能识别 Claude Code 兼容会话</td></tr>
+    <tr><td>serve Web UI</td><td>⚠️ 端口响应异常（疑沙箱网络限制），未完全验证</td></tr>
+    <tr><td>结论</td><td><strong>推荐深挖</strong>，与宣传基本一致无夸大</td></tr>
+  </table>
+
+  <pre>health 实测示例：
+DATE        AGENT  GRADE  OUTCOME    MSGS  FAILS  PROJECT
+2026-08-15  zcode  A      completed  58    0      Notebooks
+2026-08-14  zcode  D      completed  1019  0      Notebooks
+2026-08-14  zcode  B      completed  540   0      Notebooks</pre>
+
+  <div class="meta">Repo 健康度：⭐4,943 · fork 589 · 最后 push <strong>当天</strong>（极活跃）· 76 open issues</div>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+
+<div class="card">
+  <h3><span class="badge blife">🧠 健脑</span><span class="badge bpart">⚠️ Partial</span>《"三个代表"重要思想是正确认识和驾驭 AGI 的强大理论武器》</h3>
+  <div class="meta">来源：@ewind_dev（Yifeng "Evan" Wang，前端生态知名开发者）· 2026-08-14 · <a href="https://x.com/ewind_dev/article/2088053498189590816">X 长文</a></div>
+  <p>将政治理论框架与 AGI 认知结合的思想评论长文，涉及市场化、全球化、信息化转型的技术-社会分析。</p>
+  <div class="why"><strong>验证说明</strong>：⚠️ X article 需登录无法读取全文，仅确认标题与发布信息。框架有趣但无法核实论证质量——按推文降权规则处理，列入待读（登录 X 后人工阅读）。</div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="card">
+  <ol class="action">
+    <li><strong>安装桌面版</strong>：<code>brew install --cask agentsview</code>，亲眼看 Activity 仪表盘 + token 成本曲线（CLI 已验，GUI 待验）</li>
+    <li><strong>确认 license</strong>：gh API 未返回 license 字段，网站标 MIT——采用前查 LICENSE 文件</li>
+    <li><strong>阅读 ewind 长文</strong>：登录 X 阅读《三个代表与 AGI》，评估是否有可提取的心智模型</li>
+    <li><strong>深挖两方向</strong>：见 Proposals 页——Life OS 观测层集成 / 团队 AI 编码效能基线</li>
+  </ol>
+</div>
+
+<h2>📋 附录 · 处理明细</h2>
+<details>
+  <summary>展开查看全部原始信号（2 条）</summary>
+  <table>
+    <tr><th>#</th><th>内容</th><th>来源</th><th>分类</th></tr>
+    <tr><td>1</td><td>短链 → agentsview.io（本日主信号）</td><td><a href="https://x.com/dingyi/status/2088253030563299833">@dingyi</a></td><td>Intent ⭐×5</td></tr>
+    <tr><td>2</td><td>短链 → X article《三个代表与 AGI》</td><td><a href="https://x.com/ewind_dev/status/2088053498189590816">@ewind_dev</a></td><td>Life 🧠 健脑</td></tr>
+  </table>
+  <p class="meta" style="margin-top:0.6rem">增量策略：updatedAfter=2026-08-14T06:30:00Z，2 文档 2 highlights，无分页。周六无需上周回顾。</p>
+</details>
+
+<div class="footer">Readwise Briefing · 信号→验证→洞察→行动 · <a href="readwise-proposals-20260815.html">→ 查看 Proposals</a></div>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
