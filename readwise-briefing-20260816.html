@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-16</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);
+  font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  line-height:1.75;padding:40px 20px;max-width:960px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+h1{font-size:1.7em;color:var(--accent)}
+.meta{color:var(--text3);font-size:.92em;margin-bottom:24px}
+#theme-toggle{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:6px 12px;cursor:pointer;font-size:1.1em}
+h2{font-size:1.25em;margin:36px 0 14px;color:var(--text);border-left:4px solid var(--accent);padding-left:10px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95em}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2)}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--surface2) 45%,var(--surface))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:20px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card h3{font-size:1.08em;margin-bottom:6px}
+.tag{display:inline-block;padding:1px 9px;border-radius:999px;font-size:.82em;margin-right:6px;vertical-align:middle}
+.t5{background:color-mix(in srgb,var(--accent5) 14%,transparent);color:var(--accent5)}
+.tv{background:color-mix(in srgb,var(--accent3) 14%,transparent);color:var(--accent3)}
+.tl{background:color-mix(in srgb,var(--text3) 14%,transparent);color:var(--text3)}
+.td{background:color-mix(in srgb,var(--accent4) 14%,transparent);color:var(--accent4)}
+blockquote{border-left:3px solid var(--accent2);padding:6px 14px;margin:10px 0;
+  background:var(--surface2);border-radius:0 8px 8px 0;color:var(--text2);font-size:.95em}
+.why{background:color-mix(in srgb,var(--accent2) 7%,var(--surface));border:1px dashed color-mix(in srgb,var(--accent2) 40%,var(--border));
+  border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.93em}
+.why b{color:var(--accent2)}
+a{color:var(--accent)}
+ol,ul{padding-left:24px}
+li{margin:5px 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 18px;margin:10px 0}
+summary{cursor:pointer;color:var(--text2);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+.stat .num{font-size:1.6em;color:var(--accent);font-weight:700}
+.stat .lbl{font-size:.85em;color:var(--text3)}
+.footer{margin-top:40px;color:var(--text3);font-size:.85em;text-align:center;border-top:1px solid var(--border);padding-top:16px}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>📬 Readwise 情报简报 · 2026-08-16</h1>
+    <div class="meta">周日 · 增量窗口 2026-08-14T06:30Z → 2026-08-16T08:00Z · 拉取 5 条 → 去重后新信号 3 条</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">5</div><div class="lbl">拉取总数</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">新信号（去重后）</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">深挖 Proposals</div></div>
+  <div class="stat"><div class="num">0</div><div class="lbl">生活维度</div></div>
+</div>
+
+<h2>🔭 信号概览</h2>
+<table>
+  <tr><th>信号</th><th>来源</th><th>验证</th><th>对接意图</th><th>深挖</th></tr>
+  <tr>
+    <td>LLM bug 分布迁移：off-by-one → system design / usability / 缺 context；adversarial review 是强力对策</td>
+    <td>@bcherny（Claude Code 负责人）</td>
+    <td>✅ Verified</td>
+    <td>AI Coding Eval · Testing Excellence · opencode-proposal</td>
+    <td><a href="readwise-proposals-20260816.html">Proposal 1</a></td>
+  </tr>
+  <tr>
+    <td>AI Engineering Skills Map：10K+ JD 分析出的四大技能（含 evals 为核心）</td>
+    <td>@AndrewYNg（The Batch #366）</td>
+    <td>✅ Verified</td>
+    <td>AI Upskill Trainer · FY27 FA2</td>
+    <td><a href="readwise-proposals-20260816.html">Proposal 2</a></td>
+  </tr>
+  <tr>
+    <td>X article（无文本，匿名不可读）</td>
+    <td>@nurijanian</td>
+    <td>❌ 不可验证</td>
+    <td>—</td>
+    <td>—</td>
+  </tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+<div class="card">
+  <h3><span class="tag t5">⭐×5</span><span class="tag tv">✅ Verified</span>LLM bug 分布迁移 + Adversarial Review</h3>
+  <div style="color:var(--text3);font-size:.9em">Boris Cherny（@bcherny）· Head of Claude Code @ Anthropic · 2026-08</div>
+  <blockquote>
+    LLMs still produce bugs, adversarial code review has been an incredibly powerful tool. LLMs still produce bugs, but those bugs are different than what they used to be. It's less off-by-ones and more about system design, ui usability, missing broader context. Some kinds of coding has been solved, but not all.
+  </blockquote>
+  <p style="font-size:.93em">
+    原文：<a href="https://x.com/bcherny/status/2087284684103537011">x.com/bcherny/status/2087284684103537011</a>（引用 <a href="https://x.com/jarredsumner/status/2087139563110363419">@jarredsumner 推文</a>）
+  </p>
+  <div class="why">
+    <b>验证报告（Phase 1.5）：</b><br>
+    ① 身份顶级一手信源：Cherny = Claude Code 创造者兼负责人、《Programming TypeScript》作者、前 Instagram server arch lead（LinkedIn / Lenny's Newsletter / Pragmatic Engineer 三源一致）。<br>
+    ② 关联实践链：Jarred Sumner（Bun 作者，2025-12 随 Bun 加入 Anthropic）在 <a href="https://bun.com/blog/bun-in-rust">Rewriting Bun in Rust</a>（2026-07-08，53.5 万行 Zig→Rust）中系统化使用 adversarial review——独立 context window 让 Claude "exhaustively come up with reasons why the changes create bugs"。<a href="https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust/">Simon Willison 专文覆盖</a>。<br>
+    ③ 早期佐证：Jarred 2024 推文 "Human mistakes often look like typos, off-by-one errors… LLM mistakes often do a complete job of a wrong but related task"。<br>
+    ④ <b>内部数据互证</b>：自家 AI Coding Eval 矩阵（n=56）显示最难 case 恰为<b>跨文件领域模型改造</b>、最易为局部 DTO/字段改动——与 Cherny 论断独立吻合，构成"外部专家 × 内部实验"双向验证。
+  </div>
+  <div class="why">
+    <b>为什么与你当前项目相关：</b>judge_only 评分挤在 57–59% 无区分度，恰因 judge 未针对"system design / missing context"类缺陷设计——对抗性 judge（专门找茬的第二模型/第二 prompt）正对此症；Testing Excellence 的"边界优先"原则需升级为"context 优先"；低成本国内模型（DeepSeek/GLM）当 adversarial reviewer 是 opencode-proposal 的最佳叙事。
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="tag t5">⭐×5</span><span class="tag tv">✅ Verified</span>The AI Engineering Skills Map（四大技能）</h3>
+  <div style="color:var(--text3);font-size:.9em">Andrew Ng（@AndrewYNg）· The Batch Issue #366 · 2026-08</div>
+  <p style="font-size:.93em">原文：<a href="https://x.com/AndrewYNg/status/2088302050706686198">X article</a> · <a href="https://www.deeplearning.ai/the-batch/issue-366">The Batch #366（匿名可读，全文已读）</a></p>
+  <table>
+    <tr><th>#</th><th>技能</th><th>核心</th></tr>
+    <tr><td>1</td><td><b>Building & deploying AI applications</b></td><td>LLM / context engineering / RAG / agentic workflow + 统计化测量驾驭；核心能力 = <b>disciplined evals + error analysis loops</b></td></tr>
+    <tr><td>2</td><td><b>Software engineering fundamentals</b></td><td>cost/scalability/reliability/security tradeoffs——防 "vibe coding" 式糟糕权衡</td></tr>
+    <tr><td>3</td><td><b>Using coding agents</b></td><td>agent 心智模型、context 管理、verifiers/evals 闭环、何时写 spec、多 agent 编排</td></tr>
+    <tr><td>4</td><td><b>Shaping the build</b></td><td>agent 擅长执行 spec 后，工程师价值迁移到"往 spec 里放什么"——product sense + ownership</td></tr>
+  </table>
+  <p style="font-size:.93em">方法论：10,000+ job postings 聚类 + 数十个专家/招聘经理结构化访谈。定位为"技能"而非"岗位"（类比 cloud）。详细版 map 将陆续发布。</p>
+  <div class="why">
+    <b>验证报告（Phase 1.5）：</b>✅ The Batch #366 原文全文读取（非仅推文摘要）；方法论与四技能均为一手提取；LinkedIn 同步发布交叉确认。数据为美国 JD 语料 → 对中国/宜家场景适用性需打折（已在 Proposal 2 诚实挑战中处理）。
+  </div>
+  <div class="why">
+    <b>为什么与你当前项目相关：</b>① <b>evals 是 #1 技能的核心能力</b>——AI Coding Eval 项目的正当性获得权威外部背书；② 讲师团大纲（L0-L4 四象限）可用此框架校准缺口（如 error analysis 是否覆盖？）；③ "Shaping the build" 与你在 FY27 FA2 的"从执行者到系统设计者"叙事同构，可作启动会弹药。
+  </div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="card">
+  <ol>
+    <li><b>[eval 实验]</b> swe-eval-builder 加一版<b>对抗性 judge prompt</b>（"穷举此改动的失败理由"），对同一批 case A/B 对比区分度——直击 57–59% 无区分度痛点（≤2h，本周）</li>
+    <li><b>[讲师团]</b> 制作 Ng 四技能 × L0-L4 crosswalk 表，纳入讲师团启动会材料（≤1h）</li>
+    <li><b>[精读]</b> Lenny's Newsletter《Head of Claude Code: What happens after coding is solved》+ The Batch #366 原文——两篇一手长文，补齐推文之外的语境</li>
+    <li><b>[团队 SOP 候选]</b> 从 Bun-in-Rust 博文提炼 adversarial review 操作步骤，试点到一条 AI 生成 PR 的 review 流程</li>
+  </ol>
+</div>
+
+<h2>🌿 生活维度信号（健身 · 健脑 · 建仓 · 健胃）</h2>
+<div class="card" style="color:var(--text3)">本期 0 条 —— 增量内无匹配生活四维的信号。</div>
+
+<h2>📎 低价值附录（已折叠）</h2>
+<details>
+  <summary>展开全部（2 条）</summary>
+  <ul>
+    <li><span class="tag tl">❌ 不可验证</span><b>@nurijanian</b>（prodmgmt.world）— 仅 t.co 短链，解析为 <a href="https://x.com/i/article/2088519927296901120">X article</a>，匿名不可读、无文本上下文 → 按推文降权规则入附录。如需可手动打开。</li>
+    <li><span class="tag td">昨日已处理</span><b>@ewind_dev《三个代表与 AGI》</b>— X article 匿名不可读，仍列待读（与今日无重复处理）。</li>
+  </ul>
+</details>
+<details>
+  <summary>去重记录（2 条，昨日 08-15 已入简报）</summary>
+  <ul>
+    <li><b>@dingyi → AgentsView</b>（⭐×5 已深挖，uvx 亲测通过）</li>
+    <li><b>@ewind_dev → 《三个代表与 AGI》</b>（⚠️ 待读）</li>
+  </ul>
+</details>
+
+<div class="footer">
+  生成：my-readwise-briefing v4.3 · 周日无周报需求（周一触发上周总结）· <a href="index.html">归档索引</a><br>
+  公开归档已脱敏；内部细节（Jira/repo 名）仅存本机。
+</div>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){
+  document.documentElement.classList.add('dark');
+  btn.textContent='☀️';
+}
+</script>
+</body>
+</html>

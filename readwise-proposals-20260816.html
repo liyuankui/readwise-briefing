@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-08-16</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);
+  font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;
+  line-height:1.75;padding:40px 20px;max-width:960px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+h1{font-size:1.7em;color:var(--accent)}
+.meta{color:var(--text3);font-size:.92em;margin-bottom:20px}
+#theme-toggle{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:1.1em}
+.axiom{background:color-mix(in srgb,var(--accent5) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--accent5) 30%,var(--border));
+  border-radius:10px;padding:12px 18px;margin:16px 0;font-weight:600;color:var(--accent5);text-align:center}
+h2{font-size:1.25em;margin:36px 0 14px;color:var(--text);border-left:4px solid var(--accent);padding-left:10px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92em}
+th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2)}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--surface2) 45%,var(--surface))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 26px;margin:20px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card>h3{font-size:1.18em;margin-bottom:4px}
+.thesis{background:color-mix(in srgb,var(--accent2) 8%,var(--surface));border-left:4px solid var(--accent2);
+  padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:1.02em}
+h4{font-size:1.02em;margin:18px 0 8px;color:var(--accent)}
+ol,ul{padding-left:24px}
+li{margin:5px 0}
+a{color:var(--accent)}
+.section{margin-top:8px}
+.flag{background:color-mix(in srgb,var(--accent4) 8%,var(--surface));border:1px dashed color-mix(in srgb,var(--accent4) 45%,var(--border));
+  border-radius:8px;padding:12px 16px;margin-top:10px}
+.flag h4{color:var(--accent4);margin-top:0}
+.pill{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.8em;background:var(--surface2);border:1px solid var(--border);color:var(--text2);margin:0 4px 6px 0}
+.footer{margin-top:40px;color:var(--text3);font-size:.85em;text-align:center;border-top:1px solid var(--border);padding-top:16px}
+blockquote{border-left:3px solid var(--accent2);padding:6px 14px;margin:10px 0;background:var(--surface2);border-radius:0 8px 8px 0;color:var(--text2);font-size:.93em}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>⛏️ Readwise 深挖 Proposals · 2026-08-16</h1>
+    <div class="meta">周日 · 2 个方向 × subagent 并行推理 · 信号均经 Phase 1.5 验证（✅×2）</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom">不可行动的信息 = 噪音 —— 本页只留能变成项目的东西</div>
+
+<h2>🗺️ 信号 × 项目 对应</h2>
+<table>
+  <tr><th>信号（已验证）</th><th>对接项目</th><th>Proposal</th></tr>
+  <tr><td>Cherny（Claude Code 负责人）：bug 分布迁移 + adversarial review；内部 eval 矩阵独立互证</td><td>AI Coding Eval · Testing Excellence · opencode-proposal</td><td><a href="#p1">#1 AR-SI</a></td></tr>
+  <tr><td>Andrew Ng：AI Engineering Skills Map（10K+ JD，四技能，evals 为核心）</td><td>AI Upskill Trainer · FY27 FA2</td><td><a href="#p2">#2 讲师团校准</a></td></tr>
+</table>
+
+<!-- ═══════════════ Proposal 1 ═══════════════ -->
+<div class="card" id="p1">
+  <h3>#1 · AR-SI：Adversarial Review as Standard Infrastructure</h3>
+  <div>
+    <span class="pill">AI Coding Eval</span><span class="pill">Testing Excellence</span><span class="pill">opencode-proposal</span><span class="pill">信号：@bcherny ✅</span>
+  </div>
+  <div class="thesis">
+    <b>核心主张：</b>在 FTP 短期不可得的约束下，「独立上下文、穷举失败理由」的对抗性评审应同时部署为 <b>eval 的第二裁判、团队 PR 的质量闸、opencode 的差异化叙事</b>——同一机制，一次构建，三处复用，且每处都有内外数据双重支撑。
+  </div>
+
+  <h4>三个经得起追问的支点</h4>
+  <table>
+    <tr><th>支点</th><th>证据</th><th>追问的答案</th></tr>
+    <tr><td>机制有外部背书</td><td>Jarred Sumner（Bun@Anthropic）53.5 万行重写的核心实践；Cherny（Claude Code 负责人）称 "incredibly powerful tool"</td><td>不是我们的发明，是头部团队的既定工程实践</td></tr>
+    <tr><td>痛点有内部数据</td><td>judge_only 三模型挤 57–59%；重跑对照实验暴露 judge 30pp 高估</td><td>见下，非泛泛而谈</td></tr>
+    <tr><td>一次构建三处用</td><td>eval 的对抗 judge 与 PR 的对抗 reviewer 是同一个 prompt 同一个模型角色</td><td>评测即工作流 dogfood，成本摊薄 3 倍</td></tr>
+  </table>
+
+  <h4>锁定的痛点</h4>
+  <ul>
+    <li><b>P1 零区分度</b>：n=56 矩阵三模型极差仅 <b>1.6pp</b>（59.1 / 57.5 / 57.5%），n=56 置信区间约 ±13pp——差距完全淹没在噪声里，选型决策卡死。</li>
+    <li><b>P2 裁判系统性放水（已抓包）</b>：08-04 重跑对照——judge 给 10/10，真实自主重跑仅 7/10，<b>30pp 高估由人工重跑才发现</b>；确认"纯 diff 盲评无法识别编译/测试失败"的方法论盲区。</li>
+    <li><b>P3 火力停旧靶位</b>：Cherny 论断 bug 从 off-by-one → system design / usability / context；内部矩阵完全互证（最难=跨文件领域改造，最易=局部 DTO）。</li>
+    <li><b>P4 opencode 只有成本故事没有质量故事</b>："便宜模型"触发 cheap=cheap 异议；adversarial reviewer 是"便宜模型干高价值活"的最佳叙事。</li>
+  </ul>
+  <blockquote>机制定义（fork Jarred 原句）：独立 context window（非 solver 会话），要求模型"穷举这个改动会制造 bug 或不成立的理由"，每条必须引用 file:line 证据 + 可执行验证建议，输出结构化 verdict。裁判模型 ≠ solver 模型。</blockquote>
+
+  <h4>里程碑</h4>
+  <table>
+    <tr><th>里程碑</th><th>周期</th><th>交付物</th><th>过门条件</th></tr>
+    <tr><td><b>M0</b> 对抗裁判原型 + 种子校准</td><td>W1（2-3天）</td><td>对抗 judge prompt v1；56 个历史产物 + 重跑 case 重判；好/坏 patch 各 5 的种子集；spread delta 报告</td><td>极差 ≥8pp 且假阳率 ≤20% → 进 M1；否则仅保工作流腿</td></tr>
+    <tr><td><b>M1</b> swe-eval-builder 双裁判泳道</td><td>W2-3</td><td>judge_standard + judge_adversarial 双泳道；分歧自动进人工 review 队列</td><td>分歧仲裁 ≥10 case（喂 case 飞轮，凑 ≥20 已审 cases）</td></tr>
+    <tr><td><b>M2</b> 团队 PR 对抗评审试点</td><td>W3-5</td><td>1-2 个 AI PR 高流量 repo 挂 CI hook；advisory-only 影子模式，每 PR 只发 top-3 失败假设（带 file:line）</td><td>见下方工作流指标</td></tr>
+    <tr><td><b>M3</b> opencode-proposal 增补</td><td>W6-8</td><td>提案新增 "Adversarial Reviewer" 章节：外部证据链 + 试点数据 + 分级成本</td><td>审批讨论覆盖 reviewer 用途</td></tr>
+  </table>
+  <p style="font-size:.9em;color:var(--text3)">关键设计：M0 复用已有 run 产物，不需要新跑任何 agent，边际成本仅为 judge token。</p>
+
+  <h4>成功标准（可测量）</h4>
+  <table>
+    <tr><th>维度</th><th>指标</th><th>阈值</th></tr>
+    <tr><td>Eval 区分度</td><td>模型极差</td><td>≥8pp（现状 1.6pp）</td></tr>
+    <tr><td>Eval 校准</td><td>坏 patch 检出率 / 好 patch 误杀率</td><td>TPR ≥80% / FPR ≤20%</td></tr>
+    <tr><td>Eval 稳定性</td><td>换 judge seed 排名一致性</td><td>Spearman ρ ≥0.8</td></tr>
+    <tr><td>工作流捕获</td><td>人工漏掉、对抗评审抓到的真 bug</td><td>≥1 个 / 10 个 AI PR</td></tr>
+    <tr><td>工作流信噪</td><td>工程师评"有用"占比</td><td>≥50%</td></tr>
+    <tr><td>工作流损耗</td><td>review 周期时间回归</td><td>≤+10%</td></tr>
+  </table>
+
+  <h4>ROI</h4>
+  <ul>
+    <li>选型解锁：11 工程师 × 仅 5% 效率差 ≈ <b>0.55 FTE ≈ 28.6 人周/年</b>；现状是数周 eval 投入换不来任何决策。</li>
+    <li>评审产能：分级 token 费 vs senior 30min/PR 人工审查——量级差 10³–10⁴，等效一个不知疲倦的二审。</li>
+    <li>逃逸损失：跨文件领域 bug 出现在订单域 = 事故级，一次逃逸代价 &gt; 全年 reviewer token 费。</li>
+  </ul>
+
+  <h4>风险与缓解（节选）</h4>
+  <ul>
+    <li>对抗 judge 统一压分（severity bias）→ 种子校准 + FPR 硬门 + 双裁判分歧人工仲裁</li>
+    <li>便宜模型审不出 system-design bug → 喂 repo context + 任务书而非裸 diff；捕获率不足则降级"初筛+强模型复审"</li>
+    <li>告警疲劳 → 影子模式起步、top-3 封顶、ignore 率 &gt;50% 触发 kill switch</li>
+    <li>judge 与 solver 同家族自我偏好 → 裁判强制 ≠ solver，交叉裁判矩阵</li>
+  </ul>
+
+  <h4>立即行动（本周 3 件）</h4>
+  <ol>
+    <li><b>对抗 judge prompt v1 + 重判存量</b>：双裁判配置跑 56 个历史产物 + 重跑 case，出 spread delta 表。纯 token 成本，本周出结果。</li>
+    <li><b>10-patch 种子校准集</b>：5 好 + 5 坏出 TPR/FPR；顺手给 56 个 diff 打 bug taxonomy 标签（局部 vs 跨文件），用自有数据验证 Cherny 迁移论。</li>
+    <li><b>opencode 一页纸</b>："Adversarial Reviewer——便宜模型干高价值活"，证据链 Cherny → Jarred → 内部矩阵，附进合规咨询；同步收 2 个试点 repo 志愿者。</li>
+  </ol>
+
+  <div class="flag">
+    <h4>🚩 诚实挑战（节选全文 6 条之要）</h4>
+    <ol>
+      <li><b>噪声放大是最大威胁</b>：可能惩罚"敢做跨文件改造"的模型、奖励"最怂的"——M0 必须看分布与分层极差，种子校准不过门就砍。</li>
+      <li><b>"模型等价"是完全合法的另一种结论</b>：±13pp 置信区间分不清"裁判看不出"和"真没差距"——M0 可能给出"停止优化选型、全押工作流"的答案。</li>
+      <li><b>Cherny 观察有选择偏差</b>：Claude 系 + TS/系统编程；我们是 Java 订单域 + 便宜模型，内部数据只证明"跨文件难"，<b>没证明"低级 bug 已消失"</b>。</li>
+      <li><b>无构建环境下是"对抗性阅读"，强度低一档</b>——需与离线构建路线配对抽查执行。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══════════════ Proposal 2 ═══════════════ -->
+<div class="card" id="p2">
+  <h3>#2 · 借 Ng「AI Engineering Skills Map」校准讲师团大纲 + 复制其证据方法</h3>
+  <div>
+    <span class="pill">AI Upskill Trainer</span><span class="pill">FY27 FA2</span><span class="pill">信号：@AndrewYNg ✅</span>
+  </div>
+  <div class="thesis">
+    <b>核心主张：</b>Survey 中 5 次出现的"怎么让 AI 听懂我"，在 Ng 框架里有精确对应——业务同事缺的是 <b>#4 Shaping the build（意图写成结构化 spec）+ 轻量版 #1 evals（判断输出、给有效反馈）</b>；讲师团大纲 v1 疑似未覆盖这两层。本提案用 crosswalk 升级大纲 v2（业务/工程双轨），并复制其 JD 聚类方法产出内部技能地图，作为讲师团与 FA2 的共同证据底座。
+  </div>
+
+  <h4>锁定痛点</h4>
+  <ul>
+    <li><b>P1 方法论空白</b>：29 份 survey 画像"高意愿·中能力·低方法论"；top 痛点非工具而是"怎么让 AI 听懂我"（5 次）。</li>
+    <li><b>P2 大纲结构性缺口</b>：Ng #1 技能核心 = disciplined evals + error analysis loops——大纲 v1 疑似无此层（待 M1 验证）。</li>
+    <li><b>P3 受众错配</b>：Ng map 面向工程师；讲师团受众含大量非研发——照搬会吓跑高意愿受众。</li>
+    <li><b>P4 FA2 缺证据底座</b>：FY26 暴露 benefit tracking 缺口；FY27 需要 baseline 仪器。</li>
+  </ul>
+
+  <h4>Crosswalk 预演（M1 待验证）</h4>
+  <table>
+    <tr><th>Ng 技能</th><th>讲师团对应位置</th><th>判定</th></tr>
+    <tr><td>#1 Building/deploying（核心 = evals + error analysis）</td><td>大纲 v1 疑似缺</td><td>🔴 主缺口</td></tr>
+    <tr><td>#4 Shaping the build（spec / product sense）</td><td>疑似缺；恰是业务同事最该学</td><td>🔴 主缺口</td></tr>
+    <tr><td>#3 Using coding agents（何时写 spec、verifier 闭环）</td><td>覆盖工具层，缺方法论</td><td>🟡 部分覆盖</td></tr>
+    <tr><td>#2 Software engineering fundamentals</td><td>工程轨专属；业务轨只需安全常识</td><td>🟡 工程轨</td></tr>
+  </table>
+  <blockquote>关键洞察："怎么让 AI 听懂我"教成 prompt 模板速查只治标；教成"把任务写成结构化描述 + 看输出给反馈再迭代"才治本——后者就是 Ng #4 + #1 的业务版。受众翻译用双轨制：业务轨（主体）/ 工程师轨（11 人）。</blockquote>
+
+  <h4>里程碑（6-8 周，~22h，AI 辅助）</h4>
+  <table>
+    <tr><th>#</th><th>里程碑</th><th>时窗</th><th>交付物</th></tr>
+    <tr><td>M1</td><td>Crosswalk + 大纲 v2 草案</td><td>W1（5h）</td><td>覆盖度矩阵 + v2 diff（双轨）</td></tr>
+    <tr><td>M2</td><td>启动会（带弹药）</td><td>W2（3h）</td><td>Agenda + Ng 对标页 + 内部分析计划获批</td></tr>
+    <tr><td>M3</td><td>内部技能地图 v1（复制 Ng 方法）</td><td>W2-4（6h）</td><td>≥30 内部 JD/角色说明 + survey + 工时数据 → 优先级矩阵</td></tr>
+    <tr><td>M4</td><td>第一期教案重构（L0+L1.1）</td><td>W3-5（8h）</td><td>教案 + 练习："真实任务写成结构化 spec + 一轮反馈迭代"</td></tr>
+    <tr><td>M5</td><td>试点 + 前后测</td><td>W6-8</td><td>试讲 ≥10 人 + 测评 + survey 复测</td></tr>
+  </table>
+
+  <h4>成功标准</h4>
+  <table>
+    <tr><th>维度</th><th>指标</th><th>达标线</th></tr>
+    <tr><td>Crosswalk 质量</td><td>识别并进入 v2 的缺口</td><td>≥2 项</td></tr>
+    <tr><td>内部证据</td><td>技能地图覆盖岗位类别</td><td>≥3 类，被 FA2 goal-setting 引用</td></tr>
+    <tr><td>教学效果</td><td>学员独立完成结构化任务描述 + 迭代</td><td>通过率 ≥70%</td></tr>
+    <tr><td>痛点消解</td><td>复测中"怎么让 AI 听懂我"未解决率</td><td>&lt;30%</td></tr>
+    <tr><td>讲师招募</td><td>以 v2 教案招到非技术业务讲师</td><td>≥1 人（P0 缺口）</td></tr>
+  </table>
+
+  <h4>ROI</h4>
+  <ul>
+    <li>成本：~22h（6-8 周摊薄），无新增预算；课程从"教工具"转向"教方法论"，直击 survey 最大空白。</li>
+    <li>技能地图 = FA2 benefit tracking 的 baseline 仪器；Ng 权威背书降低启动会与管理层对齐成本。</li>
+    <li>工程轨 #1 素材复用 AI Coding Eval 探索，一鱼两吃。收益数字在 M5 前不预设，由前后测产出。</li>
+  </ul>
+
+  <h4>风险与缓解（节选）</h4>
+  <ul>
+    <li>Ng 语料为美国 JD，适用性存疑（高）→ 只作检查清单不作标准答案，M3 内部语料修正</li>
+    <li>过度工程化吓跑业务受众（高）→ 双轨制硬约束：业务轨不教 evals 工程细节</li>
+    <li>survey 是 4 月旧数据（中）→ 启动会加 5 分钟 pulse check</li>
+    <li>Kyle 三线作战过载（中）→ 最小可行版 = 仅 M1（2h）</li>
+  </ul>
+
+  <h4>立即行动（本周 3 件）</h4>
+  <ol>
+    <li><b>Crosswalk 初版（2h）</b>：L0-L4 大纲逐单元对照 Ng 四技能标覆盖度，本周证实/证伪两个"疑似缺"。</li>
+    <li><b>启动会 agenda 草稿（1h）</b>：嵌入 Ng 引用（The Batch #366）+ "用同源方法做内部分析"一页。</li>
+    <li><b>发起内部语料收集（30min）</b>：向 HRBP/各团队求内部 JD ≥30 份 + 申请 FY26 工时数据。</li>
+  </ol>
+
+  <div class="flag">
+    <h4>🚩 诚实挑战（节选全文 6 条之要）</h4>
+    <ol>
+      <li><b>语料错位（最重）</b>：Ng 的 10K JD 是美国市场、面向 AI engineer；CDH 业务同事的痛点（PPT 美化）在 Ng map 里根本不存在——crosswalk 对工程轨是校准，对业务轨只是类比推理，证据强度降一级。</li>
+      <li><b>方法论复制可能空转</b>：内部 JD 大概率极少写 AI 技能，聚类可能无信号——届时须诚实标注，不对 FA2 sponsor 过度承诺。</li>
+      <li><b>时序倒置</b>：启动会未开、讲师未招，先做分析层可能 delay 开课；若管理层只要快，<b>降级为只做 M1（2h）即停</b>。</li>
+      <li><b>evals 悖论</b>：把 evals 写进大纲的依据是 Ng 框架，但自家 AI Coding Eval 还卡在 judge_only 无区分度——需先验证一个可教的最小 eval 循环。</li>
+    </ol>
+  </div>
+</div>
+
+<h2>🔗 交叉洞察（两 Proposal 的连接）</h2>
+<div class="card">
+  <ul>
+    <li><b>Proposal 2 的"evals 悖论"由 Proposal 1 解</b>：AR-SI 的 M0 若成功，"最小可教 eval 循环"= 标准 judge + 对抗 judge 的对照演示——两个项目在 W1-W2 天然咬合。</li>
+    <li><b>Ng #3 技能（verifiers/evals 帮 agent 闭环）与 Cherny 信号同源</b>：两个独立信源（Ng 10K JD 聚类 × Claude Code 负责人实践观察）指向同一结论——<b>验证层是 AI 工程的窄腰</b>（narrow waist）。</li>
+    <li>本周行动合计 6 件中 2 件互为输入（对抗 judge 实验 ↔ 最小可教 eval 循环），建议排同一天。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  生成：my-readwise-briefing v4.3 · 2/2 subagent 成功（无兜底）· 公开归档已脱敏（内部代号泛化）<br>
+  <a href="readwise-briefing-20260816.html">← 返回今日简报</a> · <a href="index.html">归档索引</a>
+</div>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){
+  document.documentElement.classList.add('dark');
+  btn.textContent='☀️';
+}
+</script>
+</body>
+</html>
