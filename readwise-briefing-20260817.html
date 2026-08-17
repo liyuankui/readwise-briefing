@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-08-17（周一 · 上周周报）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px; max-width: 980px; margin: 0 auto;
+  transition: background .3s, color .3s;
+}
+.toggle { position: fixed; top: 16px; right: 16px; z-index: 99; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+h1 { font-size: 1.6em; margin-bottom: 4px; color: var(--accent); }
+h2 { font-size: 1.25em; margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); color: var(--accent); }
+h3 { font-size: 1.05em; margin: 20px 0 8px; color: var(--text); }
+p { margin: 8px 0; color: var(--text2); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--text3); font-size: .88em; margin-bottom: 16px; }
+.axiom { background: var(--surface); border-left: 4px solid var(--accent4); padding: 10px 14px; border-radius: 0 8px 8px 0;
+  font-size: .92em; color: var(--text2); margin: 14px 0; }
+.stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; flex: 1; min-width: 110px; text-align: center; }
+.stat .n { font-size: 1.5em; font-weight: bold; color: var(--accent); }
+.stat .l { font-size: .8em; color: var(--text3); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--surface); border-radius: 8px; overflow: hidden; font-size: .92em; }
+th { background: var(--surface2); color: var(--text); text-align: left; padding: 8px 10px; }
+td { padding: 8px 10px; border-top: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin: 14px 0; }
+.card .tag { display: inline-block; font-size: .75em; padding: 2px 10px; border-radius: 20px; margin-right: 6px; margin-bottom: 6px; }
+.t5 { background: rgba(5,150,105,.14); color: var(--accent3); }
+.t3 { background: rgba(217,119,6,.14); color: var(--accent4); }
+.v-ok { background: rgba(5,150,105,.14); color: var(--accent3); }
+.v-partial { background: rgba(217,119,6,.16); color: var(--accent4); }
+.v-no { background: rgba(220,38,38,.13); color: var(--accent5); }
+.t-life { background: rgba(99,102,241,.14); color: var(--accent2); }
+.why { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: .92em; }
+.why::before { content: "🎯 为什么相关 · "; color: var(--accent); font-weight: bold; }
+.src { font-size: .85em; color: var(--text3); margin-top: 8px; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+summary { cursor: pointer; color: var(--text3); font-size: .92em; }
+.wave { font-weight: bold; color: var(--accent); }
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: .82em; color: var(--text3); }
+ol, ul { padding-left: 22px; color: var(--text2); }
+li { margin: 6px 0; }
+.prio { font-weight: bold; }
+.p-high { color: var(--accent5); } .p-mid { color: var(--accent4); }
+</style>
+</head>
+<body>
+<button class="toggle" id="theme-toggle">🌙</button>
+
+<h1>📋 Readwise 情报简报 · 2026-08-17</h1>
+<div class="meta">📅 周一 · 今日增量窗口 08-16 08:07 → 08-17 08:00 · <b>周一专章：上周周报（08-10 → 08-16）</b></div>
+<div class="axiom">⚙️ 核心公理：<b>不可行动的信息 = 噪音</b>。每条高价值信号附「为什么相关」注释，并经独立验证（✅ Verified / ⚠️ Partial / ❌ Debunked / 🔬 Hands-on）。</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">4</div><div class="l">今日增量</div></div>
+  <div class="stat"><div class="n">40+</div><div class="l">上周信号</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">周级主题</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">跨周深挖</div></div>
+</div>
+
+<!-- ══════════════ 周报专章 ══════════════ -->
+<h2>🗓️ 上周周报（2026-08-10 → 08-16）</h2>
+<p>今日周一，对上周 7 期简报、40+ 条信号做结构性回顾。上周信号呈<b>五条主线</b>，且相互咬合：</p>
+
+<table>
+<tr><th>#</th><th>周级主题</th><th>构成信号（日期）</th><th>对你的意义</th></tr>
+<tr><td>①</td><td><span class="wave">本地/边缘推理浪潮</span></td><td>Muse Glimmer 30B 本地 agent（08-12）· Docker Sandboxes microVM（08-12）· h3.c 纯 C+Metal（08-13）· Needle 2 14MB/45M（08-13）· 今日再添 2 条（24G 跑 AI / Qwen+SGLang）</td><td>从 45M 到 30B，「AI 搬回家」一周 6 条同向信号——Life OS「Software Factory」的本地底座路线已被市场确认</td></tr>
+<tr><td>②</td><td><span class="wave">Agent 工程基础设施成熟</span></td><td>Cloudflare OS 开源（08-10）· Kitesurf Agent 浏览器（08-10）· Docker Sandboxes（08-12）· Claude Code auto-mode 默认化·分类器拦截 89%（08-12）</td><td>隔离、安全、自动化三件套一周内齐备——「敢放权给 Agent」的前提条件从论文走进产品</td></tr>
+<tr><td>③</td><td><span class="wave">模型经济学击穿地板</span></td><td>DeepSeek V4 Flash 89% ARC-AGI @ $0.02/task（08-10）· V4 Pro GA $0.435/$0.87（08-14）· Qwen3.8 开源+许可证限制（08-14）· Grok 4.6 长程（08-14）</td><td>国产模型进入「价格×许可证×真实场景」三角决策期——opencode 提案需要决策矩阵而非单点截图</td></tr>
+<tr><td>④</td><td><span class="wave">AI 工程能力定调</span></td><td>Ng Skills Map 四技能·evals 为核心（08-16）· Cherny bug 分布迁移（08-16）· LLMs reward expertise（08-10）· meat proxy（08-10）· 中产淘汰论（08-14）· Code never hard part（08-11）</td><td>一周 6 条权威/高热信号收敛同一结论：<b>判断力与验证是新稀缺</b>——讲师团课程与 Engineering Baseline 的外部弹药</td></tr>
+<tr><td>⑤</td><td><span class="wave">观测-验证工具化</span></td><td>AgentsView 会话分析器·亲测通过（08-15）· adversarial review 实践链（08-16）· Tailscale 16年 WAL bug「positive proof」（08-14）</td><td>「知道 AI 用得对不对」从口号变成可装的工具——Trust & Eval 支柱的数据底座现形</td></tr>
+</table>
+
+<h3>📊 一句话定调</h3>
+<div class="axiom">上周是 <b>AI 工程从狂飙期进入治理期</b>的一周。四线合一——算力搬回家（本地化）、权限敢下放（基础设施）、价格击穿地板（经济性）、人的价值被权威定调（判断力与验证）——共同指向：**下一步的稀缺不是「用 AI」，而是「知道 AI 用得对不对」**。</div>
+
+<!-- ══════════════ 今日增量 ══════════════ -->
+<h2>📡 今日增量信号（4 条）</h2>
+
+<div class="card">
+  <span class="tag t5">⭐×5</span><span class="tag v-ok">✅ Verified</span><span class="tag t5">Intent · 管理</span>
+  <h3>① 37signals 发布内部 Manager Playbook</h3>
+  <p>Jason Fried 宣布公开公司内部管理手册：<b>管理期望、37signals 领导哲学、"Hell Yeah" 标准、困难对话导航、管理职责与个人贡献的平衡</b>。反差信号：这家一贯主张「少管理」的公司，如今亲手写下管理手册。</p>
+  <div class="why">你正管 11 人工程团队，且 Engineering Baseline 与 Human Connection 两个 intent 都缺「AI 时代管理手册」的参照系——绩效怎么评（AI 辅助产出算谁的）、1:1 聊什么、如何防 meat proxy。37signals 与 meat proxy / 中产淘汰论（上周主题④）正好拼成管理维度的完整拼图。→ 今日跨周深挖方向 #2</div>
+  <div class="src">来源：<a href="https://x.com/jasonfried/status/2087930318200377389">X @jasonfried</a> · 验证：<a href="https://basecamp.com/managers">官方原文 basecamp.com/managers</a> · <a href="https://github.com/basecamp/manager-playbook">GitHub 开源版</a> · <a href="https://www.linkedin.com/posts/jason-fried_the-37signals-manager-playbook-activity-7493728299328811008-cZ4H">LinkedIn 官方公告</a> · <a href="https://www.cpj.fyi/radar/37signals-writes-the-manual-for-having-fewer-managers/">cpj.fyi 分析</a>。关键语境：37signals 无全职经理（player-coach 模式）——借鉴其期望管理与对话框架，不搬组织设定</div>
+</div>
+
+<div class="card">
+  <span class="tag t3">⭐×3</span><span class="tag v-partial">⚠️ Partial</span><span class="tag t5">Intent · 本地推理</span>
+  <h3>② Qwen3.8-27B + SGLang MTP：10 并发流 200+ tok/s</h3>
+  <p>推文称 SGLang 的 MTP（multi-token prediction）优化下 10 并发流稳跑 200+ tok/s，支持 1M 上下文全量 KV Cache，附部署脚本。</p>
+  <div class="why">MTP 提速方向<b>属实</b>（HN 有 RTX 3090 单卡 207 tok/s 案例，SGLang 官方文档服务器级 ~998 tok/s），但数字高度依赖硬件——DGX Spark 上 Qwen3.8-27B 实测仅 34-38 tok/s，且存在 spec-decode 模式空输出 bug（issue #20550）。归入上周主题①「本地推理浪潮」第 6 块拼图。→ 深挖方向 #1 素材</div>
+  <div class="src">来源：<a href="https://x.com/Lonely__MH/status/2088941701339697579">X @Lonely__MH</a> · 交叉验证：<a href="https://news.ycombinator.com/item?id=47838788">HN 207 tok/s</a> · <a href="https://lmsysorg.mintlify.app/cookbook/autoregressive/Qwen/Qwen3.5">SGLang 官方文档</a> · <a href="https://forums.developer.nvidia.com/t/qwen3-8-27b-at-34-38-tok-s-on-dgx-spark-open-source-one-command-setup-sglang-nvfp4-dspark/380257">DGX Spark 34-38 tok/s</a> · <a href="https://github.com/sgl-project/sglang/issues/20550">空输出 bug</a></div>
+</div>
+
+<div class="card">
+  <span class="tag t3">⭐×3</span><span class="tag v-partial">⚠️ Partial</span><span class="tag t5">Intent · 本地推理</span>
+  <h3>③ 「24G 显存/内存把 AI 搬回家」</h3>
+  <p>消费级显卡/Macbook/Mac 只要 24G 显存或内存即可本地跑大模型。</p>
+  <div class="why">方向真实但营销化：24GB 统一内存只够 4-bit 量化 30B 档（正是 M4 Pro 的现实约束），跑不动完整多模态/更大模型。与上周 Muse Glimmer 4-bit <20GB 的结论互证——<b>24GB 是「入门线」不是「自由线」</b>。</div>
+  <div class="src">来源：<a href="https://x.com/ivanalog_com/status/2088790373493596472">X @ivanalog_com</a></div>
+</div>
+
+<div class="card">
+  <span class="tag t3">⭐</span><span class="tag v-no">❌ 不可验证</span>
+  <h3>④ @geekplux「很快就读完了，很精炼，最重要的就是这章」</h3>
+  <p>仅 t.co 短链，无正文上下文，无法判断所指书籍/章节 → 按推文降权规则入附录。</p>
+  <div class="src">来源：<a href="https://x.com/geekplux/status/2088823531337314723">X @geekplux</a></div>
+</div>
+
+<!-- ══════════════ 深挖速览 ══════════════ -->
+<h2>🔭 今日 5 大深挖方向（跨周合成视角）</h2>
+<p>与此前单日深挖不同：今日为周一，5 个方向均由<b>上周多日信号 + 今日增量</b>跨日合成，无单日重复。</p>
+<table>
+<tr><th>#</th><th>方向</th><th>合成信号</th><th>连接意图</th></tr>
+<tr><td>1</td><td>M4 Pro 24GB 本地优先 Agent 栈：分阶段落地路径</td><td>Muse Glimmer + h3.c + Needle 2 + Docker Sandboxes + 今日 2 条</td><td>Life OS / OpenMAIC</td></tr>
+<tr><td>2</td><td>AI 时代工程管理手册 v0.1（37signals Playbook × 11 人团队）</td><td>今日 Playbook + meat proxy + 中产淘汰 + expertise</td><td>Engineering Baseline / Human Connection</td></tr>
+<tr><td>3</td><td>AI 使用效能三层闭环：观测 × 对抗验证 × 收益追踪</td><td>AgentsView + adversarial review + auto-mode</td><td>组织级效率目标 / AI Coding Eval</td></tr>
+<tr><td>4</td><td>模型经济学决策矩阵 v1：价格 × 许可证 × 真实场景</td><td>V4 Flash $0.02/task + V4 Pro GA + Qwen 许可证 + SGLang</td><td>opencode 提案</td></tr>
+<tr><td>5</td><td>判断力是新稀缺：讲师团课程升级 v2</td><td>Ng 四技能 + Cherny + expertise + meat proxy（+中产淘汰）</td><td>AI Upskill Trainer / FY27</td></tr>
+</table>
+<p>→ 完整 Proposal 见 <a href="readwise-proposals-20260817.html">readwise-proposals-20260817.html</a>（生成中）</p>
+
+<!-- ══════════════ 行动清单 ══════════════ -->
+<h2>✅ 行动清单（本周）</h2>
+<table>
+<tr><th>#</th><th>行动</th><th>连接</th><th>优先级</th></tr>
+<tr><td>1</td><td>精读 37signals Manager Playbook 原文，圈出「Hell Yeah / 困难对话」两章，写 11 人团队适配版大纲 v0.1</td><td>Engineering Baseline / Human Connection</td><td class="prio p-high">🔴 高</td></tr>
+<tr><td>2</td><td>swe-eval-builder 加一版<b>对抗性 judge prompt</b>（「穷举此改动的失败理由」），对同批 case A/B 对比区分度——直击 judge_only 57-59% 无区分度痛点</td><td>AI Coding Eval</td><td class="prio p-high">🔴 高</td></tr>
+<tr><td>3</td><td>把 DeepSeek V4 Flash（$0.02/task）/ V4 Pro（$0.435/$0.87）/ Qwen 许可证限制三组数据填入模型决策矩阵初版</td><td>opencode 提案</td><td class="prio p-high">🔴 高</td></tr>
+<tr><td>4</td><td>本周装 Docker Sandboxes CLI（sbx），跑通第一个 microVM 隔离的 coding agent 任务（验证隔离墙 + egress 缺口）</td><td>Life OS</td><td class="prio p-mid">🟡 中</td></tr>
+<tr><td>5</td><td>制作 Ng 四技能 × 讲师团 L0-L4 crosswalk 表，标注「验证纪律/error analysis」缺口</td><td>AI Upskill Trainer</td><td class="prio p-mid">🟡 中</td></tr>
+<tr><td>6</td><td>CS336 A2 收尾（08-16 截止已过）：用「压缩即预测」作 attention 理解锚点，补交 Flash Attention Triton</td><td>Stanford CS336</td><td class="prio p-mid">🟡 中</td></tr>
+</table>
+
+<!-- ══════════════ 生活维度 ══════════════ -->
+<h2>🌿 生活维度信号（上周汇总）</h2>
+<div class="card">
+  <span class="tag t-life">🧠 健脑 · 5 条</span>
+  <p><b>受助者恶意</b>（认知层次低时越帮越恨——善良需带边界）· <b>文学片段</b>（「没有什么河，我们只是被扔进了一场收不到尾的梅雨」）· <b>耳鸣接纳疗法</b>（把症状当朋友后消失，单源仅作启发）· <b>LLM 学复杂主题法</b>（生成基础知识→人工验证→可视化模拟的闭环）· <b>压缩即预测</b>（概率模型与压缩统一的硬通货心智模型）</p>
+  <p>另有待读：《"三个代表"与驾驭 AGI》长文（X article 需登录，两期均未能读取）。</p>
+</div>
+<div class="card">
+  <span class="tag t-life">📈 建仓 · 1 条</span>
+  <p><b>缩水式通胀</b>：英国 1991 年 Mars 巧克力棒 62.5g → 今 ~42.5g（<b>-32%</b>）。通胀不在 CPI，在克重——真实通胀的直观体感数据点。</p>
+</div>
+<div class="card">
+  <span class="tag t-life">🏋️ 健身 / 🥗 健胃</span>
+  <p>上周无匹配信号——技术信号密度极高的周期，生活信号自然稀薄。</p>
+</div>
+
+<!-- ══════════════ 附录 ══════════════ -->
+<details>
+<summary>📦 附录 · 上周低价值信号存档（点击展开）</summary>
+<ul>
+<li>Go 1.27 泛型方法 · FFmpeg 9.0 · NetBSD 11.0 · Chicken Scheme 6.0（技术旁支）</li>
+<li>Nixpkgs 核心团队解散（开源治理警示）· 维基媒体拒绝承认工会 · HackerOne 垃圾化（平台 enshittification 周期）</li>
+<li>tl;dv Firestore 全开 18 万场会议泄露（第三方 SaaS 数据分类审查反面教材）</li>
+<li>法国禁电话营销 · 英国 NGO 数字身份法案 · 伊利诺伊年龄验证法 · 车牌识别搜查令（政策/隐私旁支）</li>
+<li>MIT AI 财务建议研究 · 亚马逊天然气数据中心 vs 净零承诺 · Meta 愤怒诱饵货币化（社会观察）</li>
+<li>LinkedIn CringeBot 3000 · 2026 日食摄像头 · 滑动变祖器谐音梗 · Sawdust 木工模拟器（娱乐/无行动价值）</li>
+<li>1 条政治向推文已按公开仓库纪律剔除（08-12）</li>
+</ul>
+</details>
+
+<div class="footer">
+  <p>📋 Generated by <b>my-readwise-briefing</b> skill v4.3 · Phase 1 简报 · 周一含上周周报<br>
+  归档：<a href="https://liyuankui.github.io/readwise-briefing/">GitHub Pages</a> · 覆盖：增量 08-16 08:07 → 08-17 08:00 + 周报 08-10 → 08-16 · 数据源 Readwise<br>
+  公开仓库已脱敏：无内部域名 / 员工信息 / 内部编号。下一期增量窗口自 2026-08-17T00:00Z 起。</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
