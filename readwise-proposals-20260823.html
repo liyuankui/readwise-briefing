@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-08-23</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 1020px; margin: 0 auto;
+}
+.header { text-align: center; padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; position: relative; }
+.header h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.3rem; }
+.header .date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle { position: absolute; right: 0; top: 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 2.4rem; height: 2.4rem; cursor: pointer; font-size: 1.1rem; color: var(--text); }
+.axiom { background: var(--surface2); border-left: 4px solid var(--accent5); padding: 0.8rem 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; font-size: 0.95rem; color: var(--text2); }
+h2 { font-size: 1.3rem; color: var(--accent); margin: 2.2rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.08rem; margin: 0 0 0.6rem; }
+h4 { font-size: 0.95rem; color: var(--accent); margin: 1.1rem 0 0.4rem; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+th { background: var(--surface2); text-align: left; padding: 0.5rem 0.7rem; border: 1px solid var(--border); }
+td { padding: 0.5rem 0.7rem; border: 1px solid var(--border); vertical-align: top; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.7rem; margin-bottom: 2rem; }
+.proposal .claim { background: var(--surface2); border-radius: 10px; padding: 0.9rem 1.2rem; margin: 0.8rem 0; font-size: 1.02rem; border-left: 4px solid var(--accent); }
+.proposal .meta { font-size: 0.82rem; color: var(--text3); }
+.redflag { background: rgba(220,38,38,.06); border-left: 4px solid var(--accent5); border-radius: 0 8px 8px 0; padding: 0.7rem 1.1rem; margin-top: 0.5rem; font-size: 0.9rem; }
+.redflag b:first-child { color: var(--accent5); }
+.action { background: rgba(5,150,105,.06); border-left: 4px solid var(--accent3); border-radius: 0 8px 8px 0; padding: 0.7rem 1.1rem; margin-top: 0.5rem; font-size: 0.9rem; }
+.action b:first-child { color: var(--accent3); }
+.v-ok { color: var(--accent3); font-weight: bold; }
+.v-warn { color: var(--accent4); font-weight: bold; }
+.v-hands { color: var(--accent2); font-weight: bold; }
+code { background: var(--surface2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85em; }
+pre { background: var(--surface2); border-radius: 8px; padding: 0.8rem 1rem; overflow-x: auto; font-size: 0.8rem; line-height: 1.5; }
+ul, ol { margin-left: 1.4rem; }
+li { margin: 0.3rem 0; }
+.footer { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="header">
+  <button id="theme-toggle">🌙</button>
+  <h1>🎯 Readwise Proposals</h1>
+  <div class="date">2026-08-23（周日）· 5 个深挖方向 · 全部经 Phase 1.5 验证后进入</div>
+</div>
+
+<div class="axiom">⚠️ 公理：不可行动的信息 = 噪音。以下 5 个 Proposal 由 5 个并行 subagent 独立推理生成，每个都含红旗自检。<a href="readwise-briefing-20260823.html">← 返回简报</a></div>
+
+<h2>🗺️ 信号 × 项目对应</h2>
+<table>
+<tr><th>#</th><th>信号（验证态）</th><th>连接项目</th><th>Proposal 一句话核心主张</th></tr>
+<tr><td>1</td><td>Harness Engineering 文章 <span class="v-ok">✅</span></td><td>AI Starter Kit · Engineering Baseline</td><td>把高频 review 意见萃取为可版本化工程约束，90 天返工率 -50%</td></tr>
+<tr><td>2</td><td>AI Native 研讨会共识 <span class="v-warn">⚠️</span></td><td>FY27 效率 · AI Adoption</td><td>Story 粒度升级为 Feature+可验证 AC，BA 从抄写员转型需求架构师</td></tr>
+<tr><td>3</td><td>cumora <span class="v-hands">🔬</span> ⭐2901</td><td>Skill Hub · 多 agent 协作</td><td>值得两周旁路 sandbox 试点，不值得现在团队推广</td></tr>
+<tr><td>4</td><td>Palantir 本体论之辩 <span class="v-ok">✅</span></td><td>Ontology Research · CCM</td><td>审计先行薄层起步：实体冲突 &lt;3 处即不投入，Postgres 不动</td></tr>
+<tr><td>5</td><td>herdr <span class="v-hands">🔬</span> ⭐31.6k</td><td>多机 fleet · 会话管理</td><td>Mac mini 变私人 agent 主机，笔记本只是可插拔客户端</td></tr>
+</table>
+
+<!-- ============ Proposal 1 ============ -->
+<div class="proposal">
+  <h3>1️⃣ Harness Engineering 落地：90 天从个人实践到工程基线</h3>
+  <div class="meta">信号：《从执行者到系统架构师》<span class="v-ok">✅ Vercel 原博核实</span> · 连接：AI Starter Kit / Engineering Baseline</div>
+  <div class="claim"><b>团队迈向 agentic 工程的天花板不在模型，在环境（Harness）；与其在 review 时反复修 Agent 的产出，不如把高频 review 意见萃取为可版本化的工程约束——90 天把试点服务的 Agent 产出返工率降低 50%，沉淀为团队 Engineering Baseline。</b></div>
+  <h4>📌 锁定痛点</h4>
+  <p class="meta">主攻 P1：reviewer 每人每周 2-3h 机械挑错（错误处理不规范/日志不一/绕过模块边界），规范只活在 reviewer 脑中，Agent 每次重新犯错永不学习。</p>
+  <h4>🚩 里程碑</h4>
+  <table>
+  <tr><th>里程碑</th><th>时间</th><th>交付物</th></tr>
+  <tr><td>M1 基线与模板</td><td>W1-2</td><td>近 30 PR review 意见分类表（含"规范是否仍该存在"列）；harness-starter v0（分层 AGENTS.md 模板 + top 3 规范 CI 拦截）；3 分钟演示视频</td></tr>
+  <tr><td>M2 试点闭环</td><td>W3-6</td><td>1 个非核心服务 + 2-3 志愿者；规则库 v1（≥20 条，每条带出处+kill switch）</td></tr>
+  <tr><td>M3 团队化</td><td>W7-10</td><td>团队 skill 包 v1 + 1 场内训；<b>硬门槛：规则贡献者 ≥3 人</b></td></tr>
+  <tr><td>M4 度量制度化</td><td>W11-12</td><td>前后对比报告 + Baseline 文档 v1 + 扩展/终止决策</td></tr>
+  </table>
+  <h4>📏 成功标准</h4>
+  <ul>
+  <li>主指标：top 10 高频问题 CI 拦截率 ≥80%（机器计数，不可美化）</li>
+  <li>机械性 review 评论（周均）-50%；冷启动上下文准备 ≤5 分钟；采纳率 ≥60% 工程师</li>
+  </ul>
+  <h4>💰 ROI</h4>
+  <p class="meta">每周省 10+ 工时（年化 ~500h），成本 ~1.1 人月 + 工具近零（规则即代码）。本质：把已付学费的 review 意见从聊天记录捞出铸成资产。复用既有分层 AGENTS.md 与 skills 治理，<b>产品化而非重造</b>。</p>
+  <div class="action"><b>本周 3 件事：</b>① 半天拉 30 PR review 意见分类计数（一鱼两吃：基线+规则需求清单）；② 1 天定试点 repo + 志愿者 + AGENTS.md 模板 v0；③ 1-2 天 top 3 规范做成 CI 检查并录演示视频。</div>
+  <div class="redflag"><b>🚩 诚实挑战：</b>① 归因链脆弱——主指标换成机器计数拦截率，只声称相关性；② Vercel 数据比传闻弱（n=5 query，场景是数据查询 agent），只当假设不当预测；③ 可能修错系统——部分高频意见源于规范过期，先删后自动化，否则"用混凝土浇筑技术债"；④ 最大隐性风险：个人实践≠团队实践，若 M3 后规则库 90% 由一人提交 = 造出团队规模的单点依赖，即为失败。</div>
+</div>
+
+<!-- ============ Proposal 2 ============ -->
+<div class="proposal">
+  <h3>2️⃣ Feature 粒度 + AI 辅助需求产出：解除 1:11 需求瓶颈</h3>
+  <div class="meta">信号：AI Native 研讨会共识 <span class="v-warn">⚠️ 单源，方向与 DORA 2025 / SDD 趋势一致</span> · 连接：FY27 效率 · AI Adoption · AI Upskill Trainer</div>
+  <div class="claim"><b>把需求交付单元从"3-5 天 BA 手写的用户故事"升级为"Feature + 机器可验证验收标准（AI 起草、人审门禁）"，BA 从需求抄写瓶颈转型为需求架构师，使需求产出速度追上 AI 加速后的编码速度。</b></div>
+  <h4>📌 锁定痛点</h4>
+  <p class="meta">BA 40-60% 时间花在格式化书写，1 人喂 11 人需求；工程师 agentic 提速后卡点从"写不完"变"没得写"；自然语言 AC（"系统应快速响应"）导致 AI 生成代码与验收理解不一致。</p>
+  <h4>🚩 里程碑（12 周，M1 是决策门）</h4>
+  <table>
+  <tr><th>里程碑</th><th>时间</th><th>交付物</th></tr>
+  <tr><td>M0 基线测量</td><td>W1</td><td>近 3 sprint 数据：需求前置时间 / 返工率 / AC 覆盖率</td></tr>
+  <tr><td>M1 试点验证</td><td>W2-5</td><td>1 个完整 Feature 周期新旧双轨对比；Feature Spec 模板 v1 + AI 起草 SOP</td></tr>
+  <tr><td>M2 团队扩展</td><td>W6-9</td><td>backlog 全量切 Feature 粒度；新版 DoR/DoD + 度量看板</td></tr>
+  <tr><td>M3 固化推广</td><td>W10-12</td><td>BA 角色指南 + 培训 1 讲（并入讲师团）</td></tr>
+  </table>
+  <h4>📏 成功标准（成对使用防 gaming）</h4>
+  <ul>
+  <li>需求前置时间 ↓50% · AC 覆盖率 &gt;90% · 需求返工率 ↓30% · BA 书写时间 60%→20%</li>
+  <li>守门指标：因需求变更引起的缺陷率<b>不上升</b>（DORA 2025：AI 与交付稳定性负相关）</li>
+  </ul>
+  <h4>💰 ROI 与 BA 角色演进</h4>
+  <p class="meta">BA 每周释放 1.5-2 天书写时间转投需求澄清；工程师等待减少折算 +10-15% 有效产能。<b>不裁员</b>：抄写者→需求架构师（领域建模/跨域依赖）→价值验证者（验收守护/数据验证）。</p>
+  <div class="action"><b>本周 3 件事：</b>① 2h 导出近 3 sprint 工单算基线（没基线一切目标都是拍脑框）；② 与 BA+PO 圈定 1 个 1-2 周 Feature 试点；③ 周五 30min 评审 Feature Spec + Given/When/Then 模板 v0。</div>
+  <div class="redflag"><b>🚩 诚实挑战：</b>① 1:11 配比下结论未必适用——若真瓶颈是跨团队协调而非书写量，此提案打不中靶心，M0 必须先证伪；② 企业文化鸿沟——零售企业合规审计要求可追溯，故保"留痕"改"粒度"而非照搬"取消故事写法"；③ AI 提速编码≠端到端提速，QA/发布不同步升级只会放大不稳定；④ Feature 化降低反馈频率，粒度是杠杆不是信仰。</div>
+</div>
+
+<!-- ============ Proposal 3 ============ -->
+<div class="proposal">
+  <h3>3️⃣ cumora 试点评估：agent 是一级队友的团队聊天台</h3>
+  <div class="meta">信号：yetone 开源 <span class="v-hands">🔬 ⭐2901 · push 2026-08-22 · MIT · solo dev · 一周大</span> · 连接：多 agent 协作演进 · BYO brain 战略</div>
+  <div class="claim"><b>值得做两周"旁路 sandbox 试点"，不值得现在团队级推广——cumora 是 BYO brain（Claude Code/Codex 原生接入）摩擦最低的 agent-first 团队聊天台，但项目仅一周大、无 SSO/RBAC，试点验证协作模式，生产采纳另设 gate。</b></div>
+  <h4>📌 锁定痛点</h4>
+  <p class="meta">agent 产出不可见（留在个人 session 无法沉淀）· 任务分发靠人肉 copy-paste · 多 agent 成本黑箱 · 无共享 agent 视图。</p>
+  <h4>🔍 差异化对比</h4>
+  <table>
+  <tr><th>维度</th><th>IM + 各自 CLI（现状）</th><th>cumora</th></tr>
+  <tr><td>Agent 可见性</td><td>终端私有，团队盲区</td><td>同一 roster/频道，产出团队可见</td></tr>
+  <tr><td>任务分发</td><td>人工贴任务</td><td>Kanban 卡片原子 claim</td></tr>
+  <tr><td>并发防撞</td><td>无</td><td>freshness gate + 原子锁（有 benchmark）</td></tr>
+  <tr><td>成本</td><td>各自订阅无台账</td><td><code>llm_calls</code> 统一 ledger</td></tr>
+  <tr><td>企业能力</td><td>SSO/合规成熟</td><td>无 SSO/RBAC/审计</td></tr>
+  </table>
+  <h4>🚩 两周试点</h4>
+  <p class="meta">M1（D1-2）个人 VPS self-host + 2 志愿者接 BYOA → M2（D3-5）公开 repo 上 agents 做 issue 分诊+PR 初审 → M3（W2）扩 4-6 人故意制造任务抢夺验证原子 claim → M4 对照基线 go/no-go。成功标准：≥3 真实任务由 agent 完成 ∧ 冲突=0 ∧ ≥4/6 愿继续 ∧ 成本降 ≥20% ∧ ledger 可解释全部花费。</p>
+  <div class="action"><b>本周 3 件事：</b>① 个人 VPS 跑通 self-host（Postgres+Redis+npm setup）记部署文档；② 2 志愿者 <code>npx cumora agent computer</code> 挂 Claude Code 与 Codex 在 1 个公开 repo 跑 issue 分诊；③ 记录本周同型任务"IM+CLI"耗时与 token 成本作对照组。</div>
+  <div class="redflag"><b>🚩 诚实挑战：</b>① 星数≠生产就绪（首日 948 star 是传播曲线；54 commits 无版本号 solo 维护）——评估的是模式不是这个代码库；② 可能解错问题——若痛点只是"产出不可见"，session 导出+Slack bot 以 1/10 成本解 80%，cumora 真差异化在 agent 间自主协调，而 11 人团队是否真有此需求未被证明；③ 数据边界存疑——消息全量流经自建服务端且服务端强制持 OpenAI key，试点限公开数据。</div>
+</div>
+
+<!-- ============ Proposal 4 ============ -->
+<div class="proposal">
+  <h3>4️⃣ Ontology 投入决策：电商场景（订单/库存/搜索）</h3>
+  <div class="meta">信号：Palantir 本体论之辩 <span class="v-ok">✅ 双方论据核实</span> · 连接：Ontology Research · CCM & Personalization</div>
+  <div class="claim"><b>Ontology 的真实价值边界 = 组织级语义碎片化的解药（跨系统实体对齐 + 给 AI agent 的语义契约），而非新技术；单域内设计良好的 PostgreSQL schema 就是本域 ontology——只有当"同一业务实体出现 ≥3 个冲突定义且协调成本可量化"时才值得投入，且从薄语义层起步，而非任何平台。</b></div>
+  <h4>⚖️ 辩论还原：两边各对一半</h4>
+  <table>
+  <tr><th>Vonng 方（"骗局"论）</th><th>Palantir 方（"操作层"论）</th></tr>
+  <tr><td>专利自证 "embodied in a database schema"；罗塞塔石碑：Object=表、Link=外键、Action=存储过程</td><td>超越静态建模：动力元素（Action/Functions）读写闭环、嵌入终端工作流</td></tr>
+  <tr><td>目的反转：Gruber 造词为共享（造桥），Palantir 用于锁定（筑墙）；估值叙事 30x vs 100x</td><td>组织 digital twin：细粒度动态安全、edit history、写回治理——schema 从不承诺</td></tr>
+  <tr><td>数据中台前车之鉴（八百万变展示屏）；"坏命名抬高门槛"</td><td>单向 ETL 语义层只是"数字盆景"；真驱动是双向数据流</td></tr>
+  </table>
+  <p class="meta">技术本体论上 Vonng 赢（单库世界 schema 就是答案）；组织规模语义上 Palantir 方有真货（跨系统带审计的受控行动）。<b>三个规模阈值</b>（低于任一 = schema 够用）：实体定义碎片化 ≥3 系统冲突 · 消费方碎片化 ≥3 团队复用 · 决策闭环写回 ≥2 系统。</p>
+  <h4>🌳 决策树（if-then）</h4>
+  <pre>第 0 步：先跑实体冲突审计（成本≈0），再决策
+├─ 核心实体定义冲突 &lt; 3 处？→ 不投入，预算给 schema 纪律，半年复查
+├─ 冲突 ≥3 且协调成本可量化？→ 按痛点分流：
+│    ├─ 痛在"读"（口径打架）→ 薄语义层：Postgres 实体字典 + headless 语义 API
+│    ├─ 痛在"写"（跨系统回写）→ 先评估 workflow 引擎，非 ontology 平台
+│    └─ 痛在搜索/个性化 → 商品知识结构：taxonomy+属性+embedding 混合（最稳一笔）
+└─ AI agent 需跨域安全行动？→ ontology-as-context；图数据库最后才考虑
+     （Postgres 栈：recursive CTE + pgvector + Apache AGE 可覆盖绝大多数需求）</pre>
+  <h4>🚩 里程碑 + kill 信号</h4>
+  <p class="meta">M1 实体冲突审计（2 周 ≈0 预算，产出实体字典+冲突清单）→ M2 薄语义层 PoC（4-6 周 1 人，Postgres 内 2 条跨域语义 API）→ M3 Agent grounding 实验（带/不带语义层对比准确率与幻觉率）。<b>M1=0 冲突 → 全部终止，这是 kill 信号而非失败。</b>成功标准：M2 跨域 time-to-answer 天→小时级、≥2 团队自发调用；M3 准确率 +20pp 或幻觉实体关联 =0。</p>
+  <div class="action"><b>本周 3 件事：</b>① 三角阅读 3h（Vonng 原文+回应 / Palantir 官方 / 腾讯云"数字盆景"篇，各占一角不站队）；② 1h 冲突抽查：让订单/搜索/数据三方各写"可承诺库存(ATP)"定义并排对比——M1 最小前哨战；③ 写一页 thesis（核心主张+kill 标准+半年复查点）存探索笔记。</p></div>
+  <div class="redflag"><b>🚩 诚实挑战：</b>① <b>确认偏误是最大风险</b>——对概念包装的警惕会让"骗局"论读起来格外顺，但 Vonng 打的是命名与定价、不是语义对齐本身；用他的修辞豁免自己不做冲突审计 = 用别人的修辞跳过自己的诊断；② 辩论错位——这场战争主题是 Palantir 的产品与商业模式，不是 12 人团队该不该做语义对齐，可执行的中间地带是安静的；③ 薄语义层无具名 owner + 硬 kill 标准 → 六个月后变成无主 mini 数据中台（KG 项目最常见死法，死于治理）；④ LLM 时代部分语义契约被 embedding+RAG 吸收，符号化 ontology 领地比 2019 年小。</div>
+</div>
+
+<!-- ============ Proposal 5 ============ -->
+<div class="proposal">
+  <h3>5️⃣ herdr：给多机 Agent 工作流一个"运行时"</h3>
+  <div class="meta">信号：herdrdev/herdr <span class="v-hands">🔬 v0.8.2 · ⭐31.6k · Rust · Apache-2.0 · push 2026-08-22</span> · 连接：多机 fleet-sync · ai-session-manager</div>
+  <div class="claim"><b>herdr 把"agent 会话"从终端窗口和 SSH 连接里解放出来，变成后台 server 持有的持久资源——Mac mini 变成你的私人 agent 主机，笔记本只是一个可随时插拔的客户端。</b></div>
+  <h4>📌 痛点映射</h4>
+  <table>
+  <tr><th>当前痛点</th><th>herdr 机制</th></tr>
+  <tr><td>SSH 断线即死，任务中断</td><td>Server 持有真实 PTY，断网/合盖 agent 继续跑，重连即恢复</td></tr>
+  <tr><td>定时任务跨会话不延续</td><td>命名 session 独立存活，整机重启后自动恢复布局</td></tr>
+  <tr><td>想看 mini 进度得手动 ssh+tmux a</td><td>瘦客户端 <code>herdr --remote mac-mini</code>，本地 UI 经 SSH 流回</td></tr>
+  <tr><td>多 agent 并行不知谁卡住</td><td>每 pane 语义状态机：working / blocked / idle / done</td></tr>
+  <tr><td>自制 skill 靠轮询判状态</td><td>Agent 原生 socket API：<code>read/send/wait/split/attach</code>（wait 语义 &gt; 轮询）</td></tr>
+  </table>
+  <h4>🔍 与 tmux 的本质区别</h4>
+  <p class="meta">tmux 给了<b>人类</b>持久化但只见 pane 不见内容；herdr 继承 tmux 全部遗产（PTY/detach/SSH），之上加<b>语义状态层 + agent 可编程 API + 多客户端架构</b>。tmux 解决"终端活着"，herdr 解决"agent 在干什么、卡没卡、怎么被调度"。<b>不能解决</b>：不生成 agent（20 种 CLI 自动识别）、不做数据同步（git 照旧）、上下文永续仍在各 agent 手里。</p>
+  <h4>🚩 一周试点（全在 Mac mini）</h4>
+  <p class="meta">M1（D1-2）装 <code>brew install herdr</code>，fleet-sync 定时任务+1 个长跑 agent 迁入命名 session → M2（D3-4）笔记本 remote 接入，主动杀 SSH/重启演练 → M3（D5-7）30 行 TS 脚本轮询 <code>herdr session list --json</code>，blocked 推 macOS 通知。<b>日常交互式开发暂不迁移，只让 mini 承担无人值守负载。</b>成功标准：断网存活率 ≥90%（10 次抽测）· 重启恢复 3/3 · 接入延迟 &lt;10s · blocked 检测一致率 ≥80%。</p>
+  <h4>🔁 与 ai-session-manager 关系</h4>
+  <p class="meta"><b>互补→定向融合</b>：skill 管会话知识（语义层/交接层），herdr 管会话进程（活着/可连/可调度）。中期把 skill 自制的 blocked 检测换成 herdr 原生 API，skill 反而变薄——本身就是一次 skill evolver 迭代。</p>
+  <div class="action"><b>本周 3 件事：</b>① mini 上装 herdr，把 10:00 定时任务挪进 <code>herdr session attach fleet-sync</code> 跑两天看存活；② 笔记本 <code>herdr --remote</code> 体验"合盖 agent 继续跑"完整闭环；③ 写 30 行 TS 状态巡检脚本推通知——ai-session-manager 融合的探针。</div>
+  <div class="redflag"><b>🚩 诚实挑战：</b>① 渲染/性能口碑未稳（社区反映 glitch，macOS console 作者自认 "expect bugs"）——若 TUI 劣于现状则止步于"无人值守 server+thin-client"用法；② 31.6k star 是 hype 曲线 ≠ 成熟度（v0.8.x、189 open issues、Windows host 缺失）——判定标准：一个月后 star 增速回落且 issue 关闭率健康才算稳定期；③ <b>可能低估了 tmux 的够用程度</b>——若核心诉求只是断线不死，tmux+resurrect+launchd 覆盖 70%；herdr 真增量在语义状态和 agent API，M3 若无明显爽感即止损。</div>
+</div>
+
+<div class="footer">
+  Generated by my-readwise-briefing v4.3 · 5/5 subagents 成功（0 内联兜底）· <a href="readwise-briefing-20260823.html">返回简报</a><br>
+  验证来源：vercel.com/blog · github.com/yetone/cumora · github.com/herdrdev/herdr · vonng.com · palantir.com/docs · dora.dev
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
