@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-23</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 960px; margin: 0 auto;
+}
+.header { text-align: center; padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; position: relative; }
+.header h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.3rem; }
+.header .date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle {
+  position: absolute; right: 0; top: 0.5rem; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 2.4rem; height: 2.4rem; cursor: pointer; font-size: 1.1rem; color: var(--text);
+}
+.stats { display: flex; gap: 1rem; justify-content: center; margin: 1.2rem 0 0; flex-wrap: wrap; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem 1.4rem; text-align: center; }
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8rem; color: var(--text3); }
+.axiom { background: var(--surface2); border-left: 4px solid var(--accent4); padding: 0.8rem 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; font-size: 0.95rem; color: var(--text2); }
+h2 { font-size: 1.3rem; color: var(--accent); margin: 2.2rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.05rem; margin: 0 0 0.5rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+th { background: var(--surface2); text-align: left; padding: 0.5rem 0.7rem; border: 1px solid var(--border); }
+td { padding: 0.5rem 0.7rem; border: 1px solid var(--border); vertical-align: top; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.card .meta { font-size: 0.82rem; color: var(--text3); margin-bottom: 0.5rem; }
+.card .why { background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.8rem; font-size: 0.9rem; color: var(--text2); }
+.card .why::before { content: "💡 为什么相关："; font-weight: bold; color: var(--accent4); }
+.badge { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 99px; margin-right: 0.4rem; white-space: nowrap; }
+.b5 { background: rgba(5,150,105,.14); color: var(--accent3); }
+.b3 { background: rgba(99,102,241,.12); color: var(--accent2); }
+.blife { background: rgba(217,119,6,.13); color: var(--accent4); }
+.blow { background: rgba(130,130,124,.12); color: var(--text3); }
+.v-ok { color: var(--accent3); font-weight: bold; }
+.v-warn { color: var(--accent4); font-weight: bold; }
+.v-hands { color: var(--accent2); font-weight: bold; }
+blockquote { border-left: 3px solid var(--border); margin: 0.6rem 0; padding: 0.3rem 0 0.3rem 1rem; color: var(--text2); font-size: 0.92rem; }
+.life-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.4rem; margin-bottom: 1rem; }
+summary { cursor: pointer; font-weight: bold; color: var(--text2); }
+.action { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; }
+.action li { margin: 0.5rem 0 0.5rem 1.2rem; }
+.footer { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="header">
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-08-23（周日）· 增量窗口 2026-08-17 → 08-23</div>
+  <div class="stats">
+    <div class="stat"><div class="num">22</div><div class="label">新内容</div></div>
+    <div class="stat"><div class="num">5</div><div class="label">高价值 ⭐×5</div></div>
+    <div class="stat"><div class="num">7</div><div class="label">中价值 ⭐×3</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">生活信号</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">低价值/无内容</div></div>
+  </div>
+</div>
+
+<div class="axiom">🔭 公理：不可行动的信息 = 噪音。本次 22 条 → 5 条进入深挖（<a href="readwise-proposals-20260823.html">Proposals →</a>），全部信号经 Phase 1.5 独立验证。</div>
+
+<h2>🗺️ 信号概览</h2>
+<table>
+<tr><th>方向</th><th>信号</th><th>验证</th><th>连接</th></tr>
+<tr><td><b>Harness Engineering</b></td><td>《从执行者到系统架构师》：修系统别修结果 + Vercel 工具做减法数据</td><td class="v-ok">✅ 原博核实</td><td>AI Starter Kit / Engineering Baseline → <a href="readwise-proposals-20260823.html">深挖 1</a></td></tr>
+<tr><td><b>AI Native 流程</b></td><td>研讨会共识：BA 成瓶颈、用户故事粒度过时、Feature 粒度+验收标准</td><td class="v-warn">⚠️ 单源，方向吻合</td><td>FY27 效率目标 → <a href="readwise-proposals-20260823.html">深挖 2</a></td></tr>
+<tr><td><b>团队 AI 协作</b></td><td>cumora：agent 作为一级队友的团队聊天台（yetone 开源）</td><td class="v-hands">🔬 ⭐2901 活跃</td><td>Skill Hub / 多 agent 协作 → <a href="readwise-proposals-20260823.html">深挖 3</a></td></tr>
+<tr><td><b>Ontology 之辩</b></td><td>《Palantir 的"本体论"骗局》：Ontology = 数据库建模？</td><td class="v-ok">✅ 论战两方核实</td><td>Ontology Research → <a href="readwise-proposals-20260823.html">深挖 4</a></td></tr>
+<tr><td><b>Agent 运行时</b></td><td>herdr：agent 活在后台 server，合盖断网不死（macOS console 发布）</td><td class="v-hands">🔬 ⭐31.6k Rust</td><td>多机 fleet / 会话管理 → <a href="readwise-proposals-20260823.html">深挖 5</a></td></tr>
+</table>
+
+<h2>⭐×5 高价值（全部进入深挖）</h2>
+
+<div class="card">
+  <h3><span class="badge b5">⭐×5</span><span class="v-ok">✅ Verified</span>Harness Engineering：从执行者到系统架构师</h3>
+  <div class="meta">@yanhua1010 长文 · 2026-08-17 · <a href="https://x.com/yanhua1010/article/2043900031661682997">原文</a></div>
+  <blockquote>修系统，别修结果。Agent 写了烂代码，正确做法是追问：系统哪里有漏洞，才让这种错误溜出来了？——把规范写成自动化 Linter、加结构化测试、补文档，让系统自动拦截同类问题。</blockquote>
+  <blockquote>不要把所有规则塞进一个巨大的 agents.md。把它当地图，只放核心指引，让 Agent 按需去读（渐进式暴露）。Vercel 数据：砍掉 80% 复杂工具只留 Bash 和文件读写，成功率 80%→100%，快 3.5 倍。</blockquote>
+  <blockquote>掌控 AI 的记忆才是护城河——全盘依赖封闭平台的托管记忆 = 被锁死。</blockquote>
+  <div class="why">与既有 AGENTS.md 分层实践（Core→Ops→Context→Deep）完全同构，且 Vercel 数字提供了"工具做减法"的一手论据（<a href="https://vercel.com/blog/we-removed-80-percent-of-our-agents-tools">原博核实：80%→100%、3.5x、-37% tokens</a>）。可直接转化为团队 Harness 规范。</div>
+</div>
+
+<div class="card">
+  <h3><span class="badge b5">⭐×5</span><span class="v-warn">⚠️ Partial</span>软件工程研讨会 10 条 AI Native 共识</h3>
+  <div class="meta">@shaogefenhao · 2026-08-20 · <a href="https://x.com/shaogefenhao/status/2090448286050111908">原文</a></div>
+  <blockquote>① BA 比开发更稀缺：供需比从 1:5 降至 1:2 甚至 1:1——AI 加速编码，但需求产出跟不上。② 用户故事（3-5 天粒度）已过时：AI 一日完成，改用 Feature 粒度 + 验收标准。</blockquote>
+  <div class="why">团队 11 工程师 + 1 BA，此信号直指"需求侧瓶颈"。⚠️ 单一推文来源无法核实数字，但与 2026 业界报告方向一致（编码提速、需求定义成瓶颈、Feature-level granularity 是 agentic workflow 主流建议）——按方向性信号使用。</div>
+</div>
+
+<div class="card">
+  <h3><span class="badge b5">⭐×5</span><span class="v-hands">🔬 Hands-on</span>cumora — agent 是一级队友的团队聊天台</h3>
+  <div class="meta">@wey_gu 推荐 · yetone 开源 · 2026-08-17 · <a href="https://github.com/yetone/cumora">GitHub</a></div>
+  <blockquote>Where agent teams gather. Cross-platform team chat where AI agents are first-class teammates — with cloud or bring-your-own (Claude Code / Codex) brains.</blockquote>
+  <div class="why">Repo 实测 ⭐2901、push 2026-08-22（极活跃）。作者 yetone 是高产出开源者（kill-ai-slop ⭐1043 等）。"agent 队友化"正是团队 AI 协作下一步要解的问题。</div>
+</div>
+
+<div class="card">
+  <h3><span class="badge b5">⭐×5</span><span class="v-ok">✅ Verified</span>《Palantir 的"本体论"骗局》大辩论</h3>
+  <div class="meta">@RonVonng · 2026-08-18 · <a href="https://pigsty.cc/blog/db/ontology-bullshit/">原文</a> · <a href="https://vonng.com/db/ontology-again/">回应篇</a></div>
+  <blockquote>"Ontology 就是数据库建模。'本体论'这个词唯一的作用，就是让不懂数据库的人觉得这是个新东西。"——反方：Ontology 是连接数字资产与真实对象的<b>操作层</b>，非纯建模。</blockquote>
+  <div class="why">Ontology Research 探索中的关键反方声音：一杆子捅破概念包装。辩论两方都已核实（Palantir 官方文档、腾讯云澄清系列、53AI 解读）。深挖产出 if-then 投资决策框架，防确认偏误。</div>
+</div>
+
+<div class="card">
+  <h3><span class="badge b5">⭐×5</span><span class="v-hands">🔬 Hands-on</span>herdr — coding agents 的运行时</h3>
+  <div class="meta">@m1ssuo · 2026-08-19 · <a href="https://x.com/m1ssuo/status/2090007297686978928">推文</a> · <a href="https://github.com/herdrdev/herdr">GitHub</a> · <a href="https://herdr.dev/">官网</a></div>
+  <blockquote>Native macOS console for herdr — all your coding agents and their live terminals, across devices. herdr 本体：后台 server 常驻，合盖/断网/重启机器，agents keep working.</blockquote>
+  <div class="why">Repo 实测 ⭐31,597 / 2,255 forks / Rust / Apache-2.0 / push 2026-08-22，HN 有专帖讨论。直击多机 fleet 的断线即死、会话不延续痛点——与自制 ai-session-manager 的取舍值得算清。</div>
+</div>
+
+<h2>⭐×3 中价值</h2>
+<table>
+<tr><th>信号</th><th>要点</th><th>验证</th></tr>
+<tr><td><a href="https://x.com/MaxForAI/status/2089132978953941448">失业工程师复刻 Taalas 芯片项目</a></td><td>AMD 8/6 收购的 Taalas（模型权重烧进硅片，HC1 跑 Llama 3.1 8B ≈17,000 tok/s/user），工程师称 6 周复刻</td><td class="v-warn">⚠️ AMD收购/HC1指标属实（<a href="https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344">Register</a>），"复刻"无外部佐证</td></tr>
+<tr><td><a href="https://x.com/KentonVarda/status/2084990137180590572">Cloudflare OS</a></td><td>Kenton Varda（Sandstorm 创始人）在 Workers 上重造 Sandstorm——chatbot + connectors</td><td class="v-ok">✅ 第一方信源</td></tr>
+<tr><td><a href="https://x.com/davinci_seven/status/2089732817487888613">KeePassXC 密码收权</a></td><td>免费开源离线密码管理，20 分钟搭好</td><td class="v-ok">✅ 常识级可信</td></tr>
+<tr><td><a href="https://x.com/LotusDecoder/status/2089978715623293345">DeepSeek-V4-Flash 本地部署算账</a></td><td>DGX Spark×2 年产出仅 ¥0.7万 vs 成本近 ¥7万；四卡 4090 血亏 ¥15万——本地跑 API 等价收益是亏钱生意</td><td class="v-warn">⚠️ 口径自算未复核，方向与业界共识一致（本地部署经济性差）</td></tr>
+<tr><td><a href="https://x.com/jaynitx/status/2090473484426313862">Elon 五步算法</a></td><td>质疑需求→删除部件→简化→优化→自动化；"聪明工程师最常犯的错：优化一个不该存在的东西"</td><td class="v-warn">⚠️ 老生常谈但每次都有效</td></tr>
+<tr><td><a href="https://twitter.com/mitchellh/status/2003558938768474381">Ghostty vim mode</a></td><td>键位系统强到可实现 vim/emacs/tmux 任意 mode</td><td class="v-ok">✅ 作者第一方</td></tr>
+<tr><td><a href="https://x.com/LgyLight/status/2033215770122240287">Raycast AI 供应商配置插件</a></td><td>可视化编辑自定义 AI API 供应商配置</td><td class="v-warn">⚠️ 未试用</td></tr>
+</table>
+
+<h2>🌿 生活维度信号</h2>
+<div class="life-grid">
+  <div class="card">
+    <h3><span class="badge blife">🧠 健脑</span>直接跳进难的东西</h3>
+    <div class="meta">@DevanshuXi · <a href="https://x.com/DevanshuXi/status/2089996330861224324">原文</a></div>
+    <blockquote>放弃"从基础学起"——那只是进步的多巴胺。把自己直接放进 advanced、hard things：挣扎、卡住、搞坏，然后 DFS 式按需补基础。</blockquote>
+    <div class="why">与当前 CS336 手搓 LLM / Rust 自学的打法互相印证：以项目拉动，缺什么补什么。</div>
+  </div>
+  <div class="card">
+    <h3><span class="badge blife">🧠 健脑</span>《如何超过大多数人》七年回看</h3>
+    <div class="meta">@brucexu_eth · <a href="https://x.com/brucexu_eth/status/2089921581728358909">原文</a></div>
+    <blockquote>反面写法：让一个人沉迷碎片信息、热点争论，把收藏当学习、把加班当努力，再给点速成幻觉——他自然无法真正成长。</blockquote>
+    <div class="why">"收藏≠学习"是 Readwise 工作流本身的照妖镜：高亮不回顾 = 零。本简报的存在意义即闭环回顾。</div>
+  </div>
+  <div class="card">
+    <h3><span class="badge blife">🧠 健脑</span>985 毕业能赚多少</h3>
+    <div class="meta">@cliuxinxin 转 · <a href="https://x.com/cliuxinxin/status/2089641303793692870">原文</a></div>
+    <blockquote>中肯的现象描述：原因不一定准确，但现象就是这个现象。</blockquote>
+    <div class="why">与 K12 教育观察相互参照——教育回报预期的现实校准。</div>
+  </div>
+  <div class="card">
+    <h3><span class="badge blife">📈 建仓</span>美债"最后的疯狂"论</h3>
+    <div class="meta">@TaoRay · <a href="https://x.com/TaoRay/status/2089721401649611064">原文</a></div>
+    <blockquote>市场将彻底看破嘴炮式预期管理，全面交易"债务货币化 + 滞胀"；美长债崩盘式下跌。</blockquote>
+    <div class="why">⚠️ 强制交叉验证结果——<b>事实核</b>：30 年期美债收益率 ~5.34% 创近 20 年新高（<a href="https://www.cbsnews.com/news/bond-sell-off-treasury-yields-borrowing-costs/">CBS</a>），财政部加倍回购（$4B/issue）确被解读为准债务货币化（<a href="https://www.cnbc.com/2026/08/18/us-government-debt-yields-are-surging-at-a-bad-time-heres-whats-behind-the-move.html">CNBC</a>）；<b>但</b>"最后的疯狂/全面滞胀"是预言性观点非事实。结论：事实可用，叙事存疑，不作为仓位依据。</div>
+  </div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="action">
+  <ol>
+    <li><b>把"修系统别修结果"写进团队 Harness 规范</b>——下次 Agent 犯错，强制产出一条护栏（Linter/测试/文档），禁止人肉救火两次（→ 深挖 1）</li>
+    <li><b>审计团队 agent 工具表</b>——按 Vercel 逻辑砍工具：哪些专用工具可被 Bash+文件读写替代？砍掉后跑一周看成功率</li>
+    <li><b>用 1 个 Feature 做粒度试点</b>——废用户故事写法，改 Feature 粒度 + 验收标准，量需求前置时间（→ 深挖 2）</li>
+    <li><b>Mac mini 装 herdr 跑定时任务</b>——验证断网/合盖后 agent 存活率（→ 深挖 5）</li>
+    <li><b>读 Palantir 论战两篇</b>——给 Ontology 探索装一个"反方过滤器"（→ 深挖 4）</li>
+    <li>🔍 低优先：cumora clone 试用（团队聊天台生态观察）、KeePassXC 已有替代则跳过</li>
+  </ol>
+</div>
+
+<h2>📁 低价值附录（默认折叠）</h2>
+<details>
+  <summary>无正文短链 ×5 + 社会观察 ×1（点击展开）</summary>
+  <table>
+  <tr><th>来源</th><th>状态</th><th>链接</th></tr>
+  <tr><td>@Salad95238547</td><td>仅 t.co 短链，无正文</td><td><a href="https://x.com/Salad95238547/status/2079508549382644194">原文</a></td></tr>
+  <tr><td>@tison1096</td><td>仅图片+短链，无正文</td><td><a href="https://x.com/tison1096/status/2090469374159413577">原文</a></td></tr>
+  <tr><td>@dongxi_nlp</td><td>仅短链，无正文</td><td><a href="https://twitter.com/dongxi_nlp/status/2003574127211479442">原文</a></td></tr>
+  <tr><td>@Astronaut_1216</td><td>仅短链，无正文</td><td><a href="https://x.com/Astronaut_1216/status/2090966733494612237">原文</a></td></tr>
+  <tr><td>@yanhua1010</td><td>仅短链（正文已在上方长文覆盖）</td><td><a href="https://x.com/yanhua1010/status/2043900031661682997">原文</a></td></tr>
+  <tr><td>@btcmos 香港老雷</td><td>社会观察（男女矛盾/世代牺牲论），无行动接口</td><td><a href="https://x.com/btcmos/status/2090426389292028024">原文</a></td></tr>
+  </table>
+</details>
+
+<div class="footer">
+  Generated by my-readwise-briefing v4.3 · 窗口 2026-08-17 → 2026-08-23 · 22 sources · 深挖报告见 <a href="readwise-proposals-20260823.html">Proposals</a><br>
+  Phase 1.5 验证：Vercel ✅ · cumora ✅🔬 · Palantir ✅ · herdr ✅🔬 · Taalas ⚠️ · 美债 ⚠️（事实核/叙事疑）
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
