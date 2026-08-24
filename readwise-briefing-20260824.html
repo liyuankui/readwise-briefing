@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-24（周一 · 含周报）</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;padding:24px;max-width:920px;margin:0 auto}
+.theme-btn{position:fixed;top:16px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer;z-index:9;color:var(--text)}
+header{border-bottom:2px solid var(--accent);padding-bottom:16px;margin-bottom:20px}
+h1{font-size:1.6em;color:var(--accent);margin-bottom:6px}
+.meta{color:var(--text3);font-size:.9em}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 14px;font-size:.85em}
+.stat b{color:var(--accent);font-size:1.15em}
+h2{font-size:1.25em;color:var(--accent);margin:28px 0 12px;padding-left:10px;border-left:4px solid var(--accent)}
+h3{font-size:1.05em;color:var(--text);margin:16px 0 8px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.card .src{font-size:.82em;color:var(--text3);margin-bottom:6px}
+.card .src a{color:var(--accent2);text-decoration:none;word-break:break-all}
+.badge{display:inline-block;font-size:.75em;padding:1px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.b5{background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent)}
+.b3{background:color-mix(in srgb,var(--accent4) 15%,transparent);color:var(--accent4)}
+.b1{background:color-mix(in srgb,var(--text3) 15%,transparent);color:var(--text3)}
+.bv{background:color-mix(in srgb,var(--accent3) 15%,transparent);color:var(--accent3)}
+.bw{background:color-mix(in srgb,var(--accent4) 18%,transparent);color:var(--accent4)}
+.why{background:var(--surface2);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:.92em;color:var(--text2)}
+.why b{color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:.9em;margin:10px 0}
+th{background:var(--surface2);color:var(--text2);text-align:left;padding:8px 10px;border:1px solid var(--border)}
+td{padding:8px 10px;border:1px solid var(--border);vertical-align:top}
+td a{color:var(--accent2);text-decoration:none}
+.quote{border-left:3px solid var(--accent4);background:var(--surface2);padding:8px 12px;margin:8px 0;border-radius:0 8px 8px 0;color:var(--text2);font-size:.93em}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin:4px 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin:12px 0}
+summary{cursor:pointer;color:var(--text2);font-weight:bold}
+.axiom{text-align:center;background:var(--surface2);border-radius:12px;padding:10px;color:var(--text2);font-size:.95em;margin-bottom:8px}
+footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--border);color:var(--text3);font-size:.82em}
+.life{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.life .card{margin-bottom:0}
+.week-theme{display:flex;gap:10px;align-items:baseline;margin:6px 0}
+.week-theme .n{color:var(--accent);font-weight:bold;white-space:nowrap}
+</style>
+</head>
+<body>
+<button class="theme-btn" id="theme-toggle">🌙</button>
+
+<header>
+<h1>📋 Readwise 情报简报 · 2026-08-24</h1>
+<div class="meta">周一 · 含上周周报（2026-08-17 → 08-23）· 增量窗口自 08-23 08:00 · 周窗口 08-17 起</div>
+<div class="stats">
+<div class="stat">今日新增 <b>3</b></div>
+<div class="stat">周窗口合计 <b>27</b></div>
+<div class="stat">已处理去重 <b>24</b></div>
+<div class="stat">深挖方向 <b>5</b></div>
+<div class="stat">验证 ✅<b>4</b> ⚠️<b>3</b></div>
+</div>
+</header>
+
+<div class="axiom">⚖️ 核心公理：不可行动的信息 = 噪音。今日为周一，5 个深挖名额全部采用<b>跨周合成视角</b>（本周新信号 × 上周已验证主题 × 当前意图），不重复上周 10 个 Proposals。</div>
+
+<h2>📊 周报一句话定调</h2>
+<div class="card">
+<p><b>上周主线是「Agent 工程化的成人礼」</b>：从工具尝鲜转向 Harness 系统化（Yanhua 长文三连、AI Native 十条共识、cumora/herdr 开源）。本周信号把问题推向三个<b>边界</b>：</p>
+<ul>
+<li><b>算力经济学边界</b> — 本地 vs API 出现判决级数据（DeepSeek-V4-Flash 本地血亏账，已验证）</li>
+<li><b>组织效率边界</b> — 响马：工具化推进到 ROI 低于人力的边界后，需要更多人补"最后的缝隙"</li>
+<li><b>个体杠杆边界</b> — AMD 收 25 人芯片公司 Taalas 后仍有人声称个人复刻（基础事实已验证，复刻未证实）：一人 ≈ 一支队伍在硬件层也成立</li>
+</ul>
+</div>
+
+<h2>📡 今日增量信号（3 条）</h2>
+
+<div class="card">
+<div class="src">💎 @dotey（宝玉）· 转述响马 · <a href="https://x.com/dotey/status/2091178887040356622">x.com/dotey/status/2091178887040356622</a><span class="badge bw">⚠️ 观点·框架有价值</span><span class="badge b3">⭐×3 → 深挖#2</span></div>
+<p>「工程师永远不会消失，但工作方式会变化。工具化永远会进化到 ROI 低于人力的边界，然后需要更多的人力来补齐最后的缝隙。就像餐厅买了洗碗机替代 3 个洗碗工——那是工具化 ROI 远超人力的阶段。」</p>
+<div class="why"><b>为什么相关</b>： Kyle 刚接任团队效率计划（收益追踪 Key Owner）。此框架直指去年教训的根因——benefit tracking 若只算"替代了多少人力"、不算"缝隙成本"和时间再分配，收益注定系统性高估。与上周 AI Native 共识（瓶颈转移到需求侧）互为印证。</div>
+</div>
+
+<div class="card">
+<div class="src">🧠 @grgerwcwetwet（周览资源）· <a href="https://x.com/grgerwcwetwet/status/2091133234998616228">x.com/grgerwcwetwet/status/2091133234998616228</a><span class="badge b3">⭐×3 健脑</span></div>
+<p>知乎「有哪本书你恨不得全部背诵」最高赞答案：<b>《Science Research Writing for Non-native Speakers of English》</b>——非母语者科技写作经典。</p>
+<div class="why"><b>为什么相关</b>： 日常需要写英文技术文档/汇报（计划汇报、内部 Wiki），非母语科技写作是持续痛点。列入健脑书单，优先级中——等 CS336 A2 冲刺结束后翻。</div>
+</div>
+
+<div class="card">
+<div class="src">📺 @ezshine（大帅老猿）· <a href="https://x.com/ezshine/status/2091449768124068201">x.com/ezshine/status/2091449768124068201</a><span class="badge b1">⭐ 娱乐</span></div>
+<p>某聚合网站可看全球几千电视台直播 + 数万广播电台 + 影视搜索。</p>
+<div class="why"><b>为什么相关</b>： 纯娱乐工具，无工作连接。注意此类站点的版权灰色属性，不纳入任何工作流。收入低价值附录。</div>
+</div>
+
+<h2>🗓️ 上周周报（2026-08-17 → 08-23）</h2>
+<div class="meta" style="margin-bottom:10px">窗口内 27 条高亮；08-18 ~ 08-22 无新增处理（归档运行仅 08-17 与 08-23 两天）。以下主题含此前已处理内容的合成视角。</div>
+
+<div class="card">
+<div class="week-theme"><span class="n">🔧 1. Harness Engineering 主线（上周最强音）</span></div>
+<ul>
+<li><b>Yanhua《Harness Engineering：从执行者到系统架构师》</b>（3 条高亮）：修系统别修结果（发现 Agent 犯错→工程化一个自动拦截方案）；上下文全部外部化（文件系统 = Single Source of Truth；agents.md 当地图不当百科全书——渐进式暴露）；角色转变：从执行者到"搭舞台、定规矩、画护栏"的系统设计者。<a href="https://read.readwise.io/read/01m06pyqt1nw03gwk4ynavfr0e">[1]</a><a href="https://read.readwise.io/read/01m06pz65dacd6crhckdad2hcs">[2]</a><a href="https://read.readwise.io/read/01m06q0p85x110rq7820p1zqn6">[3]</a></li>
+<li><b>@shaogefenhao 软件工程研讨会 10 条 AI Native 共识</b>：<a href="https://x.com/shaogefenhao/status/2090448286050111908">x.com/shaogefenhao/…</a> BA 比开发稀缺（1:5→1:1）；用户故事（3-5 天）已死，改 Feature 粒度+验收标准。</li>
+<li><b>@wey_gu</b>：yetone 开源团队 harness 项目 <b>cumora</b>（agent 一级队友聊天台）<a href="https://x.com/wey_gu/status/2089322666549522893">[链接]</a>；<b>@m1ssuo</b>：<b>herdr</b> 多机 coding agent 运行时 console <a href="https://x.com/m1ssuo/status/2090007297686978928">[链接]</a></li>
+</ul>
+<div class="why"><b>去向</b>： 08-23 已产出 5 个 Proposals（Harness 90 天落地 / Feature 粒度需求 / cumora 试点 / Ontology 决策 / herdr 运行时）——本周不重复，转入执行参考。</div>
+</div>
+
+<div class="card">
+<div class="week-theme"><span class="n">☁️ 2. Cloudflare OS 发布</span><span class="badge bv">✅ Verified</span></div>
+<p>Kenton Varda（Workers 技术负责人）发布 <b>Cloudflare OS</b>：Sandstorm.io 十年后的重制版——开源（Apache 2.0）、可 self-host 的 agent workspace，零信任 "Gatekeepers" 安全模型、per-instance 沙箱、"Gadgets" 个人 vibe coding。Cloudflare 内部 5 月起全员部署，数千周活。<a href="https://x.com/KentonVarda/status/2084990137180590572">x.com/KentonVarda/…</a></p>
+<div class="why"><b>为什么相关</b>： 与 OpenMAIC 纯 Cloudflare 免费部署（in_progress）同构——同为 Workers 上的多租户 agent 应用。其 DO/沙箱/连接器模式可直接抄。→ 今日深挖 #1。</div>
+</div>
+
+<div class="card">
+<div class="week-theme"><span class="n">💰 3. 模型经济学：本地的判决日</span><span class="badge bv">✅ Verified</span></div>
+<ul>
+<li><b>@LotusDecoder DeepSeek-V4-Flash 本地部署算账</b>：<a href="https://x.com/LotusDecoder/status/2089978715623293345">x.com/LotusDecoder/…</a> 双 DGX Spark 年产出仅 ¥7K 等值 token 血亏近 ¥7 万；四卡 4090-48G 血亏 ¥15 万。→ 独立验证一致：API 比自托管便宜 20-60×，电费（~$0.29/1M tok）就可能超过 API 价；284B MoE 单卡 4090 只能跑重度量化（11-19 tok/s）。</li>
+<li><b>@MaxForAI：AMD 8/6 收购 Taalas</b>（25 人，HC1 芯片把 Llama 3.1 8B 权重烧进硅片，17,000 tok/s）<a href="https://x.com/MaxForAI/status/2089132978953941448">x.com/MaxForAI/…</a> → AMD 官方 PR 已证实收购与规格；"工程师个人复刻"细节未证实 ⚠️。</li>
+</ul>
+<div class="why"><b>为什么相关</b>： 这是对 08-17「M4 Pro 本地优先 Agent 栈」提案的<b>证伪信号</b>——本地只在隐私/离线/微调场景成立。→ 今日深挖 #3 做边界修正。</div>
+</div>
+
+<div class="card">
+<div class="week-theme"><span class="n">🧠 4. 学习法三连</span><span class="badge bw">⚠️ 观点·与学习科学主流相容</span></div>
+<ul>
+<li><b>@DevanshuXi</b>：放弃"从基础学起"（多巴胺式假进步），直接进阶硬碰——挣扎、卡住、搞坏，再 DFS 回补。<a href="https://x.com/DevanshuXi/status/2089996330861224324">[链接]</a></li>
+<li><b>@brucexu_eth</b> 荐耗子叔 7 年前《如何超过大多数人》：碎片信息/收藏当学习/加班当努力 = 三大成长陷阱。<a href="https://x.com/brucexu_eth/status/2089921581728358909">[链接]</a></li>
+<li><b>@jaynitx</b> 转述 Musk 5-step 算法：聪明工程师最常犯的错是优化不该存在的东西。<a href="https://x.com/jaynitx/status/2090473484426313862">[链接]</a></li>
+</ul>
+<div class="why"><b>为什么相关</b>： CS336 A2（Flash Attention Triton）8/30 截止仅剩 6 天，A1 尚未收尾——"补完 A1 再开 A2"的顺序模式正是被这套框架批判的对象。→ 今日深挖 #4。</div>
+</div>
+
+<div class="card">
+<div class="week-theme"><span class="n">🛠️ 5. 工具与安全快讯</span></div>
+<ul>
+<li><b>Ghostty</b> 键位系统强大到可组 "vim mode"（任意 mode 可编排）<a href="https://twitter.com/mitchellh/status/2003558938768474381">mitchellh</a></li>
+<li><b>Raycast</b> 已支持自定义 AI API 供应商，有可视化配置插件 <a href="https://x.com/LgyLight/status/2033215770122240287">LgyLight</a></li>
+<li><b>KeePassXC</b> 20 分钟搭建本地密码管理（免费开源无注册）<a href="https://x.com/davinci_seven/status/2089732817487888613">davinci_seven</a> — 工作侧已有 credential-manager，家庭设备可用</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="week-theme"><span class="n">📎 6. 08-23 已深挖归档（不重复处理）</span></div>
+<ul>
+<li>bcherny（Claude Code 负责人）bug 分布迁移 + adversarial review → <b>AR-SI Proposal</b>（内部 eval 矩阵互证：最难 = 跨文件改造）</li>
+<li>Andrew Ng《The Batch #366》AI Engineering Skills Map（10K+ JD 方法论，四技能，evals 为 #1）→ <b>讲师团校准 Proposal</b></li>
+<li>nurijanian X article 匿名不可读 → ❌ Debunked</li>
+</ul>
+</div>
+
+<h2>🔭 今日 5 大深挖方向（跨周合成视角）</h2>
+<table>
+<tr><th>#</th><th>方向</th><th>连接意图</th><th>信号源</th><th>验证</th></tr>
+<tr><td>1️⃣</td><td><b>Cloudflare OS 架构借鉴 → OpenMAIC 部署加速</b></td><td>OpenMAIC Cloudflare 🔥</td><td>KentonVarda + ✅Apache 2.0/内部部署</td><td>✅</td></tr>
+<tr><td>2️⃣</td><td><b>效率收益追踪的「ROI 边界」设计</b>（缝隙成本申报）</td><td>团队效率计划 🔥 新任 Key Owner</td><td>dotey/响马 + AI Native 共识</td><td>⚠️框架</td></tr>
+<tr><td>3️⃣</td><td><b>本地优先边界修正（M4 Pro 提案 v2）</b>——证伪上周结论</td><td>模型选型 / opencode</td><td>LotusDecoder 算账 + 独立分析</td><td>✅</td></tr>
+<tr><td>4️⃣</td><td><b>CS336 A2 六天 DFS 冲刺重设计</b>（8/30 DDL）</td><td>Stanford CS336 🔥</td><td>DevanshuXi + 耗子叔 + Musk 5-step</td><td>⚠️框架</td></tr>
+<tr><td>5️⃣</td><td><b>WellDone 三人首会议的 AI 杠杆底牌</b></td><td>WellDone 🌱 待首会议</td><td>Taalas 复刻 + cumora/herdr + DeepSeek 成本</td><td>✅/⚠️</td></tr>
+</table>
+
+<h2>✅ 行动清单（本周）</h2>
+<div class="card">
+<ol>
+<li><b>今天</b>：启动 A2 DFS 冲刺 Day 1——直接跑 A2 starter 测试、按失败点回溯（深挖 #4，8/30 硬截止）</li>
+<li><b>今天</b>：clone Cloudflare OS 源码，读 Gatekeepers/沙箱与 DO 用法，标注 OpenMAIC 可抄清单（深挖 #1）</li>
+<li><b>本周</b>：效率计划 Owner onboarding 材料加入「缝隙成本 + 时间再分配去向」申报字段（深挖 #2）</li>
+<li><b>本周</b>：按边界框架重审本地模型使用决策——默认 API（DeepSeek/GLM），本地仅隐私与离线（深挖 #3）</li>
+<li><b>首会议前</b>：完成 WellDone AI 杠杆栈一页纸（工程人时预算 + AI 内容成本基线）（深挖 #5）</li>
+<li><b>建仓</b>：30Y 美债 5.3% 高位 + 财政部回购干预——复核持仓久期，勿把高收益率当安全垫（见生活维度）</li>
+</ol>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+<div class="life">
+<div class="card">
+<div class="src">📈 建仓<span class="badge bv">✅ 交叉验证通过</span></div>
+<p><b>@TaoRay 美债判断获证实</b>：<a href="https://x.com/TaoRay/status/2089721401649611064">x.com/TaoRay/…</a>「最后的疯狂：市场全面交易债务货币化+滞胀，美国长期国债崩盘式下跌」。</p>
+<div class="why"><b>验证</b>： 30Y 收益率 8 月中旬达 <b>5.33%（2007 年以来最高）</b>，10Y ~4.74%；8/19 财政部长 Bessent 宣布长债回购规模翻倍（$2B→$4B+）救收益率——被广泛解读为债务货币化前奏，且回购后收益率两日内再度上行（Bloomberg/Reuters/CNBC 多源一致）。<b>行动</b>：观点方向属实但仓位对策是个人的——关注久期风险，警惕"高息=安全"陷阱。</div>
+</div>
+<div class="card">
+<div class="src">🧠 健脑</div>
+<p><b>《Science Research Writing》</b>（今日新）+ <b>DFS 直进阶学习法</b>（上周）+ <b>耗子叔《如何超过大多数人》</b>（上周）。本周健脑主课题：把"收藏当学习"的存量材料清出 inbox，只留能行动的。</p>
+</div>
+<div class="card">
+<div class="src">🔐 安全生活</div>
+<p><b>KeePassXC</b> 家庭密码收纳（20 分钟，免费开源）。工作侧已有 credential-manager + Keychain；家庭共享场景（家长账号/支付密码）可用其 KeeShare 特性。</p>
+</div>
+<div class="card">
+<div class="src">🏋️ 健身 / 🥗 健胃</div>
+<p>本周窗口无相关信号。</p>
+</div>
+</div>
+
+<h2>📎 低价值附录（折叠）</h2>
+<details>
+<summary>展开查看全部低价值内容（不占用处理预算）</summary>
+<ul>
+<li>📺 @ezshine 全球电视/影视聚合站 — 娱乐，版权灰色 <a href="https://x.com/ezshine/status/2091449768124068201">[链接]</a></li>
+<li>🗣️ @btcmos 内地男女矛盾社会评论 — 不可行动 <a href="https://x.com/btcmos/status/2090426389292028024">[链接]</a></li>
+<li>🎓 @cliuxinxin 985 毕业收入文章推荐 — 社会观察 <a href="https://x.com/cliuxinxin/status/2089641303793692870">[链接]</a></li>
+<li>🔗 @Salad95238547 — 仅 t.co 短链，无上下文，原文不可验证 <a href="https://x.com/Salad95238547/status/2079508549382644194">[链接]</a></li>
+<li>🔗 @tison1096 — 仅短链 <a href="https://x.com/tison1096/status/2090469374159413577">[链接]</a></li>
+<li>🔗 @dongxi_nlp — 仅短链 <a href="https://twitter.com/dongxi_nlp/status/2003574127211479442">[链接]</a></li>
+<li>🔗 @Astronaut_1216 — 仅短链 <a href="https://x.com/Astronaut_1216/status/2090966733494612237">[链接]</a></li>
+<li>🔗 @yanhua1010 — 仅短链 <a href="https://x.com/yanhua1010/status/2043900031661682997">[链接]</a></li>
+</ul>
+</details>
+
+<footer>
+Readwise 情报简报 · 2026-08-24（周一）· 数据: Readwise export API（window 2026-08-17T00:00Z+）· 去重: state.json dedup ∪ processed_ids ·
+Proposals 详见 <a href="readwise-proposals-20260824.html">readwise-proposals-20260824.html</a> · 上周简报: <a href="readwise-briefing-20260823.html">08-23</a> / <a href="readwise-briefing-20260817.html">08-17</a>
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light')});
+if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');btn.textContent='☀️'}
+</script>
+</body>
+</html>
