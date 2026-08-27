@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-08-27（周四）</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;padding:24px;max-width:920px;margin:0 auto}
+.theme-btn{position:fixed;top:16px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer;z-index:9;color:var(--text)}
+header{border-bottom:2px solid var(--accent);padding-bottom:16px;margin-bottom:20px}
+h1{font-size:1.6em;color:var(--accent);margin-bottom:6px}
+.meta{color:var(--text3);font-size:.9em}
+.axiom{text-align:center;background:var(--surface2);border-radius:12px;padding:10px;color:var(--text2);font-size:.95em;margin-bottom:20px}
+h2{font-size:1.25em;color:var(--accent);margin:28px 0 12px;padding-left:10px;border-left:4px solid var(--accent)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.card h3{font-size:1.15em;color:var(--accent);margin-bottom:8px}
+.tag{display:inline-block;font-size:.75em;padding:1px 10px;border-radius:99px;margin-left:6px;vertical-align:middle;background:color-mix(in srgb,var(--accent2) 15%,transparent);color:var(--accent2)}
+table{width:100%;border-collapse:collapse;font-size:.9em;margin:10px 0}
+th{background:var(--surface2);color:var(--text2);text-align:left;padding:8px 10px;border:1px solid var(--border)}
+td{padding:8px 10px;border:1px solid var(--border);vertical-align:top}
+td.k{background:var(--surface2);color:var(--text2);white-space:nowrap;width:110px}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin:4px 0}
+.claim{background:var(--surface2);border-left:4px solid var(--accent);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:1.02em}
+.red{background:color-mix(in srgb,var(--accent5) 8%,var(--surface));border:1px dashed var(--accent5);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.92em;color:var(--text2)}
+.red b{color:var(--accent5)}
+footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--border);color:var(--text3);font-size:.82em}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<button class="theme-btn" id="theme-toggle">🌙</button>
+
+<header>
+<h1>🎯 Readwise Proposals · 2026-08-27</h1>
+<div class="meta">周四 · 1 个深挖方向（信号量少，名额 5→1，内联生成）· <a href="readwise-briefing-20260827.html">← 今日简报</a></div>
+</header>
+
+<div class="axiom">⚖️ 核心公理：不可行动的信息 = 噪音。推文跑分不算数，自己的 eval 矩阵才算数。</div>
+
+<h2>🗺️ 信号 × 项目 对应</h2>
+<table>
+<tr><th>信号</th><th>验证结论</th><th>连接的活跃项目</th><th>深挖</th></tr>
+<tr>
+<td>Qwen3.8-Flash 发布（125B/A6B，QSA，262k）</td>
+<td>⚠️ Partial：模型与架构 ✅，「碾压 Opus 4.6」夸大</td>
+<td>AI Coding Eval 模型矩阵 · 国内模型降本提案 · CS336 A2/A3</td>
+<td>#1 ✅</td>
+</tr>
+<tr>
+<td>RevaHuai「行动→语言→思想」（生活·健脑）</td>
+<td>—（观点类，生活维度不占深挖名额）</td>
+<td>公理库「行动即信息」引文补充</td>
+<td>—</td>
+</tr>
+</table>
+
+<h2>🚀 Proposal #1 — 用自己的 Eval 矩阵给 Qwen3.8-Flash 定位，而非转发跑分</h2>
+<div class="card">
+<h3>Qwen3.8-Flash 选型实验：$0.16/1M 的 coding 模型该不该进工具清单<span class="tag">AI Coding Eval</span><span class="tag">降本提案</span><span class="tag">CS336</span></h3>
+
+<div class="claim"><b>核心主张</b>：在 5 个已审核真实代码 cases 上实测 Qwen3.8-Flash 的 Pass@1/LLM-judge 分数——若 coding 能力 ≥ 现有 flash 档基线且成本更低，就把它写进国内模型降本提案的候选清单；若不达标，就存一条「推文碾压、实测翻车」的证据，两种结果都是可复用的选型资产。</div>
+
+<table>
+<tr><td class="k">锁定痛点</td><td>降本提案（推动低成本国内模型进 AI 编程工具清单）目前引用的是二手跑分，缺乏自己场景的可比数据；而 AI Coding Eval 的下一步本来就是「跑小矩阵（≥5 cases × ≥3 models）」——两件事在此汇合。</td></tr>
+<tr><td class="k">为什么是现在</td><td>① 模型昨日（08-26）刚发布，API 已可用，先动者一周内就能拿到一手数据；② QwenCloud 定价 $0.16/$0.47 每百万 token，实验全部成本 < ¥5；③ 5 个已审核 judge cases 已就绪，边际成本极低。</td></tr>
+<tr><td class="k">里程碑</td><td>
+<ol>
+<li><b>D0（0.5h）</b>：开通 QwenCloud API，冒烟测试 1 个代码补全请求，记录限流/延迟。</li>
+<li><b>D1-D2（2h）</b>：5 个已审核 cases × Qwen3.8-Flash，同一 harness 跑完，产出可比分数行。</li>
+<li><b>D3（1h）</b>：结果并入模型选型信号表（与现有 flash 档模型对照），输出一行决策：进/不进候选清单。</li>
+<li><b>D4（可选，碎片时间）</b>：读 QSA 架构说明，给 CS336 A3（scaling）笔记补半页「FA2 → 混合注意力的工业演进」。</li>
+</ol>
+</td></tr>
+<tr><td class="k">成功标准</td><td>① 5 cases 得分与现有矩阵同格式可比；② 产出一行可追溯决策（含成本/延迟/得分三维）；③ 若进入候选清单，提案文档中该模型的数据来源标注为「自有 eval」而非推文。</td></tr>
+<tr><td class="k">ROI / 影响</td><td>若通过：AI 编程工具月成本多一个低价选项（flash 档差价约 5-10×）；若不通过：省下全团队在未验证模型上的试错时间。实验本身是 eval-builder skill 的又一次实战演练。</td></tr>
+<tr><td class="k">风险与缓解</td><td>① 推分夸大 → 本实验就是缓解手段；② 5 case 小样本 → 结论只作方向参考，标注置信度（与历史 n≤6 的教训一致）；③ 企业 API 合规边界未确认 → 动手前先查工具审批政策，个人实验优先用匿名化 case；④ 262k 上下文宣称未验证 → 矩阵中加 1 个长上下文 case。</td></tr>
+<tr><td class="k">本周立即行动</td><td>
+<ol>
+<li>今晚开通 API key + 冒烟（0.5h）。</li>
+<li>从已审核 case 池选 5 个，加 1 个长上下文 case。</li>
+<li>把「顺序反转即主体性」一句补进公理卡引文（5 分钟，顺手）。</li>
+</ol>
+</td></tr>
+</table>
+
+<div class="red"><b>🚩 诚实挑战</b>：这个 Proposal 最大的漏洞是<b>用 5 个 case 给一个 125B 模型定生死</b>——历史矩阵 n=6 就出过满分，样本量注定只够「方向参考」。其次，coding eval 分数 ≠ agentic harness 里的真实表现（工具调用、长程任务），而实际使用场景恰恰是后者；若只测单轮代码补全，可能重演「eval 满分、实战拉胯」。第三，它假设 API 通道稳定，但新模型上线首周限流/热更新频繁，数据可复现性存疑。缓解：结论措辞永远带置信区间；第二步补 1 个 harness 内多轮任务；一周后复跑一次取两次中位数。</div>
+</div>
+
+<footer>
+<p>验证信源：<a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">HF Model Card</a> · <a href="https://qwen.ai/blog?id=qwen3.8">Qwen Blog</a> · <a href="https://www.reddit.com/r/LocalLLaMA/comments/1vy6smx/qwen38flashnext_this_architecture_could_be/">r/LocalLLaMA</a> · <a href="https://news.ycombinator.com/item?id=49432317">HN</a> · <a href="https://forums.developer.nvidia.com/t/qwen3-8-flash-next/381228">NVIDIA Forums</a></p>
+<p>Generated by my-readwise-briefing v4.3 · 深挖名额缩减说明：今日工作信号仅 1 条，5 subagents 并行改为内联单 Proposal，宁缺毋滥 · 2026-08-27 08:00 CST</p>
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){
+  document.documentElement.classList.add('dark');
+  btn.textContent='☀️';
+}
+</script>
+</body>
+</html>
