@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-08-27（周四）</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;padding:24px;max-width:920px;margin:0 auto}
+.theme-btn{position:fixed;top:16px;right:16px;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer;z-index:9;color:var(--text)}
+header{border-bottom:2px solid var(--accent);padding-bottom:16px;margin-bottom:20px}
+h1{font-size:1.6em;color:var(--accent);margin-bottom:6px}
+.meta{color:var(--text3);font-size:.9em}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 14px;font-size:.85em}
+.stat b{color:var(--accent);font-size:1.15em}
+h2{font-size:1.25em;color:var(--accent);margin:28px 0 12px;padding-left:10px;border-left:4px solid var(--accent)}
+h3{font-size:1.05em;color:var(--text);margin:16px 0 8px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.card .src{font-size:.82em;color:var(--text3);margin-bottom:6px}
+.card .src a{color:var(--accent2);text-decoration:none;word-break:break-all}
+.badge{display:inline-block;font-size:.75em;padding:1px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.b5{background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent)}
+.b3{background:color-mix(in srgb,var(--accent4) 15%,transparent);color:var(--accent4)}
+.b1{background:color-mix(in srgb,var(--text3) 15%,transparent);color:var(--text3)}
+.bv{background:color-mix(in srgb,var(--accent3) 15%,transparent);color:var(--accent3)}
+.bw{background:color-mix(in srgb,var(--accent4) 18%,transparent);color:var(--accent4)}
+.why{background:var(--surface2);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:.92em;color:var(--text2)}
+.why b{color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:.9em;margin:10px 0}
+th{background:var(--surface2);color:var(--text2);text-align:left;padding:8px 10px;border:1px solid var(--border)}
+td{padding:8px 10px;border:1px solid var(--border);vertical-align:top}
+td a{color:var(--accent2);text-decoration:none}
+.quote{border-left:3px solid var(--accent4);background:var(--surface2);padding:8px 12px;margin:8px 0;border-radius:0 8px 8px 0;color:var(--text2);font-size:.93em}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin:4px 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin:12px 0}
+summary{cursor:pointer;color:var(--text2);font-weight:bold}
+.axiom{text-align:center;background:var(--surface2);border-radius:12px;padding:10px;color:var(--text2);font-size:.95em;margin-bottom:8px}
+footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--border);color:var(--text3);font-size:.82em}
+.life{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.life .card{margin-bottom:0}
+.verdict{display:table;width:100%;font-size:.88em;margin-top:8px;border-collapse:collapse}
+.verdict .row{display:table-row}
+.verdict .k{display:table-cell;padding:5px 10px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);white-space:nowrap;width:110px}
+.verdict .v{display:table-cell;padding:5px 10px;border:1px solid var(--border)}
+</style>
+</head>
+<body>
+<button class="theme-btn" id="theme-toggle">🌙</button>
+
+<header>
+<h1>📋 Readwise 情报简报 · 2026-08-27</h1>
+<div class="meta">周四 · 增量窗口自 08-26 08:01 · 前两日（08-25/26）连续零新增后恢复来量</div>
+<div class="stats">
+<div class="stat">今日新增 <b>2</b></div>
+<div class="stat">工作信号 <b>1</b></div>
+<div class="stat">生活信号 <b>1</b></div>
+<div class="stat">深挖方向 <b>1</b><span style="font-size:.8em;color:var(--text3)">（按信号量缩减）</span></div>
+<div class="stat">验证 ✅<b>1</b> ⚠️<b>1</b></div>
+</div>
+</header>
+
+<div class="axiom">⚖️ 核心公理：不可行动的信息 = 噪音。今日仅 1 条工作信号通过 Intent 透镜，深挖名额由 5 缩减为 1——不为凑数制造噪音。</div>
+
+<h2>📡 今日增量信号</h2>
+
+<div class="card">
+<div class="src">🤖 @Lonely__MH · Qwen3.8-Flash 发布 · <a href="https://x.com/Lonely__MH/status/2092594916451045498">x.com/Lonely__MH/status/2092594916451045498</a><span class="badge b5">⭐×4 → 深挖#1</span><span class="badge bw">⚠️ Partial</span></div>
+<p>宣称：Qwen-3.8-Flash 发布，「跑分碾压 DeepSeek v4-flash 和 Claude-Opus 4.6」。总参数 125B、激活仅 6B；首创 Hybrid Attention + Qwen 稀疏注意力（QSA）；原生 262k 上下文。</p>
+<div class="verdict">
+<div class="row"><div class="k">模型存在性</div><div class="v"><b style="color:var(--accent3)">✅ Verified</b> — Qwen3.8-Flash 真实存在；开源版 <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">Qwen3.8-Flash-Next</a> 已上 HuggingFace（Qwen Community 1.0 license），vLLM/SGLang 可跑</div></div>
+<div class="row"><div class="k">架构参数</div><div class="v"><b style="color:var(--accent3)">✅ Verified</b> — 125B 主参数 + 51B N-gram embedding、6B 激活、QSA 混合注意力（Gated DeltaNet + 稀疏注意力）均属实；社区实测 4-bit 量化约需 82GB 显存/内存</div></div>
+<div class="row"><div class="k">跑分宣称</div><div class="v"><b style="color:var(--accent4)">⚠️ 夸大降权</b> — 「碾压 Claude-Opus 4.6」无独立信源。官方口径仅「对标 Qwen3.7-Plus，编码与长程 agentic 任务更强」。API 定价 $0.16/$0.47 每百万 token 属实</div></div>
+</div>
+<div class="why"><b>为什么相关</b>： 一石三鸟——① <b>AI Coding Eval</b> 的下一步就是「跑小矩阵（≥5 cases × ≥3 models）」，6B 激活 + $0.16/1M 价格是理想的低成本候选；② <b>国内模型清单提案</b>（降本路线）多一个弹药，且需用自己 eval 数据代替推文跑分；③ <b>CS336</b> 正在进行 Flash Attention 2 assignment，QSA 的混合注意力是「FA2 之后工业界往哪走」的活教材。验证报告与 Proposal 见 <a href="readwise-proposals-20260827.html">今日 Proposals</a>。</div>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+<div class="life">
+<div class="card">
+<div class="src">🧠 健脑 · @RevaHuai · <a href="https://x.com/RevaHuai/status/2092456479559397660">x.com/RevaHuai/status/2092456479559397660</a><span class="badge b3">心智模型</span></div>
+<p class="quote">「被塑造的人：思想→语言→行动 / 自我塑造的人：行动→语言→思想。你若要有什么真正谈得上算是自己的东西、自己的语言、自己的思想，非要行动不能得到——这些东西一定是从你的生命体验中得来的。」（引《与神对话》）</p>
+<div class="why"><b>为什么共鸣</b>： 与个人公理库「行动即信息：未行皆黑箱，先行动再修正」完全同构，且补了一个更锐利的表述——<b>顺序反转即主体性</b>：先想后做是被塑造，先做后想是自我塑造。可作为公理卡片的引文补充。</div>
+</div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="card">
+<ol>
+<li><b>开通 QwenCloud API 并冒烟测试</b>（30 分钟）：拿 Qwen3.8-Flash API key，跑通一个代码补全请求，记录限流与延迟。</li>
+<li><b>挑 5 个已审核 eval cases 跑 Qwen3.8-Flash</b>：与现有矩阵中的 flash 档模型对比，产出可比分数，替代推文跑分做选型依据。</li>
+<li><b>CS336 学习连接</b>（碎片时间）：读 QSA 架构说明，对照 FA2 assignment 写半页笔记——稀疏注意力与 FLA（Gated DeltaNet）是 2026 工业界主流方向。</li>
+<li><b>公理卡片补充</b>（5 分钟）：把「顺序反转即主体性」一句补进行动即信息公理的引文区。</li>
+</ol>
+</div>
+
+<h2>📌 说明</h2>
+<div class="card">
+<ul>
+<li>周四，无周报义务。下次周报窗口：<b>2026-08-31（周一）</b>，覆盖 08-24 → 08-30。</li>
+<li>今日仅 1 条工作信号，深挖名额缩减为 1（内联生成，未启动 subagents）——信号量不足以支撑 5 个高质量 Proposal 时，宁缺毋滥。</li>
+<li>全量去重：两条新信号（<code>1048162108</code> / <code>1048139923</code>）均未处理过，已入 processed_ids。</li>
+</ul>
+</div>
+
+<footer>
+<p>数据源：Readwise export API（增量 updatedAfter=2026-08-26T00:01Z）· 双透镜：intent/active.md + context/life-portfolio.md · 验证信源：<a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">HF Model Card</a> / <a href="https://qwen.ai/blog?id=qwen3.8">Qwen Blog</a> / <a href="https://www.reddit.com/r/LocalLLaMA/comments/1vy6smx/qwen38flashnext_this_architecture_could_be/">r/LocalLLaMA</a> / <a href="https://news.ycombinator.com/item?id=49432317">HN</a></p>
+<p>Generated by my-readwise-briefing v4.3 · 2026-08-27 08:00 CST</p>
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){
+  document.documentElement.classList.add('dark');
+  btn.textContent='☀️';
+}
+</script>
+</body>
+</html>
