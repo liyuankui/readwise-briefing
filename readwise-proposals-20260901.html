@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals — 2026-09-01 周二</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 900px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-size: 1.1rem; padding: 0.4rem 0.7rem; cursor: pointer; }
+.banner { background: var(--surface2); border-left: 4px solid var(--accent4); border-radius: 6px; padding: 0.9rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text2); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem 1.5rem; margin-bottom: 1.5rem; }
+.card h2 { font-size: 1.15rem; margin-bottom: 0.7rem; color: var(--accent); }
+.claim { background: var(--surface2); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 0.8rem 1rem; margin: 0.8rem 0; font-weight: bold; }
+h3 { font-size: 1rem; margin: 1rem 0 0.4rem; color: var(--accent2); }
+table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.88rem; }
+th, td { border: 1px solid var(--border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); }
+.redflag { background: var(--surface2); border-left: 4px solid var(--accent5); border-radius: 0 8px 8px 0; padding: 0.7rem 1rem; margin-top: 0.8rem; font-size: 0.92rem; }
+.redflag b { color: var(--accent5); }
+.actions li { margin: 0.3rem 0 0.3rem 1.2rem; }
+.meta { font-size: 0.85rem; color: var(--text3); }
+a { color: var(--accent2); }
+.roi { color: var(--accent3); font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>🎯 Readwise 深挖 Proposals</h1>
+    <div class="date">2026-09-01 周二 · 4 个方向 · 均含验证报告输入</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="banner">⚙️ <b>不可行动的信息 = 噪音。</b>每个 Proposal 均由独立 subagent 基于原始信号 + Phase 1.5 验证报告生成，含诚实挑战。信号→验证→洞察→行动。</div>
+
+<table>
+  <tr><th>#</th><th>Proposal</th><th>源信号</th><th>连接的在途方向</th><th>验证</th></tr>
+  <tr><td>1</td><td>AI 第一响应人（值班助手）</td><td>《值班已成往事》</td><td>系统稳定性 · 主动式 Agent · 提效计划</td><td>✅ 趋势多信源</td></tr>
+  <tr><td>2</td><td>drawio-skill 采纳</td><td>@GitHub_Daily</td><td>可视化工作流 · Skills 工程</td><td>✅+🔬 亲测</td></tr>
+  <tr><td>3</td><td>Tailcat 连接版图定位</td><td>@NFTCPS</td><td>Agent 间加密通信 · 远程接入</td><td>✅ 4.9k⭐ 官方</td></tr>
+  <tr><td>4</td><td>设计语言 Skill 化</td><td>@yanliudreamer</td><td>品牌视觉规范 · Skills 工程</td><td>⚠️ 框架有价值</td></tr>
+</table>
+
+<!-- ============ Proposal 1 ============ -->
+<div class="card">
+  <h2>① AI 第一响应人——把值班的前 15 分钟交给 Agent</h2>
+  <div class="claim">告警响应的前 15 分钟是信息聚合、不是判断——整体交给 AI：告警触发 60 秒内，Agent 交付带证据链的诊断卡片；人从"第一响应人"退居"审批者与兜底"。</div>
+  <div class="meta">连接：系统稳定性（告警响应/RCA/防复发三痛）× 主动式 Agent（首个"不被召唤也运行"的落地场景）× 提效计划（可审计收益）。参考：<a href="https://www.ruanyifeng.com/blog/2026/08/weekly-issue-410.html">阮一峰周刊 #410</a> · <a href="https://github.com/yinxiangpingfan/OnCallAgent">OnCallAgent</a> · <a href="https://oncall.ren">oncall.ren</a></div>
+
+  <h3>痛点（按值班真实工作流拆解）</h3>
+  <table>
+    <tr><th>步骤</th><th>动作</th><th>耗时</th><th>AI 可替代</th></tr>
+    <tr><td>1-4</td><td>ack 判重 → 看监控曲线 → 查日志关联上下游 → 比对发布/翻历史 case</td><td>15-40min</td><td>✅ 全是信息聚合</td></tr>
+    <tr><td>5</td><td>决策：重启/回滚/扩容/升级</td><td>—</td><td>❌ 留给人</td></tr>
+  </table>
+  <p class="meta">三痛：P1 无效唤醒（凌晨耗 10-15min 确认"无需做事"）· P2 首诊串行（老 case 靠记忆、新人翻不到）· P3 复盘欠账（postmortem 2h 起步，经验不沉淀）</p>
+
+  <h3>里程碑（2 工程师 × 20%）</h3>
+  <table>
+    <tr><th>阶段</th><th>周期</th><th>通过标准（不过即停）</th></tr>
+    <tr><td>M0 基线画像</td><td>第 1 周</td><td>近 90 天告警画像：Top 来源、夜间占比、重复聚类</td></tr>
+    <tr><td>M1 影子模式</td><td>第 2-5 周</td><td>诊断卡片 60s 进 IM，只建议不操作；"有用"反馈 >50%</td></tr>
+    <tr><td>M2 白名单处置</td><td>第 6-9 周</td><td>自愈型告警自动 playbook + 一键审批；夜间无效唤醒 -50%</td></tr>
+    <tr><td>M3 复盘闭环</td><td>第 10-12 周</td><td>postmortem 初稿自动生成，复盘 2h→15min</td></tr>
+  </table>
+  <p class="meta">红线：只读起步；写操作限白名单幂等可逆；<b>P0/P1 告警永远直达人工——AI 只加速、永不拦截</b>。</p>
+
+  <h3>ROI</h3>
+  <p>假设月 200 条告警 × 25min = <span class="roi">83.3h/月现状</span>；节省 61.2h/月 ≈ 0.38 FTE（拦截 30% + 首诊提速 50% + 复盘自动化）；投入 192h + LLM &lt;¥300/月 → <span class="roi">回收期 ≈ 3.1 个月</span>。口径诚实：M0 实测后重算，月告警 &lt;80 条或重复率 &lt;40% 则收缩为仅 M1。</p>
+
+  <h3>立即行动（本周）</h3>
+  <ol class="actions">
+    <li><b>画像</b>（1 人日）：导出近 90 天告警统计——全部基线与 Go/No-Go 依据</li>
+    <li><b>访谈</b>（0.5 人日）：2 名值班同学还原最近一次夜间告警时间线，标出"查信息 vs 做判断"分界</li>
+    <li><b>原型</b>（2 人日）：50 行 webhook 接收器 → LLM 诊断 → 测试群。只回答一个问题：60 秒的产出值不值值班人读 30 秒</li>
+  </ol>
+
+  <div class="redflag"><b>🚩 诚实挑战：</b>① 告警治理悖论——若告警本身泛滥，AI 值班是给噪声装昂贵过滤器；Top10 若半数可永久消除，先修告警后上 AI。② 拦截率是虚荣指标，漏判率才是命门——罕见致命故障恰是检索式 AI 盲区，本项目价值在长尾中小故障，向上汇报不可含糊。③ 维护者断档——M2 准入唯一条件：至少 1 名工程师写进季度目标，否则停在 M1。</div>
+</div>
+
+<!-- ============ Proposal 2 ============ -->
+<div class="card">
+  <h2>② drawio-skill 采纳：一句话再生成，治"图过时"之疾</h2>
+  <div class="claim">把复杂架构图从"半天手工重画"降为"一句话再生成 + 十分钟精修"——产物为原生 draw.io 文件（可手改、可入 git、不绑定生成器）。</div>
+  <div class="meta">连接：可视化工作流（复杂图表用 drawio 的既定纪律 × 画图慢/图过时的实际瓶颈）· Skills 工程。验证：<a href="https://github.com/Agents365-ai/drawio-skill">Agents365-ai/drawio-skill</a> 8.9k⭐ MIT 活跃；亲测单 SKILL.md 355 行零依赖，v2.3.0 带测试，前置仅 draw.io CLI。</div>
+
+  <h3>里程碑</h3>
+  <table>
+    <tr><th>阶段</th><th>动作</th><th>Done 标准</th><th>估时</th></tr>
+    <tr><td>M1 安装验证</td><td>安全审计 → 装 CLI → 跑通架构/时序/ER 三图型</td><td>3 张样图导出 PNG</td><td>1-2h</td></tr>
+    <tr><td>M2 真实基准</td><td>3 张真实旧图"手画 vs 生成+精修"对照</td><td>三组对照数据 → 定去留</td><td>2-3h</td></tr>
+    <tr><td>M3 工作流集成</td><td>路由规则 v2 + 两条"源→图"管线（compose/K8s→架构图、DDL→ER）</td><td>2 份活文档配再生图</td><td>2-4h</td></tr>
+    <tr><td>M4 团队推广（可选）</td><td>skill hub 上架 + 30min demo</td><td>2-3 位早期用户反馈</td><td>3-5h</td></tr>
+  </table>
+  <p class="meta"><b>Kill 线</b>：M2 三张真图若两张"生成+精修"耗时 > 手画的 50%，降级为"新图草稿器"，M3/M4 取消。</p>
+
+  <h3>ROI</h3>
+  <p>个人每周 2-3 张复杂图 × 省 ~2h = <span class="roi">省 4-6h/周</span>；推广后团队 ~40h/月；投入 M1-M3 合计 5-9h，<span class="roi">个人口径 &lt;1 周回本</span>。隐性收益：文档可信度回升、评审聚焦。</p>
+
+  <h3>立即行动（本周）</h3>
+  <ol class="actions">
+    <li><b>审计安装</b>（1h）：走安全审计流程，装 draw.io CLI 与 skill，跑通一张时序图</li>
+    <li><b>真图试锋</b>（1h）：最过时的一张架构图一句话再生成，记录耗时差——全案去留判据</li>
+    <li><b>定路由</b>（30min）：适用边界写入可视化规则；团队宣传暂缓，待 M2 数据说话</li>
+  </ol>
+
+  <div class="redflag"><b>🚩 诚实挑战：</b>① 热度 ≠ 一次可用率——20+ 节点真实架构图生成质量未必及演示场景，故设 Kill 线先测后信。② 瓶颈恐不在画而在"想清楚"与"对齐"——图的 owner 不明、拓扑变更无记录，则三个月后图照旧过时，只是错得更漂亮。③ 又一依赖的隐性税——对策唯一且必须坚持：产物永远是通用 draw.io XML，工具可弃、资产留存。</div>
+</div>
+
+<!-- ============ Proposal 3 ============ -->
+<div class="card">
+  <h2>③ Tailcat 连接版图定位：补充，非替代</h2>
+  <div class="claim">Tailcat 是"一次性 token 直连管道"：收编现有中继架构天生不管的会话式大流量与临时接入；但它是 pipe 不是 bus（单对端、无离线、无身份层），v0.1 阶段定位为旁路工具 + 思想来源，四周观察期内不进核心链路。</div>
+  <div class="meta">连接：Agent 间加密通信项目（ntfy pub/sub 中继架构，已知 open question：relay 是信任/可用性单点）× 远程接入实践（现有方案每设备装全套 VPN + 账号，临时接入摩擦大）。验证：<a href="https://github.com/tailscale/tailcat">tailscale/tailcat</a> 官方 BSD-3 ~4.9k⭐ v0.1.0。</div>
+
+  <h3>场景判定</h3>
+  <table>
+    <tr><th>场景</th><th>判定</th><th>理由</th></tr>
+    <tr><td>S1 临时设备接入常驻主机（SSH/SOCKS5）</td><td>✅ 立即试用</td><td>免账号免 root 不改路由；ephemeral key 进程退出即作废——用完即焚</td></tr>
+    <tr><td>S2 数据面旁路（大文件/长会话/日志流）</td><td>✅ 两周 PoC</td><td>中继当信令面（token 经 E2E 频道分发），Tailcat 当直传面</td></tr>
+    <tr><td>S3 多 agent 常驻通信网</td><td>❌</td><td>单 peer 无并发无多路复用，扇出归中继</td></tr>
+    <tr><td>S4 跨时区异步/离线补读</td><td>❌</td><td>无持久化，双方必须同时在线</td></tr>
+  </table>
+  <p class="meta"><b>关键洞察</b>：组合恰好镜像 Tailscale 自身架构拆分——现有项目做控制面（身份/信令/编排），Tailcat 做数据面（直连管道）。若 S2 验证通过，relay 从"全量必经"降级为"信令+回退"，信任面与可用性风险同时收窄。反之替代是范畴错误：把 netcat 当消息队列。</p>
+
+  <h3>里程碑（每阶段带放弃标准）</h3>
+  <table>
+    <tr><th>里程碑</th><th>时窗</th><th>放弃标准</th></tr>
+    <tr><td>M0 本机 PoC</td><td>本周 30min</td><td>建连失败 / 全走 DERP 且延迟 &gt;100ms</td></tr>
+    <tr><td>M1 真实临时接入</td><td>W2</td><td>必须持久 key 才实用 / 无显著优势</td></tr>
+    <tr><td>M2 数据面旁路 PoC</td><td>W3-4</td><td>直连率 &lt;50% / token 分发无法脚本化</td></tr>
+    <tr><td>M3 观察决策</td><td>W5-8</td><td>breaking change 无迁移路径 → 降级</td></tr>
+  </table>
+  <p class="roi">成功标准：临时接入 &lt;5min 且 ≤ 基线 1/3；直连成功率 ≥70%；10MB 直传 ≥90% 且对照中继 ≥10x 差；焚毁验证 10/10。</p>
+
+  <h3>立即行动（本周 ≤60min）</h3>
+  <ol class="actions">
+    <li><b>30min</b>：clone 双终端 PoC——token 建连→白名单→SOCKS5，记录直连/DERP 判定与延迟</li>
+    <li><b>15min</b>：通信项目开设计 issue《数据面旁路：token 经 E2E 频道分发》</li>
+    <li><b>15min</b>：防泄露自查——shell history 屏蔽 token 前缀；git hook 加 token 模式扫描</li>
+  </ol>
+
+  <div class="redflag"><b>🚩 诚实挑战：</b>① 官方自己就没把它当产品（参考实现定位），star 数不构成维护承诺——赌长期性 = 赌厂商副业兴趣。② token 模型与"信任面=攻击面"原则正面冲突：无身份无吊销无审计，ephemeral 是唯一安全态，也把它锁死在一次性接入 niche。③ 需求真实性待证：先计数两周临时接入真实频率，&lt;2 次/月则纯观察即可，M1 都不必做。</div>
+</div>
+
+<!-- ============ Proposal 4 ============ -->
+<div class="card">
+  <h2>④ 品牌视觉规范 → 可执行 Design Skill</h2>
+  <div class="claim">把品牌设计语言（色板 token + 字体角色 + 图型路由 + 质感红线 + 视觉普查）封装为一个 Design Skill——规范从"产出后人肉对照"变成"生成时默认生效、生成后自动校验"。文档规范 → 可执行设计语言。</div>
+  <div class="meta">连接：品牌视觉规范（刚完成文档化：色板 + 视觉普查法 + 修复路径，痛点是规范靠人肉对照执行）× Skills 工程（skill 应封装可重复判断，非模板）。源信号 ⚠️ 推文未附 Skill 本体，但"设计语言→显式规则→Skill 封装"框架与既有实践同构——框架移植，非复制。</div>
+
+  <h3>封装三层（不是一层）</h3>
+  <table>
+    <tr><th>层</th><th>内容</th><th>形态</th></tr>
+    <tr><td>Token 层</td><td>色板 hex、字体角色（Serif=金句/Sans=正文）、字号区间、遮罩参数、画幅</td><td>tokens.json（机器可读）</td></tr>
+    <tr><td>规则层</td><td>图型路由 + 红线 + <b>显式自由区</b>（构图/比例/意象明确不管，防僵化）</td><td>SKILL.md 判断逻辑</td></tr>
+    <tr><td>校验层</td><td>视觉普查内置化：场景分类打回 + 批内风格相似度 + tag 转录 grep</td><td>census 命令，管道尾部自动跑</td></tr>
+  </table>
+
+  <h3>里程碑（最小规则集起步）</h3>
+  <table>
+    <tr><th>#</th><th>里程碑</th><th>估时</th><th>验收</th></tr>
+    <tr><td>M1</td><td>Token 化：从模板 + 3 篇代表作提取 tokens.json</td><td>半天</td><td>新旧金句卡并排盲测无差别</td></tr>
+    <tr><td>M2</td><td>SKILL.md v0.1：只封 3 条最痛规则</td><td>1 天</td><td>下一批配图零手写护栏</td></tr>
+    <tr><td>M3</td><td>census 自动化接入管道尾部</td><td>1-2 天</td><td>打回-重生成闭环跑通</td></tr>
+    <tr><td>M4</td><td>风格度量基线化</td><td>1 天</td><td>连续 3 批有可比数字</td></tr>
+    <tr><td>M5</td><td>图型路由四通道全封 + 接口声明</td><td>半天</td><td>四类图各有样板</td></tr>
+  </table>
+  <p class="roi">成功标准：例行人肉对照 → 0（仅 10% 抽样）；品牌错误 → 0（转录 grep 全量拦截）；批内风格一致率 ≥90%；每批护栏 prompt 手写 30min → 0。总计约 4-5 工作日。</p>
+
+  <h3>立即行动（本周）</h3>
+  <ol class="actions">
+    <li><b>提 tokens.json</b>（半天）：金句卡模板与代表作机器可读化</li>
+    <li><b>写 SKILL.md v0.1</b>：3 条规则 + 自由区声明，塞进下次配图任务试跑</li>
+    <li><b>包 census 脚本</b>：三命令合一，对最近一批已发布图回测拿基线分值</li>
+  </ol>
+
+  <div class="redflag"><b>🚩 诚实挑战：</b>① Skill ≠ 自动生效——本质仍是 prompt，已有教训证明"写进 prompt ≠ 子 agent 遵守"；真正硬防线是校验层，只做规则层则本 skill 只是又一份更短的文档。② 度量可能变成为分数设计——阈值只能作辅助信号，品味终审仍须是人。③ 规范过时比没有更危险——路由三个月改了三版，skill 不绑定演化生命周期就会自己变成漂移源，还带着"已校验"光环。</div>
+</div>
+
+<p class="meta">信号 → 验证 → 洞察 → 行动 · my-readwise-briefing v4.3 · 4 subagents 并行推理 · 2026-09-01</p>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
