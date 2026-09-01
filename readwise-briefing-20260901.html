@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 — 2026-09-01 周二</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 860px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  font-size: 1.1rem; padding: 0.4rem 0.7rem; cursor: pointer;
+}
+.stats { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1.1rem; flex: 1; min-width: 120px; text-align: center; }
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent2); }
+.stat .label { font-size: 0.82rem; color: var(--text3); }
+.banner { background: var(--surface2); border-left: 4px solid var(--accent4); border-radius: 6px; padding: 0.9rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text2); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.card h2 { font-size: 1.1rem; margin-bottom: 0.6rem; color: var(--accent); }
+.tag { display: inline-block; font-size: 0.78rem; padding: 0.12rem 0.6rem; border-radius: 999px; margin-right: 0.4rem; margin-bottom: 0.3rem; background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
+.tag.warn { color: var(--accent4); border-color: var(--accent4); }
+.tag.ok { color: var(--accent3); border-color: var(--accent3); }
+.tag.hot { color: var(--accent5); border-color: var(--accent5); }
+.tag.low { color: var(--text3); }
+blockquote { border-left: 3px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; margin: 0.7rem 0; color: var(--text2); background: var(--surface2); border-radius: 0 6px 6px 0; }
+.meta { font-size: 0.85rem; color: var(--text3); margin-top: 0.5rem; }
+.meta a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface2); }
+.why { background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.7rem; font-size: 0.92rem; color: var(--text2); }
+.why::before { content: "💡 为什么相关："; color: var(--accent4); font-weight: bold; }
+.verify { font-size: 0.88rem; margin-top: 0.6rem; padding: 0.6rem 0.9rem; border-radius: 8px; background: var(--surface2); }
+.verify b { color: var(--accent3); }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1.2rem; }
+summary { cursor: pointer; color: var(--text3); font-size: 0.95rem; }
+.action { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.7rem; }
+.action .n { background: var(--accent); color: var(--bg); border-radius: 999px; min-width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 1; }
+.life { border-left: 4px solid var(--accent3); }
+.section-title { font-size: 1.25rem; color: var(--accent); margin: 1.8rem 0 0.9rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+a { color: var(--accent2); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="date">2026-09-01 周二 · 增量窗口 2026-08-29 ~ 08-31</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">12</div><div class="label">新高亮（11 文档）</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">3</div><div class="label">中价值 ⭐×3</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">生活维度 🌿</div></div>
+  <div class="stat"><div class="num">6</div><div class="label">低价值</div></div>
+</div>
+
+<div class="banner">
+  📋 本期信号质量中上：2 条 ⭐×5 均经独立验证（1 条含亲测）。4 条推文仅有短链/图片、无可验证内容，按纪律降权。
+  周二例行增量，无周报（周一触发）。
+</div>
+
+<h2 class="section-title">🔭 信号概览</h2>
+<table>
+  <tr><th>信号</th><th>类型</th><th>验证</th><th>透镜</th><th>去向</th></tr>
+  <tr><td>AI 值班《值班已成往事》</td><td>趋势/方法</td><td>✅ 多信源</td><td>Intent</td><td>深挖 #1</td></tr>
+  <tr><td>drawio-skill（自然语言→图表）</td><td>开源工具</td><td>✅+🔬 亲测</td><td>Intent</td><td>深挖 #2</td></tr>
+  <tr><td>Tailcat（Tailscale 官方）</td><td>开源工具</td><td>✅ 4.9k⭐</td><td>Intent</td><td>深挖 #3</td></tr>
+  <tr><td>Design Skills（设计语言封装）</td><td>方法论</td><td>⚠️ 框架有价值</td><td>Intent</td><td>深挖 #4</td></tr>
+  <tr><td>《数理化自学丛书》OCR→EPUB</td><td>实践案例</td><td>⚠️ Partial</td><td>Intent</td><td>简报</td></tr>
+  <tr><td>同质性网络·虚假共识效应</td><td>认知科学</td><td>✅ 来源可靠</td><td>🌿 健脑</td><td>简报</td></tr>
+</table>
+
+<h2 class="section-title">⭐×5 高价值信号</h2>
+
+<div class="card">
+  <h2>1. AI 值班：值班已成往事 <span class="tag hot">趋势窗口</span><span class="tag ok">✅ Verified</span></h2>
+  <blockquote>有人写了一篇《值班已成往事》，提出应该让 AI 来值班。只有当 AI 无法解决问题时，才应该让人类接手，而且应该由 AI 来呼叫人类。</blockquote>
+  <div class="meta">来源：阮一峰科技爱好者周刊 #410 · <a href="https://www.ruanyifeng.com/blog/2026/08/weekly-issue-410.html">原文</a></div>
+  <div class="verify"><b>Phase 1.5 验证（✅ 趋势确认）：</b>多信源交叉证实「AI 替代人工值班」已成运维热点：快手智能 Oncall 系统已介入 85% 值班场景、拦截率 15%→55%、累计自动化处理 11.6 万次咨询；oncall.ren 主打「80% 告警不值得叫醒人」；AWS DevOps Agent、快猫星云等均同方向。反直觉点成立：<b>主从关系反转——AI 是第一响应人，人退居二线被 AI 呼叫</b>。</div>
+  <div class="why">与两条活跃战线直接相关：其一，团队告警响应/根因分析正是当前稳定性工作的核心痛点；其二，Life OS 的 Proactive Agents 支柱（Agent 不被召唤、主动运行）恰好缺一个高价值落地场景——值班是天然的「事件驱动 + 明确 SLA + 可测量」场景，比泛化的"生活自动化"更先能闭环。</div>
+</div>
+
+<div class="card">
+  <h2>2. drawio-skill：自然语言 → 专业图表 <span class="tag ok">✅ Verified</span><span class="tag hot">🔬 亲测</span></h2>
+  <blockquote>文档里的架构图还是半年前那张，谁都知道过时了，谁都不想开 drawio 拖一下午重画。最近发现了 drawio-skill 技能，用一句话描述就能生成图。现成预设了 UML、时序图、网络拓扑、泳道图、架构图、流程图等 11 种图型。</blockquote>
+  <div class="meta">来源：@GitHub_Daily · <a href="https://x.com/GitHub_Daily/status/2093602093211037991">推文</a> · <a href="https://github.com/Agents365-ai/drawio-skill">github.com/Agents365-ai/drawio-skill</a></div>
+  <div class="verify"><b>Phase 1.5 验证（✅+🔬）：</b>repo 真实且高热：8,877⭐ / 619 forks / MIT / 最后推送 2026-08-31（昨日）。已 clone 亲测：单 SKILL.md（355 行）零依赖，符合 Agent Skills 规范；v2.3.0 带 Python 测试与双语 README；能力覆盖 11 种图型 + Mermaid→drawio 转换 + 代码库/Terraform/K8s/SQL→架构图 + 万级官方形状搜索 + 321 个 AI/LLM 品牌图标 + 导出 PNG 自检修复两轮。前置条件仅一个：draw.io 桌面版 CLI 在 PATH（brew 可装）。</div>
+  <div class="why">可视化工作流里"复杂图表用 drawio"早已是既定纪律，但瓶颈一直在「画得慢、图过时没人更新」——这条推文描述的痛点与实际完全同构。亲测结论：成熟度高、安装摩擦低，与现有 mermaid（简单流程）/infographics（信息图）分工清晰不冲突，是即插即用的效率增益。</div>
+</div>
+
+<h2 class="section-title">⭐×3 中价值信号</h2>
+
+<div class="card">
+  <h2>3. Tailcat：没有 Tailscale 的 Tailscale <span class="tag ok">✅ Verified</span></h2>
+  <blockquote>不用注册账号，不用装 VPN，不用开端口，不用 root，也不改你的路由和 DNS。两台机器，发个短 token 过去，直接就连上了，全程 WireGuard 端到端加密。打得通走直连，打不通自动走 DERP。</blockquote>
+  <div class="meta">来源：@NFTCPS · <a href="https://x.com/NFTCPS/status/2093668428716663069">推文</a> · <a href="https://github.com/tailscale/tailcat">github.com/tailscale/tailcat</a></div>
+  <div class="verify"><b>Phase 1.5 验证（✅）：</b>Tailscale 官方出品，4,857⭐ / 155 forks / BSD-3 / 推送 2026-08-31。定位 "like netcat, but over Tailscale's data plane"——剥离控制面，只留 WireGuard 加密 + NAT 穿透 + DERP 中继，token 即地址（tc:// 协议）。v0.1.0 早期阶段。</div>
+  <div class="why">Agent 间点对点连接的极简新选项：正在推进的 Agent 加密通信项目（ntfy 中继架构）之外，Tailcat 提供了"数据面直连"的对照路线——无需账号体系适合临时性、脚本化的机器互联。早期版本，宜观察+小场景试用，不宜托底。</div>
+</div>
+
+<div class="card">
+  <h2>4. Design Skills：把设计语言封装成可调用 Skill <span class="tag warn">⚠️ 推文无法验证</span></h2>
+  <blockquote>它不是简单地"把图片变成单色"，而是把一整套编辑设计语言 + 复古印刷质感 + 克制的视觉规则，封装成了一个可以反复调用的 Skill。</blockquote>
+  <div class="meta">来源：@yanliudreamer · <a href="https://x.com/yanliudreamer/status/2093968800316293400">推文</a>（配图为最终效果，Skill 本体未公开链接）</div>
+  <div class="verify"><b>Phase 1.5 验证（⚠️）：</b>推文配图展示效果但未附可访问的 Skill 仓库，原文细节无法独立验证，按推文纪律降权。<b>但框架本身有价值</b>：「设计语言 → 显式规则 → Skill 封装」的路径与近期品牌规范（色板+视觉普查法）的实践完全同构，是一次外部印证。</div>
+  <div class="why">近期刚把品牌视觉规范文档化（色卡+普查法），这条信号给出了下一步演化的参照：从"文档化的规范"到"Agent 可直接调用的 Skill"，让规范在生成环节自动生效而非依赖人肉对照。理念可借，实现可自建。</div>
+</div>
+
+<div class="card">
+  <h2>5. ¥2000 token 把 17 册《数理化自学丛书》做成电子书 <span class="tag warn">⚠️ Partial</span></h2>
+  <blockquote>累计消耗约 2000 人民币的 token，终于把 17 册《数理化自学丛书》从原始扫描 PDF 整理成电子书：Unlimited-OCR 提取，GPT 网页版校订与重建，得到 Markdown、4,981 个图片资源及可重排 EPUB3（88,412 个 MathML 公式）。</blockquote>
+  <div class="meta">来源：@123olp · <a href="https://x.com/123olp/status/2093519004061315330">推文</a></div>
+  <div class="verify"><b>Phase 1.5 验证（⚠️ Partial）：</b>推文真实存在，但产出仓库未附公开可查链接；具体数字（88,412 公式等）无法独立核实。社区确有同类项目（多个旧教材数字化 repo）。方法论（OCR→LLM 校订→结构化 EPUB）属实且成本量级可信。</div>
+  <div class="why">两个连接点：K12 教育方向上，《数理化自学丛书》正是经典自学教材，数字化版本是课程设计的现成素材库；管线本身（扫描件→LLM 校订→MathML 结构化）对个人内容数字化也有直接借鉴。Partial 降权，进简报不深挖。</div>
+</div>
+
+<h2 class="section-title">🌿 生活维度信号</h2>
+
+<div class="card life">
+  <h2>🧠 健脑：同质性网络与虚假共识效应 <span class="tag ok">✅ 来源可靠</span></h2>
+  <blockquote>网络会把边缘人聚在一起……观点明明是少数的人，长期在同质性网络中，可能会误以为他们的观点代表了大多数人的共识，这称为虚假共识效应。后果：（1）加剧对少数派观点的坚信；（2）对按多数人意愿行事的制度不满，产生被排斥感。</blockquote>
+  <div class="meta">来源：阮一峰周刊 #410 摘录 · <a href="https://www.ruanyifeng.com/blog/2026/08/weekly-issue-410.html">原文</a></div>
+  <div class="why">信息摄入端的心智防御工具：日常信息流（含本简报的信源）天然同质化，重要判断前有意识地问一句"这个'共识'是我所在的网络给我的，还是真实分布？"——决策日志里可加这个检查项。</div>
+</div>
+
+<h2 class="section-title">✅ 行动清单</h2>
+<div class="card">
+  <div class="action"><div class="n">1</div><div>安装试用 drawio-skill：`brew install drawio` 后将 SKILL.md 装入个人 skills 目录，用一张真实过期架构图做端到端验证（≤30 分钟）</div></div>
+  <div class="action"><div class="n">2</div><div>AI 值班方向：盘点团队最近 4 周告警，统计"可自动分诊/需人工"比例，验证 80/20 假设在本环境是否成立（半天）</div></div>
+  <div class="action"><div class="n">3</div><div>Tailcat 小场景试用：两台常用机器互传文件，体感对比现有方案（≤10 分钟，v0.1 仅观察用）</div></div>
+  <div class="action"><div class="n">4</div><div>把品牌视觉规范升级为可调用 Skill 的草案（借鉴 Design Skills 的"规则封装"路径，先写 5 条硬规则试水）</div></div>
+</div>
+
+<details>
+  <summary>📎 低价值附录（6 条，默认折叠）</summary>
+  <table>
+    <tr><th>内容</th><th>来源</th><th>降权原因</th></tr>
+    <tr><td>「爱了，真实普惠的好工具，AI教育真的很需要了」（仅 t.co 短链）</td><td><a href="https://x.com/liucong0120/status/2093547529455686083">@liucong0120</a></td><td>短链无内容，无法验证</td></tr>
+    <tr><td>大厂人/创业者/投资人互相羡慕（片面观点） </td><td><a href="https://x.com/uncle_moon_x/status/2093507317509890512">@uncle_moon_x</a></td><td>观点类，已知洞察</td></tr>
+    <tr><td>仅 t.co 短链</td><td><a href="https://x.com/AdrianPunk115/status/2093331445486116896">@AdrianPunk115</a></td><td>无内容</td></tr>
+    <tr><td>短链 + 图片</td><td><a href="https://x.com/JokersWildUK/status/2093291005092962415">@JokersWildUK</a></td><td>无文字内容</td></tr>
+    <tr><td>「学起来」+ 短链 + 图片</td><td><a href="https://x.com/CycleDecoded/status/2093612229098959085">@CycleDecoded</a></td><td>无文字内容</td></tr>
+    <tr><td>「免费版就足够好用了，付费版也很便宜，真没必要用那个」（对比对象不明）</td><td><a href="https://x.com/dingyi/status/2094440856405311524">@dingyi</a></td><td>短链指代不明，无法验证</td></tr>
+  </table>
+</details>
+
+<p class="meta">信号 → 验证 → 洞察 → 行动 · 由 my-readwise-briefing v4.3 生成 · 下一期增量窗口自 2026-09-01 起</p>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
