@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 — 2026-09-02 周三</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 860px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  font-size: 1.1rem; padding: 0.4rem 0.7rem; cursor: pointer;
+}
+.stats { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1.1rem; flex: 1; min-width: 120px; text-align: center; }
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent2); }
+.stat .label { font-size: 0.82rem; color: var(--text3); }
+.banner { background: var(--surface2); border-left: 4px solid var(--accent4); border-radius: 6px; padding: 0.9rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text2); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.card h2 { font-size: 1.1rem; margin-bottom: 0.6rem; color: var(--accent); }
+.tag { display: inline-block; font-size: 0.78rem; padding: 0.12rem 0.6rem; border-radius: 999px; margin-right: 0.4rem; margin-bottom: 0.3rem; background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
+.tag.warn { color: var(--accent4); border-color: var(--accent4); }
+.tag.ok { color: var(--accent3); border-color: var(--accent3); }
+blockquote { border-left: 3px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; margin: 0.7rem 0; color: var(--text2); background: var(--surface2); border-radius: 0 6px 6px 0; }
+.meta { font-size: 0.85rem; color: var(--text3); margin-top: 0.5rem; }
+.meta a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface2); }
+.why { background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.7rem; font-size: 0.92rem; color: var(--text2); }
+.why::before { content: "💡 为什么相关："; color: var(--accent4); font-weight: bold; }
+.verify { font-size: 0.88rem; margin-top: 0.6rem; padding: 0.6rem 0.9rem; border-radius: 8px; background: var(--surface2); }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1.2rem; }
+summary { cursor: pointer; color: var(--text3); font-size: 0.95rem; }
+.action { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.7rem; }
+.action .n { background: var(--accent); color: var(--bg); border-radius: 999px; min-width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 1; }
+.section-title { font-size: 1.25rem; color: var(--accent); margin: 1.8rem 0 0.9rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+a { color: var(--accent2); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>📡 Readwise 情报简报</h1>
+    <div class="date">2026-09-02 周三 · 增量窗口 2026-09-01 ~ 09-02</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+<div class="stats">
+  <div class="stat"><div class="num">2</div><div class="label">新高亮（2 文档）</div></div>
+  <div class="stat"><div class="num">0</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">中价值 ⭐×3</div></div>
+  <div class="stat"><div class="num">0</div><div class="label">生活维度 🌿</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">低价值</div></div>
+</div>
+<div class="banner">
+  📋 本期为薄增量：昨日 run 后仅新增 2 条。1 条中价值信号（国内 AI 服务合规）经独立验证为 <b>⚠️ Partial</b>——框架属实、两处细节过时/不全，详见验证框。无生活维度信号。
+</div>
+
+<h2 class="section-title">🔭 信号概览</h2>
+<div class="card">
+<table>
+  <tr><th>信号</th><th>分层</th><th>验证</th><th>深挖</th></tr>
+  <tr><td>国内上线 AI 网站的三道合规门槛（@akokoi1）</td><td>⭐×3</td><td>⚠️ Partial</td><td>✅ → Proposals P1</td></tr>
+  <tr><td>媒体监督年代观察（柴静忆焦点访谈）</td><td>⭐</td><td>—</td><td>—</td></tr>
+</table>
+</div>
+
+<h2 class="section-title">⭐×3 中等价值</h2>
+<div class="card">
+  <h2>国内上线 AI 网站的三道合规门槛</h2>
+  <span class="tag">来源 Twitter</span><span class="tag warn">⚠️ Partial</span><span class="tag">AI 合规</span>
+  <blockquote>
+    科普一下，在国内如果想上线一个这样的网站，需要：
+    1. 最基础的，ICP 备案；
+    2. 涉及到公开聊天，发送内容之前必须进行手机号等真实身份认证；
+    3. 涉及到 AI 生成，需要办理生成式 AI 服务备案。
+  </blockquote>
+  <div class="verify">
+    <b>⚠️ 验证结论：框架正确，两处细节失准。</b><br>
+    ① 框架属实：ICP 备案（+30 日内公安联网备案）与生成式 AI 服务备案确为硬门槛；截至 2026-04 全国累计 <b>868 款备案 + 530 款登记</b>（<a href="https://www.cac.gov.cn/2026-05/13/c_1780413225190669.htm">网信办公告</a>）。<br>
+    ② 细节过时：第 2 点"强制手机实名"出自征求意见稿，正式《暂行办法》已删除强制实名，改为服务协议 + 可追溯信息。<br>
+    ③ 关键遗漏：经 API 调用已备案大模型（豆包/通义/文心等）只需走省级<b>登记</b>路径，流程大幅简化——自研模型或有舆论属性才走国家<b>备案</b>（周期 4-10 个月）。
+  </div>
+  <div class="why">
+    正在推进的 AI 工具审批、K12 AI 教室原型（若面向国内公开）、GEO 品牌监测实验，都可能踩到"内部使用 vs 面向公众"这条监管边界。"登记 vs 备案"的分岔口决定了合规成本差一个数量级，值得形成一张决策地图（见 Proposals P1）。
+  </div>
+  <div class="meta">来源：<a href="https://twitter.com/akokoi1">@akokoi1 · 野生程序园</a> · 2026-09-01</div>
+</div>
+
+<h2 class="section-title">✅ 行动清单</h2>
+<div class="card">
+  <div class="action"><div class="n">1</div><div>给自己的国内 AI 项目清单打标签：内部员工用 / 面向公众，各归入"无需备案 / 登记 / 备案"三档（→ P1 里程碑 1）</div></div>
+  <div class="action"><div class="n">2</div><div>K12 AI 教室若计划公开开放，提前把"API 调用已备案模型 + 省级登记"写进部署方案，避开 4-10 个月的备案周期</div></div>
+  <div class="action"><div class="n">3</div><div>AI 工具审批推进时，补一份"模型已备案/登记编号公示"检查项——已上线 AI 应用需公示模型名称与备案号</div></div>
+</div>
+
+<h2 class="section-title">📂 低价值附录</h2>
+<details>
+  <summary>展开 1 条（时事观察，与当前意图/生活维度均不匹配）</summary>
+  <div class="card" style="margin-top:0.8rem">
+    <h2>媒体监督的年代观察</h2>
+    <span class="tag">来源 Twitter</span><span class="tag low">⭐</span>
+    <blockquote>柴静忆朱镕基年代《焦点访谈》：克拉玛依大火纪录片被毙；监督性报道占比从上台时 47% 降至下台时 17%……</blockquote>
+    <div class="meta">来源：<a href="https://twitter.com/xiaojingcanxue">@xiaojingcanxue · 小径残雪</a> · 2026-09-01</div>
+  </div>
+</details>
+
+<div class="meta" style="margin-top:2rem">
+  增量窗口：updatedAfter 2026-09-01T00:01Z · 数据源 Readwise export API ·
+  Proposals 详见 <a href="readwise-proposals-20260902.html">今日深挖报告</a>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

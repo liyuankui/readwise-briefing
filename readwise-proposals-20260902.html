@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals — 2026-09-02 周三</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 860px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-size: 1.1rem; padding: 0.4rem 0.7rem; cursor: pointer; }
+.axiom { background: var(--surface); border: 2px solid var(--accent); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1.5rem; text-align: center; font-size: 1.05rem; color: var(--accent); font-weight: bold; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.card h2 { font-size: 1.15rem; margin-bottom: 0.6rem; color: var(--accent); }
+.claim { background: var(--surface2); border-left: 4px solid var(--accent2); border-radius: 6px; padding: 0.8rem 1rem; margin: 0.8rem 0; font-size: 0.98rem; }
+.tag { display: inline-block; font-size: 0.78rem; padding: 0.12rem 0.6rem; border-radius: 999px; margin-right: 0.4rem; margin-bottom: 0.3rem; background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
+.tag.warn { color: var(--accent4); border-color: var(--accent4); }
+.tag.ok { color: var(--accent3); border-color: var(--accent3); }
+table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface2); }
+h3 { font-size: 1rem; margin: 1rem 0 0.4rem; color: var(--accent2); }
+ul, ol { padding-left: 1.4rem; margin: 0.4rem 0; }
+li { margin-bottom: 0.3rem; }
+.redflag { background: var(--surface2); border-left: 4px solid var(--accent5); border-radius: 6px; padding: 0.8rem 1rem; margin-top: 0.8rem; font-size: 0.93rem; }
+.redflag b { color: var(--accent5); }
+.action { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.6rem; }
+.action .n { background: var(--accent); color: var(--bg); border-radius: 999px; min-width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 1; }
+.section-title { font-size: 1.25rem; color: var(--accent); margin: 1.8rem 0 0.9rem; border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+a { color: var(--accent2); }
+.meta { font-size: 0.85rem; color: var(--text3); margin-top: 0.5rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>⛏️ Readwise 深挖 Proposals</h1>
+    <div class="date">2026-09-02 周三 · 1 个方向（薄增量日） · 由 subagent 独立推理生成</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+<div class="axiom">不可行动的信息 = 噪音</div>
+
+<h2 class="section-title">🔗 信号 × 项目对应</h2>
+<div class="card">
+<table>
+  <tr><th>信号（经验证）</th><th>连接项目</th><th>产出</th></tr>
+  <tr>
+    <td>国内 AI 服务三道门槛（⚠️ Partial：框架属实；实名条款已删；漏"登记"通道）</td>
+    <td>AI 工具审批 / K12 AI 教室 / GEO 监测 / 效率 initiative 准入</td>
+    <td>P1 合规三路判定框架</td>
+  </tr>
+</table>
+</div>
+
+<h2 class="section-title">P1 · 「合规即路由」— 国内生成式 AI 三路判定框架</h2>
+<div class="card">
+  <span class="tag warn">⚠️ 源信号 Partial</span><span class="tag">AI 合规</span><span class="tag ok">subagent 生成</span>
+  <div class="claim">
+    <b>核心主张：</b>建一页式判定框架——<b>内部使用 = 豁免、调已备案 API 面向公众 = 登记、自研模型 = 备案</b>。以《生成式人工智能服务管理暂行办法》第二条（明文豁免"未向境内公众提供服务"）为法律锚点，把全部 AI 项目筛进三路之一，并沉淀为 initiative 准入门禁。
+  </div>
+
+  <h3>边界判定（锁定痛点）</h3>
+  <table>
+    <tr><th>项目</th><th>踩墙？</th><th>判定依据</th></tr>
+    <tr><td>opencode 工具审批</td><td>否（卡点在内部 AI 审批组，非网信办）</td><td>员工内部工具 → 第二条豁免；DeepSeek/GLM 属已备案模型，引用其备案号即闭环</td></tr>
+    <tr><td>Vibe Stack</td><td>否</td><td>同上豁免；数据侧合规（PIPL/跨境）另案正交</td></tr>
+    <tr><td>GEO 监测</td><td>否</td><td>只读 AI 平台，非生成服务；真风险是平台条款，勿混入</td></tr>
+    <tr><td><b>OpenMAIC AI 教室</b></td><td><b>是——一旦面向国内公众</b></td><td>调已备案 API → 省级登记（数周）；K12 另叠加教育 App 备案 + 未成年人保护；校内自用仍豁免</td></tr>
+    <tr><td>效率 initiative 准入</td><td>制度缺口</td><td>缺项目级判定入口，框架即补此洞</td></tr>
+  </table>
+
+  <h3>里程碑</h3>
+  <table>
+    <tr><th>#</th><th>内容</th><th>估时</th></tr>
+    <tr><td>M1</td><td>判定树 1 页 + 项目映射表</td><td>3 天</td></tr>
+    <tr><td>M2</td><td>法务书面确认豁免口径（承重墙，不可省）</td><td>2–3 周</td></tr>
+    <tr><td>M3</td><td>工具审批证据包（第二条 + 模型方备案号）</td><td>3 天</td></tr>
+    <tr><td>M4</td><td>AI 教室合规路由 memo，公开试点前强制 gate</td><td>1 周</td></tr>
+    <tr><td>M5</td><td>并入 initiative 准入 checklist</td><td>2 周</td></tr>
+  </table>
+
+  <h3>成功标准 · ROI</h3>
+  <ul>
+    <li>两周内活跃 AI 项目 100% 完成三路映射；工具审批问询 round-trip ≤ 1 轮</li>
+    <li>路径选错代价：备案 4–10 月 + 外部顾问数十万级 vs 登记数周近零成本——AI 教室走错即六位数返工</li>
+    <li>工具每早解锁一月，全组即兑现现有 license 与国产模型 API 之成本差</li>
+  </ul>
+
+  <h3>风险与缓解</h3>
+  <table>
+    <tr><th>风险</th><th>缓解</th></tr>
+    <tr><td>"公众"灰区（供应商/员工家属使用）</td><td>判定树设 escalate 节点，灰区一律升级法务</td></tr>
+    <tr><td>备案数字滚动（868/530 为季度快照）</td><td>引网信办活公告链接，不固化数字</td></tr>
+    <tr><td>豁免系我方主张，解释权在监管</td><td>M2 书面确认是承重墙</td></tr>
+    <tr><td>法务无带宽</td><td>外部 counsel 一句话意见兜底</td></tr>
+  </table>
+
+  <h3>本周三件事</h3>
+  <div class="action"><div class="n">1</div><div>写判定树 1 页，锚第二条豁免条款</div></div>
+  <div class="action"><div class="n">2</div><div>向法务发封闭问题索书面回复："员工内部使用调已备案 API 的生成式 AI 工具，是否触发网信办义务？"</div></div>
+  <div class="action"><div class="n">3</div><div>从网信办公告列表取 DeepSeek/GLM 备案号，补入工具审批材料包</div></div>
+
+  <div class="redflag">
+    <b>🚩 诚实挑战：</b>最大漏洞——内部工具根本不适用：第二条明文豁免，本 proposal 对工具审批的贡献缩为"一页豁免证明"，M2 若确认豁免即收尾，勿膨胀为合规工程。可能重复造轮子：集团法务大概率已覆盖实体级网信办事务，若现成口径存在，框架降级为"引用 + 映射"（半天工作量）——先问后写。AI 教室的真墙不在此：K12 公开场景，教育体系备案与未成年人保护比网信办登记更重。GEO 混入会误判，其风险在平台条款而非备案。
+  </div>
+</div>
+
+<div class="meta">
+  源信号：国内 AI 网站三道门槛科普推文 · 验证 ⚠️ Partial（实名条款过时、漏登记通道）·
+  简报详见 <a href="readwise-briefing-20260902.html">今日 Phase 1 简报</a>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
