@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 — 2026-09-03 周四</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 860px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  font-size: 1.1rem; padding: 0.4rem 0.7rem; cursor: pointer;
+}
+.stats { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.7rem 1.1rem; flex: 1; min-width: 120px; text-align: center;
+}
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent2); }
+.stat .label { font-size: 0.82rem; color: var(--text3); }
+.banner {
+  background: var(--surface2); border-left: 4px solid var(--accent3); border-radius: 6px;
+  padding: 0.9rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text2);
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+}
+.card h2 { font-size: 1.1rem; margin-bottom: 0.6rem; color: var(--accent); }
+table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface2); color: var(--text2); font-weight: normal; }
+.section-title { font-size: 1.25rem; color: var(--accent); margin: 1.8rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+.footer-note { font-size: 0.82rem; color: var(--text3); margin-top: 2rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>📚 Readwise 简报 · 2026-09-03</h1>
+    <div class="date">周四 · 增量窗口 2026-09-02T00:10Z → 2026-09-03 08:00 CST · 双透镜：Intent + Life</div>
+  </div>
+  <button id="theme-toggle" aria-label="切换主题">🌙</button>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">0</div><div class="label">新增信号</div></div>
+  <div class="stat"><div class="num">0</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">0</div><div class="label">深挖方向</div></div>
+  <div class="stat"><div class="num" style="color:var(--accent3)">✓</div><div class="label">管道运行正常</div></div>
+</div>
+
+<div class="banner">
+  今日增量窗口内 <strong>0 条新内容</strong>。周四（非周一），无上周总结义务。未触发 Phase 1.5 验证与 Phase 2 深挖。
+</div>
+
+<div class="card">
+  <h2>🔍 验证过程（零假设，双重核验）</h2>
+  <table>
+    <tr><th>检查</th><th>窗口</th><th>结果</th></tr>
+    <tr><td>增量查询（export API）</td><td>2026-09-02T00:10Z →</td><td>0 条</td></tr>
+    <tr><td>宽窗口交叉验证</td><td>2026-09-01T00:00Z →</td><td>仅 2 条，均为 09-02 已处理项（国内 AI 合规推文 ⭐×3 ⚠️Partial、媒体观察低价值），无遗漏</td></tr>
+    <tr><td>星期判断</td><td>2026-09-03</td><td>周四 · 非周一，无周报</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>📖 近三期回顾</h2>
+  <table>
+    <tr><th>日期</th><th>新增</th><th>要点</th></tr>
+    <tr><td>09-02 周三</td><td>2</td><td>国内 AI 合规三路判定（ICP/算法备案/生成AI，⚠️Partial）· 深挖 1 方向</td></tr>
+    <tr><td>09-01 周二</td><td>12</td><td>12 高亮 · 深挖 4 方向</td></tr>
+    <tr><td>08-29 周六</td><td>1</td><td>物质过剩宏观叙事（低价值），无深挖</td></tr>
+  </table>
+</div>
+
+<div class="footer-note">
+  下次增量拉取起点：2026-09-03T00:00Z · 周一 run 将附上周总结 · 累计处理 142 文档 / 104 高亮
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
