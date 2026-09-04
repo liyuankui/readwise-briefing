@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-09-04</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem 4rem;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.7rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 50%;
+  width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+}
+.banner {
+  background: var(--surface); border-left: 4px solid var(--accent2);
+  padding: 0.8rem 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;
+  color: var(--text2); font-size: 0.95rem;
+}
+.stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.8rem 1.2rem; flex: 1; min-width: 130px; text-align: center;
+}
+.stat .num { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.85rem; color: var(--text3); }
+section { margin-bottom: 2.2rem; }
+h2 { font-size: 1.25rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; margin-bottom: 1.2rem; }
+h2 .tag { font-size: 0.75rem; background: var(--surface2); color: var(--text3); padding: 0.15rem 0.6rem; border-radius: 20px; vertical-align: middle; margin-left: 0.5rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.3rem 1.5rem; margin-bottom: 1rem;
+}
+.card.high { border-left: 4px solid var(--accent); }
+.meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.6rem; display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+.badge { padding: 0.1rem 0.55rem; border-radius: 12px; font-size: 0.78rem; font-weight: bold; }
+.badge.star5 { background: rgba(5,150,105,0.15); color: var(--accent3); }
+.badge.verified { background: rgba(43,122,199,0.15); color: #2b7ac7; }
+html.dark .badge.verified { color: #7cb8ec; }
+.badge.partial { background: rgba(217,119,6,0.15); color: var(--accent4); }
+.badge.life { background: rgba(99,102,241,0.15); color: var(--accent2); }
+.quote {
+  background: var(--surface2); border-radius: 8px; padding: 0.9rem 1.1rem;
+  font-size: 0.95rem; color: var(--text2); margin: 0.7rem 0;
+}
+.why { font-size: 0.92rem; margin-top: 0.7rem; }
+.why strong { color: var(--accent); }
+.verify { font-size: 0.88rem; background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.7rem; color: var(--text2); }
+.verify strong { color: var(--accent4); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul.actions { list-style: none; }
+ul.actions li {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.7rem 1rem; margin-bottom: 0.6rem; font-size: 0.95rem;
+}
+ul.actions li::before { content: "▸ "; color: var(--accent3); font-weight: bold; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.3rem; }
+details summary { cursor: pointer; color: var(--text3); font-size: 0.9rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--surface); }
+th, td { border: 1px solid var(--border); padding: 0.55rem 0.8rem; text-align: left; }
+th { background: var(--surface2); color: var(--text2); }
+.footnote { color: var(--text3); font-size: 0.82rem; margin-top: 1.5rem; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>📮 Readwise 情报简报</h1>
+      <div class="date">2026-09-04 (周五) · 增量窗口: 09-03 → 09-04 · Light Day</div>
+    </div>
+    <button id="theme-toggle" title="切换主题">🌙</button>
+  </header>
+
+  <div class="banner">⚠️ 公开归档版 · 已脱敏（不含内部信息）· <a href="readwise-proposals-20260904.html">→ 今日 Proposal</a></div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">3</div><div class="label">新信号</div></div>
+    <div class="stat"><div class="num">1</div><div class="label">高价值 ⭐×5</div></div>
+    <div class="stat"><div class="num">1</div><div class="label">生活维度</div></div>
+    <div class="stat"><div class="num">1</div><div class="label">低价值</div></div>
+  </div>
+
+  <section>
+    <h2>🔭 信号概览 <span class="tag">3 条 · 周五轻量日</span></h2>
+    <table>
+      <tr><th>信号</th><th>透镜</th><th>分层</th><th>验证</th></tr>
+      <tr>
+        <td>斯坦福 CS146S「The Modern Software Developer」课程一年内全面重设计，材料免费公开</td>
+        <td>Intent</td>
+        <td>⭐×5</td>
+        <td>✅ Verified</td>
+      </tr>
+      <tr>
+        <td>「iPhone 大小的金条已 30 万美金」— 黄金终极抗贬值论</td>
+        <td>Life·建仓</td>
+        <td>生活分区</td>
+        <td>⚠️ Partial</td>
+      </tr>
+      <tr>
+        <td>「美式民主万能论」批判 — 经济主体思维</td>
+        <td>—</td>
+        <td>低价值</td>
+        <td>纯观点</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>💎 高价值内容（⭐×5）</h2>
+    <div class="card high">
+      <div class="meta">
+        <span class="badge star5">⭐×5 工作信号</span>
+        <span class="badge verified">✅ Verified</span>
+        <span>来源: @ReynoldDai · 推文</span>
+      </div>
+      <div class="quote">斯坦福大学的魄力和敏捷：一年之内重新设计软件工程课程，并且完全免费。不是拿祖传 PPT 照本宣科念 20 年。</div>
+      <div class="verify">
+        <strong>✅ 验证结论：</strong>推文属实且指向明确——斯坦福 <strong>CS146S「The Modern Software Developer」</strong>（课程站 <a href="https://themodernsoftware.dev/">themodernsoftware.dev</a>）。2026 秋季版推翻重做了 2025 秋季版约 <strong>85% 的材料</strong>；slides、GitHub 作业、<a href="https://www.youtube.com/playlist?list=PLxpwjSdVZQ97L8hAGqTYUeOJqnKVSu3pb">完整 YouTube 讲座</a>全部免费公开。主题：coding agents 解剖、MCP、spec-driven development、agent skills、context engineering、modern code review。
+      </div>
+      <div class="why"><strong>为什么相关：</strong>这不是"又一门网课"，而是<strong>全球顶尖高校对 AI-native 软件工程课程的定义权争夺</strong>，一年迭代 85% 的速度本身就是信号。直接命中三个活跃意图：① AI Upskill 讲师团正缺 L0/L1 教案骨架——这门课就是现成的、可借鉴的课程结构范本；② 课程主题（agent skills / MCP / spec-driven dev）与内部 Skill Hub、AI Coding 评测的方向完全同频，可作选型风向标；③ 免费材料可拆解为内训素材，零成本。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌿 生活维度信号</h2>
+    <div class="card">
+      <div class="meta">
+        <span class="badge life">📈 建仓</span>
+        <span class="badge partial">⚠️ Partial · 数字夸大</span>
+        <span>来源: @TaoRay · 推文</span>
+      </div>
+      <div class="quote">一块 iPhone 这么大的金条已经 30 万美金了。以后世界上只会有两种人……5000 年来，黄金是抗击货币贬值的唯一终极工具。黄金一旦进入央行的地下金库，就永远出不来了。</div>
+      <div class="verify">
+        <strong>⚠️ 交叉验证（建仓类强制）：</strong>方向属实、数字夸大。① 实测计算：iPhone 体积 ≈ 82cm³ × 金密度 19.32 ≈ <strong>1.58kg ≈ 50.9 金衡盎司</strong>；② 当前金价 ~$4,425–4,520/oz（2026-09-03 多源），该金条实际价值 ≈ <strong>$22.5–23 万</strong>，非 30 万——要达到 30 万需金价 $5,891/oz，高于 2026-01-28 历史最高 $5,602；③ 属实的部分：黄金 YTD +26%、近月 +9.7%、央行购金趋势真实。<strong>结论：宏观方向可参考，具体数字与"两种人"叙事是典型促销话术，降权处理。</strong>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>✅ 行动清单</h2>
+    <ul class="actions">
+      <li><strong>本周</strong>：浏览 <a href="https://themodernsoftware.dev/">themodernsoftware.dev</a> 课程大纲，标记可复用为内训 L0/L1 教案骨架的模块（预计 30 分钟）</li>
+      <li><strong>本周</strong>：把 CS146S 的主题清单（agent skills / MCP / spec-driven dev / context engineering）对照内部 AI 工具调研，校准方向是否有遗漏</li>
+      <li><strong>可选</strong>：YouTube 讲座挑 1-2 讲精听（推荐 coding agents 解剖、spec-driven development 两讲）</li>
+      <li>黄金信号仅作仓位参考——数字夸大已证实，不做动作</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📎 低价值附录（折叠）</h2>
+    <details>
+      <summary>展开 1 条 · 纯观点，无行动接口</summary>
+      <div class="card" style="margin-top: 0.8rem;">
+        <div class="meta"><span>来源: @TaoRay · 推文</span></div>
+        <div class="quote">网上总有一个论调：只要走了美式民主的道路，所有的经济问题就迎刃而解……人忽略了自己作为经济主体。</div>
+        <div class="why" style="color: var(--text3);">分类说明：政治经济评论，观点型内容无可验证行动接口，两透镜均不匹配 → 低价值。其中"作为经济主体"的个体视角与既有思考框架略有共鸣，仅记一笔。</div>
+      </div>
+    </details>
+  </section>
+
+  <div class="footnote">增量处理 · 上次同步 2026-09-03T00:00Z → 本次 2026-09-04 · 处理 3 / 累计 105 highlights · 周五无需周报</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
