@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 — 2026-09-05 周六</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 860px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  font-size: 1.1rem; padding: 0.4rem 0.7rem; cursor: pointer;
+}
+.stats { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.7rem 1.1rem; flex: 1; min-width: 120px; text-align: center;
+}
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent2); }
+.stat .label { font-size: 0.82rem; color: var(--text3); }
+.banner {
+  background: var(--surface2); border-left: 4px solid var(--accent3); border-radius: 6px;
+  padding: 0.9rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text2);
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+}
+.card h2 { font-size: 1.1rem; margin-bottom: 0.6rem; color: var(--accent); }
+table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface2); color: var(--text2); font-weight: normal; }
+.section-title { font-size: 1.25rem; color: var(--accent); margin: 1.8rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+.tweet-quote {
+  background: var(--surface2); border-radius: 8px; padding: 0.9rem 1.1rem; margin: 0.6rem 0;
+  font-size: 0.95rem; color: var(--text2); white-space: pre-wrap;
+}
+.note { font-size: 0.9rem; color: var(--text2); }
+.note strong { color: var(--accent4); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.tag { display: inline-block; font-size: 0.78rem; border: 1px solid var(--border); border-radius: 999px; padding: 0.05rem 0.6rem; margin-right: 0.4rem; color: var(--text3); }
+.footer-note { font-size: 0.82rem; color: var(--text3); margin-top: 2rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>📚 Readwise 简报 · 2026-09-05</h1>
+    <div class="date">周六 · 增量窗口 2026-09-04T00:00Z → 2026-09-05 08:00 CST · 双透镜：Intent + Life</div>
+  </div>
+  <button id="theme-toggle" aria-label="切换主题">🌙</button>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">1</div><div class="label">新增信号</div></div>
+  <div class="stat"><div class="num">0</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">0</div><div class="label">深挖方向</div></div>
+  <div class="stat"><div class="num" style="color:var(--accent3)">✓</div><div class="label">管道运行正常</div></div>
+</div>
+
+<div class="banner">
+  今日增量窗口内 <strong>1 条新内容</strong>（怀旧向推文，低价值）。周六（非周一），无上周总结义务。无高价值信号，未触发 Phase 1.5 技术验证与 Phase 2 深挖。
+</div>
+
+<div class="card">
+  <h2>🔍 验证过程（零假设，双重核验）</h2>
+  <table>
+    <tr><th>检查</th><th>窗口</th><th>结果</th></tr>
+    <tr><td>增量查询（export API）</td><td>2026-09-04T00:00Z →</td><td>1 文档 · 1 高亮（阑夕推文）</td></tr>
+    <tr><td>宽窗口交叉验证</td><td>2026-09-03T00:00Z →</td><td>4 条高亮 URL：3 条为 09-04 已处理项，1 条新增，无遗漏</td></tr>
+    <tr><td>查重（URL + highlight id）</td><td>vs state.json dedup</td><td>均为新条目，确认未重复处理</td></tr>
+    <tr><td>星期判断</td><td>2026-09-05</td><td>周六 · 非周一，无周报</td></tr>
+  </table>
+</div>
+
+<div class="section-title">📎 低价值附录（今日唯一新增）</div>
+<div class="card">
+  <h2>30 年前的上网体验 — 怀旧问答帖</h2>
+  <div>
+    <span class="tag">twitter</span><span class="tag">⭐ 低价值</span><span class="tag">⚠️ 观点/怀旧 · 无技术声明可验证</span>
+  </div>
+  <div class="tweet-quote">Reddit 问答版：30年前的上网体验，是怎样的？
+- 每个网站底下都有一个点击计数器，纪录有多少人来访问过，没有算法，没有推送，你必须自己发现这些网站。
+- 你注册邮箱时可以选择自己的名字，而不需要在后面加上随机数字。
+- 拨号上网的声音，以及图片从上到下慢慢加载，慢——慢——的——出——现。</div>
+  <div class="note">
+    来源：<a href="https://x.com/foxshuo/status/2095841556469293065">@foxshuo 推文</a>（Reddit 翻译帖）。
+    <strong>批判性注释</strong>：内容为互联网史怀旧（点击计数器/拨号/无算法推送），事实性成立但属娱乐向，无可行动信号。
+    唯一的观念张力在「算法发现 vs 自主发现」——对做个性化/信息流的人是一面镜子：用户对"被投喂"的疲惫感是真实情绪，
+    但怀旧不构成产品方向。娱乐存档，不深挖。
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 近三期回顾</h2>
+  <table>
+    <tr><th>日期</th><th>新增</th><th>要点</th></tr>
+    <tr><td>09-04 周五</td><td>3</td><td>Stanford CS146S ✅Verified · 深挖 1 方向（CS146S 骨架 → 内训教案）</td></tr>
+    <tr><td>09-03 周四</td><td>0</td><td>零新增，管道正常</td></tr>
+    <tr><td>09-02 周三</td><td>2</td><td>国内 AI 合规三路判定（⚠️Partial）· 深挖 1 方向</td></tr>
+  </table>
+</div>
+
+<div class="footer-note">
+  下次增量拉取起点：2026-09-05T00:00Z · 周一 run 将附上周总结 · 累计处理高亮 106 条
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
