@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-09-06</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem 4rem;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.7rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 50%;
+  width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+}
+.banner {
+  background: var(--surface); border-left: 4px solid var(--accent2);
+  padding: 0.8rem 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;
+  color: var(--text2); font-size: 0.95rem;
+}
+.stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.8rem 1.2rem; flex: 1; min-width: 130px; text-align: center;
+}
+.stat .num { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.85rem; color: var(--text3); }
+section { margin-bottom: 2.2rem; }
+h2 { font-size: 1.25rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; margin-bottom: 1.2rem; }
+h2 .tag { font-size: 0.75rem; background: var(--surface2); color: var(--text3); padding: 0.15rem 0.6rem; border-radius: 20px; vertical-align: middle; margin-left: 0.5rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.3rem 1.5rem; margin-bottom: 1rem;
+}
+.card.high { border-left: 4px solid var(--accent); }
+.meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.6rem; display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+.badge { padding: 0.1rem 0.55rem; border-radius: 12px; font-size: 0.78rem; font-weight: bold; }
+.badge.star5 { background: rgba(5,150,105,0.15); color: var(--accent3); }
+.badge.verified { background: rgba(43,122,199,0.15); color: #2b7ac7; }
+html.dark .badge.verified { color: #7cb8ec; }
+.badge.partial { background: rgba(217,119,6,0.15); color: var(--accent4); }
+.badge.life { background: rgba(99,102,241,0.15); color: var(--accent2); }
+.quote {
+  background: var(--surface2); border-radius: 8px; padding: 0.9rem 1.1rem;
+  font-size: 0.95rem; color: var(--text2); margin: 0.7rem 0;
+}
+.why { font-size: 0.92rem; margin-top: 0.7rem; }
+.why strong { color: var(--accent); }
+.verify { font-size: 0.88rem; background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.7rem; color: var(--text2); }
+.verify strong { color: var(--accent4); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul.actions { list-style: none; }
+ul.actions li {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.7rem 1rem; margin-bottom: 0.6rem; font-size: 0.95rem;
+}
+ul.actions li::before { content: "▸ "; color: var(--accent3); font-weight: bold; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.3rem; }
+details summary { cursor: pointer; color: var(--text3); font-size: 0.9rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--surface); }
+th, td { border: 1px solid var(--border); padding: 0.55rem 0.8rem; text-align: left; }
+th { background: var(--surface2); color: var(--text2); }
+.footnote { color: var(--text3); font-size: 0.82rem; margin-top: 1.5rem; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>📮 Readwise 情报简报</h1>
+      <div class="date">2026-09-06 (周日) · 增量窗口: 09-04 → 09-06 · 周日无周报（周一生成）</div>
+    </div>
+    <button id="theme-toggle" title="切换主题">🌙</button>
+  </header>
+
+  <div class="banner">⚠️ 公开归档版 · 已脱敏（1 条时政类内容按公开仓纪律过滤，仅计数）· <a href="readwise-proposals-20260906.html">→ 今日 Proposals</a></div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="label">拉取 · 1 重复排除</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">新信号</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">高价值 ⭐×5</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">中等 ⭐×3</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">深挖 Proposal</div></div>
+  </div>
+
+  <section>
+    <h2>🔭 信号概览 <span class="tag">6 条 · 2 条五星级</span></h2>
+    <table>
+      <tr><th>信号</th><th>透镜</th><th>分层</th><th>验证</th></tr>
+      <tr>
+        <td>wechat-intelligence-hub 开源：微信聊天记录 → 本地个人情报库（todo/商机/检索）</td>
+        <td>Intent · Life OS</td>
+        <td>⭐×5</td>
+        <td>✅ Verified</td>
+      </tr>
+      <tr>
+        <td>Stanford CS329Z「Engineering AI Agents」：RAG/Tool Use/MCP/Memory/Eval 全覆盖</td>
+        <td>Intent · 讲师团/自学</td>
+        <td>⭐×5</td>
+        <td>✅ Verified</td>
+      </tr>
+      <tr>
+        <td>opencode 底座环境卫生：trash/rg/websocat/ssh 缺失 = agent 效率下限</td>
+        <td>Intent · opencode-proposal</td>
+        <td>⭐×3</td>
+        <td>⚠️ Partial</td>
+      </tr>
+      <tr>
+        <td>Linear Sync Engine 逆向研究（Linear 工程师背书）</td>
+        <td>Intent · 工程阅读</td>
+        <td>⭐×3</td>
+        <td>✅ Verified</td>
+      </tr>
+      <tr>
+        <td>「碳基脑瓜子 7B 参数」：人 = 小模型 + Skills + 工具调用</td>
+        <td>健脑 · 幽默</td>
+        <td>⭐×1</td>
+        <td>⚠️ 观点</td>
+      </tr>
+      <tr>
+        <td>（时政类 1 条，已按公开仓纪律过滤）</td>
+        <td>—</td>
+        <td>过滤</td>
+        <td>—</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+    <div class="card high">
+      <div class="meta">
+        <span class="badge star5">⭐×5</span>
+        <span class="badge verified">✅ Verified</span>
+        <span>@rionaifantasy · 推文 · 2026-09-05</span>
+      </div>
+      <strong>wechat-intelligence-hub — 微信个人情报库开源</strong>
+      <div class="quote">「今天正式开源全网最强的微信个人情报库。我终于把几万条微信聊天记录，变成了一个每天帮我列出 todo 事项、洽谈合作、总结群聊、发现赚钱机会、查找商单、建联品牌方、实时检索所有历史聊天记录的全自动超级微信小助理。我用 Codex [建设]」</div>
+      <div class="why"><strong>为什么相关</strong>：正中 Life OS 的 Next ②「选第一个最高频手动动作改造为 Proactive Agent」——微信聊天记录是个人最高频数据流，该项目展示了完整的 local-first 路径（只读 CLI + Codex skills + 每日简报 + 跟进/机会追踪），与 Kyle 的 skills/harness 方法论同构。</div>
+      <div class="verify"><strong>验证报告</strong>：repo 真实活跃 — <a href="https://github.com/Rion-Wu-tech/wechat-intelligence-hub">GitHub</a> 393★ / 168 forks / 创建仅 2 天（09-04）/ AGPL-3.0 / local-first。⚠️ 风险：腾讯近期 DMCA 下架 30+ 微信记录导出类项目，此类 repo 存在下架风险 → 建议尽快 fork 留存、个人数据不出本机。<a href="https://x.com/rionaifantasy/status/2096086762258846033">原推文</a></div>
+    </div>
+
+    <div class="card high">
+      <div class="meta">
+        <span class="badge star5">⭐×5</span>
+        <span class="badge verified">✅ Verified</span>
+        <span>@astaxie · 推文 · 2026-09-05</span>
+      </div>
+      <strong>Stanford CS329Z「Engineering AI Agents」</strong>
+      <div class="quote">「斯坦福的课程更新速度太快了。CS329Z 已经在教 AI Agent：RAG、Tool Use、MCP、Memory、Multi-Agent、Eval、Coding Agent……再看看很多大学生还在学习上一个时代、甚至已经被淘汰的东西。」</div>
+      <div class="why"><strong>为什么相关</strong>：三线命中——① AI Upskill Trainer 讲师团 P0 缺教案，CS329Z 公开材料可直接做 L0-L4 大纲的内容骨架；② 个人 Agentic Engineering 学习路径（CS336 停滞背景下的低成本并行选项）；③ K12 AI 课程的「教什么」趋势参照（AI 教育已进入 Agent 工程化阶段）。</div>
+      <div class="verify"><strong>验证报告</strong>：课程真实 — <a href="https://cs329z.stanford.edu/">官网</a> + <a href="https://cs329z.github.io/">课程站</a>「Engineering AI Agents: from simple LLM pipelines to compound AI systems to autonomous agents」，主题与推文一致（RAG/Tool Use/MCP/Memory/Multi-Agent/Eval/Coding Agents）。<a href="https://x.com/astaxie/status/2096145334401671282">原推文</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>⭐⭐⭐ 中等价值</h2>
+
+    <div class="card">
+      <div class="meta">
+        <span class="badge partial">⚠️ Partial</span>
+        <span>@dashen_wang · 推文 · 2026-09-05</span>
+      </div>
+      <strong>opencode 底座环境卫生清单</strong>
+      <div class="quote">「看了下小朋友的 opencode 配置。支离破碎。没有 trash-put 只能 rm；没有 rg 用 grep 慢搜；没有 websocat 测不了 WS 握手；ssh 还是每次输入密码。惨不忍睹啊」</div>
+      <div class="why"><strong>为什么相关</strong>：框架价值大于内容——「CLI agent 的效率下限由底座环境决定，而非模型」。环境缺工具时 agent 被迫用慢/危险替代品（rm 代替 trash、grep 代替 rg）。可直接转化为 opencode 内部推广的差异化论据 + Starter Kit bootstrap 审计清单。</div>
+      <div class="verify"><strong>验证报告</strong>：观点推文无 repo 可验，但每项均为成熟工程实践（trash-cli/ripgrep/websocat/ssh-keygen）。<a href="https://x.com/dashen_wang/status/2096079638850043935">原推文</a></div>
+    </div>
+
+    <div class="card">
+      <div class="meta">
+        <span class="badge verified">✅ Verified</span>
+        <span>@vikingmute · 推文 · 2026-09-06</span>
+      </div>
+      <strong>Linear Sync Engine 逆向研究</strong>
+      <div class="quote">「好久没看到这么精彩的和 AI 无关的技术文章了：《Reverse Engineering Linear's Sync Engine: A Detailed Study》……Linear 客户端同步方案的逆向讲解，把模型怎么定义、怎么进[行同步讲透]」</div>
+      <div class="why"><strong>为什么相关</strong>：local-first 同步引擎的工程范本（模型定义/增量同步/实时协作），与 Life OS 数据层、本地优先工具链的选型思考相关；也是团队工程文化的好读物。</div>
+      <div class="verify"><strong>验证报告</strong>：<a href="https://github.com/wzhudev/reverse-linear-sync-engine">GitHub repo</a>（含 <a href="https://github.com/wzhudev/reverse-linear-sync-engine/blob/main/SUMMARY.md">SUMMARY.md</a>），Linear 工程师评价「pretty awesome (and correct)… probably the best」；<a href="https://news.ycombinator.com/item?id=44123131">HN 讨论</a> + <a href="https://dev.to/wzhudev/i-reversed-linears-sync-engine-to-see-how-it-works-3cj">作者博客</a>。<a href="https://x.com/vikingmute/status/2096236875661053983">原推文</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌱 生活维度 <span class="tag">今日无强生活信号</span></h2>
+    <div class="card">
+      <div class="meta"><span class="badge life">🧠 健脑</span><span>@zhufengme · 推文</span></div>
+      <strong>「碳基脑瓜子也就 7B 参数」（幽默 ⭐×1）</strong>
+      <div class="quote">「承认吧，绝大多数碳基脑瓜子也就 7B 参数。之所以看起来还能干活，拼的无非是碳基世界的『经验』和『资源』——翻译成黑话，就是 Skills、工具调用和 MCP。偶尔能力不够，还得外挂一层 MTP，专门预测领导想听什么。」</div>
+      <div class="why"><strong>为什么留档</strong>：玩笑但框架准确——能力 = 小模型 + Skills + 工具链，恰是 Skill Hub/harness 路线的最佳注脚（MTP 预测领导那段是段子精华）。</div>
+      <div class="verify"><strong>验证报告</strong>：⚠️ 观点推文，无验证必要。<a href="https://x.com/zhufengme/status/2096114052623991089">原推文</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>✅ 行动清单</h2>
+    <ul class="actions">
+      <li><strong>fork + 试跑 wechat-intelligence-hub</strong>（个人微信数据、本机运行；DMCA 风险下先 fork 留存）→ Life OS Next ② 的候选「最高频手动动作」</li>
+      <li><strong>拉取 CS329Z 讲义</strong>，对照讲师团 L0-L4 大纲标记可复用模块（RAG/Tool Use/MCP/Eval 四块优先）</li>
+      <li><strong>Starter Kit 四件套审计</strong>：trash / rg / websocat / ssh 免密，纳入 bootstrap 脚本检查项 → opencode 推广论据</li>
+      <li><strong>工程阅读</strong>：Linear Sync Engine SUMMARY.md（15 分钟）入本周清单</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📎 低价值附录 <span class="tag">1 条时政已过滤</span></h2>
+    <details>
+      <summary>展开查看处理明细</summary>
+      <p style="margin-top:0.7rem; font-size:0.9rem; color:var(--text2);">
+        ① @foxshuo「30 年前的上网体验」— 与 09-05 处理重复（highlight ID 1051114201），已排除，未重复入简报。<br>
+        ② @WoodenHarp 时政类 1 条 — 按公开仓脱敏纪律过滤，仅计入已处理，正文不入公开页面。<br>
+        ③ @zhufengme 7B 玩笑 — 见生活维度分区。
+      </p>
+    </details>
+  </section>
+
+  <div class="footnote">Generated by my-readwise-briefing v4.3 · Phase 1.5 验证完成 · 3 Proposals 见导航页 · [📋]</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

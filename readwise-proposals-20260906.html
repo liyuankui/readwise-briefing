@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-09-06</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem 4rem;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.7rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 50%;
+  width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+}
+.banner {
+  background: var(--surface); border-left: 4px solid var(--accent5);
+  padding: 0.8rem 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;
+  color: var(--text2); font-size: 0.95rem;
+}
+section { margin-bottom: 2.2rem; }
+h2 { font-size: 1.25rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; margin-bottom: 1.2rem; }
+h2 .tag { font-size: 0.75rem; background: var(--surface2); color: var(--text3); padding: 0.15rem 0.6rem; border-radius: 20px; vertical-align: middle; margin-left: 0.5rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.3rem 1.5rem; margin-bottom: 1.4rem;
+}
+.card .claim {
+  font-size: 1.02rem; background: var(--surface2); border-left: 3px solid var(--accent2);
+  padding: 0.7rem 1rem; border-radius: 6px; margin: 0.7rem 0;
+}
+.meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.6rem; display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+.badge { padding: 0.1rem 0.55rem; border-radius: 12px; font-size: 0.78rem; font-weight: bold; }
+.badge.p1 { background: rgba(5,150,105,0.15); color: var(--accent3); }
+.badge.p2 { background: rgba(43,122,199,0.15); color: #2b7ac7; }
+.badge.p3 { background: rgba(217,119,6,0.15); color: var(--accent4); }
+h3 { font-size: 1.02rem; color: var(--accent); margin: 0.9rem 0 0.4rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; background: var(--surface); margin: 0.5rem 0; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.7rem; text-align: left; }
+th { background: var(--surface2); color: var(--text2); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { padding-left: 1.2rem; } li { margin-bottom: 0.3rem; font-size: 0.93rem; }
+.challenge { background: rgba(220,38,38,0.06); border: 1px dashed var(--accent5); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.7rem; }
+.challenge strong { color: var(--accent5); }
+.footnote { color: var(--text3); font-size: 0.82rem; margin-top: 1.5rem; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>🚀 Readwise 深挖 Proposals</h1>
+      <div class="date">2026-09-06 (周日) · 6 新信号 → 3 深挖方向 · 3/3 subagent 完成</div>
+    </div>
+    <button id="theme-toggle" title="切换主题">🌙</button>
+  </header>
+
+  <div class="banner">⚡ 不可行动的信息 = 噪音 · 信号 → 验证 → 洞察 → 行动 · 公开版已脱敏 · <a href="readwise-briefing-20260906.html">← 返回简报</a></div>
+
+  <section>
+    <h2>🔗 信号 × 项目对应</h2>
+    <table>
+      <tr><th>信号</th><th>连接意图</th><th>验证</th><th>Proposal</th></tr>
+      <tr><td>wechat-intelligence-hub（393★/2天）</td><td>Life OS · Next ② Proactive Agent</td><td>✅ + ⚠️ DMCA</td><td>#1</td></tr>
+      <tr><td>Stanford CS329Z（9/23 开课）</td><td>AI Upskill Trainer 讲师团 + 个人学习</td><td>✅</td><td>#2</td></tr>
+      <tr><td>opencode 底座环境卫生清单</td><td>opencode 推广 + Starter Kit</td><td>⚠️ Partial</td><td>#3</td></tr>
+      <tr><td>Linear Sync Engine 逆向</td><td>（工程阅读，未深挖）</td><td>✅</td><td>—</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Proposal #1 <span class="tag">Life OS · 首个 Proactive Agent</span></h2>
+    <div class="card">
+      <div class="meta"><span class="badge p1">⭐×5 · ✅ Verified</span><span>来源：@rionaifantasy 推文 + <a href="https://github.com/Rion-Wu-tech/wechat-intelligence-hub">Rion-Wu-tech/wechat-intelligence-hub</a></span></div>
+      <div class="claim">以 wechat-intelligence-hub 为<strong>参考实现而非依赖</strong>，四周内在本地 Mac 把「微信补读/找记录/捞待办」改造为每日 07:30 自动简报的只读 Proactive Agent——自持核心路径 ≤500 行，数据不出本机。</div>
+      <h3>锁定的痛点</h3>
+      <ul>
+        <li>补读群聊每日 15-30 min（上下滑屏怕漏）；跨群跨月找历史消息每周 3-5 次常失手；群聊口头待办（"我发你""回头聊"）无 capture 靠记忆——同源问题：聊天数据是死数据（无 index / 无 digest / 无 routing）。</li>
+      </ul>
+      <h3>里程碑（~14h / 4 周，Gate 制）</h3>
+      <table>
+        <tr><th>M</th><th>内容</th><th>Gate</th></tr>
+        <tr><td>M0 侦察+基线（本周）</td><td>private fork 留档；虚构数据 demo 隔离试跑；实测 3 天微信手动动作基线</td><td><strong>A</strong>：demo 通且基线 ≥15 min/天，否则换靶</td></tr>
+        <tr><td>M1 真实数据下水</td><td>本人授权 key → 单群历史入 SQLite → CLI 检索</td><td><strong>B</strong>：3 个真实查询 ≤30s 命中；key 提取失败即降级/Kill</td></tr>
+        <tr><td>M2 Proactive 层</td><td>launchd 07:30 → 24h 简报 → 通知推送</td><td>连续 5 个工作日零人工干预</td></tr>
+        <tr><td>M3 路由+评估</td><td>action items → 意图清单提案制；每周抽查 recall</td><td>召回 ≥80%（抽查 20 条口头待办）</td></tr>
+      </table>
+      <h3>ROI</h3>
+      <ul><li>直接回收 ~15h/月；Life OS 五支柱中 Proactive Agents + Memory + Trust &amp; Eval 三线首次打通；方法论验证为模板，下一站 Teams/邮件（合规成本低得多）。</li></ul>
+      <h3>风险与缓解（节选）</h3>
+      <table>
+        <tr><th>风险</th><th>等级</th><th>缓解</th></tr>
+        <tr><td>DMCA 下架（腾讯已下架 30+ 同类 repo）</td><td>高</td><td>本周 private fork + 本地 vendor；只借架构模式；核心路径自持</td></tr>
+        <tr><td>项目仅 2 天成熟度（macOS key 路径作者未实测）</td><td>高</td><td>当参考不当依赖；锁 commit；Gate B 不过即降级或 Kill</td></tr>
+        <tr><td>供应链投毒（新库 + 高权限读加密 DB）</td><td>中高</td><td>真实数据前安全审计 + 虚构数据隔离试跑</td></tr>
+        <tr><td>账号封禁（只读也违反 ToS）</td><td>中</td><td>禁用 key helper；不 hook 不注入不外发；低频访问</td></tr>
+      </table>
+      <h3>本周 3 件事</h3>
+      <ul>
+        <li>基线测量 3 天（15 min/天）——Gate A 的证据</li>
+        <li>private fork + 虚构数据 demo 隔离试跑 + 安全审计（2h）</li>
+        <li>半页提案入意图清单 review/，写明 Gate B / Kill 标准</li>
+      </ul>
+      <div class="challenge"><strong>诚实挑战（节选）</strong>：① 前提可能不成立——工作主战场若在 Teams/邮件，微信基线 &lt;15 min/天则 ROI 崩塌，应死于 Gate A（警惕"新玩具效应"）；② 主号承载十年社交资本，为省 20 min/天赌 ToS 灰色地带，期望值可能为负；③ 推文"发现赚钱机会"是营销话术——真正要的 digest+search+action items 只占 repo 能力的 10%，别被 scope 带跑；④ 若月维护 &gt;3h，降级为手动触发检索工具。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Proposal #2 <span class="tag">讲师团内容骨架 + 个人学习主干</span></h2>
+    <div class="card">
+      <div class="meta"><span class="badge p2">⭐×5 · ✅ Verified</span><span>来源：@astaxie 推文 + <a href="https://cs329z.stanford.edu/">cs329z.stanford.edu</a></span></div>
+      <div class="claim">借 CS329Z（2026 秋，9/23 开课、讲义逐周免费公开）作「骨架供应商」，把 L0-L4 教案从"从零创作"降为"本地化改写"（制作成本降约 60%）；同一课程作个人 Agentic 工程主干，替代停滞的 CS336——一份投入，讲师团与个人两用。</div>
+      <h3>补查的关键事实</h3>
+      <ul>
+        <li>Fall 2026 课表 9/23-12/2 共 20 讲；今日 slides <strong>尚未发布</strong>（逐周释出）；readings 均为公开 arXiv/博客；<strong>无 license 声明</strong>；prereq 为研究生级（CS224N/CS336）→ 只适合作 L2-L4 素材，非入门层。</li>
+      </ul>
+      <h3>里程碑（~18h / 12 周 ≈ 1.5h/周）</h3>
+      <table>
+        <tr><th>M</th><th>时窗</th><th>产出</th></tr>
+        <tr><td>M0 素材地图 v1</td><td>本周（2h）</td><td>HF Agents Course + Anthropic Courses + CS329Z readings 三源目录 → curriculum-map.md（每源标 L 级）</td></tr>
+        <tr><td>M1 骨架对照表</td><td>9/14-9/27（6h）</td><td>大纲每模块 ← 素材源 + 场景替换位 + 练习三件套；启动会带此表</td></tr>
+        <tr><td>M2 教案试点 ×2</td><td>10/5-10/19（6h）</td><td>L1.1（入门）+ L2.0（RAG+Tool Use，跟课同步开发）；验收：非技术讲师试讲 20 min</td></tr>
+        <tr><td>M3 CS336 决策点</td><td>≤10/26（1.5h）</td><td>一页 decision doc：continue / pivot / pause 三选一</td></tr>
+        <tr><td>M4 L3-L4 补全</td><td>11 月-12/15（3h）</td><td>Eval / LLM-as-Judge / Safety / Coding Agents 模块</td></tr>
+      </table>
+      <h3>成功标准（节选）</h3>
+      <ul>
+        <li>大纲模块 ≥90% 具"源+案例+练习"三件套；单套教案制作 ≤8h（无骨架基线 20-25h）；≥2 名讲师（含 1 名非技术）基于骨架独立产出；CS336 状态 10/26 前去僵尸化。</li>
+      </ul>
+      <h3>本周 3 件事</h3>
+      <ul>
+        <li>60-90 min 建 curriculum-map v1（三源目录 + L 级标注）</li>
+        <li>30 min 升级启动会材料：加"骨架计划 + 9/23-12/2 跟课表"，兼作讲师招募话术</li>
+        <li>30 min 起草 CS336 decision doc；日历钉 9/23 首讲 + 每周跟课 block</li>
+      </ul>
+      <div class="challenge"><strong>诚实挑战（节选）</strong>：① 最弱一环——赌"降门槛→易招讲师"未经验证，讲师团成败在招募激励不在素材；② 进度外包给斯坦福课表，11 月撞期先死的是跟课；③ CS329Z 对 L0/L1 贡献≈0，救入门层的是 HF 级内容——推文兴奋感不该绑架素材选择；④ 换轨可能是沉没成本的美化，decision doc 必须回答"底层理解对讲师角色是否 load-bearing"；⑤ 18h 估算无 buffer，以 M2 实测为准。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Proposal #3 <span class="tag">Agent-Ready Baseline（ARB）</span></h2>
+    <div class="card">
+      <div class="meta"><span class="badge p3">⭐×3 · ⚠️ Partial</span><span>来源：@dashen_wang 推文（观点，不可独立验证，价值在框架）</span></div>
+      <div class="claim">Agent 编程工具的<strong>效率下限由底座环境决定，而非模型</strong>：缺 rg/trash/websocat/ssh 免密的机器上，agent 只能用慢、危险、甚至交互卡死的替代品——把 30 分钟 Mac 环境基线写进 Starter Kit bootstrap，是保住低成本模型（DeepSeek/GLM）红利最便宜的杠杆。</div>
+      <h3>审计清单（env-audit.sh，三层分级）</h3>
+      <table>
+        <tr><th>层</th><th>项</th><th>缺失时 agent 行为</th></tr>
+        <tr><td>P0 安全</td><td>trash-put / trash</td><td>回退 rm，不可逆</td></tr>
+        <tr><td>P0 安全</td><td>ssh 免密（BatchMode 验证）</td><td>密码交互，agent 卡死</td></tr>
+        <tr><td>P0 速度</td><td>ripgrep</td><td>回退 grep，repo 级搜索慢一个量级</td></tr>
+        <tr><td>P1</td><td>fd · sd · jq</td><td>回退 find/sed/awk，慢且脆</td></tr>
+        <tr><td>P2 能力</td><td>websocat · fzf</td><td>WS 握手测不了；人机选择降效</td></tr>
+      </table>
+      <h3>里程碑（~13h / 4 周）</h3>
+      <ul>
+        <li>M0 写 env-audit.sh 并本机跑通（3h，&lt;100 行轻量脚本）→ M1 修 mac-bootstrap.sh 已知失败点 + 并入 P0 安装段（5h）→ M2 团队 Mac 实测收 1 周数据 → M3 嫁接 opencode 提案：cost-analysis 加"环境折损"节（2h）→ M4 固化进内部 skill 库（2h）。</li>
+      </ul>
+      <h3>成功标准（节选）</h3>
+      <ul><li>团队 audit 覆盖 12/12；P0 三项达标率 ≥90%；新机 bootstrap 后 P0 通过率 100%；opencode 提案 draft v2 含环境章节；1 份 rg vs grep 实测数据。</li></ul>
+      <h3>本周 3 件事</h3>
+      <ul>
+        <li>写 env-audit.sh 并本机跑通（含 ssh BatchMode 检查 + micro-benchmark）</li>
+        <li>修 mac-bootstrap.sh 已知失败点 + 加 P0 三行安装</li>
+        <li>opencode 提案 draft 增"运行环境基线"小节 + 2 位工程师试跑 audit</li>
+      </ul>
+      <div class="challenge"><strong>诚实挑战（节选）</strong>：① 因果链未证——"环境好→agent 效率高"是合理推断非 A/B 结论，提案中只能作定性论据；② 样本小，环境是加分项不是主菜（占 draft 篇幅 &gt;15% 即越界）；③ 信号本身不可验证，引用必须标"启发性框架"；④ agent 真实回退行为未实测（sandbox/权限模式可能部分屏蔽）；⑤ 无 owner 即腐烂——M4 必须真落地维护机制；⑥ 公司设备批量装 CLI 有越界观感——全用户态 brew、无 sudo、安全审计留痕。</div>
+    </div>
+  </section>
+
+  <div class="footnote">Generated by my-readwise-briefing v4.3 · 3/3 subagent 成功（无内联兜底）· [📋]</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
