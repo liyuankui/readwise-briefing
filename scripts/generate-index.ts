@@ -21,8 +21,10 @@ interface Entry {
   dateLabel: string; // YYYY-MM-DD
   briefing?: string; // 文件名
   proposals?: string;
+  weekly?: string;
   briefingTitle?: string;
   proposalsTitle?: string;
+  weeklyTitle?: string;
   highlights?: number; // 高亮总数（从简报提取）
   tier5?: number; // ⭐×5 深挖数
   size: number; // 文件大小（字节），用于排序稳定性
@@ -77,6 +79,9 @@ async function scan(): Promise<Entry[]> {
     } else if (f.startsWith("readwise-proposals-")) {
       entry.proposals = f;
       entry.proposalsTitle = title;
+    } else if (f.startsWith("readwise-weekly-")) {
+      entry.weekly = f;
+      entry.weeklyTitle = title;
     }
   }
 
@@ -103,6 +108,9 @@ function render(entries: Entry[]): string {
       const proposalsCell = e.proposals
         ? `<a href="${e.proposals}">🎯 Proposals</a>`
         : `<span class="muted">—</span>`;
+      const weeklyCell = e.weekly
+        ? `<a href="${e.weekly}">📊 周报</a>`
+        : `<span class="muted">—</span>`;
       const hlCell = e.highlights
         ? `<b>${e.highlights}</b>`
         : `<span class="muted">—</span>`;
@@ -112,6 +120,7 @@ function render(entries: Entry[]): string {
 
       return `<tr>
 <td class="date">${e.dateLabel}</td>
+<td>${weeklyCell}</td>
 <td>${briefingCell}</td>
 <td>${proposalsCell}</td>
 <td>${hlCell}</td>
@@ -179,6 +188,7 @@ a:hover{text-decoration:underline}
 <table>
 <thead><tr>
 <th>日期</th>
+<th>📊 周报</th>
 <th>📡 简报</th>
 <th>🎯 Proposals</th>
 <th>高亮数</th>
