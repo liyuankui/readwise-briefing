@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-09-08</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem 4rem;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.7rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 50%;
+  width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+}
+.banner {
+  background: var(--surface); border-left: 4px solid var(--accent2);
+  padding: 0.8rem 1.2rem; border-radius: 8px; margin-bottom: 1.5rem;
+  color: var(--text2); font-size: 0.95rem;
+}
+.stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.8rem 1.2rem; flex: 1; min-width: 130px; text-align: center;
+}
+.stat .num { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.85rem; color: var(--text3); }
+section { margin-bottom: 2.2rem; }
+h2 { font-size: 1.25rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; margin-bottom: 1.2rem; }
+h2 .tag { font-size: 0.75rem; background: var(--surface2); color: var(--text3); padding: 0.15rem 0.6rem; border-radius: 20px; vertical-align: middle; margin-left: 0.5rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.3rem 1.5rem; margin-bottom: 1rem;
+}
+.card.life { border-left: 4px solid var(--accent2); }
+.card.mid { border-left: 4px solid var(--accent4); }
+.meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.6rem; display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+.badge { padding: 0.1rem 0.55rem; border-radius: 12px; font-size: 0.78rem; font-weight: bold; }
+.badge.star5 { background: rgba(5,150,105,0.15); color: var(--accent3); }
+.badge.verified { background: rgba(43,122,199,0.15); color: #2b7ac7; }
+html.dark .badge.verified { color: #7cb8ec; }
+.badge.partial { background: rgba(217,119,6,0.15); color: var(--accent4); }
+.badge.life { background: rgba(99,102,241,0.15); color: var(--accent2); }
+.quote {
+  background: var(--surface2); border-radius: 8px; padding: 0.9rem 1.1rem;
+  font-size: 0.95rem; color: var(--text2); margin: 0.7rem 0; white-space: pre-wrap;
+}
+.why { font-size: 0.92rem; margin-top: 0.7rem; }
+.why strong { color: var(--accent); }
+.verify { font-size: 0.88rem; background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.7rem; color: var(--text2); }
+.verify strong { color: var(--accent4); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul.actions { list-style: none; }
+ul.actions li {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.7rem 1rem; margin-bottom: 0.6rem; font-size: 0.95rem;
+}
+ul.actions li::before { content: "▸ "; color: var(--accent3); font-weight: bold; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.3rem; }
+details summary { cursor: pointer; color: var(--text3); font-size: 0.9rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--surface); }
+th, td { border: 1px solid var(--border); padding: 0.55rem 0.8rem; text-align: left; }
+th { background: var(--surface2); color: var(--text2); }
+.footnote { color: var(--text3); font-size: 0.82rem; margin-top: 1.5rem; text-align: center; }
+.nodeep {
+  background: var(--surface); border: 1px dashed var(--border); border-radius: 12px;
+  padding: 1.2rem 1.5rem; color: var(--text2); font-size: 0.95rem;
+}
+.nodeep strong { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>📮 Readwise 情报简报</h1>
+      <div class="date">2026-09-08 (周二) · 增量窗口: 09-07 08:06 → 09-08 08:00 CST · 周报已于昨日（周一）随 0907 期发布</div>
+    </div>
+    <button id="theme-toggle" title="切换主题">🌙</button>
+  </header>
+
+  <div class="banner">⚠️ 公开归档版 · 已脱敏（本批内容均为公开推文，无涉密条目）· 今日无 Proposals（见文末理由）· <a href="readwise-briefing-20260907.html">← 昨日简报+周报</a></div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="label">新信号 · 3 来源</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">高价值 ⭐×5</div></div>
+    <div class="stat"><div class="num">1</div><div class="label">中等 ⭐×3（含降权）</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">生活维度信号</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">深挖 Proposal</div></div>
+  </div>
+
+  <section>
+    <h2>🔭 信号概览</h2>
+    <table>
+      <tr><th>方向</th><th>信号</th><th>透镜</th><th>验证</th><th>价值</th></tr>
+      <tr>
+        <td>心智模型</td>
+        <td>四本畅销书反复讲同一件事：复利（《纳瓦尔宝典》《穷查理宝典》《原子习惯》《认知觉醒》）</td>
+        <td>🌿 健脑</td>
+        <td>✅ 已知结论</td>
+        <td>⭐×2</td>
+      </tr>
+      <tr>
+        <td>认知科学</td>
+        <td>神经元持续伸展分支、形成突触连接（显微影像）</td>
+        <td>🌿 健脑</td>
+        <td>✅ 教科书事实</td>
+        <td>⭐</td>
+      </tr>
+      <tr>
+        <td>AI 变现</td>
+        <td>小红书动态壁纸月入 3k / AI 企业宣传片价差套利（8-20万 vs ~5k）/ Seedance 降低视频门槛</td>
+        <td>📈 建仓</td>
+        <td>⚠️ Partial ×2</td>
+        <td>⭐×3</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>🌿 生活维度信号 <span class="tag">不占深挖名额</span></h2>
+
+    <div class="card life">
+      <div class="meta">
+        <span class="badge life">🧠 健脑</span>
+        <span class="badge verified">✅ 已知结论</span>
+        <span>来源: <a href="https://twitter.com/JonathanFWu">@JonathanFWu</a> · 推文</span>
+      </div>
+      <div class="quote">最近大半年陆续看了《纳瓦尔宝典》《穷查理宝典》《原子习惯》和《认知觉醒》。前天和刘哥聊天突然发现，这几本看起来完全不同的书，似乎一直在反复讲同一个东西：复利。</div>
+      <div class="why"><strong>为什么值得留意：</strong>把四本书收敛到「复利」一个主轴，是个干净的读书复盘框架——财富复利（纳瓦尔/穷查理）× 习惯复利（原子习惯）× 认知复利（认知觉醒）。对当前 Life OS 的「慢系统」路线是印证：daily briefing、skill 沉淀、身体信号日志，本质都是把一次性劳动变成可积累资产。属已知结论的再表述，不新增行动。</div>
+    </div>
+
+    <div class="card life">
+      <div class="meta">
+        <span class="badge life">🧠 健脑</span>
+        <span class="badge verified">✅ 教科书事实</span>
+        <span>来源: <a href="https://twitter.com/SciNatureNews">@SciNatureNews</a> · 推文</span>
+      </div>
+      <div class="quote">Your brain is constantly building connections. Under a microscope, neurons can be seen extending tiny branches, exploring their surroundings and connecting with other neurons. These new connections form synapses…</div>
+      <div class="why"><strong>为什么值得留意：</strong>突触可塑性（synaptic plasticity）是学习与记忆的细胞基础，科学上无争议。作为科普观赏性内容收藏即可；与「间隔重复」类学习法同源，无新增行动。</div>
+    </div>
+
+    <div class="card mid">
+      <div class="meta">
+        <span class="badge life">📈 建仓</span>
+        <span class="badge partial">⚠️ Partial</span>
+        <span>来源: <a href="https://twitter.com/Astronaut_1216">@Astronaut_1216</a>（叫我阿杭）· 推文 ×3</span>
+      </div>
+      <div class="quote">小红书上有个生意叫动态壁纸：单价 5-15 元，一个月收益 3k 左右，很刚需……有了 AI 至少自己也能做个自己喜欢的壁纸。
+
+现在人人都可以在闲鱼上接单做企业级产品宣传片了。一条企业级宣传片报价 8 万–20 万，用 AI 成本 5000 足够了……我试了一下 Fotor Video Agent。</div>
+      <div class="why"><strong>框架有价值，数字要打折：</strong>这组推文的真实主张是「AI 把内容生产成本压坍一个数量级，中间存在套利窗口」。方向正确（下详），但两条变现案例均带引流结构（文末附提示词、号召去闲鱼获客），且宣传片条目实为 Fotor 广告。</div>
+      <div class="verify"><strong>⚠️ Phase 1.5 交叉验证（建仓类强制）：</strong><br>
+      ① <strong>壁纸月入 3k</strong> — 小红书官方口径：虚拟商品成交额同比 +3.7 倍、94% 为个人店，但<strong>月收入过万的商家仅占 5%</strong>；一线复盘称其属「低门槛、慢积累」小副业，有人一个月只赚 230 元。3k/月处于可信边缘，非普遍结果 → <strong>⚠️ Partial</strong>。<br>
+      ② <strong>宣传片 8-20万 vs AI 5k</strong> — 传统 1-3 分钟企业宣传片 2022 年均价约 8.2 万、2026 年预计降至 4.8-5.7 万（降幅 30-40%）；AI 制作分档报价 500-1 万，5k 对应「高级档」，量级属实。但价差正在以年 10%+ 收窄，且该推文本身是工具广告 → <strong>⚠️ Partial（套利窗口真实但在关闭中）</strong>。<br>
+      ③ <strong>Seedance</strong> — 字节跳动视频生成模型，真实存在且处于第一梯队 → ✅。<br>
+      <strong>反割韭菜检查</strong>：先问「发收益帖的人，是靠卖壁纸赚钱，还是靠卖壁纸教程赚钱？」——本组推文两条都带获客导流，符合后者特征。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>✅ 行动清单</h2>
+    <ul class="actions">
+      <li><strong>无新增行动项。</strong>今日 7 条信号无一条与工作主线（active.md）直接相关，且生活信号均为已知结论或已降权内容。</li>
+      <li>若日后考虑「AI 内容套利」类副业：先跑最小验证（1 周内实际接 1 单或卖出 1 份），不买任何教程；用「发帖人靠什么赚钱」作为第一过滤器。</li>
+      <li>「四本书 = 复利」框架可纳入个人读书复盘模板（健脑维度，5 分钟事）。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🚫 今日无深挖 Proposals 的理由</h2>
+    <div class="nodeep">
+      <strong>筛选结论：0/5 个方向达到深挖标准。</strong><br>
+      ① 双透镜过滤后，无一条信号与 active.md 工作主线直接相关（AI 变现簇仅弱关联已暂停的个人副业项目）；<br>
+      ② 高价值层为空（⭐×5 = 0），唯一 ⭐×3 信号已验证为 ⚠️ Partial 且属建仓（生活）维度——按规则不占深挖名额；<br>
+      ③ 剩余两条为已知结论的重复表述，属 skill 明确的「避免深挖」类。<br>
+      核心公理：<strong>不可行动的信息 = 噪音。</strong>强行凑 5 个 Proposal 只会制造噪音。本日按低信号日惯例（同 09-03 / 09-05）仅出简报。
+    </div>
+  </section>
+
+  <section>
+    <details>
+      <summary>📎 低价值附录 · 全部 7 条原文（默认收起）</summary>
+      <div class="card" style="margin-top:0.8rem">
+        <div class="meta"><span class="badge verified">✅ 已知结论</span><span>Jonathan Wu · <a href="https://twitter.com/JonathanFWu">twitter.com/JonathanFWu</a></span></div>
+        <div class="quote">最近大半年陆续看了《纳瓦尔宝典》《穷查理宝典》《原子习惯》和《认知觉醒》。前天和刘哥聊天的时候突然发现，这几本看起来完全不同的书，似乎一直在反复讲同一个东西：复利。我第一次认识"复利"这个词，是刚开始接触金融的时候。那时候我理解的复利很简单：（原文截断）</div>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="badge verified">✅ 教科书事实</span><span>Sci Nature News · <a href="https://twitter.com/SciNatureNews">twitter.com/SciNatureNews</a></span></div>
+        <div class="quote">🧠 Your brain is constantly building connections. Under a microscope, neurons can be seen extending tiny branches, exploring their surroundings and connecting with other neurons. These new connections form synapses — the communication points that allow brain cells to pass（原文截断）</div>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="badge partial">⚠️ Partial</span><span>叫我阿杭 · <a href="https://twitter.com/Astronaut_1216">twitter.com/Astronaut_1216</a></span></div>
+        <div class="quote">小红书上有个生意叫动态壁纸。先说结果：单价 5-15 不等差不多一个月收益能在 3k 左右，而且很刚需，小红书也推这类作品，都能吸引来大部分的流量，后附提示词。实现起来不难，我觉得每个人都可以试一试，实操性非常强。并且有了 AI 至少自己也能做个自己喜欢的壁纸。</div>
+        <div class="quote">现在会用 AI 变现的人会发现遍地都是黄金。最近又和我一个在做 AI 动态壁纸的朋友聊了一下，他这两个月又卖了 3000 块，有了 Seedance 之后更癫狂了。我们又复盘了一下这个生意为什么能够做的长久……过去两年，至少 15 个 App 类目里，都有 100 款以上 App 在名称或介绍中加上了 AI。</div>
+        <div class="quote">卧槽了！！！现在人人都可以在「闲鱼」上接单做企业级产品宣传片了！！！！！现在一条企业级产品宣传片的报价在多少？8 万–20 万元？那如果用 AI 成本在多少呢？5000 真的足够了，中间谁来做，谁都能赚一个大笔差价。牛来票房 6000w，机器人产品也跟着做出来了，我试了一下 Fotor Video Agent。（附 t.co 短链，原文见 Readwise）</div>
+        <div class="quote">赶紧来试试，赶紧试一下去闲鱼，去小红书上获客吧！！！（附 t.co 短链，原文见 Readwise）</div>
+      </div>
+    </details>
+  </section>
+
+  <div class="footnote">
+    my-readwise-briefing v4.3 · 增量窗口 2026-09-07T00:06:19Z → 2026-09-08T00:00:00Z · 拉取 3 来源 7 条 · 去重检查通过（与 0901-0907 期无重叠）<br>
+    验证信源：小红书虚拟商品官方数据（亿邦动力）、企业宣传片价格趋势（AIGC SDM 等）、一线副业复盘（知乎/什么值得买）· 生成于 CST 2026-09-08
+  </div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
