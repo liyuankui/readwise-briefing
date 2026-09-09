@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-09-09</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.4rem 0.7rem; font-size: 1.1rem; cursor: pointer; flex-shrink: 0;
+}
+section {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.5rem; margin-bottom: 1.5rem;
+}
+h2 { font-size: 1.15rem; color: var(--accent); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+h3 { font-size: 1.02rem; margin-bottom: 0.6rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+th { color: var(--text2); font-weight: 600; background: var(--surface2); }
+.stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.8rem; }
+.stat { background: var(--surface2); border-radius: 8px; padding: 0.6rem 1rem; text-align: center; flex: 1; min-width: 100px; }
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8rem; color: var(--text3); }
+.card { border-left: 3px solid var(--accent); background: var(--surface2); border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin-bottom: 1rem; }
+.card .meta { color: var(--text3); font-size: 0.85rem; margin-bottom: 0.4rem; }
+.badge { display: inline-block; padding: 0.1rem 0.55rem; border-radius: 10px; font-size: 0.78rem; margin-right: 0.4rem; }
+.b-verified { background: rgba(5,150,105,.14); color: var(--accent3); }
+.b-partial { background: rgba(217,119,6,.14); color: var(--accent4); }
+.note { color: var(--text2); font-size: 0.93rem; margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed var(--border); }
+.note b { color: var(--accent); }
+.source-link { color: var(--accent2); text-decoration: none; font-size: 0.88rem; word-break: break-all; }
+.life-card { border-left-color: var(--accent3); }
+.verdict { font-size: 0.92rem; }
+.verdict td:first-child { white-space: nowrap; font-weight: 600; color: var(--text2); }
+ul.tight { padding-left: 1.2rem; }
+ul.tight li { margin-bottom: 0.45rem; }
+.reason { color: var(--text2); font-size: 0.93rem; }
+footer { text-align: center; color: var(--text3); font-size: 0.82rem; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>📮 Readwise 情报简报</h1>
+    <div class="date">2026-09-09（周三）· 增量窗口：09-08 00:03 UTC → 09-09 00:00 UTC</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<section>
+  <h2>📊 统计概览</h2>
+  <div class="stats">
+    <div class="stat"><div class="num">1</div><div class="label">新增信号</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">高价值 ⭐×5</div></div>
+    <div class="stat"><div class="num">1</div><div class="label">中等 ⭐×3</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">深挖方向</div></div>
+    <div class="stat"><div class="num">122</div><div class="label">累计处理</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>🔭 信号概览</h2>
+  <table>
+    <tr><th>信号</th><th>验证</th><th>分层</th><th>一句话结论</th></tr>
+    <tr>
+      <td>29 个逻辑门玩马里奥</td>
+      <td><span class="badge b-verified">✅ 属实</span><span class="badge b-partial">⚠️ 有病毒误读</span></td>
+      <td>⭐×3 Intent<br>🧠 健脑</td>
+      <td>极小逻辑电路（进化/可微分训练）当游戏「控制器」属实；「29 门<b>运行</b>马里奥」是误读</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>⭐×3 中等价值 · 已验证</h2>
+  <div class="card">
+    <h3>仅用 29 个逻辑门就能玩马里奥？！我的大脑宕机了</h3>
+    <div class="meta">@ZeroZ_JQ（关木）· Twitter · 2026-09-08 · 来源分类：tweets</div>
+    <div class="verdict">
+      <table>
+        <tr><td>源头</td><td>日本 <b>@Tebasaki_lab</b> 09-07 推文「たった29個の論理ゲートでマリオをプレイ」；DeepMind 研究员 <b>David Pfau</b> 转发点评："It takes two neurons to ride a bicycle and twenty nine to play Super Mario Brothers."</td></tr>
+        <tr><td>研究脉络</td><td>可微分逻辑门网络（DiffLogic，NeurIPS 2022 一脉）正是「极少逻辑门玩 Atari/Mario」的路线；日本 IPA 未踏 2026 已立项「逻辑门神经网络 → FPGA HDL 生成库」，方向在升温</td></tr>
+        <tr><td>⚠️ 误读警告</td><td>英文社媒流传「Mario <b>running</b> on 29 gates」——错误。29 门只是<b>策略/控制器电路</b>，游戏本体仍跑在普通硬件上；原推「玩（プレイ）」用词准确</td></tr>
+        <tr><td>数字口径</td><td>「29」无法从论文一手核实（推文口径），但量级与 DiffLogic 系「几十个门玩转游戏」的结论一致</td></tr>
+      </table>
+    </div>
+    <div class="note"><b>为什么相关：</b>① 与「手搓 LLM」学习线（斯坦福 CS336 自学）形成极端对照——数十亿参数 vs 29 个门，「智能行为最少需要多少计算」是好问题；② 「能力 ∝ 规模」规模化叙事的一剂解毒剂，反直觉信号最有思考价值；③ K12 AI 教育可收录为「AI ≠ 大模型」的启发性案例。</div>
+  </div>
+</section>
+
+<section>
+  <h2>🌿 生活维度信号 <span style="font-size:.78rem;color:var(--text3)">不占深挖名额</span></h2>
+  <div class="card life-card">
+    <h3>🧠 健脑 · 认知冲击类</h3>
+    <div class="meta">同上条信号（29 逻辑门马里奥）双透镜命中</div>
+    <p class="reason">「我的大脑宕机了」式认知冲击本身就是健脑信号：它动摇了「复杂行为需要复杂机制」的直觉。神经科学里本就有「两个神经元足以骑自行车」的极简控制研究传统（Pfau 的点评正引此典）。适合作为周末轻松阅读引子：<span style="color:var(--accent)">两神经元自行车控制研究 + DiffLogic 论文</span>。</p>
+  </div>
+</section>
+
+<section>
+  <h2>✅ 行动清单</h2>
+  <ul class="tight">
+    <li><b>无紧急行动项</b>（低信号日，公理：不可行动的信息 = 噪音）</li>
+    <li>🟡 可选：若 CS336 契约确认复活，把「Deep Differentiable Logic Gate Networks (NeurIPS 2022)」加入扩展阅读——极简计算视角反哺 Transformer 理解</li>
+    <li>🟡 可选：K12 AI 课程案例库收录此例（「AI 不等于大模型」，一条电路也能玩马里奥）</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🚫 今日无深挖 Proposals 的理由</h2>
+  <p class="reason">仅 1 条 ⭐×3 信号（推文类，无 ⭐×5）。强行生成 5 份 Proposal 会触发质量红旗：与进行中项目连接弱、里程碑只能是「研究/探索」无可交付物。信号不足时保持沉默是纪律，不是偷懒。</p>
+</section>
+
+<footer>
+  Generated by my-readwise-briefing v4.3 · 2026-09-09 · 增量处理，未重复历史内容<br>
+  周三常规简报（周一版含上周总结，今日不适用）
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
