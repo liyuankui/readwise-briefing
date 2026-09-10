@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 2026-09-10</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif; background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 64px; }
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+h1 { font-size: 1.6em; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9em; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1.1em; }
+h2 { font-size: 1.25em; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); color: var(--accent); }
+h3 { font-size: 1.05em; margin: 18px 0 8px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 16px 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+.stat .num { font-size: 1.5em; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8em; color: var(--text3); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th { background: var(--surface2); text-align: left; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+.card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+.card.h5 { border-left-color: var(--accent); }
+.card.h3 { border-left-color: var(--accent4); }
+.card.life { border-left-color: var(--accent3); }
+blockquote { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; color: var(--text2); font-size: 0.95em; }
+.meta { color: var(--text3); font-size: 0.82em; margin-bottom: 8px; }
+.why { margin: 10px 0; }
+.why b { color: var(--accent2); }
+.verify { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.verify .v { font-weight: bold; }
+.v.warn { color: var(--accent4); } .v.ok { color: var(--accent3); } .v.bad { color: var(--accent5); }
+.tag { display: inline-block; font-size: 0.75em; padding: 1px 8px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); margin-right: 6px; color: var(--text2); }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
+summary { cursor: pointer; color: var(--text2); font-weight: bold; }
+.action { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin: 10px 0; }
+.note { color: var(--text3); font-size: 0.85em; }
+.footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.8em; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>📡 Readwise 情报简报 · 2026-09-10</h1>
+    <div class="date">周四 · 增量窗口 2026-09-09T00:00Z → 拉取时 08:00 CST · skill v4.3</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<h2>📊 统计概览</h2>
+<div class="stats">
+  <div class="stat"><div class="num">7</div><div class="label">新高亮</div></div>
+  <div class="stat"><div class="num">6</div><div class="label">来源</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">⭐×5 高价值</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">⭐×3 中等</div></div>
+  <div class="stat"><div class="num">4</div><div class="label">低价值(短链)</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">深挖 Proposals</div></div>
+</div>
+
+<h2>🔭 信号概览</h2>
+<table>
+  <tr><th>#</th><th>信号</th><th>透镜</th><th>分层</th><th>验证</th><th>去向</th></tr>
+  <tr><td>S1</td><td>企业级 context/data 共享基建 = 未来 2-3 年主战场（Roland.W）</td><td>Intent · Skill Hub / MCP / FA2</td><td>⭐×5</td><td>⚠️ Partial（趋势多源✅，时间表主观）</td><td><a href="readwise-proposals-20260910.html">→ P1</a></td></tr>
+  <tr><td>S2</td><td>CMU 秋季新课「AI Agents」28 讲全公开（Neubig × Fried）</td><td>Intent · Upskill/Eval + 🧠健脑</td><td>⭐×5</td><td>⚠️ Partial（作者/主题✅，课程页未实锤）</td><td><a href="readwise-proposals-20260910.html">→ P2</a></td></tr>
+  <tr><td>S3</td><td>硅谷裁员会：AI 时代逐 headcount 论证价值（美研芒格君）</td><td>工作 · 职业/管理</td><td>⭐×3</td><td>⚠️ 单源轶事不可验</td><td>简报注释（FA2 叙事素材）</td></tr>
+  <tr><td>S4-7</td><td>4 条仅 t.co 短链推文</td><td>—</td><td>⭐</td><td>❌ 公司网络无法解析</td><td>附录</td></tr>
+</table>
+
+<h2>⭐×5 高价值 · 已验证（含批判性注释）</h2>
+
+<div class="card h5">
+  <h3>S1 · 企业 context/data 共享基建：未来 2-3 年绝大部分公司会建成</h3>
+  <div class="meta">@rwayne（Roland.W）· Twitter · 2026-09-09 · <a href="https://x.com/rwayne/status/2097613480668864782">原文</a></div>
+  <blockquote>在未来2-3年内，绝大部分公司都会实现构建起足够多的 context 和 data 给内部的员工和 agent 共享。但是这个事情其实需要很多技术的基建的。技术能力比较屌的公司会快一点实现，我看了 @onlookersh 的设计架构，其实他们公司但凡敢再砸钱马上就可以实现（主要是他们公司太大）。</blockquote>
+  <div class="why"><b>为什么与你相关：</b>这不是远方叙事——你的组织 09-03 刚开完 MCP Gateway Registry 会议，Skill Hub v5（51 skills）正是在做「给 agent 供给 context 与工具」的治理层。该推文把这类工作命名为未来 2-3 年的公司级标配基建，直接支撑 Skill Hub / MCP Registry 的立项叙事；FA2 的 benefit tracking 也需要「context 复用 → 可量化节省」这条证据链。</div>
+  <div class="verify"><span class="v warn">⚠️ Partial</span> — 方向多源支持，时间表为主观预测：
+    <ul>
+      <li><span class="v ok">✅ 实测</span> Anthropic 官方工程博客 <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a>（2025-09-29，已抓取验证 200）：context engineering 已成工程学科；LLM 存在 <b>context rot</b>（token 越多召回越差）；核心原则 =「最小高信号 token 集」；技法含 just-in-time retrieval / compaction / 结构化笔记外置 / sub-agent。</li>
+      <li><span class="v ok">✅ 一手佐证</span>：自家 09-03 MCP Gateway Registry 会议——趋势已在身边发生，非纯推特观点。</li>
+      <li><span class="v warn">⚠️ 未验</span>：「绝大部分公司 / 2-3 年」为个人预测；@onlookersh 架构引用无法核实（x.com 不可达，WebSearch 配额 09-11 恢复）。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card h5">
+  <h3>S2 · CMU 2026 秋季新课「AI Agents」：从零搭 Harness、建评测、RL 训智能体，讲义视频全公开</h3>
+  <div class="meta">@shao__meng（Meng Shao）· Twitter · 2026-09-09 · <a href="https://x.com/shao__meng/status/2097496946877636655">原文</a></div>
+  <blockquote>CMU 26年秋季新课「AI Agents」：从零搭 Harness、建评测、用 RL 训智能体，讲义视频全公开。由 OpenHands 作者 Graham Neubig 与 Daniel Fried 联合开设，28 讲贯通工具调用、上下文工程、技能与记忆、SFT/RL 训练、沙箱安全与人机交互。</blockquote>
+  <div class="why"><b>为什么与你相关：</b>三个痛点同时被击中——① Upskill 讲师团调研 29 人显示「高意愿·中能力·<b>低方法论</b>」，这门课的 harness→评测→RL 骨架正是现成的方法论母版；② AI Coding Eval 正缺 harness/评测的理论地基；③ CS336（手搓 LLM）停滞待决，这门课偏「用」而非「造」，可能是更贴合团队现实的替代/互补路径。</div>
+  <div class="verify"><span class="v warn">⚠️ Partial</span> — 课程存在概率高，但课程页未实锤：
+    <ul>
+      <li><span class="v ok">✅ 已验</span> <a href="https://www.phontron.com/">phontron.com</a>（Neubig 官站）bio：CMU LTI 副教授 + OpenHands chief scientist——与「OpenHands 作者」一致。</li>
+      <li><span class="v ok">✅ 已验</span> GitHub 近期活动与课程主题严丝合缝：<a href="https://github.com/neubig/software-agent-sdk">neubig/software-agent-sdk</a>（OpenHands V1 agent SDK，09-08 fork）、<a href="https://github.com/neubig/harbor">neubig/harbor</a>（agent 评测 + RL 环境 framework，08-15 fork）。</li>
+      <li><span class="v bad">❌ 未实锤</span> 课程页本身：phontron.com 已改版为 SPA（bundle 无 aiagents 路由，200 是 catch-all）；CMU 课表 API / YouTube / Wayback 在公司网络均不可达。→ 已设 <b>M0 验证门</b>（手机网络或 09-11 配额恢复后 2 分钟可验）。</li>
+    </ul>
+  </div>
+</div>
+
+<h2>⭐×3 中等价值</h2>
+<div class="card h3">
+  <h3>S3 · 裁员决定会亲历：管理层要求逐 headcount 论证「AI 加持下的价值」</h3>
+  <div class="meta">@Kay2289123（美研芒格君）· Twitter · 2026-09-09 · <a href="https://x.com/Kay2289123/status/2097405625341026618">原文</a></div>
+  <blockquote>这个时代很残忍，目前我在硅谷一家一线厂任职 team lead。今天被管理层拉到了一个裁员决定会，说整个 org 要裁员10-15%。让我详细论证我组里的每一个 headcount 在 AI 的加持下都能为公司创造价值……</blockquote>
+  <div class="why"><b>批判性注释：</b>单源匿名轶事，细节不可验（WebSearch 配额受限），按推文降权规则处理。但它的<b>叙事框架</b>对 FA2 有直接借用价值：benefit tracking 的终极形态不是「省了多少小时」，而是「AI 加持下单位 headcount 的价值曲线」——这恰好是 09-01 跨台账收益框架缺的一层叙事。当作框架素材，不当事实依据。</div>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+<div class="card life">
+  <h3>🧠 健脑 · 双命中</h3>
+  <ul>
+    <li><b>S2（CMU AI Agents 课）</b>：Intent 与健脑双透镜命中——28 讲系统性 agent 工程学习本身就是「持续学习 + 心智模型建设」的健脑资产，主归属 Intent（P2 深挖），健脑为副标签。</li>
+    <li><b>S3（裁员推文）</b>：触发「职业护城河」议题——个人方法论资产化（可复用的 harness/评测能力）比岗位头衔更抗周期。已转化为行动清单第 3 条的叙事视角，不单独展开。</li>
+  </ul>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="action">
+  <ol>
+    <li><b>[2min·今日] 验证 CMU 课程页</b>：手机网络访问 phontron.com 或搜「CMU AI Agents Neubig Fried」（WebSearch 配额 09-11 02:47 UTC 恢复）→ 决定 P2 是否启动。</li>
+    <li><b>[30min·本周] 通读 Anthropic context engineering 文章</b>（URL 已验活），提炼「最小高信号 token 集 / context rot / compaction」三个概念入 Skill Hub 与 MCP Registry 设计参考。</li>
+    <li><b>[FA2·叙事] 把 S3 的「headcount 价值论证」框架</b>注入 09-01 跨台账收益框架：从「省时」升级为「AI 加持下单位 headcount 价值」。</li>
+  </ol>
+</div>
+
+<details>
+  <summary>📎 低价值附录（4 条 t.co 短链推文，默认折叠）</summary>
+  <ul>
+    <li>@puoilj78398（起司）· <a href="https://x.com/puoilj78398/status/2097626087350268158">原文</a> — 仅短链</li>
+    <li>@AdrianPunk115 · <a href="https://x.com/AdrianPunk115/status/2088543211656753278">原文</a> — 仅短链</li>
+    <li>@rwayne（Roland.W）· <a href="https://x.com/rwayne/status/2097305709683884441">原文</a> — 仅短链</li>
+    <li>@Astronaut_1216（叫我阿杭）· <a href="https://x.com/Astronaut_1216/status/2097247225848185007">原文</a> — 仅短链</li>
+  </ul>
+  <p class="note">t.co 解析在公司网络超时（x.com 不可达），无法判断短链内容；多为图/视频推文。如需补看请用手机网络。</p>
+</details>
+
+<div class="footer">
+  <p>📡 my-readwise-briefing v4.3 · Phase 1.5 验证受网络限制（WebSearch 配额 2026-09-11 恢复，x.com/YouTube/Wayback 不可达），验证结论已如实标注 · 深挖 Proposals 见 <a href="readwise-proposals-20260910.html">readwise-proposals-20260910</a> · 周四无周报（周一随日更产出）</p>
+</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
