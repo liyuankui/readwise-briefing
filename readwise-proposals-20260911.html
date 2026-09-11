@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals 2026-09-11</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif; background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 64px; }
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+h1 { font-size: 1.6em; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9em; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1.1em; }
+h2 { font-size: 1.25em; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); color: var(--accent); }
+h3 { font-size: 1.05em; margin: 18px 0 8px; }
+h4 { font-size: 0.95em; margin: 14px 0 6px; color: var(--accent2); }
+.axiom { background: var(--surface2); border-left: 4px solid var(--accent5); border-radius: 8px; padding: 10px 16px; margin: 16px 0; font-weight: bold; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+th { background: var(--surface2); text-align: left; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+.card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
+.claim { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+.claim b { color: var(--accent); }
+.meta { color: var(--text3); font-size: 0.82em; margin-bottom: 8px; }
+.challenge { background: var(--surface2); border-left: 3px solid var(--accent5); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 0.92em; }
+.action { background: var(--surface); border: 1px solid var(--accent3); border-radius: 10px; padding: 12px 16px; margin: 10px 0; }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.8em; }
+.tag { display: inline-block; font-size: 0.75em; padding: 1px 8px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); margin-right: 6px; color: var(--text2); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>🎯 Readwise 深挖 Proposals · 2026-09-11</h1>
+    <div class="date">周五 · 5/5 subagent 成功 · Phase 1 简报见 <a href="readwise-briefing-20260911.html">readwise-briefing-20260911</a></div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom">不可行动的信息 = 噪音。今日五案全部经过 Phase 1.5 独立验证（2 ✅ + 2 ✅ + 1 ⚠️ 降权后使用）。</div>
+
+<h2>🔀 信号 × 项目 对应</h2>
+<table>
+  <tr><th>#</th><th>信号（验证状态）</th><th>连接项目</th><th>Proposal</th></tr>
+  <tr><td>P1</td><td>「Add to Cart 改蓝色」讽刺剧（HN 1160pt ✅）</td><td>AI 编码评测 × 工具试点 Biz Case</td><td>Blast Radius 评分器</td></tr>
+  <tr><td>P2</td><td>Anthropic 经济三情景（✅ 全文已读）</td><td>FY27 效率主线收益框架</td><td>Task-based 工时台账</td></tr>
+  <tr><td>P3</td><td>Lotus Notes 重写教训（✅ 全文已读）</td><td>POS 现代化 BFF/本地化 × 平台整合</td><td>架构 Guardrails</td></tr>
+  <tr><td>P4</td><td>DeepSeek 价格信号（⚠️ v4.1 传闻隔离，价格层已验）</td><td>低成本模型提案 × 企业采购案</td><td>价格基线加固</td></tr>
+  <tr><td>P5</td><td>休谟《论品味的标准》（✅ 1757 论文实证）</td><td>品味库 × AI 评审</td><td>评判者资格闸门</td></tr>
+</table>
+
+<div class="card">
+<h3>P1 · Blast Radius 评分器——把「改一件事炸一片」变成选型报告里的一列数据</h3>
+<div class="meta">信号：<a href="https://opusfived.dev/">opusfived.dev</a>（HN 09-10 当日第一，1160pt）· 连接：AI 编码评测 × AI 工具试点采购案</div>
+<div class="claim"><b>核心主张：</b>在评测管线已有的 patches 落盘 + allowed_files 白名单 + gold patch 三件套上，新增一个纯函数 blast-radius 评分器（可单测、可对历史 run 回溯），约 3.5 人天兼职——让「越界改动」从社区梗变成采购案与选型报告里的可量化列。仓库实证发现：评测 SPEC 里其实已定义了 Scope Compliance 与 Blast Radius 两个维度，但从未自动化——本案是落地既有设计，非发明新平台。</div>
+<h4>失控模式 → 可测指标</h4>
+<table>
+  <tr><th>讽刺剧情节</th><th>指标</th><th>判定</th></tr>
+  <tr><td>改按钮颜色却动了 CI/配置</td><td>out-of-scope files</td><td>diff 文件 ∉ allowed_files ∪ tests</td></tr>
+  <tr><td>顺手重构无关函数</td><td>diff-line ratio</td><td>model diff 行数 vs gold diff 行数，>3 为重构冲动</td></tr>
+  <tr><td>换依赖版本</td><td>dependency drift</td><td>构建/lock 文件被非必要改动</td></tr>
+  <tr><td>改测试让它通过</td><td>test tampering</td><td>impl patch 触碰 test 文件（FAIL 级）</td></tr>
+</table>
+<h4>里程碑</h4>
+<ul>
+  <li><b>M0（09-15）</b>：指标契约入 SPEC + 纯函数评分器 + 单测，已知 case 作第一个样例（0.5 天）</li>
+  <li><b>M1（09-18）</b>：历史 run 回溯出分 + 证伪门——若各模型组合 blast radius 全同（如全 0），维度不 discriminate，提案作废归档（1.5 天）</li>
+  <li><b>M2（09-25）</b>：judge rubric 增 scope 维度，复用现有门禁与 llm-as-qa-judge（1 天）</li>
+  <li><b>M3（09-30）</b>：试点真实 PR 抽样 20 个跑同一评分器 → Biz Case 附录（0.5 天）</li>
+  <li><b>M4（10 月中）</b>：进选型报告——Pass@1 × Blast-Radius 象限图</li>
+</ul>
+<h4>ROI</h4>
+<p>采购案里「质量不下降」从 survey 主观变 diff 客观证据：无论结果偏向哪边都增强报告（越界率持平→支持换便宜模型；更高→量化隐性 review 成本）。成本 ~3.5 人天，零新平台零新依赖，M1 证伪则止损于 2 人天。</p>
+<div class="action"><b>立即行动（本周）：</b>① 0.5h 锁定字段契约 {oos_files, oos_lines, dep_drift, test_tamper, format_noise} ② 2h 写评分器纯函数+单测 ③ 1h 历史回溯看区分度 + 给试点组约定 commit 标记规范（本周不定则 09-30 前无采样窗口）。</div>
+<div class="challenge"><b>诚实挑战：</b>① 该维度可能根本不 discriminate——satire 讽刺的是交互式长会话，eval 是一次性委托任务，满分模型的 blast radius 很可能也全满分，M1 证伪门必须真执行；② gold patch 不是「应改多少」的圣杯，人类 PR 本就夹带无关改动，阈值易被质疑 cherry-pick；③ 排挤信任红线——若与「修信任缺口」二选一，先修信任再扩维度；④ 指标测的可能是 harness 沙盒约束而非模型自律，报告须显式拆分 model discipline vs harness containment。</div>
+</div>
+
+<div class="card">
+<h3>P2 · Task-based 工时台账——给 FY27 收益框架装上「工时验钞机」</h3>
+<div class="meta">信号：<a href="https://www.anthropic.com/institute/econ-scenarios">Anthropic 经济三情景</a>（Korinek et al. 2026，✅ 全文已读）· 连接：FY27 效率主线（跨台账收益框架增强，不另起炉灶）</div>
+<div class="claim"><b>核心主张：</b>把宏观经济学的 task-based accounting 缩小为「团队级任务台账」——每项 routine 工作标记 unchanged / augmented / automated / newly created 四态——作为工时证据引擎；三情景框架把 sponsor 的 success picture 落成保守/基准两档可签承诺。09-01 框架已定「钱落在哪个账本」，本案补「工时如何被证明」——正是上财年翻车处（工时 claim 只到 forecast，无法验证）。</div>
+<h4>核心公式（负项抵扣防虚报）</h4>
+<p>Net released hours = Σ (任务基线工时 × Δt × adoption) − Σ newly created 任务工时</p>
+<h4>里程碑</h4>
+<ul>
+  <li><b>M1（本周，3h）</b>：任务台账模板 v0.1 + 自团队 dogfood（各人 ≤45min，≥15 项高频任务四态分类）</li>
+  <li><b>M2（W2-3，4h）</b>：双团队基线采样挂靠现有活动（AI 工具试点 + 1 个非工程团队）</li>
+  <li><b>M3（W3-4，3h）</b>：三档 success picture 一页纸，并入已排期的 9 月 sponsor review（零新增会议）</li>
+  <li><b>M4（T1 末，6h）</b>：Jira 字段扩展 2 个 + 首次季度刷新（人均维护 ≤30min/季）</li>
+  <li><b>M5（T2，4h）</b>：工时→P&amp;L 转化审计，对接 Finance 实测 conversion rate</li>
+</ul>
+<h4>成功标准与 ROI</h4>
+<table>
+  <tr><th>指标</th><th>T1</th><th>FY27 末</th></tr>
+  <tr><td>台账覆盖率（工时 claim 可追溯比例）</td><td>≥60%</td><td>≥90%</td></tr>
+  <tr><td>证据升级率（operational 级及以上占比）</td><td>≥40%</td><td>≥70%</td></tr>
+  <tr><td>净工时验证率（validated ÷ claimed）</td><td>≥50%</td><td>实测取代假设</td></tr>
+</table>
+<p>示例测算（12 人团队，routine 占 40%，基准档自动化 25%，抵扣 15%）：人均释放 180h → 团队净释放 1,836h → 转化 918h；十团队组合年化约百万元级。单团队数字不大——诚实呈现；价值在组合级与「大型 claim 重新获得可辩护的 bottom-up 算法」。</p>
+<div class="action"><b>立即行动（本周）：</b>① 台账 v0.1 自团队 dogfood ② 给试点的一次性 survey 加 3 个任务台账问题（志愿者未开始用，正是收 baseline 的零成本窗口）③ 三档 success picture 一页纸塞进已排期 sponsor review；方法论出处引 Korinek et al. 2026（学术中性）而非厂商叙事。</div>
+<div class="challenge"><b>诚实挑战：</b>① 方法论可能错配真缺口——上财年卡住的是 ownership 与 adoption（人的问题），不是测量精度（算的问题）；9 月 review 直接问 sponsor「若工时数字有 ±30% 误差但归属清楚，你还要精度吗？」答案为否则降级为三行简表；② 复杂度悖论——「消除 routine」的项目自己制造 routine（季度填台账），设 kill criterion：连续两季未改变任何 portfolio 决策→停；③ 诚实会计出难看的数——负项抵扣后早期净收益可能近零，须与 sponsor 事先约定「负数也是合法结果」；④ 来源偏见——框架出自有动机讲 AI 收益的 AI 实验室，内部引用一律锚定学术报告。</div>
+</div>
+
+<div class="card">
+<h3>P3 · 架构 Guardrails——Lotus Notes 教训预写「压力时刻的承诺」</h3>
+<div class="meta">信号：<a href="https://buttondown.com/blog/lotus-notes-email">Lotus Notes and the dangers of starting from scratch</a>（✅ 全文已读）· 连接：POS 现代化 BFF 层/门店本地化 × 平台整合论证</div>
+<div class="claim"><b>核心主张：</b>凡交易核心平台已有权威实现的能力（计价、订单、退货），BFF 与门店侧只许「编排、缓存、排队」，不许出现第二份规则；凡无权威实现的能力（断网韧性），先买标准件、再用 point solution，自建引擎需三重举证——无权威实现可复用、无标准件可买、自建后演进速度可承诺。Guardrails 的价值不在给出拆解（团队已有正确洞见：统一能力与运行时隔离分开），而在<b>预测放弃它的时点</b>——叠券算不动、门店断网、试点出事故的那一刻。</div>
+<h4>Guardrail Checklist（ADR 一页，BFF 讨论前发）</h4>
+<ul>
+  <li><b>G1 单一计价源</b>：BFF/门店侧代码含 0 条优惠、计价、订单状态规则；叠券阻塞只进核心平台 backlog，不进 BFF 补丁</li>
+  <li><b>G2 契约对齐</b>：BFF 与门店端只说 canonical 契约（或公司级 commerce API 标准），不造新方言</li>
+  <li><b>G3 各层守各层惯例</b>：BFF=体验编排（聚合/超时/降级/UI 适配），仅此归前端团队；业务语义变更需核心平台 owner 评审并持否决权</li>
+  <li><b>G4 断网=降级非自治</b>：本地白名单仅含试点门店<b>实测数据</b>证实的 top 高频操作；无数据不进白名单</li>
+  <li><b>G5 store-and-forward</b>：断网交易本地只排队，恢复后核心平台重放；禁止本地事务引擎与本地冲突裁决</li>
+  <li><b>G6 point solution 优先</b>：每个需求先过「网络冗余/成熟标准件能否解决」，再谈平台方案</li>
+  <li><b>G7 防内部 lock-in</b>：核心平台消费成本（API 文档、SLA、变更响应时长）季度度量公示——复用必须赢在「最好用」，不能赢在「只能用」</li>
+</ul>
+<h4>平台整合论证（可直接引用的句式）</h4>
+<p>「GHES is our Lotus Notes: brilliant at deployment, frozen by design. Every capability the industry ships next year—especially AI—arrives on GHEC and never on GHES. Staying is not neutral; it is choosing to rebuild the upstream roadmap ourselves.」——举证责任反转版：「If no one can name the specific control that GHES satisfies and GHEC cannot, then compliance is not a reason to stay—it is an unverified default.」（守 SPEC 约束：反方成立条件同表呈现，若真有数据驻留类控制项则进选项比较而非默认收敛。）</p>
+<h4>成功标准（6 个月）</h4>
+<p>BFF 仓库计价规则数=0（CI 验证）；叠券在核心平台侧跑通、无 BFF 补丁；白名单附实测数据；G7 出首份季度报告；平台整合的「具体控制项」问题得到回答或确认为空。</p>
+<div class="action"><b>立即行动（本周）：</b>① BFF 讨论前发一页 ADR（G1-G3 + 负面清单），写明是前端团队承接的<b>前提条件</b> ② 现在就把「阻塞点只进核心平台 backlog」写进团队工作约定——压力时刻来临前定规则，来临后来不及 ③ 拉试点门店一周断网频率/时长实测 → 白名单初稿；并行向平台决策人发核心一问（点名具体控制项）。</div>
+<div class="challenge"><b>诚实挑战：</b>① 类比强度存疑——Notes 输给的是市场竞争中的外部开放标准；内部「核心平台」无外部竞争者，「开放标准必胜」退化为「对齐 canonical 服务」，论证强度弱一个数量级，故每条 guardrail 均附独立工程理由，Notes 只作记忆锚点；② 核心平台自身可能就是内部 Notes——若复用只能靠「不许自建」的行政命令维持，那已是 lock-in 而非标准轨道，G7 即为此设的自省开关：复用应是每季度重新证明的立场，不是豁免审查的身份；③ 离线是零售刚需非奢侈（现代 POS 原生 offline-first）——教训从来不是「不要本地」，是「不要手搓复制引擎」；④ 若被读成「复用压倒一切」会催生影子 IT——白名单+数据+三重举证就是泄压阀。</div>
+</div>
+
+<div class="card">
+<h3>P4 · 双 Biz Case 加固——已验证价格基线 + 同口径成本模型</h3>
+<div class="meta">信号：DeepSeek v4.1 flash 传闻（⚠️ 版本号未获官方确认，隔离于 watchlist）+ V4 Flash 价格层（✅ Reuters/Forbes/Artificial Analysis 多源一致）· 连接：低成本模型提案 × 企业采购案</div>
+<div class="claim"><b>核心主张：</b>以可溯源的价格基线（每行带来源+日期）和「同等工作量总花费」为唯一口径，把 biz case 从「国产模型便宜 2-4×」升级为可防御的采购命题——质量闸（Pass@1 差 ≤5pp）之内，混合路由（Copilot 席位 + 国产 Flash 按量）把每席月成本从 $100 参考口径压到 $26-61，省 39-74%。</div>
+<h4>口径纪律</h4>
+<p>汇率 6.7221（核验日期标注）· 输入输出比 180:1（agent 模式实测口径）· 基准一律峰时价，促销/新用户/谷时价不入 TCO · 可引用来源仅三类：厂商官方定价页、Artificial Analysis、Reuters 级财经媒体 · v4.1 传闻永不入基准表。</p>
+<h4>里程碑</h4>
+<ul>
+  <li><b>M1（09-12）</b>：价格基准表 v1 冻结（模型｜峰/谷价｜来源+日期｜证据等级）</li>
+  <li><b>M2（09-12-14）</b>：计量就绪——志愿者基线月账单 + 试点后台导出 + 2-3 人 CLI sidecar 落盘 token 级真账单</li>
+  <li><b>M3（试点期）</b>：峰值/均值成本模型（参考负载 48.66M tokens/席/月；敏感性：2× attempts、cache 0/50%、谷时 0/30%）——输出区间不是点估</li>
+  <li><b>M4（10-08-12）</b>：Biz Case 成文 + 偏差声明 + 非参与者 review</li>
+  <li><b>M5（10-15 常设）</b>：月度价格核验 30min；任一价 >20% 变动触发数字刷新；传闻只进 watchlist</li>
+</ul>
+<h4>ROI（假设全部列出）</h4>
+<table>
+  <tr><th>每席/月</th><th>成本</th><th>vs $100 参考</th></tr>
+  <tr><td>Copilot Enterprise 现状</td><td>$39 + $61 按量</td><td>基线</td></tr>
+  <tr><td>混合-B（Business + Flash 按量）</td><td>$26-41</td><td>省 59-74%</td></tr>
+  <tr><td>混合-E（Enterprise + Flash 按量）</td><td>$46-61</td><td>省 39-54%</td></tr>
+</table>
+<p>规模化年账：100 席 $71-88K/年；500 席（区域量级）$355-442K/年。<b>诚实注脚</b>：模型支出 &lt; 工程师满负荷成本 1%——真正的钱在吞吐：若 Credit 墙消失让 agent 用法放开，产能 +5% ≈ 百人团队年化 $600K，比 license 节省大一个量级。Biz Case 应以「成本上限+能力放开」双轮叙述。</p>
+<div class="action"><b>立即行动（本周）：</b>① 冻结价格基准表 v1 + 查 admin console 实际 SKU 消灭 $19/$39 口径矛盾 ② 抢在试点污染基线前拉志愿者基线月账单 + 实测后台导出 + 圈定 sidecar 志愿者 ③ 催厂商 DPA + 向 DeepSeek/Z.ai/百炼各索一份带有效期的正式报价单（procurement 级证据优于截图，且锁价）。</div>
+<div class="challenge"><b>诚实挑战：</b>① 老 ROI 模型已被 agent 时代击穿——旧调研假设 4:1 输入输出比算出团队 $5/月，按 180:1 重算上修 16 倍；旧数字一旦被采购戳穿全案信用清零，必须主动换掉；② 「2-4×」是档位配对骗局高发区——旗舰对旗舰成立、vs 中坚档只有 1.45×、13.7× 只在 flash 档成立，任何混档幻术都会被懂行的人一枪打死；③ 返工成本吃掉 licence 节省——质量低 5pp 若致每人每月 2h 返工恰好抵消全部节省，质量闸必须前置；④ 管理开销不是零（gateway/DPA/审计皆有人力）；⑤ 席位价朴素比较必翻车——Credit 单位语义不同，叙事必须是「同一批人、同一月真实工作、两张总账单」。</div>
+</div>
+
+<div class="card">
+<h3>P5 · 评判者资格闸门——休谟五特征操作化为 dimensions.md v2</h3>
+<div class="meta">信号：<a href="https://x.com/lijigang/status/2098051184586379761">@lijigang 推文</a>（休谟 1757《Of the Standard of Taste》✅）· 连接：品味库 × AI 评审（llm-as-qa-judge / 评审 skills）</div>
+<div class="claim"><b>核心主张：</b>品味不可灌输，评判者可认证——把品味标准从「生成端 prompt」迁到「评审端资格闸门」，休谟五特征（细腻/实践/比较/无偏见/常识）操作化为五个可测闸门，让 agent 的每个 verdict 附带资质证据，而非貌似有理的噪声。Part 1 继续做生成端灵感层，v2 做评审端仪表层——不废弃注入，只把可证伪的部分搬到评判侧。</div>
+<h4>五闸门</h4>
+<table>
+  <tr><th>休谟特征</th><th>闸门测法</th><th>通过线</th></tr>
+  <tr><td>Delicacy 细腻</td><td>G1 配对判别：已知偏好的 A/B 对，命中方向率</td><td>≥80%（随机=50%）</td></tr>
+  <tr><td>Practice 实践</td><td>G2 重测一致：同物两次判定（换序/换 session）</td><td>≥90%，漂移 ≤1 星</td></tr>
+  <tr><td>Comparison 比较</td><td>G3 锚依赖：带 3 正例+3 反例锚 vs 不带，比较离散度</td><td>无锚 3 星率 &lt;40%</td></tr>
+  <tr><td>无偏见</td><td>G4 偏差探针：换位/垫长/去署名/盲化</td><td>不变率 ≥90%</td></tr>
+  <tr><td>Good Sense</td><td>G5 理由审计：维度+证据引文+锚点比较三件套</td><td>引用率 100%</td></tr>
+</table>
+<p>铁律：任一闸门不过的判定不得进入评审结论，只进待校准区——「合格评判者的联合裁决」由此现代化为「持证判定方可登台」。</p>
+<h4>里程碑（Kyle 累计约 4h）</h4>
+<ul>
+  <li><b>M1（周1）</b>：校准集 v0——agent 自 Taste Journal 提 20 条 + 本人补 5 条近判</li>
+  <li><b>M2（周2）</b>：dimensions.md v2 草案 + judge harness v0，首次盲跑出 G1/G3/G5 基线</li>
+  <li><b>M3（周3-4）</b>：偏差探针 + 重测全项；阈下维度降级「仅评论不评分」</li>
+  <li><b>M4（周5-6）</b>：简报星级 shadow 试点——agent 星 vs 行为真值（是否打开/深挖/入 active）对齐 + ≥10 条分歧仲裁</li>
+</ul>
+<h4>成功标准与 ROI</h4>
+<p>校准一致率（judge 盲跑 vs 本人标签）4 周内 ≥80%；重测一致 ≥90%；四探针不变率 ≥90%；星级 vs 行为真值对齐 ≥75% 且逐周升。ROI：agent verdict 从「貌似有理」变「持证上岗」；品味库从「经文」变「仪器」；QA judge skill 直接复用闸门（其「Calibrated」目前仅自宣）。</p>
+<div class="action"><b>立即行动（本周）：</b>① agent 自 Journal 提 20 条 exemplar → calibration.jsonl（本人审 30 分钟，五闸共此底座）② dimensions.md 增量 ≤80 行写 Part B 骨架，锚案例直引 Journal（零新增标注）③ 盲测首跑 10 对 A/B（换序）测 G1/G4 基线。</div>
+<div class="challenge"><b>诚实挑战（直击类比断裂）：</b>① Practice 之断——休谟的实践=反复观同一物铸成习惯性器官，LLM 跨 session 失忆，in-context exemplar 模拟实践的<b>产出</b>而非<b>器官</b>；一致性测的是噪声不是修炼——系统性偏差恰最一致，judge 可 100% 一致且一致地盲；② 共同体裁决之断——休谟标准=相互独立的批评家跨时代互证，同源训练的模型 ensemble 高一致是「以同错方式一致」，本提案实建者是「单人单模一致性校准」，近于调音回声，非立标准；③ 循环悖论——匹配旧偏好 ≠ 对，校准即品味回音室的入口，judge 恰可能滤掉驱动品味演化的新颖异例，分歧仲裁依赖人判的成本须永久支付；④ 小样本下 judge 吃透两三条表面启发式（长度/排版/关键词）即可达标，初期过关应读作「未被证伪」非「具备细腻」；⑤ 试点战场受染——简报星级是「品味 × intent 对齐 × 新颖度」混合物，结论不能机械外推至干净战场。</div>
+</div>
+
+<div class="footer">
+  <p>🎯 my-readwise-briefing v4.3 · Phase 2 五案全部 subagent 独立生成（5/5 成功，无内联兜底）· 每案含诚实挑战自检 · 信号验证详情见 <a href="readwise-briefing-20260911.html">Phase 1 简报</a> · 公开存档已脱敏</p>
+</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
