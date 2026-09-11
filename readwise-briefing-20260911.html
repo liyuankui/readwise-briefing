@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 2026-09-11</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif; background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 64px; }
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+h1 { font-size: 1.6em; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9em; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1.1em; }
+h2 { font-size: 1.25em; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); color: var(--accent); }
+h3 { font-size: 1.05em; margin: 18px 0 8px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 16px 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+.stat .num { font-size: 1.5em; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8em; color: var(--text3); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th { background: var(--surface2); text-align: left; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+.card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+.card.h5 { border-left-color: var(--accent); }
+.card.h4 { border-left-color: var(--accent2); }
+.card.h3 { border-left-color: var(--accent4); }
+.card.life { border-left-color: var(--accent3); }
+blockquote { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; color: var(--text2); font-size: 0.95em; }
+.meta { color: var(--text3); font-size: 0.82em; margin-bottom: 8px; }
+.why { margin: 10px 0; }
+.why b { color: var(--accent2); }
+.verify { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.verify .v { font-weight: bold; }
+.v.warn { color: var(--accent4); } .v.ok { color: var(--accent3); } .v.bad { color: var(--accent5); }
+.tag { display: inline-block; font-size: 0.75em; padding: 1px 8px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); margin-right: 6px; color: var(--text2); }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin: 14px 0; }
+summary { cursor: pointer; color: var(--text2); font-weight: bold; }
+.action { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin: 10px 0; }
+.note { color: var(--text3); font-size: 0.85em; }
+.footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.8em; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>📡 Readwise 情报简报 · 2026-09-11</h1>
+    <div class="date">周五 · 增量窗口 2026-09-09T21:36Z → 拉取时 08:00 CST · skill v4.3</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<h2>📊 统计概览</h2>
+<div class="stats">
+  <div class="stat"><div class="num">4</div><div class="label">新信号源</div></div>
+  <div class="stat"><div class="num">30</div><div class="label">HN头条(重建)</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">重复排除</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">⭐×5 高价值</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">⭐×4</div></div>
+  <div class="stat"><div class="num">5</div><div class="label">深挖 Proposals</div></div>
+</div>
+<div class="note">今日增量：2 条推文高亮 + 1 条 HN 日报（Reader 正文 API 为空，用 Algolia 一手数据独立重建 09-10 头条）+ 1 条无文推文；起司（t.co）与 CMU 课 2 条与 dedup 库 URL 重复，已排除未重复处理。周五无周报（下周一随日更产出）。</div>
+
+<h2>🔭 信号概览</h2>
+<table>
+  <tr><th>#</th><th>信号</th><th>透镜</th><th>分层</th><th>验证</th><th>去向</th></tr>
+  <tr><td>S1</td><td>「Claude, 把加购按钮改成蓝色」——agent 越界改码的讽刺喜剧，HN 当日第一</td><td>Intent · 编码评测/工具选型</td><td>⭐×5</td><td>✅ Verified</td><td><a href="readwise-proposals-20260911.html">→ P1</a></td></tr>
+  <tr><td>S2</td><td>Anthropic 经济三情景：task-based 框架量化 AI 对工作的影响</td><td>Intent · FY27 收益框架 + 📈建仓</td><td>⭐×5</td><td>✅ Verified（全文已读）</td><td><a href="readwise-proposals-20260911.html">→ P2</a></td></tr>
+  <tr><td>S3</td><td>Lotus Notes 教训：从零自建的危险，开放标准最终获胜</td><td>Intent · POS 现代化架构</td><td>⭐×4</td><td>✅ Verified（全文已读）</td><td><a href="readwise-proposals-20260911.html">→ P3</a></td></tr>
+  <tr><td>S4</td><td>休谟《论品味的标准》：品味有标准，合格评判者五特征</td><td>Intent · 品味库 + 🧠健脑</td><td>⭐×4</td><td>✅ Verified</td><td><a href="readwise-proposals-20260911.html">→ P5</a></td></tr>
+  <tr><td>S5</td><td>DeepSeek v4.1 flash 传闻：比 v4 pro 更便宜更强</td><td>Intent · 低成本模型提案</td><td>⭐×3</td><td>⚠️ Partial（版本号未确认，价格层已验）</td><td><a href="readwise-proposals-20260911.html">→ P4</a></td></tr>
+  <tr><td>S6</td><td>监控三连：Flock / Anthropic 监控系统 / Muse 乐队失去账号</td><td>Intent · 设备监控研究</td><td>⭐×3</td><td>⚠️ 标题层，未逐篇验证</td><td>简报注释</td></tr>
+  <tr><td>S7-8</td><td>GPT-6 Astra 技术解读 / Apple Watch S12 健康传感</td><td>🧠健脑 / 🏋️健身</td><td>⭐×3/×2</td><td>未验证</td><td>生活区</td></tr>
+</table>
+
+<h2>⭐×5 高价值 · 已验证（含批判性注释）</h2>
+
+<div class="card h5">
+  <h3>S1 · 「Claude, change the 'Add to Cart' button to blue」：agent 改一件事炸一片的黑色幽默</h3>
+  <div class="meta">Hacker News 2026-09-10 当日第一 · 1160 points · <a href="https://opusfived.dev/">opusfived.dev</a>（互动讽刺喜剧）</div>
+  <blockquote>任务设定：「把这个电商加购按钮改成蓝色。别的什么都别动。」用户的角色是阻止 Claude 越界。副标题：A short interactive comedy about agentic AI assistants that can never just do the thing。</blockquote>
+  <div class="why"><b>为什么与你相关：</b>1160 分的文化信号意味着「scope discipline」已是开发者社群最痛的集体痛点。你的编码评测目前只测「修没修对」（FTP 满分×3 个模型并列，区分度耗尽），而 satire 暴露的「blast radius」——改一件事顺手重构一片——恰是企业选型时真实决策变量，也是「质量不显著下降就换便宜模型」论点里唯一没被测量的质量维度。给评测加一个 diff 最小性指标，评测区分度和提案说服力同时补齐。</div>
+  <div class="verify"><span class="v ok">✅ Verified</span>
+    <ul>
+      <li><span class="v ok">✅ 实测</span> 落地页 200 可达，确认为 satire（标题双关 Claude Opus），前提与副标题如实引用。</li>
+      <li><span class="v ok">✅ 数据</span> HN 1160pt 为当日头名（Algolia 一手数据），共鸣度即信号强度。</li>
+      <li><span class="v warn">⚠️ 定位</span> 非技术论文、无数据——价值在痛点确认与文化引用，不作因果证据使用。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card h5">
+  <h3>S2 · Anthropic 经济三情景：把「AI 对工作的影响」做成可操作的任务台账方法论</h3>
+  <div class="meta">Anthropic Institute · econ-scenarios · HN 229pt · <a href="https://www.anthropic.com/institute/econ-scenarios">原文</a>（2026-09-09）</div>
+  <blockquote>三情景推演至 2030：Modest（似互联网渐进）/ Substantial（AI 半自主处理一半知识工作，增速翻倍）/ Extreme（GDP +32.4%，经济每 4.5 年翻倍）。方法论核心：task-based framework——工作建模为任务束，每项标记 unchanged / augmented / automated / newly created。</blockquote>
+  <div class="why"><b>为什么与你相关：</b>FY27 效率主线的已知缺口正是「工时节省无法可持续验证」——上财年证明了潜力，暴露的是 benefit tracking 空转。这篇的方法论恰好是缺的那块拼图：宏观的 O*NET 任务分类法可以缩小为团队级任务台账（哪些任务没变/被增强/被自动化/新产生），三情景框架可直接用于 sponsor 的 success picture 对齐（乐观/中性/保守三档承诺，不再拍单一数字）。比「省了多少小时」高一个层级的会计语言。</div>
+  <div class="verify"><span class="v ok">✅ Verified</span>（全文已读，数字来自原文）
+    <ul>
+      <li><span class="v ok">✅ 数据</span> GDP vs 基线 +1.6% / +8.3% / +32.4%；劳动份额 60/40 → Extreme 下 45.2/54.8；Substantial 下 ~2.5% 工人置换。学术底：Korinek et al. 2026，Acemoglu/Autor/Klenow 审阅。</li>
+      <li><span class="v ok">✅ 配套调研</span> 10,980 公众 + 21,437 访客：多数人对齐 Substantial 情景。</li>
+      <li><span class="v warn">⚠️ 局限（原文自认）</span> 不含政策响应、商业周期、总需求效应——宏观模型裁剪到团队级时的失真风险要在 P2 里正面处理。</li>
+    </ul>
+  </div>
+</div>
+
+<h2>⭐×4 高价值</h2>
+
+<div class="card h4">
+  <h3>S3 · Lotus Notes 与从零自建的危险：五条教训正中 POS 架构讨论</h3>
+  <div class="meta">Buttondown 工程随笔 · HN 179pt · <a href="https://buttondown.com/blog/lotus-notes-email">原文</a></div>
+  <blockquote>1989 年 Lotus Notes 从零自建一切（自有数据库/复制/GUI/邮件格式），领先时代却被开放标准逐条收复（"rebuilding those features one RFC at a time"）。五教训：① 开放标准胜过封闭 brilliance ② 违背平台惯例疏远用户 ③ scope creep 遮蔽核心 ④ 巨石系统演进慢 ⑤ lock-in 延长生命不赢得爱。</blockquote>
+  <div class="why"><b>为什么与你相关：</b>POS 现代化的核心理念是「不重建企业能力，复用交易核心链路」，而即将进行的 BFF 层架构讨论与门店侧本地化，正是「自建一套」诱惑最强的两个决策点——Notes 的教训等于一份现成的反例清单（自建加密早于 PGP、同步早于 IMAP，还是输了）。同样适用于平台整合论证：留在封闭轨道上等于选择「AI 功能永不更新」，正是「巨石演进慢」的当代版。</div>
+  <div class="verify"><span class="v ok">✅ Verified</span>（全文已读；史实为公开软件史，Sinofsky 信件有源可查）</div>
+</div>
+
+<div class="card h4">
+  <h3>S4 · 休谟《论品味的标准》：品味主观在个体、客观在共同体标准</h3>
+  <div class="meta">@lijigang（李继刚）· Twitter · 2026-09-10 · <a href="https://x.com/lijigang/status/2098051184586379761">原文</a></div>
+  <blockquote>「品味这种东西是主观的，没法争」——1757 年休谟在《论品味的标准》里正面处理了这个问题。我们都在聊『Taste 很重要』，但 Taste 如何培养提升呢？不妨回头听听先哲们的声音。</blockquote>
+  <div class="why"><b>为什么与你相关：</b>你的品味库目前是「事前注入」模式（生成前把品味文本塞给 agent），缺的是「事后评审」的校准理论。休谟给出的正是后者：品味的标准存在于少数合格评判者的联合裁决——五个特征（细腻想象力/实践/比较/摆脱偏见/常识）恰好可以映射为 AI judge 的可测量属性（few-shot 校准敏感度/同域样本量/跨样本基准/位置偏差测试/理由可追溯性）。TASTE.md 讲「品味是什么」，休谟框架讲「评判品味者的资质如何认定」——后者才是能进 dimensions.md 的东西。</div>
+  <div class="verify"><span class="v ok">✅ Verified</span>
+    <ul>
+      <li><span class="v ok">✅ 论文</span> 休谟 1757 年《Of the Standard of Taste》真实存在，古典哲学无争议；「合格评判者五特征」为学界公认的论文核心论证。</li>
+      <li><span class="v warn">⚠️ 推文截断</span> Readwise 侧文本止于设问部分，论证细节按公认学术内容补全（已标注，未臆造推文原文）。</li>
+    </ul>
+  </div>
+</div>
+
+<h2>⭐×3 中等价值</h2>
+
+<div class="card h3">
+  <h3>S5 · DeepSeek v4.1 flash 传闻：比 v4 pro 更便宜更强</h3>
+  <div class="meta">HN 415pt 讨论帖 · <a href="https://news.ycombinator.com/item?id=49624603">讨论</a></div>
+  <blockquote>传闻称 DeepSeek 将推 v4.1 flash，比 v4 pro 更便宜且更强。</blockquote>
+  <div class="why"><b>批判性注释：</b>版本号<b>未获官方确认</b>（仅社区帖流传，官方渠道无此发布）——提案里不可引用。但<b>已验证的价格层</b>足够硬：V4 Pro $1.32/$3.96 vs V4 Flash $0.14/$0.28 per Mtok（Reuters/Forbes，2026-08）；Artificial Analysis 测得 V4-Flash 单次测试运行 3 美分 vs Claude $3.15。低成本模型提案与试点采购论证需要的数字都有了，看 P4 怎么用。</div>
+  <div class="verify"><span class="v warn">⚠️ Partial</span> — 传闻部分降权，价格事实部分多源已验（Reuters/Forbes/Artificial Analysis 一致）。</div>
+</div>
+
+<div class="card h3">
+  <h3>S6 · 监控三连：隐私边界的行业风向</h3>
+  <div class="meta">HN 同日三条：Flock 监控世界（567pt）/ <a href="https://prospect.org/2026/09/09/anthropic-artificial-intelligence-surveillance-system-monitor-activists/">Anthropic 监控系统争议</a>（307pt）/ <a href="https://www.engadget.com/2254419/muse-the-band-lost-its-social-media-handles-to-muse-meta-s-new-ai-agent/">Muse 乐队失去账号给 Meta AI agent</a>（183pt）</div>
+  <div class="why"><b>批判性注释：</b>标题层信号未逐篇验证。与你的设备监控研究相关的是风向而非事实：监控基础设施与社会账号归属的争议同时上头条，说明「谁有权限观察谁」正在成为 AI 时代的公共议题——公司设备监控的隐私边界讨论将越来越有外部参照系。归档为研究素材，不行动。</div>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+
+<div class="card life">
+  <h3>🧠 健脑</h3>
+  <ul>
+    <li><b>S4 休谟品味标准</b>（主归属 Intent·品味库，健脑副标签）——哲学×AI 评审的交叉阅读。</li>
+    <li><b><a href="https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and">GPT-6 Astra, looped transformers, and hidden reasoning</a></b>（Raschka，HN 502pt）——looped transformer 与隐式推理，与手搓 LLM 学习线相邻的技术深读，本周闲暇读物。</li>
+    <li><b><a href="https://mathstodon.xyz/@tao/117244102901892965">Terence Tao</a></b>（HN 253pt）——「所有大人都曾是孩子，只是少数人记得」，数学家的人文一帧。</li>
+  </ul>
+</div>
+
+<div class="card life">
+  <h3>🏋️ 健身</h3>
+  <ul>
+    <li><b><a href="https://www.apple.com/newsroom/2026/09/introducing-apple-watch-series-12-with-the-all-new-health-sensing-system/">Apple Watch Series 12</a></b>——全新健康传感系统（HN 271pt）：健康数据追踪关注点，发布后实测评测值得留意，暂不行动。</li>
+    <li><b><a href="https://www.apple.com/newsroom/2026/09/apple-introduces-airpods-5-with-best-in-class-open-ear-active-noise-cancellation/">AirPods 5</a></b>——开放式主动降噪（HN 503pt），运动佩戴场景相关，观望。</li>
+  </ul>
+</div>
+
+<div class="card life">
+  <h3>📈 建仓（宏观观察，非投资建议）</h3>
+  <ul>
+    <li><b>S2 Anthropic 经济情景</b>双命中：劳动份额 60/40 → Extreme 情景 45.2/54.8、知识工资情景降 10%+——「劳动 vs 资本」分配框架对个人资产配置叙事有参考价值（能力资产化 vs 金融资产），主归属 Intent，此处仅记视角。</li>
+  </ul>
+</div>
+
+<div class="card life">
+  <h3>🥗 健胃</h3>
+  <ul>
+    <li>本窗口无饮食/家庭类信号。</li>
+  </ul>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="action">
+  <ol>
+    <li><b>[评测·本周] FTP 评测加 scope-adherence 指标</b>：diff 最小性（改动行数比、触碰文件数、越界重构检测），让三个满分模型分出高下 → 见 <a href="readwise-proposals-20260911.html">P1</a>。</li>
+    <li><b>[FY27·本周] 收益框架升级为 task-based 台账</b>：试点 1-2 个团队的「任务四态」标记（unchanged/augmented/automated/newly created），sponsor 对齐用三情景框架 → 见 <a href="readwise-proposals-20260911.html">P2</a>。</li>
+    <li><b>[POS·会前] BFF 架构讨论前过一遍 Lotus Notes guardrails</b>：五条教训改写成 ADR 式勾选清单 → 见 <a href="readwise-proposals-20260911.html">P3</a>。</li>
+    <li><b>[提案·纪律] 模型成本论证只引用已验证数字</b>：V4 Flash $0.14/$0.28、单测 3¢ vs Claude $3.15；v4.1 传闻不进任何提案 → 见 <a href="readwise-proposals-20260911.html">P4</a>。</li>
+    <li><b>[品味库·本周] dimensions.md v2 草案</b>：休谟五特征 → AI judge 可测属性映射 → 见 <a href="readwise-proposals-20260911.html">P5</a>。</li>
+  </ol>
+</div>
+
+<details>
+  <summary>📎 低价值附录（默认折叠）</summary>
+  <ul>
+    <li><b>@isnail（蜗牛King）</b>· <a href="https://x.com/isnail/status/2097328919397740847">原文</a> — 公众号流量池月入 18554 的账号拆解。内容营销变现案例，单源收入数字不可验，与 B2B SaaS 赛道不同——仅作流量打法旁观素材。</li>
+    <li><b>「用 AI 搞点小钱跟呼吸一样简单」</b>— Reader 存档无正文（图/视频推文），无法验证，跳过。</li>
+    <li><b>HN 09-10 其余头条</b>（行业动态速览）：<a href="https://tailwindcss.com/blog/tailwind-is-joining-shopify">Shopify 收购 Tailwind</a>（1123pt，前端工具链格局）；<a href="https://www.apple.com/iphone-duo/">iPhone Duo</a>（1406pt）与 iPhone 18 Pro（400pt）；<a href="https://techcrunch.com/2026/09/09/automattics-board-forces-ceo-matt-mullenweg-into-leave-of-absence/">Automattic CEO 被迫休假</a>（429pt）；<a href="https://spectrum.ieee.org/are-self-driving-cars-safe">自动驾驶救人证据积累</a>（434pt，IEEE）；<a href="https://xlii.space/eng/malicious-software-on-google-ads/">Google Ads 投放恶意软件实录</a>（425pt，安全视角有趣）；<a href="https://twitter.com/ValerioCapraro/status/2097791836269977996">OpenAI 或剽窃又一项证明</a>（290pt，争议中）；<a href="https://about.readthedocs.com/blog/2026/09/2026-ddos-attack/">Read the Docs DDoS 复盘</a>（209pt）；<a href="https://rivendell.dmitrybrant.com/relativity/">光速 5km/h 相对论模拟</a>（563pt，好玩的科普交互）；其余：Blizzard 工会合同 / GNU Radio in browser / Planet Labs 开放卫星feed / Hitachi CO2 热泵 / AI 数学突破争议 / No Man's Sky Cosmos。</li>
+  </ul>
+  <p class="note">同日另有 Desert Ant Labs 本地设备模型（481pt）与 Qwen 3.8 reasoning prefills gist（233pt）两条未深挖：前者与「低成本模型」主张相关性弱（on-device≠API），后者为单 gist 信号强度不足，均归档观察。</p>
+</details>
+
+<div class="footer">
+  <p>📡 my-readwise-briefing v4.3 · 今日网络验证通道恢复（WebFetch + WebSearch 可用），4 篇关键源全文/一手数据验证完成 · 深挖 Proposals 见 <a href="readwise-proposals-20260911.html">readwise-proposals-20260911</a> · 周五无周报（周一随日更产出）</p>
+</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
