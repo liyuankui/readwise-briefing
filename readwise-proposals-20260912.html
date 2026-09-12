@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-09-12</title>
+<style>
+:root { --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880; --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626; }
+html.dark { --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b; --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif; background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 64px; }
+.container { max-width: 900px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+h1 { font-size: 1.6em; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9em; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1.1em; }
+.axiom { background: var(--surface2); border-left: 4px solid var(--accent4); border-radius: 8px; padding: 10px 16px; margin: 14px 0; font-size: 0.95em; color: var(--text2); }
+h2 { font-size: 1.25em; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); color: var(--accent); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th { background: var(--surface2); text-align: left; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+.card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 16px 0; }
+.claim { font-size: 1.05em; font-weight: bold; color: var(--accent); margin: 6px 0 10px; }
+.sect { margin-top: 12px; }
+.sect h4 { font-size: 0.95em; color: var(--accent4); margin-bottom: 4px; }
+ul { padding-left: 22px; } li { margin: 4px 0; }
+.flag { color: var(--accent5); }
+.meta { color: var(--text3); font-size: 0.82em; margin-bottom: 8px; }
+a { color: var(--accent2); text-decoration: none; } a:hover { text-decoration: underline; }
+details { margin-top: 10px; border: 1px dashed var(--border); border-radius: 8px; padding: 8px 14px; background: var(--surface2); }
+summary { cursor: pointer; color: var(--text2); font-weight: bold; font-size: 0.9em; }
+.footer { margin-top: 40px; color: var(--text3); font-size: 0.8em; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div>
+<h1>🚀 Readwise Proposals · 2026-09-12（周六）</h1>
+<div class="date">5/5 subagent 成功 · 信号→验证→洞察→行动 · <a href="readwise-briefing-20260912.html">返回简报</a></div>
+</div>
+<button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom">⚖️ <b>不可行动的信息 = 噪音。</b> 今日 5 个 Proposal 均已通过 8 项质量标准（核心主张/痛点/里程碑/成功标准/ROI/风险/立即行动/诚实挑战），信号全部经 Phase 1.5 独立验证。</div>
+
+<h2>🗺️ 信号 × 项目对应</h2>
+<table>
+<tr><th>信号（已验证）</th><th>连接项目</th><th>Proposal 核心</th></tr>
+<tr><td>Shopify 回归原生（✅ 归因争议已标注）</td><td>AI 编码评测 · 架构评审</td><td>D1 架构决策复算机制</td></tr>
+<tr><td>DeepSeek V4.1 Flash 开源（✅ 传闻→官宣闭环）</td><td>低成本模型提案 · 采购 Biz Case</td><td>D2 两周三线成本论证</td></tr>
+<tr><td>软件三机制随笔（⚠️ 单源，框架价值高）</td><td>FY27 简化工作主线</td><td>D3 复杂度三闸机制</td></tr>
+<tr><td>Laravel 禁 Issue 只收 PR（✅）</td><td>内部 Skill 社区</td><td>D4 许愿→PR 草稿管道</td></tr>
+<tr><td>产品立宪三问（✅ 原文存在）</td><td>副业 SaaS 首会 · 桌宠</td><td>D5 三问制度化裁决</td></tr>
+</table>
+
+<div class="card">
+<div class="meta">D1 · 信号：Shopify 弃 React Native 回归 Swift/Kotlin 原生 · 验证 ✅（「LLM 改变经济学」归因存争议，已分级处理）</div>
+<div class="claim">架构决策复算机制：不问「AI 是否改变了架构经济学」，改问「我们的数据怎么说」——并保证这个问题一定会被问。</div>
+<div class="sect"><h4>连接项目</h4>内部 AI 编码评测项目（复用，不新增人力）· 在飞的 BFF 架构讨论</div>
+<div class="sect"><h4>里程碑（6 周，净增 2–3h/周）</h4>
+<ul><li>M1（W1）决策假设清单：盘点 2–3 年架构决策，抽成本假设 + AI 影响标签</li>
+<li>M2–M3（W1–W4）20 cases 人工审 + 追加 3 个「重复实现」case（同接口 Java/Golang 双实现）→ A 级数据</li>
+<li>M4（W5）BFF 复算备忘录首演：逐假设重估 + 显式列「复算覆盖不到的项」</li>
+<li>M5（W6）制度化：选型 checklist 增「A 级数据引用 + 证据分级（A 内部实测/B 业界事实/C 叙事，C 禁入决策）」</li></ul></div>
+<div class="sect"><h4>成功标准</h4>清单 ≥10 条决策含显式假设；BFF 复算备忘录在架构评审会被实际引用（纪要可查证）；全程零 C 级证据入决策记录。</div>
+<div class="sect"><h4>ROI</h4>评测产出从「一次性报告」升格为「决策基础设施」，同批数据两处消费（选型 + 采购 Biz Case）；一次基于过时假设的架构误判返工以人·季度计——复算是廉价烟雾报警器。</div>
+<div class="sect"><h4>本周立即行动</h4>
+<ul><li>半小时起草假设抽取模板（决策→当年论据→成本假设→AI 是否触及）</li>
+<li>一小时对 BFF 讨论文档做证据分级，标出无 A 级支撑的关键假设</li>
+<li>评测 backlog 追加 3 个「重复实现」case</li></ul></div>
+<div class="sect"><h4>🚩 诚实挑战</h4><ul>
+<li class="flag">最大漏洞：评测度量 code-writing，而架构瓶颈常在协调成本（Conway 定律）——最贵的变量恰在评测盲区</li>
+<li>20 cases 统计上近乎无意义，诚实说法是「数据辅助校准直觉」</li>
+<li>最可能的死法：「永远在测，从不用」——W6 后无人引用即认败降级</li></ul></div>
+<details><summary>📄 展开完整 Proposal</summary>
+<h4>0｜信号取用纪律</h4><table><tr><th>证据</th><th>等级</th><th>处置</th></tr><tr><td>Shopify 回归原生（事实）</td><td>B 业界可核</td><td>可引为先例，禁外推本团队</td></tr><tr><td>「LLM 抹平双份代码成本」（叙事）</td><td>C 事后归因存疑</td><td>仅作假设生成器，禁作论据</td></tr><tr><td>6 人 12 周重写（结果）</td><td>B− 幸存者样本</td><td>可引，附文化差异限定</td></tr><tr><td>公开 benchmark 榜单</td><td>C benchmaxxing</td><td>禁直接引用，只认内部实测</td></tr></table>
+<h4>锁定痛点</h4><ul><li>BFF 架构讨论在飞，论据零 A 级（全为经验判断）</li><li>评测产出悬空：结论未接入任何在飞决策，评测与选型两张皮</li><li>无证据纪律：Shopify 叙事/公开榜单可长驱直入评审会</li><li>「写两遍码=双倍人力」等隐含假设从未显式落档</li></ul>
+<h4>风险与缓解</h4><table><tr><th>风险</th><th>缓解</th></tr><tr><td>叙事混入论据</td><td>A/B/C 分级强制落纸</td></tr><tr><td>统计功效不足</td><td>预声明边界：仅用于是否扩大试点，不裁决架构</td></tr><tr><td>负结果被政治化</td><td>事先约定负结果同样入 Biz Case</td></tr><tr><td>机制官僚化</td><td>一页纸上限；半年未触发即退役</td></tr><tr><td>数据腐烂</td><td>绑定「相对比较流程」而非绝对数值</td></tr></table>
+<h4>其余挑战</h4><ul><li>A 级数据同样随模型迭代腐烂，机制只能绑定流程不能绑定结论</li><li>幸存者偏差：重写失败的公司不发博客</li></ul>
+</details>
+</div>
+
+<div class="card">
+<div class="meta">D2 · 信号：DeepSeek V4.1 Flash 开源（552B MoE，prefill 8B/decode 16B，KV cache ¼）· 验证 ✅ 官宣+HF 权重（昨日传闻今日证实）</div>
+<div class="claim">用两周把 V4.1 Flash 纳入既有评测矩阵与三线成本模型，回答采购必问的两问——「涨价/停服怎么办」（供给冗余）与「自托管到底多少钱」（合规 fallback），结论无论 yes/no 直接进采购 Biz Case。</div>
+<div class="sect"><h4>连接项目</h4>低成本编程模型提案 F2–F5 · AI 编码评测 · 国产工具试点采购论证</div>
+<div class="sect"><h4>里程碑（2 周，增量约 1 人周 + agent 算力）</h4>
+<ul><li>M1（D1–2）三线成本表 v2：API 峰谷混合 / Copilot 托管 / 自托管 TCO（FP8 权重 ≈552GB → 8×80G 起步）</li>
+<li>M2（D3–7）评测矩阵纳入：FTP 回归 + 新增长上下文多文件场景，同管道相对比较</li>
+<li>M3（D8–10）KV cache ¼ 实测：vLLM 部署，同 agent 轨迹测显存/吞吐/单任务成本</li>
+<li>M4（D8–11）合规预沟通：License、数据驻留三路径书面结论</li>
+<li>M5（D12–14）汇总 Biz Case v1：三线成本 + 双供应商策略</li></ul></div>
+<div class="sect"><h4>成功标准</h4>成本表每数字可溯源；FTP 相对分 ≥ 现满分候选 90%（第二供应商成立）；长上下文单任务成本 ≤ 现候选 60%；合规有书面结论。</div>
+<div class="sect"><h4>ROI（示意）</h4>官方命中价 ¥0.02/M（空闲）——$39/席/月 ≈ ¥277 可购约 19–39 个「10M 入+1M 出」任务包；CI 批量任务调度到空闲时段成本再折半；双供应商 + 自托管 = 断供保险与议价锚。</div>
+<div class="sect"><h4>本周立即行动</h4>
+<ul><li>半天：快照官方价格页 + 用 API usage 字段测我方 agent 真实缓存命中率 → 成本表 v0</li>
+<li>一天：评测矩阵加 deepseek-flash，跑 FTP 回归确认可复现</li>
+<li>本周：向合规发 License/数据驻留预沟通，预约 GPU 做 vLLM 冒烟</li></ul></div>
+<div class="sect"><h4>🚩 诚实挑战</h4><ul>
+<li class="flag">若合规结论是「数据不得出境」，API 三线全废——合规结论必须先行于评测投入</li>
+<li>KV ¼ 属 prefill 侧优势，agent decode 占比高，实际收益可能远小于 ¼（已设证伪标准：&lt;½ 记「不显著」）</li>
+<li>空闲半价对主战场（交互式编码）无效，只惠及 CI/批量——ROI 叙事不得混用</li>
+<li>自托管线可能「算出自证不可行」——但如实呈现仍增强 Biz Case 完整性</li></ul></div>
+<details><summary>📄 展开完整 Proposal</summary>
+<h4>痛点明细</h4><ul><li>Biz Case 只有单一国产满分候选，采购方必问第二供应商</li><li>成本表仅两线，缺自托管 TCO（恰是合规最需要）</li><li>FTP 三模型满分无区分度；长上下文场景缺位而 V4.1 Flash 主打恰在此</li></ul>
+<h4>已核实定价结构</h4><ul><li>输入命中 ¥0.02/M（空闲）/¥0.04（峰值）；未命中 ¥1/2；输出 ¥4/8；空闲一律半价</li><li>混合单价（命中 70%）：输入 ¥0.628/M 峰值、¥0.314/M 空闲——agent 重发上下文命中率天然高，¥0.02 命中价是关键变量</li><li>⚠️ License 未在官宣页写明（须查 HF repo）；上下文官宣 200K+，第三方称输入 1M，待实测</li></ul>
+<h4>风险与缓解</h4><table><tr><th>风险</th><th>缓解</th></tr><tr><td>开源权重≠公司可用</td><td>自托管定位 fallback；合规前置；部署门槛写入提案</td></tr><tr><td>+25 分为社区口碑</td><td>仅作入选理由，以自建评测为准</td></tr><tr><td>命中价陷阱</td><td>以 usage 字段实测，禁用标称价估算</td></tr><tr><td>09-14 起 v4-pro 路由变化</td><td>监控账单</td></tr></table>
+<h4>其余挑战</h4><ul><li>可能「为信号找用途」：真实增量仅 M2/M3 约一周，合规否决即砍</li><li>FTP 满分教训：新场景也可能无区分度，预设降级为成本基准测试</li></ul>
+<p>来源：<a href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing/">官方价格页</a> · <a href="https://api-docs.deepseek.com/news/news260910/">官宣</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash">HF 权重</a></p>
+</details>
+</div>
+
+<div class="card">
+<div class="meta">D3 · 信号：《Software Drives People Insane》三机制（无摩擦/无完成态/自强化）· 验证 ⚠️ 单源随笔（观点类），框架与 FY26 实践缺口高度吻合</div>
+<div class="claim">软件天然缺三物——入口摩擦、完成定义、复杂度负反馈；故简化不可作为一次性项目立项，必须把三条人工约束（入口闸、完成闸、收支闸）建制为常设机制，使简化从运动变为代谢。</div>
+<div class="sect"><h4>连接项目</h4>FY27 简化工作主线（⚠️ 关键约束：三闸必须是既有 benefit tracking 框架的具体形态，合并而非并列——否则自犯第三机制）</div>
+<div class="sect"><h4>三闸设计</h4>
+<table><tr><th>闸</th><th>规则</th><th>补齐缺口</th></tr>
+<tr><td>入口闸</td><td>新服务/台账/跨域接口/开关须附一页「复杂度成本单」：加什么、<b>替代或删除什么</b>、谁具名维护、退出条件；无删除对照不批</td><td>Business Owner 落位</td></tr>
+<tr><td>完成闸</td><td>简化项立项即写 measurable done + sunset 日期 + 旧路径清退条件；禁无限挂账</td><td>adoption（清退有期）</td></tr>
+<tr><td>收支闸</td><td>季度「复杂度收支表」：新增−删除，与工时节省、adoption 合为一张记分卡</td><td>benefit tracking（收益入账）</td></tr></table>
+<p>分级防官僚：小改动豁免、中改动一页纸、大改动才人审；并入既有框架字段，不另建系统。</p></div>
+<div class="sect"><h4>里程碑（5 个，约 26 周）+ 成功标准</h4><ul><li>M0（2 周）三域复杂度基线 + 历史简化项 100% 补完成定义</li><li>M1–M2（+8 周）三闸 v1 入评审流；记分卡与收益框架打通</li><li>M3（+12 周）双域试点跑满两季度（即证伪实验）</li><li>M4（+4 周）写入 Engineering Baseline</li><li>目标：高风险变更附成本单 100%；简化项季度关闭率 ≥70%；年度复杂度净增 ≤0；入账工时节省 ≥2× FY26</li></ul></div>
+<div class="sect"><h4>ROI</h4>运维成本每人每季 <4h；FY26 已证节省潜力但「不可持续、不可转化」——三闸即把「已省」变「入账、可换资源」的转化器；复杂度封顶 → change failure rate / lead time / 新人上手不随业务增长恶化。</div>
+<div class="sect"><h4>本周立即行动（三件皆小、皆可证伪）</h4>
+<ul><li>亲手为 5 个历史简化项写 done+sunset（1 天）——验证模板可行</li><li>30 分钟为一个域数复杂度基线（开关数/服务数/接口数）——验证数据可得性</li><li>与 sponsor 15 分钟只问一句：「每季一张加-减平衡表+收益记分卡，你愿否据此做资源决策？」——答案否定则整案降级</li></ul></div>
+<div class="sect"><h4>🚩 诚实挑战</h4><ul>
+<li class="flag">自反性风险（最重）：三闸若与既有 next 三件事并列，即成第四张表——正犯随笔第三机制；唯一正解是合并为 tracking 框架的具体形态</li>
+<li>复杂度不可公度：全案最脆弱一环；M0 数不出基线即降级为仅保「完成闸」</li>
+<li>权限错配：跨域强制力需平台组背书，EM 单团队推不动——先做可控者，跨域只提案</li>
+<li>Jevons 悖论：省下工时被新需求吞噬——记分卡须追踪「节省工时去向」</li></ul></div>
+<details><summary>📄 展开完整 Proposal</summary>
+<h4>理论依据声明</h4><p>源为工程随笔（单源、无同行评审），定位「管理假设」而非研究结论；哲学根基即既有品味「约束即能力」——物理造物受重力材料之限，软件独缺自然约束，管理者之责是人为补装。</p>
+<h4>痛点 → 机制对应</h4><table><tr><th>随笔机制</th><th>团队病灶</th><th>后果</th></tr><tr><td>无摩擦</td><td>开关/分支/小工具随手合入；评审只问「对不对」不问「该不该存在」；重复台账工具</td><td>复杂度只进不出</td></tr><tr><td>无完成定义</td><td>简化项挂账多轮；新旧路径双跑不清退</td><td>adoption 缺口直接根源</td></tr><tr><td>自强化</td><td>局部优化个体合理整体更难改；技术债 backlog 只进不出</td><td>永远救火、成就感稀薄</td></tr></table>
+<h4>风险与缓解</h4><table><tr><th>风险</th><th>缓解</th></tr><tr><td>形式主义填表游戏</td><td>一页限字数；只对高风险强制；抽审</td></tr><tr><td>被视为拖慢交付</td><td>三级分流；用 FY26 返工数据自证</td></tr><tr><td>指标被 game</td><td>多维交叉（数量+oncall 噪音+上手天数）</td></tr><tr><td>旺季无暇</td><td>豁免规则先行；高峰只跑收支闸</td></tr></table>
+</details>
+</div>
+
+<div class="card">
+<div class="meta">D4 · 信号：Laravel 禁用 Issue 只收 PR（「描述给编码 agent，让它提 PR」）· 验证 ✅ 原推 + 官方贡献指南 + HN/Reddit 争议</div>
+<div class="claim">「许愿即贡献」管道：每条许愿 48 小时内自动长出一份过 CI 验证的 PR 草稿，许愿者从「等待者」变为「review 一次 AI 方案」的贡献者——不禁 issue，而是让 issue 自己长出 PR。</div>
+<div class="sect"><h4>连接项目</h4>内部 Skill 社区（v5 多仓库架构上线时试点；复用既有强制 PR 流程，零新旁路）</div>
+<div class="sect"><h4>场景适配（为何不照搬 Laravel）</h4><table><tr><th>维度</th><th>Laravel</th><th>内部社区</th></tr><tr><td>贡献者</td><td>匿名海量</td><td>可识别同事（可培训，公平性可控）</td></tr><tr><td>主要诉求</td><td>bug fix（AI 擅长）</td><td>新 skill 需求（AI 从零创造弱，需分级）</td></tr><tr><td>手段</td><td>禁 issue（激进）</td><td>issue→PR 草稿（渐进，留兜底）</td></tr></table></div>
+<div class="sect"><h4>里程碑（9–10 周，与 v5 并行）</h4>
+<ul><li>M0（1 周，止损 gate）盘未认领许愿 + 访谈 5 名许愿者——根因「提 PR 难」不成立则止损</li>
+<li>M1（2–3 周）管道：issue 评论 /draft 触发 agent 生成 skill 脚手架 PR 草稿 + CI 门禁（lint/冒烟/安全审计）</li>
+<li>M2（4 周）1–2 仓库试点 + 贡献者徽章/贡献榜 + 双周「贡献诊所」结对（兜底不用 AI 者）</li>
+<li>M3（2 周）漏斗复盘 → 推广/迭代/放弃决策</li></ul></div>
+<div class="sect"><h4>成功标准</h4>许愿→PR 草稿转换率 ≥60%；草稿→合并率 ≥30%；中位响应 ≤7 天；新增首次贡献者 ≥5 人；许愿者留存不下降。KPI 是合并率与复用次数，不是 PR 数（防虚荣）。</div>
+<div class="sect"><h4>ROI</h4>review 一份过 CI 的草稿远轻于消化无结构许愿再从零实现；许愿→可用从月级压向周级；为试点工程师提供「AI 辅助贡献」真实练兵场。</div>
+<div class="sect"><h4>本周立即行动（均不依赖 v5）</h4>
+<ul><li>半天盘基线：导出未认领许愿，分类 + 龄期统计</li>
+<li>1 天 dogfood：挑自己一条许愿手动走通「agent 生成→CI→PR」全流程</li>
+<li>半天访谈 2–3 名许愿者（含 1 名 AI 工具生手）验证根因</li></ul></div>
+<div class="sect"><h4>🚩 诚实挑战</h4><ul>
+<li class="flag">最深漏洞——前提可疑：许愿者的价值也许在「用」而非「造」；M0 应把「许愿者自提 PR vs 他人认领+AI 实现」作为 A/B 假设同时验证</li>
+<li>类比裂缝：Laravel 多为 bug fix（AI 擅长），新 skill 是从零造（AI 弱项），草稿可能退化为「更长的许愿」</li>
+<li>产能自伤：steward 无正式工时认可则 review 负担砸回自己团队——机制变成为自己加税</li></ul></div>
+<details><summary>📄 展开完整 Proposal</summary>
+<h4>痛点链条</h4><p>许愿无结构（缺场景/验收标准）、无归属（无人认领）、无验证（不知可做性）→ 用户感知「提了没用」→ 社区退化为只读商店 → 供给全压在少数维护者。根因假设：提 PR 对普通使用者成本过高（环境/模板/CI/review 礼仪），AI 恰好坍缩这个成本差。</p>
+<h4>风险与缓解</h4><table><tr><th>风险</th><th>缓解</th></tr><tr><td>AI 草稿质量差变空壳</td><td>CI 全绿才进 review；草稿分级；模板收窄生成范围</td></tr><tr><td>公平性：不用 AI 者被排除</td><td>不禁 issue；/draft 全员开放；诊所结对</td></tr><tr><td>安全：AI 生成 skill 引入风险</td><td>安全审计作 CI 硬门禁，高危直接拒</td></tr><tr><td>review 洪水</td><td>试点限 1–2 仓库；每仓指定 steward</td></tr><tr><td>信用体系被感知 KPI 化</td><td>明确非绩效用途，只做徽章致谢</td></tr></table>
+</details>
+</div>
+
+<div class="card">
+<div class="meta">D5 · 信号：Jordan Lord《构建前的三个约束》（一页纸/核心技术分离/核心特色）· 验证 ✅ 原文存在（观点类，与既有品味同构，价值在制度化）</div>
+<div class="claim">开工三问制度化：首会前三人独立作答（一页纸/核心技术/特色句），分歧即风险地图，会上只裁决三问不辩论全图——三答齐备方解锁 MVP 立项。</div>
+<div class="sect"><h4>连接项目</h4>副业 SaaS（三人合伙，首会未开、方向未定）· 桌宠项目（回溯校验样本）· K12 课程大纲</div>
+<div class="sect"><h4>痛点实证</h4><ul><li>首会议程 §2 是开放式「讨论方向」，无收敛机制——待决选项中恰有「两全」型（特色测试要拦的面面俱到）</li><li>外部证据链已断（痛点报告被 fact-check 推翻、外联 survey 0 回复），方向之争无裁决依据</li><li>复杂性先于产品到达：方向未定，愿景+规格文档已近两万字（一页纸北极星的 10 倍量级）</li><li>品味是隐式个人的，合伙人不共享——无规则只能靠说服力对决</li></ul></div>
+<div class="sect"><h4>里程碑（合计不足 4 人时）</h4>
+<ul><li>M0（0.5h）三问模板 v0.1：一页纸骨架 + 核心技术句式 + 特色句式（「我们唯一___的___」）</li><li>M1（0.75h）桌宠回溯填表：验证三问可答性，作示范样本</li><li>M2（0.3h）改首会议程：三问环节<b>替换</b>原两张决策表（作其收敛器，非并列新增）；会前 48h 独立提交、禁互通、空白合法</li><li>M3（会中 0.5h）分歧地图 → 逐问裁决 → 一页纸 v1 三方签核</li><li>M4（0.5h）挂载检查点：此后任何新需求/文案须引用特色句，不通过即打回</li></ul></div>
+<div class="sect"><h4>成功标准</h4>首会产出三方签核的一页纸 v1 + 特色句 v1（0/1，未产出=方向仍未定警报，禁启 MVP）；实质分歧显式化为「待验证实验」≥3 条；三问环节 ≤30min；会后 4 周特色句测试拦截 ≥1 次违规或留痕 0 违规。</div>
+<div class="sect"><h4>ROI</h4>成本约 4 人时；按三人各 6h/周、方向错误 4 周后暴露即 72 人时蒸发，三问降 30% 此概率 → 期望省约 22 人时，杠杆约 5 倍（期望值非保证，打折阅读）；模板零边际成本复用于桌宠/K12/任何新项目。</div>
+<div class="sect"><h4>本周立即行动</h4>
+<ul><li>今日 0.5h：起草三问模板 v0.1（素材直接抽既有愿景文档「一句话/核心差异化/Anti-Goals」，不重写）</li><li>本周 0.75h：桌宠回溯填表 → 示范样本</li><li>会前 48h：改首会议程（插三问环节 + 独立提交规则），随议程发两位合伙人并附示范</li></ul></div>
+<div class="sect"><h4>🚩 诚实挑战</h4><ul>
+<li class="flag">程序偏置（最重）：三问系统性歧视「低价平替」战略——平替的本质是放弃特色换价格，特色测试必然判该选项不合格；引入三问≈程序上预判定位之争，须开场明示此偏置或允许「特色=价格纪律」例外答辩</li>
+<li>问题一区分度最低：SaaS 的 landing 天然一页纸——真问题是「一页上砍掉了什么」，万字愿景才是病灶，一页纸只是症状量尺</li>
+<li>n=1 幸存者框架：对合伙人诚实——这是「个人品味的显式化」，非行业最佳实践</li>
+<li>政治风险被低估：分歧地图会把既有分歧变成三人公开站队现场，伤和气成本可能高于方向错误本身</li></ul></div>
+</div>
+
+<h2>📌 今日元记录</h2>
+<ul>
+<li>验证闭环示范：昨日简报「DeepSeek v4.1 ⚠️ 传闻隔离」→ 今日官宣 ✅——二手信号一手验证的流程价值实例。</li>
+<li>benchmaxxing 案例（TB 2.1 得 92.8% / TB 4 得 27.3%）已注入 D1/D2 作为「公开榜禁入决策」的方法论依据。</li>
+<li>跨域连接：D1（架构经济学）× D2（模型成本）共享「内部实测 > 业界叙事」原则；D3（三闸）× D4（PR 管道）共享「把约束嵌入流程而非依赖自觉」。</li>
+</ul>
+
+<div class="footer">生成于 2026-09-12 · my-readwise-briefing v4.3 · 5/5 subagent 成功 · 公开归档已脱敏</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
