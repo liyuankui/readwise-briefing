@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 2026-09-12</title>
+<style>
+:root { --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880; --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626; }
+html.dark { --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b; --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif; background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 64px; }
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+h1 { font-size: 1.6em; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9em; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1.1em; }
+h2 { font-size: 1.25em; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); color: var(--accent); }
+h3 { font-size: 1.05em; margin: 18px 0 8px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 16px 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+.stat .num { font-size: 1.5em; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8em; color: var(--text3); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th { background: var(--surface2); text-align: left; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+.card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+.card.h5 { border-left-color: var(--accent); }
+.card.h4 { border-left-color: var(--accent2); }
+.card.h3 { border-left-color: var(--accent4); }
+.card.life { border-left-color: var(--accent3); }
+blockquote { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; color: var(--text2); font-size: 0.95em; }
+.meta { color: var(--text3); font-size: 0.82em; margin-bottom: 8px; }
+.why { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 0.95em; }
+.why b { color: var(--accent4); }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 0.78em; margin-right: 6px; border: 1px solid var(--border); background: var(--surface2); }
+.b-ok { color: var(--accent3); border-color: var(--accent3); }
+.b-warn { color: var(--accent4); border-color: var(--accent4); }
+.b-bad { color: var(--accent5); border-color: var(--accent5); }
+.b-hands { color: var(--accent2); border-color: var(--accent2); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin: 12px 0; }
+summary { cursor: pointer; color: var(--text2); font-weight: bold; }
+.action { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin: 8px 0; }
+.action .tag { color: var(--accent4); font-weight: bold; font-size: 0.85em; }
+ul { padding-left: 22px; }
+li { margin: 4px 0; }
+.footer { margin-top: 40px; color: var(--text3); font-size: 0.8em; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div>
+<h1>📋 Readwise 简报 · 2026-09-12（周六）</h1>
+<div class="date">增量窗口：09-11 08:00 CST → 09-12 08:00 CST · 深挖 5 方向 → <a href="readwise-proposals-20260912.html">Proposals</a></div>
+</div>
+<button id="theme-toggle">🌙</button>
+</header>
+
+<div class="stats">
+<div class="stat"><div class="num">7</div><div class="label">新增内容单元</div></div>
+<div class="stat"><div class="num">6</div><div class="label">⭐×5 工作信号</div></div>
+<div class="stat"><div class="num">3</div><div class="label">⭐×4 工作信号</div></div>
+<div class="stat"><div class="num">5</div><div class="label">生活维度信号</div></div>
+<div class="stat"><div class="num">6</div><div class="label">已验证信号</div></div>
+</div>
+
+<h2>🔍 信号概览 → 深挖方向</h2>
+<table>
+<tr><th>#</th><th>方向</th><th>信号源</th><th>连接</th><th>验证</th></tr>
+<tr><td>D1</td><td><b>AI 改写跨平台经济学</b>：Shopify 弃 RN 回原生 Swift/Kotlin</td><td>HN 09-11</td><td>AI 编码评测 · AI 工具试点</td><td><span class="badge b-ok">✅ 核实</span></td></tr>
+<tr><td>D2</td><td><b>DeepSeek V4.1 Flash 开源</b>：昨日传闻今日官宣（KV cache ¼）</td><td>HN 09-11</td><td>低成本模型提案 · 评测矩阵</td><td><span class="badge b-ok">✅ 核实</span></td></tr>
+<tr><td>D3</td><td><b>软件的「无完成态」</b>：Software Drives People Insane 三机制</td><td>HN 09-11</td><td>FY27 简化工作主线</td><td><span class="badge b-warn">⚠️ 单源</span></td></tr>
+<tr><td>D4</td><td><b>禁 Issue 只收 PR</b>：Laravel 的 AI 时代维护实验</td><td>周刊 412 封面</td><td>内部 Skill 社区贡献机制</td><td><span class="badge b-ok">✅ 核实</span></td></tr>
+<tr><td>D5</td><td><b>产品立宪三问</b>：一页纸 / 技术分离 / 核心特色</td><td>周刊 412 文摘</td><td>副业 SaaS 首会 · 桌宠</td><td><span class="badge b-ok">✅ 原文存在</span></td></tr>
+</table>
+
+<h2>⭐×5 高价值信号（附验证 + 相关性注释）</h2>
+
+<div class="card h5">
+<h3>D1 · Shopify 从 React Native 回归原生（Swift/Kotlin）</h3>
+<div class="meta"><span class="badge b-ok">✅ 已核实</span><span class="badge b-warn">⚠️ 归因有争议</span>来源：HN 09-11 · <a href="https://shopify.engineering/back-to-native">shopify.engineering/back-to-native</a> · <a href="https://news.ycombinator.com/item?id=49643982">HN 讨论</a> · <a href="https://simonwillison.net/2026/Sep/10/shopify-react-native/">Simon Willison 评</a></div>
+<blockquote>2020 年 all-in React Native 的 Shopify 宣布全面回归原生。核心论据：LLM 编码 agent 改变了「写两遍代码」的经济学，跨平台框架的成本优势被抹平。Shop App 已由 6 名工程师 12 周完成原生重写并上架。</blockquote>
+<div class="why"><b>为什么相关：</b>① 这是「AI 改变架构决策线」的最强公开案例——不是 AI 写代码快了多少，而是<b>决策公式本身变了</b>（build vs share、跨平台 vs 原生）。你的 AI 编码评测项目正在测 model×harness，这条信号把评测结论提升到架构选型层面。② 注意 HN 争议：多数原生迁移工作实际发生在 LLM 辅助之前，官方叙事有「事后归因」成分——读官方博客时要分离「事实」与「叙事」。</div>
+</div>
+
+<div class="card h5">
+<h3>D2 · DeepSeek V4.1 Flash 发布并开源（昨日传闻 → 今日官宣）</h3>
+<div class="meta"><span class="badge b-ok">✅ 已核实</span>来源：HN 09-11 · <a href="https://api-docs.deepseek.com/news/news260910/">官方公告</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash">HF 权重</a></div>
+<blockquote>552B 总参 MoE，非对称激活：prefill 8B / decode 16B；KV cache 降至约 ¼；200K+ 上下文；开源权重 + vLLM 配方。非峰值时段 API 半价。昨日简报中标注「⚠️ 传闻隔离」的 v4.1 消息今日被官方证实。</blockquote>
+<div class="why"><b>为什么相关：</b>① 你的低成本编程模型提案（国内模型路线）直接获得最新成本论据：KV cache ¼ → 长上下文编程场景的内存成本骤降；开源自托管 → 合规敏感场景的可选项。② 昨日「传闻」今日「证实」本身就是 eval 流程的缩影：二手信号必须一手验证。③ 可入评测矩阵：V4.1 Flash vs 当前满分的国产候选，跑同一 FTP 场景对比。</div>
+</div>
+
+<div class="card h5">
+<h3>D3 · 「软件让人疯狂」——软件的无摩擦、无完成态、自我强化</h3>
+<div class="meta"><span class="badge b-warn">⚠️ 单一来源（随笔）</span>来源：HN 09-11 · <a href="https://graybeard.ing/writing/software-drives-people-insane">graybeard.ing 原文</a> · <a href="https://news.ycombinator.com/item?id=49644183">HN 452 评论</a></div>
+<blockquote>软件与一切造物不同：想法到实现无自然摩擦（不受物理约束）、没有「完成」的定义（永远可以再改）、复杂性自我强化（优化局部反而恶化整体）。作者称这三条正在让开发组织陷入集体神经症——不是工程问题，是存在主义问题。</blockquote>
+<div class="why"><b>为什么相关：</b>FY27「用数字与 AI 系统性简化工作」主线正需要这个框架——技术债讨论中「为什么系统永远做不完」的根因解释。三机制可直接引用进简化主线的叙事：① 加功能无摩擦 → 需人为设立约束（架构守卫）；② 无完成定义 → 需为每个简化项定义 measurable 的 done；③ 复杂性自我强化 → 简化不是一次性项目而是持续对抗。⚠️ 随笔为个人观点，引用时标注来源性质。</div>
+</div>
+
+<div class="card h5">
+<h3>D4 · Laravel 禁用 Issue，只收 Pull Request</h3>
+<div class="meta"><span class="badge b-ok">✅ 已核实</span>来源：周刊 412 封面 · <a href="https://x.com/taylorotwell/status/2095516796748996843">Otwell 原推</a> · <a href="https://laravel.com/framework/docs/contributions">官方贡献指南</a> · <a href="https://news.ycombinator.com/item?id=49580094">HN 讨论</a></div>
+<blockquote>维护者宣布：大部分官方包禁用 GitHub Issues，遇到 bug「描述给编码 agent，让它提 PR」。理由：AI 时代提 PR 与提 issue 一样容易，且 PR 附带可运行验证，issue 只是单向索取。Reddit/HN 激辩：贡献门槛是升是降。</blockquote>
+<div class="why"><b>为什么相关：</b>内部 Skill 社区（社区驱动、正在做多仓库支持）面临同样的机制设计问题：如何让使用者变成贡献者？「PR-only + AI 辅助」是一个可直接试点的贡献协议——每个 skill 的改进从「留言许愿」变成「带验证的变更」。也呼应你所在团队「所有变更走 PR」的工程纪律。</div>
+</div>
+
+<div class="card h5">
+<h3>D5 · 产品立宪三问（构建任何东西之前）</h3>
+<div class="meta"><span class="badge b-ok">✅ 原文存在</span>来源：周刊 412 文摘 · <a href="https://jordanlord.co.uk/blog/3-constraints/">Jordan Lord 原文</a></div>
+<blockquote>① 能否把产品介绍写成一页纸？（写不下 = 太复杂，不要做）② 核心技术能否与产品分离？（手机会失败，移动通信不会）③ 有没有一个核心特色？（Minecraft 全方块；宜家平板包装自组装——特色缩小决策空间）</blockquote>
+<div class="why"><b>为什么相关：</b>① 副业 SaaS 三人首会在即——议程加入「立宪三问」环节，把三人共识变成可检验的约束，避免方向发散。② 桌宠项目已隐式通过三问（一页纸 ✓/技术=定时提醒引擎 ✓/特色=陪伴式打卡 ✓），可反检。③ 与你的工程品味（简单、约束即能力）完全同构——这不是新知识，是可以<b>制度化的检查清单</b>。</div>
+</div>
+
+<div class="card h5">
+<h3>Bonus · SWE-2 与「benchmaxxing」：TB 2.1 得 92.8%，TB 4 得 27.3%</h3>
+<div class="meta"><span class="badge b-ok">✅ 已核实</span>来源：HN 09-11 · <a href="https://news.ycombinator.com/item?id=49645443">HN 讨论</a> · <a href="https://benchlm.ai/models/swe-2">BenchLM</a></div>
+<blockquote>Cognition 发布 SWE-2（Kimi K3 后训练版），Terminal-Bench 2.1 刷到 92.8%，但全新 TB 4 只有 27.3%。社区指出巨大落差 = 对旧版基准的过拟合（benchmaxxing）。另宣称比同类便宜 64%。</blockquote>
+<div class="why"><b>为什么相关：</b>你的 AI 编码评测坚持「真实仓库 + 相对比较 + 新任务」而非公开榜——这正是对 benchmaxxing 的结构性防御。此案例是向团队解释「为什么不直接看排行榜选型」的最佳教材：同一模型，换一版基准，分数掉 65 个点。</div>
+</div>
+
+<h2>⭐×4 值得留意</h2>
+<div class="card h4">
+<h3>Claude 11 天完成费马大定理的机器可验证证明（Lean）</h3>
+<div class="meta"><span class="badge b-ok">✅ 已核实</span><span class="badge b-warn">⚠️ 非新数学</span>来源：周刊 412 封面 · <a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem">Anthropic 官方</a> · <a href="https://www.nature.com/articles/d41586-026-02822-9">Nature</a> · <a href="https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/">Buzzard 反应</a></div>
+<blockquote>1300 万行 Lean 代码、30,300 条辅助定理、11 天完成——史上最大 Lean 证明。注意：无新数学（Wiles 1995 已证），价值在「形式化/机器验证」本身。受资助人工形式化的数学家认输。</blockquote>
+<div class="why"><b>为什么相关：</b>AI 能力边界的标志性事件——从「生成代码」到「生成可验证的证明」。对 CS336 学习是绝佳素材（形式验证 × LLM 交叉点）；对内部 AI 故事会也是好素材。token 消耗各源数字不一（数十亿级），引用时用区间表述。</div>
+</div>
+<div class="card h4">
+<h3>微软将 Rust 列为 Tier-1 语言（与 C++/C#/TS 并列）</h3>
+<div class="meta"><span class="badge b-ok">✅ 已核实</span>来源：HN 09-11 · <a href="https://rustfoundation.org/media/guest-post-rust-is-tier-1-language-at-microsoft/">Rust Foundation</a> · <a href="https://www.theregister.com/devops/2026/09/11/microsoft-annoints-rust-as-a-tier-1-internal-language/5295732">The Register</a></div>
+<blockquote>2026-09-10 官宣：内部工具链/文档/生产支持全铺平路径，服务内存安全战略（Windows 内核组件）。</blockquote>
+<div class="why"><b>为什么相关：</b>Rust 学习意图的外部佐证——大型平台公司把 Rust 从「实验」升为「正式基础设施」，学习投资的回报曲线在变陡。结业 CLI 项目选题可考虑系统工具方向。</div>
+</div>
+<div class="card h4">
+<h3>陶哲轩（Reader 高亮补出处）：数学难题不可再生，出题家很重要</h3>
+<div class="meta"><span class="badge b-warn">⚠️ 转引未核原文</span>来源：周刊 412 言论 + Reader 高亮</div>
+<blockquote>「人们让 AI 大量解决数学难题，但数学难题是不可再生的，好问题变得稀缺。自动化解题没有增加人类数学思维，反而损害未来。」Reader 侧高亮补注出处为陶哲轩（export 版无署名）。</blockquote>
+<div class="why"><b>为什么相关：</b>AI 时代「提问能力 > 解题能力」的最权威表述之一。内部 AI 讲师团课程设计（L0-L4）可直接吸收：高阶课程应教「如何给 AI 出好题」（spec/eval 设计），而非仅教 prompt 技巧。</div>
+</div>
+
+<h2>⭐×3 / ⭐×2 简列</h2>
+<table>
+<tr><th>信号</th><th>要点</th><th>相关</th></tr>
+<tr><td>OpenAI「数学家信任危机」</td><td>数学家未发表想法被模型「复述」，疑经训练数据泄漏</td><td>AI 安全：数据保密与训练边界</td></tr>
+<tr><td>Waymo 安全报告</td><td>92% fewer serious injuries（官方自报口径）</td><td>背景认知</td></tr>
+<tr><td>RSA-512 桌面机 32h 破解</td><td>1996 年已破过； curiosità</td><td>密码学 trivia</td></tr>
+<tr><td>HF 2026 夏季开源模型盘点</td><td>中国模型阵营地位持续（D2 佐证）</td><td>模型选型背景</td></tr>
+<tr><td>工具：vet</td><td>审计「网上下载的脚本」干了什么、改了什么，需批准</td><td>Agent 下载执行的安全闸</td></tr>
+<tr><td>工具：Yixi</td><td>Cloudflare Worker + iOS 快捷指令的自律 App 屏蔽器</td><td>与桌宠同域（行为设计）</td></tr>
+<tr><td>工具：endlessh-go / Krep</td><td>SSH 蜜罐 tarpit / 快 50 倍的 grep</td><td>安全 / 效率</td></tr>
+<tr><td>Automattic 董事会「政变」</td><td>创始人发帖后 CEO 被董事会撤换</td><td>治理八卦</td></tr>
+<tr><td>iPhone Duo / AirPods 5</td><td>折叠屏 10-16 预购；AirPods 心率接口</td><td>消费新闻</td></tr>
+<tr><td>「先是程序员」诗歌 / TLD 1/5 是骗局</td><td>文化观察 / 安全 trivia</td><td>低行动性</td></tr>
+</table>
+
+<h2>🏋️🧠📈🥗 生活维度信号</h2>
+<div class="card life">
+<h3>🏋️ 健身 · 羽毛球：实力差距的本质是「球速对抗」</h3>
+<div class="meta">来源：<a href="https://www.zhihu.com/question/585571829/answer/1904243592228217538">知乎问答</a>（已抓原文）</div>
+<blockquote>预判、反应、击球点决定球速与对手准备时间；主动击球点 = 赢。实操锚点：<b>启动步</b>——对方击球瞬间小跳启动，落地即移动方向；训练用「最低有效剂量」：10-15 秒/组 × 2 组，重神经模式而非体能，练完应精神更好而非更累（避免中枢疲劳）。</blockquote>
+<div class="why"><b>行动：</b>下次打球前做 3 项启动步神经训练（侧向/转身/前后各 10-15 秒 × 2）；对打时盯「对手击球瞬间」做小跳。</div>
+</div>
+<div class="card life">
+<h3>🏋️ 健身 · 显年轻的生理学</h3>
+<div class="meta">来源：知乎</div>
+<blockquote>皮肤弹性与水合 + 肌肉张力（尤其<b>腿部与下颌</b>）+ 姿态。可控变量：力量训练与防晒优先级高于护肤品。</blockquote>
+</div>
+<div class="card life">
+<h3>🧠 健脑 · 庄子：醉汉摔不死的隐喻——松弛 &gt; 紧张</h3>
+<div class="meta">来源：<a href="https://zhuanlan.zhihu.com/p/2029294326623090179">知乎专栏</a></div>
+<blockquote>「醉者神全」：过度在意 → 肌肉僵硬、反应变形、内耗；松弛状态下身体自然应对。对照运动与工作：把「控制感」换成「准备感」，临场少想结果。</blockquote>
+</div>
+<div class="card life">
+<h3>🧠 健脑 · 「能量高的人」为何吸引人</h3>
+<div class="meta">来源：知乎</div>
+<blockquote>本质是情绪稳定容器：管理好自己的情绪，让他人感到安全放松。高能量 ≠ 话多热情，而是低波动 + 可预期。</blockquote>
+</div>
+<div class="card life">
+<h3>📈 建仓 · Noah Smith：电动化 + AI = 「无意识之物」智能化</h3>
+<div class="meta">来源：周刊 412 言论（<a href="https://www.noahpinion.blog/p/at-least-five-interesting-things-304">原文</a>）</div>
+<blockquote>电池 + 电机成为生活基础设施，叠加 AI，周围大量静物将获得感知与移动能力。另：特斯拉无人出租车开放「可投资」模式（50/50 流水分成，宣称 8-10 年回本）——<b>⚠️ 营销口径，回本承诺不可验证</b>，视为产品创新观察而非投资建议。</blockquote>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="action"><span class="tag">[提案·本周]</span> 低成本编程模型提案文档补 DeepSeek V4.1 Flash 成本表：KV cache ¼（长上下文内存成本）+ 非峰值半价 + 开源自托管三线对比。</div>
+<div class="action"><span class="tag">[评测·本周]</span> 把 V4.1 Flash 加入评测候选矩阵，与当前满分国产候选跑同一 FTP 场景相对比较；同时把「benchmaxxing 案例图」加入选型方法论一页纸。</div>
+<div class="action"><span class="tag">[主线·下次例会]</span> 简化主线技术债讨论引用「三机制」：加功能无摩擦 / 无完成定义 / 复杂性自我强化——每个简化项先回答「完成的 measurable 定义是什么」。</div>
+<div class="action"><span class="tag">[副业·首会前]</span> SaaS 首会议程加「产品立宪三问」环节：一页纸产品介绍 / 核心技术分离 / 核心特色各写一版，三人过目。</div>
+<div class="action"><span class="tag">[安全·试一试]</span> bunx vet（或读源码）——评估作为 Agent 下载脚本执行前的审计闸；顺带看 endlessh-go 是否适合内部蜜罐。</div>
+<div class="action"><span class="tag">[健身·下场前]</span> 启动步神经训练 10-15 秒 × 2 组 × 3 项；对打中练习「盯击球瞬间小跳」。</div>
+
+<details>
+<summary>📎 低价值附录（今日其余，默认折叠）</summary>
+<ul>
+<li>科技爱好者周刊 412 其余工具：FlyonUI（Tailwind 组件库）、PuTTYgen、gh gfm-preview、ctty（Windows 控制台切换）、Inbucket（测试邮箱）</li>
+<li>周刊 412 其余资源：Linux Basics for Hackers、DNSSEC 漫画、Gorgeous GRUB</li>
+<li>HN 09-11 其余：Waymo 数据细节、Automattic 时间线、「LLM 净效应为负」对线评论、「Add to Cart」上瘾机制评论（与昨日简报重复出现）</li>
+<li>知乎：男性吸引力的根本（自我成长/主见）——生活向，行动性弱</li>
+<li>2022 年存档视频：保龄球瓶机机械原理（机械 curiosità）</li>
+<li>双系统重叠 3 条：陶哲轩/Noah Smith/三约束的 Reader 侧重复高亮（已去重）</li>
+</ul>
+</details>
+
+<div class="footer">生成于 2026-09-12 08:0x CST · my-readwise-briefing v4.3 · 信号→验证→洞察→行动 · 公开归档已脱敏</div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
