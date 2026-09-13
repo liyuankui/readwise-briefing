@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals 2026-09-13</title>
+<style>
+:root { --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df; --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880; --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626; }
+html.dark { --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247; --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b; --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif; background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 64px; }
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+h1 { font-size: 1.6em; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9em; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 1.1em; }
+h2 { font-size: 1.25em; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); color: var(--accent); }
+h3 { font-size: 1.05em; margin: 18px 0 8px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th { background: var(--surface2); text-align: left; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+.card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+.axiom { background: var(--surface2); border-left: 4px solid var(--accent4); border-radius: 8px; padding: 10px 16px; margin: 16px 0; font-size: 0.95em; }
+blockquote { background: var(--surface2); border-radius: 8px; padding: 10px 14px; margin: 10px 0; color: var(--text2); font-size: 0.95em; }
+.meta { color: var(--text3); font-size: 0.82em; margin-bottom: 8px; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 0.78em; margin-right: 6px; border: 1px solid var(--border); background: var(--surface2); }
+.b-ok { color: var(--accent3); border-color: var(--accent3); }
+.b-warn { color: var(--accent4); border-color: var(--accent4); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { padding-left: 22px; }
+li { margin: 4px 0; }
+.footer { margin-top: 40px; color: var(--text3); font-size: 0.8em; text-align: center; }
+.tag { color: var(--accent4); font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div>
+<h1>🚀 Readwise Proposals · 2026-09-13（周日）</h1>
+<div class="date">信号源：3 新文档（HN 日报 09-12 + 2 知乎） · 6 项验证全闭环 · <a href="readwise-briefing-20260913.html">返回简报</a></div>
+</div>
+<button id="theme-toggle">🌙</button>
+</header>
+
+<div class="axiom">⚖️ 公理：不可行动的信息 = 噪音。每个 Proposal 必须回答：解决什么问题？为什么现在？怎么做？怎么知道成功？如果失败？</div>
+
+<h2>🗺️ 信号 × 项目对应</h2>
+<table>
+<tr><th>信号（已验证）</th><th>连接项目</th><th>Proposal 核心</th></tr>
+<tr><td>Armin Ronacher：Astra 35h 自主编码一无所获，烂代码无惩罚（✅ 原文核实）</td><td>AI 编码评测 · 编程工具试点</td><td>D1 质量惩罚轴——修复 eval 区分度</td></tr>
+<tr><td>OpenAI Agents API 官宣（✅ 官方核实，9/10 beta）</td><td>Agent 通信 · 内部基建</td><td>D2 信任层定位——托管编排 vs 自建互操作</td></tr>
+<tr><td>HuggingFace security.txt 对 AI 代理喊话（✅ 原文确认）</td><td>Agentic 安全工程</td><td>D3 Agent Etiquette——出站守礼，入站立牌</td></tr>
+<tr><td>Claude 18+ 年龄验证（⚠️ 政策真，HN 框架夸大）</td><td>编程工具试点合规</td><td>D4 证据式合规——12 项 DPA 质询清单</td></tr>
+<tr><td>领导者 vs 管理者（⚠️ 观点单源，降级为框架）</td><td>讲师团 · 晋升支持</td><td>D5 「授权×认可」证据透镜（已脱敏）</td></tr>
+</table>
+
+<div class="card">
+<h3>D1 · 质量惩罚轴——修复 Eval 区分度，校准试点成本核算</h3>
+<div class="meta"><span class="badge b-ok">✅ 信号已核实</span>连接：AI 编码评测 · 编程工具试点</div>
+<blockquote><b>核心主张：</b>三模型满分并列不是模型趋同，而是 eval 复刻了训练目标的盲区——只奖励「完成任务」，不惩罚「烂代码」。把评分轴升级为「完成率 × 质量惩罚」，区分度即可恢复，且被惩罚的正是会外溢为团队 review 成本的风险。</blockquote>
+<p><b>设计要点：</b>自动指标 ×4（diff 噪音率 / 格式化稳定性——codegolf「省 token」行为的直接检测器 / 工具链绕过计数 / scope 膨胀率）+ judge 维度 ×3（可读性/可维护性/repo 一致性）。制式用乘法不用加法：总分 = 完成率 × 质量系数——加法平均正是当前满分并列的机制。</p>
+<p><b>里程碑：</b>M1 rubric（1 周）→ M2 已审 20 case 盲化回放验区分度（2-3 天，证伪点）→ M3 全 pipeline 扩跑（1-1.5 周）→ M4 试点 survey 补 review-burden 三题（3-4 天，并行）。</p>
+<p><b>成功标准：</b>三模型在 ≥1 质量维度出现可复现排序（2 次独立运行同向）；judge-人工一致率 ≥80%；≥1 自动指标与人工质量分一致率 ≥70%。</p>
+<p><b>立即行动：</b>① 20 已审 case 盲化手算 diff 噪音率 + 格式化稳定性（0.5-1 天，最快证伪点——无分化即止损）② 自动化指标脚本先做两个最高价值的（1-2 天）③ 试点 survey 补 3 题 review 负担 + 发原文一页摘要做预期管理。</p>
+<p><b>🔴 诚实挑战：</b>最大软肋是因果未证——满分并列可能是任务太简单（ceiling effect）而非 rubric 缺维度，行动①必须先行；用 LLM 惩罚 LLM 的 slop 有循环论证风险（judge 或有同样盲区），自动指标是解药但覆盖不了「结构混乱但格式漂亮」；Ronacher 实验是 35h 全自主长程任务，交互式使用人在环内即时纠偏，「自主产出需加倍 review」论据应限定于 agent 场景，套用整个试点是过度引申。</p>
+</div>
+
+<div class="card">
+<h3>D2 · PRATA 差异化定位——Agents API 时代的信任层战略</h3>
+<div class="meta"><span class="badge b-ok">✅ 信号已核实</span>连接：Agent 通信（PRATA）· 内部开发者基建</div>
+<blockquote><b>核心主张：</b>Agents API 解决「谁来运行我的 agent」（单厂商内托管编排）；PRATA 解决「我的 agent 在跟谁说话、谁能看到内容」（跨厂商跨 owner 的 E2E 加密与身份）。二者是互补的两层。一句话规则：<b>单厂商内的运行时买，跨厂商间的信任建。</b></blockquote>
+<p><b>决策对比（托管编排 vs 自建互操作）：</b>数据主权（密文过自家 K8s vs 明文过厂商边界）· 厂商锁定（开放标准 vs 三重绑定）· 加密强度（E2E + 签名 vs TLS 为止）· 编排能力（零，故意的 vs 强）· 合规审计（自有签名链 vs 依赖厂商承诺）。E2E 加密与托管 harness 数学上互斥——harness 必须读明文才能编排。</p>
+<p><b>里程碑：</b>M1 定位落纸（一页纸补「三问定位」：谁运行我的 agent？我的 agent 在跟谁说话？明文谁能看？，1 周）→ M2 主权闭环：ntfy 落内部 K8s（2 周，必须先于任何对外宣传）→ M3 网络启动：首批 2-3 人 onboarding，月报共创为首验场景（3 周）→ M4 互操作 mini-spec（2 周）。</p>
+<p><b>成功标准：</b>≥3 用户 / ≥2 种 harness / ≥50 条消息且 ≥20 条属真实业务场景（防为达标而发）；陌生 harness 按文档零协助接入；90 天留存 ≥2 人。</p>
+<p><b>立即行动：</b>① 按三问定位改一页纸（2h）② 提 ntfy K8s 配置需求 + 给候选用户发一页纸约 onboarding ③ 借 Agents API 公告做 15 分钟团队分享——「OpenAI 卖编排，我们建信任」，用现场反对意见压力测试叙事。</p>
+<p><b>🔴 诚实挑战：</b>痛点可能不存在——多数团队会自然收敛到单一 harness，届时核心叙事崩塌（M3 无真实跨 harness 消息即降级为个人工具）；FOMO 动机不纯——一半动力来自新闻热度而非用户证据；主权叙事有软肋——信任层还跑在公有云上时对外宣传是负债；一旦被采纳即承担 SLO 与安全响应的隐形 headcount。</p>
+</div>
+
+<div class="card">
+<h3>D3 · Agent Etiquette——「出站守礼，入站立牌」</h3>
+<div class="meta"><span class="badge b-ok">✅ 信号已核实（原文逐句）</span>连接：Agentic 安全工程 · Skill Hub</div>
+<blockquote><b>核心主张：</b>agent 安全体系已管住「钥匙」（凭据）与「入口」（供应链审计），独缺「行为」：agent 出访任何站点前先读其治理信号（security.txt / robots.txt / llms.txt），自家 agent 端点被访前先亮机器可读的使用条款——以不足两人日增量补齐凭据→供应链→行为三部曲最后一环。HF 的治术是 redirect 而非 deny（给替代任务 CyberGym，而非禁入）。</blockquote>
+<p><b>方向裁决：</b>不做「标准观察」项目（llms.txt 采用率仅约 10%，碎片化标准本身不产出行动），把出访纪律做成 <code>fetch-etiquette</code> 前置检查（Bun+TS，&lt;100 行，结果缓存 TTL 24h）。</p>
+<p><b>里程碑：</b>M1 出站守礼脚本试点 2 个 skill（2-4h）→ M2 内部 Skill Hub 与内部 Pages 各发布 security.txt（含仿 HF 的 Note to AI agents 段，1-2h）→ M3 PRATA agent policy 文档赶在 K8s 部署前（2h）→ M4 与既有 keyring 检查合并为同一次维护改造（2-4h，必须合并，避免两次动同一文件）。</p>
+<p><b>成功标准：</b>试点 skill 外访日志 100% 含 governance-check；两站点 security.txt 返回 200 且含 AI-agent 段；首批 onboarding 用户 policy 签收 2/2。</p>
+<p><b>🔴 诚实挑战：</b>最硬的洞——不守规矩的 agent 不会读你的牌，入站侧七分是仪式三分是防御，真实回报在治理成文与社区示范；「agent 因无礼被封」是假设，须先采 429/403 基线再立项；治理文件本身是 prompt injection 新攻击面——解析器只提取结构化字段，自然语言一律当 data 不当 instruction。</p>
+</div>
+
+<div class="card">
+<h3>D4 · 证据式合规——借 Anthropic 范式升级 DPA 索取</h3>
+<div class="meta"><span class="badge b-warn">⚠️ 信号框架有夸大（政策真，细节被简化）</span>连接：编程工具试点 · 工具清单提案</div>
+<blockquote><b>核心主张：</b>用已核实的 Anthropic「第三方验证 + 数据最小化 + 范围限定」三原则作对照系，把 DPA 索取从「拿一份 PDF」升级为 12 项书面质询，使采购评估的合规章节建立在供应商可核验应答之上、而非自述承诺之上。（搜索证实 qoder.com 无独立公开 DPA，承诺散见于 FAQ——索取正式 DPA 有现实必要性。）</blockquote>
+<p><b>12 项质询（P0×8）：</b>子处理者清单、代码不用于训练<b>写入条款</b>（非 FAQ）、保留期限与删除机制、退出后数据处置、产品线边界、签约主体与采购通道、数据驻留与跨境机制、看板导出数据所有权——P0 书面逐项应答，5 工作日回复线。</p>
+<p><b>反敷衍治理设计：</b>芝麻法规与加州 65 号提案的共同机制是「当贴标签比做测试便宜，标签就失去信息价值」。对应三原则：负担与风险成比例；要证据不要标签；按场景分级而非一刀切——否则重蹈 shadow AI 或橡皮图章。</p>
+<p><b>里程碑：</b>M1 清单发出 + 安全团队会签（本周）→ M2 报表导出端到端亲手验证 + 采购通道确认（D3-D7）→ M3 应答差距分析（D8-D12）→ M4 并入 Biz Case（D13-D17）。与 2-2.5 周试点并行前置。</p>
+<p><b>立即行动：</b>① 发出 DPA 索取邮件（附 12 项质询表）② 数据看板亲手 export 一次确认格式 ③ 约安全团队 15 分钟确认框架合同覆盖面，把三原则对齐为「证据标准」而非新要求。</p>
+<p><b>🔴 诚实挑战：</b>类比有结构性裂缝——年龄验证是一次性易挥发数据，编程工具是持续高频的 IP 流，「核验后即删」根本不可迁移，借的是问题框架不是答案；拿隐私设计优等生当及格线，可能把 2.5 周窗口拖成 2.5 月；工程师经理主导合规质询有越权观感，清单必须先会签再发。</p>
+</div>
+
+<div class="card">
+<h3>D5 · 「授权 × 认可」证据透镜——一张卡，三个出口 <span class="badge b-warn">🔒 已脱敏</span></h3>
+<div class="meta"><span class="badge b-warn">⚠️ 观点单源，降级为叙事框架</span>连接：讲师团 · 晋升支持（细节已脱敏）· 个人职业叙事</div>
+<blockquote><b>核心主张：</b>把「授权 vs 认可」从鸡汤降为工程问题——认可 = 第三方可验证的「他人主动行为」留痕（mentee 记录、跨团队点名、书面推荐、分享听众），用一张 2×2 透镜卡同时驱动三个出口：教案「技术人晋升第二曲线」、成员晋升证据重映射、个人认可台账。全部可测量。</blockquote>
+<p><b>内部实证（已脱敏概括）：</b>一位资深工程师案例——授权维度证据充分（数月高强度交付、多仓库、多个从 0 到 1 服务）仍未通过评审，零进展的恰是认可维度（mentoring 留痕、书面推荐、分享记录）。「把安排的事做好」是入场券不是决定项。（n=1 假设，非结论。）</p>
+<p><b>认可的操作化定义（防鸡汤的钥匙）：</b>他人主动产生、评审方可点开验证的行为记录，四类采集渠道各配「本周 30 分钟级最小动作」。刚性规则：台账只记 unsolicited——索取来的好评即自我安慰。</p>
+<p><b>里程碑：</b>M0 透镜卡 v1（2h）→ M1 成员证据重分轴 + 认可 baseline（1.5h，仅私有目录）→ M2 教案 v0.5 提案：90min 工作坊，案例必须合成/公版（5h）→ M3 个人认可台账建档回填（1h/季）。总投入约 10h / 4 周。</p>
+<p><b>🔴 诚实挑战：</b>因果倒置——晋升本质是业务需求而非绩效奖励，若无岗位空缺认可再厚也是零（先核实岗位规划，透镜只管证据维度）；n=1 归因谬误——单例同样支持「文化折扣」假说；循环论证——用自己被授权主导的项目给自己攒认可，含金量存疑；教学市场的残忍检验——资深工程师对领导力鸡汤免疫，10 分钟内看不到「这改变我下季度的证据采集动作」即失败。</p>
+</div>
+
+<h2>📌 今日元记录</h2>
+<ul>
+<li>信号量小而验证密度高：3 新文档拆出 5 方向，6 项验证全闭环（2 原文 WebFetch + 2 多信源交叉 + 2 官方文档）。</li>
+<li>一处 HN 框架夸大被纠正：「Claude 强迫政府 ID」实为 Yoti 三档可选（面部估算即可），公开讨论的简化叙事 ≠ 事实——二手信号一手验证的又一次实例。</li>
+<li>跨域连接：D1（质量惩罚轴）× D4（证据式合规）共享「要证据不要标签」原则；D2（信任层）× D3（agent 礼仪）共享「协议中立 + redirect 优于 deny」的治理哲学。</li>
+<li>红线执行：D5 涉及个人敏感信息，公开归档仅保留框架与脱敏概括，原始分析仅在私有目录。</li>
+</ul>
+
+<div class="footer">生成于 2026-09-13 · my-readwise-briefing v4.3 · 5/5 subagent 成功（0 兜底） · 公开归档已脱敏</div>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
