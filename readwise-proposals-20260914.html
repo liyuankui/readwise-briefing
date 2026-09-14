@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals 2026-09-14</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  line-height: 1.75; padding: 2rem 1rem; max-width: 920px; margin: 0 auto;
+}
+h1 { font-size: 1.6rem; color: var(--accent); margin-bottom: .3rem; }
+.sub { color: var(--text3); font-size: .9rem; margin-bottom: 1.2rem; }
+h2 { font-size: 1.15rem; color: var(--accent); margin: 2rem 0 .8rem; border-left: 4px solid var(--accent); padding-left: .6rem; }
+h3 { font-size: 1rem; margin: .9rem 0 .4rem; color: var(--accent2); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.3rem; margin: .9rem 0; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+.banner { background: rgba(45,90,74,.08); border: 1px solid var(--accent); border-radius: 10px; padding: .8rem 1.1rem; font-size: .95rem; }
+.dark .banner { background: rgba(108,142,245,.1); }
+.banner b { color: var(--accent); }
+.tag { display: inline-block; font-size: .75rem; padding: .1rem .55rem; border-radius: 99px; margin-right: .4rem; vertical-align: middle; background: var(--surface2); color: var(--text2); }
+.meta { color: var(--text3); font-size: .82rem; }
+table { width: 100%; border-collapse: collapse; margin: .8rem 0; font-size: .88rem; }
+th, td { border: 1px solid var(--border); padding: .45rem .6rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { padding-left: 1.3rem; }
+li { margin: .28rem 0; }
+.toggle { position: fixed; top: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 99px; width: 2.4rem; height: 2.4rem; font-size: 1.1rem; cursor: pointer; z-index: 9; }
+.footnote { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: .82rem; }
+.claim { font-size: 1.02rem; background: var(--surface2); border-radius: 8px; padding: .6rem .9rem; margin: .5rem 0; }
+.challenge { border: 1px dashed var(--accent5); border-radius: 8px; padding: .6rem .9rem; margin: .6rem 0; font-size: .9rem; }
+.challenge b { color: var(--accent5); }
+.acts { background: rgba(5,150,105,.07); border-radius: 8px; padding: .6rem .9rem; margin: .6rem 0; font-size: .92rem; }
+</style>
+</head>
+<body>
+<button class="toggle" id="theme-toggle">🌙</button>
+
+<h1>🎯 深挖 Proposals · 2026-09-14（周一）</h1>
+<div class="sub">今日信号：数学 AlphaGo 时刻（OpenAI 09-08 宣称解决 Navier–Stokes 千禧年难题，✅ 多源验证）× 5 个深挖方向 · 配套 <a href="readwise-briefing-20260914.html">今日简报</a> · <a href="readwise-weekly-20260914.html">W37 周报</a></div>
+
+<div class="banner"><b>公理</b>：不可行动的信息 = 噪音。信号 → 验证 → 洞察 → 行动。</div>
+
+<h2>📌 信号 × 项目 对应</h2>
+<table>
+  <tr><th>#</th><th>Proposal</th><th>核心主张</th><th>连接项目</th></tr>
+  <tr><td>①</td><td>验证者把关编排层（VGO）</td><td>万 agent 协同瓶颈在裁决不在通信，从「建信道」转向「建裁判」</td><td>PRATA · Life OS · AI Security</td></tr>
+  <tr><td>②</td><td>机器可验判卷轴（Lean-for-Code 折扣版）</td><td>三模型并列非模型同强，是判卷太软——给质量惩罚轴装机器可验证据源</td><td>AI Coding Eval</td></tr>
+  <tr><td>③</td><td>贡献双轨制</td><td>收益归系统验证（自动台账），贡献归个人归因（证据包），两轨分离季度对账</td><td>FY27 收益框架 · Skill Hub</td></tr>
+  <tr><td>④</td><td>CS336 去留决议</td><td>价值非升非降而是劈裂：弃生产深度、取校准深度（缩窄为定向模块）</td><td>CS336 · 健脑</td></tr>
+  <tr><td>⑤</td><td>本周行动优先级</td><td>上周 0/8 落地，本周以执行为纲：硬截止 &gt; 阻塞他人 &gt; 上游依赖 &gt; 探索</td><td>全部主线</td></tr>
+</table>
+
+<h2>① 验证者把关编排层（VGO）</h2>
+<div class="card">
+  <span class="tag">Agent Swarm 工程</span><span class="tag">OpenAI 10K-agent 案例外推</span>
+  <div class="claim"><b>核心主张</b>：万 agent 协同瓶颈不在通信在裁决——生成贵、验证廉、信任锚是机器验证器而非 agent 互信。下一层是 verifier-gated orchestration：从「建信道」转向「建裁判」。</div>
+  <h3>案例解剖（subagent 补充验证的实证数字）</h3>
+  <ul>
+    <li><b>联邦竞速制</b>推断：分组并行探索、唯通过验证的结果才合并；2.7M 消息/88h ≈ 每 agent 每小时仅 3 条——O(n²) 协调被验证器压缩（<a href="https://www.latent.space/p/ainews-openai-reports-navier-stokes">Latent Space</a>）</li>
+    <li><b>生成贵验证廉</b>：88h 出自然语言证明，再 17h Lean 形式化——验证仅占 19% 耗时；成本 $40M / 130B tokens</li>
+    <li>曾以 <b>100 agents × 50h</b> 预演攻 Euler 问题后转向；另存 Codex 私数据争议（<a href="https://venturebeat.com/technology/openai-solves-longstanding-math-problem-with-10-000-agent-swarm-but-cant-rule-out-benefitting-from-a-researchers-private-codex-data">VentureBeat</a>）</li>
+  </ul>
+  <h3>里程碑（7 周 · 0.2 FTE）</h3>
+  <ul>
+    <li>M1（1w）PRATA 协议加 proof 字段：签名 checkpoint 哈希 + 验证报告</li>
+    <li>M2（2w）Life OS 迷你编排器（Bun，&lt;200 行）：subgoal 队列 + 测试绿灯门禁</li>
+    <li>M3（1w）首个 Proactive Agent：选 Done 可 schema 判定的动作</li>
+    <li>M4（1w）审计日志：每 merge 记 agent_id / goal / verdict / 哈希</li>
+    <li>M5（2w）单机 50 agent 压测 8h 无人值守</li>
+  </ul>
+  <div class="acts"><b>本周三事</b>：① 写 PRATA proof 字段 RFC（1页）② Bun 原型：subgoal 队列+测试门禁 ③ 定 agent 审计四元组 schema</div>
+  <div class="challenge"><b>诚实挑战</b>：OpenAI 未公开架构，以上是外推——胜因可能是模型本身而非编排；$40M 换头条的经济性未证明，个人场景规模差 4 个量级；订单/库存领域多无 Lean 级验证器，可迁移性打折。</div>
+</div>
+
+<h2>② 机器可验判卷轴（Lean-for-Code 折扣版）</h2>
+<div class="card">
+  <span class="tag">评测区分度重建</span><span class="tag">与上周质量惩罚轴合并</span>
+  <div class="claim"><b>核心主张</b>：三模型满分并列非模型同强，而是判卷太软——测试杀不死变异。解法：给质量惩罚轴装上机器可验证据源（变异分数 + 属性测试 + P2P 回归），与 Blast Radius 合成乘法制总分，LLM-judge 降为辅助信号。</div>
+  <h3>类比定界</h3>
+  <p style="font-size:.92rem">Lean 验的是二值真值；代码无完整规约，全形式化（Dafny/TLA+/Lean）规约成本以周计<b>不进管道</b>。可进的是折扣版：<b>PIT 变异测试</b>（量化测试集区分度，接入 1 天）· <b>jqwik 属性测试</b>（边界不变量，0.5-1 天/场景）· <b>P2P 回归门</b>（堵 `--tests` 过滤漏回归，0.5 天）。</p>
+  <h3>里程碑</h3>
+  <ul>
+    <li>M1（2d）满分场景尸检：golden patch 跑 PIT——<b>变异分 &lt;60 证实「测试无区分力」根因；≥80 证伪转攻任务难度</b>（真相时刻）</li>
+    <li>M2（3d）5 场景补 jqwik 属性 + P2P 回归门，场景硬度门槛 ≥70</li>
+    <li>M3（2d）合并公式：总分 = 完成率 × (0.4 + 0.6×质量系数) × Scope 系数，三模型重跑</li>
+    <li>M4（3d）2 repo × 20 cases 人工审对照，一致率 ≥80%</li>
+  </ul>
+  <div class="acts"><b>本周三事</b>：① 挑 1 个满分场景跑 PIT，半天出变异分 ② 三模型 patch 互跑「被杀 mutant 数」，免费拿并列初值 ③ 给测试入口加 `--check-regressions`（顺带消掉既有待办）</div>
+  <div class="challenge"><b>诚实挑战</b>：若并列根因是任务过易（天花板效应），加严判卷无用——M1 门即证伪开关；变异分高 ≠ 业务正确（必要非充分）；权重 0.4/0.6 是拍的，M4 校准前勿对外引用。</div>
+</div>
+
+<h2>③ 贡献双轨制：机器验证收益，人类自证贡献</h2>
+<div class="card">
+  <span class="tag">人机贡献归属</span><span class="tag">千禧年奖金无主 → 组织计量</span>
+  <div class="claim"><b>核心主张</b>：收益归系统验证（自动台账），贡献归个人归因（证据包）——两轨分离、季度对账。不混计、零自报、可审计。<span class="meta">（背景：Navier–Stokes 证明 Lean 能验证「对不对」，答不了「算谁的」——正确性可自动化，归因必须人证）</span></div>
+  <h3>三层痛点</h3>
+  <table>
+    <tr><th>层</th><th>痛点</th></tr>
+    <tr><td>收益层</td><td>四态台账靠自报、无系统抓手、数字被疑夸大（FY26 三缺口）</td></tr>
+    <tr><td>晋升层</td><td>AI 加持后个人贡献无法自证——人人皆 Alpöge：先驱工作恐被工具抢功</td></tr>
+    <tr><td>制度层</td><td>无规则则归因即政治：$1M 无主、Tao 斥「目标错位」</td></tr>
+  </table>
+  <h3>里程碑</h3>
+  <ul>
+    <li>M1（4h）规则 v0.5：四态改自动采集（Jira label + commit trailer），删自报表</li>
+    <li>M2（2 周）Pilot：1 团队 5 人 × 2 sprint，周度 BO 签核</li>
+    <li>M3（1 周）证据包模板（问题定义→编排决策→验证证据）+ Skill Hub 积分打通</li>
+    <li>M4（0.5 天/季）台账 × 证据包交叉对账，出归因报告</li>
+  </ul>
+  <div class="acts"><b>本周三事</b>：① 上周四态台账 Proposal 改一页纸「自动采集版」，约 1 位 BO 面谈 30min ② 为 1 位晋升支持候选人按三段式重组证据包 ③ Skill Hub 增「贡献者/使用量」字段，作积分原始数据</div>
+  <div class="challenge"><b>诚实挑战</b>：自动采集止于 code/Jira，会议沟通类省时不可计——Lean 有客观裁判，工时没有，台账必有水分只能缩小；FA2 要总收益叙事 vs 工程师要个人荣誉，对账会变成谈判桌；证据包可能激励「为留证而做」的表演性工作。</div>
+</div>
+
+<h2>④ CS336 去留决议 —「数学 AlphaGo 时刻」之后</h2>
+<div class="card">
+  <span class="tag">学习策略</span><span class="tag">决策框架</span>
+  <div class="claim"><b>核心主张</b>：价值非升非降，而是<b>劈裂</b>——AI 接管「造」的底层，手搓复现（kernel 级）贬值；「千禧难题已解」式 hype 陡升，内构地图作为<b>校准器</b>升值。学 LLM 为判断力而非转岗 → 弃生产深度、取校准深度。</div>
+  <h3>四选项</h3>
+  <table>
+    <tr><th>选项</th><th>投入</th><th>收益</th><th>触发条件 → 代价</th></tr>
+    <tr><td>A 续原契约</td><td>10h/w×6周</td><td>全栈+完整作品</td><td>已被证伪（80h 承诺 0 交付）→ 挤占工作与 CS329Z</td></tr>
+    <tr><td><b>B 缩窄模块 ✦荐</b></td><td>3h/w</td><td>内构地图+BS检测器，直喂 Eval 判断力</td><td>目的=判断力 → 放弃「手搓完整 LLM」叙事</td></tr>
+    <tr><td>C 换 CS329Z</td><td>6h/w</td><td>Agent 编排实操</td><td>目的=管理 Agent 团队 → 内构空心，遇 AlphaGo 级新闻只能转述不能判断</td></tr>
+    <tr><td>D 暂停</td><td>0</td><td>诚实止损</td><td>B 跑 3 周仍 0 commit → 判断力外包，学习身份断裂</td></tr>
+  </table>
+  <h3>建议：B，并与 C 组合</h3>
+  <p style="font-size:.92rem">CS329Z 主干不变，CS336 降为卫星。理由：① 停滞主因疑为 10h/w 假设本身，续 A 是给同一失败模式续约；② 新闻越猛，越需自持 tokenizer/scaling/RLHF 的「硬度」坐标——Eval 项目要答「模型为何在此失败」，答案在 scaling/data/alignment；③ 编排能力团队有人可做，判断力无处外包——C 不可替代 B，B 可喂 C。</p>
+  <h3>重校准里程碑（10-26 → 12-31，日期驱动改产物驱动）</h3>
+  <ul>
+    <li>A1 Basics 瘦身留（BPE + attention 白板级讲清）；A2 FlashAttention 砍（读原理半天）；<b>A3 Scaling Laws 留·最高优先</b>；A4 Data 概念留作业砍；A5 Alignment/DPO 留（与治理最相关）</li>
+    <li>每模块 1 页判断笔记（该信什么/不该信什么/对本组织的含义）；终点 12-31 前发博客《EM 视角：哪些 LLM 内构值得管理者懂》</li>
+    <li><b>证伪开关</b>：连续 2 周 0 commit → 自动降级 D，归档写讣告</li>
+  </ul>
+  <div class="challenge"><b>诚实挑战</b>：B 或是精致的沉没成本辩护——「缩窄」可能只是不敢说「放弃」（对冲：3 周证伪开关，无第二次缩窄）；判断力或根本不需手搓，读+写或已足够（对冲：4 周内笔记只有复述无可校准增量，砍掉动手层）；B+C 双线超载风险（对冲：B 硬封顶 3h/w，冲突时砍 B 保 C）。</div>
+</div>
+
+<h2>⑤ 本周行动优先级（09-14 ~ 09-20）</h2>
+<div class="card">
+  <span class="tag">周报行动落地</span><span class="tag">上周 0/8 → 本周以执行为纲</span>
+  <div class="claim"><b>排序原则</b>：硬截止 &gt; 阻塞他人 &gt; 上游依赖 &gt; 探索。</div>
+  <h3>Top 5</h3>
+  <table>
+    <tr><th>#</th><th>行动</th><th>投入</th><th>为何本周 → 产出物</th></tr>
+    <tr><td>1</td><td><b>Qoder 合规三连</b>：12 项 DPA 质询 + 数据最小化三问发出；志愿者招募</td><td>3h</td><td>国庆收口唯一硬阻塞；供应商响应以周计 → 质询函已发 + 志愿者 ≥5</td></tr>
+    <tr><td>2</td><td><b>FY27 收益框架 v2</b>：四态台账 + 三档 success picture 并入材料，约 sponsors 对齐</td><td>4h</td><td>9 月 sponsor review 材料窗口只此一周 → v2 材料 + 对齐会 booked</td></tr>
+    <tr><td>3</td><td><b>Lotus Notes Guardrails ADR 一页</b>（BFF 讨论前发）</td><td>1.5h</td><td>防「改个蓝色」式 scope 溃坝的最廉价防线 → ADR 发出 + 评论 ≥3</td></tr>
+    <tr><td>4</td><td><b>Eval 区分度重建</b>：质量惩罚轴 rubric v1，20 case 先审 10</td><td>3h</td><td>三模型 FTP 并列 = 评测失灵，模型/成本决策全被卡 → rubric v1 + 10 case 判定</td></tr>
+    <tr><td>5</td><td><b>micro-pet 09-18 复盘</b>（日历保护）</td><td>1h</td><td>周四硬截止 → H1/H2/反应池基线三行结论落档</td></tr>
+  </table>
+  <h3>故意不做（防注意力稀释）</h3>
+  <ul>
+    <li><b>CS336 学习投入</b>——决议前投入 = 赌注前置；本周仅 15min 决议会（看 Proposal ④）</li>
+    <li><b>PRATA vs OpenAI Agents API 对比</b>——API 上线不满两周，生态未稳，比了也白比</li>
+    <li><b>微信底座 M0 离网镜像 / V4.1 Flash 三线 TCO 全表</b>——无截止或依赖 #4 结论，留下周</li>
+  </ul>
+  <div class="acts"><b>成功标准（周五 18:00）</b>：上周 0/8，本周 <b>4/5 达成即成功</b>——DPA 已发、FY27 v2 入 review 材料、ADR 已发、复盘已执行；#4 审满 10 case 为弹性项。周三 Go/No-Go：确认 #4 的「Qoder/opencode 选型上游」依赖真实存在才继续。</div>
+  <div class="challenge"><b>诚实挑战</b>：瓶颈可能不是排序而是容量——上周 22 份 proposal 执行 0 条，暴露「分析强、执行弱」模式；本周 5 条约需 12h 专注时间，若 review 材料被要求扩写，#4（唯一无截止项）必滑。#1/#2 均依赖他人响应——今日发出、今日不等，是唯一可控动作。</div>
+</div>
+
+<div class="footnote">
+  🎯 今日 5 Proposals · 配套 <a href="readwise-briefing-20260914.html">今日简报</a> · <a href="readwise-weekly-20260914.html">W37 周报</a> · 5/5 subagent 完成（无内联兜底）· 验证信源：OpenAI / Quanta / Science / Nature / Latent Space / VentureBeat / SciAm / Guardian / WIRED · my-readwise-briefing v4.3 · 公开归档，已脱敏
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 2026-09-14（周一 · 附 W37 周报）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  line-height: 1.75; padding: 2rem 1rem; max-width: 920px; margin: 0 auto;
+}
+h1 { font-size: 1.6rem; color: var(--accent); margin-bottom: .3rem; }
+.sub { color: var(--text3); font-size: .9rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1.15rem; color: var(--accent); margin: 2rem 0 .8rem; border-left: 4px solid var(--accent); padding-left: .6rem; }
+h3 { font-size: 1rem; margin: 1rem 0 .4rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.3rem; margin: .8rem 0; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+.card h3 { color: var(--accent2); }
+.tag { display: inline-block; font-size: .75rem; padding: .1rem .55rem; border-radius: 99px; margin-right: .4rem; vertical-align: middle; }
+.t5 { background: rgba(5,150,105,.12); color: var(--accent3); }
+.tw { background: rgba(217,119,6,.14); color: var(--accent4); }
+.tl { background: var(--surface2); color: var(--text3); }
+.meta { color: var(--text3); font-size: .82rem; }
+.quote { background: var(--surface2); border-left: 3px solid var(--border); padding: .6rem .9rem; margin: .6rem 0; font-size: .92rem; color: var(--text2); border-radius: 0 6px 6px 0; }
+.why { background: rgba(99,102,241,.07); border: 1px dashed var(--accent2); border-radius: 8px; padding: .7rem .9rem; margin: .7rem 0; font-size: .92rem; }
+.why b { color: var(--accent2); }
+table { width: 100%; border-collapse: collapse; margin: .8rem 0; font-size: .9rem; }
+th, td { border: 1px solid var(--border); padding: .45rem .6rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { padding-left: 1.3rem; }
+li { margin: .3rem 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: .8rem; margin: 1rem 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: .8rem; text-align: center; }
+.stat .num { font-size: 1.6rem; color: var(--accent); font-weight: bold; }
+.stat .lbl { font-size: .8rem; color: var(--text3); }
+.toggle { position: fixed; top: 1rem; right: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 99px; width: 2.4rem; height: 2.4rem; font-size: 1.1rem; cursor: pointer; z-index: 9; }
+.footnote { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: .82rem; }
+details { margin: .8rem 0; }
+summary { cursor: pointer; color: var(--text2); }
+.timeline { border-left: 2px solid var(--accent); padding-left: 1rem; margin: .8rem 0; }
+.timeline .ev { margin: .5rem 0; font-size: .92rem; }
+.timeline .d { color: var(--accent4); font-weight: bold; margin-right: .4rem; }
+</style>
+</head>
+<body>
+<button class="toggle" id="theme-toggle">🌙</button>
+
+<h1>Readwise 简报 · 2026-09-14（周一）</h1>
+<div class="sub">📡 今日信号 3 条 · 附 📊 <a href="readwise-weekly-20260914.html">W37 周报（09-07 ~ 09-13）</a> · 深挖 🎯 <a href="readwise-proposals-20260914.html">今日 5 Proposals</a> · my-readwise-briefing v4.3</div>
+
+<div class="grid">
+  <div class="stat"><div class="num">3</div><div class="lbl">新增信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">6+</div><div class="lbl">交叉验证信源</div></div>
+  <div class="stat"><div class="num">22</div><div class="lbl">上周 Proposals（周报复盘）</div></div>
+</div>
+
+<h2>🚨 今日主线：数学的 AlphaGo 时刻</h2>
+
+<div class="card">
+  <h3><span class="tag t5">⭐×5</span><span class="tag t5">✅ Verified</span>「数学家哭了」×「数学 AlphaGo 时刻」双推文</h3>
+  <div class="quote">「数学家哭了。字面意义上的哭了，康奈尔大学数学系教授、知名科普作家 Steven Strogatz 在接受《WIRED》采访时，谈及过去一周人工智能在数学领域取得的突飞猛进，忍不住当场落泪。」<span class="meta">—— @Gorden_Sun</span></div>
+  <div class="quote">「这是数学领域的 AlphaGo 时刻。突然想起 Ilya 23年的一句话：'If you value intelligence above all other human qualities, you're gonna have a bad time.' 2016 年，最先体会到这句话的，是围棋棋手。十年之后，围棋之殇，开始四散蔓延。」<span class="meta">—— @python_xxt（Robinson · 鲁棒逊）</span></div>
+
+  <h3>Phase 1.5 验证链（多信源交叉 ✅）</h3>
+  <p style="font-size:.93rem">两条推文背景为 <b>OpenAI 2026-09-08 官宣：AI 解决 Navier–Stokes 千禧年难题</b>（六大 $1M 问题之一）。关键事实：</p>
+  <ul style="font-size:.93rem">
+    <li><b>88 小时攻坚、约 10,000 个自主 AI agents 协同</b>；输出含 writeup + <b>Lean 形式化证明</b>（<a href="https://openai.com/index/navier-stokes-solution/">OpenAI 官宣</a> · <a href="https://www.science.org/content/article/how-ai-math-breakthrough-ignited-controversy">Science</a> · <a href="https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades">Guardian</a>）</li>
+    <li>数学家 Buckmaster 与 Alpöge 用 Lean <b>独立复核通过</b>（<a href="https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/">Quanta</a> · <a href="https://www.scientificamerican.com/article/ai-may-have-just-solved-a-million-dollar-math-problem-the-field-will-never-be-the-same/">SciAm</a>）</li>
+    <li><b>争议未息</b>：OpenAI 承认受「Alpöge 与 Buckmaster 已解决」传闻启发——人机贡献归属存疑（<a href="https://www.nature.com/articles/d41586-026-02842-5">Nature</a> · <a href="https://www.scientificamerican.com/article/openai-claims-blockbuster-math-breakthrough-amid-swirl-of-controversy/">SciAm②</a>）；Terence Tao 09-11 发文指 AI 公司与数学社区目标「严重错位」</li>
+    <li>Strogatz 本人 X 确认落泪属实（<a href="https://x.com/stevenstrogatz/status/2098872735266979898">@stevenstrogatz</a> · <a href="https://www.wired.com/story/mathematician-steven-strogatz-grapples-with-ai-recent-breakthroughs/">WIRED 原文</a>）</li>
+  </ul>
+
+  <h3>四个月加速曲线</h3>
+  <div class="timeline">
+    <div class="ev"><span class="d">05月</span>OpenAI 证伪 80 年 Erdős unit-distance 猜想（首个将发顶刊的 AI proof）</div>
+    <div class="ev"><span class="d">07-20</span>Xena Project：「人类数学家正在被反例机器碾压」</div>
+    <div class="ev"><span class="d">09-03</span>ICM 2026 现场辩论 "What Is Math For in the Age of AI?"（Quanta）</div>
+    <div class="ev"><span class="d">09-08</span>Navier–Stokes 千禧年难题宣告解决（10K agents / Lean 验证）</div>
+    <div class="ev"><span class="d">09-11</span>Tao：《AI in Mathematics 的严重错位》</div>
+    <div class="ev"><span class="d">09-13</span>情绪面抵达大众：Strogatz 落泪传播到中文圈（本信号）</div>
+  </div>
+
+  <div class="why"><b>为什么与你相关（四个项目连接）</b>：
+    ① <b>AI Coding Eval</b>——你的三模型满分并列困局与数学界「AI claim 不可信」同构，而他们用 Lean 形式化验证破局：机器可检验的证明让争议降级。评测的「质量惩罚轴」有了终极演进方向；
+    ② <b>PRATA / Agent 治理</b>——10,000 agents × 88h 是迄今最大规模公开的自主 agent 协同案例，其编排/信任/验证架构是 agent 工程的免费教材；
+    ③ <b>CS336 去留</b>——「智能贬值曲线」4 个月一个台阶，手搓 LLM 的学习价值需要重新定价（正好赶上你要出的决议）；
+    ④ <b>FY27 FA2</b>——credit 归属争议（AI 抢跑 vs 人类先做）就是你收益框架里「AI 省的工时归因给谁」的极端版本。</div>
+</div>
+
+<div class="card">
+  <h3><span class="tag tw">⚠️ 推文原文无法验证</span>Miles Ma 裸链接推文</h3>
+  <p style="font-size:.93rem">仅含短链 <span class="meta">https://t.co/eBLZAXIbF6</span>，展开为 X 平台 article 页（x.com/i/article/2098826665468309504），无登录态无法读取内容。按纪律降权，不入深挖。若原文有价值，请手动保存全文后重入管道。</p>
+</div>
+
+<h2>🎯 今日行动清单（→ 5 个深挖方向）</h2>
+<table>
+  <tr><th>#</th><th>行动</th><th>关联意图</th><th>产出物</th></tr>
+  <tr><td>1</td><td>提炼 10K-agent 协同案例的编排/信任/验证架构，对照 PRATA 与 Life OS Software Factory</td><td>PRATA · Life OS</td><td>Proposal ①（见 Proposals 页）</td></tr>
+  <tr><td>2</td><td>评估形式化验证（Lean/PBT/契约类型）进 AI Coding Eval 的可行场景，与上周「质量惩罚轴」合并</td><td>AI Coding Eval</td><td>Proposal ②</td></tr>
+  <tr><td>3</td><td>设计「AI 参与下的贡献计量」规则（四态台账 + 归属边界），服务 FA2 收益框架</td><td>FY27 FA2</td><td>Proposal ③</td></tr>
+  <tr><td>4</td><td>用加速曲线证据出 CS336 去留决议（四选项决策框架）</td><td>CS336 · 健脑</td><td>Proposal ④</td></tr>
+  <tr><td>5</td><td>把上周 8 条未落地行动 × 本周硬截止（09-18 micro-pet 复盘 / Qoder 国庆收口 / 9月 sponsor review）排出本周 Top 5</td><td>全部主线</td><td>Proposal ⑤</td></tr>
+</table>
+
+<h2>📊 上周（W37）回顾速览</h2>
+<div class="card">
+  <p style="font-size:.93rem">上周 7 天：31+ 条信号、22 份 Proposals、主题五连：<b>评测区分度耗尽</b>（09-11/12/13 三日同结论）· <b>DeepSeek 传闻→证实</b> · <b>Agent 治理与信任</b> · <b>要证据不要标签</b> · <b>低信号日保持沉默</b>。十大信号与全部 Proposals 复盘见 <a href="readwise-weekly-20260914.html">📊 W37 周报</a>。</p>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+<div class="card">
+  <p style="font-size:.93rem">今日「数学 AlphaGo 时刻」双推文同时命中 <b>🧠 健脑</b>维度（认知/心智模型/学习策略）：Ilya 引言「若你最看重智能这一人类品质，你会有段难熬的日子」本质是身份认同冲击议题——与围棋棋手 2016、数学家 2026 平行的是「知识工作者 2027?」。此维度的行动化已并入 Proposal ④（CS336 去留决策框架）。</p>
+</div>
+
+<div class="footnote">
+  📡 今日简报 09-14 · 📊 <a href="readwise-weekly-20260914.html">W37 周报</a> · 🎯 <a href="readwise-proposals-20260914.html">今日 Proposals</a> · 数据：Readwise export API（updatedAfter=2026-09-13T00:00:00Z）· 验证信源：OpenAI / Nature / Science / Quanta / SciAm / Guardian / WIRED / X·@stevenstrogatz · my-readwise-briefing v4.3 · 公开归档，已脱敏
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
