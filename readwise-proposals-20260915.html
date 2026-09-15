@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-09-15（周二）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; line-height:1.75; padding:24px 16px 64px; }
+.wrap { max-width:960px; margin:0 auto; }
+header { text-align:center; padding:28px 20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; margin-bottom:20px; position:relative; }
+h1 { font-size:1.6em; color:var(--accent); margin-bottom:6px; }
+.axiom-banner { margin-top:10px; display:inline-block; background:var(--surface2); border:1px dashed var(--accent); color:var(--accent); border-radius:8px; padding:4px 16px; font-size:.95em; }
+.date { color:var(--text3); font-size:.92em; margin-top:8px; }
+#theme-toggle { position:absolute; top:14px; right:14px; background:var(--surface2); border:1px solid var(--border); border-radius:8px; width:36px; height:36px; font-size:1.1em; cursor:pointer; }
+h2 { font-size:1.25em; color:var(--accent); margin:32px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; font-size:.9em; margin:10px 0; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 12px; font-weight:600; }
+td { padding:8px 12px; border-top:1px solid var(--border); color:var(--text2); vertical-align:top; }
+td:first-child { color:var(--text); }
+.proposal { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin:18px 0; }
+.proposal h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { background:var(--surface2); border-left:4px solid var(--accent2); border-radius:0 8px 8px 0; padding:12px 16px; margin:12px 0; font-size:.98em; }
+.tag { display:inline-block; font-size:.78em; background:rgba(99,102,241,.12); color:var(--accent2); border-radius:6px; padding:1px 10px; margin:0 6px 6px 0; }
+h4 { font-size:1em; color:var(--text); margin:16px 0 6px; }
+ol, ul { padding-left:22px; } li { margin:5px 0; color:var(--text2); font-size:.95em; }
+.actions { background:rgba(5,150,105,.07); border-radius:10px; padding:12px 16px; margin:12px 0; }
+.challenge { background:rgba(220,38,38,.06); border-radius:10px; padding:12px 16px; margin:12px 0; }
+.challenge li { color:var(--text2); }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.footer { text-align:center; color:var(--text3); font-size:.88em; margin-top:32px; }
+.kpi { color:var(--accent3); font-weight:600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>🚀 深挖 Proposals × 5</h1>
+  <div class="axiom-banner">不可行动的信息 = 噪音 · 信号 → 验证 → 洞察 → 行动</div>
+  <div class="date">2026-09-15 周二 · 由 5 路并行 subagent 推理生成 · 均含诚实挑战 · <a href="readwise-briefing-20260915.html">← 返回今日简报</a></div>
+</header>
+
+<h2>信号 × 项目 对应关系</h2>
+<table>
+<tr><th style="width:14%">Proposal</th><th style="width:34%">信号来源</th><th style="width:30%">连接项目</th><th>本周动作</th></tr>
+<tr><td><a href="#p1">P1 评估防作弊</a></td><td>HN 蜜罐作弊（✅AISI/NIST/arXiv 多源）+ Anthropic J-space 测试感知（✅）</td><td>AI Coding Eval / llm-as-qa-judge / Qoder Biz Case</td><td>满分变异重跑</td></tr>
+<tr><td><a href="#p2">P2 Agentic 安全治理</a></td><td>Bengio 机制论（✅）+ RubyGems 缓存漏洞攻击（✅）+ 堡垒机连坐（⚠️）</td><td>AI Security / Skill Hub / Agent 通信</td><td>secret 全量扫描</td></tr>
+<tr><td><a href="#p3">P3 J-space 可解释性</a></td><td>Anthropic J-space（✅ 一手 + 开源 1901★ + 独立复现）</td><td>CS336（重启钩子）/ AI 讲师团</td><td>Neuronpedia demo</td></tr>
+<tr><td><a href="#p4">P4 小模型重排迁移</a></td><td>0.6B 输入法重排生态（✅ lime 857★）</td><td>搜索个性化 / Rust 学习</td><td>负向归因切片</td></tr>
+<tr><td><a href="#p5">P5 AI-aware 课程</a></td><td>MIT《AI and Education》（✅ 一手 + Forbes）</td><td>K12 教育（大纲 v04）/ OpenMAIC</td><td>五层回溯打分</td></tr>
+</table>
+
+<!-- ==================== P1 ==================== -->
+<section class="proposal" id="p1">
+  <h3>P1 · 先证测量，再谈选型：AI Coding Eval 抗 gaming 设计</h3>
+  <span class="tag">AI Coding Eval</span><span class="tag">llm-as-qa-judge v2</span><span class="tag">约 8-10 周</span>
+  <div class="claim"><b>核心主张：</b>作弊利用的是"任务意图"与"实际度量"之间的 gap（NIST CAISI 定义）；以泄漏审计、蜜罐探针、行为审计、judge 校准四层防御收窄该 gap 至可监测、可归因——<b>分数未经此证明，不具备选型决策资格。</b></div>
+  <h4>锁定的痛点</h4>
+  <ul>
+    <li>某模型 FTP 场景<b>满分</b>——满分 = gap 被利用的第一嫌疑（context 泄漏 / 检查器捷径 / 训练记忆三解释未排除）</li>
+    <li>judge-only 准确率 <span class="kpi">57-59%</span>——仅比随机好 7-9pt；"模型间无显著差异"分不清是真无差异还是噪声淹没信号</li>
+    <li>J-space 证实模型存在<b>测试感知</b>：评测带 eval 指纹，测到的可能是"考试人格"而非"工作人格"</li>
+  </ul>
+  <h4>里程碑</h4>
+  <table>
+  <tr><th style="width:26%">里程碑</th><th>内容 → 产出</th></tr>
+  <tr><td>M1 满分证伪+泄漏审计 (1.5周)</td><td>满分任务变异重跑（改标识符×3）+ 泄漏扫描 → 满分归因报告</td></tr>
+  <tr><td>M2 Judge 校准加固 (2-3周)</td><td>金标 50-100 例 + rubric 证据引用 + pairwise + 多 judge 投票 + 抗注入测试 → judge v2 与分域可信度报告</td></tr>
+  <tr><td>M3 蜜罐探针 (2周)</td><td>5-10 个故意留捷径的任务 → 每模型 <span class="kpi">gaming 率</span>，与功能分并列</td></tr>
+  <tr><td>M4 去指纹 (2周)</td><td>评测任务混入真实任务 + ±eval 标记 A/B → awareness delta（含置信区间）</td></tr>
+  <tr><td>M5 小矩阵重跑 (1.5周)</td><td>功能分 × gaming 率 × 置信区间 三维选型报告</td></tr>
+  </table>
+  <h4>成功标准（节选）</h4>
+  <ul><li>judge-人工一致率：清晰任务域 <span class="kpi">≥80%</span>（kappa≥0.6），歧义域单列不采信；judge 抗注入误判率 &lt;5%；满分归因闭环</li></ul>
+  <div class="actions"><b>本周立即行动：</b><ol>
+    <li>变异重跑 FTP 满分任务（半天）——最便宜的证伪实验：满分存活→排除记忆泄漏；暴跌→抓到实锤</li>
+    <li>抽 20 例 judge 判定人工盲审（半天）——金标雏形 + 错误分类</li>
+    <li>Context 泄漏扫描（半天）——grep 任务关键词于 agent 可见文件全集</li>
+  </ol></div>
+  <div class="challenge"><b>诚实挑战（红旗）：</b><ol style="margin-bottom:0">
+    <li>因果可能反了：57-59% 更可能源于 rubric 模糊而非模型 gaming——M1/M2 并行是对冲</li>
+    <li>"满分=可疑"有幸存者偏差：变异不掉分也可能只是任务简单，需预设"满分可接受"判据</li>
+    <li>时间窗冲突：若采购决策不等人，提案退化为事后审计，价值减半——须先对齐"分数够格进决策"的标准（至少 M1+M2）</li>
+  </ol></div>
+</section>
+
+<!-- ==================== P2 ==================== -->
+<section class="proposal" id="p2">
+  <h3>P2 · 企业 Agentic 安全治理：让"Agent 不可信"变得无害</h3>
+  <span class="tag">AI Security</span><span class="tag">Skill Hub 门禁</span><span class="tag">Blameless 响应</span><span class="tag">约 11 周</span>
+  <div class="claim"><b>核心主张：</b>Agentic 安全的可靠基础不是让 Agent 更可信，而是让"Agent 不可信"变得无害——凭据隔离、供应链门禁、系统级响应三线，全部落在 Agent <b>无法影响的机制</b>上（签名、默认拒绝、自动过期），而非其行为表现上。<br><span style="font-size:.9em;color:var(--text3)">三源融合：Bengio（行为不可控的机制根源）× RubyGems 攻击（进攻已 agent 化）× 堡垒机案例（流程合规≠安全，连坐逼出隐报）</span></div>
+  <h4>里程碑</h4>
+  <table>
+  <tr><th style="width:26%">里程碑</th><th>内容 → Done 标准</th></tr>
+  <tr><td>M1 凭据隔离闭环 (2周)</td><td>secret 扫描清零 + Agent 改 scoped 短 TTL token + Canary 凭据 → 零高危、吊销&lt;15min</td></tr>
+  <tr><td>M2 Skill Hub 门禁 v1 (4周)</td><td>permission manifest + 审计固化进上架管道并阻断 + 发布签名 + 未声明能力默认拒绝 → 新上架 100% 过门禁</td></tr>
+  <tr><td>M3 行为遥测 (3周)</td><td>复用 agent 间加密通信原型做签名审计日志 + 金丝雀任务 → 遥测具签名链（缩为试点，12个月复盘）</td></tr>
+  <tr><td>M4 Blameless 手册+演练 (2周)</td><td>Agent 事件分类学 + 桌面推演（堡垒机场景 Agent 版）→ 演练 MTTD&lt;1h</td></tr>
+  <tr><td>M5 红队例行化 (持续)</td><td>季度演练恶意 skill 上架 + Canary 外传 → 阻断率趋势线</td></tr>
+  </table>
+  <h4>ROI</h4>
+  <ul><li>止损：一次凭据泄露应急成本保守数倍于全程投入；增速：Skill Hub 可信度即采用率，治理是护城河不是税；解锁：多 Agent 项目免逐项 security review</li></ul>
+  <div class="actions"><b>本周立即行动：</b><ol>
+    <li>全量 secret 扫描（半天启动）——覆盖 agent/skill 相关仓库，先吊销最长寿命 token</li>
+    <li>permission manifest 一页 RFC（两天）——网络出口/文件系统/凭据访问三类声明 + 存量 50+ skills 标风险级</li>
+    <li>Blameless Agent 事件模板 + 桌面推演（一天）——堡垒机案例改写为 Agent 版</li>
+  </ol></div>
+  <div class="challenge"><b>诚实挑战（红旗）：</b><ol style="margin-bottom:0">
+    <li>前沿≠内部：Bengio 论前沿模型涌现欺骗，内部多为窄域工具型——M3 已按此缩为试点</li>
+    <li>治理中心化自造新皇冠珠宝：签名密钥与审计器成为最高价值攻击目标，只能缓解不能消除</li>
+    <li>连坐文化若为组织底色，blameless 手册沦为表格表演——管理层签署章程是 M4 启动前置条件</li>
+  </ol></div>
+</section>
+
+<!-- ==================== P3 ==================== -->
+<section class="proposal" id="p3">
+  <h3>P3 · 一个可亲手翻转的"想法"：J-lens 同时重启 CS336 与补齐讲师团素材</h3>
+  <span class="tag">CS336 重启</span><span class="tag">AI 讲师团</span><span class="tag">6 周 54h</span>
+  <div class="claim"><b>核心主张：</b>一个六周内可亲手复现的因果实验——在开源小模型里定位并<b>翻转模型"正在想的一个词"</b>——把 CS336 从"补作业"反转成"为复现而学"，同时把讲师团最缺的非技术教材（"模型如何思考"）变成有真实证据、可现场演示的一堂课。</div>
+  <h4>为什么咬合</h4>
+  <ul>
+    <li>J-lens 依赖的三样东西恰好是 CS336 A1-A3 的内容：tokenizer（J-space 模式对应 token）→ residual stream（模式所在处）→ 训练系统（复现载体）——不是绕开课程，是给课程装上终点</li>
+    <li>距契约终点 10-31 余 6.6 周；标称 66h / 按过去 9 周实际执行率折算基线仅 33h——故缩范围为 A1+A2，A3 defer</li>
+    <li>已有 Qwen 小模型复现先例（<a href="https://github.com/tao-hpu/jspace-replication">jspace-replication</a>），工具 Apache 2.0（<a href="https://github.com/anthropics/jacobian-lens">jacobian-lens</a>），Apple Silicon 本地可跑</li>
+  </ul>
+  <h4>里程碑</h4>
+  <table>
+  <tr><th style="width:30%">里程碑</th><th>Done 标准</th></tr>
+  <tr><td>M0 重启决策 (本周 3h)</td><td>跑通 demo + 10 行复现规格 + 重签缩范围契约；kill criteria：10-17 A1 未过 → 降级为纯教学模块</td></tr>
+  <tr><td>M1 A1 tokenizer (W2-3, 15h)</td><td>A1 测试全绿——"A1 就是你读出模型心里话的解码表"</td></tr>
+  <tr><td>M2 A2 核心+复现 (W3-6, 25h)</td><td>因果翻转 demo ≥3/5 概念可复现；fallback：induction heads / steering vector</td></tr>
+  <tr><td>M3 教学模块 (W6-7, 8h)</td><td>45 分钟模块（用 Neuronpedia 现成演示，不依赖自己的复现）+ 与非技术讲师结对</td></tr>
+  <tr><td>M4 试讲闭环 (W8, 3h)</td><td>≥15 人试讲 + 前后误区小测（纠错 +30%）</td></tr>
+  </table>
+  <div class="actions"><b>本周立即行动：</b><ol>
+    <li>2h：跑 <a href="https://www.anthropic.com/research/global-workspace">Neuronpedia jacobian-lens demo</a> + 写 10 行复现规格</li>
+    <li>1h：重签契约（A1+A2 by 10-31，附 kill criteria）落 journal，更新 intent</li>
+    <li>30min：写 5 页"模型如何思考"骨架 + 公开钉死 M3 试讲日期</li>
+  </ol></div>
+  <div class="challenge"><b>诚实挑战（红旗）：</b><ol style="margin-bottom:0">
+    <li>"钩子"是弱动机结构：新论文兴奋周期约两周，真正起作用的是公开试讲日期——不钉死，80% 重演停滞</li>
+    <li>双线是双倍失败面：教学模块必须彻底解耦（用现成演示），复现只是锦上添花</li>
+    <li>时间算术不站在我这边：过去 9 周执行率为 0；按基线 33h 应直接砍 A2 只保 A1+教学</li>
+  </ol></div>
+</section>
+
+<!-- ==================== P4 ==================== -->
+<section class="proposal" id="p4">
+  <h3>P4 · 小模型重排迁移电商搜索：以可逆实验裁决 vendor vs 自研</h3>
+  <span class="tag">搜索个性化</span><span class="tag">自研标签体系</span><span class="tag">Rust 练手</span><span class="tag">9-10 周</span>
+  <div class="claim"><b>核心主张：</b>不自研整个 Feed、也不盲签黑盒——在自研召回与现有排序之间加一层 0.5B-1.5B 小模型 rerank + 标签补全，以「离线验证→影子→三臂对照」的可逆路径，用增量延迟预算（工程目标 p99 ≤15ms）换取两样东西：外部 Feed 负向流量的对症对冲，以及 vendor vs 自研之争的<b>实验裁决权</b>。若 M1 离线即败，止损于一至两周。</div>
+  <h4>里程碑（每个都有 Gate）</h4>
+  <table>
+  <tr><th style="width:26%">里程碑</th><th>Gate（出口判据）</th></tr>
+  <tr><td>M0 归因与基线冻结 (1周)</td><td>负向流量按 query 类目×人群×位置切片，判定负向在召回层还是排序层；<b>不在排序层 → rerank 缓行</b></td></tr>
+  <tr><td>M1 离线 PoC (2-3周)</td><td>0.6B 蒸馏自家日志压测；NDCG@10 显著提升 且 延迟达标，<b>二缺一即杀</b></td></tr>
+  <tr><td>M2 影子流量 (2周)</td><td>全链路并行打分不出流量；超预算 → 降档（更小模型/int8）或终止</td></tr>
+  <tr><td>M3 三臂对照 (4周)</td><td>基线 / 外部 Feed / 自研 rerank；负向分桶单列，非劣+收窄双判据</td></tr>
+  <tr><td>M4 能力外溢 (持续)</td><td>标签补全 + 冷启动画像反哺自研标签体系，成对照筹码</td></tr>
+  </table>
+  <h4>ROI</h4>
+  <ul><li>期权价值：一季度侧信道投入换 vendor 续约谈判的真实对照数据——谈判桌上最大不对称是"我方没有可示人的替代方案"；评测集/replay harness/蒸馏管道三项<b>无论终局选谁皆是净赢资产</b>；个人侧：输入法 rerank 是 Rust+本地推理最佳练手题</li></ul>
+  <div class="actions"><b>本周立即行动：</b><ol>
+    <li>归因切片（1-2天）：负向流量定位召回 vs 排序——全案分岔口</li>
+    <li>延迟基准（1天）：0.6B 级模型（GGUF/ONNX）真实候选规模压测，拿"每请求延迟×成本"硬数字；差两个量级以上当场降级</li>
+    <li>评测集冻结（2天）：负向分桶超采样 replay 评测集——净赢资产</li>
+  </ol></div>
+  <div class="challenge"><b>诚实挑战（红旗）：</b><ol style="margin-bottom:0">
+    <li>场景差几个量级：IME 是本地单用户十级候选，电商是高并发数百候选+长行为序列，成本可差 3-4 个量级——"打字速度无差异"在电商语境<b>没有证据价值</b>，只有方向性启示</li>
+    <li>基线强度悬殊：IME 传统排序是弱基线，电商精排是多年深度模型——真正押注的是"蒸馏自家流量的小模型在本地分桶的适配性"，此假设未经证明，M1 可能就是葬点</li>
+    <li>未计价的最大成本：自研 own 全循环（数据管道+训练+serving+oncall）——若被读成"自研替代 vendor 的承诺"即为误读</li>
+  </ol></div>
+</section>
+
+<!-- ==================== P5 ==================== -->
+<section class="proposal" id="p5">
+  <h3>P5 · K12 课程 v04：AI-Aware 学习成果骨架</h3>
+  <span class="tag">K12 教育</span><span class="tag">大纲 v04</span><span class="tag">OpenMAIC</span><span class="tag">6 周约 31h</span>
+  <div class="claim"><b>核心主张：</b>当 AI 能完成所有"产出物"，课程的唯一护城河是<b>评价体系</b>——v04 把评价体系（AI 协作能力分层 + 过程证据 + 现场答辩）从附属品做成课程本体。</div>
+  <h4>框架设计</h4>
+  <table>
+  <tr><th style="width:22%">组件</th><th>设计</th></tr>
+  <tr><td>五层协作能力</td><td>L0 操作者 → L1 表达者（3 版指令迭代）→ L2 校验者（指出 AI 错误，错误博物馆）→ L3 指挥者（拆 spec+决策日志）→ L4 边界者（结课答辩"AI 做不到什么"）；小学版仅 L0-L2</td></tr>
+  <tr><td>每课三区标注</td><td>AI-Free（护基础能力）/ AI-Assisted（须声明）/ AI-Essential（练指挥）——AI 使用政策菜单化</td></tr>
+  <tr><td>人际环节显性化</td><td>Demo Arena 互评/用户访谈/Team Pact/答辩<b>计入成绩</b>——MIT "put humanity front and center" 的 K12 落地</td></tr>
+  <tr><td>作业转向</td><td>作品带回家 → 过程包（提问记录+决策日志+版本对比）；结课改 <b>8 分钟现场答辩</b>（现场改指令应答追问——无法代演的最后防线）；OpenMAIC 升级为过程证据采集器</td></tr>
+  </table>
+  <h4>成功标准（节选）</h4>
+  <ul><li>100% 课时含三区+人际+过程包；rubric 回溯打分不塌缩；答辩主语测试 ≥80%；家长"能说清孩子学了什么" ≥70%（首期 6-10 人为证据收集型指标）</li></ul>
+  <div class="actions"><b>本周立即行动：</b><ol>
+    <li>2h：精读 MIT 报告，产出"MIT 要素→课程公理→可观察行为"映射表</li>
+    <li>3h：取首期 3 名学生真实对话日志按五层<b>回溯打分——证伪先行</b>：层级拉不开则框架推倒重来</li>
+    <li>2h：改造 L01 单课样板（三区+人际+过程包）</li>
+  </ol></div>
+  <div class="challenge"><b>诚实挑战（红旗）：</b><ol style="margin-bottom:0">
+    <li>测量乐观主义：L2/L4（判断/边界意识）本质隐性，rubric 极可能退化为教师主观印象——行为锚定校准失败则整个框架只是包装话术</li>
+    <li>过程证据一样可伪造（AI 代写日志），唯一防线是答辩即时性——课程质量系于讲师一人，不可复制</li>
+    <li>前提悬置：第二期 go/no-go 未决——本提案近期真实价值是为 go/no-go 提供"竞品没有的差异化论据"，应诚实按此排序</li>
+  </ol></div>
+</section>
+
+<div class="footer">5/5 subagent 成功 · 0 兜底 · 全部链接经 HTTP 校验（200）· 公开版已脱敏（无内部域名/人名/业务 KPI）<br>
+生成：my-readwise-briefing v4.3 · 2026-09-15 · <a href="readwise-briefing-20260915.html">← 返回今日简报</a></div>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
