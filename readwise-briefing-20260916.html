@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-09-16（周三）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 60px;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+h1 { font-size: 1.6em; color: var(--accent); }
+.date-line { color: var(--text3); font-size: 0.9em; margin-bottom: 12px; }
+#theme-toggle {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  font-size: 1.1em; padding: 6px 10px; cursor: pointer; color: var(--text);
+}
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 6px; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; font-size: 0.85em; color: var(--text2);
+}
+.stat b { color: var(--accent); }
+h2 {
+  font-size: 1.15em; color: var(--accent); margin: 30px 0 12px;
+  padding-bottom: 6px; border-bottom: 2px solid var(--border);
+}
+h3 { font-size: 1.02em; margin: 14px 0 6px; color: var(--text); }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px 18px; margin-bottom: 14px;
+}
+.card p { color: var(--text2); font-size: 0.93em; margin: 8px 0; }
+.card .why { background: var(--surface2); border-radius: 8px; padding: 10px 12px; font-size: 0.88em; color: var(--text2); }
+.card .why b { color: var(--accent4); }
+.badge {
+  display: inline-block; font-size: 0.78em; padding: 2px 10px; border-radius: 20px;
+  margin-left: 6px; vertical-align: middle;
+}
+.b-ok { background: rgba(5,150,105,.14); color: var(--accent3); }
+.b-warn { background: rgba(217,119,6,.14); color: var(--accent4); }
+.b-info { background: rgba(99,102,241,.14); color: var(--accent2); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--text2); font-weight: 600; }
+td { color: var(--text2); }
+.notice {
+  background: var(--surface2); border-left: 4px solid var(--accent4); border-radius: 8px;
+  padding: 14px 16px; font-size: 0.92em; color: var(--text2); margin: 10px 0;
+}
+.life-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .life-grid { grid-template-columns: 1fr; } }
+.life-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.life-card h4 { font-size: 0.98em; color: var(--accent3); margin-bottom: 6px; }
+.life-card p { font-size: 0.87em; color: var(--text2); }
+ul.actions { list-style: none; }
+ul.actions li {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 8px; font-size: 0.9em; color: var(--text2);
+}
+ul.actions li b { color: var(--accent); }
+footer { margin-top: 40px; text-align: center; color: var(--text3); font-size: 0.82em; }
+.src { font-size: 0.78em; color: var(--text3); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>📥 Readwise 情报简报</h1>
+  <button id="theme-toggle">🌙</button>
+</header>
+<div class="date-line">2026-09-16 周三 · W38 · 增量窗口 09-15 08:00 → 09-16 08:00 (CST)</div>
+<div class="stats">
+  <div class="stat">高亮 <b>2</b> 条</div>
+  <div class="stat">文档 <b>3</b> 篇</div>
+  <div class="stat">去重后独立信号 <b>3</b> 组</div>
+  <div class="stat">验证 <b>3</b> 路：✅2 · ⚠️1</div>
+  <div class="stat">深挖 <b>0</b>（轻量日）</div>
+</div>
+
+<h2>🔭 深挖方向 — 本期跳过</h2>
+<div class="notice">
+  <b>轻量日说明：</b>本期 3 组独立信号中，无与当前工作主线直接相关的深挖原料——① 一条循证生活指南（生活维度信号，按规则不占深挖名额）；② 一条微信小程序上架主题（Intent 弱关联，且原文为 X 长文无法读取）；③ 一篇知乎心理短文（生活维度）。按「<b>不可行动的信息 = 噪音</b>」公理，本期跳过 Phase 2 深挖，不强行生成 proposal。下一期出现 Intent 级信号时自动恢复 5 路深挖。
+</div>
+
+<h2>⭐×5 高价值信号（附批判性注释）</h2>
+<div class="card">
+  <h3>📚 HowToLiveBetter —「高性价比人生指南」开源书（推文背后的实体是一个循证工程项目）</h3>
+  <p>推文宣传口吻像卖书：「用最少的钱、时间和精力，换回寿命、金钱和自由」。验证后发现实体是 GitHub 开源项目 <a href="https://github.com/eternity4719/HowToLiveBetter">eternity4719/HowToLiveBetter</a>：<b>498 条建议，每条标注成本、收益、证据等级与原始出处，只引期刊论文和官方文件</b>（证据分级 A 级 323 · B 级 126 · C 级 49，共 891 条文献链接）。覆盖 31 章：长寿防病、急救、省钱理财、法律红线、失业兜底、恋爱婚育、育儿、创业合规、出国与技能——几乎精确命中个人「生活四维档案」（健身/健脑/建仓/健胃）的全部象限。</p>
+  <div class="why"><b>为什么值得关注：</b>① 质量罕见地硬核——生活建议类内容通常是「孤证+个人经验」，这个项目把证据分级做到了系统级，891 条文献可溯源；② <b>方法论可迁移</b>：它的「建议 × 成本 × 收益 × 证据等级」四元组，与本简报的「信号 × 意图 × 验证分级」体系同构——给生活决策做循证分级，正是给信息信号做验证分型的同一种工程；③ 9 天 953★、73 forks、持续更新中，是「个人知识工程公开化」的一个样本（与个人知识库运作思路共振）。降温项：证据分级是作者自评，C 级 49 条占比不小，按需复核关键条目。</div>
+  <p><span class="badge b-ok">✅ Verified</span> 一手 repo 实读：953★ · 73 forks · Unlicense · 2026-09-07 创建 · 09-11 仍在更新 · <a href="https://eternity4719.github.io/HowToLiveBetter/">在线检索页</a> · <span class="src">源：<a href="https://x.com/knowledgefxg/status/2099837011826016571">@knowledgefxg</a></span></p>
+</div>
+
+<h2>⭐×3 中等价值</h2>
+<table>
+  <tr><th style="width:24%">信号</th><th style="width:50%">要点</th><th style="width:26%">验证</th></tr>
+  <tr>
+    <td><b>上架一个微信小程序，你需要知道的事</b>（X 长文）</td>
+    <td>@hangryfoolish 的 X article。原文需登录无法读取（Reader 仅存到标题），但主题经独立调研时效性确认：<b>① 2023-09-01 起新小程序须完成 ICP 备案方可上架</b>（官方规则持续有效）；② 备案五步：信息填写→平台初审→工信部短信核验→通管局审核→通过，约 1-20 个工作日；③ <b>教育类属特殊行业需前置审批资质</b>。若 K12 AI 教育项目评估小程序触达，或个人副业项目上架，合规周期需预算 2-4 周。</td>
+    <td>⚠️ Partial · 原文不可读，主题经官方指引独立调研：<a href="https://developers.weixin.qq.com/minigame/product/record/guidelines">备案操作指引</a> · <a href="https://developers.weixin.qq.com/miniprogram/product/">运营规范</a><br><span class="src">源：<a href="https://x.com/hangryfoolish/status/2099408572325253194">@hangryfoolish</a></span></td>
+  </tr>
+</table>
+
+<h2>🌿 生活维度（Life Portfolio）</h2>
+<div class="life-grid">
+  <div class="life-card">
+    <h4>🧠 健脑</h4>
+    <p><b>《无趣的本质是什么？》（知乎）：</b>无趣源于隐藏真实自我——害怕承担责任和失败，被恐惧和功利心困住，失去创造力和真心；真正有趣的人是做自己，不假装，不被外界束缚。自我呈现（authenticity）与创造力的关系，一篇短而完整的心理短文。<br><span class="src">源：<a href="https://www.zhihu.com/question/620391012/answer/1942122514739339827">知乎</a></span></p>
+  </div>
+  <div class="life-card">
+    <h4>🏋️📈🥗 健身·建仓·健胃</h4>
+    <p><b>HowToLiveBetter 全覆盖</b>（见上方 ⭐×5 卡片）：不要早死/慢慢死（健身）→ 不要浪费钱 + 攒钱怎么放（建仓）→ 饮食与慢性病管理（健胃）。生活四维一次补齐，<a href="https://eternity4719.github.io/HowToLiveBetter/">在线检索页</a>可按需查询。</p>
+  </div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<ul class="actions">
+  <li><b>本周</b>：收藏 <a href="https://eternity4719.github.io/HowToLiveBetter/">HowToLiveBetter 在线检索页</a>——生活类决策（体检/保险/理财/法律红线）先查它，替代碎片化养生与理财推文；对 A 级证据条目可直接采信。</li>
+  <li><b>本周</b>：star <a href="https://github.com/eternity4719/HowToLiveBetter">eternity4719/HowToLiveBetter</a> 持续跟踪——项目仅 9 天大，观察其「证据分级 × 个人决策」方法论演化，与自身信号验证体系互鉴。</li>
+  <li><b>条件触发</b>：K12 AI 教育若评估小程序触达渠道，先过「教育类前置审批 + ICP 备案」两道闸（官方指引见中等价值表），排期预留 2-4 周合规周期。</li>
+  <li><b>日常</b>：周三例行——本周信号量偏轻，明日恢复关注；周一（09-21）将例行出上周周报。</li>
+</ul>
+
+<h2>🗂 低价值附录</h2>
+<div class="card"><p>本期无低价值条目——5 条原始内容（2 高亮 + 3 文档，其中 2 条跨源同信号）全部完成有效分层。</p></div>
+
+<footer>不可行动的信息 = 噪音 · 本期 5 条原始内容 → 3 组独立信号 → 0 深挖（轻量日）<br>生成：my-readwise-briefing v4.3 · 2026-09-16 08:00 CST · 下一期建议：2026-09-17</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
