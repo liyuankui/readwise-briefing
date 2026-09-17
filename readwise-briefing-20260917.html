@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 2026-09-17</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem 4rem;
+  max-width: 860px; margin: 0 auto;
+}
+header { border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 1.5rem; position: relative; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.meta { color: var(--text3); font-size: 0.9rem; margin-top: 0.3rem; }
+#theme-toggle {
+  position: absolute; top: 0; right: 0; font-size: 1.2rem; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.3rem 0.6rem;
+}
+h2 { font-size: 1.25rem; color: var(--accent); margin: 2rem 0 0.8rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.05rem; margin: 1.2rem 0 0.5rem; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; margin: 0.8rem 0; }
+.tag { display: inline-block; font-size: 0.78rem; padding: 0.05rem 0.5rem; border-radius: 10px; margin-right: 0.4rem; border: 1px solid var(--border); background: var(--surface2); }
+.t5 { color: var(--accent4); border-color: var(--accent4); }
+.t3 { color: var(--accent3); border-color: var(--accent3); }
+.tlife { color: var(--accent2); border-color: var(--accent2); }
+.note { color: var(--text2); font-size: 0.92rem; margin-top: 0.5rem; }
+.note b { color: var(--accent4); }
+.verify { font-size: 0.88rem; background: var(--surface2); border-radius: 8px; padding: 0.6rem 0.8rem; margin-top: 0.6rem; }
+.verify b { color: var(--accent3); }
+ul, ol { padding-left: 1.4rem; margin: 0.5rem 0; }
+li { margin: 0.3rem 0; }
+details { background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; padding: 0.8rem 1.2rem; margin: 0.8rem 0; }
+summary { cursor: pointer; color: var(--text3); }
+.axiom { text-align: center; color: var(--text3); font-size: 0.9rem; font-style: italic; margin-bottom: 1rem; }
+.footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.85rem; }
+code { background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.88em; }
+.action li { margin: 0.5rem 0; }
+</style>
+</head>
+<body>
+<button id="theme-toggle">🌙</button>
+<header>
+  <h1>Readwise 简报 · 2026-09-17（周四）</h1>
+  <p class="meta">增量 11 条原始内容（5 highlights + 6 docs）→ 去重后 <b>6 组信号</b> · 高价值 1 · 中等 2 · 生活 1 · 低价值 2 · 深挖方向 <b>1</b>（BrowserSkill）</p>
+  <p class="meta">同步窗口：2026-09-16T00:00Z → 2026-09-17 · <a href="readwise-proposals-20260917.html">→ 今日 Proposals</a></p>
+</header>
+
+<p class="axiom">不可行动的信息 = 噪音。</p>
+
+<h2>📡 信号概览</h2>
+<table>
+  <tr><th>信号</th><th>分层</th><th>验证</th><th>去向</th></tr>
+  <tr><td>腾讯开源 BrowserSkill（CLI+扩展，Agent 用真实登录态浏览器）</td><td>⭐×5 工作</td><td>✅ + 🔬 亲测</td><td><a href="readwise-proposals-20260917.html">深挖 Proposal</a></td></tr>
+  <tr><td>陈硕《AI 时代普通人的商业思维升级指南》</td><td>⭐×3 工作</td><td>⚠️ 登录墙</td><td>简报</td></tr>
+  <tr><td>Gabriel：分栏拖拽加 snap points（25/50/75）</td><td>⭐×3 工作</td><td>✅ 自足</td><td>行动清单</td></tr>
+  <tr><td>Roland.W：上班让我期待衰老</td><td>🌿 健脑</td><td>单源观点</td><td>生活分区</td></tr>
+  <tr><td>Reva Huai《自由与天命》（X article）</td><td>低价值</td><td>⚠️ 仅标题</td><td>附录</td></tr>
+  <tr><td>HN 2026-09-16 摘要（RSS）</td><td>低价值</td><td>—</td><td>附录</td></tr>
+</table>
+
+<h2>⭐×5 高价值信号（附批判性注释）</h2>
+<div class="card">
+  <h3><span class="tag t5">⭐×5 🔬</span>BrowserSkill — 让 Agent 操作你已登录的真实浏览器（腾讯开源）</h3>
+  <p class="note">来源：<a href="https://x.com/shao__meng/status/2100208718592032854">@shao__meng 推文</a>（带 515 字架构长文）· 实体：<a href="https://github.com/Tencent/BrowserSkill">github.com/Tencent/BrowserSkill</a></p>
+  <p class="note"><b>一句话</b>：CLI（bsk）+ 浏览器扩展，任何能跑 shell 的 Agent 即可操作你日常浏览器的真实登录态；任务跑在独立 Agent Window 不打断你；标签页须显式借用、用毕归还；内置 human-in-loop（验证码/OTP 请人接管）。0.3.0 新增远程模式：云端 Agent 经一次性配对 + 可吊销凭证连回本地浏览器。</p>
+  <div class="verify">
+    <b>✅ 验证 + 🔬 亲测</b>：MIT · TypeScript+Rust · 3002★ / 220 forks / 37 open issues · 创建 2026-06-22（3 个月）· 09-16 仍活跃 push · 已有第三方衍生（fastmoss-rpa-skills 50★）。隔离目录亲测：官方脚本 30 秒装好 <code>bsk 0.2.1</code>，命令面 Playwright 级（snapshot/observe/click/fill/emulate/network/screenshot…）。<br>
+    ⚠️ 小红旗：安装脚本<b>未询问</b>即向 ~/.bashrc、~/.profile 追加 PATH（本次已清理）；未连真实浏览器（故意的——零信任，配对动作留给人决定）。
+  </div>
+  <p class="note"><b>为什么与你相关</b>：① 与在用的 browser-use 形成互补而非替代——browser-use 开干净 Chromium，BrowserSkill 复用登录态，两者按场景分流；② 其 <code>skill/SKILL.md</code> 是「把纪律写进说明书」的范本：导航后引用失效必须重新 observe、不许凭旧截图点击、借用被拒即停手不许绕过、权限以浏览器侧设置为权威防 Agent 自我提权——对自建 Agent skill 有直接借鉴；③ 「云端 Agent ↔ 本地登录态浏览器」远程模式是 Agent 自主化拼图中稀缺的一块，但对企业场景同时是攻击面，采用前需安全评估。</p>
+  <p class="note">→ 已生成可执行 Proposal（试用里程碑 + 安全边界 + 与现有工具的关系），见 <a href="readwise-proposals-20260917.html">今日 Proposals</a>。</p>
+</div>
+
+<h2>⭐×3 中等价值</h2>
+<div class="card">
+  <h3><span class="tag t3">⭐×3 ⚠️</span>陈硕《AI 时代普通人的商业思维升级指南》</h3>
+  <p class="note">来源：<a href="https://x.com/ChenshuoAI/status/2100147848096670009">@ChenshuoAI 推文</a> → X article（514 词，需登录）</p>
+  <p class="note">主题：小公司如何一步步成长 + 其中商业判断。⚠️ 原文在 X article 登录墙内，无法独立验证内容质量，降权处理。<b>为什么仍值得记</b>：小团队从 0 到 1 的商业判断框架，对副业/小产品探索是高频刚需知识。行动：不追登录墙原文，改用可公开访问的等价读物补这块（如陈硕公开博客/其他小企业成长方法论），读后若有用再回来对照。</p>
+</div>
+<div class="card">
+  <h3><span class="tag t3">⭐×3 ✅</span>Gabriel：分栏拖拽别忘了 snap points</h3>
+  <p class="note">来源：<a href="https://x.com/gabriell_lab/status/2100219330373849371">@gabriell_lab 推文</a>（自足 tip，无需外部验证）</p>
+  <p class="note">可拖拽 split view 别让用户手动找比例：加 25/50/75 吸附点，松手轻稳落位——要精确时给精确，不要时给安静界面。小而美：<b>一条即可落地</b>的 Design Engineering 细节，适用于任何带分栏的面板/工具页（数据面板、编辑器+预览）。</p>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="card action">
+  <ol>
+    <li><b>试用 BrowserSkill（个人浏览器，非公司设备）</b>：装 Chrome 扩展 + 本地配对，跑一个真实登录态小任务（如导出某网站数据），验证 Agent Window「互不干扰」的实际体验。</li>
+    <li><b>抄作业：精读 skill/SKILL.md</b>，提炼防御性规则清单（导航失效引用 / 拒绝即停 / 不凭旧截图操作 / 权限防自我提权），对照自己维护的 agent skill 补纪律。</li>
+    <li><b>安全边界先画线</b>：真实浏览器+登录态交给 Agent 只在个人设备试；企业场景等安全评估结论（远程模式 = 能力也是攻击面）。</li>
+    <li><b>下次写分栏 UI 时</b>：拖拽 handle 加 25/50/75 snap points（一行 CSS scroll-snap 思路或轻量 JS）。</li>
+  </ol>
+</div>
+
+<h2>🌿 生活维度（Life Portfolio）</h2>
+<div class="card">
+  <h3><span class="tag tlife">🧠 健脑</span>Roland.W：上班最可怕之处——让我因盼退休而期待衰老</h3>
+  <p class="note">来源：<a href="https://x.com/rwayne/status/2100008512009183424">@rwayne 推文</a> · 单一来源观点，无验证必要</p>
+  <p class="note">扎心处不在「上班累」，在<b>时间感知被异化</b>：盼终点（退休）即盼衰老，等于放弃珍惜当下最年轻的日子。与 Life Purpose 探索同频——值得自问：若把「退休才自由」改写成「现在就安排每周一件只因喜欢而做的事」，这周的那件是什么？</p>
+</div>
+
+<h2>🗂 低价值附录（默认收起）</h2>
+<details>
+  <summary>展开查看 2 条（Reva Huai 文章 · HN 0916 摘要）</summary>
+  <div class="card">
+    <h3>Reva Huai《自由与天命，我们在找寻一条仅供自己走的路》</h3>
+    <p class="note"><a href="https://x.com/RevaHuai/status/2099488920874758337">推文链接</a> → X article 需登录，仅存标题，正文不可验证。标题气质偏人生道路主题，若日后可读再入健脑维度。</p>
+  </div>
+  <div class="card">
+    <h3>HN 2026-09-16 摘要（RSS 订阅）</h3>
+    <p class="note">四条头条：树莓派电子墨水画框实时检测鸟鸣并以本地 AI 绘成 19 世纪插图 · 巴布亚新几内亚文集 · 批评 9/11 后美国大规模监控的文章 · Steam Frame 无线 VR 头显（1059 美元起）。均无即时行动点；监控话题与个人关注的设备监控研究方向弱相关，暂不展开。</p>
+  </div>
+</details>
+
+<div class="footer">
+  <p>Readwise Briefing · 由 my-readwise-briefing skill 生成 · 数据源：Readwise export v2 + Reader v3 双通道 · 增量去重后 6 组信号</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
