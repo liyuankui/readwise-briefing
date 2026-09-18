@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-09-18</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 920px; margin: 0 auto;
+}
+.header { text-align: center; padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--border); position: relative; }
+.header h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.3rem; }
+.header .sub { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle {
+  position: absolute; right: 0; top: 0.5rem; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 2.4rem; height: 2.4rem; font-size: 1.1rem; cursor: pointer; color: var(--text);
+}
+.axiom-banner { text-align: center; margin: 1.2rem 0; padding: 0.7rem 1rem; background: var(--surface); border: 1px dashed var(--accent); border-radius: 10px; color: var(--accent); font-weight: 600; }
+h2 { font-size: 1.25rem; color: var(--accent); margin: 2.2rem 0 1rem; padding-left: 0.6rem; border-left: 4px solid var(--accent); }
+.proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem 1.8rem; margin-bottom: 2rem; }
+.proposal > h1, .proposal .ph1 { font-size: 1.25rem; color: var(--accent); margin-bottom: 0.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+.meta-line { font-size: 0.88rem; color: var(--text3); margin-bottom: 0.8rem; }
+.proposal h2 { font-size: 1.05rem; margin: 1.4rem 0 0.6rem; border-left: 3px solid var(--accent2); padding-left: 0.5rem; color: var(--text); }
+.proposal h3 { font-size: 1rem; margin: 1rem 0 0.4rem; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--text2); font-weight: 600; }
+blockquote { border-left: 3px solid var(--accent2); padding: 0.5rem 1rem; margin: 0.8rem 0; color: var(--text2); background: var(--surface2); border-radius: 0 8px 8px 0; }
+code { background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 5px; font-size: 0.85em; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+pre { background: var(--surface2); padding: 0.8rem 1rem; border-radius: 8px; overflow-x: auto; margin: 0.8rem 0; }
+pre code { background: none; padding: 0; }
+ul, ol { padding-left: 1.4rem; }
+li { margin: 0.35rem 0; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { color: var(--text); }
+.map-table td:first-child { white-space: nowrap; }
+.footer { text-align: center; color: var(--text3); font-size: 0.82rem; margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 999px; margin-right: 0.35rem; background: rgba(99,102,241,.12); color: var(--accent2); }
+</style>
+</head>
+<body>
+<div class="header">
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>🎯 深挖 Proposals</h1>
+  <div class="sub">2026-09-18 · 周五 · 信号 2 条 → 深挖方向 3 个（信噪比优先，不凑数）</div>
+</div>
+<div class="axiom-banner">「不可行动的信息 = 噪音。」</div>
+
+<h2>🗺 信号 × 项目 对应</h2>
+<table class="map-table">
+  <tr><th>信号</th><th>验证</th><th>Proposal</th><th>连接项目</th></tr>
+  <tr><td><strong>Jev</strong> System One 决策模型</td><td>✅ + 🔬</td><td>#1 推荐重排 PoC · #2 Judge 降本</td><td>搜索个性化 / AI 编程工具评测</td></tr>
+  <tr><td><strong>Hypit</strong> 开源视频克隆 DSL</td><td>⚠️ 真实但夸大</td><td>#3 拆 DSL 学模式</td><td>Skill 平台 / WellDone 副业</td></tr>
+</table>
+
+<div class="proposal">
+<div class="meta-line"><span class="tag">Proposal #1</span><span class="tag">Jev × 推荐重排</span>生成：subagent 并行深挖 · 已脱敏</div>
+<h1 id="system-one-决策模型接入推荐重排层--poc-提案">System One 决策模型接入推荐重排层 — PoC 提案</h1>
+<p><strong>速览</strong>：Jev（TypeSafe AI，2026-09-15 发布）开启 "System One Model" 范式——放弃文本生成，单次 forward 直出 typed decision（classify / route / score / rerank）与置信度，官方宣称在此类任务上智能与现有 LLM 相当、快 &gt;100x、便宜 200x；开源社区已有接口复现 OpenJev（基于 Qwen3.5-4B，MIT，单次 forward 读 typed logits，无解码循环）。本提案验证：此范式能否替换推荐重排层中用生成式 chat model 打分的环节。</p>
+<h2 id="1-核心主张">1. 核心主张</h2>
+<blockquote>
+<p>重排层的 LLM 打分不需要"生成"，只需要"判断"——用 System One 决策模型（单次 forward 直出 score + 置信度）替换 chat model 逐条打分，在离线效果不低于基线的前提下，把该环节成本与延迟各降一个数量级，使 LLM 级智能首次具备进入在线主链路的条件。押注范式而非厂商，5–6 周内可证伪。</p>
+</blockquote>
+<p>追问预埋：</p>
+<ul>
+<li>为何不是"换更便宜的 LLM"？——范式差异：解码循环 vs 单 forward，是换账本，不是打折。</li>
+<li>为何现在？——接口复现已开源，验证窗口成本极低；正因其新，故只做带硬止损的期权。</li>
+</ul>
+<h2 id="2-锁定痛点重排层用-chat-model-打分的成本结构">2. 锁定痛点：重排层用 chat model 打分的成本结构</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>痛点</th>
+<th>机制</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td>付"生成"的钱，买"判断"</td>
+<td>只需输出 1 个分数 token，却须跑完整 decode 循环；prompt 含用户画像/行为序列/商品特征，prefill 千 token 级</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>成本随候选数线性爆炸</td>
+<td>重排 top-N 候选逐条调用；合批则 prompt 膨胀且候选互相干扰</td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td>延迟进不了在线预算</td>
+<td>解码 + 长 prefill 使 P99 远超重排层毫秒级预算 → 只能异步预打分（损失新鲜度）或缩小候选集/流量</td>
+</tr>
+<tr class="even">
+<td>P4</td>
+<td>输出不可控</td>
+<td>自然语言需 parse，格式漂移、无原生置信度，稳定性靠兜底逻辑维持</td>
+</tr>
+</tbody>
+</table>
+<p>净效应：智能重排被成本锁死在"边缘异步"位置；扩展瓶颈是钱与延迟，不是效果方向。</p>
+<h2 id="3-实施里程碑总计-56-周主力-1-名工程师">3. 实施里程碑（总计 5–6 周，主力 1 名工程师）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>里程碑</th>
+<th>内容</th>
+<th>时长</th>
+<th>Gate / 产出</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M0 基线冻结</td>
+<td>从历史日志抽样构建评测集（用户上下文 × 候选集 × 行为标签）；跑通 chat-model 打分离线基线</td>
+<td>0.5–1 周</td>
+<td>固化 benchmark：GAUC / NDCG@10 + 成本/延迟基线</td>
+</tr>
+<tr class="even">
+<td>M1 服务跑通</td>
+<td>云 GPU 自托管 OpenJev，上 K8s；封装 score / rerank 两种 typed 接口</td>
+<td>1 周</td>
+<td>标准推理服务 + SDK</td>
+</tr>
+<tr class="odd">
+<td>M2 离线对打</td>
+<td>三方对比：OpenJev vs chat-model vs 现有精排模型；头/腰/尾 query 分桶</td>
+<td>1–2 周</td>
+<td>Gate：GAUC ≥ 基线 −1% 且单次成本 ≤ 1/10，未过即止损</td>
+</tr>
+<tr class="even">
+<td>M3 影子 + 小流量</td>
+<td>影子模式量 P99 与稳定性；1–5% 流量 A/B</td>
+<td>2 周</td>
+<td>P99 达标 + 核心指标不显著为负</td>
+</tr>
+<tr class="odd">
+<td>M4 决策</td>
+<td>三选一：全量 / 继续优化 / 止损；同步评估 Jev 商用 API 合规通道（仅对照）</td>
+<td>0.5 周</td>
+<td>一页决策文档</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-成功标准可测量">4. 成功标准（可测量）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>指标</th>
+<th>通过线</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>离线效果</td>
+<td>GAUC / NDCG@10（vs chat-model 基线）</td>
+<td>≥ 基线 −1%</td>
+</tr>
+<tr class="even">
+<td>分桶稳健</td>
+<td>尾部 query GAUC 跌幅</td>
+<td>≤ 3%</td>
+</tr>
+<tr class="odd">
+<td>成本</td>
+<td>单次决策成本</td>
+<td>≤ chat-model 的 1/10</td>
+</tr>
+<tr class="even">
+<td>延迟</td>
+<td>重排调用 P99（端到端，示例预算，按实际链路调整）</td>
+<td>≤ 50ms</td>
+</tr>
+<tr class="odd">
+<td>校准</td>
+<td>置信度 ECE</td>
+<td>≤ 0.10，支持低置信路由回退</td>
+</tr>
+<tr class="even">
+<td>在线</td>
+<td>A/B 核心指标</td>
+<td>不显著为负 + 推理成本显著下降</td>
+</tr>
+</tbody>
+</table>
+<p>注：官方 "200x" 为营销上限，本提案只以 10x 为通过线，超出皆算盈余。</p>
+<h2 id="5-roi-与业务影响">5. ROI 与业务影响</h2>
+<ul>
+<li>成本面：重排打分环节降一个数量级 → LLM 打分从"小流量/异步"进入"主链路全量"变为可负担。</li>
+<li>延迟面：ms 级响应 → 重排候选集可由 top-20 级扩至 top-100 级，智能重排覆盖面数量级提升。</li>
+<li>能力面：原生置信度 → 首次可做分层路由（高置信直出、低置信升级大模型或规则），架构上出现"便宜的智能层"。</li>
+<li>复用面：typed-decision 服务建成后，意图分类、流量路由、风险分级同架构复用。</li>
+<li>投入产出：1 人 × 5–6 周 + 一张 GPU；失败上限 = 1 人月，成功上限 = 主链路成本结构改变。</li>
+</ul>
+<h2 id="6-风险与缓解">6. 风险与缓解</h2>
+<table>
+<thead>
+<tr class="header">
+<th>风险</th>
+<th>事实</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Jev 闭源</td>
+<td>权重/训练不公开，宣称不可独立复验；用户数据发外部 API 有出境合规问题</td>
+<td>生产默认自托管；Jev API 仅做对照实验且只用合成/脱敏数据</td>
+</tr>
+<tr class="even">
+<td>OpenJev 仅接口复现</td>
+<td>README 明言不复现模型与训练，效果上限 = Qwen3.5-4B，非 Jev</td>
+<td>定位为"范式验证器"；M2 硬 Gate 止损；跟踪社区 2–4 周内独立评测</td>
+</tr>
+<tr class="odd">
+<td>生产依赖</td>
+<td>范式发布仅数日，无生产案例，接口易 breaking change</td>
+<td>自持 typed-decision 抽象层，底层模型可热替换（4B / 未来开源权重 / 自训分类头），不深耦合任何一家</td>
+</tr>
+<tr class="even">
+<td>效果风险</td>
+<td>pointwise 单 forward 可能弱于 listwise 生成式；4B 对长尾意图理解存疑</td>
+<td>精排模型进基线；分桶评估；置信度路由回退</td>
+</tr>
+<tr class="odd">
+<td>工程栈</td>
+<td>Python/GPU 推理非团队主力栈</td>
+<td>复用 K8s；单卡起步；云 GPU 过渡</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-本周立即行动3-件">7. 本周立即行动（3 件）</h2>
+<ol>
+<li>冻结评测集（1 人日）：抽样历史曝光-行为日志，固化 benchmark 与打分格式。</li>
+<li>部署 OpenJev（0.5 人日 + 云 GPU）：跑通 typed rerank 接口，记录单条延迟/成本初值（Mac 不可行，需 CUDA）。</li>
+<li>60 分钟对打 spike：同一批候选，OpenJev vs 现有打分方式，产出三维对比表（效果/延迟/成本）→ 用数据决定立项与否。</li>
+</ol>
+<h2 id="8-诚实挑战本提案的已知漏洞">8. 诚实挑战（本提案的已知漏洞）</h2>
+<ol>
+<li><strong>归因混淆</strong>：OpenJev 输了，分不清是范式不行还是复现不行；赢了，也证明不了 Jev 本尊。PoC 结论天然带星号。</li>
+<li><strong>参照系偷换</strong>：重排层真正的在位者不是 chat model，而是又快又便宜的精排 DNN。提案动机是"chat model 太贵"，落地对手却是"精排模型已经够用"——M2 若不含精排基线，整个论证是打稻草人。</li>
+<li><strong>pointwise 结构性劣势</strong>：LLM rerank 文献中 listwise 常优于 pointwise；typed 单 forward 天然 pointwise，可能天生吃亏，需补 listwise 变体实验方可下结论。</li>
+<li><strong>机会成本</strong>：搜索个性化主线（待优化的 feed 路 + 标签体系 A/B）正吃人力，此 PoC 一旦超过 1 人投入，边际收益大概率为负。</li>
+<li><strong>FOMO 承认</strong>：信号源是 hype 型推文（同一条连实时交易都吹了），技术发布仅 3 天。最诚实的定性：这不是战略判断，是一份行权价约 1 人月、5–6 周到期、带硬止损的看涨期权。</li>
+</ol>
+
+<div class="proposal">
+<div class="meta-line"><span class="tag">Proposal #2</span><span class="tag">Jev × LLM-as-Judge</span>生成：subagent 并行深挖 · 已脱敏</div>
+<h1 id="decision-model-替代-llm-as-judgeai-编程工具评测项目提案">Decision Model 替代 LLM-as-Judge：AI 编程工具评测项目提案</h1>
+<blockquote>
+<p>2026-09-18 · Draft · 适用范围：AI 编程工具评测项目（coding model × harness 选型）的评分环节，不改变被测对象本身。 信号来源：Jev（TypeSafe AI 2026-09-15 发布的 System One Model）及开源复现 OpenJev（MIT，4B 底座），已多信源验证。本提案只取其范式，不依赖官方服务。</p>
+</blockquote>
+<h2 id="1-核心主张">1. 核心主张</h2>
+<p><strong>judge 环节本质是判别任务（classify/score），如今却用生成式 LLM 逐条写评语来完成——把它换成 decision model（typed criteria → 单次 forward → 判定 + 置信度，低置信度回退），judge 成本与延迟降一个数量级（机制上近乎确定，PoC 实测自证）；一致率能否提升取决于 rubric 显式化程度，本提案用对照实验把两件事分开归因，不混着讲故事。</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>必被追问</th>
+<th>回答</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>便宜 10 倍，质量掉不掉？</td>
+<td>设非劣性硬门槛（§4），任一主指标显著劣于现 LLM judge 则不上线；混合回退兜底</td>
+</tr>
+<tr class="even">
+<td>一致率约六成，根因是模型还是 rubric？</td>
+<td>正是本提案要回答的问题：先测人人一致率（M1），再用 2×2 实验分离归因（M3）</td>
+</tr>
+<tr class="odd">
+<td>为什么自建而不直接买 Jev？</td>
+<td>接口模式（criteria / options / confidence）是资产，权重可替换；不锁供应商</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-锁定痛点">2. 锁定痛点</h2>
+<p>judge 是全流水线调用量最大、成本最高的环节，四个痛点互相咬合：</p>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>痛点</th>
+<th>表现</th>
+<th>后果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td>范式错配</td>
+<td>判别任务用生成式模型：解码循环写评语，再解析回结论</td>
+<td>慢、贵、输出格式漂移</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>成本钳制样本量</td>
+<td>judge 按旗舰 LLM 计价，扩样本即成本爆炸</td>
+<td>样本小 → 候选模型间评分无显著差异，选型证据不足</td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td>一致率天花板</td>
+<td>judge 判定与人工复核一致率仅约六成</td>
+<td>评分可信度存疑，采购支撑弱</td>
+</tr>
+<tr class="even">
+<td>P4</td>
+<td>无原生置信度</td>
+<td>生成式输出无校准概率</td>
+<td>无法路由，人工复核只能全量铺开</td>
+</tr>
+</tbody>
+</table>
+<p>关键耦合：<strong>P2 是 P3 的放大器</strong>——样本小到连"模型间谁更好"都检不出。降 judge 成本的直接回报不是省钱本身，而是统计功效（样本量 × 频率）。</p>
+<h2 id="3-实施里程碑约-6-周05-人力--小时级云-gpu">3. 实施里程碑（约 6 周，0.5 人力 + 小时级云 GPU）</h2>
+<p><strong>M1｜金标集与根因诊断（第 1 周）</strong></p>
+<ul>
+<li>抽 150–200 条已复核样本，双人独立盲标，测人人一致率（Cohen's κ）</li>
+<li>现行 judge prompt 逆向拆解为 typed criteria 草案：3–5 维度 × 3–5 档位，每档操作化定义</li>
+<li>Gate：若人人 κ 也仅约六成 → 根因在 rubric，先修标准再谈换模型</li>
+<li>产出：金标集 v1、typed criteria v1、根因结论一页纸</li>
+</ul>
+<p><strong>M2｜Decision Judge PoC——自建，仿 OpenJev 接口模式（第 2–3 周）</strong></p>
+<ul>
+<li>接口模式：runtime-defined criteria + typed options + option-logits 置信度，不绑定 OpenJev 权重</li>
+<li>双 backend 并行：a) 云 CUDA GPU 跑 OpenJev（4B 底座）；b) 等价路径——任意暴露 logprobs 的小模型 + 约束输出读选项概率（Bun + TypeScript 统一封装，上层流水线接口不变）</li>
+<li>产出：实测单条延迟/成本/批吞吐，对照官方宣称（&gt;100× 快、&gt;200× 便宜）</li>
+</ul>
+<p><strong>M3｜对照实验：分离 rubric 与模型（第 4 周）</strong></p>
+<ul>
+<li>设计：{旧 rubric, 新 typed rubric} × {LLM judge, decision judge}，人工金标为锚</li>
+<li>指标：一致率、κ、校准（ECE / 可靠性图）、成本、吞吐</li>
+<li>产出：归因清晰的实验报告——涨了多少，记谁的功</li>
+</ul>
+<p><strong>M4｜混合流水线集成与扩量（第 5–6 周）</strong></p>
+<pre class="text"><code>样本 → decision judge（typed 判定 + 置信度）
+        ├─ 高置信 → 直接入表
+        └─ 低置信 → 回退：大模型 judge / 人工复核
+</code></pre>
+<ul>
+<li>全量重跑评测，样本量扩 5–10×，出含显著性检验的选型对比报告</li>
+<li>产出：v2 评测流水线 + 模型选型报告</li>
+</ul>
+<h2 id="4-成功标准">4. 成功标准</h2>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>指标</th>
+<th>PoC 通过线</th>
+<th>挑战目标</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>成本</td>
+<td>单样本 judge 成本</td>
+<td>≤ 原 1/10</td>
+<td>≤ 原 1/50</td>
+</tr>
+<tr class="even">
+<td>吞吐</td>
+<td>judge 环节全程耗时</td>
+<td>小时级 → 分钟级</td>
+<td>批式近实时</td>
+</tr>
+<tr class="odd">
+<td>一致率</td>
+<td>vs 人工金标</td>
+<td>≥ 75%（现状约六成）</td>
+<td>高置信子集 ≥ 85%</td>
+</tr>
+<tr class="even">
+<td>校准</td>
+<td>置信度 vs 实际正确率</td>
+<td>ECE ≤ 0.1</td>
+<td>阈值跨轮稳定、可路由</td>
+</tr>
+<tr class="odd">
+<td>统计功效</td>
+<td>区分 top-2 候选模型</td>
+<td>p &lt; 0.05（扩样后）</td>
+<td>效应量第二轮可复现</td>
+</tr>
+<tr class="even">
+<td>非劣性</td>
+<td>主指标 vs 现 LLM judge</td>
+<td>不显著劣于（α = 0.05）</td>
+<td>——</td>
+</tr>
+</tbody>
+</table>
+<p>非劣性是硬门槛：降成本不允许以降质量换取；不过线则 decision judge 降级为粗筛层。</p>
+<h2 id="5-roi-与业务影响">5. ROI 与业务影响</h2>
+<table>
+<thead>
+<tr class="header">
+<th>层</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>直接</td>
+<td>judge 成本降约 90%+；算力为按小时云 GPU 租用（公开定价，PoC 全程数百元量级）</td>
+</tr>
+<tr class="even">
+<td>速度→质量</td>
+<td>样本量扩 5–10×、评测从攒批变按需——直接解开"模型间无显著差异"的死结</td>
+</tr>
+<tr class="odd">
+<td>采购决策</td>
+<td>更大样本 + 可复现流程，AI 编程工具选型证据更硬，决策周期缩短</td>
+</tr>
+<tr class="even">
+<td>能力复用</td>
+<td>decision-judge 是"用 AI 评 AI"的通用件，可迁移至内部 AI Skill 平台（数十个 skill 的自动质检与路由）</td>
+</tr>
+<tr class="odd">
+<td>合规</td>
+<td>小模型可私有化部署，评测数据不出域</td>
+</tr>
+<tr class="even">
+<td>叙事协同</td>
+<td>与"低成本国产模型进工具清单"同一论点：对的尺寸做对的任务，采购叙事自洽</td>
+</tr>
+</tbody>
+</table>
+<p>投入约 0.5 人力 × 6 周。回收周期取决于 judge 现有绝对开销（见 §8-c，先算账再立项）。</p>
+<h2 id="6-风险与缓解">6. 风险与缓解</h2>
+<table>
+<thead>
+<tr class="header">
+<th>风险</th>
+<th>等级</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OpenJev 为社区复现，无 SLA、迭代快</td>
+<td>高</td>
+<td>只借鉴接口模式，自建可替换 backend，权重视为可丢弃</td>
+</tr>
+<tr class="even">
+<td>4B 模型能力上限：长代码上下文理解弱</td>
+<td>高</td>
+<td>金标集先测边界；混合回退；必要时升 7–14B 底座（仍远便宜于旗舰 judge）</td>
+</tr>
+<tr class="odd">
+<td>一致率根因在 rubric 而非模型</td>
+<td>高</td>
+<td>M1 先诊断、M3 分离归因；rubric 显式化本身即交付物，不白做</td>
+</tr>
+<tr class="even">
+<td>prompt → typed criteria 改造成本被低估</td>
+<td>中</td>
+<td>3–5 维度起步；AI 起草 + 一轮人审；对齐已有复核清单</td>
+</tr>
+<tr class="odd">
+<td>官方倍数宣称不可复现</td>
+<td>中</td>
+<td>一律自测；成功标准按保守 10× 设线</td>
+</tr>
+<tr class="even">
+<td>"自建小模型当裁判"的信任问题</td>
+<td>中</td>
+<td>金标集背书 + 非劣性数据 + 最终报告保留一层大模型复核兜底</td>
+</tr>
+<tr class="odd">
+<td>CUDA 依赖（Mac 本地不可跑）</td>
+<td>低</td>
+<td>按小时云 GPU（如 AutoDL），或内部 GPU 节点</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-立即行动本周各-1-天">7. 立即行动（本周，各 ≤1 天）</h2>
+<ol>
+<li><strong>双盲标注启动</strong>：抽 150–200 条已复核样本，两人独立盲标（各约 2–3 小时）——下周即得人人一致率，直接检验 rubric 假设</li>
+<li><strong>typed criteria 草案</strong>：现行 judge prompt 拆成维度 × 档位 × 操作化定义，AI 起草 + 一轮人审</li>
+<li><strong>OpenJev 实测</strong>：云租 CUDA GPU 跑通 demo，实测单条延迟与批吞吐，一页纪要对照官方宣称</li>
+</ol>
+<p>三件事合计不足 3 人日，任一结果都直接改写 M2–M4 取舍。</p>
+<h2 id="8-诚实挑战自己先捅漏洞">8. 诚实挑战（自己先捅漏洞）</h2>
+<p><strong>a) 最大漏洞：一致率约六成，根因多半在 rubric，不在模型。</strong> 旁证：换不同 judge 模型，一致率与模型间差异都不显著——若模型能力是瓶颈，换模型应有位移；而人对"代码质量：良好/及格"这类模糊标准同样无法稳定一致。<strong>换 decision model 本身并不治这个病</strong>。它唯一的贡献是 typed options 容不下模糊措辞，被迫把每个档位写成可操作定义——若一致率因此上升，功劳应记在 rubric 工程，decision model 的确定性收益仍是成本与吞吐。本提案把这个假设当实验对象而非前提：M1 人人 κ 低于 0.6 就先修 rubric；若最终证明 rubric 才是全部答案，提案依然成立，只是主角换成 typed criteria，decision model 退居降本角色。</p>
+<p><strong>b) decision judge 丢掉了评语。</strong> LLM judge 的自然语言理由对调试评测体系本身有价值（知道为什么错），typed 输出只有判定与置信度。缓解：低置信与抽样样本保留大模型评语；typed 维度命中本身即结构化归因。</p>
+<p><strong>c) 经济账可能不成立。</strong> 若 judge 环节当前绝对开销本就不大，降 90% 的绝对值覆盖不了 6 周投入。本提案真实回报是吞吐与统计功效，省钱是副产品；若 KPI 只有"省 judge 钱"，先算绝对值再立项。</p>
+<p><strong>d) 信号纪律。</strong> 原推文中「OpenCLI 配合 Jev」为作者个人玩法，无公开集成路径，本提案不依赖；推文的兴奋不构成证据，§7 的实测才算数。</p>
+
+<div class="proposal">
+<div class="meta-line"><span class="tag">Proposal #3</span><span class="tag">Hypit × Skill DSL 模式</span>生成：subagent 并行深挖 · 已脱敏</div>
+<h1 id="hypit-信号处置提案拆其-dsl缓其叙事">Hypit 信号处置提案：拆其 DSL，缓其叙事</h1>
+<blockquote>
+<p><strong>角度</strong>：B 为主（skill/DSL 设计模式）· A 为辅（WellDone 备选议题） <strong>信号状态</strong>：仓库真实活跃已验（8.8k★/1k fork/昨日仍在 push）；架构细节本轮已补验（见下）；亲测未做</p>
+</blockquote>
+<h2 id="1-核心主张">1. 核心主张</h2>
+<blockquote>
+<p><strong>本周 ≤4 小时把 Hypit 当「skill 架构教材」拆解——重点是它的 SVML 视频 DSL 与 skill/CLI 分离架构，提取 ≥3 条模式反哺自家 skill 平台；WellDone 仅把「评价→口碑视频」挂为合伙人首会备选议题，不由营销信号触发复活。</strong></p>
+</blockquote>
+<p>经得起追问的展开：Hypit 的真实价值不是工具（工具会被替代、license 是自定义非标协议），而是它示范了一条完整路径——<strong>把专业工作流编译成 agent 可执行的声明式中间表示（SVML），再由可替换执行层渲染</strong>。这正是 Kyle 在「领域 DSL/skill 封装」上的认知缺口，且 Hypit 是 TypeScript monorepo，与自身技术栈同构，拆解成本极低。WellDone 的复活应由合伙人共识与核心闭环驱动，不该由一条「不用会死」的推文驱动。</p>
+<h2 id="2-锁定的具体痛点">2. 锁定的具体痛点</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>痛点</th>
+<th>证据/状态</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td>自家 skill 平台缺「复杂级联工作流」封装范式：多数 skills 为单步工具，「脚本→运镜→字幕→渲染」这类多级流程无法可靠声明化</td>
+<td>Hypit 已证明可行：SVML 是可编辑、可重跑的「组合」而非一次性渲染</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>小商家有好评无素材：Google 评价是文本，变视频需 DIY 2-4h/条或外包 $300+/条</td>
+<td><strong>假设，未验证</strong>——是 A 路径的唯一赌注</td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td>营销推文诱发 FOMO 决策</td>
+<td>信源为增长话术账号（"大洗牌/不用会死/快 star"三件套）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-实施里程碑">3. 实施里程碑</h2>
+<table>
+<thead>
+<tr class="header">
+<th>里程碑</th>
+<th>内容</th>
+<th>耗时</th>
+<th>Done 标准</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M0 · 亲测</td>
+<td>装机跑官方 demo（命令见 §7），<strong>先读 LICENSE 再跑</strong></td>
+<td>≤15 min</td>
+<td>出片 <strong>或</strong> 记录具体卡点（两者皆算完成，失败数据同样是决策输入）</td>
+</tr>
+<tr class="even">
+<td>M1 · 拆解</td>
+<td>读码四问：① SVML 语法/schema 在哪定义、词级锚定（WhisperX word alignment）如何实现 ② skill 定义层（.claude/.codex/skills）与 CLI 执行体如何分工 ③ model provider 抽象（BYOK/本地/托管）怎么隔离 ④ 组件如何做成版本化可分享单元</td>
+<td>2 h</td>
+<td>产出 3 条模式，每条附代码路径</td>
+</tr>
+<tr class="odd">
+<td>M2 · 移植</td>
+<td>写 ~100 行 Bun+TS mini DSL：声明式 recipe（词级时间锚点）→ 编译到 Remotion 或 mock 渲染；或给 viral-content-transformer 增加「视频变体计划」结构化输出</td>
+<td>2 h</td>
+<td>端到端 0 人工干预跑一次（渲染可 mock）</td>
+</tr>
+<tr class="even">
+<td>M3 · 议题</td>
+<td>WellDone 合伙人首会一页纸：「评价→口碑视频」选项——能力边界、API 成本、license 红线、建议 backlog 不排期</td>
+<td>30 min</td>
+<td>首会有显式 in/out 结论</td>
+</tr>
+<tr class="odd">
+<td>M4 · 刺探（条件：首会表决 in）</td>
+<td>10 条真实评价 → 3 条口碑视频（BYOK），实测单条成本</td>
+<td>1 个周末日</td>
+<td>盲评 ≥2/3「可直接发商家」且成本实测 &lt;$2/条</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kill criterion</strong>：M0 若 15 分钟跑不通且无清晰解法，或成品低于「可用 B-roll」水平 → M1-M4 全部终止，归档为「信号已低成本排除」。排除本身即交付物。</p>
+<h2 id="4-成功标准">4. 成功标准</h2>
+<ul>
+<li>M1：3 条模式中 ≥1 条在一周内实际改动某个存量 skill 的设计（能指出改了哪个文件）</li>
+<li>M2：mini DSL 端到端执行零干预</li>
+<li>M3：合伙人显式决定 + 一句理由</li>
+<li>M4（若触发）：通过率 ≥60%，成本 &lt;$2/条</li>
+<li><strong>反指标（红线）</strong>：本提案总耗时 ≤6 小时；超时立即砍掉 M2 及之后所有项</li>
+</ul>
+<h2 id="5-roi--业务影响">5. ROI / 业务影响</h2>
+<table>
+<thead>
+<tr class="header">
+<th>路径</th>
+<th>投入</th>
+<th>回报</th>
+<th>不确定度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B · skill 模式（主）</td>
+<td>~3.5 h</td>
+<td>平台获得「工作流编译为 DSL」范式，复利作用于整个 skill 平台；个人 Agentic Engineering 资产可沉淀为对外分享</td>
+<td>低——学习型回报与推文真假无关</td>
+</tr>
+<tr class="even">
+<td>A · WellDone（辅）</td>
+<td>0.5 h（首会前）</td>
+<td>若 in：差异化选项，对标外包 $300+/条，SaaS 定价 $29-99/mo 档；渲染走 Puppeteer 无头 Chromium，需评估计算成本对毛利的挤压</td>
+<td>高——P2 未验证 + 依赖合伙人共识</td>
+</tr>
+<tr class="odd">
+<td>不做</td>
+<td>0</td>
+<td>下一个工作流型需求仍从零摸索</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>关键算法：<strong>B 路径期望值全部由前 3.5 小时锁定</strong>，这是本提案经得起"信源是营销号"追问的根本原因。</p>
+<h2 id="6-风险与缓解">6. 风险与缓解</h2>
+<table>
+<thead>
+<tr class="header">
+<th>风险</th>
+<th>等级</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>License 为自定义 "Hypit Open Source License"，商用条款未验（README 仅称"产物归你"，代码本身未承诺）</td>
+<td>高（仅 A）</td>
+<td>集成前读 LICENSE 全文 + 书面问维护方；默认 <strong>clean-room：只学架构不抄代码</strong>；备选参照宽松协议同类（如 MoneyPrinterTurbo，协议亦需再验）</td>
+</tr>
+<tr class="even">
+<td>平台依赖：WhisperX/Seedance/GPT Image/托管 HypiHub 全是外部件；HypiHub 是官方变现诱饵</td>
+<td>中</td>
+<td>M1 专看 provider 抽象层是否真可换；BYOK 意味商家自管 key（摩擦）或平台垫付（蚀毛利），M4 必实测</td>
+</tr>
+<tr class="odd">
+<td>渲染重计算：64 并发无头 Chromium 是 demo 数据，SaaS 化的 infra 账未算</td>
+<td>中（仅 A）</td>
+<td>M4 同步记录渲染时长与机器占用</td>
+</tr>
+<tr class="even">
+<td>内容同质化：1 模板 100 变体 → 算法降权 + 品牌雷同</td>
+<td>中</td>
+<td>「克隆结构不克隆内容」约束；变体强制差异化参数；human-in-loop 审核位</td>
+</tr>
+<tr class="odd">
+<td>信源 FOMO</td>
+<td>中</td>
+<td>M0 亲测即证伪机制；fork/star ≈ 12% 属健康区间（纯刷 star 通常 &lt;2%），但话术本身按 0 信息量处理</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-立即行动本周">7. 立即行动（本周）</h2>
+<ol>
+<li><strong>今晚 ≤15 分钟亲测</strong>：</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">cd</span> /tmp <span class="kw">&amp;&amp;</span> <span class="fu">git</span> clone https://github.com/hypit-ai/hypit <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> hypit</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">head</span> -60 LICENSE*        <span class="co"># 第一件事：验商用条款</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">npx</span> skills add hypit-ai/hypit -g   <span class="co"># 或按 README 跑官方 demo（BYOK 用最低额度 key）</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># 计时超 15 min 未通 → 记卡点，触发 kill criterion</span></span></code></pre></div>
+<ol start="2">
+<li><strong>明晚 2 小时拆解</strong>：围绕 §3-M1 四问读码，写 3 条模式笔记（每条带代码路径）。</li>
+<li><strong>周末 30 分钟一页纸</strong>：WellDone 首会议题「评价→口碑视频」选项卡（含 license 红线与成本问号），提前发合伙人预读。</li>
+</ol>
+<h2 id="8-诚实挑战本提案的漏洞">8. 诚实挑战（本提案的漏洞）</h2>
+<p><strong>挑战一：这就是 FOMO 吗？</strong> 一半是。信源是典型营销号，推文本身信息量≈0；仓库规模真实（fork 比例健康、昨日仍活跃），但"不用会死"不成立。信号的合理权重只是：<strong>「工作流-DSL」模式在视频域出现了开源标杆</strong>。本提案的防御是全部回报压在与 Hypit 生死无关的模式学习上。</p>
+<p><strong>挑战二：B 路径隐含假设可能不成立。</strong> 本轮补验只确认了 SVML 的存在与宣称（词级锚定、可重跑组合），<strong>未读到语法/schema 本体</strong>——若 M1 发现它实为薄 prompt 包装、无严谨中间表示，M2 立即砍掉，提案降级为"信号已处理"。</p>
+<p><strong>挑战三：A 路径可能是伪需求。</strong> 小商家核心痛是「收到评价」（获取）而非「评价变视频」（再利用）；核心闭环留存未验证前叠加视频能力，是给未跑通的产品加砝码。最诚实的默认值是把 A park 到评价回收率/回复采纳率达标之后——保留 A 仅因首会在即、一页纸成本足够低。</p>
+<p><strong>挑战四：机会成本。</strong> Kyle 的晚间时间是真稀缺资源。对照方案是"什么都不做，等 Hypit 出现争议或竞品再回看"——若 M0 结果平庸，后者才是对的。<strong>本提案的真实赌注只有前 15 分钟，其余皆条件分支。</strong></p>
+</div>
+
+<div class="footer">生成于 2026-09-18 · Phase 2 深度挖掘 · 3/3 subagents 成功（0 兜底）· <a href="readwise-briefing-20260918.html">← 返回本期简报</a></div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

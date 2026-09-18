@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-09-18</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 920px; margin: 0 auto;
+}
+.header { text-align: center; padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--border); position: relative; }
+.header h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.3rem; }
+.header .sub { color: var(--text3); font-size: 0.95rem; }
+#theme-toggle {
+  position: absolute; right: 0; top: 0.5rem; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50%; width: 2.4rem; height: 2.4rem; font-size: 1.1rem; cursor: pointer; color: var(--text);
+}
+.stats { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 1.5rem 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 0.8rem 1.4rem; text-align: center; min-width: 120px; }
+.stat .num { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8rem; color: var(--text3); }
+h2 { font-size: 1.25rem; color: var(--accent); margin: 2.2rem 0 1rem; padding-left: 0.6rem; border-left: 4px solid var(--accent); }
+h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 999px; margin-right: 0.4rem; margin-bottom: 0.3rem; }
+.tag.work { background: rgba(45,90,74,.12); color: var(--accent); }
+.tag.life { background: rgba(99,102,241,.12); color: var(--accent2); }
+.tag.verify-ok { background: rgba(5,150,105,.14); color: var(--accent3); }
+.tag.verify-part { background: rgba(217,119,6,.14); color: var(--accent4); }
+.tag.verify-handson { background: rgba(99,102,241,.14); color: var(--accent2); }
+blockquote { border-left: 3px solid var(--border); padding: 0.4rem 1rem; margin: 0.7rem 0; color: var(--text2); background: var(--surface2); border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+.why { margin-top: 0.7rem; padding: 0.7rem 1rem; background: var(--surface2); border-radius: 8px; font-size: 0.93rem; color: var(--text2); }
+.why strong { color: var(--accent); }
+a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.55rem 0.8rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--text2); font-weight: 600; }
+ul { padding-left: 1.3rem; }
+li { margin: 0.35rem 0; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.4rem; margin-bottom: 1rem; }
+summary { cursor: pointer; color: var(--text3); font-size: 0.92rem; }
+.actions li { margin: 0.5rem 0; }
+.actions { color: var(--text2); }
+.footer { text-align: center; color: var(--text3); font-size: 0.82rem; margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+.axiom { text-align: center; color: var(--text3); font-size: 0.9rem; margin: 1rem 0 0; font-style: italic; }
+.verified-list li { margin: 0.45rem 0; }
+.repo-data { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85rem; color: var(--text2); background: var(--surface2); padding: 0.5rem 0.9rem; border-radius: 8px; margin: 0.5rem 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>📚 Readwise 情报简报</h1>
+  <div class="sub">2026-09-18 · 周五 · 增量窗口：09-17 之后 · 累计处理 155 条</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">2</div><div class="label">新增信号</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">1</div><div class="label">中价值 ⭐×3</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">已验证 ✅</div></div>
+  <div class="stat"><div class="num">0</div><div class="label">被证伪 ❌</div></div>
+</div>
+
+<h2>🔭 信号概览</h2>
+<table>
+  <tr><th>信号</th><th>验证结论</th><th>命中透镜</th><th>连接项目</th></tr>
+  <tr>
+    <td><strong>Jev</strong> — System One 决策模型（放弃文本生成，直接输出 typed decisions）</td>
+    <td>✅ Verified + 🔬 可线上试用</td>
+    <td>Intent（工作）+ 健脑</td>
+    <td>搜索个性化 rerank · AI 编程评测 judge</td>
+  </tr>
+  <tr>
+    <td><strong>Hypit</strong> — 开源 AI 视频克隆 DSL（agent 一条命令生成 100 变体）</td>
+    <td>⚠️ Partial（项目真实·营销夸大）</td>
+    <td>Intent（副业/模式）</td>
+    <td>WellDone 内容营销 · Agent skill 设计模式</td>
+  </tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+<div class="card">
+  <h3>1. Jev —「不说话的模型」：System One 决策模型发布（2026-09-15，3 天前）</h3>
+  <div>
+    <span class="tag work">工作信号</span><span class="tag verify-ok">✅ Verified</span><span class="tag verify-handson">🔬 openjev.com 可试</span>
+  </div>
+  <blockquote>推文（@jakevin7）：“Jev 太屌了！！！完全是模型的新方向+新范式……用 OpenCLI 配合了下 Jev，爽到飞起。以后其他大规模召回、AI推荐系统、实时交易，都可以用这个模型。玩法太多了！” — <a href="https://x.com/jakevin7/status/2100530193538695565">原文链接</a></blockquote>
+  <p><strong>一手验证</strong>：Jev 由 TypeSafe AI 于 09-15 发布，定位 "System One Model"——放弃文本生成，对 classify / route / score / rerank 输出带置信度的 typed decisions；官方宣称同等智能下 <strong>&gt;100× 快、&gt;200× 便宜</strong>。多信源确认：<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">官方博客</a>、Latent Space、Reddit r/LocalLLaMA。开源复现 <a href="https://github.com/TheoLeeCJ/openjev">OpenJev</a>（749★，Qwen3.5-4B 直接读 typed option logits，单次 forward，无解码循环）。⚠️ 推文中“OpenCLI 配合 Jev”为作者个人玩法，无公开集成文档；“实时交易都能用”属过度延伸。</p>
+  <div class="repo-data">OpenJev: 749 stars · 51 forks · push 2026-09-16 · MIT · Python<br>参照: OpenCLI (github.com/linxule/opencli) ~15k★ · 355+ 命令</div>
+  <div class="why"><strong>为什么与你相关</strong>：① 搜索个性化项目的重排/打分层——chat model 做 rerank 的成本与延迟是真实痛点，decision model 正对靶心；② AI 编程工具评测项目里 LLM-as-judge 是最大成本项，judge 本质就是 classify 任务，换 decision model 可能数量级降本；③ 命名即源自 Kahneman 双系统理论，“System 1 快决策 / System 2 慢推理”的分层架构观值得吸收进 Agent 设计。发布仅 3 天，<strong>窗口期信号</strong>。</div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值信号</h2>
+
+<div class="card">
+  <h3>2. Hypit — 给 Agent 的视频克隆 DSL：“1 command, 100 variants”</h3>
+  <div>
+    <span class="tag work">副业/模式信号</span><span class="tag verify-part">⚠️ Partial</span>
+  </div>
+  <blockquote>推文（@叫我阿杭）：“这回跨境电商真的要大洗牌了，不用 hypit 的公司一定会死掉……最牛逼的克隆 Video AI 产品……已经开源了。” — <a href="https://x.com/Astronaut_1216/status/2099705516129992944">原文链接</a></blockquote>
+  <p><strong>一手验证</strong>：项目真实且极活跃——<a href="https://github.com/hypit-ai/hypit">github.com/hypit-ai/hypit</a> 8807★ / 1042 forks / 最后 push 09-17（昨日），TypeScript，BYOK 开源免费。丢入爆款视频，agent 克隆完整制作工作流（脚本、运镜、字幕、B-roll、特效、调色），一键换产品出 100 个变体。⚠️ “不用就死掉”是典型营销号话术，降权处理；license 为 "Other" 非标准协议，商用前需读条款。</p>
+  <div class="why"><strong>为什么有保留地关注</strong>：① WellDone（口碑 SaaS 副业）若复活，小商家“口碑视频素材”批量生成是天然场景；② 它示范了“把复杂制作工作流封装为 agent 可执行语言”的 DSL 设计模式，对自建 skill 体系有直接借鉴价值。信源是跨境电商营销号，警惕 FOMO——先 10 分钟 clone 亲测再谈投入。</div>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+
+<div class="card">
+  <h3>🧠 健脑 · System One / System Two：决策模型命名背后的心智模型</h3>
+  <p>Jev 的命名直接取自 Kahneman《思考，快与慢》的双系统理论——System 1（快、自动、廉价、易偏）vs System 2（慢、刻意、昂贵、可靠）。今天的信号把这个 2011 年的心智模型变成了 2026 年的工程架构：LLM 是 System 2，decision model 是 System 1。迁移到个人认知：并非所有决策都值得调用“慢系统”，识别生活与工作中哪些判断可以交给低成本直觉例程，是注意力管理的同构问题。</p>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="card">
+  <ul class="actions">
+    <li><strong>本周</strong>：浏览器体验 <a href="https://openjev.com">openjev.com</a> demo，感受 typed decisions 接口范式（10 分钟，无需 GPU）</li>
+    <li><strong>本周</strong>：读 <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe 官方博客</a>，摘录其延迟/成本基准测试方法，作为评测项目 judge 降本 PoC 的参照</li>
+    <li><strong>择日</strong>：clone Hypit 到 /tmp 跑最小 demo（≤10 分钟时间盒），验证“克隆工作流”的实际成熟度</li>
+    <li><strong>持续</strong>：跟踪 Jev 类 decision model 的生产可用性（当前闭源 + 开源复现仅接口层），下月简报复查生态进展</li>
+  </ul>
+</div>
+
+<details>
+  <summary>📎 低价值附录 · 本期全部原始内容（2 条）</summary>
+  <div style="margin-top:0.8rem">
+    <div class="card">
+      <h3>推文 1 · @jakevin7</h3>
+      <blockquote>Jev 太屌了！！！完全是模型的新方向+新范式。带来了太多不一样的东西。用 OpenCLI 配合了下 Jev，爽到飞起。以后其他大规模召回、AI推荐系统、实时交易，都可以用这个模型。玩法太多了！<br>链接：https://x.com/jakevin7/status/2100530193538695565</blockquote>
+    </div>
+    <div class="card">
+      <h3>推文 2 · @叫我阿杭</h3>
+      <blockquote>我靠我靠我靠！！！！这回跨境电商真的要大洗牌了，不用hypit的公司一定会死掉，真的是我见过至今为止最牛逼的克隆Video AI产品，这个做素材的效率真的太高了，而且这个产品现在已经开源了，直接在GitHub上就能找得到！！这样的项目赶紧点个star，不然之后找不到了（附 26 秒 YouTube 演示）<br>链接：https://x.com/Astronaut_1216/status/2099705516129992944</blockquote>
+    </div>
+  </div>
+</details>
+
+<p class="axiom">「不可行动的信息 = 噪音。」</p>
+<div class="footer">生成于 2026-09-18 08:0x CST · 数据源：Readwise export API（增量 09-17 起）· 验证：Phase 1.5 一手交叉验证 · <a href="readwise-proposals-20260918.html">→ 本期深挖 Proposals</a></div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
