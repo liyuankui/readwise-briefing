@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-09-19</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 960px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.header h1 { font-size: 1.6rem; color: var(--accent); }
+.header .date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.7rem; cursor: pointer; font-size: 1.1rem; }
+.stats { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1.2rem; flex: 1; min-width: 140px; }
+.stat-card .num { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.stat-card .label { font-size: 0.8rem; color: var(--text3); }
+h2 { font-size: 1.25rem; color: var(--accent); margin: 2rem 0 0.8rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+.card .title { font-weight: bold; font-size: 1.05rem; margin-bottom: 0.5rem; }
+.card .meta { font-size: 0.8rem; color: var(--text3); margin-bottom: 0.6rem; }
+.card .quote { background: var(--surface2); border-left: 3px solid var(--accent2); padding: 0.8rem 1rem; border-radius: 0 8px 8px 0; margin: 0.6rem 0; font-size: 0.95rem; }
+.card .note { font-size: 0.92rem; color: var(--text2); margin-top: 0.6rem; }
+.card .note strong { color: var(--accent); }
+.badge { display: inline-block; font-size: 0.75rem; padding: 0.15rem 0.6rem; border-radius: 99px; margin-right: 0.4rem; vertical-align: middle; }
+.badge.star5 { background: rgba(5,150,105,0.12); color: var(--accent3); }
+.badge.verify-partial { background: rgba(217,119,6,0.12); color: var(--accent4); }
+.badge.tweet { background: rgba(99,102,241,0.12); color: var(--accent2); }
+table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 10px; overflow: hidden; font-size: 0.92rem; }
+th, td { padding: 0.6rem 0.9rem; border: 1px solid var(--border); text-align: left; }
+th { background: var(--surface2); color: var(--accent); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.action-list li { margin: 0.5rem 0 0.5rem 1.2rem; }
+.empty-note { color: var(--text3); font-style: italic; padding: 1rem; background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; }
+.footer-note { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.82rem; }
+.verification-box { background: var(--surface2); border-radius: 10px; padding: 1rem 1.2rem; margin-top: 0.8rem; font-size: 0.9rem; }
+.verification-box h4 { color: var(--accent4); margin-bottom: 0.4rem; font-size: 0.95rem; }
+.verification-box ul { margin-left: 1.2rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>📚 Readwise 情报简报</h1>
+    <div class="date">2026-09-19（周六）· 增量窗口：2026-09-18T00:00Z → 今晨</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="num">1</div><div class="label">新增信号</div></div>
+  <div class="stat-card"><div class="num">1</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat-card"><div class="num">0</div><div class="label">生活维度</div></div>
+  <div class="stat-card"><div class="num">3</div><div class="label">深挖方向（按信号量缩放）</div></div>
+  <div class="stat-card"><div class="num">156</div><div class="label">累计处理</div></div>
+</div>
+
+<h2>🔭 信号概览</h2>
+<table>
+  <tr><th>信号</th><th>类型</th><th>分层</th><th>验证</th><th>深挖方向</th></tr>
+  <tr>
+    <td>「AI 时代程序员要学会不看代码去处理问题」</td>
+    <td>推文观点</td>
+    <td>⭐×5 Intent（反直觉）</td>
+    <td>⚠️ Partial</td>
+    <td><a href="readwise-proposals-20260919.html">A 验证分层 / B 抽象泄漏 / C 团队技能矩阵</a></td>
+  </tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+<div class="card">
+  <div class="title">在 AI 时代，程序员要学会不看代码去处理问题
+    <span class="badge star5">⭐×5</span>
+    <span class="badge tweet">推文</span>
+  </div>
+  <div class="meta">Victor (@VictorGjdpx) · 保存于 2026-09-19 07:52 · <a href="https://x.com/VictorGjdpx/status/2100791010314141943">原文链接</a></div>
+  <div class="quote">
+    在 ai 时代，程序员要学会不看代码去处理问题<br><br>
+    就好比我们不回去反编译二进制一样<br><br>
+    无非以前是编程语言的语法，现在变成了自然语言而已，更高级的一种通用语言<br><br>
+    至于内部是c语言还是python，就像cpu是intel还是amd一样，无关紧要
+  </div>
+  <div class="note">
+    <strong>为什么与你当前工作相关：</strong>这条推文正面挑战了你自己操作手册里的第一公理——「验证不假设：端到端验证，每环节亲手确认」。你的桌宠项目刚落地「三层验收红线」，AI Coding 评测项目在度量 model × harness——这条推文等于主张：验收的锚点应该从<strong>代码级</strong>整体上移到<strong>行为级/规约级</strong>。这不是新话题，但「二进制/CPU 类比」给了它一个最锋利的表述，值得压力测试。
+  </div>
+  <div class="verification-box">
+    <h4>⚠️ Partial — Phase 1.5 交叉验证结论</h4>
+    <ul>
+      <li><strong>类比有真实趋势支撑</strong>：2025-2026 行业讨论已确认「AI 生成速度超过人工逐行验证容量」，团队确实在转向自动化验证管道（HackerNoon 2026-05、Stack Overflow Blog 2026-04）。</li>
+      <li><strong>但「无关紧要」结论过强</strong>：Simon Willison 对 vibe coding 的经典界定恰恰相反——不读代码只适用于一次性/周末项目；production 使用必须逐行 review。主流工程共识未松动。</li>
+      <li><strong>类比自身反噬</strong>：现实中我们<strong>确实会</strong>在性能调优、安全审计、崩溃分析时下钻到汇编——二进制类比成立的前提是「抽象不泄漏」，而软件的抽象总会泄漏。</li>
+      <li><strong>推文原文无法进一步验证</strong>（观点类推文），按规则降权处理；但框架价值高，保留深挖资格。</li>
+    </ul>
+  </div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值信号</h2>
+<p class="empty-note">本窗口无中等价值信号。</p>
+
+<h2>🌿 生活维度信号</h2>
+<p class="empty-note">本窗口无生活维度信号（健身/健脑/建仓/健胃均无新增）。</p>
+
+<h2>✅ 行动清单</h2>
+<div class="card">
+  <ul class="action-list">
+    <li><strong>压力测试你的验收红线</strong>：桌宠项目的三层验收（CI→发布→存活）本质上已经是「不读代码的验证」——试着把「哪些环节仍然必须人读 diff」显式写成清单，检验推文主张在你自己系统里的真实边界。</li>
+    <li><strong>把「验证分层」带入 AI Coding 评测</strong>：评测维度加一个轴——行为级验收 vs 代码级 review 的质量差异，这可能是选型报告里最有洞察力的一列。</li>
+    <li><strong>和团队聊一次</strong>：讲师团/内训场景里「AI 时代还要不要读代码」是天然的好辩题，两个立场都有真实论据。</li>
+  </ul>
+</div>
+
+<h2>📦 低价值附录</h2>
+<p class="empty-note">本窗口无低价值内容。</p>
+
+<div class="footer-note">
+  生成：my-readwise-briefing v4.3 · 数据源：Readwise export API（增量 updatedAfter）· 深挖按当日信号量缩放为 3 方向（1 条 ⭐×5 信号不支持 5 个非冗余方向）·
+  <a href="index.html">← 返回索引</a>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

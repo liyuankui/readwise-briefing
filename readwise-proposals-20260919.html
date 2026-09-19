@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-09-19</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 960px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 1rem; }
+.header h1 { font-size: 1.6rem; color: var(--accent); }
+.header .date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.7rem; cursor: pointer; font-size: 1.1rem; }
+.banner { background: var(--surface2); border-left: 4px solid var(--accent4); padding: 0.8rem 1.2rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem; font-size: 0.95rem; }
+.banner strong { color: var(--accent4); }
+h2 { font-size: 1.25rem; color: var(--accent); margin: 2rem 0 0.8rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 10px; overflow: hidden; font-size: 0.9rem; margin: 0.8rem 0; }
+th, td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); text-align: left; }
+th { background: var(--surface2); color: var(--accent); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.8rem; margin-bottom: 2rem; }
+.proposal > h1 { font-size: 1.3rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; margin-bottom: 0.8rem; }
+.proposal > h1 + blockquote { font-size: 0.95rem; color: var(--text2); background: var(--surface2); padding: 0.6rem 1rem; border-radius: 8px; border-left: 3px solid var(--accent2); }
+.proposal h2 { font-size: 1.08rem; margin: 1.4rem 0 0.5rem; }
+.proposal h3 { font-size: 1rem; margin: 1.1rem 0 0.4rem; color: var(--accent); }
+.proposal p { margin: 0.5rem 0; font-size: 0.95rem; }
+.proposal blockquote { margin: 0.8rem 0; padding: 0.6rem 1rem; background: var(--surface2); border-left: 3px solid var(--accent2); border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+.proposal ul, .proposal ol { margin: 0.5rem 0 0.5rem 1.4rem; font-size: 0.95rem; }
+.proposal li { margin: 0.3rem 0; }
+.proposal hr { border: none; border-top: 1px dashed var(--border); margin: 1.2rem 0; }
+.proposal code { background: var(--surface2); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.88em; color: var(--accent4); }
+.proposal strong { color: var(--accent); }
+.signal-table td { font-size: 0.9rem; }
+.footer-note { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.82rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>🎯 Readwise 深挖 Proposals</h1>
+    <div class="date">2026-09-19（周六）· 源信号 1 条 ⭐×5 · 深挖方向 3 个（按信号量缩放）</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="banner"><strong>公理：不可行动的信息 = 噪音。</strong>每份 Proposal 必须回答：解决什么问题、为什么是现在、怎么做、怎么算成功、谁来做、失败了怎么办。</div>
+
+<h2>🧭 信号 × 方向对应</h2>
+<table class="signal-table">
+  <tr><th>源信号</th><th>验证</th><th>深挖方向</th><th>核心主张（一句话）</th></tr>
+  <tr>
+    <td><a href="https://x.com/VictorGjdpx/status/2100791010314141943">「AI 时代程序员要学会不看代码去处理问题」</a></td>
+    <td>⚠️ Partial</td>
+    <td>A 验证分层协议</td>
+    <td>验证强度应与爆炸半径成正比，而非与代码量成正比</td>
+  </tr>
+  <tr>
+    <td>同上</td>
+    <td>⚠️ Partial</td>
+    <td>B 抽象泄漏手册</td>
+    <td>「不看代码」是正确的默认值、错误的硬约束——凭泄漏信号触发定点深读</td>
+  </tr>
+  <tr>
+    <td>同上</td>
+    <td>⚠️ Partial</td>
+    <td>C 双轨技能矩阵</td>
+    <td>「不看代码」只能是团队的纪律设计，不能是个体的省事默认</td>
+  </tr>
+</table>
+
+<h2>📋 Proposals</h2>
+<div class="proposal">
+<h1 id="方向-a--验证分层协议verification-ladder">方向 A · 验证分层协议（Verification Ladder）</h1>
+<blockquote>
+<p>把「要不要读代码」改写为「哪些变更值得人读」</p>
+</blockquote>
+<p><strong>源信号</strong>：一则在 X 上的高热推文主张：AI 时代程序员应「不看代码处理问题，正如我们不反编译二进制；内部是 C 还是 Python，无关紧要」。前期核验判定 ⚠️ Partial：趋势真实（AI 生成速度已超人工逐行验证容量，工程界确在转向自动化验证管道），但「实现无关紧要」仅在抽象不泄漏时成立——性能调优、安全审计、崩溃分析时，工程师确实会下钻汇编。本提案取其真、弃其过：不站队读/不读，改按风险分配人的注意力。</p>
+<hr />
+<h2 id="1-核心主张">1. 核心主张</h2>
+<blockquote>
+<p><strong>验证强度应与变更的爆炸半径成正比，而非与代码量成正比。</strong> 按可逆性、资损上限、数据敏感度、下游影响四轴将变更判为 L0-L3：人只精读 L3（安全/资金/数据边界），L0-L2 由行为级验证管道守门（CI → 发布链 → 上线存活信号），并以随机抽查与事故回填堵住门禁盲区。</p>
+</blockquote>
+<p>经得起追问之处：它不否定「production 必须有人看」，只反对「看的方式只有逐行读全部」；也不迷信「测试绿即可」，而是给每个层级配了对应强度的门禁与对冲机制。</p>
+<table>
+<thead>
+<tr class="header">
+<th>层</th>
+<th>典型变更</th>
+<th>门禁</th>
+<th>人读多少</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L0</td>
+<td>文档、脚本、UI 文案；爆炸半径≈0</td>
+<td>lint + CI 绿即合</td>
+<td>不读</td>
+</tr>
+<tr class="even">
+<td>L1</td>
+<td>有测试网覆盖的内部实现</td>
+<td>三层红线全过（CI → 发布链 → 存活信号）</td>
+<td>随机抽查 ~10%</td>
+</tr>
+<tr class="odd">
+<td>L2</td>
+<td>API 契约、消息 schema、集成边界</td>
+<td>契约测试 + 灰度发布</td>
+<td>读契约 diff 摘要</td>
+</tr>
+<tr class="even">
+<td>L3</td>
+<td>鉴权、支付计算、库存扣减、PII、不可逆操作</td>
+<td>三层红线 + 回滚预案 + 双人</td>
+<td>逐行精读</td>
+</tr>
+</tbody>
+</table>
+<p>治理细则：PR 强制打 <code>risk:</code> 标签；触碰敏感路径关键词（payment/refund/inventory/auth）自动提级；<strong>任何人可无理由提级，降级需双人同意</strong>——判级博弈的代价结构由此反转。</p>
+<h2 id="2-锁定的痛点">2. 锁定的痛点</h2>
+<ol>
+<li><strong>Review 带宽坍塌</strong>：AI 使 diff 产量 5-10 倍于人工逐行消化能力，11 人订单域团队的 review 队列成为交付瓶颈；排队超时后 approve 名存实亡（rubber-stamp），高风险变更与低风险变更一起被稀释。</li>
+<li><strong>二元对立无判据</strong>：团队内「逐行读」派与「测试绿即可」派各执一词，决策靠资历不靠风险度量；新人不知哪个 PR 值得等两小时、哪个该直接合。</li>
+<li><strong>行为级验证在存量代码上裸奔</strong>：三层验收在个人开源项目成立（全绿网、单人可控），但企业订单域存量模块测试覆盖不均，低覆盖模块走「测试放行」等于无门禁——缺一张「验证层 ↔︎ 模块风险/覆盖」的路由表。</li>
+<li><strong>黑盒漂移（black-box drift）</strong>：不读代码导致团队对系统的心智模型退化，事故定位时长上升（行业 2026 年已有系统报道）。</li>
+</ol>
+<h2 id="3-实施里程碑一季4-个">3. 实施里程碑（一季，4 个）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>里程碑</th>
+<th>内容</th>
+<th>产出 / Kill 线</th>
+<th>估时</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M1 判据冷启动（第 1 周）</td>
+<td>四轴判据一页纸；两位资深工程师独立对近 30 个已合 PR 回标，测判级一致率</td>
+<td>判据 v1 + 一致率基线；<strong>一致率 &lt;60% 即停</strong></td>
+<td>3-5h</td>
+</tr>
+<tr class="even">
+<td>M2 双轨影子（第 2-4 周）</td>
+<td>协议与现行 review 并行、不执法；统计层级分布、模拟等待时间收益；启动 L1 抽查 10%</td>
+<td>分布数据；<strong>L0-L1 占比 &lt;40% 即停</strong></td>
+<td>每人 2h/周</td>
+</tr>
+<tr class="odd">
+<td>M3 门禁落地（第 5-8 周）</td>
+<td>一个订单域仓库全量生效：强制标签、L3 双人精读、L0-L1 绿即合、路径自动提级、存活信号接告警</td>
+<td>生效仓库 + 周报数据</td>
+<td>CI 改造约 1 周</td>
+</tr>
+<tr class="even">
+<td>M4 复盘固化（第 9-12 周）</td>
+<td>首次事故回填（哪层该拦？判级是否错？）；内训讲师团出 45 分钟模块；开源项目公开数据成文</td>
+<td>协议 v2 + 内训课 + 公开文</td>
+<td>复盘 4h + 成课 4h</td>
+</tr>
+</tbody>
+</table>
+<p>两个 Kill 线是本项目与「又一流程改造」的区别：判据不可靠或分布不支撑，就地承认失败，不追加沉没成本。</p>
+<h2 id="4-成功标准可测量">4. 成功标准（可测量）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>指标</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>吞吐</td>
+<td>L0-L1 PR 合并前等待时间</td>
+<td>降 ≥50%</td>
+</tr>
+<tr class="even">
+<td>深度</td>
+<td>L3 双人逐行精读率</td>
+<td>100%</td>
+</tr>
+<tr class="odd">
+<td>信任</td>
+<td>两人独立判级一致率</td>
+<td>≥80%（较 M1 基线提升）</td>
+</tr>
+<tr class="even">
+<td>质量</td>
+<td>L1 放行后逃逸至生产的缺陷</td>
+<td>不高于全量 review 基线</td>
+</tr>
+<tr class="odd">
+<td>对冲</td>
+<td>L1 抽查覆盖率 / 事故 MTTR</td>
+<td>≥10% / 不劣化</td>
+</tr>
+<tr class="even">
+<td>采纳</td>
+<td>免提醒打风险标签的 PR 占比</td>
+<td>≥80%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-roi--业务影响">5. ROI / 业务影响</h2>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>机制</th>
+<th>估算</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>解除「AI 产出税」</td>
+<td>AI 增益正被 review 排队抵消；L0-L1 绿即合释放等待</td>
+<td>假设 review+等待占 15%、L0-L1 占 60%、等待减半 → 回收 4.5% 工程产能 ≈ 11 人团队每两周多 1 人周（假设值，M2 实测替换）</td>
+</tr>
+<tr class="even">
+<td>风险敞口下降</td>
+<td>今日 rubber-stamp 是无声的高风险裸奔；协议把全部人力注意力聚焦 L3</td>
+<td>高风险变更审查深度实际上升（从均摊稀释到双人精读）</td>
+</tr>
+<tr class="odd">
+<td>资产复用</td>
+<td>判据喂评测项目 harness；课程喂讲师团；数据成公开文</td>
+<td>三个在建项目互喂，边际成本低</td>
+</tr>
+<tr class="even">
+<td>文化出口</td>
+<td>「读不读」之争从立场之争变数据之争</td>
+<td>会议决策成本下降（软性，不计入 ROI）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-风险与缓解">6. 风险与缓解</h2>
+<table>
+<thead>
+<tr class="header">
+<th>风险</th>
+<th>场景</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>判级博弈</td>
+<td>低判以逃避 review</td>
+<td>敏感路径自动提级；无理由提级权 + 降级双签；错判追判级人</td>
+</tr>
+<tr class="even">
+<td>门禁假阴性</td>
+<td>测试绿但实现错（AI 擅写迎合测试的代码）</td>
+<td>L1 抽查 10% + 变异测试抽检 + 事故回填重判</td>
+</tr>
+<tr class="odd">
+<td>低覆盖模块误入 L1</td>
+<td>存量代码裸奔</td>
+<td>判据含覆盖轴：低于阈值默认至少 L2，先补网后降级</td>
+</tr>
+<tr class="even">
+<td>形式主义</td>
+<td>全员判 L3，回潮全读</td>
+<td>公示层级分布；L3 &gt;40% 判定判据过严，回炉</td>
+</tr>
+<tr class="odd">
+<td>黑盒漂移</td>
+<td>心智模型退化</td>
+<td>抽查 + L3 精读保底，MTTR 入监控</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-立即行动本周">7. 立即行动（本周）</h2>
+<ol>
+<li><strong>（3h）证伪第一环</strong>：写四轴爆炸半径判据一页纸，拉两位资深工程师独立对近 30 个 PR 回标，算一致率。判据不可靠则全盘不成立——先验证，后建设。</li>
+<li><strong>（2h）建立公开基线</strong>：在开源桌宠项目（workoutpet）统计近 3 个月 release 中三层红线各自的拦截量分布（CI 拦几 / 发布链拦几 / 存活信号拦几），作为行为级门禁有效性的第一份实证数据。</li>
+<li><strong>（30min 会议）把传闻变数据</strong>：团队周会抛出该推文与二元对立，匿名收集「最近一个你没细读就 approve 的 PR」——rubber-stamp 的真实比例是 M1 的弹药，也是本提案的合法性来源。</li>
+</ol>
+<h2 id="8-诚实挑战主动挑漏洞">8. 诚实挑战（主动挑漏洞）</h2>
+<ol>
+<li><strong>协议转移而非消除了对人的依赖</strong>：它把「正确读代码」替换为「正确判风险」，后者更抽象，且错判的代价被门禁放大——一个判成 L1 的 L3 变更，失去的审查比今天更多。这正是 M1 回标测一致率排在一切之前的原因；一致率上不去，协议退化为全员 L3，等于现状加流程税。<strong>Kill 线 &lt;60% 不是姿态，是承诺。</strong></li>
+<li><strong>分布假设可能崩塌</strong>：全部 ROI 建立在「L0-L1 占多数」上；若影子运行实测仅 30%，带宽释放不敷成本。M2 是第二个生死关。</li>
+<li><strong>统计证明滞后于政治风险</strong>：逃逸缺陷「不劣于基线」需 2-3 个迭代才有统计力；期间一起 L1 放行的生产事故即可在组织内炸掉信任，无论统计上是否异常。缓解：首月 L1 放行限流 + 双门禁过渡，但须承认这是买保险，非解题。</li>
+<li><strong>test-gaming 是结构性盲区</strong>：AI 恰好最擅长产出「迎合测试的实现」，行为级门禁对此天然失明；抽查是唯一对冲，而 10% 抽查率是否充分未知。诚实地说：本协议对「production 必须逐行 review」这一主流共识的让步就是抽查，<strong>抽查能否守住边界，是本项目要回答的问题，而非已假设的前提</strong>。</li>
+<li><strong>开源数据的证明力有限</strong>：单人开源项目的红线数据外推至 11 人企业订单域，样本差异大；公开成文时须明示此局限，否则反被推文原作者的追随者以同一逻辑反杀。</li>
+</ol>
+<hr />
+<p>一句话收束：推文说对了问题（读不完），给错了答案（不读）；正确答案不是少看，而是<strong>按爆炸半径重新分配稀缺的注意力，并为每一层配可证伪的退出门槛</strong>。</p>
+</div>
+<div class="proposal">
+<h1 id="方向-b--抽象泄漏应对手册leak-playbook">方向 B · 抽象泄漏应对手册（Leak Playbook）</h1>
+<blockquote>
+<p>AI 代码生产事故中，凭信号而非熟悉度决定「降到哪一层」</p>
+</blockquote>
+<h2 id="1-核心主张一句话">1. 核心主张（一句话）</h2>
+<blockquote>
+<p>「不看代码」是正确的默认值、错误的硬约束——本手册把「何时必须降层读代码」从 on-call 个人直觉变成组织协议：默认在最高抽象层处理，由泄漏信号触发<strong>定点深读</strong>，每次深读必须<strong>回写</strong>，使代码熟悉度从降层的前提变为降层的产物。</p>
+</blockquote>
+<p>经得起追问：不主张全读（AI 提速被 review 瓶颈抵消），不主张不读（black-box drift 已被证实），主张第三条路——信号驱动的定点降层。</p>
+<h2 id="2-锁定的痛点">2. 锁定的痛点</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>痛点</th>
+<th>事实依据</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td>决策瘫痪：事故前 30 分钟耗在「谁熟悉这块」</td>
+<td>AI 代码区的答案是「没人」，MTTR 大头在定位不在修复</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>二选一困境：全读 vs 全不读</td>
+<td>全读吞吐归零；全不读致 black-box drift——AI 优化「能跑」而非长期质量，团队最终逐文件手工重写（Stack Overflow Blog 2026-04）</td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td>手段与判据错配</td>
+<td>trace/canary/bisect 皆备，唯「黑盒切白盒」无判据——两人处理同一事故路径不同，不可复制、不可审计</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-对类比的压力测试立项依据">3. 对类比的压力测试（立项依据）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>类比成立处</th>
+<th>类比破产处</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>日常开发</td>
+<td>默认高层抽象，不读依赖源码</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>性能调优</td>
+<td>—</td>
+<td>火焰图指向热点后必须读码</td>
+</tr>
+<tr class="odd">
+<td>安全/崩溃/数据损坏</td>
+<td>—</td>
+<td>回滚无法恢复时必须白盒</td>
+</tr>
+<tr class="even">
+<td>CPU 类比</td>
+<td>—</td>
+<td>meltdown/spectre 证明「实现无关紧要」为假</td>
+</tr>
+</tbody>
+</table>
+<p>结论：正确内核是「默认在最高抽象层工作」，错误处是「永不降层」。手册即降层协议。</p>
+<h2 id="4-手册本体-a泄漏信号清单-v0">4. 手册本体 A：泄漏信号清单 v0</h2>
+<p>降层三原则（先于一切信号）：</p>
+<ol>
+<li><strong>假设先行</strong>：读码前写下要回答的问题，答完即停——目标是回答问题，不是重建全局理解。</li>
+<li><strong>时间盒</strong>：每层设停留上限，超时无进展即降层，禁止在黑盒层打转。</li>
+<li><strong>回写</strong>：每次深读产出至少一条资产（一行文档/一个断言/一条告警），否则熟悉度蒸发，下次事故归零。</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>信号</th>
+<th>黑盒失效时刻</th>
+<th>触发动作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S1 回滚失效</td>
+<td>回滚到已知好版本，指标未恢复</td>
+<td>直下 L3：问题不在 diff，或不止在 diff</td>
+</tr>
+<tr class="even">
+<td>S2 bisect 失效</td>
+<td>二分收敛到巨型 AI diff，无法归因</td>
+<td>L3 + 配对阅读（一人读码、一人盯信号）</td>
+</tr>
+<tr class="odd">
+<td>S3 静默断裂</td>
+<td>trace 断裂，无异常无日志（吞错/锁/重试风暴）</td>
+<td>L3</td>
+</tr>
+<tr class="even">
+<td>S4 信号矛盾</td>
+<td>指标劣化、日志干净</td>
+<td>L3 先于补观测</td>
+</tr>
+<tr class="odd">
+<td>S5 环境限定</td>
+<td>仅生产复现，涉并发/幂等/时序</td>
+<td>L3 白盒审查</td>
+</tr>
+<tr class="even">
+<td>S6 数据损坏</td>
+<td>写坏数据而非报错</td>
+<td>L3 定损坏半径 + L4</td>
+</tr>
+<tr class="odd">
+<td>S7 噪声淹没</td>
+<td>canary 差异淹没在噪声中</td>
+<td>L3 找混杂变量</td>
+</tr>
+<tr class="even">
+<td>S8 抽象撒谎</td>
+<td>依赖升级后行为与上游文档不符</td>
+<td>L3 读依赖源码</td>
+</tr>
+<tr class="odd">
+<td>S9 盲区准入</td>
+<td>AI 代码高占比且行为级测试未覆盖</td>
+<td>准入期预防性 L3（非事故中）</td>
+</tr>
+<tr class="even">
+<td>S10 复发即根因</td>
+<td>同一信号 30 天内二次出现</td>
+<td>首次可黑盒绕过，二次必降层根因</td>
+</tr>
+</tbody>
+</table>
+<p>黑盒手段优先序（成本升序）：回滚 → 灰度切流 → bisect → 定点深读。信号判定的是「此链条在哪一环失效」。</p>
+<h2 id="5-手册本体-b五层模型">5. 手册本体 B：五层模型</h2>
+<table>
+<thead>
+<tr class="header">
+<th>层</th>
+<th>对象与手段</th>
+<th>停留时限</th>
+<th>升级触发</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L0</td>
+<td>业务结果：SLO、订单转化、交付率</td>
+<td>10 min</td>
+<td>任一信号命中</td>
+</tr>
+<tr class="even">
+<td>L1</td>
+<td>服务边界：trace、契约、金丝雀</td>
+<td>20 min</td>
+<td>S1/S3/S7</td>
+</tr>
+<tr class="odd">
+<td>L2</td>
+<td>内部行为：日志、事件、metrics 明细</td>
+<td>20 min</td>
+<td>S4/S5 或超时</td>
+</tr>
+<tr class="even">
+<td>L3</td>
+<td>代码与 diff：定点深读、blame、provenance</td>
+<td>视假设而定</td>
+<td>S6/S8 → L4</td>
+</tr>
+<tr class="odd">
+<td>L4</td>
+<td>底层：数据页、运行时、依赖反编译</td>
+<td>—</td>
+<td>仅 S6/S8</td>
+</tr>
+</tbody>
+</table>
+<p>要义：降层是<strong>权利下放</strong>——任何 on-call 凭信号即可降层，无须等待「熟悉的人」到场。</p>
+<h2 id="6-实施里程碑">6. 实施里程碑</h2>
+<table>
+<thead>
+<tr class="header">
+<th>里程碑</th>
+<th>产出</th>
+<th>估算</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M0 逆向标注</td>
+<td>近 12 个月需读码事故复盘，校验信号清单覆盖率</td>
+<td>1 周</td>
+</tr>
+<tr class="even">
+<td>M1 协议成文</td>
+<td>L0–L4 决策树 + 三原则，压缩为 1 页 runbook</td>
+<td>2 周</td>
+</tr>
+<tr class="odd">
+<td>M2 盲演校准</td>
+<td>2 场历史 P1 桌面演练（只给信号面板，不给代码）</td>
+<td>2 周</td>
+</tr>
+<tr class="even">
+<td>M3 工具嵌入</td>
+<td>信号→降层决策卡入 on-call 工具；AI 代码 provenance（PR 级标注：作者+工具+是否逐行审）</td>
+<td>3 周</td>
+</tr>
+<tr class="odd">
+<td>M4 度量固化</td>
+<td>MTTR 分解前后对照；手册入 on-call 轮值培训</td>
+<td>2 周</td>
+</tr>
+</tbody>
+</table>
+<p>合计约 10 周，兼职推进（事故改进专项，非全职立项）。</p>
+<h2 id="7-成功标准可测量">7. 成功标准（可测量）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>指标</th>
+<th>目标</th>
+<th>测法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>清单回顾覆盖率</td>
+<td>≥90% 历史读码事故被某信号命中</td>
+<td>M0 逆向标注</td>
+</tr>
+<tr class="even">
+<td>判定一致性</td>
+<td>两名 on-call 独立判同一案例，降层决策一致率 ≥80%</td>
+<td>盲演评分</td>
+</tr>
+<tr class="odd">
+<td>定位时长</td>
+<td>triage 阶段 MTTR 下降 ≥30%</td>
+<td>前后各 6 个月对照</td>
+</tr>
+<tr class="even">
+<td>回写率</td>
+<td>每次 L3 深读产出资产 ≥1 条，执行率 ≥70%</td>
+<td>runbook 记录</td>
+</tr>
+<tr class="odd">
+<td>可见性</td>
+<td>核心链路服务 100% 带 AI 代码占比标签</td>
+<td>CI 统计</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-roi--业务影响">8. ROI / 业务影响</h2>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>计算</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>事故止损</td>
+<td>MTTR↓30% × 单次影响订单数 × 客单价 × 年频次</td>
+<td>分钟级缩短即真实 GMV 保护</td>
+</tr>
+<tr class="even">
+<td>review 容量</td>
+<td>全读改定点读，核心链路 review 时间省 50%+</td>
+<td>每季节省人周级</td>
+</tr>
+<tr class="odd">
+<td>drift 对冲</td>
+<td>provenance + 回写，规避「半年后整文件重写」</td>
+<td>对冲已被报道的失败路径</td>
+</tr>
+<tr class="even">
+<td>on-call 负担</td>
+<td>判据明确，决策瘫痪消除</td>
+<td>不可折现，但关乎留任</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-风险与缓解">9. 风险与缓解</h2>
+<table>
+<thead>
+<tr class="header">
+<th>风险</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>清单沦为 wiki 尘埃</td>
+<td>嵌入 on-call 工具为决策卡；季度演练复校</td>
+</tr>
+<tr class="even">
+<td>误报致过度降层，退回全读</td>
+<td>层级时间盒 + 「写下假设才许读」</td>
+</tr>
+<tr class="odd">
+<td>provenance 精度不足（blame 分不清 AI/人）</td>
+<td>只求 PR 级粗标注，不求文件级精确</td>
+</tr>
+<tr class="even">
+<td>历史样本不足</td>
+<td>下探至 P2/P3，辅以合成案例演练</td>
+</tr>
+<tr class="odd">
+<td>读码技能退化</td>
+<td>回写制度：熟悉度作为深读产物沉淀</td>
+</tr>
+<tr class="even">
+<td>投入产出随 AI 质量提升而衰减</td>
+<td>设半年复盘点，不设永久预算</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-本周立即行动三件">10. 本周立即行动（三件）</h2>
+<ol>
+<li><strong>今日 1 小时</strong>：拉近 12 个月事故清单，标注「哪些必须读码才解」——M0 前置，拿到分母。</li>
+<li><strong>本周一场盲演（20 min）</strong>：挑最近 1 例，只给信号面板不给代码，记录降层时刻与缺失信号——第一个校准数据点。</li>
+<li><strong>发草稿收反例</strong>：本文 §4/§5 即初稿，发团队 30 分钟 review，专门收集「清单未命中的事故」——证伪优先。</li>
+</ol>
+<h2 id="11-诚实挑战自我攻击">11. 诚实挑战（自我攻击）</h2>
+<ol>
+<li><strong>最大漏洞：清单防急不防慢。</strong> black-box drift 是慢变量，不触发任何 S1–S10。真正的承重墙是 S9/S10 + provenance + 回写；若只做清单不做回写，本项目退化为又一份文档。</li>
+<li><strong>基线不干净。</strong> 无平行团队，MTTR 前后对照受流量、变更率、人员轮换污染，30% 的归因可能立不住——盲演一致性是更干净的指标。</li>
+<li><strong>10 周偏乐观。</strong> 满负荷团队兼职推进，M3 最可能被砍，而它恰是留存率关键——砍 M3，手册即死。</li>
+<li><strong>清单过拟合昨天。</strong> AI 代码的新失效类别（涌现行为、跨服务语义漂移）可能落在全部信号之外——需内建「未命中即新信号」的进化机制，否则手册自身成为过期抽象。</li>
+<li><strong>根本局限。</strong> 信号能定位到层，不能替代理解；若 AI 代码复杂度超出「定点深读可回答」的范畴，手册是止血带不是疗法。最终解在准入端（行为级验收：CI→发布链→存活信号三层红线），手册只在事后端兜底——两端夹击中间的不可读区。</li>
+</ol>
+</div>
+<div class="proposal">
+<h1 id="方向-c--双轨技能矩阵-v1">方向 C · 双轨技能矩阵 v1</h1>
+<blockquote>
+<p>把「读代码」从全员日常重构为分层专家能力</p>
+</blockquote>
+<p><strong>信号定位</strong>：那条推文对了一半——全员逐行阅读确实在死（AI 产出速度已超人工阅读带宽）；错的一半是「无关紧要」——阅读不会消失，只会<strong>分层</strong>。本 proposal 是这半句的管理学答案：EM 如何在「读」分层之后，仍守住技术判断力与团队质量底线。</p>
+<h2 id="1-核心主张">1. 核心主张</h2>
+<blockquote>
+<p>AI 把「写代码」的边际成本压向零，却没有把「判断代码是否可信」的成本压向零——质量底线必须从「每行代码都有人逐行读过」的隐性假设，重构为「全员行为验收 + 专家按需下钻」的双轨显式契约，以<strong>验收资产</strong>（规约、测试、可观测性）替代<strong>阅读时长</strong>作为质量通货。</p>
+</blockquote>
+<p>经得起追问（两个最尖锐的反问）：</p>
+<table>
+<thead>
+<tr class="header">
+<th>追问</th>
+<th>应答</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>不读代码怎么保证质量？</td>
+<td>不是不读，是把「读」分两层：行为层全员验收（订单状态流转、库存扣减、幂等、对账——皆可行为化验证）；实现层由专家按风险触发下钻。省掉的是<strong>默认逐行</strong>，不是判断本身。</td>
+</tr>
+<tr class="even">
+<td>与现在的 code review 有何本质区别？</td>
+<td>现状是隐性假设——review 隐含「逐行读过」。AI 使 diff 体积超出人读带宽，假设已破裂（review 橡皮图章化或积压化）。双轨把破裂的假设变成显式契约+可观测触发，质量责任从「读过」改为「验收过或下钻过」。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-锁定的具体痛点">2. 锁定的具体痛点</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>痛点</th>
+<th>订单域具体表现</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td>Review 带宽与 AI 产出速度的剪刀差</td>
+<td>AI 辅助下单个 PR diff 膨胀，逐行 review 要么积压（lead time 恶化）要么橡皮图章（订单/资金路径缺陷漏过——履约级事故）</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>质量底线靠隐性方法论维持</td>
+<td>团队画像「高意愿·中能力·低方法论」：最缺验收方法论的人拿着最强生成器，风险乘积最大</td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td>三套人才标准仍锚定旧现实</td>
+<td>JD 要「精通 X、深入 JVM」；晋升比「谁写的框架更精妙」；新人按「先读懂全部代码库」成长——三者都默认读代码=日常</td>
+</tr>
+<tr class="even">
+<td>P4</td>
+<td>EM 技术判断力锚点失效</td>
+<td>经理过去靠 review 与代码走读维持技术判断；团队产出 AI 化后若无新锚点（验收资产质量、下钻记录），技术管理退化为进度管理</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-方案双轨技能矩阵-v1">3. 方案：双轨技能矩阵 v1</h2>
+<h3 id="31-双轨定义">3.1 双轨定义</h3>
+<table>
+<thead>
+<tr class="header">
+<th>轨道</th>
+<th>内容</th>
+<th>对象</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>通用轨·验收</td>
+<td>规约（contract-first）、测试设计、行为验收、可观测性、AI 产出审计基础</td>
+<td>全体工程师 + EM</td>
+<td>质量通货，晋升硬门槛</td>
+</tr>
+<tr class="even">
+<td>专家轨·下钻</td>
+<td>深度代码阅读、系统下钻、性能/故障 root cause、架构级 AI 产出审计</td>
+<td>每关键域 2-4 人，按需启用</td>
+<td>风险响应能力，值班制而非职级</td>
+</tr>
+</tbody>
+</table>
+<p>通用轨分 4 级（L1 能写验收用例 → L4 能为陌生模块设计验收方案并审计 AI 产出）；专家轨准入 = 通用轨 L4 + 一次带导师的下钻闭环。<strong>直接映射进现有 L0-L4 课程体系</strong>（讲师团是现成分发渠道，边际成本趋零）。</p>
+<h3 id="32-触发机制矩阵的灵魂否则只是墙纸">3.2 触发机制（矩阵的灵魂，否则只是墙纸）</h3>
+<p>专家轨下钻由以下条件强制触发，与 CI 门禁挂钩而非靠自觉：</p>
+<table>
+<thead>
+<tr class="header">
+<th>触发条件</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>资金/履约路径变更</td>
+<td>订单状态机、退款、库存扣减逻辑的 diff 自动标记</td>
+</tr>
+<tr class="even">
+<td>故障与异常</td>
+<td>复盘必下钻；对账差异、幂等冲突超阈值</td>
+</tr>
+<tr class="odd">
+<td>高风险依赖</td>
+<td>核心依赖 major 升级、安全补丁</td>
+</tr>
+<tr class="even">
+<td>验收失效</td>
+<td>行为测试无法解释的产出，升级专家轨</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-覆盖底线bus-factor">3.3 覆盖底线（bus factor）</h3>
+<p>订单状态机、库存/履约、商品搜索三个关键域，每域 ≥2 名专家轨成员可独立下钻。缺口即招聘/培养信号。</p>
+<h2 id="4-三套人才标准的调整">4. 三套人才标准的调整</h2>
+<h3 id="41-招聘-jd-与面试">4.1 招聘 JD 与面试</h3>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>旧</th>
+<th>新</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>通用轨 JD</td>
+<td>精通 Java、深入理解 JVM</td>
+<td>加「能以规约与测试驱动 AI 产出并独立验收行为正确性」；语言深度降为加分项</td>
+</tr>
+<tr class="even">
+<td>专家轨 JD</td>
+<td>同上</td>
+<td>保留并强化「能对陌生大型代码库做系统性下钻，时限内定位 root cause」</td>
+</tr>
+<tr class="odd">
+<td>面试</td>
+<td>算法题 + 八股</td>
+<td>通用轨加<strong>验收设计题</strong>：给一段 AI 生成的订单取消逻辑（埋 3 个 bug：重复退款/状态跳跃/并发超卖），考验收方案；专家轨保留现场代码阅读题</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-晋升证据">4.2 晋升证据</h3>
+<p>举证从「写了什么」（精妙度不可验）改为可复验 artifact：</p>
+<ul>
+<li>通用轨：沉淀的规约/测试套件质量（覆盖率之外的<strong>断言密度与场景完备性</strong>）、被他人引用情况</li>
+<li>专家轨：一次完整下钻闭环的证据链——触发记录 → 下钻报告 → 修复 diff → 规约回流（同类变更下次不再需要下钻）</li>
+<li>红线：commit 数、diff 行数不再作为证据（AI 时代已失真）</li>
+</ul>
+<h3 id="43-新人前-6-个月路径翻转先验收后下钻">4.3 新人前 6 个月（路径翻转：先验收，后下钻）</h3>
+<table>
+<thead>
+<tr class="header">
+<th>月</th>
+<th>目标</th>
+<th>手段</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M1-2</td>
+<td>业务行为 + 验收能力</td>
+<td>用 AI 读代码（生成模块讲解、时序图）替代人肉通读；交付第一批验收用例</td>
+</tr>
+<tr class="even">
+<td>M3-4</td>
+<td>专家轨见习</td>
+<td>与导师 pairing 完成 ≥3 次触发式下钻 review</td>
+</tr>
+<tr class="odd">
+<td>M5-6</td>
+<td>独立闭环</td>
+<td>独立完成一次下钻闭环；通用轨定级，双向选择是否倾向专家轨</td>
+</tr>
+</tbody>
+</table>
+<p>对比旧路径「先读懂全部代码库再动手」（实际 ramp-up 6-12 个月）：新路径第 2 个月即产出可验收价值，深度理解按需获得。</p>
+<h2 id="5-借工具试点收集-review-行为数据零额外审批">5. 借工具试点收集 review 行为数据（零额外审批）</h2>
+<p>试点（10-15 人 · 2-2.5 周）已有 survey 与整体成本对比，加一层行为观测即可。</p>
+<p><strong>定量（git/平台数据，试点前 4 周为基线）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>指标</th>
+<th>观察什么</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PR diff 体积分布</td>
+<td>生成速度 vs 阅读带宽的剪刀差是否真实存在（P1 实证）</td>
+</tr>
+<tr class="even">
+<td>review 时长（open→merge）</td>
+<td>时长骤降+comment 骤降 = 橡皮图章信号</td>
+</tr>
+<tr class="odd">
+<td>comment 类型占比</td>
+<td>实现类 vs 行为类 vs 风格类——<strong>行为类占比上升是双轨可行性的最强证据</strong></td>
+</tr>
+<tr class="even">
+<td>merge 后 7 天 fix-forward PR</td>
+<td>质量红线：双轨不能以质量换速度</td>
+</tr>
+<tr class="odd">
+<td>新增测试/断言数</td>
+<td>验收资产是否随 AI 产出同步增长</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定性（边际成本趋零）</strong>：既有 survey 加 5 题量表（review 时你实际看什么：行为/实现/纯批准？对 AI 产出的信任边界？哪些变更必须人读？）；每周 15 分钟「review 日记」匿名打点。</p>
+<p><strong>纪律</strong>：匿名、只做团队级聚合、不搞个人排名（否则数据必被污染）；非试点成员作弱对照。报告一鱼两吃：工具采购依据 + 矩阵必要性证据。若 comment 未向行为类迁移，矩阵缓行——<strong>用数据否决自己，正是「验证不假设」</strong>。</p>
+<h2 id="6-实施里程碑">6. 实施里程碑</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>时间</th>
+<th>交付物</th>
+<th>投入</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M0</td>
+<td>本周（W0）</td>
+<td>试点加观测：survey 加 5 题 + git 基线脚本</td>
+<td>3h</td>
+</tr>
+<tr class="even">
+<td>M1</td>
+<td>W1-2（随试点）</td>
+<td>矩阵 v1 工作坊 x2（资深工程师 + BA）；触发条件清单</td>
+<td>6h</td>
+</tr>
+<tr class="odd">
+<td>M2</td>
+<td>W3-4</td>
+<td>review 行为变化报告；矩阵接入 L0-L4 课程；关键域专家轨候选就位（每域 ≥2）</td>
+<td>6h</td>
+</tr>
+<tr class="even">
+<td>M3</td>
+<td>W5-8</td>
+<td>JD 模板、晋升举证清单、新人路径修订，与 HR/招聘对齐</td>
+<td>8h</td>
+</tr>
+<tr class="odd">
+<td>M4</td>
+<td>W12</td>
+<td>复盘：质量红线 + 验收资产密度 + bus factor 达标率 → 扩大/收紧/回滚</td>
+<td>4h</td>
+</tr>
+</tbody>
+</table>
+<p>EM 总投入约 27h/12 周——这是设计出来的轻，不是拍脑袋的轻。</p>
+<h2 id="7-成功标准90-天全部可测">7. 成功标准（90 天，全部可测）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>指标</th>
+<th>门槛</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>覆盖</td>
+<td>矩阵覆盖全部工程师技能画像</td>
+<td>100%</td>
+</tr>
+<tr class="even">
+<td>覆盖</td>
+<td>关键域专家轨 bus factor</td>
+<td>每域 ≥2</td>
+</tr>
+<tr class="odd">
+<td>行为</td>
+<td>review comment 行为类占比</td>
+<td>较基线上升（幅度由试点定标，不预设）</td>
+</tr>
+<tr class="even">
+<td>交付</td>
+<td>PR 等待 review &gt;24h 数量</td>
+<td>不升</td>
+</tr>
+<tr class="odd">
+<td>质量红线</td>
+<td>merge 后 7 天 fix-forward 率</td>
+<td>不升；升则收紧触发条件，更多变更回到强制深读</td>
+</tr>
+<tr class="even">
+<td>资产</td>
+<td>订单状态机关键路径规约+测试</td>
+<td>自基线提升，数值由 M0 基线定</td>
+</tr>
+<tr class="odd">
+<td>人才</td>
+<td>新人 6 个月路径文档 v1 交付</td>
+<td>下一位新人按新路径入职</td>
+</tr>
+</tbody>
+</table>
+<p>红线滞后性的补偿：订单域故障是小概率事件，90 天窗口可能无信号，故以代理指标（对账差异率、幂等冲突次数）并行监测。</p>
+<h2 id="8-roi--业务影响">8. ROI / 业务影响</h2>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>机制</th>
+<th>衡量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>交付</td>
+<td>review 不再是 AI 提速后的新瓶颈</td>
+<td>lead time、PR 等待时长</td>
+</tr>
+<tr class="even">
+<td>采购决策</td>
+<td>试点报告从「满意度+成本」升级为「满意度+成本+行为证据」</td>
+<td>报告说服力与复盘点</td>
+</tr>
+<tr class="odd">
+<td>风险前置</td>
+<td>资金/履约路径缺陷在验收层拦截而非线上拦截</td>
+<td>fix-forward 率、对账差异</td>
+</tr>
+<tr class="even">
+<td>人才</td>
+<td>JD 与双轨现实对齐，招聘漏斗不失真；新人 ramp-up 压缩</td>
+<td>新人首次有效交付时间</td>
+</tr>
+<tr class="odd">
+<td>组织杠杆</td>
+<td>矩阵进 L0-L4 课程体系，一次产出全组织复用</td>
+<td>课程复用次数</td>
+</tr>
+</tbody>
+</table>
+<p>不为无法背书的数字编 ROI——金额级影响以试点实测整体成本对比为准。本 proposal 只让那份报告多回答一个问题：<strong>工具买回来之后，团队靠什么守住质量？</strong></p>
+<h2 id="9-风险与缓解">9. 风险与缓解</h2>
+<table>
+<thead>
+<tr class="header">
+<th>风险</th>
+<th>缓解</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>双轨变阶级：专家轨成晋升特权层</td>
+<td>专家轨=能力+值班，非职级；通用轨 L4 即准入；定期轮换</td>
+</tr>
+<tr class="even">
+<td>顺序颠倒：验收没建成就先放开「不读」（本方案最大死法）</td>
+<td>顺序硬锁：验收资产密度先达标，再放宽实现层 review——gated rollout</td>
+</tr>
+<tr class="odd">
+<td>触发漏报：高风险变更无人下钻</td>
+<td>触发清单挂 CI 门禁（资金路径 diff 自动标记强制深读），不靠自觉</td>
+</tr>
+<tr class="even">
+<td>数据污染：霍桑效应 + 早期采用者偏差</td>
+<td>匿名聚合、团队级指标、弱对照；结论只说「支持/不支持」，不说「证明」</td>
+</tr>
+<tr class="odd">
+<td>EM 判断力空洞化</td>
+<td>EM 亲上专家轨值班，每月 ≥1 次亲手下钻——判断力不可外包</td>
+</tr>
+<tr class="even">
+<td>组织流程卡壳：晋升/JD 变更非 EM 单方可决</td>
+<td>M3 先团队内试行，携试点数据向上提案</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-本周立即行动3-件">10. 本周立即行动（3 件）</h2>
+<ol>
+<li><strong>改 survey</strong>（30 分钟，今天）：给试点 survey 加 5 题 review 行为量表——零额外流程，错过要等下轮试点。</li>
+<li><strong>拉基线</strong>（1 小时）：脚本取试点前 4 周 PR 体积/review 时长/comment 分布，存为对照。没基线，两周后一切「变好了」皆不可信。</li>
+<li><strong>约访谈</strong>（45 分钟 x2）：问两名资深工程师「你 review 时实际看什么、什么情况才真读代码」——用质性回答预校准触发条件，M1 工作坊带证据开。</li>
+</ol>
+<h2 id="11-诚实挑战主动挑本-proposal-的漏洞">11. 诚实挑战（主动挑本 proposal 的漏洞）</h2>
+<ol>
+<li><strong>样本撑不起结论</strong>：15 人 2.5 周自愿者（早期采用者偏差），行为变化可能只是新奇效应。数据「支持假设」尚可，「指导制度」不足——故 M3 产出应标「试行版」，保留 12 个月复审。</li>
+<li><strong>类比有毒</strong>：推文的二进制类比有个破绽——二进制是稳定编译目标，代码是持续演进资产，不读代码的债会复利（依赖黑盒维护黑盒产物）。双轨执行不严会沦为「集体不读」的体面借口。矩阵的风险不在设计在纪律，故第 9 节「顺序硬锁」是全文最重的一句。</li>
+<li><strong>瓶颈可能错位</strong>：「低方法论」意味着真瓶颈是通用轨的验收训练（枯燥、量大、见效慢），而非专家轨设计（精致、有趣、易过度投入）。资源应倒挂向通用轨——若 M1 工作坊 80% 时间在谈专家轨，本方案已跑偏。</li>
+<li><strong>可能是过渡态</strong>：若 self-verifying agent 两年内成熟，验收轨本身贬值，矩阵需重写。对策：矩阵进课程体系而非进制度混凝土；JD/晋升条款用附录而非正文。</li>
+<li><strong>质量红线滞后</strong>：90 天窗口订单域故障大概率不发生，fix-forward 率可能无信号，红线形同虚设——已加代理指标（对账差异率、幂等冲突），但须承认这是弱信号。</li>
+<li><strong>M3 过于乐观</strong>：晋升标准变更涉及跨部门共识，8 小时预算大概率不够，需一次向上提案加一轮拉扯；若卡住，M3 降级为「团队内试行版标准」，不阻塞 M2/M4。</li>
+</ol>
+<hr />
+<p><strong>一句话收束</strong>：那条推文说「不看代码」是程序员的进化；本 proposal 的回答是——「不看代码」只能是<strong>团队的纪律设计</strong>，不能是<strong>个体的省事默认</strong>。EM 的活，就是把前者造出来。</p>
+</div>
+
+<div class="footer-note">
+  生成：my-readwise-briefing v4.3 · Phase 2 深挖由 3 个并行 subagents 完成（当日仅 1 条 ⭐×5 信号，5 方向必然冗余，按信号量缩放）·
+  <a href="readwise-briefing-20260919.html">← 返回当日简报</a> · <a href="index.html">返回索引</a>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
