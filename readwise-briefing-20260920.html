@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Briefing 2026-09-20</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, serif; background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; }
+.container { max-width: 860px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: 0.9rem; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.7rem; cursor: pointer; font-size: 1.1rem; }
+.stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1.1rem; flex: 1; min-width: 130px; }
+.stat .num { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8rem; color: var(--text3); }
+section { margin-bottom: 2rem; }
+h2 { font-size: 1.2rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; margin-bottom: 1rem; }
+h3 { font-size: 1.05rem; color: var(--text); margin-bottom: 0.5rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 99px; margin-right: 0.4rem; margin-bottom: 0.3rem; }
+.tag.star5 { background: rgba(5,150,105,0.12); color: var(--accent3); }
+.tag.verif { background: rgba(99,102,241,0.12); color: var(--accent2); }
+.tag.partial { background: rgba(217,119,6,0.12); color: var(--accent4); }
+.tag.handson { background: rgba(45,90,74,0.12); color: var(--accent); }
+.meta { font-size: 0.82rem; color: var(--text3); margin-bottom: 0.6rem; }
+.quote { background: var(--surface2); border-left: 3px solid var(--accent2); padding: 0.7rem 1rem; border-radius: 0 8px 8px 0; margin: 0.7rem 0; font-size: 0.92rem; color: var(--text2); }
+.why { background: rgba(45,90,74,0.06); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.7rem; font-size: 0.92rem; }
+.why strong { color: var(--accent); }
+.verify { border-left: 3px solid var(--accent4); padding: 0.7rem 1rem; background: var(--surface2); border-radius: 0 8px 8px 0; margin-top: 0.7rem; font-size: 0.9rem; }
+.verify strong { color: var(--accent4); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul.action { list-style: none; }
+ul.action li { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 1rem; margin-bottom: 0.5rem; }
+ul.action li::before { content: "▸ "; color: var(--accent); font-weight: bold; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface2); }
+.life { border-left: 4px solid var(--accent3); }
+footer { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 2.5rem; }
+code { background: var(--surface2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85em; font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div>
+    <h1>📡 Readwise Briefing</h1>
+    <div class="date">2026-09-20（周日）· 增量窗口 09-19 08:00 → 09-20 08:00 CST · 累计处理 159 条</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">3</div><div class="label">新增信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">主题聚类</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">⭐×5 高价值</div></div>
+  <div class="stat"><div class="num">1 ✅ / 1 ⚠️</div><div class="label">验证结论</div></div>
+  <div class="stat"><div class="num">2 🔬</div><div class="label">已亲测</div></div>
+</div>
+
+<section>
+  <h2>🔭 信号概览</h2>
+  <table>
+    <tr><th>主题</th><th>来源</th><th>验证</th><th>与当前项目连接</th><th>深挖</th></tr>
+    <tr>
+      <td><strong>JEV — System One Model</strong><br><span style="font-size:.8rem;color:var(--text3)">非语言模型的决策模型</span></td>
+      <td>推文 ×2</td>
+      <td>⚠️ Partial + 🔬</td>
+      <td>AI Coding Eval · opencode 提案 · Life OS</td>
+      <td><a href="readwise-proposals-20260920.html">A / B / E</a></td>
+    </tr>
+    <tr>
+      <td><strong>Ternary Bonsai 2 27B</strong><br><span style="font-size:.8rem;color:var(--text3)">Qwen3.8 三值量化 · 5.9GB</span></td>
+      <td>推文 ×1</td>
+      <td>✅ Verified + 🔬</td>
+      <td>opencode 提案 · AI Coding Eval · 本地部署</td>
+      <td><a href="readwise-proposals-20260920.html">C</a></td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>⭐×5 高价值信号</h2>
+
+  <div class="card">
+    <h3>① JEV — 「不是语言模型」的决策模型，最火用例是 coding agent 上下文压缩</h3>
+    <div>
+      <span class="tag star5">⭐×5</span><span class="tag partial">⚠️ Partial</span><span class="tag handson">🔬 已亲测（源码）</span>
+    </div>
+    <div class="meta">
+      推文 1：<a href="https://x.com/SUOHA_AI/status/2100835307016905109">@SUOHA_AI</a>（09-19）·
+      推文 2：<a href="https://x.com/SUOHA_AI/status/2100780634734002230">@SUOHA_AI</a>（09-19）
+    </div>
+    <div class="quote">
+      「JEV 是前 OpenAI、参与 ChatGPT / RLHF 的 @CompleteSkeptic（Diogo Almeida）创办 @typesafeai 后的第一款模型。他在 OpenAI 时发现了一个致命矛盾……」<br><br>
+      「大家在 Claude Code 里写长代码，最恶心的就是上下文一满，系统就卡住 10 秒去写总结小作文。开发者 @tamarajtran 刚刚开源了这个插件：利用 JEV……连 JEV 联创都亲自下场转发点赞」
+    </div>
+    <div class="verify">
+      <strong>⚠️ Phase 1.5 验证（属实 + 有争议）</strong><br>
+      ✅ 属实：Diogo Almeida 确为 RLHF/InstructGPT 共同发明人（<a href="https://typesafe.ai">typesafe.ai</a> 09-16 发布）；JEV 非 LM——输入文本+类型化问题，输出类型化答案+置信度，不生成文本；官方称 20-200x 快（~100ms）、40-400x 便宜（输入 $0.042-0.20/MTok，输出免费）；Pydantic 文档已收录。<br>
+      ⚠️ 争议：Theo (t3.gg) 批评病毒式 demo「benchmark 表现差」；latency 有出入（官方 ~100ms vs 竞品实测 ~400ms）；发布 2 天已现 6 个 clone。<br>
+      🔬 生态亲测（clone 源码）：<a href="https://github.com/tamaratran/fast-jev-compaction">tamaratran/fast-jev-compaction</a>（Claude Code 插件，MIT，src+tests 完整）——<strong>verbatim pruning 哲学</strong>：绝不重写内容，Jev 对每个 tool call 只答两个类型化问题（keepCall? / keepResult?），低于阈值即删/截断；状态分阶段塞入 25k token，请求分片并发。<a href="https://github.com/jerryfane/omp-jev-compaction">jerryfane/omp-jev-compaction</a>（1135 行 TS）补了关键工程层：<strong>prompt-cache 意识</strong>——重写 prefix 会打爆 cache，故决策「记住而非重算」（sticky 模式），16,198 条真实消息回放：40 请求仅 3 次 rewrite、0 次 prefix break。
+    </div>
+    <div class="why">
+      <strong>为什么与你相关：</strong>三条当前主线同时命中——① compaction 质量是 harness 变量，AI Coding Eval 的 model × harness 矩阵缺这一维；② 「决策/生成分离」是 agent 架构新分层，Life OS 的 Proactive Agents 正需要高频低成本决策原语；③ JEV 式 typed verification（不能生成文本 → 结构性防幻觉）直指昨天「验证分层协议」方向 A 的 L0-L1 自动验收层缺口。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>② Ternary Bonsai 2 27B — 三值量化过了「日常可用」阈值，笔记本能跑 27B</h3>
+    <div>
+      <span class="tag star5">⭐×5</span><span class="tag verif">✅ Verified</span><span class="tag handson">🔬 已亲测（生态）</span>
+    </div>
+    <div class="meta">推文：<a href="https://x.com/PrismML/status/2100692248480596348">@PrismML</a>（09-19）</div>
+    <div class="quote">
+      「Today, we're announcing Ternary Bonsai 2 27B. Based on Qwen3.8 27B, Bonsai 2 27B is 9x smaller than its full-precision counterpart while retaining 98.2% of its aggregate benchmark performance. Two months after the first Bonsai 27B release, the biggest change is quality.」
+    </div>
+    <div class="verify">
+      <strong>✅ Phase 1.5 验证（全部属实）</strong><br>
+      ✅ <a href="https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf">HF 官方 GGUF 权重</a>存在，Apache 2.0；98.2% / 9x / 5.9GB 数字与推文一致；262K context + 推理模式；RTX 5090 143 tok/s，<strong>M5 Max 本地 46.8 tok/s</strong>。<br>
+      🔬 生态亲测（repo 检索）：MLX 生态已适配（mlx-dspark：Apple Silicon 4x 解码加速，原生支持）；llama.cpp 官方 fork 支持 2-bit；第三方 tool-eval-bench 已有结果（score 85 / deployability 80）；r/LocalLLaMA 社区正面讨论 PQ2_0 变体。
+    </div>
+    <div class="why">
+      <strong>为什么与你相关：</strong>① opencode 提案选型清单的自然候选——27B 模型 5.9GB 落进笔记本内存，「低成本国内模型」从云端单价优势扩展到本地零边际成本；② AI Coding Eval 应把「量化模型 × 编程任务」纳入评测矩阵（98.2% 是聚合 benchmark，编程子集 retention 未知——这本身就是个好实验）；③ 学习价值：三值 QAT 开源实现（ternary_QAT）是 CS336 量化的现成教材。
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>✅ 行动清单</h2>
+  <ul class="action">
+    <li><strong>本周可做：</strong>Claude Code 装 fast-jev-compaction（TypeSafe API 有免费额度），长会话实测 compaction 体验 vs 原生小作文——一天内可出亲测结论</li>
+    <li><strong>本周可做：</strong>下载 Ternary Bonsai 2 GGUF（5.9GB）到 M5 Max，llama.cpp/MLX 跑 FTP（file targeted edit）小样本，对照全精度 Qwen3.8 27B——为 opencode 提案补「本地模型」一节</li>
+    <li><strong>排期：</strong>AI Coding Eval 增补 harness 维度：compaction 策略（原生 summary vs JEV verbatim vs 无）× 长任务成功率受控实验（见 Proposal A）</li>
+    <li><strong>观望：</strong>JEV 竞争格局（2 天 6 clones + latency 争议）——决策模型层正在商品化，自建不如换供应商，接口抽象留好退路（omp 版已示范 OpenRouter 双通道）</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🌿 生活维度信号</h2>
+  <div class="card life" style="color:var(--text3)">
+    本窗口无健身/健脑/建仓/健胃维度信号（3 条均为工作技术类）。
+  </div>
+</section>
+
+<section>
+  <h2>📎 低价值附录</h2>
+  <div class="card" style="color:var(--text3)">本窗口全部 3 条信号均入选高价值区，无低价值内容。</div>
+</section>
+
+<footer>by my-readwise-briefing v4.3 · 2026-09-20 08:00 CST · 周日（周一总结规则不适用）</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
