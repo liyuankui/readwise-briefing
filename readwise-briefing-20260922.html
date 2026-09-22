@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 简报 · 2026-09-22（周二）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 24px 16px 64px;
+}
+.container { max-width: 860px; margin: 0 auto; }
+header { text-align: center; padding: 28px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 28px; position: relative; }
+h1 { font-size: 1.7em; color: var(--accent); letter-spacing: 0.05em; }
+header .date { color: var(--text3); font-size: 0.92em; margin-top: 6px; }
+#theme-toggle {
+  position: absolute; right: 0; top: 28px; border: 1px solid var(--border); background: var(--surface);
+  border-radius: 50%; width: 38px; height: 38px; font-size: 18px; cursor: pointer; color: var(--text);
+}
+.stats { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px 16px; text-align: center; }
+.stat b { font-size: 1.25em; color: var(--accent); display: block; }
+.stat span { font-size: 0.8em; color: var(--text3); }
+.banner {
+  background: var(--surface2); border-left: 3px solid var(--accent2); border-radius: 6px;
+  padding: 10px 14px; font-size: 0.9em; color: var(--text2); margin-bottom: 24px;
+}
+section { margin-bottom: 32px; }
+h2 { font-size: 1.25em; color: var(--accent); border-left: 4px solid var(--accent); padding-left: 10px; margin-bottom: 14px; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 0.92em; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--text2); font-weight: 600; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+.card.p5 { border-left: 4px solid var(--accent3); }
+.card.p3 { border-left: 4px solid var(--accent4); }
+.card h3 { font-size: 1.08em; margin-bottom: 8px; }
+.badge { display: inline-block; font-size: 0.75em; padding: 1px 9px; border-radius: 20px; margin-right: 6px; vertical-align: middle; }
+.b-ok { background: rgba(5,150,105,.13); color: var(--accent3); }
+.b-hands { background: rgba(99,102,241,.13); color: var(--accent2); }
+.b-part { background: rgba(217,119,6,.13); color: var(--accent4); }
+.b-low { background: rgba(220,38,38,.09); color: var(--text3); }
+.meta { color: var(--text3); font-size: 0.85em; margin-bottom: 8px; }
+.meta a, .card a { color: var(--accent2); text-decoration: none; border-bottom: 1px dotted var(--accent2); word-break: break-all; }
+.why { background: var(--surface2); border-radius: 8px; padding: 10px 12px; margin-top: 10px; font-size: 0.92em; color: var(--text2); }
+.why b { color: var(--accent); }
+.life-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.life-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.life-card h3 { font-size: 1em; margin-bottom: 6px; }
+.life-card p { font-size: 0.9em; color: var(--text2); }
+.action li { margin: 8px 0; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; }
+summary { cursor: pointer; color: var(--text2); font-weight: 600; }
+details .row { padding: 10px 4px; border-bottom: 1px dashed var(--border); font-size: 0.92em; }
+details .row:last-child { border-bottom: none; }
+footer { text-align: center; color: var(--text3); font-size: 0.82em; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 16px; }
+code { background: var(--surface2); padding: 1px 6px; border-radius: 4px; font-size: 0.88em; }
+@media (max-width: 640px) { .life-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle" title="切换主题">🌙</button>
+  <h1>Readwise 情报简报</h1>
+  <div class="date">2026-09-22 · 周二 · W39 · 增量窗口 2026-09-21T00:00Z →</div>
+  <div class="stats">
+    <div class="stat"><b>7</b><span>新 highlights</span></div>
+    <div class="stat"><b>6</b><span>文档（全推文）</span></div>
+    <div class="stat"><b>1</b><span>高价值 ⭐×5</span></div>
+    <div class="stat"><b>2</b><span>生活维度</span></div>
+    <div class="stat"><b>0</b><span>重复处理</span></div>
+  </div>
+</header>
+
+<div class="banner">
+  📌 今日为周二，无需附上周周报（昨日周一简报已含 W38 周报）。今日信号量小且集中于一条主线：<b>本地 typed-decision 模型</b>——是昨日「JEV compaction 生态」方向的直接延续（托管 Jev → 开源本地 Laya）。深挖仅 1 个方向，不为凑数制造噪音。
+</div>
+
+<section>
+  <h2>信号概览</h2>
+  <table>
+    <tr><th>信号</th><th>来源</th><th>验证</th><th>分层</th><th>去向</th></tr>
+    <tr>
+      <td><b>laya-mlx</b>：Laya typed-decision 模型的 MLX 本地移植，双向编码器 0 token 输出，&lt;1G 内存</td>
+      <td>@mizorewww</td>
+      <td>✅ 多信源 + 🔬 亲测通过</td>
+      <td>⭐⭐⭐⭐⭐</td>
+      <td><a href="readwise-proposals-20260922.html">Proposal 深挖 →</a></td>
+    </tr>
+    <tr>
+      <td>Core ML 推理「不损失速度下降 64% 功耗」</td>
+      <td>@mizorewww</td>
+      <td>⚠️ 单一来源，数字未证实</td>
+      <td>⭐⭐⭐</td>
+      <td>简报（观察）</td>
+    </tr>
+    <tr><td>健身伤病：筋膜炎误当「增肌」</td><td>@lixinbao_X</td><td>—</td><td>🏋️ 生活</td><td>生活分区</td></tr>
+    <tr><td>PhD 忠告：出门与人接触</td><td>@Nohomework0</td><td>—</td><td>🧠 生活</td><td>生活分区</td></tr>
+    <tr><td>其余 3 条（AIGC 短剧平台 / 空链接 / 社会新闻）</td><td>—</td><td>—</td><td>⭐</td><td>低价值附录</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>高价值（⭐×5）</h2>
+  <div class="card p5">
+    <h3>laya-mlx — 开放权重 typed-decision 模型，Apple Silicon 本地推理 <span class="badge b-ok">✅ Verified</span><span class="badge b-hands">🔬 亲测通过</span></h3>
+    <div class="meta">
+      推文：<a href="https://x.com/mizorewww/status/2101473552956555427">@mizorewww · 2026-09-21</a> ·
+      Repo：<a href="https://github.com/mizorewww/laya-mlx">mizorewww/laya-mlx</a>（⭐3,775 · 3 天内有 push）·
+      权重：<a href="https://huggingface.co/aac6fef/laya-mlx">HF aac6fef/laya-mlx</a> ·
+      上游：Convai Innovations Laya（开放权重）
+    </div>
+    <p>「Laya 是一个开源的类似于 Jev 的、基于文本输出概率的分类系统」，作者将其移植到 MLX：<b>双向编码器一次前向直接输出决策概率，0 个输出 token</b>。三类决策原语：<code>choice</code>（选项概率）/ <code>score</code>（评分等级）/ <code>noul</code>（P(true)）。421M（英文）+ 322M（多语言）双 checkpoint，峰值内存 943 MiB / 688 MiB。</p>
+    <div class="why">
+      <b>为什么与你相关：</b>① 昨日刚深挖「JEV compaction 生态」，今天出现其开源本地对等物——同一条演化线（托管→本地）的第二数据点；② 你的多个活跃方向都在「轻量本地决策」射程内：AI Coding Eval 的 judge 成本问题（LLM judge 一致性有限且贵 → 小模型 calibrated 概率可做廉价前置 judge/路由）、Agent 工具化（生态已出现 laya-mcp）、本地应用（Micro-pet / K12 零成本部署）；③ 技术形态反直觉：<b>不生成文本、只输出概率</b>，绕开了 LLM-as-judge 的输出解析与幻觉问题。
+    </div>
+    <table style="margin-top:12px">
+      <tr><th>验证项</th><th>README 声称</th><th>亲测（本机）</th><th>结论</th></tr>
+      <tr><td>安装</td><td>pip install 一行</td><td>uv venv 3.12 + install，<b>6.5s</b> 零摩擦</td><td>✅</td></tr>
+      <tr><td>权重加载</td><td>首次自动下载</td><td>6 文件 <b>13s</b></td><td>✅</td></tr>
+      <tr><td>决策正确性</td><td>63/63 与上游一致</td><td>「重复扣款退款→路由」正确判 <code>billing</code>（p=0.89）</td><td>✅</td></tr>
+      <tr><td>端到端延迟</td><td>P50 13.4ms（M3 Max）</td><td>连续 3 次：22.2 / 12.6 / <b>12.1ms</b></td><td>✅ 一致</td></tr>
+      <tr><td>内存</td><td>峰值 943.6 MiB</td><td>未超 1G（与推文一致）</td><td>✅</td></tr>
+      <tr><td>「比 Jev 快 50×」</td><td>—</td><td>Jev 为托管 API 含网络延迟，方向合理但<b>无独立基准</b></td><td>⚠️ 保留</td></tr>
+    </table>
+    <p style="margin-top:10px;font-size:0.9em;color:var(--text2)">生态萌芽（24-48h 内出现）：<a href="https://github.com/wsargent/laya-mcp">laya-mcp</a>（MCP server 封装）、laya-mlx-swift（MstyAI）、laya-vs-jev 对比工具、fine-tuning fork——上游 API 稳定、社区在锚定它。</p>
+  </div>
+</section>
+
+<section>
+  <h2>中等价值（⭐×3）</h2>
+  <div class="card p3">
+    <h3>Core ML 推理功耗优化声明 <span class="badge b-part">⚠️ Partial</span></h3>
+    <div class="meta">推文：<a href="https://x.com/mizorewww/status/2101524481391092101">@mizorewww · 2026-09-21</a></div>
+    <p>「coreml 版本，不损失速度前提下最高 64% 功耗降低」。独立检索未找到该数字的公开基准；公开 benchmark 研究（Apple Silicon LLM 推理能耗对比）显示 Core ML/ANE <b>瞬时功耗最低但能耗/token 未必最优</b>（慢解码会让 package 持续供电）。推文原文仅附图片链接，无法验证。方向（ANE 能效）可信，<b>数字降权</b>。若 laya-mlx 后续合并 coreml 路径，可顺手用其 BENCHMARKS.md 方法复测。</p>
+  </div>
+</section>
+
+<section>
+  <h2>🌿 生活维度信号</h2>
+  <div class="life-grid">
+    <div class="life-card">
+      <h3>🏋️ 健身 · 伤病恢复的信任边界</h3>
+      <p><a href="https://x.com/lixinbao_X/status/2101851394072535371">@lixinbao_X</a>：医生诊断肩部筋膜炎（半年禁高强度），私教却称「肌肉撕裂愈合即增肌」。<b>利益相关方的建议要对照医学诊断</b>——你正维持规律训练，肩部动作（引体/飞鸟类）出现持续不适时优先就医而非加量。</p>
+    </div>
+    <div class="life-card">
+      <h3>🧠 健脑 · 深度工作者的社交处方</h3>
+      <p><a href="https://x.com/Nohomework0/status/2101574779434414169">@Nohomework0</a>：「给 PhD 一个忠告：出门，和人接触，和人聊天，了解其他人的生活，产生共鸣，感受差异。你才能活下来。」对高强度自学期（CS336/Rust 契约）是直接提醒：<b>学习收益靠孤独，可持续性靠连接</b>。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>✅ 行动清单</h2>
+  <ul class="action">
+    <li><b>本周</b>：读完 <a href="https://github.com/mizorewww/laya-mlx/blob/main/BENCHMARKS.md">BENCHMARKS.md</a> 与上游 Convai Laya 文档，判定 choice/score/noul 三原语能否映射你的 judge/路由场景（→ Proposal 里程碑 1）。</li>
+    <li><b>本周</b>：在 /tmp 现存 venv（已装好）跑一个真实分类任务 20 条样本，对照人工标注算一致率——亲测环境已就绪，成本 1 小时内。</li>
+    <li><b>观察</b>：watch laya-mlx + 上游 repo；若 coreml 路径合并，用同法复测功耗声明。</li>
+    <li><b>生活</b>：肩部训练若持续不适，预约运动医学而非依赖私教判断。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>低价值附录（折叠）</h2>
+  <details>
+    <summary>展开 3 条 ⭐ 级内容</summary>
+    <div class="row"><b>Dramagic（BytePlus）</b> — 企业级 AIGC 短剧制作平台（脚本分析→资产→分镜→预览）。产品真实存在但与当前意图无交集；对「AIGC 平台化」形态可留个印象。<a href="https://x.com/BytePlusGlobal/status/2101893220288663884">原文</a></div>
+    <div class="row"><b>@mjos_crypto 推文</b> — 仅含 t.co 短链无正文，内容不可验证，无信号价值。<a href="https://x.com/mjos_crypto/status/2101962213078524204">原文</a></div>
+    <div class="row"><b>社会新闻（@leikejun）</b> — 重点中学学生心理危机事件。沉重但非可行动信号；与 K12 教育意图的「AI 教室」间接相关（教育压力是背景现实），本期不深挖。<a href="https://x.com/leikejun/status/2101592976690675731">原文</a></div>
+  </details>
+</section>
+
+<footer>
+  my-readwise-briefing v4.3 · 生成于 2026-09-22 08:0x CST · 信号窗口 2026-09-21T00:00Z 起 · 深挖 1/5 方向（按实际信号量裁剪）<br>
+  不可行动的信息 = 噪音
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
