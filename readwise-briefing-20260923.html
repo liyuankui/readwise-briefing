@@ -97,7 +97,7 @@ footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--border);col
 <p>Troy Ni（Salt AI 创始人）实测用 Jev 对鼠须管/Rime 输入法候选词 rerank（解决「想打的字排太后」），体验「还不错」；局限：Jev 无预测能力，无法扩展用户输入，补全需另接 tab 补全模型。验证结论：Jev 为 TypeSafe AI（~09-15 发布）的 <b>System One 决策模型</b>——非生成式 LLM，输入状态返回 typed 概率决策。官网数字已亲核（厂商口径带星号）：<b>$42/1B tokens</b>、任务对照 $0.000081 vs 生成式 $0.0139（171×）、延迟 0.114s vs 8.566s（75×）；官网未列 evals 用例、未提 self-host。⚠️ 更正：搜索结果虽出现 LangChain/Langfuse/DataCamp 的 Jev 文章，但一手复核未能在可达 URL 定位原文——「生态采用」目前是推断而非已验证事实。</p>
 <ul>
 <li>TypeSafe AI 官方（已亲核）：<a href="https://typesafe.ai">typesafe.ai</a> · Langfuse（Jev 文章待定位）：<a href="https://langfuse.com">langfuse.com</a> · LangChain（同）：<a href="https://www.langchain.com">langchain.com</a></li>
-<li>原始推文：<a href="https://x.com/nhcao/status/2101967227327267297">@nhciao</a></li>
+<li>原始推文：<a href="https://x.com/nhciao/status/2101967227327267297">@nhciao</a></li>
 </ul>
 <div class="why"><b>为什么与当前项目相关：</b>AI Coding Eval 的 judge 层有「一致性税 + 成本税」（judge-only 57-59%、样本小；每 case 过 judge 费用线性增长）。若 Jev 适配 evals 属实，正是 judge 层新选项——但此点必须由 spike 实测（今日 Proposal 2 的 M0）。IME rerank 的价值不在输入法本身，而在<b>证明其延迟低到可进毫秒级交互环路</b>。与昨日 laya-mlx（本地 typed-decision，7-13ms/943MiB）构成「托管 vs 本地」两条路线，今日 Proposal 2 给出选择决策规则。</div>
 </div>
@@ -133,7 +133,7 @@ footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--border);col
 <table>
 <tr><th>#</th><th>内容</th><th>来源</th><th>透镜/分层</th></tr>
 <tr><td>1</td><td>CS 146S 秋季开课（The Modern Software Developer）</td><td><a href="https://x.com/mihail_eric/status/2102434832601207064">@mihail_eric</a></td><td>Intent ⭐×5 → 深挖</td></tr>
-<tr><td>2</td><td>Jev + Rime 输入法候选 rerank 亲测</td><td><a href="https://x.com/nhcao/status/2101967227327267297">@nhciao</a></td><td>Intent ⭐×4 → 深挖</td></tr>
+<tr><td>2</td><td>Jev + Rime 输入法候选 rerank 亲测</td><td><a href="https://x.com/nhciao/status/2101967227327267297">@nhciao</a></td><td>Intent ⭐×4 → 深挖</td></tr>
 <tr><td>3</td><td>办公室政治系列①：培养不可预测性</td><td><a href="https://x.com/Zen_with_AI/status/2101905060397805868">@Zen_with_AI</a></td><td>Life ⭐×2</td></tr>
 <tr><td>4</td><td>强者特征：人生密度极大</td><td><a href="https://x.com/WorkSightHQ/status/2102009043321811318">@WorkSightHQ</a></td><td>Life ⭐</td></tr>
 </table>
