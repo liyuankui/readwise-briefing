@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-09-23</title>
+<style>
+:root{
+  --bg:#faf9f7;--surface:#ffffff;--surface2:#f5f4f0;--border:#e8e5df;
+  --text:#1a1a1a;--text2:#4a4a4a;--text3:#888880;
+  --accent:#2d5a4a;--accent2:#6366f1;--accent3:#059669;--accent4:#d97706;--accent5:#dc2626;
+}
+html.dark{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#242736;--border:#2e3247;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --accent:#6c8ef5;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif;line-height:1.75;padding:2rem 1rem;max-width:960px;margin:0 auto}
+.theme-btn{position:fixed;top:1rem;right:1rem;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:2.6rem;height:2.6rem;font-size:1.2rem;cursor:pointer;z-index:9;color:var(--text)}
+header{border-bottom:2px solid var(--accent);padding-bottom:1rem;margin-bottom:1.5rem}
+h1{font-size:1.7rem;color:var(--accent);margin-bottom:.3rem}
+.meta{color:var(--text3);font-size:.95rem}
+.axiom{background:var(--surface2);border-left:4px solid var(--accent4);padding:.6rem 1rem;margin:1rem 0;border-radius:0 6px 6px 0;font-size:.95rem;color:var(--text2)}
+h2{font-size:1.25rem;color:var(--accent);margin:2rem 0 .8rem;border-left:4px solid var(--accent);padding-left:.6rem}
+h3{font-size:1.08rem;margin:1.1rem 0 .4rem;color:var(--accent2)}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.9rem}
+th{background:var(--surface2);text-align:left;padding:.5rem .7rem;border:1px solid var(--border)}
+td{padding:.5rem .7rem;border:1px solid var(--border);vertical-align:top}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+.proposal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.5rem;margin:1.2rem 0}
+.proposal.p1{border-top:4px solid var(--accent3)}
+.proposal.p2{border-top:4px solid var(--accent2)}
+.ptitle{font-size:1.25rem;font-weight:700;margin-bottom:.2rem}
+.psub{color:var(--text3);font-size:.9rem;margin-bottom:.8rem}
+.claim{background:var(--surface2);border-radius:8px;padding:.8rem 1rem;margin:.6rem 0;font-size:.98rem}
+.claim b{color:var(--accent)}
+ul,ol{padding-left:1.4rem}
+li{margin:.3rem 0}
+.challenge{background:var(--surface2);border-left:4px solid var(--accent5);border-radius:0 8px 8px 0;padding:.8rem 1.1rem;margin:1rem 0}
+.challenge h3{color:var(--accent5)}
+.tag{display:inline-block;font-size:.78rem;border-radius:99px;padding:.05rem .6rem;margin-right:.3rem;border:1px solid var(--border);color:var(--text3)}
+.tag.ok{color:var(--accent3);border-color:var(--accent3)}
+.tag.warn{color:var(--accent4);border-color:var(--accent4)}
+blockquote{border-left:3px solid var(--border);padding-left:.9rem;color:var(--text2);margin:.5rem 0;font-size:.93rem}
+code{background:var(--surface2);padding:.05rem .35rem;border-radius:4px;font-size:.88em}
+footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--text3);font-size:.85rem}
+</style>
+</head>
+<body>
+<button class="theme-btn" id="theme-toggle">🌙</button>
+
+<header>
+<h1>🎯 Readwise Proposals · 2026-09-23（周三）</h1>
+<p class="meta">2026-09-23 · 周三 · W39 · 深挖 2 个方向（按实际信号量裁剪，不凑数）</p>
+<div class="axiom">⚡ 不可行动的信息 = 噪音。今日 4 条新信号，2 条通过验证门槛进入深挖。方向连续性：JEV compaction 生态（09-20）→ Bonsai2 本地模型（09-20）→ laya-mlx 本地 typed-decision（09-22）→ <b>Jev 托管 System One（今日）</b>；教学法线：检索练习教案（09-21）→ <b>Stanford 课程骨架（今日）</b>。</div>
+</header>
+
+<h2>📡 信号 × 项目对应关系</h2>
+<table>
+<tr><th>信号</th><th>验证状态</th><th>连接项目</th><th>切面</th></tr>
+<tr><td>Stanford CS 146S 秋季开课（讲义逐周公开）</td><td>✅ Verified</td><td>AI Upskill 讲师团（主）· AI Coding Eval（反哺）</td><td>教案内容骨架外采，Q4 交付 L0-L2</td></tr>
+<tr><td>Jev（System One 决策模型）+ IME rerank 亲测</td><td>✅ 官网亲核 / ⚠️ evals 生态待定位</td><td>AI Coding Eval（主）· llm-as-qa-judge skill · Skill Hub（复用）</td><td>托管 judge tier：零训练适配任意 rubric</td></tr>
+</table>
+<blockquote>其余信号（办公室政治 ⭐×2、人生密度 ⭐）为生活维度/低价值，不进入深挖，见 <a href="readwise-briefing-20260923.html">Phase 1 简报</a>。</blockquote>
+
+<div class="proposal p1">
+<div class="ptitle">Proposal 1 · 以 Stanford CS146S 为骨架：讲师团教案「外采骨架 × 检索封装」</div>
+<div class="psub"><span class="tag ok">✅ Verified</span><span class="tag">Intent · AI Upskill 讲师团</span>信号源：<a href="https://x.com/mihail_eric/status/2102434832601207064">@mihail_eric</a> · 课程站 <a href="https://themodernsoftware.dev">themodernsoftware.dev</a> · 作业仓库 <a href="https://github.com/mihail911/modern-software-dev-assignments">mihail911/modern-software-dev-assignments</a> · <a href="https://explorecourses.stanford.edu/search?q=CS%20146S">Explore Courses</a></div>
+
+<h3>0 · 核心主张</h3>
+<div class="claim"><b>讲师团 L0-L4 教案的内容骨架不做自研，改为「CS146S 权威骨架 + 本地化改造 + 检索练习容器」三层装配，把教案制作从「内容创造」降为「翻译与封装」，Q4 内交付 L0-L2 全套教案。</b>经得起追问的点：骨架免费公开（slides + assignments repo 皆可获取）、10 周结构与四象限天然同构（基础→工具→工作流→集成）、Fall 2026 逐周释出恰好匹配逐月交付节奏。</div>
+
+<h3>1 · 锁定的痛点（非泛泛）</h3>
+<table>
+<tr><th>#</th><th>痛点</th><th>证据</th></tr>
+<tr><td>P1</td><td>「制作 L0/L1.1 教案」无内容来源，讲师从零自研，启动会不开教案不动</td><td>active.md Next 第 3 位</td></tr>
+<tr><td>P2</td><td>P0 缺口「PPT/视觉化讲师」无人——教案若无现成视觉骨架，非 PPT 型讲师无法上课</td><td>Survey 29 份诊断 + P0 缺口声明</td></tr>
+<tr><td>P3</td><td>讲师团「低方法论」同样适用于内容侧：会用工具 ≠ 会组织课程结构，自研大纲易沦为个人偏好堆叠</td><td>「高意愿·中能力·低方法论」</td></tr>
+<tr><td>P4</td><td>大纲 v1 四象限有层级无课时化内容，L1.1 Prompt 以下全部空白</td><td>20260514 proposal 仅到「L0 体验 1h」粒度</td></tr>
+</table>
+<p>一句话：<b>缺的不是大纲（v1 已有），是每级下面的「课时骨架 + 视觉素材」，而这恰是 CS146S 已公开的东西。</b></p>
+
+<h3>2 · CS146S → 四象限映射表</h3>
+<table>
+<tr><th>CS146S 模块（周次）</th><th>象限</th><th>处置</th><th>改造要点</th></tr>
+<tr><td>W1 Coding LLM 基础 + Prompting</td><td>L1.1 Prompt</td><td>直接复用</td><td>slides 概念框架照搬；案例全换本团队场景（订单/库存/搜索）</td></tr>
+<tr><td>W1 入门体验部分</td><td>L0 认知</td><td>本地化改造</td><td>「3 工具对比」体验课保留设计，对比对象改已审批工具</td></tr>
+<tr><td>W3 AI IDE（Cursor/Warp 等）</td><td>L1.2 工具</td><td>本地化改造</td><td>工具换成内部清单；<b>等 Qoder 试点收口结论再锁工具</b></td></tr>
+<tr><td>W4-5 Context Engineering / 工作流</td><td>L2 工作流</td><td>本地化改造</td><td>学术语境换「多工具组合完成真实工单」</td></tr>
+<tr><td>W2 Agent Anatomy / loop engineering</td><td>L3 集成</td><td>本地化改造</td><td>demo 代码可参考 assignments repo；环境换内网</td></tr>
+<tr><td>MCP / agent skills / spec-driven dev</td><td>L3-L4</td><td>选择性复用</td><td>MCP Registry 作业思路可搬；spec-driven 对接工程规范</td></tr>
+<tr><td>W6-8 Debugging / Evaluation</td><td>L2-L3 + AI Coding Eval</td><td>直接复用+反哺</td><td><b>独特机会</b>：eval 模块用内部评测真实数据做案例，课程与 eval 工作互为弹药</td></tr>
+<tr><td>W9-10 Agent Security</td><td>L3 附属</td><td>本地化改造</td><td>对接公司安全规范（内部安全审计流程已有资产）</td></tr>
+<tr><td>Final Project（占比 50%）</td><td>—</td><td>不适用</td><td>学术项目制 → 企业改为「真实工单 capstone」，需自研</td></tr>
+<tr><td>非技术业务学员内容</td><td>L0-Track B</td><td>不适用</td><td>CS146S 面向 CS 学生，<b>对 P0 缺口「非技术业务讲师」零贡献</b>，须自研</td></tr>
+</table>
+<p>覆盖率初判：L1.1/L1.2/L2 骨架复用率最高（约 70%）；L0 与业务轨几乎全自研；L3/L4 约 50%。</p>
+
+<h3>3 · 实施里程碑（骑 Fall 2026 逐周释出节奏）</h3>
+<table>
+<tr><th>里程碑</th><th>时间</th><th>交付物</th><th>工时</th></tr>
+<tr><td>M0 对表定盘</td><td>本周（9/23-9/26）</td><td>1 页 mapping 终版 + 三资产归档 + 启动会 10min agenda</td><td>2h</td></tr>
+<tr><td>M1 L0/L1.1 教案 v1</td><td>9/29-10/16</td><td>2 份教案（骨架=W1 slides + 容器=检索练习三红线）+ 1 次试讲</td><td>3 人 × 6h</td></tr>
+<tr><td>M2 L1.2/L2 教案 + PPT 模板</td><td>10/19-11/6</td><td>2 份教案 + 可复用视觉模板（直接缓解 P0 PPT 缺口）</td><td>3 人 × 8h</td></tr>
+<tr><td>M3 L3 骨架 + Eval 案例对接</td><td>11/9-11/27</td><td>L3 教案 1 份，eval 模块嵌内部评测真实数据</td><td>2 人 × 6h</td></tr>
+<tr><td>M4 结课复盘</td><td>12/4 当周</td><td>「同课追踪报告」+ 教案 v2 决策：Q1 是否固化此模式</td><td>2h + 全员 1h</td></tr>
+</table>
+<p>支撑机制：指定 1 名<b>课程侦察员</b>，每周五 30min 拉取当周 slides、标出可用素材——唯一新增常态投入。</p>
+
+<h3>4 · 成功标准（可测量）</h3>
+<table>
+<tr><th>指标</th><th>目标</th><th>测法</th></tr>
+<tr><td>单课时教案制作工时</td><td>≤6h/课时（90min 课）</td><td>M1 实测 baseline 后对比自研</td></tr>
+<tr><td>盲讲通过</td><td>非内容作者讲师拿教案即可上课</td><td>M1 试讲 1 人通过</td></tr>
+<tr><td>骨架覆盖率</td><td>L1-L3 模块 ≥60% 标注 CS146S 来源</td><td>M0 对表产物</td></tr>
+<tr><td>学员红线</td><td>D14 留存 ≥70%，满意度 ≥4.2/5</td><td>沿用 09-21 proposal 红线，不另造</td></tr>
+<tr><td>追踪连续性</td><td>10 周追踪记录不断更</td><td>侦察员周报</td></tr>
+</table>
+
+<h3>5 · ROI / 业务影响</h3>
+<table>
+<tr><th>维度</th><th>影响</th></tr>
+<tr><td>讲师团工时</td><td>8 份教案 × 约省 6h ≈ <b>48h（约 1.2 周 FTE）</b>——估算值，M1 后修正</td></tr>
+<tr><td>供给提速</td><td>Q4 开课 vs 原计划 Q1；29 份 survey 高意愿人群不用等</td></tr>
+<tr><td>Simplify Work 叙事</td><td>员工 AI 自助能力 → 日常重复劳动减少；课程本身即「用 AI 简化工作」的示范</td></tr>
+<tr><td>反哺效应</td><td>eval 模块双向：内部评测数据供课程案例，课程学员成为 eval 受众</td></tr>
+<tr><td>现金成本</td><td><b>零</b>（公开 slides，非商业内部使用）</td></tr>
+</table>
+
+<h3>6 · 风险与缓解</h3>
+<table>
+<tr><th>风险</th><th>等级</th><th>缓解</th></tr>
+<tr><td>版权：slides 版权属 Stanford/Eric</td><td>中</td><td>内部培训引用+注明出处，不外发不改署名；Maven 付费版内容一律不用</td></tr>
+<tr><td>美国大学 vs 中国企业场景：学生自带工具/账号 vs 合规清单；10 周连续 vs 员工碎片时间</td><td>高</td><td>每份教案过「三换」：换工具（已审批清单）、换案例（本团队场景）、换节奏（周课→90min 单元，内容砍 60%）</td></tr>
+<tr><td>讲师团 bandwidth：追踪本身耗工</td><td>中</td><td>侦察员单点制，每周 ≤30min；其余讲师零增量</td></tr>
+<tr><td>Fall 2026 slides 释出无 SLA，若停更 W3 后悬空</td><td>中</td><td><b>Fall 2025 完整版已有存量，W1-W3 不必等新释出</b>；停更即退回往季版</td></tr>
+<tr><td>工具锁定过早（Qoder 试点未收口）</td><td>中</td><td>L1.2 教案排 M2，国庆后动笔，等收口结论</td></tr>
+</table>
+
+<h3>7 · 立即行动（本周三件）</h3>
+<ol>
+<li><b>对表 2h</b>：CS146S 10 周主题 vs 大纲 v1 四象限逐格标注（复用/改造/自研），产出 mapping 终版。</li>
+<li><b>归档三资产 + 设追踪</b>：themodernsoftware.dev、assignments repo、Bulletin 条目存入讲师团 workspace；日历加每周五 30min「Stanford 追踪」。</li>
+<li><b>启动会加 10min</b>：宣布三层策略（外采骨架×本地化×检索封装），当场招募课程侦察员——pitch 词现成：「拿斯坦福 slides 当你的 PPT 底稿」，正打 P0 缺口。</li>
+</ol>
+
+<div class="challenge">
+<h3>8 · 诚实挑战（最大的洞）</h3>
+<ol>
+<li><b>「抄斯坦福」是否又是内容堆叠？——风险是真的。</b>CS146S 每周约 4 lecture topics，内容极密，直接搬等于给「低方法论」人群再灌一轮。防线只有一条：<b>容器先行</b>——每份教案先写 6 个检索点、再往里填内容，讲解 ≤40% 红线优先于内容完整性。若执行时先搬 slides 后补练习，本 proposal 即告失败。</li>
+<li><b>与 09-21 真互补还是抢地盘？</b>互补成立的唯一前提是接口清晰：09-21 拥有「教案容器」（检索点+间隔推送+红线），本文拥有「内容注入」（骨架+素材）。但两者都声称主导 L0/L1.1——<b>必须合并为单一流水线：骨架（CS146S）→ 容器（检索练习）→ 本地案例，在启动会上作为一个策略宣布，不是两个 proposal。</b></li>
+<li><b>映射表是假设不是事实。</b>映射基于 20260514 proposal 的 L0-L4 定义，未核对大纲 v1 最新原文；若 v1 已改，映射表需重做——这正是立即行动第 1 件存在的原因。</li>
+<li><b>只解决半个 P0。</b>CS146S 对「非技术业务讲师」缺口零贡献，那半仍需另想来源。</li>
+<li><b>ROI 数字无 baseline。</b>48h 节省是推算；M1 必须实测自研对照工时，否则年度汇报站不住。</li>
+</ol>
+</div>
+</div>
+
+<div class="proposal p2">
+<div class="ptitle">Proposal 2 · Jev 托管 judge：typed-decision 线第三数据点（托管 vs 本地）</div>
+<div class="psub"><span class="tag ok">✅ 官网亲核</span><span class="tag warn">⚠️ evals 生态待定位</span><span class="tag">Intent · AI Coding Eval</span>信号源：<a href="https://x.com/nhcao/status/2101967227327267297">@nhciao</a> · <a href="https://typesafe.ai">typesafe.ai</a>（亲核：$42/1B tokens · 171×/task 成本对照 · 75× 延迟对照，厂商口径带星号）</div>
+
+<h3>0 · 定位：本周线的第三块拼图</h3>
+<table>
+<tr><th>日期</th><th>数据点</th><th>层</th></tr>
+<tr><td>09-20</td><td>JEV compaction 生态</td><td>编码/压缩</td></tr>
+<tr><td>09-20</td><td>Bonsai2 本地模型</td><td>本地生成</td></tr>
+<tr><td>09-22</td><td>laya-mlx「Agent 小脑」</td><td>本地 typed-decision（5 标签分诊，7-13ms，校准概率）</td></tr>
+<tr><td><b>09-23 本文</b></td><td><b>Jev / System One</b></td><td><b>托管 typed-decision</b></td></tr>
+</table>
+<p>本文不推倒 laya-mlx，只回答一个新问题：<b>同一 judge/分诊场景，托管 Jev 与本地 laya-mlx 该怎么分治？</b></p>
+
+<h3>1 · 核心主张</h3>
+<div class="claim"><b>把 Jev 定位为 judge 链路的「托管 tier」，买的不是更准，而是「零训练适配任意 rubric」——这正是 laya-mlx（本地、标签集须先定型）覆盖不了的能力格；是否采用由 ≤10 分钟的 20-case 一致率 spike 决定（≥17/20 才继续），不达标即止损归档。</b></div>
+
+<h3>2 · 锁定的痛点</h3>
+<table>
+<tr><th>#</th><th>痛点</th><th>现状证据</th></tr>
+<tr><td>P1</td><td>judge-only 57-59% 无显著差异，样本小到无法分辨「真无差异」与「测不出差异」</td><td>AI Coding Eval 现状</td></tr>
+<tr><td>P2</td><td>扩样受制于 judge 成本与延迟：生成式 judge 慢（官网对照 8.566s/task）且贵，人工审 20 cases 已是瓶颈</td><td>Next step「人工审 20 cases」</td></tr>
+<tr><td>P3</td><td>llm-as-qa-judge skill 用生成式 LLM，只能抽检不能全量，进不了 pipeline 内环</td><td>skill 现有架构</td></tr>
+<tr><td>P4</td><td>2 repo → N repo 扩展时，每个 repo 的 judge rubric 不同——本地分类器需逐个定型</td><td>laya-mlx 提案边界</td></tr>
+</table>
+
+<h3>3 · 托管 vs 本地：对比与决策规则</h3>
+<table>
+<tr><th>维度</th><th>Jev 托管</th><th>laya-mlx 本地</th></tr>
+<tr><td>延迟（实测/宣称）</td><td>114ms/task（官网对照例）</td><td>7-13ms（亲测）</td></tr>
+<tr><td>成本</td><td>$42/1B input tokens；官网对照 $0.000081/task</td><td>边际成本零（943.6MiB 内存）</td></tr>
+<tr><td>数据隐私</td><td><b>代码出域</b>，需脱敏+安全审批</td><td>数据不出机</td></tr>
+<tr><td>API 可达性</td><td>依赖外网+厂商存续（发布约 1 周）</td><td>无依赖</td></tr>
+<tr><td>新 rubric 适配</td><td>零训练，改结构化问题即可</td><td>需重新定型/校准</td></tr>
+<tr><td>输出</td><td>typed decision + 概率</td><td>校准概率</td></tr>
+</table>
+<p><b>决策规则（两句话）</b>：数据敏感度定去留——原码等不可出域的，只走本地；标签定型度定先后——rubric 未定型或新 repo 冷启动用 Jev 定纲，定型后蒸馏回 laya-mlx 跑量。口诀：<b>「敏感走本地，未定找 Jev；Jev 定纲，laya 跑量」</b>。</p>
+
+<h3>4 · 实施里程碑</h3>
+<table>
+<tr><th>里程碑</th><th>内容</th><th>耗时</th><th>Done</th></tr>
+<tr><td>M0 spike</td><td>20 个人审 gold cases（脱敏）→ Jev verdict → 一致率+混淆矩阵；若 laya-mlx 已覆盖同标签集则双跑</td><td>预备 30min + <b>核心 ≤10min</b></td><td>≥17/20 → go</td></tr>
+<tr><td>M1 实测换算</td><td>judge prompt 形式化为 Jev 输入 schema；3-case microbench 实测成本/延迟，替换厂商数字</td><td>半天</td><td>实测表（非宣称）</td></tr>
+<tr><td>M2 三层 judge</td><td>laya-mlx（本地高频）→ Jev（托管、脱敏、不确定 case）→ 生成式 LLM/人工（分歧兜底，带 reasoning）</td><td>1-2 天</td><td>便宜层覆盖率 ≥70%</td></tr>
+<tr><td>M3 扩样判定</td><td>FTP 场景 n≥100/arm 重跑 3 模型对比，McNemar/bootstrap 检验 57-59% 差异</td><td>1 周</td><td>差异显著/不显著的明确结论</td></tr>
+<tr><td>M4 skill 进化（可选）</td><td>llm-as-qa-judge 增加 decision-backend（managed+local 双通道）</td><td>1-2 天</td><td>skill 发布到 Skill Hub</td></tr>
+</table>
+<p>依赖注记：若 20-case gold set 尚未就绪，M0 降级为「Jev vs 现有生成式 judge 双判一致性（Cohen's kappa）」，人工 gold 到位后补跑。</p>
+
+<h3>5 · 成功标准（全部可测）</h3>
+<table>
+<tr><th>指标</th><th>门槛</th><th>备注</th></tr>
+<tr><td>Jev vs 人工 gold 一致率</td><td>≥85%（17/20）</td><td>20 case 的 95% CI 为 [64%, 95%]（已算），故 M3 必须复验</td></tr>
+<tr><td>单 case 判定成本</td><td>≤ 生成式 judge 的 1/10</td><td>官网口径 171×/task，按 10k-token case 保守算仅 33×——以 M1 实测为准</td></tr>
+<tr><td>单 case 延迟</td><td>&lt;1s</td><td>官网 114ms；laya 本地 7-13ms 更快但能力不同</td></tr>
+<tr><td>便宜层覆盖率</td><td>≥70% cases 终结于 laya/Jev，分歧升级 ≤30%</td><td>M2 产出</td></tr>
+<tr><td>扩样结论</td><td>n≥100 时给出 3 模型 judge-only 差异置信区间</td><td>M3 产出</td></tr>
+</table>
+
+<h3>6 · ROI / 业务影响</h3>
+<ul>
+<li><b>诚实先行</b>：按当前规模绝对省钱额很小——450 cases（3 模型 × n≈150）Jev 约 <b>$0.19</b>，生成式约 <b>$6.25</b>。省钱不是主论点。</li>
+<li><b>真 ROI ① 常态化</b>：judge 变便宜变快（114ms），eval 从「一次性项目」变「每周回归」，Qoder/Copilot/国产模型选型从单点报告变持续证据流——直接服务 Qoder Teams Pilot 的成本敏感决策。</li>
+<li><b>真 ROI ② 进内环</b>：100ms 级 judge 能进 pipeline 内环（每次失败即时分诊进 build/logic/env/数据/人工五桶），而非事后抽检——IME 实验「决策模型进实时交互环路」正是这一点的存在性证明。</li>
+<li><b>真 ROI ③ Skill Hub</b>：llm-as-qa-judge 获得双 backend（托管+本地），其他团队可复用于 PR 分类、路由、eval 分诊；本周四个数据点收敛成一个可讲的完整决策框架。</li>
+</ul>
+
+<h3>7 · 风险与缓解</h3>
+<table>
+<tr><th>风险</th><th>证据现状</th><th>缓解</th></tr>
+<tr><td>厂商宣称未三方验证</td><td>官网 193.6×/444.6× 带星号"System One tasks"；<b>官网根本未列 evals 用例</b></td><td>只信 M1 实测；宣称数字一律标「厂商口径」</td></tr>
+<tr><td>数据出域/合规</td><td>官网未提 self-host/enterprise 选项</td><td>内部原码禁出域；只跑脱敏/public case；安全审计先行；向厂商问 enterprise 方案</td></tr>
+<tr><td>决策模型能力边界</td><td>typed decision 无 reasoning，复杂语义判定上限未知</td><td>定位预筛/分诊而非终审；分歧升级生成式 LLM（带解释）</td></tr>
+<tr><td>IME 证据不可迁移</td><td>IME=短上下文偏好排序；代码 eval=长上下文语义判定</td><td>仅延迟存在性证明可迁移；能力必须 M0 在目标分布上直测</td></tr>
+<tr><td>样本小</td><td>20 case CI [64%,95%] 过宽</td><td>M3 n≥100 复验；57→59% 检出需 n≈9557/arm 不现实，目标定为检出 10pp 级差异（n≈366/arm）</td></tr>
+<tr><td>与 laya-mlx 重叠</td><td>同场景可能已本地跑通</td><td>决策规则分治；若 M0 两者一致率相当 → 砍托管，只留记录</td></tr>
+<tr><td>供应风险</td><td>发布约 1 周，单一厂商，无 SLA 细节</td><td>抽象 judge interface 可换 backend；不进生产依赖</td></tr>
+</table>
+
+<h3>8 · 立即行动（本周三件）</h3>
+<ol>
+<li><b>今天</b>：M0 spike——gold 20 cases 脱敏 → Jev API → 一致率表（预备 30min，运行 ≤10min）。</li>
+<li><b>本周</b>：定位 LangChain/Langfuse 指南原文真实 URL + 3-case microbench 实测成本/延迟，产出实测表替换厂商数字。</li>
+<li><b>本周</b>：安全审计 TypeSafe API 出域合规；在 laya-mlx proposal 上加一页 addendum「托管 vs 本地决策规则」——<b>不开新项目，不开新 workspace 目录</b>。</li>
+</ol>
+
+<div class="challenge">
+<h3>9 · 诚实挑战（主动挑漏洞）</h3>
+<ol>
+<li><b>judge-only 可能根本不是瓶颈。</b>FTP 三模型满分说明场景饱和、区分度不足——真瓶颈或许是 case 难度分布，不是 judge。换 judge 不会让差异凭空出现。若 M3 扩样后仍无差异，正确结论是「模型确已同质，选最便宜的」——这在 Qoder 语境下反而支持国产模型，有价值，但别指望本提案「制造」出选型差异。</li>
+<li><b>先扩样本还是先换 judge？</b>检出 10pp 差异只需 n≈366/arm，用现有生成式 judge 一次性跑也就约 $5-15——钱不是障碍。若只想要一次性答案，直接扩样即可，本提案应缩为 M0+M1 止损。它的完整价值依赖「常态化回归 + Skill Hub 复用」两个后续前提成立。</li>
+<li><b>laya-mlx 冗余挑战</b>：若 5 标签分诊已在本地 7-13ms 跑通且够准，Jev 托管在同场景确实多余——延迟慢 9-16 倍、还要出域。Jev 的独占价值只剩：新 repo rubric 零训练冷启动、语义复杂度上限更高。若 M0 双跑一致率相当，结论就是「选本地」，托管降级为第三数据点的负面记录（negative result 照样进 journal，这正是本周方法论的价值）。</li>
+<li><b>生态证据比 Phase 1.5 所称更弱</b>：一手复核 langfuse.com 主页与 /blog（404）、langchain.com 主页均未见 Jev 内容——「Jev 适合 eval」目前是<b>推断，不是已验证事实</b>。行动 #2 必须先定位原文，否则 M0 就是整个提案唯一的直接证据。</li>
+<li><b>绝对金额太小，别拿成本当卖点</b>：一年 1000 cases 才省几十美元。对上汇报时卖「回归常态化 + judge 进内环 + Skill Hub 复用」，不是省钱。</li>
+</ol>
+</div>
+
+<h3>附 · 事实与宣称分离清单</h3>
+<table>
+<tr><th>类别</th><th>内容</th><th>来源</th></tr>
+<tr><td>亲核（今日）</td><td>$42/1B tokens；任务对照 $0.000081 vs $0.013880（171×）；0.114s vs 8.566s（75×）；官网未列 evals、未提 self-host</td><td>typesafe.ai 首页</td></tr>
+<tr><td>亲测（09-22）</td><td>laya-mlx：安装 6.5s、7-13ms、943.6MiB、校准概率</td><td>laya-mlx proposal</td></tr>
+<tr><td>未复验</td><td>Langfuse/LangChain Jev 文章、"zero hallucination"、193.6×/444.6× 头条数字</td><td>厂商/搜索结果</td></tr>
+<tr><td>计算（今日）</td><td>Wilson CI [64%,95%]；n=366/arm（10pp）；n=9557/arm（2pp）；450 cases=$0.19 vs $6.25</td><td>本机 node 计算</td></tr>
+</table>
+
+<blockquote><b>一句话总结</b>：这不是「用 Jev 替代现有 judge」，而是给本周 typed-decision 线补上「托管 vs 本地」对比维度——10 分钟 spike 定去留，数据敏感度和 rubric 定型度定分治，laya-mlx 仍是主力，Jev 只在它独占的能力格（零训练新 rubric）里上场。</blockquote>
+</div>
+
+<footer>
+<p>深挖 2/2 完成（subagent 并行推理 + 主循环验证整合）· 信号源见 <a href="readwise-briefing-20260923.html">Phase 1 简报</a> · 数据与宣称已分离标注</p>
+<p>验证源：typesafe.ai（亲核）· themodernsoftware.dev（亲核）· explorecourses.stanford.edu · bulletin.stanford.edu · github.com/mihail911/modern-software-dev-assignments</p>
+</footer>
+
+<script>
+const btn=document.getElementById('theme-toggle');
+btn.addEventListener('click',()=>{
+  document.documentElement.classList.toggle('dark');
+  btn.textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙';
+  localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light');
+});
+if(localStorage.getItem('theme')==='dark'){
+  document.documentElement.classList.add('dark');
+  btn.textContent='☀️';
+}
+</script>
+</body>
+</html>
