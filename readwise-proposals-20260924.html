@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise Proposals · 2026-09-24</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem 4rem;
+  max-width: 960px; margin: 0 auto;
+}
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+h1 { font-size: 1.6rem; color: var(--accent); }
+.date { color: var(--text3); font-size: .95rem; }
+#theme-toggle { background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 2.4rem; height: 2.4rem; font-size: 1.1rem; cursor: pointer; flex-shrink: 0; }
+.axiom { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent5); border-radius: 8px; padding: .8rem 1.2rem; margin: 1.2rem 0 2rem; font-size: .95rem; color: var(--text2); }
+.axiom b { color: var(--accent5); }
+h2 { font-size: 1.25rem; margin: 2.4rem 0 1rem; padding-bottom: .4rem; border-bottom: 2px solid var(--accent); }
+h2 .sub { font-size: .8rem; color: var(--text3); font-weight: normal; margin-left: .5rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .9rem; }
+th { background: var(--surface2); text-align: left; padding: .5rem .7rem; border: 1px solid var(--border); }
+td { padding: .5rem .7rem; border: 1px solid var(--border); vertical-align: top; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.6rem; margin-bottom: 1.6rem; }
+.card h3 { font-size: 1.15rem; margin-bottom: .5rem; color: var(--accent); }
+.claim { background: var(--surface2); border-left: 3px solid var(--accent2); padding: .7rem 1rem; margin: .8rem 0; border-radius: 0 8px 8px 0; font-size: .95rem; }
+.badge { display: inline-block; font-size: .72rem; padding: .12rem .6rem; border-radius: 99px; margin: 0 .3rem .4rem 0; background: rgba(45,90,74,.12); color: var(--accent); }
+.sec { font-weight: bold; margin-top: 1rem; font-size: .95rem; color: var(--text); }
+ul, ol { padding-left: 1.3rem; margin: .4rem 0; }
+li { margin: .25rem 0; font-size: .92rem; }
+.challenge { background: rgba(220,38,38,.06); border: 1px dashed var(--accent5); border-radius: 8px; padding: .7rem 1rem; margin-top: .8rem; font-size: .9rem; }
+.challenge b { color: var(--accent5); }
+.roi { color: var(--accent3); font-weight: bold; }
+.footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text3); }
+.cross { background: var(--surface2); border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0 2rem; font-size: .92rem; }
+.cross b { color: var(--accent4); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>🎯 深挖 Proposals</h1>
+    <div class="date">2026-09-24（周四）· 5 方向 × subagent 独立推理 · 全部经 Phase 1.5 验证输入</div>
+  </div>
+  <button id="theme-toggle">🌙</button>
+</div>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>每个 Proposal 必答：解决什么问题？为什么是现在？怎么做？怎么知道成功？谁来做？如果失败？——全部 5 份含「诚实挑战」自审段。</div>
+
+<h2>🗺 信号 × 项目对应</h2>
+<table>
+  <tr><th>信号（已验证）</th><th>连接意图</th><th>Proposal 一句话核心主张</th></tr>
+  <tr><td>Block Buzz（34k★）</td><td>PRATA · Agent 协作</td><td>不采用、不集成，当<b>零成本参照系</b>：≤2 人日借「身份即权限+哈希链审计」校准 PRATA</td></tr>
+  <tr><td>OpenMuse（1.8k★）</td><td>Life OS</td><td>借 Activity 层设计（durable+lease+审批），<b>≤500 行 ledger</b> 承载拖延 5 个月的首个 Proactive Agent</td></tr>
+  <tr><td>LightMem-Ego（ZJU）</td><td>Life OS Memory</td><td>不要新记忆架构，先补<b>统一检索层</b>（SQLite FTS5）+ 巩固管线——IRA 本就与三级记忆同构</td></tr>
+  <tr><td>「E2E 优先」观点（⚠️争议）</td><td>AI Coding Eval · Qoder Pilot</td><td>不做站队，做 <b>oracle 分层</b>；eval 满分=区分度 0，须先诊断是否「对着测试编程」</td></tr>
+  <tr><td>出海 Playbook 68h</td><td>WellDone（paused）</td><td>Playbook 不是解锁键；<b>解锁键是发出首会邀约（10 分钟）</b>，阅读硬上限 4h</td></tr>
+</table>
+
+<div class="cross">🔎 <b>跨 Proposal 收敛信号（本次意外发现）</b>：#2 与 #3 的 subagent 互相独立地挖出同一事实——Life OS 上一轮两份大提案（Meta-Harness、GBrain）分别搁置 5 个月与 4 个月未执行。两份 Proposal 殊途同归地开出同一药方：<b>小步、硬帽、先让一个东西跑起来</b>。这不是巧合，是对执行模式的结构性纠偏。</div>
+
+<h2>Proposal 1 · Buzz 参照系计划 <span class="sub">PRATA × Block Buzz</span></h2>
+<div class="card">
+  <div><span class="badge">连接：PRATA Next ②④</span><span class="badge">投入 ≤2 人日硬帽</span><span class="badge">✅ 验证输入</span></div>
+  <h3>用 Block 的 34k★ 实现给 PRATA 免费校准</h3>
+  <div class="claim"><b>核心主张：</b>不采用 Buzz，把它当作零成本的超大型参照实现——两周内借其「身份即权限 + 哈希链审计」模型校准 PRATA 三项设计决策（watcher 集成 / 权限粒度 / 防篡改审计），并产出《Agent 协作平台评估简报》回答「自建 vs 采用」。</div>
+  <div class="sec">里程碑</div>
+  <table>
+    <tr><th>M</th><th>内容</th><th>耗时</th></tr>
+    <tr><td>M1</td><td>精读 buzz-auth（NIP-42/98）/ buzz-audit（哈希链）/ buzz-cli / buzz-acp 四模块 → 借鉴清单（采纳/改造/不抄）</td><td>0.5 天</td></tr>
+    <tr><td>M2</td><td>Docker Compose 自托管 PoC：1 个 agent 以独立 keypair 加入并发签名消息</td><td>1 天</td></tr>
+    <tr><td>M3</td><td>PRATA 落地 2 项：append-only 哈希链审计 + watcher 参照 buzz-acp 重设计（266 tests 保绿 + ≥20 新增）</td><td>3-5 天穿插</td></tr>
+    <tr><td>M4</td><td>内部简报：自建/采用/混合三案对比，直答「PRATA 是否继续」</td><td>0.5 天</td></tr>
+  </table>
+  <div class="sec">ROI</div>
+  <ul>
+    <li>权限/审计/harness 设计<span class="roi">少走 3-6 周弯路</span>；Rust 源码阅读顺带喂 Rust Learning</li>
+    <li>对冲：Buzz 若成熟→团队获免费协作平台；若不成熟→「继续自建」有证据背书（AI Portfolio 复盘必答题）</li>
+  </ul>
+  <div class="sec">立即行动（本周）</div>
+  <ol>
+    <li>Clone block/buzz + pin commit，读 buzz-auth / buzz-audit（2h）</li>
+    <li>个人机 Compose 起 Buzz，让 Claude Code 经 buzz-acp 发 1 条签名消息——亲手证伪/证实</li>
+    <li>PRATA 开 issue：「Phase 7 权限：identity-scoped vs flags」</li>
+  </ol>
+  <div class="challenge"><b>诚实挑战（节选）：</b>① 密码学辨析——Nostr（secp256k1 Schnorr）与 PRATA（tweetnacl Ed25519）同类不同构，<b>不可互操作也无须换栈</b>；Buzz 真创新不在加密而在「一切皆签名事件」的 event-sourcing 统一。② 34k stars ≠ 成熟：repo 自述 "Not finished"，git 能力仅构想、审批 "glue still drying"，可信区间仅 chat/身份/审计/搜索。③ Apache-2.0 内部借鉴低风险，但须保留原版权标注。④ 最大漏洞：<b>可能是「用调研拖延交付」</b>——PRATA 真正的价值验证是 K8s 部署+首批用户，故设 2 人日硬帽，超时即砍 M2。</div>
+</div>
+
+<h2>Proposal 2 · Muse-Lite <span class="sub">Life OS × OpenMuse</span></h2>
+<div class="card">
+  <div><span class="badge">连接：Life OS Next ②</span><span class="badge">≤500 行 Bun SQLite</span><span class="badge">🔬 亲测输入</span></div>
+  <h3>借 OpenMuse Activity 层，把 agent 群从「能跑」升级到「靠得住」</h3>
+  <div class="claim"><b>核心主张：</b>不 fork OpenMuse，只抽其 Activity 层设计（durable task plan + SQL lease + approval + receipt），以 ≤500 行 Bun+TypeScript SQLite ledger 替换现有 status.json/catchup 机制，并用它承载拖延 5 个月的「第一个 Proactive Agent」——一次落地，同时关闭 Life OS Next ② 并打下 Trust & Eval 地基。</div>
+  <div class="sec">关键侦察发现（subagent 实读 workspace/life-os/）</div>
+  <ul>
+    <li>Life OS 已有 <b>12 agents + 425 行 run-agent.sh + catchup v0.4 + registry.json</b>——已是自研半套 Activity 层，本提案只补语义层不另起炉灶</li>
+    <li>catchup.sh 每 2h+开机双触发<b>可双跑</b>（无 lease 防重）——痛点自证</li>
+    <li>Browser worker 明确出局：现有 12 agents 无一需要 Chromium</li>
+  </ul>
+  <div class="sec">里程碑（~4.5 人日）</div>
+  <table>
+    <tr><th>M</th><th>内容</th><th>排序逻辑</th></tr>
+    <tr><td>M0</td><td>精读 OpenMuse Activity 源码（plan schema/lease/状态机/receipt）→ spec（记 commit hash）</td><td>0.5 天</td></tr>
+    <tr><td>M1</td><td>Ledger：bun:sqlite + 状态机 + 进程锁；kill -9 恢复演示</td><td>1.5 天</td></tr>
+    <tr><td>M2</td><td><b>首个 Proactive Agent 上线</b>（周期检查+hash 去重+退避）</td><td>先有用再有栏杆</td></tr>
+    <tr><td>M3</td><td>审批门：awaiting_approval 态 + ntfy 审批面 + receipt 落账</td><td>1 天</td></tr>
+    <tr><td>M4</td><td>morning-briefing 迁 ledger；catchup.sh 降为薄壳（&lt;30 行）</td><td>双轨 ≤2 周</td></tr>
+  </table>
+  <div class="sec">成功标准（可测量）</div>
+  <ul>
+    <li>kill -9 后 60 秒内 lease 回收重试；双进程并发抢锁 100% 互斥</li>
+    <li>首个 agent 连续 14 天自跑，漏报 0、重复告警 &lt;10%</li>
+    <li>一条 SQL 回答「过去 7 天每个 agent 跑了什么、谁批的」</li>
+  </ul>
+  <div class="challenge"><b>诚实挑战（节选）：</b>① fork 三输（RN 栈/产品形态/alpha API 必破），值钱的是 schema/lease/状态机设计——抄设计零依赖零漂移。② <b>过度设计风险已在案头证伪过一次</b>：4 月 Meta-Harness 提案框架先行、至今 stalled——本次架构硬顶 ≤500 行、每行代码须被首个 agent 真实失败召唤、spike 2h 跑不通即降级 catchup v0.5。③ 成败判据不是「建成 Activity 层」，而是「两周后不再需要人肉补跑」。</div>
+</div>
+
+<h2>Proposal 3 · mem-index 统一检索层 <span class="sub">Life OS Memory × LightMem-Ego</span></h2>
+<div class="card">
+  <div><span class="badge">连接：Life OS Next ③</span><span class="badge">≤6h/周 硬封顶</span><span class="badge">✅ 论文+代码验证</span></div>
+  <h3>借 LightMem 分层思想，不引其系统——先让 4907 个文件变得可查</h3>
+  <div class="claim"><b>核心主张：</b>不为 Kyle 引入 LightMem-Ego 式新记忆系统，而是借其「三级记忆 + 自动巩固」思想，在现有 IRA 之上补一个可随时重建的派生层——统一检索（Bun + SQLite FTS5 全库索引，单一 mem.query 入口）+ 巩固管线（一次性事实 → 长期规则的 AI 提案制晋升）。IRA 与 git 仍是唯一 source of truth。</div>
+  <div class="sec">关键侦察发现</div>
+  <ul>
+    <li>实测 4907 个 md / 296MB：journal 737 篇、context 2740、workspace 924；唯一人工索引 context/INDEX.md 仅 246 行</li>
+    <li>五类 store 零互通（git md / state.json / Keychain / store_memory / 对话摘要），检索靠 grep + 人指路</li>
+    <li><b>IRA 与 Atkinson-Shiffrin 三级模型天然同构</b>：inbox=感觉记忆、workspace=短期、context+journal=长期——缺的不是分层结构，是层间巩固机制</li>
+  </ul>
+  <div class="sec">里程碑（每周 ≤6h，吸取 CS336 停滞教训）</div>
+  <table>
+    <tr><th>M</th><th>内容</th><th>估算</th></tr>
+    <tr><td>M0</td><td>记忆普查 + 10 问盲测基线（hit 率写死，预期 &lt;50%）</td><td>W1, 3h</td></tr>
+    <tr><td>M1</td><td>mem-index MVP：全库 FTS5 索引 + mem.query；重建 &lt;5min</td><td>W2-3, 16h</td></tr>
+    <tr><td>M2</td><td>巩固管线 v0：一次性事实 → AGENTS.md <b>提案制</b>晋升（人不批不写）</td><td>W4-5, 10h</td></tr>
+    <tr><td>M3</td><td>单一生活流试点（仅日程 .ics → 月度摘要）</td><td>W6-7, 8h</td></tr>
+    <tr><td>M4</td><td>20 问盲测复测 + 决策门（是否上向量/第二生活流）</td><td>W8, 3h</td></tr>
+  </table>
+  <div class="sec">成功标准</div>
+  <ul>
+    <li>盲测 hit@1：&lt;50% → <span class="roi">≥80%</span>；查询 P95 &lt;2s；人工指路次数周降 70%</li>
+    <li>巩固提案 ≥2 条/周，人审通过率 ≥50%；索引仅本地不入 git（隐私）</li>
+  </ul>
+  <div class="challenge"><b>诚实挑战（节选）：</b>① 三轴全异（GB 级音视频流 vs KB 级文本、端侧实时 vs 离线、眼镜算力 vs Mac）——LightMem-Ego 工程实现对 Kyle 场景<b>几乎零适用</b>，可复用代码 &lt;10%；值钱的是 STM→LTM 的 salience 提炼与遗忘策略设计。② GBrain 大爆炸提案搁置 4 个月反证：<b>被推迟的检索层才是正确第一步</b>。③ 学术 demo 直接跑 repo 要两周，读论文借设计只要 2 小时——选后者。</div>
+</div>
+
+<h2>Proposal 4 · 测试策略 Oracle 分层 <span class="sub">AI Coding Eval × 「E2E 优先」观点</span></h2>
+<div class="card">
+  <div><span class="badge">连接：AI Coding Eval · Qoder Pilot · 双 skill</span><span class="badge">12 人日 / 3-4 周</span><span class="badge">⚠️ 争议信号输入</span></div>
+  <h3>重配 Agent 时代的测试金字塔，并解 Eval 满分饱和</h3>
+  <div class="claim"><b>核心主张：</b>Agent 时代的测试策略不做 unit vs E2E 站队，而做 oracle 分层配比：E2E 金路径锚定业务终态（每域 5-8 条、夜间）、hidden unit suite 密集守业务规则、contract 守服务边界；agent 自产测试须过反自我确证审计（mutation kill ≥70% + mock 配额 ≤30%）方可入库。</div>
+  <div class="sec">信号裁决：取机制，弃处方</div>
+  <ul>
+    <li>✅ 取：oracle 独立性（agent 代码后自写测试 = 同源误解自我背书）、E2E 可复验 artifact、测试先行的时序直觉</li>
+    <li>❌ 弃：「NEVER unit」二分站队、「E2E as sole mechanism」（经济学不成立）、盲抄进团队 AGENTS.md（+19% 推理成本无对等收益）</li>
+  </ul>
+  <div class="sec">主战场：Eval 满分饱和</div>
+  <ul>
+    <li>三异构模型 FTP 满分 = <b>区分度 0</b> = 该维度对选型信息量趋零；更难堪的对称：若 FTP 测试对 agent 可见，<b>满分可能只是「对着测试编程」的胜利</b></li>
+    <li>M1 饱和诊断（本周 2 人日）：抽 10 个满分 case 测 mock 比例 + mutation kill → 裁决「判定面窄 / 任务太易 / 模型真同强」</li>
+    <li>⚠️ 保守纪律：<b>M1 裁决前，满分不得作为选型背书写入 Qoder Biz Case</b></li>
+  </ul>
+  <div class="sec">ROI</div>
+  <ul>
+    <li>Qoder Biz Case 恰缺「质量不显著下降」的量具——M1 国庆收口前补上质量护栏段</li>
+    <li>选型资金护栏：饱和 benchmark 导致错误选型的切换成本 ≈ 2-4 人周；打回率降 30% 可进 FY27 benefit ledger</li>
+    <li>llm-as-qa-judge 现成 Checkout/Inventory domain checks（超卖/幂等/并发扣减）即 hidden suite 素材——两资产直接咬合</li>
+  </ul>
+  <div class="sec">立即行动（本周）</div>
+  <ol>
+    <li>抽 10 个 FTP 满分产出 → mock 比例 + PIT kill-rate 一页诊断（0.5 天，Kyle+1 工程师）</li>
+    <li>A/B 微实验：同一库存扣减任务「测试可见 vs hidden oracle」× 三模型（2h，直接验证自我确证机制是否存在）</li>
+    <li>unit-test-best-practices 挂 v2.0 三规则草稿（oracle 独立性/mock 配额/mutation 自检，先 append）</li>
+  </ol>
+  <div class="challenge"><b>诚实挑战（节选）：</b>① E2E-only 在 11 人 Java/K8s 电商团队<b>不现实可量化</b>：全链路分钟级反馈摧毁 agent 自纠错循环、flaky 率随依赖数上升、跨 N 服务定位 O(链长)——E2E 的正确位置是塔尖。② 订单/库存的纯逻辑组合爆炸（超卖/幂等/状态机）只有 unit+property-based 经济可覆盖——<b>推文骂的是「谁来判定」，不是「测哪一层」</b>。③ skill 实读发现：unit-test-best-practices v1.1.0「NOT to use: 端到端集成」已不合 agent 时代，judge 四维全测「写了什么」无一维测「能否抓住错」——两 skill 均需演进。</div>
+</div>
+
+<h2>Proposal 5 · 带止损线的外部弹药案 <span class="sub">WellDone × 出海 Playbook</span></h2>
+<div class="card">
+  <div><span class="badge">连接：WellDone（paused）</span><span class="badge">总投入 ≤4h 硬上限</span><span class="badge">⚠️ Partial 验证输入</span></div>
+  <h3>Playbook 不是解锁键——解锁键是发出首会邀约（10 分钟）</h3>
+  <div class="claim"><b>核心主张：</b>这份 Playbook 无法解锁 WellDone 的暂停状态（暂停根因是三人协调，不是知识缺口）；正确用法是——在首会邀约已发出的前提下，以 ≤4 小时硬时限只取「出海实操」（实体/支付/分发）与「冷启动案例」两类内容，注入首会议程与会后获客验证。</div>
+  <div class="sec">关键侦察发现</div>
+  <ul>
+    <li>founder-meeting-01.md 会前准备清单 8 项已完成 7 项——<b>缺的从来不是资料，是把议程发出去</b>（议程 08-10 建好至今 6 周未开会）</li>
+    <li>Twitter 增长课与 WellDone <b>错配严重</b>：议程已判 X API 付费墙不可行，且买者（本地服务业 SMB）不在 Twitter 上</li>
+    <li>唯一可能有货的板块：议程 §6（香港 vs 美国 LLC、Stripe/Paddle 合规）——三人目前零积累</li>
+  </ul>
+  <div class="sec">里程碑（总投入 ≤4h）</div>
+  <table>
+    <tr><th>M</th><th>内容</th><th>止损规则</th></tr>
+    <tr><td>M0</td><td><b>今天发首会邀约</b>（3 时间选项+预读包）</td><td>10 min，先于一切阅读</td></tr>
+    <tr><td>M1</td><td>Playbook 获取 + 适用性扫描（≤1 页笔记，≥10 知识点三分标注）</td><td>30 min 拿不到原文即放弃</td></tr>
+    <tr><td>M2</td><td>首会前 D-1：2-3 个案例注入议程 §2/§5/§6</td><td>30 min</td></tr>
+    <tr><td>M3</td><td>会后提炼 3 条获客假设，对照 0/21 冷启动基线</td><td>2h</td></tr>
+  </table>
+  <div class="sec">成功标准</div>
+  <ul>
+    <li>C1（先决）：首会日期 7 天内锁定——与 Playbook 无关但必须先成立</li>
+    <li>总投入 ≤4h（超时即记损失并停）；<b>周五检查点：首会仍未排期 → 本周阅读时间记账为「伪行动损失」</b></li>
+  </ul>
+  <div class="challenge"><b>诚实挑战（节选）：</b>① 储备还是伪行动？判据在顺序不在内容：<b>邀约已发再读 = 储备；邀约没发在读 = 伪行动</b>。② 孵化器内容已核实三点：商业模式=收入分成+知识付费（Playbook 是漏斗顶端）、受众=一人公司/独立开发者（与三人合伙 B2B SaaS 不同构）、增长课直接错配——按「三成可用」预期消费：取出海实操，弃增长叙事。③ 其「16 亿 token 梳理三年内容」的方法论价值归 Notebooks 线（agentic 内容工程案例），不占 WellDone 预算、不作为本提案理由。</div>
+</div>
+
+<div class="footer">
+  生成：2026-09-24 · my-readwise-briefing v4.3 Phase 2 · 5/5 subagent 完成（无内联兜底）· 输入=Phase 1.5 验证报告（3✅ 2⚠️）· 公开归档版已脱敏 · 完整 Proposal 原文含 subagent 引用的内部 workspace 路径，不入公开仓库
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
