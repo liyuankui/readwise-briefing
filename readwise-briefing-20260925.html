@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-09-25</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 960px; margin: 0 auto;
+}
+.header { text-align: center; padding: 1.5rem 0 1rem; border-bottom: 2px solid var(--accent); margin-bottom: 1.5rem; position: relative; }
+.header h1 { font-size: 1.7rem; color: var(--accent); margin-bottom: 0.3rem; }
+.header .sub { color: var(--text3); font-size: 0.9rem; }
+.theme-btn {
+  position: absolute; right: 0; top: 0.5rem; font-size: 1.3rem; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 50%; width: 2.4rem; height: 2.4rem; cursor: pointer;
+}
+.stats { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.stat { flex: 1; min-width: 130px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1rem; text-align: center; }
+.stat .num { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+.stat .label { font-size: 0.8rem; color: var(--text3); }
+h2 { font-size: 1.25rem; color: var(--accent); margin: 1.8rem 0 0.8rem; padding-left: 0.6rem; border-left: 4px solid var(--accent); }
+h3 { font-size: 1.05rem; margin: 1rem 0 0.4rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.3rem; margin-bottom: 1rem; }
+.card .tag { display: inline-block; font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 999px; margin-right: 0.4rem; margin-bottom: 0.4rem; }
+.tag.t5 { background: rgba(5,150,105,.12); color: var(--accent3); }
+.tag.t3 { background: rgba(99,102,241,.12); color: var(--accent2); }
+.tag.ver { background: rgba(45,90,74,.12); color: var(--accent); }
+.tag.warn { background: rgba(217,119,6,.14); color: var(--accent4); }
+.tag.bad { background: rgba(220,38,38,.12); color: var(--accent5); }
+.why { background: var(--surface2); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.6rem; font-size: 0.92rem; color: var(--text2); }
+.why::before { content: "💡 为何相关："; color: var(--accent4); font-weight: bold; }
+table { width: 100%; border-collapse: collapse; margin: 0.6rem 0 1rem; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul.tight { padding-left: 1.4rem; }
+ul.tight li { margin-bottom: 0.45rem; }
+.life { border-left: 4px solid var(--accent3); }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1.2rem; margin-bottom: 1rem; }
+summary { cursor: pointer; color: var(--text3); font-size: 0.9rem; }
+.footer { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+blockquote { border-left: 3px solid var(--border); padding-left: 1rem; color: var(--text2); margin: 0.5rem 0; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <button class="theme-btn" id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="sub">2026-09-25（周五）· 增量窗口：09-24 之后 · 全部为推文信号</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">14</div><div class="label">新信号</div></div>
+  <div class="stat"><div class="num">5</div><div class="label">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">3</div><div class="label">中价值 ⭐×3</div></div>
+  <div class="stat"><div class="num">4</div><div class="label">生活维度 🌿</div></div>
+  <div class="stat"><div class="num">6</div><div class="label">信号已验证 🔍</div></div>
+</div>
+
+<h2>🔭 信号概览 — 5 个深挖方向</h2>
+<table>
+  <tr><th>#</th><th>方向</th><th>信号来源</th><th>连接项目</th><th>验证</th></tr>
+  <tr><td>1</td><td>去AI味的语言学量化工程</td><td>lieflat 283万字统计 skill（2001★）</td><td>自媒体内容质量体系</td><td>✅+🔬</td></tr>
+  <tr><td>2</td><td>Harness 自优化 × eval 背离防御</td><td>DarwinX 等论文群</td><td>AI Coding Eval</td><td>⚠️ 归属有误</td></tr>
+  <tr><td>3</td><td>FDE（前线部署工程师）角色演进</td><td>国内 FDE 热潮多源确认</td><td>AI 能力组合 / 讲师团</td><td>✅</td></tr>
+  <tr><td>4</td><td>AI 时代技能策略两极叙事</td><td>吴恩达 vs 前OpenAI研究员</td><td>K12 大纲 / 讲师团</td><td>✅ / ⚠️</td></tr>
+  <tr><td>5</td><td>System One 新模型类别</td><td>CLM-8B vs Jev（昨日发布）</td><td>低成本模型选型</td><td>✅</td></tr>
+</table>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（5条）</h2>
+
+<div class="card">
+  <span class="tag t5">⭐×5</span><span class="tag ver">✅ Verified + 🔬 值得试用</span>
+  <h3>1. 基于 linguistic statistics + 语言学、句式、语义多维穷尽对比。MIT 协议，moxt.ai 平台，可接入 Claude Code 等主流 coding agent。</p>
+  <div class="why">自家内容生产线的直接对标物：现有人工"AI味句式黑名单"（v9.4）是经验规则，此 repo 用 283 万字统计量化同一问题。吸收其统计结论（而非重造轮子）可把黑名单升级为数据支撑版，同时校准现有 humanizer-zh skill 的规则集。</div>
+</div>
+
+<div class="card">
+  <span class="tag t5">⭐×5</span><span class="tag warn">⚠️ Partial — 论文真实但归属有误</span>
+  <h3>2. Harness 自优化陷阱：eval 分数涨、真实任务跌</h3>
+  <p>推文称"Google must-read 论文"：agent harness 被自动优化后，eval 分数上升而真实任务表现变差，论文展示了五种 harness-evolution 方法的对比与防范。经查最匹配论文为 <a href="https://arxiv.org/abs/2608.07545">DarwinX（arXiv:2608.07545）</a>——实为 <b>Salesforce AI Research</b>（非 Google），2026-07-31 发表；相关论文群：Self-Harness（2606.09498）、ModularRSI（benchmark-disjoint 防泄漏）、GauntletBench。CERN RL Bootcamp 金句："The harness is part of the policy — unfixed harnesses → you measure the harness"。</p>
+  <div class="why">这是昨日简报"评估作弊系统化"主线的直接延续：model × harness 评测若被针对 eval 优化（有意或无意），选型结论即失真。防过拟合设计（held-out 任务集、benchmark-disjoint 拆分）应纳入 eval pipeline。另：推文把 Salesforce 说成 Google——二手信号必须验证的又一实证。</div>
+</div>
+
+<div class="card">
+  <span class="tag t5">⭐×5</span><span class="tag ver">✅ Verified — 趋势多源确认</span>
+  <h3>3. 国内 FDE（前线部署工程师）现状：从 Palantir 概念到政策背书</h3>
+  <p>一线 FDE 长文自述"国内最前沿视角"。趋势侧多源确认：36氪"大模型公司开始干咨询公司的活"、53AI"中国五类企业 FDE 全景（同一个岗位五种生意）"、上海市"十五五"政策明确"建设 FDE 队伍"、创智学院 FDE 储备库、Datawhale 活动 500 报名。深层定义：FDE 是"把企业 Know-How 转化为 AI 可执行 Context 的翻译者"；与驻场工程师的本质区别在"现场经验能否反哺为产品能力"。争议：护城河 or 临时补丁？</p>
+  <div class="why">FY27"用 AI 简化工作"本质上就是 FDE 解决的"最后一公里"问题。两个连接点：① 是否在团队显式定义 FDE 职能或融入现有角色；② "现场经验反哺为产品能力"= 内部 Skill Hub 的 skill 沉淀机制，基础设施已有——FDE 能力模型（四阶段×12项）可直接参考升级讲师团大纲。</div>
+</div>
+
+<div class="card">
+  <span class="tag t5">⭐×5</span><span class="tag ver">✅ Verified（吴恩达）/ ⚠️ 单源激进（DePue）</span>
+  <h3>4. 技能策略两极：吴恩达"人人都该学编程" vs 前OpenAI研究员"无能力护城河"</h3>
+  <p><b>正方（吴恩达，多源一致）</b>：编程是 AI 时代的"new literacy"；历史规律是工具简化→开发者规模扩大；AI 辅助下效率提升 30-50%，逻辑恰是"写代码变容易了所以更值得学"。<b>反方（Will DePue）</b>：人类几乎不存在真正安全的能力护城河，机器将全面超越智力与身体能力，"程序员和数学家只是最早感受到这一切的人"（预测性判断，原文未能直接验证）。</p>
+  <div class="why">两个信号同日到达且观点对立——张力本身就是信息。K12 课程大纲若 10 年后编程如识字般普及（吴对）或被全面取代（DePue 对），今天该教什么？成人 AI upskill 讲师团的"教什么"叙事同样要在这两极间定位。与昨日 MIT AI 教育报告信号互补（那是课程框架，这是技能投资决策逻辑）。</div>
+</div>
+
+<div class="card">
+  <span class="tag t5">⭐×5</span><span class="tag ver">✅ Verified — 昨日新闻，类别正在形成</span>
+  <h3>5. System One 模型类别诞生：CLM-8B（开放权重）vs Jev（商业）</h3>
+  <p>Contrastive-LM 发布 CLM-8B：contrastive learning 目标连接状态与动作，对 agent 动作<b>打分而非生成文本</b>，比 TypeSafe Jev 快 9×。Jev（09-15 发布）宣称 typed decisions、40-200× 快、40-400× 便宜、零幻觉。HN 活跃讨论中。"System One"（快直觉）vs "System Two"（LLM 慢推理）混合架构正在成为 agent 工作流新范式。</p>
+  <div class="why">低成本编程工具的成本论证目前只比较"生成式 LLM 单价"——若 agent 工作流中路由/验证/选择类决策步骤可被 System One 模型接管，成本模型需重算，直接影响 opencode 类工具的选型论证与 eval 矩阵设计。风险：类别仅诞生数日，成熟度未知，宜"观察不落后"。</div>
+</div>
+
+<h2>⭐⭐⭐ 中等价值信号（3条）</h2>
+<div class="card">
+  <ul class="tight">
+    <li><span class="tag t3">⭐×3</span><span class="tag ver">✅</span><b>全球 AI 情绪：72% 好奇/兴奋 vs 41% 担忧</b> — Gallup-Microsoft 37 国调查（NYT "Worried West" 报道）：34/37 国正面情绪占优，美国是 outlier。adoption 叙事的好素材：全球南方拥抱 AI，"担忧"更多是西方叙事。</li>
+    <li><span class="tag t3">⭐×3</span><b>《Traction》（DuckDuckGo 创始人）</b> — "会 Coding 只能做出产品，会营销和增长才能找到用户"。独立开发/出海副业书单首选，Bullseye 渠道测试框架可操作。</li>
+    <li><span class="tag t3">⭐×3</span><span class="tag warn">⚠️ 短链无法验证</span><b>Rust 版教材推荐</b> — 推文称某书可用 Rust 版阅读（附图）。与 Rust 学习线相关，具体书目需点开原图确认。</li>
+  </ul>
+</div>
+
+<h2>🌿 生活维度信号</h2>
+<div class="card life">
+  <ul class="tight">
+    <li>🧠 <b>效率崇拜反思</b> — "we keep worshipping efficiency… what is the point of endless production if there is no time left to…"：对"压缩一切循环"的质疑，与 Life OS 的初衷（从执行者升级为设计者，而非更快的执行者）同频。</li>
+    <li>🧠 <b>罗素：把工作看得很重是精神失常的先兆</b> — 警句无上下文，当作 weekly 体检的一面镜子即可。</li>
+    <li>🧠 <span class="tag ver">✅</span><b>《高性价比人生指南》repo</b> — <a href="https://github.com/cdyforever/how-to-live-better">cdyforever/how-to-live-better</a>：全书 528 条在线单页版，另有衍生"人生发展 Skill"（结合个人处境+证据+成本收益答疑）。周末浏览候选。</li>
+    <li>📈 <span class="tag warn">⚠️ 单源时政</span><b>中美元首会晤 23 要点</b> — 超高规格接待、经贸缓和信号。宏观背景噪音为主，具体细节以官方通稿为准，不作为仓位依据。</li>
+  </ul>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="card">
+  <ul class="tight">
+    <li><b>[本周]</b> Clone <code>lieflat-less-ai-tone</code>，将其统计结论（句式分布/词频差异）与自家 v9.4 AI味黑名单逐条对照，产出差异清单 → 反哺内容生产 skill（预估 2h）</li>
+    <li><b>[本周]</b> AI Coding Eval 增加 held-out 任务集设计（eval 与真实任务分离），防 harness 针对性优化 → 写入 eval pipeline 文档（预估 1h，先设计后实现）</li>
+    <li><b>[两周]</b> K12 大纲 v04 新增"技能张力"章节：用吴恩达 vs DePue 两极框架讲"为什么学"，避免单向叙事</li>
+    <li><b>[观察]</b> System One 类别（CLM-8B/Jev）列入低成本选型雷达，月度复查成熟度；opencode 提案的成本论证补一句"混合架构可能进一步下探成本"</li>
+    <li><b>[轻量]</b> 《Traction》列入 WellDone 首次会议前的共读候选；《高性价比人生指南》周末浏览</li>
+  </ul>
+</div>
+
+<h2>📎 低价值附录（14条全量）</h2>
+<details>
+  <summary>展开查看全部信号（含已归入上文条目的原文链接）</summary>
+  <table>
+    <tr><th>#</th><th>内容摘要</th><th>分层</th><th>链接</th></tr>
+    <tr><td>1</td><td>CLM-8B System One 模型（对比 Jev 快 9×）</td><td>⭐×5</td><td><a href="https://x.com/jackyk02/status/2102905335925424285">原文</a></td></tr>
+    <tr><td>2</td><td>Gallup 37国 AI 情绪 72/41</td><td>⭐×3</td><td><a href="https://x.com/nickgillespie/status/2102746052256322006">原文</a></td></tr>
+    <tr><td>3</td><td>效率/生产力崇拜反思</td><td>🧠生活</td><td><a href="https://x.com/ryolu_/status/2102933485795369213">原文</a></td></tr>
+    <tr><td>4</td><td>283万字去AI味 skill</td><td>⭐×5</td><td><a href="https://x.com/lieflat_3/status/2099746344466579566">原文</a></td></tr>
+    <tr><td>5</td><td>国内 FDE 最前沿现状长文</td><td>⭐×5</td><td><a href="https://x.com/Sither_V/status/2102976218178163055">原文</a></td></tr>
+    <tr><td>6</td><td>中美元首会晤 23 要点</td><td>📈生活</td><td><a href="https://x.com/UnicornBitcoin/status/2103004835301953648">原文</a></td></tr>
+    <tr><td>7</td><td>Rust 版教材推荐</td><td>⭐×3</td><td><a href="https://x.com/o8_vm/status/2102723033337315657">原文</a></td></tr>
+    <tr><td>8</td><td>Will DePue：无能力护城河</td><td>⭐×5(组)</td><td><a href="https://x.com/MaxForAI/status/2102969549499121961">原文</a></td></tr>
+    <tr><td>9</td><td>《Traction》拉新方法论</td><td>⭐×3</td><td><a href="https://x.com/grgerwcwetwet/status/2102730988791169055">原文</a></td></tr>
+    <tr><td>10</td><td>《高性价比人生指南》repo</td><td>🧠生活</td><td><a href="https://x.com/Jackywine/status/2103031248000319961">原文</a></td></tr>
+    <tr><td>11</td><td>罗素论工作观</td><td>🧠生活</td><td><a href="https://x.com/tingyun97/status/2103035792826503650">原文</a></td></tr>
+    <tr><td>12</td><td>self-improving agent harness 论文</td><td>⭐×5</td><td><a href="https://x.com/omarsar0/status/2102853768266256738">原文</a></td></tr>
+    <tr><td>13</td><td>仅含短链，无正文（无法验证）</td><td>低价值</td><td><a href="https://x.com/shao__meng/status/2103072921308877122">原文</a></td></tr>
+    <tr><td>14</td><td>吴恩达：人人都该学编程</td><td>⭐×5(组)</td><td><a href="https://x.com/dotey/status/2102923910174117904">原文</a></td></tr>
+  </table>
+</details>
+
+<div class="footer">
+  <p>信号 → 验证 → 洞察 → 行动 · 不可行动的信息 = 噪音</p>
+  <p>Phase 2 深挖 Proposals 见同日 <a href="readwise-proposals-20260925.html">proposals 页</a> · Generated by my-readwise-briefing v4.3</p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
