@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-09-25</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; padding: 2rem 1rem; max-width: 960px; margin: 0 auto;
+}
+.header { text-align: center; padding: 1.5rem 0 1rem; border-bottom: 2px solid var(--accent); margin-bottom: 1.2rem; position: relative; }
+.header h1 { font-size: 1.7rem; color: var(--accent); margin-bottom: 0.3rem; }
+.header .sub { color: var(--text3); font-size: 0.9rem; }
+.axiom { background: var(--surface2); border-radius: 8px; padding: 0.6rem 1.2rem; text-align: center; font-size: 0.95rem; color: var(--accent); margin-bottom: 1.5rem; }
+.theme-btn { position: absolute; right: 0; top: 0.5rem; font-size: 1.3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; width: 2.4rem; height: 2.4rem; cursor: pointer; }
+h2 { font-size: 1.25rem; color: var(--accent); margin: 1.8rem 0 0.8rem; padding-left: 0.6rem; border-left: 4px solid var(--accent); }
+.proposal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem 1.5rem; margin-bottom: 1.5rem; }
+.proposal h3 { font-size: 1.15rem; color: var(--accent); margin-bottom: 0.6rem; }
+.claim { background: rgba(45,90,74,.08); border-left: 4px solid var(--accent); padding: 0.7rem 1rem; border-radius: 0 8px 8px 0; margin: 0.7rem 0; font-weight: bold; }
+html.dark .claim { background: rgba(108,142,245,.1); }
+.meta { font-size: 0.85rem; color: var(--text3); margin-bottom: 0.6rem; }
+.meta .tag { display: inline-block; background: var(--surface2); border-radius: 999px; padding: 0.05rem 0.6rem; margin-right: 0.4rem; }
+h4 { font-size: 1rem; margin: 0.9rem 0 0.4rem; color: var(--accent2); }
+table { width: 100%; border-collapse: collapse; margin: 0.5rem 0 0.8rem; font-size: 0.9rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.65rem; text-align: left; vertical-align: top; }
+th { background: var(--surface2); color: var(--accent); }
+ul { padding-left: 1.4rem; } li { margin-bottom: 0.4rem; }
+.challenge { background: rgba(220,38,38,.06); border: 1px dashed var(--accent5); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.8rem; font-size: 0.93rem; }
+.challenge b { color: var(--accent5); }
+.footer { text-align: center; color: var(--text3); font-size: 0.8rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+a { color: var(--accent2); text-decoration: none; } a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="header">
+  <button class="theme-btn" id="theme-toggle">🌙</button>
+  <h1>⛏️ 深挖 Proposals</h1>
+  <div class="sub">2026-09-25（周五）· 5 个方向 · 由并行 subagents 独立推理生成</div>
+</div>
+<div class="axiom">不可行动的信息 = 噪音 —— 每个 Proposal 必须回答：解决什么？为何现在？怎么做？怎么算成功？谁来做？失败了怎么办？</div>
+
+<h2>🗺️ 信号 × 项目 对应</h2>
+<table>
+  <tr><th>Proposal</th><th>信号（验证状态）</th><th>连接项目</th></tr>
+  <tr><td>1. AI 味治理：经验黑名单 → 统计校准体系</td><td>lieflat-less-ai-tone 283万字统计（✅+🔬）</td><td>自媒体内容质量 / humanizer-zh</td></tr>
+  <tr><td>2. Eval 防过拟合门禁</td><td>DarwinX 论文群（⚠️ 归属有误：Salesforce 非 Google）</td><td>AI Coding Eval</td></tr>
+  <tr><td>3. FDE 角色演进 × 组织能力</td><td>国内 FDE 热潮（✅ 多源+政策）</td><td>AI 能力组合 / 讲师团</td></tr>
+  <tr><td>4. 技能策略两极：教什么的张力设计</td><td>吴恩达（✅）vs DePue（⚠️单源）</td><td>K12 大纲 v04 / 讲师团</td></tr>
+  <tr><td>5. System One 模型类别 × 成本模型重算</td><td>CLM-8B/Jev（✅ 昨日新闻）</td><td>低成本选型 / eval 矩阵</td></tr>
+</table>
+
+<!-- P1 -->
+<div class="proposal" id="p1">
+<h3>Proposal 1 · AI 味治理：从「经验黑名单」升级为「统计校准体系」</h3>
+<div class="meta"><span class="tag">🔬 已亲验 repo 结构</span><span class="tag">主项目：自媒体内容质量</span><span class="tag">总投入 ≤3 工作日</span></div>
+<div class="claim">不重造轮子，吸收 lieflat 的统计验证方法论——用其已验证结论审计自有黑名单、用其脚本跑自有语料——把 AI 味判断从 opinion 升级为 evidence。</div>
+<h4>锁定的痛点</h4>
+<p>v9.4 黑名单是人工经验，<b>无区分度数据</b>——哪条真有效、哪条是错觉，无人知。而 lieflat 数据（RESEARCH.md，629篇/283万字）提示此类黑名单大概率含伪规则：</p>
+<ul>
+<li>「AI 句长均匀」被证伪（R=0.87，无区分度）</li>
+<li>「AI 爱用隐喻标记」被证伪——人类反而多 2.4×；正文反问人类多 17×（若黑名单禁反问，反在删人味）</li>
+<li>破折号频率跨模型 40 倍（DeepSeek 5.16/千字 vs GPT 0.11）→ 一刀切规则误伤/漏放不一</li>
+</ul>
+<h4>关键决策：提炼为主，集成为辅</h4>
+<table>
+<tr><th>选项</th><th>判断</th><th>理由</th></tr>
+<tr><td>提炼 RESEARCH.md 结论 + 脚本自算，反哺 humanizer-zh</td><td>✅ 主线</td><td>语料可换成自己的；资产自有；MIT 允许</td></tr>
+<tr><td>直接集成其 SKILL.md 进生产链路</td><td>⚠️ 仅参考</td><td>其人工语料文体未知；repo 停更一月，不宜当依赖</td></tr>
+</table>
+<h4>里程碑</h4>
+<table>
+<tr><th>#</th><th>里程碑</th><th>产出</th><th>估时</th></tr>
+<tr><td>M1</td><td>黑名单体检</td><td>v9.4 每条打三态标：已验证/被证伪/未验证</td><td>0.5 天</td></tr>
+<tr><td>M2</td><td>试用对照</td><td>装 skill，2-3 篇存稿盲测 vs humanizer-zh</td><td>1 小时</td></tr>
+<tr><td>M3</td><td>自有语料复算</td><td>已发稿 + 自有 AI 稿跑 scripts，得领域 R 值表</td><td>1 天</td></tr>
+<tr><td>M4</td><td>humanizer-zh v2</td><td>通用已验证规则 + 领域校准 + 按模型分档阈值</td><td>0.5 天</td></tr>
+</table>
+<h4>成功标准 / ROI</h4>
+<ul>
+<li>v9.4 条目 100% 三态标注，被证伪条目处置留痕；自有语料 R 值表 ≥10 特征；盲测 v2 优于 v1，人工纯稿误伤 ≤1 处/千字</li>
+<li>ROI：去味 pass 缩短 + 「用统计验证风格规则」方法论可迁移至公司 AI 内容基线——复用性高于副业本身</li>
+</ul>
+<h4>本周行动（3 件）</h4>
+<ul>
+<li>读 RESEARCH.md，对照 v9.4 逐条打标（半天）</li>
+<li>安装该 skill，2 篇存稿盲测（1 小时）</li>
+<li>导出已发稿为 .md 目录，跑 compare-human-ai.py 冒烟验证（2 小时）</li>
+</ul>
+<div class="challenge"><b>诚实挑战：</b>① 量级悖论——月产 4-8 篇时统计体系投入产出可疑，真实价值大半在方法论资产（可迁移主业）；纯为副业则砍 M3 只做 M1+M2。② 代理偏差——R 值衡量统计可分性，非读者感知的 AI 味，最终裁判是盲测读者。③ 语料污染——其 300 篇 AI 稿的生成方式未知，「AI 味」可能部分是「特定生成方式味」。④ 沉没成本——v9.4 是人工心血，多条被证伪后舍得删吗？删不动，M1 白做。</div>
+</div>
+
+<!-- P2 -->
+<div class="proposal" id="p2">
+<h3>Proposal 2 · Eval 防过拟合门禁（Anti-Harness-Overfit Guard）</h3>
+<div class="meta"><span class="tag">⚠️ 论文归属已纠正：Salesforce 非 Google</span><span class="tag">主项目：AI Coding Eval</span><span class="tag">4 周四层</span></div>
+<div class="claim">在 model × harness 选型评测中，harness 本身就是策略的一部分（"unfixed harness → you measure the harness"）；若不隔离评测集与调优输入（held-out 拆分 + harness 冻结 + 泄漏扫描），分数上涨可能只证明"harness 学会了这套题"——防过拟合必须是 pipeline 的门禁，而非事后审计。</div>
+<h4>锁定的痛点（项目内实证）</h4>
+<ul>
+<li>96% case 为 judge_only，无 FTP oracle；harness 特有输出风格可能讨好 judge</li>
+<li>harness 维度仅 1 个 adapter，而选型对象是多家工具；厂商 harness 持续热更新，跨版本不可比</li>
+<li>已发生「假 10/10」事故（gpt-5.6-luna，真实 7/10）——未隔离验证的分数会骗人（2026-08-04 修正报告）</li>
+<li>leak guard 只盖 problem_statement；AGENTS.md/skills 等运行时注入物未扫描</li>
+</ul>
+<h4>里程碑（4 个，约 4 周）</h4>
+<table>
+<tr><th>里程碑</th><th>内容</th><th>工时</th></tr>
+<tr><td>M1 隔离</td><td>90 case 分层拆 dev(70)/held-out(20)；report gate 拒其混入</td><td>2d</td></tr>
+<tr><td>M2 冻结</td><td>harness 版本+配置 hash 写入 manifest；unfixed 数据标"弱信号"</td><td>2d</td></tr>
+<tr><td>M3 泄漏扫描</td><td>leak guard 扩展至运行时注入物；沙盒快照维持无 git history</td><td>3d</td></tr>
+<tr><td>M4 鲁棒性</td><td>held-out 复跑 + paraphrase 对照 + judge 双输入 style-bias 检测；产出过拟合系数</td><td>5d</td></tr>
+</table>
+<h4>成功标准 / ROI</h4>
+<ul>
+<li>held-out 与 dev 分差 ≤5pp，超限强制标注"过拟合嫌疑"；manifest harness 指纹覆盖率 100%；人工审与 judge 分歧率较 08-04 事故前降 ≥50%</li>
+<li>ROI：选型结论驱动 100+ 座位采购；一次错误选型的切换成本远超 4 周 guard 建设。防作弊设计成为 eval-builder skill 的差异化卖点，对齐 UK AISI / NIST CAISI 的 eval integrity 审查趋势</li>
+</ul>
+<h4>本周行动（3 件）</h4>
+<ul>
+<li>拆 held-out：90→70/20，更新 report gate（0.5d）</li>
+<li>manifest schema 加 harness_fingerprint 字段并回填（0.5d）</li>
+<li>精读 DarwinX（arXiv:2608.07545），在 research/ 落 signal-verification note——推文归属错误即活教材：二手引用必须回原出处核对</li>
+</ul>
+<div class="challenge"><b>诚实挑战：</b>① 样本量硬伤——n=20 下 5pp 阈值淹没在二项噪声（±~20pp）里，"达标"可能只是没测出来；要么扩 held-out，要么承认它是烟雾报警器而非法庭证据。② 时机质疑——当前仅 1 个 harness adapter，"针对性优化"风险尚未真实出现，先扩 harness 再谈过拟合或更务实；回应：M1/M2 仅 2 天且是扩维后的必需基建——先装门，后进人。③ 结构性盲区——held-out 由同一 judge 评，judge 侧 style bias 不会被拆分防住；真正闭环依赖 FTP repo 落地。本提案降险，不除险。</div>
+</div>
+
+<!-- P3 -->
+<div class="proposal" id="p3">
+<h3>Proposal 3 · FA2 落地能力标准：把 FDE 能力嵌入现有角色，从项目制变反哺飞轮</h3>
+<div class="meta"><span class="tag">✅ 趋势多源验证</span><span class="tag">主项目：FY27 数字简化 / 讲师团</span><span class="tag">季度级</span></div>
+<div class="claim">不设新 FDE 岗位，而是显式定义 FDE 能力标准并嵌入现有工程师角色，以「反哺」为验收硬条件：每个落地项目必须把现场 Know-How 沉淀为 Skill Hub 资产——无反哺，不算完成。</div>
+<h4>锁定的痛点</h4>
+<ul>
+<li><b>讲师团断在最后一公里</b>：Survey「高意愿·中能力·低方法论」——课程教 tool usage，不教「现场翻译」（Know-How→Context→Skill），学员回岗仍不会落地</li>
+<li><b>项目制风险</b>：收益框架已产出，但无反哺机制则每个「简化工作」项目都是一次性咨询，「可持续、可采用、可转化」三可落空</li>
+<li><b>Skill Hub 飞轮未证</b>：51 skills 中源自真实部署的比例不明——若多来自工程侧想象，商店是货架不是飞轮</li>
+<li><b>转型无阶梯</b>：portfolio 七个 initiative 缺「人的维度」串联</li>
+</ul>
+<h4>里程碑</h4>
+<table>
+<tr><th>#</th><th>里程碑</th><th>产出</th><th>估时</th></tr>
+<tr><td>M1</td><td>能力矩阵 v0.9</td><td>本地化「四阶段×12项能力」（诊断→共建→部署→反哺），团队自评基线</td><td>2 周</td></tr>
+<tr><td>M2</td><td>讲师团课程 v2</td><td>增「现场翻译」模块；1 期试点教学+前后情景测</td><td>4 周</td></tr>
+<tr><td>M3</td><td>2 个项目全闭环</td><td>每项目沉淀 ≥3 skills 且 ≥1 被非原团队复用</td><td>8 周</td></tr>
+<tr><td>M4</td><td>轮岗+认证</td><td>2-3 人/轮；决策点：FY28 是否立 role</td><td>季度内</td></tr>
+</table>
+<h4>成功标准 / ROI</h4>
+<ul>
+<li>复用：每试点 ≥1 skill 被第三方团队采用；效率：第 2 试点交付人天较第 1 降 ≥30%（非项目制证明）；≥6/11 工程师达 L2（独立现场诊断）</li>
+<li>ROI：首年 10 个项目 × 省 ~15 人天 ≈ 150 人天 ≈ 释放 1 FTE，随 skill 复用复利；人才维度对冲转型期流失风险</li>
+</ul>
+<h4>本周行动（3 件）</h4>
+<ul>
+<li><b>抢对齐窗口</b>：项目正处 sponsor goal-setting，把「反哺 DOD」写进 success picture——此刻注入成本最低，日后改验收口径最贵</li>
+<li><b>审计 Skill Hub 来源</b>：51 skills 中源自真实部署的比例（约 1 小时）——若 &lt;20%，即「飞轮未转」的立项证据</li>
+<li><b>锁定首个试点</b>：从台账选 1 个即将启动项目，谈成含反哺 DOD 的 FDE 式交付</li>
+</ul>
+<div class="challenge"><b>诚实挑战：</b>① 热词风险——FDE 是国内 ToB 叙事，对内宜称「落地能力标准」，提案价值须独立于标签存在。② 归因难——skill 复用↑ ≠ 运营成本↓，150 人天是方向估算，勿向 sponsor 承诺绝对数。③ 样本小——2 个试点证不成「模式成立」，工程师主业仍是交付。④ 旧酒风险——若此模型改变不了任何人的下周行为，它只是一份 PPT。试金石：M3 的 DOD 是否因「无反哺不算完成」而真实改变。</div>
+</div>
+
+<!-- P4 -->
+<div class="proposal" id="p4">
+<h3>Proposal 4 · 货物/载具双账本：把吴恩达 × DePue 张力变成课程与讲师团的决策操作系统</h3>
+<div class="meta"><span class="tag">✅/⚠️ 两极信源</span><span class="tag">主项目：K12 大纲 v04 / 讲师团</span><span class="tag">总投入 ~11h</span></div>
+<div class="claim">别赌"编程会不会被取代"。吴恩达说的是载具（编程作为 literacy 必将普及），DePue 说的是货物（写代码的技能溢价必将归零）——同一枚硬币：工具越易得，使用规模越扩、单位溢价越崩。故每课时应标注为「货物」（判断层：定义力/验证/品味，两种未来都升值）或「载具」（执行层：语法/工具流，够用即可，设课时上限），课程由此对两种未来同时稳健。</div>
+<h4>锁定的痛点</h4>
+<ul>
+<li><b>家长转化断层</b>：公理库已答"教什么"，但 v04 每章答不了家长掏钱那句"AI 都会写代码了，这章买的是什么"</li>
+<li><b>讲师 P0 卡在承诺恐惧</b>：候选讲师最大心障是"教的内容三个月后打脸"；没有"哪些敢承诺 12 个月"的分层，教案与招募话术开不了工</li>
+<li><b>个人资产负债表悬挂</b>：CS336 停滞待确认、Rust 未启动，同笔账无判据，每周付决策焦虑的利息</li>
+</ul>
+<h4>里程碑（全部挂在既有工作上）</h4>
+<table>
+<tr><th>#</th><th>交付物</th><th>时间</th></tr>
+<tr><td>M1</td><td>判定卡 v0.1：三问（AI 放大你 or 替代你？模型升级后残值？学它是否升级相邻判断？）× 20 个样例技能校准</td><td>本周 2h</td></tr>
+<tr><td>M2</td><td>K12 v04 全模块标注 货物/载具/死重 + 修订 diff；死重改造成"AI 失败边界"任务</td><td>第2周 4h</td></tr>
+<tr><td>M3</td><td>讲师 L0-L4 同标注 +「12 个月承诺清单」→ 直接用于 P0 招募</td><td>第2-3周 3h</td></tr>
+<tr><td>M4</td><td>家长 FAQ 一页 + 公理库增补"投资组合"层；1 场试点收 ≥5 条真实 objection</td><td>第4周 2h</td></tr>
+</table>
+<h4>成功标准 / ROI</h4>
+<ul>
+<li>v04 模块 100% 带标签，货物课时占比 ≥70%，死重=0 或附改造方案；≥1 名讲师候选凭承诺清单进入备课；家长/讲师两类 objection 各有 30 秒话术并经试点验证；CS336 继续与否有书面裁决</li>
+<li>ROI：最大招生 objection 翻转为差异化卖点（竞品 Scratch/Python 班恰是 DePue 世界里的贬值资产）；给讲师"教什么不过时"的确定性；同一叙事可复用于公司 AI adoption 沟通</li>
+</ul>
+<h4>本周行动（3 件）</h4>
+<ul>
+<li><b>2h</b>：写判定卡，试标 v04 前 5 模块——必须推翻至少 1 个现有定位，否则承认框架是装饰</li>
+<li><b>30min</b>：拿"货物/载具"话术找 1 位讲师候选或家长测反应，记原话</li>
+<li><b>30min</b>：用判定卡裁决 CS336（手搓 LLM 对讲师 credibility 是货物还是载具），结论落 PROGRESS.md</li>
+</ul>
+<div class="challenge"><b>诚实挑战：</b>① 装饰品风险（最大漏洞）——v04 修订本来就要做，若矩阵只给既定决策贴新标签，便是智力消遣；已设自毁条件：M2 不推翻任何模块 → 框架作废。② 货物也会死——若 DePue 对到极致，定义力/验证同样被超越；终极对冲不在课程内容而在商业模式（教育真正卖的是信任、筛选与责任承担——社会性资产）。③ 信源确定性双双存疑——吴恩达有卖课立场，DePue 属单一来源激进预测；张力为真，两位置信度均被高估——框架稳健性恰来自不押任一方。④ 容量挤压——已内建缓解：M1-M4 皆为既有工作的"附加镜头"，不新增工作流。</div>
+</div>
+
+<!-- P5 -->
+<div class="proposal" id="p5">
+<h3>Proposal 5 · S1-Watch：System One 防线（混合象限 + 成本下行情景 + 观察哨）</h3>
+<div class="meta"><span class="tag">✅ 昨日新闻已验证</span><span class="tag">主项目：低成本模型选型 / eval 矩阵</span><span class="tag">≤1 人周 · $0</span></div>
+<div class="claim">以 ≤1 人周、$0 软件成本，为现有三条线加装"System One 防线"：eval 矩阵补"混合架构"象限、Biz Case 补成本下行情景附录、建月度观察哨——使"国产模型单价低 2-4×"的省钱论证在 agent 架构换代（决策层被 40-400× 便宜的打分模型接管）时不被击穿，且不为天级迭代的新类别付出采购代价。</div>
+<h4>锁定的痛点</h4>
+<ul>
+<li><b>Biz Case 假设单薄</b>：省钱论证只比"生成式 LLM 单价"，隐含"所有调用同架构"——评审一句"下代 harness 内置路由，你的单价优势还剩多少？"即可击穿</li>
+<li><b>eval 盲区</b>：model × harness 缺"决策层模型类型"维度；judge-only 57-59% 无显著差异恰说明 judge 层质量不敏感、成本敏感——正是打分模型靶场，但无数据</li>
+<li><b>追踪真空</b>：类别天级迭代（Jev 09-15、CLM 09-24）vs 企业采购周期 2-4 季度——默认结局：落后且不自知</li>
+</ul>
+<h4>里程碑（不进关键路径）</h4>
+<table>
+<tr><th>#</th><th>里程碑</th><th>Done 标准</th><th>工时</th></tr>
+<tr><td>M0</td><td>CLM-8B 本地复现 spike</td><td>≥100 个标注决策（路由/验证），出一致率 vs GLM judge、单决策延迟与成本；负结果同样结案</td><td>1 天，本周</td></tr>
+<tr><td>M1</td><td>eval 加"混合"象限</td><td>现有 FTP 场景 × {GLM judge, CLM-8B judge} 对照，出统计对比</td><td>2-3 天</td></tr>
+<tr><td>M2</td><td>成本蓝图 v2</td><td>opencode 埋点实测 decision/generation 调用占比；50/70/90% 卸载敏感性表，一页附录进 Biz Case</td><td>1-2 天</td></tr>
+<tr><td>M3</td><td>观察哨 Watchtower</td><td>≥5 条 tripwire（如"财富500生产案例""主流工具原生路由""SWE-bench 级评测"）+ 月扫；双 tripwire 触发才升级采购评估</td><td>2h + 1h/月</td></tr>
+</table>
+<h4>成功标准 / ROI</h4>
+<ul>
+<li>M0 一致率 ≥80% 且单决策 &lt;100ms → 进 M1；&lt;60% → 书面证伪结案（亦算完成）；M1 混合象限质量 CI 与基线重叠；观察哨连续 2 个月零过早升级</li>
+<li>ROI：护住 Biz Case 省钱假设（窗口期约 12-18 个月）；若实测决策调用占比 ≥70%，混合架构在单价之外再降总成本约 3-5×（M2 验证）；负结果亦为交付——廉价杀死一个坏赌注</li>
+</ul>
+<h4>本周行动（3 件）</h4>
+<ul>
+<li>下载 CLM-8B 本地部署（ollama/vLLM），20 个手工决策样本初测一致率与延迟（≤1 天）</li>
+<li>eval 矩阵 spec 加混合象限占位定义；Biz Case 草稿加"成本下行情景"脚注，防评审突袭（≤2h）</li>
+<li>tripwire 清单写入 context/note，月度扫描挂 routine-manager（≤1h）</li>
+</ul>
+<div class="challenge"><b>诚实挑战：</b>① 时点之疑——类别出生仅 10 天，spike 结果大概率被下个版本作废；最强反案：本周只做第 2、3 件（近零成本），M0 推迟到 10 月首个第三方 benchmark 出现后再做。② 数据之疑——"决策占调用大头"来自行业叙事而非本地实测；若 M2 实测 &lt;40%，本案应降级为 Biz Case 一页附注。③ 外推之疑——近期采购主战场是黑盒 harness 的商业工具，本案对最紧迫的 Biz Case 增益是间接的。④ 采购之疑——开放权重模型进企业生产 ≥2-4 季度，届时格局大概率重写；本案真正可交付的是观察机制与 eval 方法论，不是技术采纳。</div>
+</div>
+
+<div class="footer">
+  <p>信号 → 验证 → 洞察 → 行动 · 5 个 subagent 并行深挖 · my-readwise-briefing v4.3</p>
+  <p><a href="readwise-briefing-20260925.html">← 返回当日简报</a></p>
+</div>
+
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
