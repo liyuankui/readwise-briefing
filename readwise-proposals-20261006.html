@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-06（补处理版）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px;
+  transition: background .3s, color .3s;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
+header { text-align: center; padding: 28px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; position: relative; }
+h1 { font-size: 1.7em; color: var(--accent); margin-bottom: 6px; }
+.date { color: var(--text3); font-size: .92em; }
+#theme-toggle { position: absolute; right: 0; top: 8px; border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 1.05em; color: var(--text); }
+.axiom { background: var(--surface); border: 1px solid var(--accent5); border-left: 4px solid var(--accent5); border-radius: 10px; padding: 12px 18px; margin-bottom: 24px; text-align: center; color: var(--text2); font-size: .95em; }
+.axiom b { color: var(--accent5); }
+h2 { font-size: 1.25em; color: var(--accent); margin: 34px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: .9em; }
+th { background: var(--surface2); color: var(--text2); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; }
+td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text2); }
+td:first-child { color: var(--text); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 26px; }
+.card > h3 { font-size: 1.15em; color: var(--accent); margin-bottom: 4px; }
+.claim { font-size: 1.02em; color: var(--text); background: var(--surface2); border-radius: 10px; padding: 12px 16px; margin: 12px 0; border-left: 4px solid var(--accent2); }
+.claim::before { content: "💡 核心主张"; display: block; font-size: .78em; color: var(--accent2); font-weight: 700; margin-bottom: 4px; }
+.card h4 { font-size: .95em; color: var(--text); margin: 18px 0 6px; }
+.card p, .card li { font-size: .93em; color: var(--text2); }
+.card ul, .card ol { padding-left: 20px; }
+.card li { margin-bottom: 6px; }
+.meta { font-size: .82em; color: var(--text3); margin-bottom: 8px; }
+a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+a:hover { text-decoration: underline; }
+.now { background: rgba(5,150,105,.08); border: 1px dashed var(--accent3); border-radius: 10px; padding: 10px 16px; margin-top: 14px; }
+.now h4 { color: var(--accent3); margin-top: 4px; }
+.chal { background: rgba(220,38,38,.06); border: 1px dashed var(--accent5); border-radius: 10px; padding: 10px 16px; margin-top: 14px; }
+.chal h4 { color: var(--accent5); margin-top: 4px; }
+footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--border); font-size: .82em; color: var(--text3); text-align: center; }
+.badge { display: inline-block; font-size: .78em; border-radius: 6px; padding: 1px 8px; vertical-align: 2px; }
+.b-ok { background: rgba(5,150,105,.14); color: var(--accent3); }
+.b-warn { background: rgba(217,119,6,.16); color: var(--accent4); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-06（星期二）· 补处理版 · 5 个方向 · 全部 Intent 导向</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>信号 → 验证 → 洞察 → 行动 四步闭环；❌ Debunked 不入深挖，⚠️ Partial 降权并在文中标注。</div>
+
+<h2>🧭 信号 × 项目对应</h2>
+<table>
+  <tr><th style="width:24%">Proposal</th><th>信号群</th><th style="width:20%">连接项目</th><th style="width:12%">验证状态</th></tr>
+  <tr><td><b>P1 练级场重建</b>（Judgment Gym）</td><td>练级场消失 ×2 · 大摩德日对照 · 历史恐慌镜鉴 · 路径失效 · 湾区转行</td><td>AI Upskill 讲师团 / 团队人才梯队</td><td><span class="badge b-warn">⚠️ Partial</span></td></tr>
+  <tr><td><b>P2 Agent 沙箱 PoC</b></td><td>终端 Agent 裸子进程 · Agent 补短板史 · 马斯克三规则</td><td>Agentic 安全工程</td><td><span class="badge b-ok">✅ Verified</span></td></tr>
+  <tr><td><b>P3 NL 断言层 PoC</b></td><td>e2e 框架机制（repo 未定位）· 测试验收短板 · skill 生态风向</td><td>AI Coding Eval</td><td><span class="badge b-warn">⚠️ 机制自研</span></td></tr>
+  <tr><td><b>P4 模型路由层</b></td><td>magpie（Codex×DeepSeek）</td><td>opencode 提案 / 试点 Biz Case</td><td><span class="badge b-ok">✅🔬 亲测</span></td></tr>
+  <tr><td><b>P5 好问题工作流</b></td><td>意图瓶颈 · deep-question · goal-restate · AI 输出阅读纪律</td><td>Life OS / 意图提案制</td><td><span class="badge b-ok">✅ 框架可用</span></td></tr>
+</table>
+
+<h2>P1 · 练级场重建计划（Judgment Gym）</h2>
+<div class="card">
+  <h3>把「审查 AI 输出」设计成新练级场</h3>
+  <div class="meta">信号：@make_claude ×2 · @foxshuo · @chaojidigua · @xingjia520 · @CatChen（6 条 cluster）</div>
+  <div class="claim">Agent 吃掉的不是初级岗位，而是初级长成 senior 的练级场。与其恐慌或禁用工具，不如把「审查 AI 输出」本身设计成新练级场——12 周跑通团队制度，并产品化为讲师团 L3/L4 课程模块。</div>
+  <h4>🎯 锁定痛点：一位初级工程师的一天</h4>
+  <p>入职 8 个月的初级工程师小 A：上午 3 个 bug 全交 Agent，10 分钟出 PR 合并；下午新接口 Agent 写九成，他补一成样板代码；全天零次被 review 挑战、零次独立定位问题。季度绩效写「交付效率高」，但他距「能判断 AI 哪里错」还差上百小时刻意练习——而这些小时正被 Agent 吃掉。</p>
+  <h4>🗺 里程碑（12 周）</h4>
+  <table>
+    <tr><th>阶段</th><th>时间</th><th>内容</th><th>Done 标准</th></tr>
+    <tr><td>M1</td><td>W1-2</td><td>测基线：试点 PR 的 AI 参与率/人工拦截率/盲合并率；制度 v0（AI 审查轮值＋反驳日志）</td><td>基线报告＋一页纸制度过评审</td></tr>
+    <tr><td>M2</td><td>W3-6</td><td>3-5 名初中级试点：每周主审 ≥2 个 AI PR，记录「AI 错在哪」；双周复盘</td><td>累计 ≥60 条反驳，有效率 ≥50%</td></tr>
+    <tr><td>M3</td><td>W7-10</td><td>产品化：case bank 转讲师团 L3/L4「AI 审查力」模块；提问/验收框架部分由非技术讲师执教，补 P0 缺口</td><td>模块 v1＋试讲 1 场评分 ≥4/5</td></tr>
+    <tr><td>M4</td><td>W11-12</td><td>对照基线评估，决定是否全团队/跨团队推广</td><td>数据支撑的决策 memo</td></tr>
+  </table>
+  <h4>📏 成功标准</h4>
+  <ul>
+    <li>盲合并率 &lt;5%（对基线）</li>
+    <li>试点人均 ≥20 条有效反驳（资深复核认定为真 bug/真风险）</li>
+    <li>试点成员独立定位问题次数较基线 +50%；≥1 名中级能独立主持审查环节</li>
+    <li>case bank ≥60 条入教材</li>
+  </ul>
+  <h4>💰 ROI</h4>
+  <p>对冲 senior 产线断供（内部养成成本与确定性优于外招）；练级嵌入日常 PR 零额外课时；盲合并减少降低线上事故风险；case bank 直接回应 survey「低方法论」，讲师团获可持续教材源。</p>
+  <h4>🛡 风险与缓解</h4>
+  <table>
+    <tr><th>风险</th><th>缓解</th></tr>
+    <tr><td>效率短期下滑</td><td>只审高风险 PR；练级 ≤10% 工时</td></tr>
+    <tr><td>硬挑刺凑数</td><td>反驳分级（真问题/风格/无效），只计有效</td></tr>
+    <tr><td>资深被拖成全职教练</td><td>轮值制，每周 ≤1h，单次 15 分钟</td></tr>
+    <tr><td>焦虑伤士气</td><td>定调「投资非惩罚」；外部数据一律标注待核验</td></tr>
+  </table>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>拉最近 4 周试点 PR 基线（AI 参与率/拦截率/盲合并率），1 天完成</li><li>约 2-3 名初中级 1:1 各 30 分钟，收集「我抓到 AI 出错」真实案例</li><li>起草审查轮值一页纸制度；讲师团大纲预留 L3/L4 槽位，下周评审</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>因果未证</b>：「审查 AI」能否长出等价于「亲手写」的判断力无先例证据，可能只练出校对能力。若 12 周有效率持续走低且独立性无变化，按假设失败处理。</li><li><b>周期错配</b>：判断力以年计，12 周只能证明机制跑通。对上汇报只承诺过程指标，不得宣称「解决 senior 断供」。</li><li><b>利益错位</b>：组织按季度奖励交付，练级是长期投资；不写入成员成长预期与绩效对话，制度会在第一个 deadline 前死掉。</li></ol></div>
+  <p class="meta">🔗 <a href="https://x.com/make_claude/status/2089722677787250707">练级场消失</a> · <a href="https://x.com/make_claude/status/2103871365065376225">senior 无处可来</a> · <a href="https://x.com/foxshuo/status/2106671067624509521">大摩德日对照（单一来源待核验）</a> · <a href="https://x.com/chaojidigua/status/2105060192476102943">历史恐慌镜鉴</a> · <a href="https://x.com/xingjia520/status/2104452432164221382">路径失效</a> · <a href="https://x.com/CatChen/status/2104244744331448755">湾区转行</a></p>
+</div>
+
+<h2>P2 · macOS 终端 Agent 沙箱评估 PoC</h2>
+<div class="card">
+  <h3>把「Agent 越权读凭据」从 OS 零拦截变为默认拒绝</h3>
+  <div class="meta">信号：@ferstar_org（✅ 技术事实）· @lijigang（✅ 旁证）· @dotey（⚠️ 治理类比）</div>
+  <div class="claim">以约 5 人日的对比 PoC，在 Seatbelt profile、容器化、专用 VM 三条路线中选定默认沙箱方案，把「Agent 越权读凭据」从 OS 零拦截变为默认拒绝。</div>
+  <h4>🎯 锁定痛点</h4>
+  <p>深夜长任务，Agent 为「补全上下文」做全盘搜索，顺带读取 <code>~/.ssh/id_rsa</code>、<code>~/.aws/credentials</code> 与相邻项目，并把摘要写进外发请求。全程无告警（EDR 只见合法子进程）、无审批、无审计——Agent 是继承 shell 全权限的普通子进程。credential-manager 虽已迁 26 项 secrets 入 Keychain，盘面明文残留与相邻目录仍在裸奔。</p>
+  <h4>🗺 三路线假设（PoC 验证对象）</h4>
+  <table>
+    <tr><th>路线</th><th>隔离强度</th><th>开发体验</th><th>维护成本</th></tr>
+    <tr><td>A：sandbox-exec(Seatbelt)</td><td>中：syscall 级拦截，无独立文件系统</td><td>高：原生、秒启</td><td>高：deprecated、无官方文档</td></tr>
+    <tr><td>B：Docker/devcontainer</td><td>中高：FS+网络隔离，共享 VM 内核</td><td>中：挂载性能损耗</td><td>低：生态成熟</td></tr>
+    <tr><td>C：专用 VM（Lima/Apple VZ）</td><td>高：独立内核与文件系统</td><td>低：启动慢、同步繁</td><td>中：镜像与资源维护</td></tr>
+  </table>
+  <h4>🗺 里程碑</h4>
+  <ol>
+    <li>M1（0.5d）威胁模型：白名单＝cwd 读写/git/bun/指定端点；红线＝~/.ssh、Keychain、相邻项目、剪贴板、任意出网</li>
+    <li>M2（2d）三路线各起最小可用沙箱</li>
+    <li>M3（1d）12 项越权探针 × 3 路线，录拦截率与可观测性</li>
+    <li>M4（0.5d）三维评分出决策报告</li>
+    <li>M5（1d）胜出路线封装 wrapper，接入日常 Agent 启动</li>
+  </ol>
+  <h4>📏 成功标准</h4>
+  <ul><li>探针矩阵 3×12 结果全满、可复现</li><li>胜出路线：红线拦截率 100%；日常工作流（clone/build/test）成功率 ≥90%；启动额外延迟 ≤2s；沙箱配置 ≤100 行入库</li></ul>
+  <h4>💰 ROI</h4>
+  <p>5 人日、零采购；对照一次注入事件的处置成本（轮换全部凭据+溯源+上报）量级悬殊。结论可直接复制为团队 11 名工程师的 Agent 使用规范。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>写红线清单＋12 项越权探针脚本（半天，纯本地）</li><li>跑通路线 A 最小验证：读 cwd 放行、读 ~/.ssh 拦截，截图留证</li><li>以假 id_rsa 录一段「现状下 Agent 可任意读」的基线演示，作立项说服材料</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>路线 A 是在 Apple 未承诺维护的接口上建基建，一次系统更新即可改变行为；须认「最轻但最脆」定位，长期或倒向容器/VM。</li><li>真难点是信任人体工学而非技术：审批多一分，人多一分绕过沙箱的动机——沙箱必须默认无人值守可用，否则注定被弃。</li><li>沙箱压缩的是爆炸半径而非入口：注入仍可在授权目录内作恶，对外表述须克制。</li></ol></div>
+  <p class="meta">🔗 <a href="https://x.com/ferstar_org/status/2103833325882520053">裸子进程</a> · <a href="https://x.com/lijigang/status/2106580939489054978">Agent 补短板史</a> · <a href="https://x.com/dotey/status/2106805067479212209">马斯克三规则</a></p>
+</div>
+
+<h2>P3 · Eval Pipeline「NL 断言层 + 缓存回放」PoC</h2>
+<div class="card">
+  <h3>确定性下限 + 语义上限，打破双盲排序困境</h3>
+  <div class="meta">信号：@vikingmute（⚠️ repo 未定位，机制作自研设计输入）· @lijigang · @mattpocockuk</div>
+  <div class="claim">在现有 eval pipeline 的传统断言之上增设结构化自然语言断言层（llm-as-qa-judge 执行），以 agent 步骤缓存回放支撑判分，用「确定性下限 + 语义上限」双层判分，打破「传统断言满分饱和 × judge-only 噪声」的双盲排序困境。</div>
+  <h4>🎯 锁定痛点</h4>
+  <p>上一轮跑分：某场景 gpt-5.3-codex、haiku-4.5 与国产模型传统断言全部满分——排序失效；改 judge-only 又得 57-59%，样本小无显著差异——排序仍失效。团队日常同样卡在「结果看着对但不达标」：AI 代码能过 JUnit/E2E，人工却能挑出语义缺陷，这层缺陷目前无自动化手段承接。</p>
+  <h4>🧱 分工边界（设计核心）</h4>
+  <table>
+    <tr><th>层</th><th>职责</th><th>性质</th></tr>
+    <tr><td>传统断言</td><td>编译、既有 JUnit/E2E、回归、风格</td><td>二值确定性，作 gate，零 flaky 容忍</td></tr>
+    <tr><td>NL 断言层</td><td>语义验收：意图符合、边界处理、隐性缺陷</td><td>rubric 结构化，输出 verdict+证据+置信度</td></tr>
+    <tr><td>人工</td><td>低置信度升级件复核、维护金标</td><td>抽审兜底</td></tr>
+  </table>
+  <p><b>铁律</b>：凡能用传统断言表达的验收标准，禁止写成 NL 断言；NL 断言只承接确定性断不掉的部分。</p>
+  <h4>🗺 里程碑（约 11 人日 / 3-4 周，1 名工程师兼职）</h4>
+  <ol>
+    <li>M1（2d）断言 schema；从 20 个人审 case 提炼 10 个 case 的 NL 断言+金标</li>
+    <li>M2（2d）pipeline 产物/轨迹缓存（输出、diff、日志快照+版本号）</li>
+    <li>M3（3d）接入 llm-as-qa-judge，金标上校准 rubric</li>
+    <li>M4（3d）小矩阵（2 repo × 2 model）端到端，测一致率/方差/成本</li>
+    <li>M5（1d）数据报告 + 扩全矩阵 go/no-go</li>
+  </ol>
+  <h4>📏 成功标准</h4>
+  <ul><li>金标 20 case：judge 与人审一致率 ≥80%（基线 57-59%）</li><li>高置信子集一致率 ≥85%，升级人审率 ≤30%</li><li>同输入双判分歧率 ≤10%；回放重判成本 ≤ 全量重跑 5%</li><li>≥1 个原满分场景产出非饱和、可排序差异</li></ul>
+  <h4>💰 ROI</h4>
+  <p>人审 20 case/轮 ≈ 7-10 小时 → 只审升级件省约六成；打破饱和 = 选型决策可做（选错模型的迁移成本远超 11 人日 PoC）；沉淀为团队 AI 代码验收层。</p>
+  <h4>🛡 风险与缓解（重点：NL 断言 flaky）</h4>
+  <table>
+    <tr><th>风险</th><th>缓解</th></tr>
+    <tr><td>judge 非确定性/flaky</td><td>只判缓存产物（生成端方差隔离在外）· temperature 0 · 低置信升级人工不硬判 · 双判分歧率&gt;10% 告警</td></tr>
+    <tr><td>judge 系统性偏见</td><td>judge 与被评模型异族；每轮金标校准</td></tr>
+    <tr><td>rubric 过拟合小样本</td><td>金标滚动扩充+留 holdout</td></tr>
+    <tr><td>缓存失真</td><td>快照绑定 harness/model 版本，版本变即失效</td></tr>
+  </table>
+  <div class="now"><h4>⚡ 本周三件事（各 ≤1 天）</h4><ol><li>取 10 个已人审 case，各写 3-5 条 NL 断言，标注是否已被传统断言覆盖——边界 spec 初稿即成形</li><li>对既有评分产物双跑 llm-as-qa-judge 测自分歧率——先拿 flaky 基线，再谈建设</li><li>给下次 pipeline 跑分加产物快照落盘——先缓存、后判分，M2 提前启动</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>57-59% 基线可能意味着瓶颈就在 judge 模型本身：若 rubric+缓存+校准后一致率仍 &lt;70%，本假设证伪。</li><li>n=20 无统计力：80% 与 70% 的一致率在此样本量下区分不开；扩金标必扩人审，存在数据成本墙。</li><li>满分饱和也可能源于任务太易而非判分太粗——断言层救不了任务难度，需同步补难任务。</li></ol></div>
+  <p class="meta">🔗 <a href="https://x.com/vikingmute/status/2106028732884656198">e2e 框架推文</a> · <a href="https://x.com/lijigang/status/2106580939489054978">测试验收短板</a> · <a href="https://x.com/mattpocockuk/status/2105022638368403658">skill 生态风向</a></p>
+</div>
+
+<h2>P4 · 模型路由层（magpie 实证）</h2>
+<div class="card">
+  <h3>「agent 订阅」与「模型供给」解耦</h3>
+  <div class="meta">信号：@indie_maker_fox · yetone/magpie（✅🔬 README 级亲测，⭐5126，MIT）</div>
+  <div class="claim">以 magpie 本地网关为实证，把「agent 订阅」与「模型供给」解耦，实测国产模型在既有终端工作流的成本与质量，为 opencode-proposal 与国产工具试点 Biz Case 补上「模型路由层」论据。</div>
+  <h4>🎯 锁定痛点</h4>
+  <p>一台 macOS 并存多个终端 agent（订阅制 + API key 混用）。想在某个 agent 换用 DeepSeek/GLM，须手工改其配置文件（model/provider/key 三处），一处写错整段失效；配额烧尽再手工换号。成本侧：国产模型单价约为 Copilot 托管模型的 1/2-1/4，但缺同工作流下两类模型的可比数据，提案说服力不足。</p>
+  <h4>🗺 里程碑（个人 → 团队 → 提案）</h4>
+  <table>
+    <tr><th>阶段</th><th>内容</th><th>估时</th></tr>
+    <tr><td>M1 个人试用</td><td>个人设备装 magpie：≥2 agent × ≥2 国产模型，记录配置、切换、配额漂移</td><td>3 天</td></tr>
+    <tr><td>M2 个人评测</td><td>接入既有 Eval 框架：同任务集跑「原生 vs 路由国产」，出成本/质量对比</td><td>1 周</td></tr>
+    <tr><td>M3 合规边界</td><td>与安全/合规确认：公司设备装本地网关的许可、BYO-key 政策、数据路径</td><td>1-2 周（并行）</td></tr>
+    <tr><td>M4 团队小样</td><td>获书面放行后，3-5 名志愿工程师试用 2 周 + survey</td><td>2 周</td></tr>
+    <tr><td>M5 提案沉淀</td><td>「订阅×模型解耦」写入 opencode-proposal F2-F5 与 Biz Case 成本章节</td><td>3 天</td></tr>
+  </table>
+  <h4>📏 成功标准</h4>
+  <ul><li>M1：路由跑通，模型切换 &lt;1 分钟，配置注释与格式无损</li><li>M2：成本对比数据成表（目标降幅 ≥50%），质量损失有量化边界</li><li>M4：≥70% 试用者愿继续用，周均主动切换 ≥3 次</li><li>M5：路由层论据被正式提案与 Biz Case 引用</li></ul>
+  <h4>💰 ROI</h4>
+  <p>个人：多 agent 重复配置由每次 15-30 分钟降至分钟级。团队（12 人外推）：若 30% 日常任务可迁移国产模型，按 2-4× 单价差，token 支出约降 15-30%（保守口径）。谈判：证明订阅与模型供给可分离，采购可按模型单价单独比价——此杠杆认知价值大于直接省钱。</p>
+  <h4>🛡 风险与缓解（只论边界，不给绕过）</h4>
+  <table>
+    <tr><th>风险</th><th>边界与缓解</th></tr>
+    <tr><td>公司设备装个人网关的许可</td><td>试用期仅限个人设备；上公司设备须 IT/安全书面放行</td></tr>
+    <tr><td>BYO-key 合规</td><td>个人 key 能否触公司代码须明文规定；未确认 = 公司代码只走已批准通道</td></tr>
+    <tr><td>数据路径</td><td>验证流量仅经本机、无遥测（README 审查 + 抓包）</td></tr>
+    <tr><td>供应链</td><td>社区项目仅当实证工具、不当采购项</td></tr>
+  </table>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>个人 Mac 跑通「订阅 agent → 国产模型」最小路由，留证</li><li>网关许可与 BYO-key 两个边界问题以问询形式发安全/合规（非安装申请）</li><li>Eval 框架加「路由 vs 原生」任务集，定成本/质量指标</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>magpie 只改善「换模型」的体验，不改变模型能力：若国产模型在真实编码任务上质量差距大，路由层只是切换更快，不自动省钱——M2 须先证质量，再谈成本。</li><li>部分订阅协议禁止第三方代理调用，「解耦」与订阅条款的冲突须 M3 一并确认；厂商或以条款收紧反推捆绑价格。</li></ol></div>
+  <p class="meta">🔗 <a href="https://x.com/indie_maker_fox/status/2106221043719536845">推文</a> · <a href="https://github.com/yetone/magpie">yetone/magpie</a></p>
+</div>
+
+<h2>P5 · 好问题工作流（Question Quality Loop）</h2>
+<div class="card">
+  <h3>把「问题质量」变成可度量、可复利的基础设施</h3>
+  <div class="meta">信号：@python_xxt（✅ 一手体验）· @lijigang · @poteto · @uudonX（⚠️ 二手）· @Morris_LT（⚠️ 单源叙事）</div>
+  <div class="claim">AI 执行力已充裕，瓶颈上移到「问出有价值的问题」。本提案将两个提问 prompt 与一条 AI 输出阅读纪律嵌入每周回顾与意图提案制，使「问题质量」成为 Life OS 内可度量、可复利的基础设施。</div>
+  <h4>🎯 锁定痛点</h4>
+  <p>某周例行回顾的真实场景：意图清单躺着 20+ 条活跃意图，AI 提案不断堆叠，但多数是「AI 能做什么」的排列，而非「我最想发生什么」的澄清——没人问过「这条意图背后，是否有我一直绕着走、没真正问出来的问题」。回顾退化为状态同步：意图被维护，未被深化。同一周，Agent 产出的提案/周报/diff 还需逐字读，回顾时间被阅读吞掉，留给思考的所剩无几。</p>
+  <h4>🗺 里程碑（共约 4 个工作日，跨 4-6 周）</h4>
+  <table>
+    <tr><th>#</th><th>里程碑</th><th>产出</th><th>估算</th></tr>
+    <tr><td>M1</td><td>Prompt 资产化</td><td>prompt 库新增 DEEP_QUESTION.md、GOAL_RESTATE.md（原文＋适用边界）</td><td>0.5 天</td></tr>
+    <tr><td>M2</td><td>回顾流程升级</td><td>回顾模板加两环：深问（每次挑 3 条意图）、目标复述（AI 复述，本人书面修正）</td><td>1 天</td></tr>
+    <tr><td>M3</td><td>阅读纪律落地</td><td>AI 输出分级：TL;DR＋决策点必读，过程叙述可跳过</td><td>1 天</td></tr>
+    <tr><td>M4</td><td>度量闭环</td><td>先测 2 周基线，再建问题质量记分卡＋深问日志</td><td>1 天</td></tr>
+    <tr><td>M5</td><td>四周复盘</td><td>数据评审，决定是否纳入讲师团 L0-L4 方法论</td><td>0.5 天</td></tr>
+  </table>
+  <h4>📏 成功标准</h4>
+  <ul><li>4 周内 ≥50% 活跃意图经 goal-restate 校验并留痕</li><li>深问日志 ≥4 条：每周显式化 ≥1 个「绕着走的问题」（无发现也记「无」）</li><li>提案一次通过率较基线 +20%；单次回顾阅读 Agent 输出耗时 −30%</li></ul>
+  <h4>💰 ROI</h4>
+  <p>回顾约 2h→1.5h；意图从「被维护」变「被深化」；沉淀「教人向 AI 提问」方法论补入 L0-L4 课程（一次投入双产出）；长期对冲「AI 越强、人越弱于提问」的结构性风险。</p>
+  <h4>🛡 风险与缓解</h4>
+  <table>
+    <tr><th>风险</th><th>缓解</th></tr>
+    <tr><td>深问环节流程化空转</td><td>无新发现记「无」；连续 4 周无真实改写即撤除</td></tr>
+    <tr><td>AI 复述制造「被理解幻觉」</td><td>复述后本人必须书面确认/修正一次</td></tr>
+    <tr><td>指标被 gaming</td><td>只看趋势、不挂奖惩</td></tr>
+  </table>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>两个 prompt 存入 prompt 库，本周回顾各实跑一次</li><li>挑 3 条活跃意图跑 deep-question，「绕着走的问题」写入 journal</li><li>定提案硬规：首行必须 TL;DR＋决策点，否则退回重写</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>可度量性存疑</b>：问题质量本质难量化，所有指标皆代理指标。预设失败判据：4 周内深问未带来任何一次真实意图改写，即承认失败、降级为按需工具。</li><li><b>可能是加法而非重构</b>：回顾已承载状态同步职能，叠加后时长可能不降反升；若不同步裁剪低价值环节，本提案只是往已满的日程上再加一块。</li><li><b>叙事依赖风险</b>：「稀缺性迁移」悦耳但单源；本工作流的价值独立于该叙事——即使论断为假，省时与提案质量提升依然成立。</li></ol></div>
+  <p class="meta">🔗 <a href="https://x.com/python_xxt/status/2106781462116933960">意图瓶颈</a> · <a href="https://x.com/lijigang/status/2107109142020395185">deep-question</a> · <a href="https://x.com/poteto/status/2104744961904394699">goal-restate</a> · <a href="https://x.com/uudonX/status/2105832589496111281">AI 输出阅读</a> · <a href="https://x.com/Morris_LT/status/2106906447724609683">稀缺性迁移</a></p>
+</div>
+
+<footer>
+  数据源：Readwise（增量 09-25 → 10-06）· 生成：my-readwise-briefing skill v4.3 · 5 subagents 并行推理（0 失败，无需内联兜底）<br>
+  简报见 <a href="readwise-briefing-20261006.html">Briefing 页</a> · 公开归档仓库纪律：已脱敏
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

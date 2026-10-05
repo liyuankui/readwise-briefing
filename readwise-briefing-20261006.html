@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-06（补处理版）</title>
+<style>
+:root {
+  --bg: #faf9f7; --surface: #ffffff; --surface2: #f5f4f0; --border: #e8e5df;
+  --text: #1a1a1a; --text2: #4a4a4a; --text3: #888880;
+  --accent: #2d5a4a; --accent2: #6366f1; --accent3: #059669; --accent4: #d97706; --accent5: #dc2626;
+}
+html.dark {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242736; --border: #2e3247;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #6c8ef5; --accent2: #a78bfa; --accent3: #34d399; --accent4: #f59e0b; --accent5: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", "楷体", -apple-system, BlinkMacSystemFont, serif;
+  background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px;
+  transition: background .3s, color .3s;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
+header { text-align: center; padding: 28px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; position: relative; }
+h1 { font-size: 1.7em; color: var(--accent); margin-bottom: 6px; }
+.date { color: var(--text3); font-size: .92em; }
+#theme-toggle {
+  position: absolute; right: 0; top: 8px; border: 1px solid var(--border); background: var(--surface);
+  border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 1.05em; color: var(--text);
+}
+.banner {
+  background: var(--surface); border: 1px solid var(--accent4); border-left: 4px solid var(--accent4);
+  border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; font-size: .95em; color: var(--text2);
+}
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 28px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 10px; text-align: center; }
+.stat .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat .lbl { font-size: .82em; color: var(--text3); }
+h2 { font-size: 1.25em; color: var(--accent); margin: 34px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+h2 .tag { font-size: .7em; color: var(--text3); font-weight: 400; margin-left: 8px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .92em; }
+th { background: var(--surface2); color: var(--text2); text-align: left; padding: 8px 10px; border: 1px solid var(--border); font-weight: 600; }
+td { padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; color: var(--text2); }
+td:first-child { color: var(--text); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+.card h3 { font-size: 1.05em; color: var(--text); margin-bottom: 8px; }
+.meta { font-size: .82em; color: var(--text3); margin-bottom: 8px; }
+.badge { display: inline-block; font-size: .78em; border-radius: 6px; padding: 1px 8px; margin-left: 6px; vertical-align: 2px; }
+.b-ok { background: rgba(5,150,105,.14); color: var(--accent3); }
+.b-warn { background: rgba(217,119,6,.16); color: var(--accent4); }
+.b-hands { background: rgba(99,102,241,.15); color: var(--accent2); }
+.why { border-left: 3px solid var(--accent2); padding: 6px 12px; margin-top: 10px; background: var(--surface2); border-radius: 0 8px 8px 0; font-size: .93em; color: var(--text2); }
+.why::before { content: "🎯 为何相关："; color: var(--accent2); font-weight: 600; }
+.quote { color: var(--text2); font-size: .95em; margin: 6px 0; }
+a { color: var(--accent2); text-decoration: none; word-break: break-all; }
+a:hover { text-decoration: underline; }
+ul.compact { list-style: none; }
+ul.compact li { padding: 7px 0; border-bottom: 1px dashed var(--border); font-size: .93em; color: var(--text2); }
+ul.compact li:last-child { border-bottom: none; }
+ul.compact b { color: var(--text); }
+.life-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.life { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+.life h3 { font-size: 1em; margin-bottom: 8px; }
+.life ul { padding-left: 18px; font-size: .9em; color: var(--text2); }
+.life li { margin-bottom: 8px; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 18px; margin-top: 10px; }
+summary { cursor: pointer; color: var(--text3); font-size: .9em; }
+details ul { padding-left: 18px; margin-top: 10px; font-size: .88em; color: var(--text3); }
+details li { margin-bottom: 6px; }
+footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--border); font-size: .82em; color: var(--text3); text-align: center; }
+.act { background: var(--surface); border: 1px solid var(--accent3); border-radius: 12px; padding: 16px 20px; }
+.act ol { padding-left: 22px; }
+.act li { margin-bottom: 8px; font-size: .95em; color: var(--text2); }
+.act li b { color: var(--text); }
+.week { background: var(--surface2); border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; font-size: .93em; color: var(--text2); }
+.week b { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-06（星期二）· 补处理版 · 覆盖 2026-09-25 → 10-06</div>
+</header>
+
+<div class="banner">
+  ⚠️ <b>本次为补处理</b>：上次执行停在 09-25，本简报合并 11 天增量（62 条高亮 · 48 个来源 · 与历史零重复）。
+  期间错过的两个周一（09-28 / 10-05）之周度回顾已并入下方「周度回顾」分区。当天为周二，规则上不触发周一总结，此处为补处理特例。
+  另有 2 条涉政治敏感内容按公开仓库纪律未收录（详见内部 journal）。
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">62</div><div class="lbl">新增高亮</div></div>
+  <div class="stat"><div class="num">48</div><div class="lbl">来源</div></div>
+  <div class="stat"><div class="num">11</div><div class="lbl">覆盖天数</div></div>
+  <div class="stat"><div class="num">6</div><div class="lbl">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">5</div><div class="lbl">深挖方向</div></div>
+  <div class="stat"><div class="num">0</div><div class="lbl">重复内容</div></div>
+</div>
+
+<h2>🗂 周度回顾 <span class="tag">补 09-28 / 10-05 两个错过的周一</span></h2>
+<div class="week"><b>W39 尾（09-25 → 09-28，25 条）</b>：出海冷启动方法论（20 分钟建站跑通闭环）· 黄仁勋会议法（管理信号）· Agent 安全意识萌芽（终端 Agent 权限问题）· AI 创作流水线（数字人 + 网感剪辑全自动出片）· 个人品味与 Design Engineer 手艺话题。</div>
+<div class="week"><b>W40（09-29 → 10-05，37 条）</b>：主线一「<b>AI 时代的人才断层</b>」——练级场消失、高级打工仔路径失效、大摩劳动力研报（德日对照），6 条以上互证；主线二「<b>Agent 工具链成熟</b>」——magpie 模型路由、e2e 测试框架、中文技术写作 skill、answer-me-with-html star 破千；主线三「<b>意图瓶颈</b>」——AI 够强了、缺的是好问题，三个可即用的提问 prompt。</div>
+<div class="week"><b>10-06（周二，本次）</b>：信号采集 + 验证 + 深挖 + 归档闭环恢复。</div>
+
+<h2>🔭 信号概览 → 深挖方向</h2>
+<table>
+  <tr><th style="width:26%">方向</th><th>核心信号</th><th style="width:16%">连接意图</th><th style="width:14%">验证</th></tr>
+  <tr><td><b>D1 人才练级场重构</b></td><td>AI 砍掉的不是 Junior 岗，而是通往 Senior 的路；大摩德日对照；历史技术恐慌镜鉴</td><td>AI Upskill 讲师团</td><td>⚠️ Partial</td></tr>
+  <tr><td><b>D2 Agent 沙箱</b></td><td>终端 Agent = 裸子进程，可读 ~/.ssh；Agent 补短板史之「权限隔离」</td><td>Agentic 安全工程</td><td>✅ Verified</td></tr>
+  <tr><td><b>D3 LLM 原生测试栈</b></td><td>自然语言断言 × 传统断言混写；agent 步骤缓存回放</td><td>AI Coding Eval</td><td>⚠️ repo 未定位</td></tr>
+  <tr><td><b>D4 模型路由层</b></td><td>magpie：Codex 跑 DeepSeek、Claude Code 跑 Kimi，菜单栏一键切换</td><td>opencode 提案</td><td>✅🔬 亲测</td></tr>
+  <tr><td><b>D5 意图瓶颈</b></td><td>AI 足够强，idea/goal 成了瓶颈；deep-question 与 goal-restate prompt</td><td>Life OS</td><td>✅ 框架可用</td></tr>
+</table>
+<p style="font-size:.88em;color:var(--text3)">五份可执行 Proposal 见 <a href="readwise-proposals-20261006.html">Proposals 页</a>。</p>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号（6 条）</h2>
+
+<div class="card">
+  <h3>1. Fenng 的中文技术文档写作 Skill（借鉴 STE 思路）<span class="badge b-ok">✅ Verified</span><span class="badge b-hands">🔬 亲测</span></h3>
+  <div class="meta">10-05 · @Fenng · repo: fenng/Tech-Doc-Style-Chinese（⭐1406，10-05 仍在更新）</div>
+  <p class="quote">"这个版本新增了借鉴 STE (Simplified Technical English) 思路的中文技术写作规则，用于减少歧义和操作错误。已经快 500 个 Star 了。"（推文时点数据；仓库当前已达 1400+）</p>
+  <p class="quote">🔬 亲测（SKILL.md 全文）：规则优先级（事实保真 &gt; 用户约定 &gt; 术语准确 &gt; 结构语气 &gt; 排版）+ 事实保真细则（不得把"可能"改写成确定事实、缺口标"待确认"）——工程质量高，非口号式规范。</p>
+  <div class="why">与知识库 AGENTS.md「R·输出」中 ASD-STE100 中文移植条款完全同源。两步落地：① 装入个人 skill 库作日常写作校对器；② 作为讲师团「AI 时代的写作规范」课件素材。</div>
+  <p class="meta">🔗 <a href="https://x.com/Fenng/status/2085673937892221164">推文</a> · <a href="https://github.com/fenng/Tech-Doc-Style-Chinese">GitHub 仓库</a></p>
+</div>
+
+<div class="card">
+  <h3>2. magpie：任意订阅 × 任意 Agent 的模型路由器<span class="badge b-ok">✅ Verified</span><span class="badge b-hands">🔬 亲测</span></h3>
+  <div class="meta">10-03 · @indie_maker_fox · repo: yetone/magpie（⭐5126，MIT，活跃更新）</div>
+  <p class="quote">"magpie 把「任意订阅/任意 agent 产品」里的模型，一键代理给「任意其他 agent 产品」用——可以在 codex 里跑 deepseek、grok。"</p>
+  <p class="quote">🔬 亲测（README）：本地 gateway 统一管理 35+ agent 的模型配置，只改各 agent 配置文件里那一个 key；配额耗尽自动切账号；macOS 菜单栏操作，支持 Docker/Linux。与宣传一致。</p>
+  <div class="why">「订阅 × 模型解耦」正是低成本国产模型编程提案的底层论据：工具选型与模型采购可以分层决策。个人设备先试用，公司设备走合规边界确认后再议（见 D4 Proposal）。</div>
+  <p class="meta">🔗 <a href="https://x.com/indie_maker_fox/status/2106221043719536845">推文</a> · <a href="https://github.com/yetone/magpie">GitHub 仓库</a></p>
+</div>
+
+<div class="card">
+  <h3>3. AI 砍掉的不是 Junior 岗位，而是通往 Senior 的路<span class="badge b-warn">⚠️ Partial（框架价值高）</span></h3>
+  <div class="meta">09-27 · @make_claude（两条互证）</div>
+  <p class="quote">"新人过去靠修 bug、写测试、被 review、在线上事故里犯错，慢慢长出判断力。现在这些训练任务正被 Agent 最先吃掉。五年后呢？如果新人失去了练级场，下一批能看出 AI 哪里错的人，从哪来？"</p>
+  <div class="why">带 11 人团队 + 讲师团 L0-L4 大纲的 direct 议题：被 Agent 吃掉的练级任务要换成什么？这决定未来 3 年团队人才梯队的供给。同 cluster：郭宇「高级打工仔路径失效」（09-29）、Taleb「算法智能摧毁 conformité」（09-26）、湾区程序员转行考牌照（09-27）。</div>
+  <p class="meta">🔗 <a href="https://x.com/make_claude/status/2089722677787250707">推文1</a> · <a href="https://x.com/make_claude/status/2103871365065376225">推文2</a></p>
+</div>
+
+<div class="card">
+  <h3>4. 大摩 AI 劳动力研报：德国岗位净增 1% vs 日本净流失 10%<span class="badge b-warn">⚠️ 单一来源未核验</span></h3>
+  <div class="meta">10-04 · @foxshuo 阑夕</div>
+  <p class="quote">"发达国家里两个完全相反的例子：美国和德国。德国非常吊诡地出现了岗位净增长 1%，其他所有国家都是净流失，日本甚至净流失了 10% 的岗位量。为什么德国能逆行呢？"</p>
+  <div class="why">若属实，「制度 × 职业教育体系」是 AI 冲击的调节变量——德国双元制职业教育对人才断层 cluster 是关键对照样本。交叉验证因搜索配额受限未完成，引用须标注待核验，不作决策论据。</div>
+  <p class="meta">🔗 <a href="https://x.com/foxshuo/status/2106671067624509521">推文</a></p>
+</div>
+
+<div class="card">
+  <h3>5. 终端 Agent 是裸子进程：权限即你的终端权限<span class="badge b-ok">✅ Verified（技术事实）</span></h3>
+  <div class="meta">09-26 · @ferstar_org</div>
+  <p class="quote">"Agent 本质上就是你机子上的一个普通子进程……如果它随手读一下 ~/.ssh/id_rsa、扫一眼 ~/.aws/credentials，或者翻翻隔壁商业项目，操作系统根本不会有任何拦截。"</p>
+  <div class="why">与 Agentic 安全工程的 Next 步骤「Agent sandbox 评估」100% 对齐；李继刚的「Agent 补短板史」（10-04：检索→状态→重试→<b>权限隔离</b>→测试验收）提供了同一演进框架的旁证。三路线对比（Seatbelt/容器/VM）见 D2 Proposal。</div>
+  <p class="meta">🔗 <a href="https://x.com/ferstar_org/status/2103833325882520053">推文</a> · <a href="https://x.com/lijigang/status/2106580939489054978">旁证：Agent 补短板史</a></p>
+</div>
+
+<div class="card">
+  <h3>6. 「e2e」测试框架：自然语言断言 + 传统断言混写<span class="badge b-warn">⚠️ repo 未定位</span></h3>
+  <div class="meta">10-02 · @vikingmute</div>
+  <p class="quote">"它最有趣的创新是：测试用例里面是自然语言驱动 + 传统断言混写。自然语言表示它是面向 LLM 的测试框架。Agent 步骤可缓存回放，被后续断言验证过的 agent.act……"</p>
+  <div class="why">两个机制（NL 断言层、act 缓存回放）与 AI Coding Eval 的 Next「接入 llm-as-qa-judge」天然互补。多轮 GitHub 搜索未定位确切 repo（推文仅 t.co 短链）——按反幻觉纪律不给链接，机制描述可作自研 PoC 设计输入（见 D3 Proposal）。</div>
+  <p class="meta">🔗 <a href="https://x.com/vikingmute/status/2106028732884656198">推文</a></p>
+</div>
+
+<h2>⭐×4 值得一看</h2>
+<ul class="compact">
+  <li><b>出海冷启动 playbook</b>（09-25 @liangzhu_AI）：14 年 IT 裸辞出海，20 分钟建站当月跑通闭环；「选对大于努力，跑通大于完美」——对出海 MVP 项目的选题/建站/外链三步直接可抄。<a href="https://x.com/liangzhu_AI/status/2103402474677670352">链接</a></li>
+  <li><b>黄仁勋从不一对一开会</b>（09-25 @tvytlx）：减少办公室政治——有事拉大会一次说完、邮件全抄送。EM 角色可直接试运行一周的会议设计实验。<a href="https://x.com/tvytlx/status/2103191209124798916">链接</a></li>
+  <li><b>AI 够强了，我缺的是好问题</b>（10-05 @python_xxt）：「我的 idea、我的 goal，开始成为 AI 的瓶颈」——反直觉信号，Life OS「执行者→系统设计者」的一手同构证据。<a href="https://x.com/python_xxt/status/2106781462116933960">链接</a></li>
+  <li><b>Hands-On Large Language Models</b>（10-05 @shao__meng）：Jay Alammar 与 Maarten Grootendorst 合著，近 300 张自制图解——讲师团 L0-L1 教材候选（图解降低认知门槛）。<a href="https://x.com/shao__meng/status/2106944331345272997">链接</a></li>
+  <li><b>中大型公司 AI Engineer 工作流</b>（09-29 @dongxi_nlp）：假装读 Jira、假装看 trace，全扔给 Agent——组织 adoption 的真实切片，讲师团「工作流重构」课程素材。<a href="https://x.com/dongxi_nlp/status/2105011411780768124">链接</a></li>
+  <li><b>马斯克三规则用于 Agent 治理</b>（10-05 @dotey）：解释为何错 / 要求澄清 / 执行——映射为 Agent 的 human-in-the-loop 审批协议（D2 素材）。<a href="https://x.com/dotey/status/2106805067479212209">链接</a></li>
+  <li><b>Orbi「黑灯软件工厂」</b>（09-25 @xqliu）<span class="badge b-warn">⚠️ repo 未定位</span>：人只提需求、AI 全自动开发发版部署——Software Factory 愿景的社区实现样本，未验证，仅登记观察。<a href="https://x.com/xqliu/status/2103300188148564413">链接</a></li>
+</ul>
+
+<h2>⭐×3 中等价值</h2>
+<ul class="compact">
+  <li><b>answer-me-with-html star 破千</b>（10-05 @smk7z）：基于 Karpathy 思想的 HTML 可视化输出 skill，token 省 7.4×——本机已装；skill 生态风向 ✅（repo ⭐1471）。<a href="https://x.com/smk7z/status/2106295008571850898">链接</a></li>
+  <li><b>Matt Pocock 点名 top 3 skill makers</b>（09-29）：@poteto @dexhorthy @emilkowalski——追 skill 工艺的三个信源。<a href="https://x.com/mattpocockuk/status/2105022638368403658">链接</a></li>
+  <li><b>Lauren 最常用 prompt</b>（10-01 @poteto）："restate in your own words what you think my goals are"——目标对齐神器，每周回顾可嵌入。<a href="https://x.com/poteto/status/2104744961904394699">链接</a></li>
+  <li><b>Karpathy：如何读 AI 生成的大量文字</b>（10-02 @uudonX）<span class="badge b-warn">⚠️ 二手转述</span>：AI 输出的阅读纪律问题框架成立。<a href="https://x.com/uudonX/status/2105832589496111281">链接</a></li>
+  <li><b>/improve-codebase-architecture skill</b>（10-05 @vikingmute）：检测「藏不住复杂度的浅模块」出候选报告——架构重构工作流样本。<a href="https://x.com/vikingmute/status/2106753279036416219">链接</a></li>
+  <li><b>Addy Osmani：Getting the most out of Opus 5.5</b>（10-05 @vikingmute）<span class="badge b-warn">⚠️ 未直接核验</span>：官方用法指南，Opus 重度用户值得一读。<a href="https://x.com/vikingmute/status/2106642299883049014">链接</a></li>
+  <li><b>MCP「塞满上下文」是谣言</b>（09-27 @object_nullll）：工具信息如何进上下文是 agent 作者的考量，与协议无关——MCP 评估的去噪音视角。<a href="https://x.com/object_null/status/2104029444155519335">链接</a></li>
+  <li><b>数字人 + AI 网感剪辑全自动出片</b>（09-25 @leaf_sanren）：口播数字人 + Agent 剪辑 + 剪映工程文件——短视频内容工厂参考实现。<a href="https://x.com/leaf_sanren/status/2102745561732419772">链接</a></li>
+  <li><b>99% 的问题可用科研方法找现成解法</b>（09-25 @rwayne）：「我要搞清楚什么是议程设置→必有人研究过」——检索优先的问题解决观。<a href="https://x.com/rwayne/status/2103307603162063058">链接</a></li>
+  <li><b>历史技术恐慌语录集</b>（09-30 @chaojidigua）：印刷术/咖啡馆/小说/火车/电/自行车/飞行器——AI 恐慌讨论的反 panicked 引证库（D1 素材）。<a href="https://x.com/chaojidigua/status/2105060192476102943">链接</a></li>
+  <li><b>大陆 vs 台湾海外华裔汉语教材对比</b>（09-27 @syhily）：配套学习资料详尽度差距——课程设计（K12 方向）的镜鉴。<a href="https://x.com/syhily/status/2104199026006790314">链接</a></li>
+  <li><b>拿 AI 做出东西的人都很像</b>（09-26 @ianneo_ai）：不固执（拉高审美）、不犯怵（先跑起来）、不偷懒（改到第十版）。<a href="https://x.com/ianneo_ai/status/2103756255584276632">链接</a></li>
+</ul>
+
+<h2>🌿 生活维度信号</h2>
+<div class="life-grid">
+  <div class="life">
+    <h3>🏋️ 健身</h3>
+    <ul>
+      <li><b>网球手眼协调训练</b>（10-05 Dr.Wang）：神经肌肉控制 + 手眼协调，家里有网球即可练——对羽毛球/乒乓/匹克球的反应速度直接迁移。<a href="https://x.com/HotmailfromSH/status/2106712636415238458">链接</a></li>
+      <li><b>颈肩即时放松法</b>（10-05 韩国博主）：久坐颈肩僵「几秒缓解」——动作视频需自行斟酌强度。<a href="https://x.com/Fred7948/status/2106610618321277221">链接</a></li>
+      <li><b>咖啡因 × 睡眠缺乏</b>（09-29）<span class="badge b-warn">⚠️ 简化表述</span>：咖啡因阻断疲劳信号，长期缺觉下风险放大——补剂系统的咖啡因时点管理提醒。<a href="https://x.com/UnicornBitcoin/status/2104983877999878637">链接</a></li>
+    </ul>
+  </div>
+  <div class="life">
+    <h3>🧠 健脑</h3>
+    <ul>
+      <li><b>deep-question prompt</b>（10-05 李继刚）："在我反复讨论的问题背后，有没有一个更深的问题，是我一直绕着它走的？"——元认知探针。<a href="https://x.com/lijigang/status/2107109142020395185">链接</a></li>
+      <li><b>每个时代值钱的信息不同</b>（10-05 Morris）<span class="badge b-warn">⚠️ 叙事单一来源</span>：商品→流量→？的稀缺性迁移之问。<a href="https://x.com/Morris_LT/status/2106906447724609683">链接</a></li>
+      <li><b>待人如初是伪命题</b>（10-05 Orange Cat）：坦诚/熟悉/真诚的祛魅清单——人际关系边界素材。<a href="https://x.com/pearl0812lucky/status/2106983167379067362">链接</a></li>
+    </ul>
+  </div>
+  <div class="life">
+    <h3>📈 建仓</h3>
+    <ul>
+      <li><b>杠杆恐惧与需求遏制论</b>（10-05 Andrew 的戒烟日记）<span class="badge b-warn">⚠️ 单一来源，交叉验证未完成</span>：「害怕上杠杆不是因为还不上钱，而是因为没有就业；需求被遏制，迟早反弹；下一代将生活在高通胀中」——个人宏观观点，未验证，仅作情绪温度计，非投资建议。<a href="https://x.com/haas39483312/status/2106804737840697635">链接</a></li>
+      <li><b>中国城市个税排行榜</b>（09-26 Dr.Wang）：个税 = 工资水平 × 就业质量 × 产业结构的财政投影——城市基本面对照数据。<a href="https://x.com/HotmailfromSH/status/2103662665281528163">链接</a></li>
+    </ul>
+  </div>
+  <div class="life">
+    <h3>🥗 健胃/生活</h3>
+    <ul>
+      <li><b>小扎与女儿的「不可选项」对话</b>（10-04 @tvytlx）："你不能成为 Taylor Swift"→"那我要成为让别人想成为的人"——育儿/志向教育的漂亮范式。<a href="https://x.com/tvytlx/status/2106539798739751141">链接</a></li>
+      <li><b>曾颖：爱情是一个小小的纸箱</b>（10-02）：「我们分担寒潮、风雷、霹雳；我们共享雾霭、流岚、虹霓」——文学品味收藏。<a href="https://x.com/zengying1107/status/2106032883408535852">链接</a></li>
+    </ul>
+  </div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="act">
+  <ol>
+    <li><b>安装评估 fenng/Tech-Doc-Style-Chinese</b>：对照知识库「R·输出」条款跑 3 篇旧文档，验证中文 STE 规则的实际增益，决定是否常驻 skill 库。</li>
+    <li><b>magpie 个人设备试用</b>（≤30 分钟）：验证「Codex 跑 DeepSeek」配置路径与配额切换体验；公司设备合规边界先确认、不安装。</li>
+    <li><b>Agent sandbox 评估立项</b>：按 D2 Proposal 的三路线（Seatbelt / 容器 / VM）搭最小对照实验。</li>
+    <li><b>两个 prompt 入库</b>：deep-question 与 goal-restate 写入每周例行回顾模板（周五回顾第 0 步）。</li>
+    <li><b>「练级场」议题进讲师团议程</b>：以 D1 Proposal 为底稿，下次课程设计评审讨论「被 Agent 吃掉的任务换成什么」。</li>
+  </ol>
+</div>
+
+<h2>📎 低价值附录（已折叠）</h2>
+<details>
+  <summary>展开查看 14 条（纯链接种 / 娱乐 / 观点 / 未验证工具贴）</summary>
+  <ul>
+    <li>仅 t.co 短链无正文（无法验证，按纪律不展开）：Devon Canup、Serena、汪仔新媒体、Roland.W 链接贴、Jaden 链接贴、Meng Shao 链接贴、Fitz「Kubernetes 级革命」类比贴</li>
+    <li>Sonnet ultracode 动态图形视频 prompt（09-30 @okooo5km）——创意用法参考</li>
+    <li>Windows NT 内核设计优于 Linux 之辩（09-27 WindowsLatest）——技术趣闻</li>
+    <li>照片转 3D 可探索世界 repo（10-05 Liam，西班牙语帖）——惊艳但暂无结合点</li>
+    <li>Muse 注册方法与邀请码（09-26 @rwayne）——工具小抄</li>
+    <li>极端男性主义消费清单（10-01 邵艾伦 / Bonniewinds）与「品貌双全」论（09-26 Robinson）——社会观察</li>
+    <li>「爱一个人就不会喜欢上第二个人」（10-01 刘佳怡）——情感观点</li>
+    <li>俄罗斯博物馆画作（10-04 Jaden）——艺术收藏</li>
+  </ul>
+</details>
+
+<footer>
+  数据源：Readwise（增量 09-25 → 10-06）· 生成：my-readwise-briefing skill v4.3 · 本次为补处理版（错过 11 天）<br>
+  公开归档仓库纪律：已脱敏；2 条政治敏感内容未收录。验证标注：✅ 已验证 · ⚠️ 部分/未验证 · 🔬 已亲测
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
