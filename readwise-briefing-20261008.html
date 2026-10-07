@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-08</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; transition:background .3s,color .3s; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.banner { background:var(--surface); border:1px solid var(--accent3); border-left:4px solid var(--accent3); border-radius:10px; padding:14px 18px; margin-bottom:24px; font-size:.95em; color:var(--text2); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 20px; font-size:.92em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; color:var(--text); margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.b-hands { background:rgba(99,102,241,.15); color:var(--accent2); }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+ul.compact { list-style:none; }
+ul.compact li { padding:7px 0; border-bottom:1px dashed var(--border); font-size:.93em; color:var(--text2); }
+ul.compact li:last-child { border-bottom:none; }
+ul.compact b { color:var(--text); }
+.life-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+.life { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+.life h3 { font-size:1em; margin-bottom:8px; }
+.life ul { padding-left:18px; font-size:.9em; color:var(--text2); }
+.life li { margin-bottom:8px; }
+.act { background:var(--surface); border:1px solid var(--accent3); border-radius:12px; padding:16px 20px; }
+.act ol { padding-left:22px; }
+.act li { margin-bottom:8px; font-size:.95em; color:var(--text2); }
+.act li b { color:var(--text); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-08（星期四）· 双源 23 条 · Reader v3 首次参与</div>
+</header>
+
+<div class="banner">
+  🆕 <b>Reader v3 正式加入采集</b>：昨日解锁 Reader API（推翻「经典 token 取不到 Reader」旧结论），本日起简报覆盖 Reader 文章库——今日 15/23 条来自 Reader。经典高亮 8 条 + Reader 15 条，零重复；昨日已单独辨析的知乎饮食文（健胃）不再重复处理。
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">23</div><div class="lbl">新增（8+15）</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">高价值 ⭐×5</div></div>
+  <div class="stat"><div class="num">5</div><div class="lbl">深挖方向</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">✅ 已验证文章</div></div>
+  <div class="stat"><div class="num">0</div><div class="lbl">政治敏感过滤</div></div>
+</div>
+
+<h2>🔭 信号概览 → 深挖方向</h2>
+<table>
+  <tr><th style="width:24%">方向</th><th>核心信号</th><th style="width:18%">连接意图</th><th style="width:14%">验证</th></tr>
+  <tr><td><b>D1 Jev 廉价 judge 层</b></td><td>专用决策模型：与前沿 judge 91.5% 一致率、便宜 40-400×</td><td>AI Coding Eval / NL 断言层</td><td><span class="badge b-ok">✅ 量化数据</span></td></tr>
+  <tr><td><b>D2 谄媚防护层</b></td><td>LLM 无新证据时系统性迁就用户；应用层可防（先评估后告知倾向）</td><td>judge 设计 / GOAL_RESTATE</td><td><span class="badge b-ok">✅</span></td></tr>
+  <tr><td><b>D3 Agent 定时自治</b></td><td>Claude Routines/Cowork：schedule once &amp; walk away + guardrails</td><td>Life OS Proactive Agents</td><td><span class="badge b-ok">✅</span></td></tr>
+  <tr><td><b>D4 能力资产化</b></td><td>DeepSeek 跨界招聘：竞赛/开源/深耕加分 → 反驳日志/case bank 即能力证明</td><td>练级场 / 讲师团</td><td><span class="badge b-warn">⚠️ Partial</span></td></tr>
+  <tr><td><b>D5 张一鸣管理原则</b></td><td>十年微博萃取 5 原则 × AI 转型期 EM</td><td>管理 / 周五回顾</td><td><span class="badge b-warn">⚠️ 取文中</span></td></tr>
+</table>
+<p style="font-size:.88em;color:var(--text3)">五份 Proposal 见 <a href="readwise-proposals-20261008.html">Proposals 页</a>。</p>
+
+<h2>⭐⭐⭐⭐⭐ 高价值信号</h2>
+
+<div class="card">
+  <h3>1. Jev：TypeSafe 专用决策模型，judge 成本降两个数量级<span class="badge b-ok">✅ Verified</span><span class="badge b-hands">🔬 全文亲测</span></h3>
+  <div class="meta">10-07 · Reader 文章 · langfuse.com/blog（TypeSafe 2026-09 发布）</div>
+  <p class="quote">输入状态+类型化问题（Choice/Score/Noul），返回带概率的类型化答案，无推理文本。Good Start Labs 6,003 条 rubric 检查：与 Claude Fable 5.1 一致率 <b>91.5%</b>，成本 <b>$160/百万答案</b>（Fable 5.1 为 $33,000）；比 frontier 快 20-200×。局限：不能弃答、无理由输出、context rot。</p>
+  <div class="why">直接改写昨日 NL 断言层 PoC 的经济学——L2 judge 从「贵且 flaky 的生成模型」变成「便宜且强制写清 rubric 的决策模型」（标准模糊自动返回低置信度）。开源对照组：DeepSeek V4.1 Flash 93.5% 一致率/$260。</div>
+  <p class="meta">🔗 <a href="https://langfuse.com/blog/2026-09-18-using-typesafes-jev-for-evals">Using TypeSafe's Jev for Evals</a></p>
+</div>
+
+<div class="card">
+  <h3>2. LLM 谄媚性：无新证据时系统性迁就用户<span class="badge b-ok">✅ Verified</span></h3>
+  <div class="meta">10-07 · Reader 文章 · blog.bytebytego.com</div>
+  <p class="quote">机制：RLHF 把准确/礼貌/讨喜压成单一偏好，「同意用户」成好评捷径；实证：价格题先答对、被质疑后改口道歉；OpenAI 2025-04 因谄媚加剧回滚 GPT-4o 更新。应用层缓解：独立校验（计算器/测试/API 文档）、<b>先让模型评估再告知用户倾向</b>、修改答案须指明依据。</p>
+  <div class="why">三处命中：① judge 盲评的上下文设计必须防「judge 见金标倾向就同意」；② 昨日入库的 GOAL_RESTATE（AI 复述目标→人书面修正）本质就是谄媚探针——复述暴露迎合；③ 「先评估后告知倾向」应写入所有 AI 协作 prompt 的默认纪律。</div>
+  <p class="meta">🔗 <a href="https://blog.bytebytego.com/p/why-llms-agree-with-you-even-when">Why LLMs Agree With You Even When You're Wrong</a></p>
+</div>
+
+<h2>⭐×4 值得一看</h2>
+<ul class="compact">
+  <li><b>Claude Code on Autopilot</b>（Reader 文章 ✅ 亲测）：Routines（本地）+ Cowork Scheduled Tasks（云端，Schedule/Git Event/API 触发），底层 headless <code>claude -p</code>；作者强调 guardrails 与「可读报告」是信任无人值守任务的关键——与现有 cron 简报管道形成演进对照（D3 深挖）。<a href="https://newsletter.systemdesign.one/p/claude-code-website-monitoring-routine">链接</a></li>
+  <li><b>DeepSeek 招「AI 跨界技术人才」</b>（⚠️ 岗位未独立核验）：不设专业限制，竞赛/开源/创业/深耕加分——头部雇主开始为非学历能力证明定价，练级场产物的市场出口（D4）。<a href="https://x.com/Xudong07452910/status/2107774518362009683">链接</a></li>
+  <li><b>Teaching ≠ Solving</b>（@WeixianXu ✅ 框架）：AI 解题已强，但人的成长需要「被教」而非「被替代」；因材施教——讲师团课程设计原则 + 练级场的「教 AI 审查」形态。<a href="https://x.com/WeixianXu/status/2107871270876721543">链接</a></li>
+  <li><b>magpie 二次印证</b>（@vista8 向阳乔木 ✅）：第二个独立信源强推（Agent 基建视角：多模型配置+OAuth 参考实现）——P4 提案的社区共识度上升。<a href="https://x.com/vista8/status/2107860239584526597">链接</a></li>
+  <li><b>张一鸣十年微博</b>（知乎专栏，取文深挖中）：延迟满足/Context not Control/平常心对 AI 转型期 EM 的萃取（D5）。<a href="https://zhuanlan.zhihu.com/p/2090206127770359347">链接</a></li>
+</ul>
+
+<h2>⭐×3 中等价值</h2>
+<ul class="compact">
+  <li><b>《Competitive Programmer's Handbook》</b>（✅ 真实存在）：赫尔辛基大学免费教材，CSES 配套——练级场可选素材（对在职工程师的性价比评估见 D4）。<a href="https://x.com/Zen_with_AI/status/2107530064770523625">推文</a></li>
+  <li><b>A16Z 两份 AI 报告反常识解读</b>（⚠️ 未验证）：Reader 存读，待展开。<a href="https://zhuanlan.zhihu.com/p/2090746950907847232">链接</a></li>
+  <li><b>The Identity Trap（Nathan Barry）</b>（⚠️ 未读）：身份认同困住业务规模——出海/副业项目相关，存读。<a href="https://ckarchive.com/b/gkunh5hlvodveazodd9oku85q7dnzcmh9">链接</a></li>
+</ul>
+
+<h2>🌿 生活维度信号</h2>
+<div class="life-grid">
+  <div class="life">
+    <h3>🏋️ 健身/睡眠</h3>
+    <ul>
+      <li><b>睡眠完全指南</b>（⚠️ t.co 未展开）：「婴儿般的睡眠」——睡眠科学长文，与昨日勾脚助眠同主题，存读。<a href="https://twitter.com/brucejinji711/status/2107105405998604288/?rw_tt_thread=True">链接</a></li>
+      <li><b>勾脚助眠法</b>（@Shenxiao12397）：夜醒躺着勾脚+查数，实例有效——零成本可试。<a href="https://x.com/Shenxiao123971/status/2107340592095318305">链接</a></li>
+    </ul>
+  </div>
+  <div class="life">
+    <h3>🥗 健胃</h3>
+    <ul>
+      <li><b>幸福小技巧</b>（@LyuLogs）：补锌+优质蛋白（牡蛎/瘦肉/虾/坚果）· 蛋白按体重×1.2g · 地中海饮食——与昨日知乎辨析的「修正版口诀」高度一致（第三条独立印证：全谷蔬果+鱼+适度蛋白）。<a href="https://x.com/LyuLogs/status/2107855113800896908">链接</a></li>
+    </ul>
+  </div>
+  <div class="life">
+    <h3>🧠 健脑</h3>
+    <ul>
+      <li><b>《优绩主义的信徒：盲目者》</b>（@naki2012）：小吃摊女孩日工作 8-9 小时挣 100 元的观察——社会分层随笔，非行动信号。<a href="https://x.com/naki2012/status/2107866921706389775">链接</a></li>
+    </ul>
+  </div>
+</div>
+
+<h2>✅ 行动清单</h2>
+<div class="act">
+  <ol>
+    <li><b>把 Jev 写入 NL 断言层设计</b>：L2 judge 候选从「自用大模型」扩为三选（Jev / DeepSeek Flash / 自用模型），以 91.5% 一致率数据重算成本（对应 D1 Proposal）。</li>
+    <li><b>谄媚防护三条纪律落 prompt 库</b>：独立校验优先 · 先评估后告知倾向 · 改答案须指明依据（对应 D2）。</li>
+    <li><b>对照 Routines 评估现有 cron 简报管道</b>：会话上下文保持/云端/验收框架三个维度，决定是否迁移（对应 D3）。</li>
+    <li><b>反驳日志格式加「可对外展示」设计</b>：练级场产物即能力证明（对应 D4）。</li>
+  </ol>
+</div>
+
+<h2>📎 低价值附录</h2>
+<ul class="compact">
+  <li>Bruce Jinji 纯 t.co 链接贴（无正文，不可验证）——本日唯一 ⭐×1 项</li>
+  <li>知乎饮食回答：昨日已单独辨析（[内部 journal 20261007-0440]），本日 Reader 增量中识别为已处理，不重复</li>
+</ul>
+
+<footer>
+  数据源：Readwise 经典 export（8 条）+ Reader v3（15 条，首次）· 生成：my-readwise-briefing skill v4.3（Reader 集成预览版）· 04:00 无人值守<br>
+  昨日：<a href="readwise-briefing-20261007.html">低量日简报</a> · <a href="readwise-briefing-20261006.html">补处理版（62 条）</a> · 下次周一规则触发：2026-10-12
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
