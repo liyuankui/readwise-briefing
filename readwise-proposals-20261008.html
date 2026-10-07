@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-08</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; transition:background .3s,color .3s; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+.axiom b { color:var(--accent5); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-08（星期四）· 5 个方向 · 双源采集（经典 + Reader v3 首日）</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>信号 → 验证 → 洞察 → 行动；❌ Debunked 不入深挖，⚠️ Partial 降权并在文中标注。</div>
+
+<h2>🧭 信号 × 项目对应</h2>
+<table>
+  <tr><th style="width:24%">Proposal</th><th>信号群</th><th style="width:20%">连接项目</th><th style="width:12%">验证</th></tr>
+  <tr><td><b>P1 Jev 廉价 judge 层</b></td><td>TypeSafe 决策模型：91.5% 一致率、$160/百万、40-400× 便宜</td><td>AI Coding Eval / NL 断言层</td><td><span class="badge b-ok">✅ 量化</span></td></tr>
+  <tr><td><b>P2 谄媚防护层</b></td><td>LLM 无据改口机制 + 应用层缓解（先评估后告知倾向）</td><td>judge 设计 / GOAL_RESTATE</td><td><span class="badge b-ok">✅</span></td></tr>
+  <tr><td><b>P3 无人值守验收框架</b></td><td>Claude Routines/Cowork：guardrails + 可读报告</td><td>Life OS / Proactive Agents</td><td><span class="badge b-ok">✅</span></td></tr>
+  <tr><td><b>P4 能力资产化</b></td><td>DeepSeek 跨界招聘（竞赛/开源/深耕）+ 教学≠解题 + CPH</td><td>练级场 / 讲师团</td><td><span class="badge b-warn">⚠️ Partial</span></td></tr>
+  <tr><td><b>P5 张一鸣五原则</b></td><td>十年微博 230 条（jina 取原文，逐条编号溯源）</td><td>EM 管理 / 周五回顾</td><td><span class="badge b-ok">✅ 原文</span></td></tr>
+</table>
+
+<h2>P1 · L2 NL 断言层引入 Jev 类专用决策模型</h2>
+<div class="card">
+  <h3>判定与证据分离</h3>
+  <div class="meta">信号：<a href="https://langfuse.com/blog/2026-09-18-using-typesafes-jev-for-evals">Using TypeSafe's Jev for Evals</a>（✅ 全文亲测）· 连接：昨日 NL 断言层 PoC</div>
+  <div class="claim">Jev 以 $160/百万答案承担 L2 全量判定，生成模型只对被路由的少数样本补证据，使 NL 断言从「小样本试探」升级为全量、可复跑、可显著的日常评测设施。</div>
+  <h4>🧱 映射设计</h4>
+  <table>
+    <tr><th>Jev 问题</th><th>schema 字段</th><th>示例</th></tr>
+    <tr><td>Noul</td><td>verdict（pass 概率）+ confidence</td><td>「diff 是否消除该缺陷？」</td></tr>
+    <tr><td>Choice</td><td>failure_mode 枚举</td><td>wrong_api / hallucination / incomplete / style</td></tr>
+    <tr><td>Score（≤10）</td><td>severity 1-5</td><td>失败影响分级</td></tr>
+  </table>
+  <p>一次请求并行问 verdict/needs_review/failure_mode/severity，延迟几乎不增。局限对策：无理由输出→仅低置信/fail/分歧样本交廉价生成模型补证据供 L3 抽审；context rot→按断言裁剪缓存回放（32k 保守上限）；不能弃答→低置信=软弃权路由 L3。</p>
+  <h4>💰 ROI（单轮 9,000 答案）</h4>
+  <table>
+    <tr><th>Judge</th><th>$/百万</th><th>单轮</th><th>月（日跑×双判）</th></tr>
+    <tr><td>Jev</td><td>160</td><td>$1.44</td><td>~$86</td></tr>
+    <tr><td>DeepSeek V4.1 Flash</td><td>260</td><td>$2.34</td><td>~$140</td></tr>
+    <tr><td>Claude Fable 5.1</td><td>33,000</td><td>$297</td><td>~$17,820</td></tr>
+  </table>
+  <p>较 frontier 月省 99.5%；同等预算样本 ×10，直接解「无显著差异」。成功标准：金标一致率 ≥85%、双判分歧 ≤10%、≥1 组 model×harness 差异 p&lt;0.05、单轮 ≤$5/30min。里程碑：M1 rubric 原子化冒烟（1d）→ M2 旧基线双判 go/no-go（2-3d）→ M3 全量重跑+显著性（1w）→ M4 证据补全管道（2-3d）。</p>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>91.5% 是第三方通用 rubric 成绩，code 域可能更低；M2 实测 &lt;80% 即退化为初筛——M2 就是证伪点。</li><li>DeepSeek V4.1 Flash 一致率 93.5% 反超且自带理由——「专用决策模型」的溢价应以 M2 数据裁决而非叙事。</li><li>若 57-59% 根因在 judge 之外（任务漂移/金标噪声），换 Jev 无解，先做误差归因。</li></ol></div>
+</div>
+
+<h2>P2 · 谄媚防护层</h2>
+<div class="card">
+  <h3>无新证据，不改立场</h3>
+  <div class="meta">信号：<a href="https://blog.bytebytego.com/p/why-llms-agree-with-you-even-when">Why LLMs Agree With You</a>（✅）· 连接：judge 设计 + 昨日入库的 GOAL_RESTATE/DEEP_QUESTION</div>
+  <div class="claim">谄媚是系统性偏差非偶发 bug：RLHF 把准确/礼貌/讨喜压成单一偏好，「同意用户」成好评捷径。应用层三落点防护：评测 judge、既有 prompt 探针化、日常协作系统指令。</div>
+  <h4>🧱 三落点设计</h4>
+  <ul>
+    <li><b>judge 谄媚免疫</b>：盲评组装时剥离模型名/作者/金标倾向三类泄漏源；配对提示（中立版 vs 带倾向版）入 pipeline，偏移超阈值告警</li>
+    <li><b>GOAL_RESTATE v2</b>：复述只许中立转写字面目标+显式假设，禁猜「您真正想要」；本人修正后 AI 接受须指明「哪条新证据推翻原判断」，无据须先反驳一次——升级为同步测量「无据改口率」</li>
+    <li><b>三条系统指令</b>：偏好可从、断言认证据（改口必须引新证据）；先答后知（先独立评估再接收用户倾向）；独立校验（数字/日期/接口行为禁凭记忆断言）</li>
+  </ul>
+  <p>成功标准：配对偏移降至基线 50% 以下且有效纠正接受率不降（防走反向极端成固执）；连续 4 次周五回顾无据改口 0 次。投入 &lt;5 人日，judge 可信度是全部评测结论的乘数。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>扫 judge prompt 与上下文组装代码，列泄漏源清单</li><li>写 10 组配对提示，跑偏移基线</li><li>GOAL_RESTATE v2 上线，本周五回顾实测</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>循环性：用 AI 检测 AI 谄媚，检测工具自身可能迎合预期——需独立会话交叉复核，无法根除。</li><li>天花板：系统指令改不了模型内部偏好，此层是护栏非地基；换裸 prompt 入口防护即失效。</li><li>样本量：每周一次回顾，4 次测「零改口」统计力近乎为零——只配当烟感器，不配当证明。</li></ol></div>
+</div>
+
+<h2>P3 · 无人值守任务验收框架（Trust &amp; Eval 第一块砖）</h2>
+<div class="card">
+  <h3>先筑信任，再扩自治</h3>
+  <div class="meta">信号：<a href="https://newsletter.systemdesign.one/p/claude-code-website-monitoring-routine">Claude Code on Autopilot</a>（✅ 付费墙前内容）· 连接：Life OS / 已有 cron 简报管道</div>
+  <div class="claim">瓶颈不在调度（cron 已稳），在信任验收。先以「validation harness + 可读报告」做成平台无关资产，再按任务特性选云地——断言即 Eval，报告即 Trust 之证。</div>
+  <h4>🧱 迁移决策与首个 Proactive Agent</h4>
+  <table>
+    <tr><th>任务</th><th>决策</th><th>理由</th></tr>
+    <tr><td>Readwise 简报（现有 cron）</td><td>不迁，加 harness</td><td>已全闭环，上云仅换运行时</td></tr>
+    <tr><td>事件触发类（Git watcher 等）</td><td>上云试点</td><td>本地无事件触发，合盖可跑</td></tr>
+    <tr><td>inbox 清理 Agent</td><td>首个新增</td><td>唯一每日必触手动动作：IRA 分类→归档→双向链接→一行报告</td></tr>
+  </table>
+  <p>关键认知：Routines/Cowork 底层同为 headless 冷启动，迁云不解决上下文保持。harness 断言示例：发布页含今日日期、journal 落盘、最新 commit；报告格式「正常一行 Clean，异常才展开」（防报告反噬成注意力税）。里程碑：M1 存量例行配断言（W1）→ M2 guardrails（专用 deploy key 只写发布仓、hooks 白名单、失败必达）（W2-3）→ M3 inbox Agent 上线（W4）→ M4 一任务上云双跑（W6）。</p>
+  <p>成功标准（30 天）：断言覆盖率 100%、静默失败 0、失败→通知 ≤5 分钟、新 Agent 周省 ≥30 分钟。</p>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>「最高频手动动作」是推断非测量——先记录一周实际频次，再定首个 Agent。</li><li>信号单一且有付费墙：Cowork 合盖运行的真实可靠性/成本/数据边界未经独立验证。</li><li>报告反噬：若报告需人日读，自治反成注意力税——严守心跳格式。</li></ol></div>
+</div>
+
+<h2>P4 · 能力资产化：练级场产物即能力证明</h2>
+<div class="card">
+  <h3>把反驳日志/case bank 升级为可署名展示的能力资产</h3>
+  <div class="meta">信号：<a href="https://x.com/Xudong07452910/status/2107774518362009683">DeepSeek 跨界招聘</a>（⚠️ JD 未核验）· <a href="https://x.com/WeixianXu/status/2107871270876721543">教学≠解题</a> · cses.fi/book.html（✅）</div>
+  <div class="claim">头部 AI 雇主开始为竞赛/开源/深耕定价——不新增训练项目，把练级场日常产物（反驳日志/case bank/轮值记录）规格化为「能力护照」，并以「教 AI 审查」为讲师团 L4 顶点课：教是最深的学。</div>
+  <h4>🧱 设计要点</h4>
+  <ul>
+    <li>case 五字段：场景 / AI 原输出 / 误因 / 反驳依据 / 复盘（+脱敏规范）</li>
+    <li>讲课资格 = case 质量，非资历——「教」须分层，1v1 带教亦算教，防造新壁垒</li>
+    <li>CPH/CSES 定位：在职工程师仅 L1 自选热身（刷题是被替代的旧证明）；应届/转岗可作 L0→L1 桥接</li>
+  </ul>
+  <p>成功标准：≥20 条双评审 case、反驳成立率 ≥80%、case 复用率 ≥30%、≥1 门 L4 课由非资深主讲、季度关键人零流失。成本：每人每月 ≤2h 规格化+脱敏。</p>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>定价权质疑（最重）</b>：现行晋升看业务影响与 scope，若晋升委员会不为「反驳 AI」定价，资产化近心理安慰——靠 M5 季度数据裁决，无定价权即收缩为学习工具。</li><li>信号过拟合：招聘推文未核验，「不设专业限制」或仅限少数跨界岗。</li></ol></div>
+</div>
+
+<h2>P5 · 张一鸣十年微博 → AI 转型期 EM 五原则</h2>
+<div class="card">
+  <h3>不当箴言背，当检查清单用</h3>
+  <div class="meta">信号：<a href="https://zhuanlan.zhihu.com/p/2090206127770359347">知乎专栏</a>（✅ jina 取原文 52KB，230 条摘编，逐条编号溯源）</div>
+  <div class="claim">这批微博价值不在「开悟」，而在它是创始人视角的决策日志：每条仅命中当下痛点时启用（原文 #163：拆榜样方法，挑适合的，其余扔掉）。</div>
+  <h4>🧱 五原则 × 场景</h4>
+  <table>
+    <tr><th>#</th><th>原文观点</th><th>Kyle 场景·动作</th><th>边界</th></tr>
+    <tr><td>1</td><td>高估短期低估长期（#205）；决策质量看过程（#179）</td><td>向上汇报：短期只承诺过程指标，长期价值单列</td><td>降本目标真实，勿全包装成长期故事</td></tr>
+    <tr><td>2</td><td>把机会留给别人（#69）；信任+压力（#66）</td><td>讲师团工程师主讲并公开背书，EM 不站台</td><td>事故/冲突/绩效对话须 EM 亲自处理</td></tr>
+    <tr><td>3</td><td>不确定时坦诚是最低成本（#107）</td><td>公开「AI 对初级岗影响我也没答案」</td><td>坦诚=不隐瞒关键信息，非想到什么说什么</td></tr>
+    <tr><td>4</td><td>小循环胜大循环（#228）；1:1 三态（#112）</td><td>周五回顾改状态核对：已解决/部分/依旧</td><td>敏感个人反馈走 1:1 不上公共表</td></tr>
+    <tr><td>5</td><td>先问事实还是观点（#119）；数据是结果非原因（#168）</td><td>AI 评测：可测事实与体感观点分离</td><td>试点期允许标注置信度的粗结论，防分析瘫痪</td></tr>
+  </table>
+  <h4>🧪 最小实验（原则 4 · 周五试运行 4 周）</h4>
+  <p>「问题依旧」清零实验：W0 汇近 2 周 1:1 反馈标三态记基线 N₀ → W1-W4 每周五 10 分钟更新，「问题依旧」须指 owner+下一步 → 判定：改善率 ≥1/3 且执行率 100% 转常态。</p>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>写于 0→1 创业前夜，与成熟外企中层存量+转型处境差异巨大；摘编有幸存者偏差。</li><li>确认偏误：230 条格言几乎任何立场都有支持条目——只挑顺耳的等于买自我确认；每条启用前先写「若它是错的，我会看到什么」。</li><li>流传版常有润色，勿当逐字原文引用。</li></ol></div>
+</div>
+
+<footer>
+  数据源：Readwise 经典（8）+ Reader v3（15，首次）· my-readwise-briefing skill v4.3 · 5 subagents 并行（0 失败）<br>
+  简报见 <a href="readwise-briefing-20261008.html">Briefing 页</a> · 04:00 无人值守运行
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
