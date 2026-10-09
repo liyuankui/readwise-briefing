@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-10</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.banner { background:var(--surface); border:1px solid var(--accent4); border-left:4px solid var(--accent4); border-radius:10px; padding:14px 18px; margin-bottom:24px; font-size:.95em; color:var(--text2); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-10（星期六）· 23 条采集（去重后 16）· 三强信号登记深挖</div>
+</header>
+
+<div class="banner">
+  📌 今日三条 ⭐×4-5 工作信号与既有 Proposal 直接对位，<b>登记为 10-12（周一）深挖候选</b>（当日自带周度回顾，合并处理）：Anthropic 长期自动化指南 → P3 无人值守验收；Claude evals + hillclimbing → P1/P3 judge 环；gcloud → Agent API → 工具链趋势。本日为轻量简报。
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">16</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">深挖候选 ⭐</div></div>
+  <div class="stat"><div class="num">0</div><div class="lbl">重复</div></div>
+  <div class="stat"><div class="num">10-12</div><div class="lbl">周一回顾</div></div>
+</div>
+
+<h2>🔭 深挖候选（周一处理）</h2>
+
+<div class="card">
+  <h3>1. Anthropic：如何做真正能长期运行的 AI 自动化助手<span class="badge b-warn">⚠️ t.co 待展开</span></h3>
+  <div class="meta">10-09 · @sitinme 转述 Anthropic 文章</div>
+  <p class="quote">「每日简报」机器人：AI 定时读取 Slack、GitHub 等信息源，找出最近真正值得关注的变化，把简短结果发到指定频道。细节：不要每次粗暴读取「过去 24 小时」……</p>
+  <div class="why">与我们正在运行的 4:00 简报管道 100% 同题——官方方法论可直接对照 P3（无人值守验收框架）的 harness 设计：状态保持、增量策略、通知契约。<a href="https://x.com/sitinme/status/2108461964116865055">推文</a></div>
+</div>
+
+<div class="card">
+  <h3>2. Claude 官方：evals 设计 + hillclimbing<span class="badge b-warn">⚠️ t.co 待展开</span></h3>
+  <div class="meta">10-08 · @ClaudeDevs（官方账号）</div>
+  <p class="quote">"Claude can now help you build evaluations and hillclimb on them… guidance on eval design &amp; skills that Claude Code can use to improve your applications."</p>
+  <div class="why">P1/P3 的 judge 环补完：「评测 → 爬山改进」闭环正是 NL 断言层设计的下一步（judge 结果驱动改进迭代）。官方 guidance 值得整篇精读。<a href="https://x.com/ClaudeDevs/status/2104676099083190435">推文</a></div>
+</div>
+
+<div class="card">
+  <h3>3. Google 把 gcloud 变成 AI Agent 的 API<span class="badge b-warn">⚠️ 存读未展开</span></h3>
+  <div class="meta">10-08 · Reader 文章</div>
+  <div class="why">「云 CLI → Agent API」是 agent 工具链的结构性趋势（与 magpie/模型路由同族：基础设施在为 agent 重排）。工具清单提案的宏观背景板。</div>
+</div>
+
+<h2>⭐×3 值得一看</h2>
+<div class="card">
+  <p class="quote">• <b>Alexandr Wang：顶层竞争拼极端执行力</b>（@huxlab）：绝对聚焦压榨认知带宽等三准则——管理/健脑，与张一鸣五原则同题异构，可并入 D5 的检查清单池。<a href="https://x.com/huxlab/status/2108121268004536474">链接</a><br>• <b>Apple 健康数据运动/体检分析小工具</b>（@0xdeusyu ⚠️ 工具未核验）：健身透镜，与 Apple Health 追踪资产直接相关。<a href="https://x.com/0xdeusyu/status/2108516581269721252">链接</a><br>• <b>「软件已死，意图永生——意件时代」</b>（Reader 存读）：与 D5 意图瓶颈论互为映照的观点文，周一与 Alexandr Wang 条合并评估。<br>• <b>矩阵乘法复杂度下界</b> · <b>语言是思维的边界</b>（Reader 存读）：健脑，精读候选。</p>
+</div>
+
+<h2>📎 低价值附录</h2>
+<div class="card">
+  <p class="quote">跑路三定律（黄毛/薄肌/孙学段子）· iPhone Use 链接贴 · 冬青/Tz/LyuLog 纯 t.co 链接 · 小红书虚拟产品选品（出海参考，暂无行动点）· HN RSS 汇流（正文空，源稳定性观察中，第 2 天）</p>
+</div>
+
+<footer>
+  数据源：Readwise 经典（9）+ Reader v3（14，tweet 双存去重）· skill v4.3 · 04:00 无人值守<br>
+  昨日：<a href="readwise-briefing-20261009.html">低量日</a> · 下次运行 10-12（周一，带周度回顾 + 三候选深挖）
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
