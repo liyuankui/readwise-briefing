@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-12（周一）</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.week { background:var(--surface2); border-radius:10px; padding:12px 16px; margin-bottom:12px; font-size:.93em; color:var(--text2); }
+.week b { color:var(--accent); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-12（星期一）· 周度回顾 + 三候选深挖 · 增量 5 条</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">5</div><div class="lbl">今日信号</div></div>
+  <div class="stat"><div class="num">~90</div><div class="lbl">周累计</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">深挖 Proposal</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">🏆 OSS 合并</div></div>
+</div>
+
+<h2>🗓 周度回顾（10-05 → 10-11）</h2>
+<div class="week"><b>主线一 · Agent 基础设施重排</b>：magpie（订阅×模型解耦，双信源印证）→ Jev（决策专用模型 $160/百万）→ Microsoft-Decision-1（微软入场）→ gcloud→Agent API → Claude evals+hillclimbing。厂商集体在为 agent 重排工具链——P1/P4 提案的生态背景已成型。</div>
+<div class="week"><b>主线二 · 无人值守自动化</b>：Anthropic《长期运行 AI 助手》指南与自家 Routines/Cowork 发布同周；与此同时<b>我们的 4:00 简报管道连续运行 5 天零中断</b>（补处理→双源接入→三次轻量分支，journal 全留痕）——P3 验收框架的现实基础。</div>
+<div class="week"><b>主线三 · 人才与练级场</b>：DeepSeek 跨界招聘（竞赛/开源/深耕定价）+ 教学≠解题 + 面试收敛论（今日）——D1 能力资产化的市场信号链完整。</div>
+<div class="week"><b>生活线</b>：睡眠主题三连（作息/睾酮分泌/勾脚法）；<b>饮食辨析闭环</b>（知乎「植食最优」文→辨析出修正版口诀→两日内两条独立信号印证修正版）——健胃透镜的完整信号周期。</div>
+<div class="week"><b>🏆 成就</b>：remark mode PR #136 被 answer-me-with-html（⭐2000+）合并进 v0.5.0——块级标注+Reply 回传闭环进入官方发行版。</div>
+
+<h2>⭐×4 今日信号</h2>
+<div class="card">
+  <h3>软件工程师面试收敛为两件事<span class="badge b-warn">⚠️ 观点类</span></h3>
+  <div class="meta">10-10 · @Xudong07452910</div>
+  <p class="quote">「面试真的可以收敛到：你能不能<b>把问题想清楚</b>，以及能不能<b>借助 Agent 把东西真正做出来</b>。传统八股和算法题区分度已经没以前高了。」</p>
+  <div class="why">D1 能力资产化的最直接市场信号：招聘侧已在重构评价维度——「想清楚 + 用 Agent 做出来」恰是 Judgment Gym（审查判断力）+ 工具流（讲师团）的组合。<a href="https://x.com/Xudong07452910/status/2108847504397643803">推文</a></div>
+</div>
+<div class="card">
+  <h3>Google Foresight：Mac 本地离线 AI 应用<span class="badge b-warn">⚠️ t.co 未展开</span></h3>
+  <div class="meta">10-11 · @Michaelzsguo · 免费、无订阅、完全本地</div>
+  <div class="why">会议/笔记/工作信息检索的本地化 AI——「NotebookLM 之后第二个出彩产品」之说待验；与设备端趋势 + 隐私优先架构相关。<a href="https://x.com/Michaelzsguo/status/2109113444322431296">推文</a></div>
+</div>
+
+<h2>🌿 生活维度与附录</h2>
+<div class="card">
+  <p class="quote">🏋️ <b>健身两年无效果的原因分析</b>（Reader 存读）——训练侧自查清单候选。<br>🧠 <b>孙割播客：辽金生存思路</b>（⚠️ 转述）——历史类比型观点文，低行动性。<br>📎 HN RSS 源观察 4 天正文恒空 → <b>判定剔除</b>（journal 已记）；Foresight/Decision-1 等待核验。</p>
+</div>
+
+<footer>
+  三份 Proposal（Anthropic 验收层 / Claude evals 爬山环 / Agent-Native 工具链）见 <a href="readwise-proposals-20261012.html">Proposals 页</a><br>
+  数据源：Readwise 双源 · skill v4.3 · 04:00 无人值守 · 下次周一回顾 10-19
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
