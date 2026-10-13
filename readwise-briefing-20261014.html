@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-14</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-14（星期三）· 低量日 · 独立信号 6 条</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">6</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">工程好文存读</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">源重试恢复</div></div>
+</div>
+
+<h2>⭐×3-4 工程好文（存读）</h2>
+<div class="card">
+  <h3>How to Scale an AI App to 1M Users in Production<span class="badge b-warn">存读待展开</span></h3>
+  <div class="meta">10-12 · Reader 文章</div>
+  <div class="why">AI 应用生产化扩展的一手工程文——与内部开发者平台（零成本全栈基础设施）和出海项目直接相关：成本曲线、限流、缓存经验可抄。</div>
+</div>
+<div class="card">
+  <h3>How Meta Designed Muse（Alex Cornell）<span class="badge b-warn">存读待展开</span></h3>
+  <div class="meta">10-12 · Reader 文章（Latent Space 类播客转录）</div>
+  <div class="why">Meta Muse 模型的设计复盘——大厂模型设计决策过程，AI 能力组合的背景知识面。</div>
+</div>
+<div class="card">
+  <h3>How to Build Models Without Language（Logical Intelligence）<span class="badge b-warn">存读待展开</span></h3>
+  <div class="meta">10-12 · Reader 文章</div>
+  <div class="why">非语言路径的模型构建——CS336 自学（手搓 LLM）的延伸阅读，健脑+学习双命中。</div>
+</div>
+
+<h2>📎 附录</h2>
+<div class="card">
+  <p class="quote">• <b>No Man Is an Island</b>（Reader）——健脑散文，低行动性。<br>• <b>Zuckerberg 品味 Guinness 的表情包</b>（经典 1 条 + Reader 双存）——纯娱乐 ⭐×1。<br>• HN RSS：剔除后不再展示。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · skill v4.3 · 04:00 无人值守 · 零重复 · 脱敏零命中<br>
+  ⚙️ 工程注记：Reader 源首次拉取截断（236KB EOF），按「来源失败显式化」纪律重试成功——验证了 P1 提案里「源失败须显式处理」的必要性<br>
+  昨日：<a href="readwise-briefing-20261013.html">丰田改善红利双推互证</a> · 下次周一回顾 10-19
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
