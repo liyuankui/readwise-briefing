@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-15</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-15（星期四）· 中量 · 独立信号 12 条 · 两条论据补强</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">12</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">⭐×4-5 论据补强</div></div>
+  <div class="stat"><div class="num">5</div><div class="lbl">存读好文</div></div>
+</div>
+
+<h2>⭐×5 论据补强一：yetone 的 Loop Engineering 工作流</h2>
+<div class="card">
+  <h3>一个人 + 3 个 /loop 循环维护 magpie<span class="badge b-warn">⚠️ 转述未核验</span></h3>
+  <div class="meta">10-13 · @dotey 转述 yetone 公开的工作流</div>
+  <p class="quote">用 Claude Code + Opus 5.5，同时开 3 个 /loop 循环任务：让 AI 自己盯 GitHub issue 和 PR、Discord 社区、推特反馈并修复——开源维护者的一人军团实战。</p>
+  <div class="map">📐 <b>映射 → P3 无人值守验收框架（10-12）</b>：这正是 P3 M4「事件触发任务」的活体样本（issue/PR 监听 = Git Event 触发）；且提供了「AI 自盯反馈源 + 人只审产出」的 guardrails 实证。magpie 作者第三次进入简报（工具→二次印证→工作流），完整人物案例。<a href="https://x.com/dotey/status/2110084393255514268">推文</a></div>
+</div>
+
+<h2>⭐×4 论据补强二：Karpathy 的问题蓄水池与可验证奖励</h2>
+<div class="card">
+  <h3>「影响力与你的野心、问题规模成正比」<span class="badge b-warn">⚠️ 二手转述，标题党</span></h3>
+  <div class="meta">10-14 · Reader 文章高亮（转述 Karpathy）</div>
+  <p class="quote">① 只让 AI 写邮件查食谱，系统连热身都算不上——你必须拥有<b>困难问题的蓄水池</b>；② AI 爆发集中在数学与代码，因为「系统锯齿性」需要<b>可验证奖励</b>。</p>
+  <div class="map">📐 <b>映射 → D5 好问题工作流 + P2 evals 爬山环</b>：「问题蓄水池」= 意图池的量化视角（好问题决定 AI 产出的上限）；「可验证奖励」正是 eval-as-gate 的理论根基。转述有标题党成分（「20 亿人被蒙骗」），两框架本身与一手认知一致。</div>
+</div>
+
+<h2>⭐×3 存读与今日其余</h2>
+<div class="card">
+  <p class="quote">• <b>AI Engineering Playbook（入门路线图）</b>（Reader 存读）——讲师团 L0-L1 教材候选，与 Hands-On LLM 并列评估。<br>• <b>19 世纪热物理数学如何帮助 LLM</b>（存读）——CS336 延伸阅读 ×2。<br>• <b>How to Tell if a Startup Has a Moat</b>（存读）——出海/投资思维框架。<br>• <b>小王子 3D 剧情 game</b>（@Saccc_c，Opus 5.5+Tripo+Blender，16 天，将开源 ⚠️）——AI 创作能力样本，K12 AI 教育的「哇点」素材。<a href="https://x.com/Saccc_c/status/2109962425512734739">推文</a></p>
+</div>
+
+<h2>📎 附录</h2>
+<div class="card">
+  <p class="quote">📈 <b>Annualized Enron Rate</b>（存读，金融文化随笔）· <b>Put a Name on It</b>（存读）<br>🧠 <b>厉害的人一定谦虚吗</b>（Reader）——健脑。<br>📎 HN RSS（剔除，仅计数）。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · skill v4.3 · 04:00 无人值守 · 零重复 · 脱敏零命中<br>
+  昨日：<a href="readwise-briefing-20261014.html">三篇工程好文存读</a> · 下次周一回顾 10-19
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
