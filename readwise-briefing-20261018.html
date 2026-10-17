@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-18</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-18（星期日）· 独立信号 5 条 · 3 篇回源 · 2 份全文 Proposal</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">5</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">⭐×4 深挖</div></div>
+</div>
+
+<h2>⭐×4 双信号（已回源 + 深挖中）</h2>
+<div class="card">
+  <h3>「你用 AI 的野心实在太小了」：Felix 四维法<span class="badge b-ok">✅ jina 破墙全文</span></h3>
+  <div class="meta">10-16 · 知乎转述 Anthropic 工程师 Felix · 第四维度原文截断已如实标注</div>
+  <p class="quote">「不是大模型不行，而是人类在使用时的野心太小了。」陶哲轩：「模型在某些方向惊人，另一些方向又显不足。」四维实操：<b>高度</b>（给终极目标别给细碎操作——从「修单个闪退」到「确保永不崩溃」，把人移出循环）；<b>深度</b>（逼真实 SQL/统计建模而非假图表；极端指标 10s→200ms；<b>引入外部裁判，绝不让模型自我评分</b>）；<b>广度</b>（名词变动词：不是「写汇报」而是「30 分钟内让忙碌的人信服因果逻辑并做决定」；多 Agent 红队）。</p>
+  <div class="map">📐 与 Karpathy「问题蓄水池」（10-15）构成操作手册级互补：Karpathy 说「问题要多大」，Felix 说「指令怎么写」。深挖注入 D5：GOAL_RESTATE 加「上一级目标」段、谄媚防护升级「生成者≠评分者」硬规则、S3 候选改写为动词短语——全文见 Proposals 页。<a href="https://www.zhihu.com/pin/2094366815107531006">原文</a></div>
+</div>
+<div class="card">
+  <h3>AI 定价与打包乱象：arcade money 时代<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-16 · Elena Verna（SaaS 增长顾问）· elenaverna.com</div>
+  <p class="quote">普遍采用订阅+「积分/代币」虚拟货币（作者称 <b>arcade money</b>）：Grok 四档倍数基于未公开基数（"15x more"）；Muse 无公开定价页（$20/月「500 MILLION tokens per week」）；Lovable $25/月 100 积分价值不明；11Labs 套餐维度极多；ChatGPT/Anthropic 用 "More"/"Maximum" 模糊描述。<b>买方策略</b>：预期不透明、试错式探索——先低成本试用观察实际消耗再选档。<b>预测</b>：谁先做出可理解、可预测、与价值对齐的定价，谁获巨大竞争优势。</p>
+  <div class="map">📐 直接补强 P4 工具提案：成本论证从「单价对比」升级为「积分黑箱风险定价」——评估框架加「定价可预测性」评分项 + 试错式选档标准化流程（探针期→消耗基线→档位决策），落到 Qoder 试点模板。全文见 Proposals 页。<a href="https://www.elenaverna.com/p/what-on-earth-is-going-on-with-ai">原文</a></div>
+</div>
+
+<h2>⭐×3 今日其余（含验证）</h2>
+<div class="card">
+  <p class="quote">• <b>SWLW #725：Predictability vs Outcomes</b>（✅ 已读）：Marty Cagan「真正的权衡是结果与可预测性的相对优先级」——输出只让交付时间可预测，不代表价值；别把功能+日期等同于影响力，先验证价值、无法预验时靠观察用户快速学习。对周五回顾与向上汇报的原则 1（过程指标）直接同构。<a href="https://softwareleadweekly.com/issues/725">原文</a><br>• <b>关闭大脑后台进程</b>（@xiaohuiyuan 晓辉博士）：AI 提效后倾向同时开多个任务进程，后台任务的脑消耗巨大——健脑；与「问题蓄水池」的专注面互补（蓄水池教你要大问题，这条教你同时别开十个）。</p>
+</div>
+
+<h2>📎 附录</h2>
+<div class="card">
+  <p class="quote">HN RSS（剔除）。本日无生活维度信号、无政治敏感项、脱敏 grep 零命中。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · skill v4.3 + 深度纪律 v2（第 2 考通过）· 04:00 无人值守 · 零重复<br>
+  Proposals 见 <a href="readwise-proposals-20261018.html">Proposals 页</a>（2 份全文）· 明日周一：周度回顾 · 昨日：<a href="readwise-briefing-20261017.html">深度纪律首考</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
