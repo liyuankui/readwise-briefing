@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-18</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-18（星期日）· 深度纪律 v2 第 2 考 · 2 个方向（全文渲染）</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>信号 → 验证（3 篇回源）→ 洞察 → 行动。</div>
+
+<h2>P1 · 「野心四维法」注入 D5 与讲师团</h2>
+<div class="card">
+  <h3>高度→GOAL_RESTATE · 深度→谄媚防护 · 广度→S3 评级</h3>
+  <div class="meta">信号：<a href="https://www.zhihu.com/pin/2094366815107531006">Claude 核心工程师 Felix 四维法</a>（✅ jina 破墙全文，第四维截断如实标注）· 连接：D5 / 讲师团 / 谄媚防护</div>
+  <div class="claim">模型上限常卡在人的提问野心，而非模型本身。把 Felix 可验证的三维分别挂到既有机制——第四维原文截断，暂不落地。</div>
+  <h4>① 高度维 × GOAL_RESTATE v2（模板全文）</h4>
+  <p>新增第 4 段「上一级目标」：<b>1 复述</b>（用自己的话说对方要什么）→ <b>2 范围</b>（做/不做/边界）→ <b>3 Done</b>（可独立验证的完成判据）→ <b>4 上一级目标</b>（此目标服务哪个更大的目标？至少追一层；答不出标「待问」，禁止代答）。追问即「修单个闪退 → 确保永不崩溃」的跃升动作。</p>
+  <h4>② 深度维 × 谄媚防护：生成者 ≠ 评分者</h4>
+  <p>硬规则：凡评分，先验评分者未见过生成过程；见过即无效，换 Agent 重评。eval 拆 generate/evaluate 两步（评分 prompt 只见产出物与源数据）；日常主输出后另开 sub-agent 打分，不给褒扬空间。</p>
+  <h4>③ 广度维 × S3 评级：名词变动词</h4>
+  <p>每条 S3 候选必须写成「动词短语＋可感知终点（＋时限）」并入周五回顾 DEEP_QUESTION——改不出动词终点的降 S2，不入蓄水池。例：「写 X 汇报」→「30 分钟内让忙碌的 Y 认可因果逻辑并做出 Z 决定」。</p>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 模板 v2 + 合并指令上线 → W2 周五首轮动词化改写 → W4 复盘 + 读 Felix 原文定第四维。可测：连续 4 个周五第 4 段填写率 100%（含「待问」标记）；月内 eval 全部 generate/evaluate 分离；蓄水池动词短语占比 ≥80%。风险：追问致超时（每条限时 2 分钟）；外部裁判自身谄媚（裁判只见产出物+源数据）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>GOAL_RESTATE 加第 4 段，更新周五提示词</li><li>「生成者≠评分者」写进 eval 脚本与讲师团指令</li><li>周五试点 S3 动词化，记录降级率</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>二手转述 + 第四维截断</b>：落地前应读 Felix 原文，第四维不猜。</li><li>human-out-of-the-loop 有边界：审批/越级沟通/管理决策须人终审，只在工作流层移出。</li><li>陶哲轩评语是现象描述非方法有效性证据，勿当因果论证。</li></ol></div>
+</div>
+
+<h2>P2 · arcade money 时代的企业 AI 采购策略</h2>
+<div class="card">
+  <h3>把积分黑箱按风险定价：可预测性入评分、探针定档、透明作杠杆</h3>
+  <div class="meta">信号：<a href="https://www.elenaverna.com/p/what-on-earth-is-going-on-with-ai">What on Earth Is Going On With AI Pricing and Packaging?</a>（Elena Verna ✅ 全文）· 连接：P4 工具提案 F2-F5 / Qoder Biz Case</div>
+  <div class="claim">AI 工具普遍订阅+积分制（arcade money），单价对比已失效。企业采购须把积分黑箱按风险定价：可预测性入评分、探针试错定档、透明偏好作谈判杠杆。</div>
+  <h4>① 工具清单评估加「定价可预测性」评分（5 项 ×0-2 分，与 Agent-Native 维度并列）</h4>
+  <ol><li>积分可换算为 token/次数/美元</li><li>计算基数（模型/周期/限速）公开</li><li>有团队级消耗报表可导出</li><li>档位额度为明确数字，无 "Maximum" 式模糊词</li><li>余额与扣费可在管理后台核验</li></ol>
+  <h4>② 试点方法论：探针 → 基线 → 选档（先跑 Qoder，后成模板）</h4>
+  <p>探针期两周（最低档+真实任务，日记录消耗）→ 基线（人均周消耗、P50/P90 单任务成本、浪费率）→ 按 P90 定档，实际超 P90 触发复核。落点：并入 Qoder Biz Case 成本对比，survey 增「消耗可预测性」题；magpie 订阅×模型解耦实验数据并行参照。</p>
+  <h4>③ 谈判 leverage</h4>
+  <p>RFP 明示定价透明度占评分权重；对厂商直言「同等能力下优先采购积分可换算、报表完备者，续约同标准」；以多团队合并用量换公开换算口径或按量补差选项。成功标准：候选工具双人打分一致率 ≥80%；Qoder 基线可算 P50/P90；选档后实际消耗落在预测 ±30%；≥1 家厂商给出换算口径或报表承诺。ROI：防档位错购（一档之差 × 团队规模 × 12 月 ≫ 探针两周花费）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>F2-F5 插入 5 项评分，重排成本论证逻辑</li><li>定 Qoder 探针协议：最低档、两周、日记录</li><li>survey 增题；RFP 草拟透明度条款</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>作者为 SaaS 咨询背景，视角天然偏买方教育——「买方只能试错」是时点观察未必成律。</li><li>积分制背后有真实成本结构原因（推理成本波动/防滥用/打包对冲），全透明未必最优——强推透明或筛掉能力更强的厂商甚至换来提价。</li><li>「透明者赢」是预测非事实，设证伪点：一年内主流厂商仍不透明且份额未失，则此杠杆失效。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 第 2 考 · 2/2 subagent 成功 · 3 篇回源（含 jina 破知乎墙）· 简报见 <a href="readwise-briefing-20261018.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
