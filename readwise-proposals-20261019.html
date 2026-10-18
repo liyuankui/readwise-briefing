@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-19</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-19（星期一）· 2 个方向（全文渲染）· 双 ⭐×5</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>信号 → 验证（2 篇回源 + 1 篇如实受阻）→ 洞察 → 行动。</div>
+
+<h2>P1 · opencode F2-F5 收口计划（2.0 修订版）</h2>
+<div class="card">
+  <h3>从单一成本论证到「成本 × Agent-Native × 定价可预测性」三维</h3>
+  <div class="meta">信号：<a href="https://opencode.ai/v2/docs/">opencode 2.0 发布</a>（✅ docs 已读；Cheepseek Phase 3 未验证不进论证）· 连接：opencode-proposal F2-F5 / Qoder Biz Case</div>
+  <div class="claim">opencode 2.0 三形态（终端/桌面/Web，`opencode pair`）+ 版本化 Docker 镜像 + Go 订阅 $10/月，四周收口 F2-F5。</div>
+  <h4>① 论证骨架重写</h4>
+  <p>三形态对 Agent-Native 维度直接加分（headless 可调用性 docs 未载，留 F4 PoC 证实）。Go 订阅 arcade money 评分：固定费透明 5/5（$10 明码）· 用量可见 3/5（额度未载）· 积分可换算 <b>待确认</b> · 封顶机制 <b>待确认</b> · 退出成本 4/5（开源可自托管）。Docker digest 可审计、走内网 registry——F2 合规现成路径。</p>
+  <h4>② F2 合规 checklist 2.0（待确认项）</h4>
+  <p>Windows 包管理器不支持（团队 Mac/Linux 为主影响低，个别走 Docker）· Console 数据边界（安全问卷补问）· Go 积分口径（计费单位/团队共享，问官方）· mise ≥2026.10.9 入环境基线。</p>
+  <h4>③ 收口时间表</h4>
+  <table>
+    <tr><th>周</th><th>步骤</th><th>依赖</th></tr>
+    <tr><td>W1</td><td>F2 合规问卷 + 积分口径问询</td><td>docs</td></tr>
+    <tr><td>W2</td><td>F3 成本三方案重算（Go vs 自托管 vs API 直连 TCO）</td><td>F2</td></tr>
+    <tr><td>W3</td><td>F4 Agent-Native PoC（pair API 化）</td><td>F2</td></tr>
+    <tr><td>W4</td><td>F5 决策包，对表 Qoder Biz Case</td><td>F3+F4</td></tr>
+  </table>
+  <p>成功标准：合规初判 HIGH 风险 0 项未闭环；TCO 表误差 &lt;10%；1 个真实任务经 Web 跑通留痕；决策会一次通过。ROI：10 人试点 $100/月，较 API 直连省 ≥20% 即回正。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>提交 F2 安全问卷（含 Console 数据边界三问）</li><li>邮件询问 OpenCode Go 积分口径</li><li>内网拉 2.0.0 镜像跑通 `opencode pair`</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>docs 信息有限：「Operation Cheepseek Phase 3」未载——未验证不进论证。</li><li>$10 订阅积分口径未公开，评分含 2 项待确认，F3 结论可能随口径修正。</li><li>「Web 可 API 化」属推断，须 PoC 证实后方可写入正式论证。</li></ol></div>
+</div>
+
+<h2>P2 · Linus 案例作为练级场旗舰证据</h2>
+<div class="card">
+  <h3>一案三证：性能上限 · 人类终审 · 揪出即接棒</h3>
+  <div class="meta">信号：<a href="https://www.infoq.cn/article/hRw4BZQQUW14sqYMo5F6">Linus 用 Claude Code 改内核</a>（✅ InfoQ 全文）· 连接：D1 练级场 / P1 审查重构 / 讲师团</div>
+  <div class="claim">以 Linus 案为练级场叙事旗舰证据：读取吞吐最高 23×，竞争条件 bug 靠维护者 Shutsemau 合入前揪出，后续开发移交揪 bug 者——正合「策略者/裁决者/审计者」三层与人上移叙事，并顺势立「AI 参与透明标注」试行规范。</div>
+  <h4>① 叙事萃取：三金句 × 场景</h4>
+  <table>
+    <tr><th>金句</th><th>内部场景</th></tr>
+    <tr><td>23× 性能与竞争条件 bug 并存——「能跑」与「正确」分离</td><td>讲师团 L0 开场：AI 输出默认高性能草稿，正确性另判</td></tr>
+    <tr><td>提交记录透明标注 AI 参与——免责与诚信的规范雏形</td><td>提案论证：向管理层证三层模型时引为业界风向</td></tr>
+    <tr><td>后续交给揪 bug 者——审查即练级、揪出即接棒</td><td>团队规范起草：「谁揪出谁接棒」入审计者晋升路径</td></tr>
+  </table>
+  <h4>② 制度落地：「AI 参与透明标注」试行草案</h4>
+  <p>提交信息尾注 <code>AI: none|assist|pair|gen</code> + 一句人类验证范围（已审什么/未审什么）。防退化设计：<b>标注驱动审查分流</b>（`gen` 必入终审队列）；审计者月度抽查失真率；失真 &gt;20% 复盘入 case bank 不罚个人——护住诚实标注。</p>
+  <h4>③ 论证边界（与 P1 杀门的关系）</h4>
+  <p>本案只证明「终审需要人」，不证明「人人需要审」——恰支持 P1 的杀门方向：价值在专职终审，不在全员全量审。本案仅作叙事证据不作数据证据；引用时明示边界，防「业务代码非内核」一击即溃。里程碑：W1 金句卡入库 + 草案半页评审 → W2-3 一两个 squad 灰度 → W4 全组试行 + 首次失真率抽查。成功标准：灰度标注覆盖率 ≥90%、抽查失真率 ≤20%、`gen` 提交 100% 过终审、讲师团 3 场后学员能复述「能跑≠正确」。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>三张金句卡入讲师团素材库，各配边界话术</li><li>标注草案半页，请 2 名工程师预审</li><li>P1 提案证据节增本案引用与边界声明</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>单案例不可泛化</b>：Linus 场景是内核级高风险代码（并发/内存安全），业务代码风险结构不同，结论未必迁移。</li><li>本案为中文二手转述，原始邮件列表细节未核——引用须标「据 InfoQ 报道」。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 周一版 · 2/2 subagent 成功 · 简报见 <a href="readwise-briefing-20261019.html">Briefing 页</a>（含周度回顾）
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
