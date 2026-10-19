@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-20</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-bad { background:rgba(220,38,38,.1); color:#dc2626; }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-20（星期二）· 独立信号 4 条 · 2 篇回源 · 1 篇三通道受阻</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">4</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">❌ 三通道受阻</div></div>
+</div>
+
+<h2>⭐×4 双信号</h2>
+<div class="card">
+  <h3>AI 模型黑箱内部：如何真正思考<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-19 · Lenny's Newsletter · 对谈 Anthropic 可解释性研究员 Emmanuel Ameisen</div>
+  <p class="quote">核心发现：模型内部形成<b>概念的一般化表征</b>；能<b>提前多个 token 规划却不明说</b>；可能存在类似人类「有意识/无意识」处理的结构区分；所谓能力突变背后其实是<b>平滑的缩放曲线</b>；模型是「长出来的」而非建造的。启示：「下一个词预测器」的说法低估了模型的规划能力，适度拟人化反而有助于理解。</p>
+  <div class="why">一鱼三吃：① CS336 学习的「模型内部观」补充（突变是平滑缩放——评测设计里「能力涌现」叙事要打折）；② 「提前规划不明说」与谄媚/Terminator 链同族——模型内部状态与输出可分离，judge 设计的「生成者≠评分者」再加一层理论支撑；③ 讲师团 L2-L3「模型非魔法定义」素材。<a href="https://www.lennysnewsletter.com/p/a-mind-expanding-conversation-on">原文</a></div>
+</div>
+<div class="card">
+  <h3>干智能体挣了 7 位数后，发现是坑比生意（FDE 复盘）<span class="badge b-bad">❌ 正文三通道受阻</span></h3>
+  <div class="meta">10-19 · @weiyong_wang 唯庸 · x.com 反爬 + jina 今日起封本机 IP + WebFetch 403</div>
+  <p class="quote">已捕获开头：「24 年从字节 seed 项目组离职 all in AI，做那些 lowb 智能体——现在有个草蛋的名字叫 FDE。一开始我觉得给企业做 AI……」<b>（长文正文未读，以下不引用未读内容）</b></p>
+  <div class="why">标题与开头已指向高价值议题：FDE（Forward Deployed Engineer）模式的一线血泪——与 09-25 简报「FDE 落地能力」深挖及讲师团「服务化」讨论直接相关。⚠️ 需你手动打开推文，或等 jina IP 解封后我补全文复盘。<a href="https://x.com/weiyong_wang/status/2111798398668136528">推文</a></div>
+</div>
+
+<h2>⭐×3 与附录</h2>
+<div class="card">
+  <p class="quote">• <b>Weekend Reading: I'm Afraid You Don't Have Enough Tokens to Do That, Dave</b>（labnotes ✅，标题双关 2001 太空漫游 HAL）——链接汇：阿根廷两个 23 岁年轻人用 AI 做出顶级新闻应用（「clone 三四家公司来做会议演讲已经不是疯话，是基线」）；AI 钓鱼风险；开源新工具清单。<a href="https://labnotes.org/weekend-reading-im-afraid-you-dont-have-enough-tokens-to-do-that-dave/">原文</a><br>• HN RSS（剔除）。本日无生活维度信号、无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中<br>
+  ⚙️ 工程注记：jina 代理今日起对本机 IP 要求认证（401 bad IP reputation）——回源降级链变薄，明日观察是否恢复<br>
+  昨日：<a href="readwise-briefing-20261019.html">周一版（周度回顾+双⭐×5）</a> · 下次周一回顾 10-26
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
