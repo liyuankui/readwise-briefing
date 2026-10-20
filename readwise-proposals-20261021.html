@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-21</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-21（星期三）· 2 个方向（全文渲染）</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>信号 → 验证（3 篇回源）→ 洞察 → 行动。</div>
+
+<h2>P1 · Uber Genie 对评测体系的三点借鉴</h2>
+<div class="card">
+  <h3>正确性不靠模型自觉，靠结构 + 双真值</h3>
+  <div class="meta">信号：<a href="https://blog.bytebytego.com/p/how-uber-built-a-genie-to-answer-051">Uber Genie Part 2</a>（✅ ByteByteGo 转述，细节以 Uber 原博为准）· 连接：NL 断言层 / P2 evals 爬山环 / 讲师团</div>
+  <div class="claim">Genie 的正确性靠「仅基于带源材料作答」+ 双真值评估（judge 离线、用户反馈在线）。三点整体迁入：NL 断言层、evals 爬山环、讲师团案例库。</div>
+  <h4>① 引用断言写入 NL 断言 schema（L1 断言，V2 验证）</h4>
+  <table>
+    <tr><th>断言</th><th>验证</th><th>分级</th></tr>
+    <tr><td>citations 非空且 URL ∈ 检索集</td><td>纯程序</td><td>V2</td></tr>
+    <tr><td>引用段落蕴含答案断言（NLI）</td><td>程序化近似</td><td>V2</td></tr>
+  </table>
+  <p>schema 增 <code>citations[]:{url, span, supports}</code>；不过即 eval fail——RAG 类应用的 eval-as-gate 终于有了程序化抓手。</p>
+  <h4>② 48.9% 怎么读 + 用户反馈真值接入</h4>
+  <p>48.9% 由用户反馈定义（154 频道、70K+ 问题、省约 1.3 万工程时）——<b>证明不足半数有用也可净值为正</b>，可接受基线取决于价值/成本比而非绝对分。它与 judge 评分是两种真值：前者海量带噪，后者可控但一致率 57-59%。接入设计（仿 Kafka→Hive）：👍/👎 埋点 → 反馈表（含 citations）→ judge-用户对齐率 → 分歧样本回流 few-shot 与断言库。</p>
+  <h4>③ 讲师团 L2 案例「生产级 RAG 全链路」四段大纲</h4>
+  <table>
+    <tr><th>段</th><th>Genie 做法</th><th>教学点</th></tr>
+    <tr><td>知识准备</td><td>Spark ETL → LangChain 分块 → 向量化 → Sia/Terrablob</td><td>数据质量先行</td></tr>
+    <tr><td>正确性</td><td>知识预筛 + 限定作答 + 带源引用</td><td>结构防幻觉</td></tr>
+    <tr><td>评估</td><td>judge 幻觉/相关性 + 用户反馈</td><td>双真值互校</td></tr>
+    <tr><td>成本</td><td>Michelangelo 网关 UUID 归因</td><td>每问可审计</td></tr>
+  </table>
+  <p>里程碑：W1 schema 草案 + 埋点点位（RAG eval 引用断言覆盖 100%）→ W2 对齐率首批数据（judge-用户一致率 ≥70%）→ W4 案例入库（讲师团评审通过）。风险：反馈量不足→对齐率无统计力（先灰度）；引用支撑判定依赖 NLI/judge 的循环依赖（小模型 NLI 先行）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>引用断言 schema 草案入 review</li><li>反馈埋点点位清单定稿</li><li>案例四段大纲初稿发讲师团</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>48.9% 是 Uber 内部 Slack 问答场景数字，不可直接作我们基线——自有基线须由本地用户反馈测出。</li><li>ByteByteGo 为二手转述，落地前逐条回 Uber 原博核对。</li><li>Uber 未公开 judge-用户一致率，「互校提一致率」属推测。</li></ol></div>
+</div>
+
+<h2>P2 · 「$260 一天造出 700 星教育工具」对 K12 意图的三点启示</h2>
+<div class="card">
+  <h3>以「学生自检」为 OpenMAIC 最小可行切入</h3>
+  <div class="meta">信号：<a href="https://x.com/hassanyehiaa/status/2112174303269834900">风清扬：初中/小学数学自检工具</a>（✅ 推文自带数据；GitHub 链接未展开，repo 名不猜）· 连接：K12 教育 / OpenMAIC</div>
+  <div class="claim">AI 已把教育原型生产成本压到 $260 量级。K12 意图应以「学生自检」为 OpenMAIC 最小可行切入，以免费开源建立家长信任，用「一天冲刺出原型 + 审查流程收尾」的混合节奏替代全程多轮审查。</div>
+  <h4>锁定痛点</h4>
+  <p>OpenMAIC Plan 已过三轮审查，仍卡在 OpenNext 兼容验证——<b>验证周期长于生产周期</b>，原型到不了学生手里，既不能证真也不能证伪。</p>
+  <h4>① 成本结构与可复制性</h4>
+  <p>$260 ≈ 一个可用 K12 数学工具的全部 AI 生产成本。Free Tier 部署 + AI 编码之下，现金预算不再是瓶颈，节奏才是。冲刺与审查并非二选一：冲刺产骨架、审查保质量——为自检模块排 T+1 冲刺 + T+2~3 审查的混合循环。</p>
+  <h4>② 「拒绝商用」的信号</h4>
+  <p>作者拒绝全部商用（含国内教育机构）。K12 场景中家长对无商业动机的免费工具信任显著更高。落地：原型期即打「免费开源」标签；<b>工具免费建信任，课程价值由讲师团承载，两条线分开核算</b>。</p>
+  <h4>③ 产品形态：自检 vs 教室</h4>
+  <p>「学生自检」一天 700 星，因为<b>单用户即闭环</b>——自己测、自己看错因，无需教师侧与班级冷启动；「AI 教室」是多边形态，冷启动重一个量级。落地：课程先加自检模块，教室形态从使用数据里长出来。</p>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 定位并试用源项目 + 自检一页 PRD → W2 OpenNext 兼容结论 + 自检 MVP 冲刺 → W3-4 ≥10 名学生内测、决定是否并入 L0。可测：OpenNext 1 周内明确结论；MVP 端到端跑通；≥10 人完成自检且 ≥6 人愿再来；原型 AI 额度 ≤$100。风险：源 repo 定位不到或质量差（只借形态不依赖代码）；LLM 判分出错（判分用程序，LLM 只做错因解释）；免费工具与收费课程混淆（双线明示边界）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>展开 t.co 定位 GitHub repo，试用小学/初中两站，记录形态差距</li><li>OpenMAIC 跑一次 OpenNext 最小验证（任一页面部署上 Cloudflare Free Tier）</li><li>自检模块一页 PRD + 2~3 名学生/家长 10 分钟访谈</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>700 星是开发者社区热度，不等于学生/家长采用</b>——K12 真指标是孩子反复用、家长愿推荐，只能靠内测回答。</li><li>单推文无法核实 repo 与实际质量，落地前必须定位、读码、试用。</li><li>$260 是「熟手 + 清晰形态」的成本，首次复刻按 2~3 倍预算与时间预留。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 2/2 subagent 成功 · 简报见 <a href="readwise-briefing-20261021.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
