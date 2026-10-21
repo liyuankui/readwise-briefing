@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-22</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-22（星期四）· 1 个方向（全文渲染）</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>累积 ⭐×4 候选达阈值，对唯一可读者深挖（其余 3 条内容受阻如实登记）。</div>
+
+<h2>P1 · AI 代理重写架构选型经济学：对门店 POS 的三点落地</h2>
+<div class="card">
+  <h3>选型第一问从「如何共享代码」变为「如何让 agent 可验证地写对代码」</h3>
+  <div class="meta">信号：<a href="https://blog.bytebytego.com/p/why-shopify-migrated-from-react-native">Why Shopify Migrated From React Native</a>（✅ ByteByteGo 转述，量化以 Shopify 原博为准）· 连接：Store POS 现代化（前端/BFF 待定）/ Agent-Native 维度 / D1-P1 审查体系</div>
+  <div class="claim">AI 编码代理使「重复实现」边际成本大降——跨平台共享不再默认省钱；<b>可验证性升为硬约束</b>。</div>
+  <h4>锁定痛点</h4>
+  <p>POS Phase 2 已立项，前端/BFF 架构待定；讨论仍以「复用率」为共享层主论据，缺 AI 时代成本重算框架。</p>
+  <h4>① 选型原则修订：共享收益公式重算</h4>
+  <p>双端各自实现成本系数从约 2.0 降至 1.2~1.5，共享层节省从 1.0 缩到 0.2~0.5，而抽象税（接口妥协、版本协调）不变——<b>净收益可能转负</b>。</p>
+  <table>
+    <tr><th>成本项</th><th>AI 时代变化</th></tr>
+    <tr><td>双端重复实现</td><td>大降</td></tr>
+    <tr><td>共享层抽象税</td><td>不降</td></tr>
+    <tr><td>QA 面</td><td>不降：双端双倍验证，强合规下 QA 是主成本</td></tr>
+    <tr><td>设计一致性</td><td>不降：双套 UI 对齐成本仍在</td></tr>
+    <tr><td>团队认知负荷</td><td>升：11 人撑双技术栈更紧</td></tr>
+  </table>
+  <p>B2B 单端场景「复用」论据降权；BFF 共享业务逻辑仍成立，但须以重算后净收益立项。</p>
+  <h4>② 「无头 CLI 供 agent 验证」升为架构硬约束</h4>
+  <p>Shopify 敢把重写交给 agent，前提是 agent 能用 CLI 快速验证状态。POS 交易核心同理：每个服务提供只读、幂等、结构化的 <code>verify</code> 入口（订单状态/对账快照/幂等结果），与「Agent-Native 可调用性」合并为一条团队原则：<b>服务须同时暴露 human API 与 agent 可验证接口，否则不得上生产</b>。</p>
+  <h4>③ 小步迁移检查点对接 D1/P1</h4>
+  <p>对标 Shopify 的 Helix 多重复核：AI 代码质量门 = L1 gate；小步检查点 = 每 PR 一个可验证行为切片；D1 增「agent 可验证性」栏，P1 要求附 agent 自验输出。</p>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 BFF 讨论会用清单重审方案 → W2 挑 1 个 POS 服务试点 verify CLI → W4 D1/P1 模板增补 + 沉淀 ADR。可测：BFF 评审记录含逐项成本重算；试点服务 agent 验证调用 P95 &lt;2s 且覆盖 ≥3 个核心状态；AI 代码返工率较基线降 ≥30%。ROI：省共享层抽象税约 0.5~1 人力/年；verify 入口复用于巡检与 oncall。风险：认知负荷被低估（原则只约束新选型）；verify 暴露敏感态（只读 + 最小字段 + 审计日志）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>重算清单发「统一前端团队」作讨论会预读</li><li>POS 交易核心选 1 服务列 verify 入口清单</li><li>D1 模板草拟「agent 可验证性」检查栏</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>场景不可直接类比</b>：Shopify 是双 app 消费级产品，门店 POS 是 B2B 单平台强合规场景，本无跨平台复用压力——可借的只是选型经济学与工程纪律，不是迁移决策。</li><li><b>二手信源 + 归因风险</b>：量化以 Shopify 原博为准；性能收益来自 greenfield 全新重写，非纯 AI 代理贡献，勿归因单变量。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 1/1 subagent 成功 · 简报见 <a href="readwise-briefing-20261022.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
