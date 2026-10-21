@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-22</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.b-bad { background:rgba(220,38,38,.1); color:#dc2626; }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-22（星期四）· 独立信号 5 条 · 2 篇回源 · 1 份全文 Proposal</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">5</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">⭐×4 深挖</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">❌ 服务器 500</div></div>
+</div>
+
+<h2>⭐×4 Shopify 弃 React Native 回归原生（已回源 + 深挖）</h2>
+<div class="card">
+  <h3>AI 编码代理重写了架构选型的经济学<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-20 · ByteByteGo 转述 Shopify 工程博客（量化数据以原博为准）</div>
+  <p class="quote">迁到原生（Swift/SwiftUI + Kotlin/Compose），greenfield 重写。<b>核心原因：2025 年 AI 编码代理崛起，使双平台各自实现的成本大降，代码复用不再像 2020 年那样重要。</b>量化：Shop app 12 周上线；iOS 启动 3200→约 2400ms，Android 4400→2200ms；Android 包体 293→184MB；崩溃减少。架构启示：业务逻辑与 UI 解耦；<b>提供无头 CLI 供 agent 快速验证状态</b>；小步迁移检查点（内部工具 Helix）+ 多重复核保证 AI 生成代码质量。</p>
+  <div class="map">📐 三处命中：① 「跨平台共享代码」的收益公式在 AI 代理时代要重算——门店 POS 前端/BFF 讨论的现成重算清单；② 「无头 CLI 供 agent 验证」与 Agent-Native 可调用性维度合并为团队架构原则；③ 「小步检查点 + 多重复核」= 我们的 L1 gate 对接。深挖 Proposal 见 Proposals 页。<a href="https://blog.bytebytego.com/p/why-shopify-migrated-from-react-native">原文</a></div>
+</div>
+
+<h2>⭐×3 其余（含验证）</h2>
+<div class="card">
+  <h3>64 AI Engineering Concepts, Clearly Explained<span class="badge b-warn">⚠️ 半实质半付费墙</span></h3>
+  <div class="meta">10-20 · systemdesign.one（四部曲 Part 2，覆盖 17 概念）</div>
+  <p class="quote">前 11 个概念有实际解释（RLHF/Pretraining/Vector Search/Quantization/MCP/LoRA…），第 28 个「Diffusion Models」处被付费墙截断，其后是 7 天试用推广。结构：每项含定义/类比/常见错误/意义；分类：训练/检索/生成可靠性/基础机制/部署集成。</p>
+  <div class="why">与 10-16 的 Playbook（纯推广）不同，本篇有实质——讲师团 L0-L1 术语表可参考其「定义/类比/常见错误」三段式结构（这个结构本身比内容更值得抄）；免费部分足够做教材骨架，付费部分不依赖。<a href="https://newsletter.systemdesign.one/p/advanced-ai-concepts-explained">原文</a></div>
+</div>
+<div class="card">
+  <p class="quote">• <b>You Have No Idea Who Your Work Is Reaching</b>（Nathan Barry）<span style="color:#dc2626;"> ❌ 服务器 500</span>——WebFetch 两次 500，非本机问题，明日重试。与 10-07 存读的「Identity Trap」同作者，创作者/出海线。<br>• <b>The Influencer Is Dead. The Age of Experience Is Here.</b>（Dan Koe，昨日 Human 3.0 同作者）——创作者经济观点文 ⭐×2，未回源（同作者连续两日入库，信号在于「Kyle 在关注 Dan Koe」而非单篇）。<br>• 🧠 <b>阿斯伯格与正常关系</b>（知乎）——心理/健脑 ⭐×2。<br>• HN RSS（剔除）。经典高亮今日 0 条。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中 · 无政治敏感项<br>
+  Proposals 见 <a href="readwise-proposals-20261022.html">Proposals 页</a>（1 份全文）· 昨日：<a href="readwise-briefing-20261021.html">Uber Genie + K12 自检</a> · 下次周一回顾 10-26
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
