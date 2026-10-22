@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-23</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+pre { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:12px 14px; font-size:.82em; overflow-x:auto; margin:10px 0; }
+code { font-family: ui-monospace, Menlo, monospace; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals · 第 100 期特辑</h1>
+  <div class="date">2026-10-23（星期五）· 1 个方向（全文渲染）· 三源合流</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>一周内三个独立信源合流同一主题——这是信号密度的最高形态。</div>
+
+<h2>P1 · 分层审查 v2：三源合流</h2>
+<div class="card">
+  <h3>策略人定、条件机器判、人只守高危/抽样/练级</h3>
+  <div class="meta">信号：<a href="https://lethain.com/small-changes">Will Larson: Speeding Up Code Review With small-change</a>（✅ 全文）× P1 路由（10-17 GitHub Copilot）× D1 轮值（10-06 立项）· 连接：练级场 / Linus 标注提案 / L1 gate</div>
+  <div class="claim">审查从人工轮值升级为三层模型——策略人定、条件机器判、人只守高危/抽样/练级。Larson 数据（事故 -42%/严重 -78%）证质量与速度非权衡，前提是 CI 判定条件。</div>
+  <h4>锁定痛点</h4>
+  <p>① 审查 p50 膨胀（Larson 场景 33→77 分钟），Copilot 评论后轮值者趋转发器；② P1 只答「审多深」未答「何时可不审」；③ D1 全人工排班，练级效果不可量化。</p>
+  <h4>一、三源对照 → 统一模型</h4>
+  <table>
+    <tr><th>维度</th><th>Larson</th><th>P1 路由</th><th>D1 轮值</th></tr>
+    <tr><td>解决</td><td>审查排队膨胀</td><td>AI 后注意力上移</td><td>审查即练级</td></tr>
+    <tr><td>机制</td><td>CI 判条件免深审</td><td>路径路由</td><td>人工排班</td></tr>
+    <tr><td>缺</td><td>不承载成长</td><td>无免审、无作者维度</td><td>无机器判定</td></tr>
+  </table>
+  <p>统一 v2：<b>机器判</b>——行数、路径、影响服务数、AI 无 p1/p2、作者按服务合并数；<b>人设</b>——路径分级（资金/共享库）、阈值、抽审率、季度调参。</p>
+  <h4>二、.small_change 草案（先严后宽）</h4>
+  <pre><code>max_lines: 400        # Larson 1000，我们先严
+ai_review: no_p1_p2
+merges_in_service: 5  # Larson 10+，11 人团队从 5 起
+services_touched: 1
+exclude: [payment/**, shared-libs/**, workflows/**]
+audit_sampling: 0.10  # 仍抽 10% 人审</code></pre>
+  <p>按服务 5+ 且 90 天无 revert，季度上调。</p>
+  <h4>三、经验值即授权（练级场闭环钥匙）</h4>
+  <p>练级场 PR 累计按服务经验值，达阈值解锁 fast-lane：<b>练级 → 兑换审查信任 → 轮值名额转高危影子审查</b>——练级场的产出第一次有了可兑换的硬通货。Linus 标注（AI:none/assist/pair/gen）随行调审深度。</p>
+  <h4>四、防退化：meat proxy 检查</h4>
+  <p>① 只裁决不改写，禁照抄 approve；② 监控纯转发占比（审查耗时 ≈ AI 输出即告警）；③ 审计者月抽 5 个免审 PR 防橡皮图章。</p>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 定 1 试点服务 → W2-4 shadow 试跑 → M2 全团队试行 → M3 经验值闭环。可测：符合率 ≥8%；免审通道 revert 率 ≤ 常规基线；高危人审 p50 不升；抽审漏检率 &lt;2%；纯转发占比 &lt;10%。ROI：月 200PR × 10% × 1h ≈ 20h 投高危练级。风险：阈值过松（抽审兜底）；数据冷启动（shadow 先行）；AI 判 p1/p2 不稳（先校准）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>yaml v0 选 1 服务 shadow 试跑</li><li>导近 6 月按服务合并数据验 5+ 覆盖率</li><li>轮值表加转发率列，对齐 Linus 标注</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>数据不可照搬</b>：10% 符合率与 42%/78% 降幅出自 Larson 公司场景（大规模成熟 CI），11 人团队 PR 分布不同——只作假设，须 shadow 实测。</li><li><b>免深审 vs 练级场的张力</b>：低风险 PR 既是练级材料也是免审首选——练级场 PR 例外留人审 + 重心移向高危影子审查，损 fast-lane 收益，系刻意交换。</li><li><b>经验值固化不平等</b>：只数次数奖励多提交而非好提交，需叠加 revert 率，否则成资历壁垒。</li></ol></div>
+</div>
+
+<footer>
+  第 100 期特辑 · 深度纪律 v2 · 简报见 <a href="readwise-briefing-20261023.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>

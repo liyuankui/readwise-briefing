@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-23（第 100 期）</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.banner { background:var(--surface); border:1px solid var(--accent3); border-left:4px solid var(--accent3); border-radius:10px; padding:14px 18px; margin-bottom:24px; font-size:.95em; color:var(--text2); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报 · 第 100 期</h1>
+  <div class="date">2026-10-23（星期五）· 独立信号 7 条 · 2 篇回源 · 1 份全文 Proposal</div>
+</header>
+
+<div class="banner">
+  🎉 <b>第 100 期</b>：从 2026-09 手工首跑到今日无人值守 17 连跑，管道累计处理高亮 307 条 / Reader 文档 126 篇，期间经历一次「敷衍危机」并固化为深度纪律。今天的头条恰是最好的百期注脚——三个独立信源（Larson / GitHub / 我们自己）在同一周合流到「分层审查」。
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">7</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">⭐×5 深挖</div></div>
+</div>
+
+<h2>⭐×5 small-change：免深审快速通道（已回源 + 深挖）</h2>
+<div class="card">
+  <h3>Will Larson：用 small-change 提速代码审查<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-21 · lethain.com（工程管理名家）</div>
+  <p class="quote">满足严格条件的 PR 免人工深度审查、由工具快速批准：<b>CI 判定</b>——代码 &lt;1000 行 · AI 审查无 p1/p2 问题 · 作者在该服务有 <b>10+ 次合并经验</b> · 影响服务数受限 · 排除共享库与敏感路径（如资金流动）。数据：审查 p50 从 33 分钟膨胀至 77 分钟的背景下，约 10% 变更符合条件；<b>事故降 42%、严重事故降 78%</b>——质量与速度并非权衡。另两个金句概念：「<b>meat proxy review</b>」（人肉转发 AI 评论成瓶颈）要避免；知识共享转向按 PR 集群。</p>
+  <div class="map">📐 <b>三源合流</b>：Larson 的 CI 判定条件（本周）+ GitHub Copilot 路由（10-17）+ 我们的 D1 轮值（10-06）——三个独立信源在同一周汇聚到「分层审查」，且「作者 10+ 合并经验」恰好是练级场「资历数据化」的闭环钥匙。深挖 Proposal 给出统一分层 v2 设计（见 Proposals 页）。<a href="https://lethain.com/small-changes">原文</a></div>
+</div>
+
+<h2>⭐×3 与生活维度</h2>
+<div class="card">
+  <p class="quote">• <b>LLM Prompt Caching vs Semantic Caching</b>（bytebytego ✅）：前者复用共享前缀 KV 状态（Anthropic 缓存读取按输入价 <b>1/10</b> 收费，要求前缀完全一致置开头）；后者嵌入向量匹配相似问题直接返回答案（FAQ 类，免 LLM 调用）。两者可叠加：先查语义缓存，未命中再走 Prompt 缓存。<b>arcade money 成本线的技术解法面</b>——简报管道与 eval 管道的长 prompt 都适用。<a href="https://blog.bytebytego.com/p/llm-prompt-caching-versus-semantic">原文</a><br>• 🧠 <b>成为超级个体</b>（曾颖）：个体生存能力被 AI 放大后，关系的「协作必要性」下降——与 Dan Koe Human 3.0 同题第四篇（信号：你在系统性关注这个议题）。<br>• 🧠 <b>Dean Koontz 论神秘写作感</b>（howiwrite，Picoult 同系列）——写作品味素材。<br>• 🥗 孙宇晨肯定型人格 ×2 + 身高段子——「孙学宇宙」条目已 4 条，建议建专属收集或不再收录（低价值重复）。男女关系价值交换（知乎）⭐×1。<br>• HN RSS（剔除）。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中 · 无政治敏感项<br>
+  Proposals 见 <a href="readwise-proposals-20261023.html">Proposals 页</a>（1 份全文）· 昨日：<a href="readwise-briefing-20261022.html">Shopify 架构经济学</a> · 下次周一回顾 10-26
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
