@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-24</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-24（星期六）· 1 个方向（全文渲染）· 沙箱 × eval 双线会师</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>「瓶颈转向验证」第四源抵达——采信结构性事实，不采信厂商数字。</div>
+
+<h2>P1 · project-scale recovery × 验证瓶颈</h2>
+<div class="card">
+  <h3>沙箱管 recovery 的权限与回滚，eval 管 recovery 的正确性判据</h3>
+  <div class="meta">信号：<a href="https://techscoop.substack.com/p/sentinelone-cuts-weeks-of-malware">SentinelOne 逆向 4-6 周 → 8 小时</a>（✅ 全文；厂商自报）· 连接：Agent 沙箱 PoC（Seatbelt 10/10）/ P2 evals 爬山环 / 验证瓶颈论</div>
+  <div class="claim">可采信的不是 8 小时数字，而是两个结构性事实：① project-scale recovery（发现假设错误后全链回滚重调查）已可工程化；② 分析趋零成本后瓶颈转向验证。两条线在此会师。</div>
+  <h4>锁定痛点</h4>
+  <table>
+    <tr><th>线</th><th>缺口</th></tr>
+    <tr><td>沙箱（Seatbelt PoC 10/10）</td><td>只拦单次越权；全链重来时的资源消耗、状态残留、凭证重复暴露无原语</td></tr>
+    <tr><td>eval（V0-V3）</td><td>case 偏单步（FTP），测不到「假设错误后能否自我修正」——真实 agent 负载核心</td></tr>
+  </table>
+  <h4>三块落地</h4>
+  <table>
+    <tr><th>#</th><th>动作</th><th>衔接既有成果</th></tr>
+    <tr><td>①</td><td>沙箱 profile 增<b>会话级快照/回滚原语</b>：每阶段前快照文件+凭证状态；agent 触发全链恢复时验证回滚零残留</td><td>Seatbelt 管红线，新层管「重来」</td></tr>
+    <tr><td>②</td><td>设计<b>多阶段结构化 eval case</b>：每阶段有明确产出物（天然 V3），故意埋入早期假设错误，测全链恢复</td><td>比单步 FTP 更近真实负载</td></tr>
+    <tr><td>③</td><td>eval-as-gate 立项论据句（第四源）：「分析被压至小时级后，瓶颈转向验证——与 GitHub 审查/Linus/Larson 三源互证」</td><td>三源 → 四源</td></tr>
+  </table>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 快照/回滚最小 PoC + 多阶段 case V0 草案 → W2 埋错恢复 case 跑通 → W4 双线合流报告。可测：注入假设错误触发恢复后，凭证/文件残留 diff=0 ×10 次；≥1 个多阶段 case 达 V3（每阶段产出机器判分）；第四源句进入 eval-as-gate 立项文档。风险：macOS 回滚原语实现复杂度未探（APFS snapshot vs 文件级 diff）；多阶段判分脚本成本高；封闭工具链结论外推业务代码未验证。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>沙箱加最小快照 PoC（APFS snapshot vs 文件级 diff，先验证一条）</li><li>起草 1 个八阶段式 eval case（含埋错点）</li><li>第四源论据句写入 eval-as-gate 立项草案</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>厂商自报，营销偏差大</b>：fast16 八阶段为 SentinelLABS 自测非独立基准；8 小时含多少人工干预未披露。</li><li><b>场景边界不同</b>：恶意软件逆向是封闭工具链（状态可快照）；业务代码 agent 面对可变代码库与外部服务，recovery 边界需重新证明。</li><li>「瓶颈转向验证」出自防御厂商立场（其卖点正是分析能力，宣称瓶颈在别处对己有利）——采纳为第四源须标注来源立场。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 1/1 subagent 成功 · 简报见 <a href="readwise-briefing-20261024.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
