@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-26（周一）</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.week { background:var(--surface2); border-radius:10px; padding:12px 16px; margin-bottom:12px; font-size:.93em; color:var(--text2); }
+.week b { color:var(--accent); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-26（星期一）· 周度回顾 · 独立信号 4 条 · 3 篇回源 + 1 repo 验证</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">4</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">✅ 回源 + gh 验证</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">⭐×4 论据补强</div></div>
+</div>
+
+<h2>🗓 周度回顾（10-19 → 10-25）</h2>
+<div class="week"><b>主线一 · 分层审查三源合流</b>：GitHub Copilot 审查 API 化（10-19）→ Linus 案例三金句（10-19）→ Will Larson small-change（10-23，CI 判免深审 + 事故 -42%/-78%）→ 统一「分层审查 v2」Proposal（.small_change YAML 草案 + 经验值即授权闭环）。<b>「何时可不审」补上了 P1 缺的那一块。</b></div>
+<div class="week"><b>主线二 · 沙箱 × eval 双线会师</b>：SentinelOne 逆向 4-6 周→8 小时（10-24）——project-scale recovery（全链自我修正）+「瓶颈转向验证」第四源 → 沙箱快照/回滚原语 × 多阶段埋错 eval case。</div>
+<div class="week"><b>主线三 · 边界-解耦同构链（三连）</b>：Shopify 业务-UI 解耦（10-22）→ 分布式系统独立性（10-24）→ SWLW 团队接口治理（10-25）——从代码到系统到组织的同一设计原则；管理线三叠（丰田改善红利 / Only Hire When It Hurts / 996 隐性债务）给出 headcount 保守默认值。</div>
+<div class="week"><b>主线四 · opencode 2.0 与采购经济学</b>：2.0 发布（三形态 + Go $10/月）→ F2-F5 四周收口计划（arcade money 评分 2 项待确认）；野心方法论（Felix 四维法注入 D5：GOAL_RESTATE v2 + 生成者≠评分者 + S3 动词化）。</div>
+<div class="week"><b>📌 契约到期提醒</b>：今日 10-26 是 CS336 四个月契约（07-06→10-26）的终点，A1-A3 未启动——意图状态「停滞待确认」，<b>本周该做个了断：续约、降频或归档</b>。</div>
+
+<h2>⭐×4 今日信号（论据补强，不新开深挖）</h2>
+<div class="card">
+  <h3>RAG vs Agentic RAG<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-24 · ByteByteGo EP230</div>
+  <p class="quote">RAG 按预设流程检索一次；Agentic RAG 由智能体反复 retrieving、自主选工具（文档/API/网页）、<b>check 证据是否足够</b>，不足则换工具再来。代价：延迟与成本；评论者点破——<b>「判断证据是否充分的，仍是那个想给答案的模型」</b>；「检索质量差时，先修检索比加循环更划算」。适用：多源多跳推理；简单问答 RAG 即可。</p>
+  <div class="why">一箭三雕：① 与 Uber Genie（限源作答 RAG，10-21）构成「朴素 RAG ↔ Agentic RAG」的两极对照——Genie 恰恰选择了「不 agentic」来保正确性；② 「check 的仍是想给答案的模型」= 谄媚链 + 生成者≠评分者的又一实证；③ 「先修检索比加循环划算」可直接写进 eval 的 V 分级决策树。<a href="https://blog.bytebytego.com/p/ep230-rag-vs-agentic-rag">原文</a></div>
+</div>
+
+<h2>⭐×2-3 今日其余（含验证）</h2>
+<div class="card">
+  <p class="quote">• <b>Mac.apk</b><span class="badge b-ok">✅ gh 验证：kksimp/Mac.apk ⭐3243</span>——Apple Silicon 原生跑安卓（无模拟器/无虚拟机/无 Linux 层，重实现运行环境），昨日仍在推送。技术上与 Shopify 弃 RN 同族的「去中间层」趋势样本。<a href="https://x.com/wlzh/status/2113807801449697354">推文</a><br>• <b>Timesharing for Cats</b>（labnotes ✅）：FORTRAN 曾宣称「eliminate coding and debugging」——「编程将死」论 70 年老梗；PostHog 四年 AI 产品经验值得回看。<a href="https://labnotes.org/weekend-reading-timesharing-for-cats/">原文</a><br>• 🧠 塔勒布「成年人活得像机器」<span class="badge b-warn">⚠️ 转述</span>——健脑辛辣款（机械/模仿/缺想象力 + 维护成本高）。<br>• HN RSS（剔除）。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中 · 无政治敏感项<br>
+  上周同期：<a href="readwise-briefing-20261019.html">10-19 周一版</a> · 下次周一回顾 11-02
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
