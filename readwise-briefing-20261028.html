@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-28</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.b-bad { background:rgba(220,38,38,.1); color:#dc2626; }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-28（星期三）· 独立信号 7 条 · 2 篇回源 · 双 ⭐×4-5 深挖</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">7</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">⭐×4-5 深挖</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">❌ 登录墙</div></div>
+</div>
+
+<h2>⭐×5 Salesforce Agent 技术栈（已回源 + 深挖）</h2>
+<div class="card">
+  <h3>五条可操作铁律<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-26 · ByteByteGo 转述 Salesforce 工程内容（细节以原博为准）</div>
+  <p class="quote">四层架构（Data 360 / Customer 360 / Agentforce / Surface）+ 关键铁律：① <b>指令超过约 8 条后模型会忽略</b>——放弃单一大 prompt，用确定性代码（before/after_reasoning 块）强制规则，模型只做推理；② ACE 上下文精选：<b>12.4 万 token → 9 千</b>（压 93%）；③ Agent 独立身份与权限令牌；④ <b>MCP 仅暴露 4 个工具</b>防上下文膨胀；⑤ <b>prompt 只能「塑造」行为，不能「强制」行为</b>。</p>
+  <div class="map">📐 三线注入（深挖全文见 Proposals 页）：讲师团 L3「Agent 架构设计原则」课程骨架正好补上 P0 内容缺口；谄媚防护从「prompt 语句」降为「代码 gate」的改写依据；ACE 式上下文精选对简报/eval 管道 token 成本的直接启示。<a href="https://blog.bytebytego.com/p/a-deep-dive-into-salesforces-agent">原文</a></div>
+</div>
+
+<h2>⭐×4 双信号</h2>
+<div class="card">
+  <h3>Rubrik：让 AI 在攻击者之前黑自己的代码<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-26 · techscoop 转述（Code Guardian，私有预览）</div>
+  <p class="quote">基于 Claude 在<b>物理隔离的仓库副本</b>上做红队：理解架构 → <b>把多个弱小漏洞串成完整攻击路径并验证可利用性</b> → 按业务影响排序 → 自动生成 Jira/GitHub 工单。与传统 SAST/DAST（孤立单点报告）和模糊测试（随机输入不理解业务）的本质区别。局限（原文诚实）：无独立复现、预览版、误报率与成本未公开。</p>
+  <div class="map">📐 与 SentinelOne 构成<b>攻防镜像</b>（Rubrik 攻击链发现 ↔ SentinelOne 防御链恢复）——深挖将其统一为「链式推理任务」评测家族（天然 V3 多阶段）；「隔离副本上跑红队」恰好是沙箱快照/回滚原语的<b>真实需求场景</b>；对安全团队的联合立项切入点。<a href="https://techscoop.substack.com/p/rubrik-wants-ai-to-hack-your-code">原文</a></div>
+</div>
+<div class="card">
+  <h3>国务院办公厅：「有效减缓 AI 应用就业替代影响」<span class="badge b-bad">❌ 知乎登录墙（政策原文为公开新闻）</span></h3>
+  <div class="meta">10-27 · 知乎讨论（正文受阻）；政策本身见公开报道</div>
+  <div class="why">这是 D1 人才链的<b>政策面信号</b>：就业替代首次进入中国顶层政策话语（「减缓影响」而非「拥抱替代」）——与丰田「改善红利不裁员」、练级场「能力资产化」构成同一议题的三级跳（企业实践 → 个人能力 → 国家政策）。知乎高赞观点未读到，政策原文建议直接查公开通稿。<b>中立记录，不作政策解读。</b></div>
+</div>
+
+<h2>⭐×2-3 今日其余</h2>
+<div class="card">
+  <p class="quote">• <b>ArgoCD 深潜</b>（systemdesign.one）——技术参考（ArgoCD 在用，GitOps 深潜可作 L1 温习材料，未回源）。<br>• 🥗 <b>「不吃碳水」为何流行</b>（知乎，未回源）——健胃透镜：与 10-07 饮食辨析同议题的对面（植食最优 vs 断碳水），连成「碳水战争」专题待周末合并。<br>• 🧠 <b>极大改善心理健康的行为</b>（知乎，未回源）⭐×2 · <b>Katelyn：multiagent 新问题集</b>（观点 ⚠️截断）⭐×3。<br>• HN RSS（剔除）。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中 · 无政治敏感项（政策信号以公开新闻层面中立收录）<br>
+  Proposals 见 <a href="readwise-proposals-20261028.html">Proposals 页</a>（2 份全文）· 昨日：<a href="readwise-briefing-20261027.html">副业研究爆发日</a> · 下次周一回顾 11-02
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
