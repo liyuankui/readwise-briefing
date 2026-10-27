@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-28</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-28（星期三）· 2 个方向（全文渲染）· ⭐×5 + ⭐×4</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>两份均针对既有项目注入，且都带「二手转述回源核对」前置。</div>
+
+<h2>P1 · Salesforce 五铁律注入三在途项目</h2>
+<div class="card">
+  <h3>Prompt 只能塑造行为，代码才能强制规则</h3>
+  <div class="meta">信号：<a href="https://blog.bytebytego.com/p/a-deep-dive-into-salesforces-agent">Salesforce Agent 技术栈深潜</a>（✅ ByteByteGo 转述）· 连接：讲师团 L3 / 谄媚防护 / eval+简报成本线</div>
+  <div class="claim">可判定规则下沉为代码 gate，上下文按任务精选，L3 缺口顺势补上——五铁律一次注入三个在途项目。</div>
+  <h4>L3 骨架：五铁律 × 正反案例</h4>
+  <table>
+    <tr><th>铁律</th><th>反面案例</th><th>我们场景正面设计</th></tr>
+    <tr><td>弃单一大 prompt（&gt;8 条指令被忽略）</td><td>千行塞 30 条规则，选择性失忆</td><td>下单校验前置 guard 代码，LLM 只管意图</td></tr>
+    <tr><td>ACE 精选上下文 124k→9k</td><td>全量目录塞窗口，命中被稀释</td><td>检索前置 top-k 切片，按场景精选字段</td></tr>
+    <tr><td>Agent 独立身份令牌</td><td>共用个人账号，越权难追责</td><td>service account + 最小权限 RBAC + 审计</td></tr>
+    <tr><td>MCP 只暴露 4 工具</td><td>40 工具全挂，选错与膨胀齐涨</td><td>按任务分组挂载，单会话 ≤4 个</td></tr>
+    <tr><td>塑造 ≠ 强制</td><td>prompt 写「禁止退款」仍被话术绕过</td><td>退款闸门放代码层，prompt 只管语气</td></tr>
+  </table>
+  <h4>三块落地</h4>
+  <p>① L3 一课（上表即骨架，每铁律 15min 正反对照+代码现场演示）；② 三指令改写（可判定者降为代码 gate：越权→权限 gate；不确定→引用检验器抽检；谄媚→测试集进 CI 违例即红——prompt 语句数减 ≥1/3）；③ 成本线（盘点两条管道长上下文逐项裁剪，先 V0 快速环验证）。成功标准可测：L3 学员测验 ≥80 分；谄媚 gate 拦截率 100%；eval 单次 token 降 ≥50% 且分数漂移 ≤2%。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>回源核对原博；8 条阈值自测（3 模型 × 10/20 条指令消融）</li><li>三指令逐条标注 prompt 塑造 / 代码 gate，出判定表</li><li>统计两条管道 token 基线，圈出 top-3 长上下文</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>8 条指令阈值是 Salesforce 场景经验值，模型代际差异大，须自测后采用。</li><li>93% 压缩依赖其自建 ACE 基建，我方无等价检索层，比例不可照搬。</li></ol></div>
+</div>
+
+<h2>P2 · 「AI 红队攻击链」注入安全与 eval 双线</h2>
+<div class="card">
+  <h3>攻防镜像 → 「链式推理任务」评测家族</h3>
+  <div class="meta">信号：<a href="https://techscoop.substack.com/p/rubrik-wants-ai-to-hack-your-code">Rubrik Code Guardian</a>（✅ 私有预览，方法论参考）· 连接：SentinelOne 深挖 / 沙箱快照提案 / 安全团队协作</div>
+  <div class="claim">借 Rubrik 的方法论而非产品：统一「攻（攻击链发现）/ 防（SentinelOne 防御链恢复）/ 评（多阶段埋错 eval）」为链式推理任务家族；「隔离副本跑红队」成为沙箱原语的首个真实业务场景；作为与安全团队联合立项的切入案例。</div>
+  <h4>① 链式推理任务评测家族（统一进 V3）</h4>
+  <table>
+    <tr><th>任务</th><th>方向</th><th>链结构</th><th>度量</th></tr>
+    <tr><td>攻击链发现</td><td>红</td><td>N 弱漏洞 → 路径 → 可利用性验证</td><td>链完成率 / 误报</td></tr>
+    <tr><td>防御链恢复</td><td>蓝</td><td>多阶段埋错 → 定位 → 修复</td><td>恢复率 / 定位步数</td></tr>
+    <tr><td>交叉</td><td>红+蓝</td><td>红队产出埋给蓝队</td><td>双向成本</td></tr>
+  </table>
+  <h4>② 沙箱线的最佳用例</h4>
+  <p>红队 agent 需要全库读访问 + 攻击链验证涉及危险写/执行——恰是 Seatbelt 红线 + 快照/回滚的真实需求（分析跑在隔离副本，破坏性验证可回滚）。<b>比恶意软件分析更贴代码库场景</b>，直接补强沙箱提案的「为什么需要」。</p>
+  <h4>③ 安全团队协作切入点</h4>
+  <p>话术：「不造轮子，评估业界方向」——Rubrik 已公开验证方向（预览版，评估而非采购）；我们出沙箱隔离技术 + eval 方法论，他们出威胁模型 + 业务影响排序 + 合规边界；产出 PoC 评估报告（做/不做/等多久）。里程碑：W1 方法论清单 + 沙箱提案补红队用例段 → W2 任务族 spec + 2 个可运行 V3 样例 → W4 安全团队 30 分钟分享。成功标准：spec 覆盖攻防双向且样例可运行；沙箱每条原语有红队场景映射；安全团队给出「同意评估」或「明确拒绝+理由」任一（皆闭环）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>沙箱提案补「红队用例」段（快照/回滚映射）</li><li>一页 spec：链式推理任务族（攻/防/交叉）</li><li>约安全团队 30 分钟，讲 Rubrik 方法论案例</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>厂商预览版无独立验证</b>：无误报率与成本数据——案例价值在方法论（隔离+串联+验证），不在产品选型，对外表述须如此限定。</li><li>攻击链串联对代码库规模强依赖：中小仓库效果未必迁移到中大型 Java 单体仓——PoC 须用真实仓库切片，不得以演示结论外推。</li><li>全库推理成本未公开，高频运行或不可行，先按需触发。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 2/2 subagent 成功 · 简报见 <a href="readwise-briefing-20261028.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
