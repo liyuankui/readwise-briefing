@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-10-29</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.b-bad { background:rgba(220,38,38,.1); color:#dc2626; }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-10-29（星期四）· 独立信号 6 条 · 2 篇回源 · 1 深挖 + 1 互证</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">6</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">⭐×4</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">政治敏感过滤</div></div>
+</div>
+
+<h2>⭐×4 双信号</h2>
+<div class="card">
+  <h3>Apple 如何把 LLM 塞进 iPhone<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-27 · ByteByteGo（精确参数以 Apple ML 论文为准）</div>
+  <p class="quote">3B 模型 <b>2-bit 调色板量化</b>（约 <b>1.39GB</b> vs 16 位 6GB）· KV 缓存跨层共享（5:3 分块，<b>降 37.5%</b>）· LoRA 适配器数十 MB 共享基座 · 新一代 AFM 3 为 <b>20B 稀疏模型仅激活 1-4B</b>，完整模型存闪存按需载入 · 端云分级推理（本地 + PCC）——「能力随运行时资源伸缩」。</p>
+  <div class="map">📐 <b>端侧 AI 三层证据链的技术层实锤</b>（Samsung 物理层 10-21 → Apple 技术层今日 → Foresight 应用层 10-11 ⚠️未验证）。深挖产出：端云分级决策树（L2 案例 + 内部架构参考）+ 量化三数字作教材活案例 + OpenMAIC 端侧优先的架构启示（见 Proposals 页）。<a href="https://blog.bytebytego.com/p/how-apple-fits-an-llm-on-your-iphone">原文</a></div>
+</div>
+<div class="card">
+  <h3>团队应该多大？0 员工指南<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">10-27 · Nathan Barry 转述 Josh Kaufman 案例 · <b>意图日志数据点：存读于早间非凌晨时段</b></div>
+  <p class="quote">一人公司年入 $100k+：最大化「只有我能做」的创造性工作（管理他人本身耗时间精力）；<b>「年金」思维做产品——写一次，长期持续销售</b>；少即多，拒绝增长诱惑。估算其业务 25 年前需 10-20 名员工，如今靠工具替代（日历/经纪/AI 研究）；免费公开全书内容作获客入口。</p>
+  <div class="why">与昨日变现评估的<b>主线③（内容资产复利）完全互证</b>——「年金思维」是该主线的精确表述，且「工具替代人力」为 0 员工可行性给出了机制解释。这是副业主题连续第 3 天、且首次出现在非凌晨时段——<b>意图日志 3 天观察：持续意图概率上升</b>。<a href="https://nathanbarry.com/how-to-make-100000-with-0-employees-full-gui">原文</a></div>
+</div>
+
+<h2>⭐×2-3 与附录</h2>
+<div class="card">
+  <p class="quote">• <b>AI 逆向工程任何 App</b>（medium）——与 Rubrik/SentinelOne 逆向链同族第三篇，未回源（medium 长文成本高，周末与 Rubrik 对照读）。<br>• <b>Zhuo Zha：跳预言家已无趣</b>（⚠️ t.co 截断）——「晚一个月你的激进观点都要变成行业共识」——变化速度的元观察 ⭐×3。<br>• <b>Were Developers Blue-Collar All Along?</b><span style="color:#dc2626;"> ❌ 文章已从站点消失</span>（重定向到首页）——开发者蓝领化议题存档待寻原文。<br>• Dan Koe 链接贴 ⭐×1。<br>• ⛔ <b>1 条涉中国政治体制讨论的推文按公开仓库纪律过滤</b>（仅记内部 journal）。<br>• HN RSS（剔除）。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中<br>
+  Proposals 见 <a href="readwise-proposals-20261029.html">Proposals 页</a>（端云分级三层链）· 昨日：<a href="readwise-briefing-20261028.html">Salesforce 五铁律 + AI 红队</a> · 下次周一回顾 11-02
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
