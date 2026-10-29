@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-10-30</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-10-30（星期五）· 1 个方向（全文渲染）· 三线合流</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>借机制不借架构——几十工具的团队不需要 Uber 级网关。</div>
+
+<h2>P1 · 「Agent 工具网关」三线合流设计参考</h2>
+<div class="card">
+  <h3>可学的不是网关本体，而是治理机制</h3>
+  <div class="meta">信号：<a href="https://blog.bytebytego.com/p/how-uber-built-a-gateway-for-ai-agents">Uber MCP Gateway</a>（✅ 转述）× Salesforce 精选铁律 × Shopify verify 原则 · 连接：opencode F2-F5 / Agent 沙箱 / eval 线</div>
+  <div class="claim">Uber 网关可学三机制：自动发现、默认禁用+审批、按会话授权——11 人团队借机制不借架构，与三条在途线合流。</div>
+  <h4>① 矛盾统一：静态精选 vs 动态治理</h4>
+  <p>Salesforce（人工精选，窄而高信噪比）与 Uber（AutoCrawler 广发现 + 默认禁用严管控）不冲突，是「发现广度 × 治理强度」两端。落地：评估框架新增评分项<b>工具治理成熟度</b>——L1 有清单 → L2 默认禁用+审批 → L3 会话级授权（衔接沙箱线）→ L4 IDL 自动发现。并入 F2-F5。</p>
+  <h4>② verify 入口网关化</h4>
+  <p>Shopify 原则升级：<code>*_verify</code> 注册为 Registry 标准工具类别，agent 可自验证调用结果——与 SentinelOne recovery、eval 线闭环：<b>eval 失败 → 自动调 verify → 恢复或上报，不等人</b>。</p>
+  <h4>③ 最小落地：清单文件 + CI（&lt;100 行）</h4>
+  <p>不做控制面/数据面分离，只借两个机制：自动发现 → 脚本从 OpenAPI/SKILL.md 生成 <code>tools.yaml</code>（名称/owner/默认禁用/PII 标记/verify 类别）；默认禁用+审批 → CI 检查（未登记或未审批即 fail，审批 = PR review）。Bun+TS 实现。</p>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 tools.yaml schema + CI 脚本 → W2 存量工具入册 → W3 verify 试点 1 服务 → W4 评分项并入 F2-F5。可测：存量工具清单覆盖率 100%；未审批新工具 CI 拦截率 100%；试点服务 agent 自验证成功率 ≥80%；≥10 个工具完成治理评级。ROI：审批从「事后救火」变「PR 一次 review」；自验证省每次 15-30 分钟人肉排查。风险：清单流于形式（CI 强制）；默认禁用拖慢 adoption（审批 SLA 1 天）；滑向过度设计（明确不做 Proxy 网关）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>定 tools.yaml schema（默认禁用/owner/verify/PII 标记）</li><li>写 CI 脚本，用 1 个反例验证拦截生效</li><li>F2-F5 加「工具治理成熟度」列，评 3 个现有工具定基线</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>Uber 数千工具 vs 我们几十个</b>：网关本体大概率过度设计——工具量不上一个量级前，不做控制面/数据面分离。</li><li>ByteByteGo 转述，AutoCrawler/Omni MCP 细节以 Uber 原博为准，落地前须回源核对。</li><li>「默认禁用+审批」在 11 人互信团队可能沦为官僚动作——必须以 CI 自动化代替人工把关，否则机制空转。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 1/1 subagent 成功 · 简报见 <a href="readwise-briefing-20261030.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
