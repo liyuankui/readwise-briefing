@@ -60,7 +60,7 @@ footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); 
     <tr><td>参数级</td><td>门控后门（2% 参数，干净输入 99.6% 无异常）</td><td>权重 sha256 登记、下载签名验证、最小权限（沙箱 PoC 承接）</td></tr>
     <tr><td>工具级</td><td>工具供应链</td><td>来源审批 + 默认禁用 + 令牌交换（tools.yaml 已设计）</td></tr>
   </table>
-  <p>衔接：ikea-security「新代码/依赖先审计」扩展为「新 AI 资产先入册」；credential-manager 管 secrets，入册清单管 AI 资产——同一纪律的两个面。<b>对 eval 线的冲击：新增 Gate 0</b>——自托管/微调模型进评测前先过工件校验，不通过不评；行为分数只对通过 Gate 0 的工件有意义。成功标准：自托管权重 100% 有 sha256 登记；数据集 100% 登记来源；eval 入口 100% 先查 Gate 0；总投入 &lt;1 人周。</p>
+  <p>衔接：内部安全审计纪律「新代码/依赖先审计」扩展为「新 AI 资产先入册」；credential-manager 管 secrets，入册清单管 AI 资产——同一纪律的两个面。<b>对 eval 线的冲击：新增 Gate 0</b>——自托管/微调模型进评测前先过工件校验，不通过不评；行为分数只对通过 Gate 0 的工件有意义。成功标准：自托管权重 100% 有 sha256 登记；数据集 100% 登记来源；eval 入口 100% 先查 Gate 0；总投入 &lt;1 人周。</p>
   <div class="now"><h4>⚡ 本周三件事</h4><ol><li>模型下载验证脚本（Bun+TS，sha256+官方 checksum 对照，&lt;100 行）</li><li>微调数据集来源登记表（入册清单 v0 数据集页）</li><li>eval 流程写入「完整性先于行为评测」原则与 Gate 0</li></ol></div>
   <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>BadEngram 是研究演示</b>（14.2M 模型；180B 仅 50.4%）——风险真实但概率未知，按低成本防御定价，不过度反应。</li><li><b>暴露面不同</b>：API 调用为主 vs 自托管权重——参数级风险主要在自托管/微调场景；API 场景对策是供应商安全条款与审计权。</li><li>清单若变流程税会被影子 IT 绕过：入册操作须 &lt;5 分钟。</li></ol></div>
 </div>
