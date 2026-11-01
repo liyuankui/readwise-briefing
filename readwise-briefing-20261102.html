@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-02（周一·月度收官）</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.b-bad { background:rgba(220,38,38,.1); color:#dc2626; }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.week { background:var(--surface2); border-radius:10px; padding:12px 16px; margin-bottom:12px; font-size:.93em; color:var(--text2); }
+.week b { color:var(--accent); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-02（星期一）· 月度收官周回顾 · 今日独立信号 3 条</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">3</div><div class="lbl">今日信号</div></div>
+  <div class="stat"><div class="num">4</div><div class="lbl">上周主线</div></div>
+  <div class="stat"><div class="num">7/7</div><div class="lbl">意图日志收官</div></div>
+</div>
+
+<h2>🗓 月度收官周回顾（10-26 → 11-01）</h2>
+<div class="week"><b>主线一 · 副业变现研究（元信号周）</b>：周一凌晨 3 小时 15 条同主题存读（三个月最强单一意图爆发）→ 四路径评估 Proposal（GLG 专家网络 / 训练营缓行 / 内容资产主线 / 出海收窄）+「接盘论」压力测试；此后 0-员工指南、PMF 指南相继印证「年金思维」。意图日志 7 天结论见下。</div>
+<div class="week"><b>主线二 · AI 安全与分层审查收官</b>：Linus 案例三金句（透明标注/揪出即接棒）→ Larson small-change 三源合流「分层审查 v2」（.small_change YAML + 经验值即授权）→ BadEngram 参数级后门 →「模型供应链完整性三层防线」+ Gate 0（完整性先于行为评测）。<b>安全线一个月从沙箱 PoC 走到完整防线设计。</b></div>
+<div class="week"><b>主线三 · 端云分级与 Agent 工具网关</b>：Apple 端侧三数字（1.39GB / -37.5% / 1-4B 激活）决策树 → Uber MCP Gateway 治理机制（AutoCrawler / 默认禁用审批）→ tools.yaml + CI 最小落地（&lt;100 行）。「借机制不借架构」成为定论。</div>
+<div class="week"><b>主线四 · 人才转型与管理三叠</b>：Anthropic PM「要忘掉的更少」→ 新手红利假说（包袱量三维 + 对照实验设计）；管理线 Toyota 改善红利 + Only Hire When It Hurts + 996 隐性债务三叠 → headcount 保守默认值；国务院 AI 就业政策信号（三级跳闭环）。写作非工作证明（简洁=提炼思想的强制函数）收官。</div>
+
+<h2>📊 变现意图日志 7 天结论（10-26 → 11-01）</h2>
+<div class="card">
+  <h3>判定：意图真实，强度中低——建议零成本动作，不启动重投入<span class="badge b-warn">结论供周五回顾裁决</span></h3>
+  <div class="meta">观察窗口 7 天 · 提案判据：「7 天内非凌晨时段主动研究 ≥3 次」</div>
+  <p class="quote"><b>数据</b>：D1（10-26）爆发 15 条（凌晨+上午混合）· D2-D3 各 1-2 条（早间非凌晨：GLG / 0-员工指南 / PMF）· <b>D4-D7 连续 4 天零信号</b>。非凌晨主动研究约 3 次——判据边缘达标，但衰减曲线陡峭（前 3 天集中、后 4 天归零）。</p>
+  <div class="why">按 10-27 Proposal 的精神（「凌晨冲动 vs 持续意图需一周确认，勿立即重仓」）：意图不是一次性冲动（有 3 次日间主动），但也未形成持续习惯（4 天静默）。<b>建议</b>：只执行零成本动作（读雇佣合同兼职条款——GLG 副线的前置）；30 天付费合集试验暂缓，等下一个自然爆点再启动。<b>最终裁决留给本周五回顾（GOAL_RESTATE 第 4 段过一遍）。</b></div>
+</div>
+
+<h2>⭐×1-3 今日信号</h2>
+<div class="card">
+  <p class="quote">• <b>开始了才能想明白</b>（@LyuLogs ⭐×3）——「不是想明白才能开始，而是开始了才能想明白；现实不是考场，没有先找最优解再动笔」——与 PMF「从点子到首单」、0-员工「先验证付费意愿」三连互证，恰是本周意图日志结论的旁注（低强度行动派哲学）。<a href="https://x.com/LyuLogs/status/2116814924869722237">推文</a><br>• <b>常年独居的人靠什么抵抗孤独</b>（知乎 ⭐×2）——<b>同一问题 5 个回答集中存读于周日下午</b>：生活透镜的强信号（与 10-07「人生孤独旅程」遥相呼应）；正文知乎反爬未读 ⚠️。<br>• 知乎 pin「一，有活跃的性生活」（独居回答的列表首条）⭐×1 · HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中（门控通过）<br>
+  上周同期：<a href="readwise-briefing-20261026.html">10-26 周一版</a> · 下次周一回顾 11-09
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
