@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-11-03</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-11-03（星期二）· 2 个方向（全文渲染）· 三级跳收官 + 第五源</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>两份均注明二手转述链与回源核对前置。</div>
+
+<h2>P1 · 零经验团队 × AI 核心重构：三条线注入</h2>
+<div class="card">
+  <h3>语言经验不再是选型约束</h3>
+  <div class="meta">信号：<a href="https://36kr.com/p/4046323307205764">Anthropic 零 Rust 重构 Messages API</a>（✅ jina 全文；36kr 二手，原始出处 Katelyn Lesse）· 连接：POS/BFF 重算清单 / 讲师团 L3 / 沙箱+P3</div>
+  <div class="claim">「AI 重写经济学」三级跳完成——Linus（个人内核级）→ Shopify（团队产品级）→ Anthropic（零语言经验核心 API 级）——从可行性进入常态。</div>
+  <h4>三块落地</h4>
+  <p>① <b>重算清单注入</b>：新增条目「语言经验不再是选型约束」——语言门槛由 blocking 降为 cost factor，下调「技能匹配」权重。② <b>讲师团 L3 新案例「AI 重构中的工程师角色」</b>：Anthropic 三件套（架构/迁移策略/验证方案）↔ D1 三层（策略者/裁决者/审计者）同构——架构↔策略者、迁移↔裁决者、验证↔审计者；锚 CPU -40~50%。③ <b>agent 基础设施对表</b>：K8s 千级 agent 四难（隔离/状态持久化/启动速度/资源成本）——<b>沙箱快照提案正是「状态持久化」之解</b>；与 P3 信任验收层合并为「agent 基础设施」统一视图。</p>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 回源核对 + 清单更新 + L3 骨架 → W2 沙箱提案挂入四难并评审 → W4 L3 试讲。可测：清单新条目过评审；L3 试讲 ≥4/5 且学员能复述三件套各举一例；沙箱提案标注四难定位。风险：厂商自述无第三方复现（作锚须标口径）；AI 写码提速 ≠ 交付提速（review/运维仍按原速）；外推过度致冒进选型。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>回源核对 36kr 转述 vs Katelyn 原文</li><li>重算清单加该条目并发评审</li><li>L3 骨架：映射表 + 量化锚</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>36kr 二手转述，原始出处为 Katelyn 推文/Anthropic 官博，落地前须核对。</li><li><b>零 Rust 经验 ≠ 零工程经验</b>：该团队是 Anthropic 平台工程团队，迁移与验证能力顶尖——不能外推为任何团队都能做。</li><li>三级跳样本皆顶级选手，对 11 人团队迁移率未知，须以 POS/BFF 小场景试点验证。</li></ol></div>
+</div>
+
+<h2>P2 · 「消化瓶颈」注入：eval 线 × 练级场/K12</h2>
+<div class="card">
+  <h3>已验证 ≠ 已消化——第五源确立</h3>
+  <div class="meta">信号：<a href="https://zhuanlan.zhihu.com/p/2064333241499259265">陶哲轩 ICM 2026「从证明生成到数学消化」</a>（✅ jina 全文；知乎二手转述）· 连接：evals 爬山环 / 练级场 / K12 / 知识库自检</div>
+  <div class="claim">陶哲轩流程链（开放问题→候选证明→验证→表达→同行接受→纳入标准理论）与「验证瓶颈」四源完全同构——第五源使该论有望升格为跨领域定律；且瓶颈不止验证还有表达与整理。<b>产出数量继续增加，理解未必同步增长。</b></div>
+  <h4>三块落地</h4>
+  <table>
+    <tr><th>块</th><th>动作</th></tr>
+    <tr><td>① eval 线</td><td>列陶为第五源并建同构表：V0-V3↔验证、judge 报告「5 分钟摘要」↔表达、Gate 0↔接受、L3 人工兜底↔纳入——<b>无摘要不闭环</b></td></tr>
+    <tr><td>② 练级场/K12</td><td>v04 以<b>消化密度</b>（复述/迁移/教授他人）替换完成题量为核心指标；练级场明确「审查即消化工序」</td></tr>
+    <tr><td>③ 管道自检</td><td>月度抽样 10 篇产出测「5 分钟复述率」，不过者标记为<b>积压而非资产</b></td></tr>
+  </table>
+  <h4>里程碑与成功标准</h4>
+  <p>M1 本周：第五源同构表入档 + judge 模板加摘要段；M2 两周：v04「消化密度」节过讲师团评审；M3 月底：知识库复述率基线。可测：judge 报告 5 分钟可读率 ≥80%（工程师盲测 n≥10）；v04 题量降为辅助指标、试点课学生复述率 ≥60%；复述率先测基线次月提升 ≥10 个百分点。风险：消化密度被古德哈特化（复述表演化——随机抽样＋迁移新题防刷）；新增人工工序拖慢管道（抽样执行不全量）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>eval 线文档写入第五源同构表，标注二手来源</li><li>抽 3 份历史 judge 报告做 5 分钟可读盲测，记录基线</li><li>起草 v04「消化密度」节，提交讲师团</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li><b>类比非测量</b>：陶的报告是规范性讨论非实证研究——「消化瓶颈」宜表述为跨领域假设，用自有数据实证后再言定律。</li><li>二手转述：原文为 ICM 2026 报告，正式文档前须回源官方讲稿。</li><li><b>自指风险</b>：本 Proposal 本身即增加产出数量——若无人复述消化，它正是自己批评的那种积压；价值由后续复述率裁决。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 2/2 subagent 成功 · 简报见 <a href="readwise-briefing-20261103.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
