@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-03</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmap(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-03（星期二）· 独立信号 12 条 · 2 篇回源（jina 破 36kr/知乎墙）· 双深挖</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">12</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">⭐×5/×4 深挖</div></div>
+</div>
+
+<h2>⭐×5 Anthropic 零 Rust 重构（已回源 + 深挖）</h2>
+<div class="card">
+  <h3>Messages API Python→Rust：CPU -40~50%、首 Token 延迟 -10~20%<span class="badge b-ok">✅ jina 全文已读</span></h3>
+  <div class="meta">11-02 · 36kr 转述（原始出处：Katelyn Lesse 披露，36kr 二手）</div>
+  <p class="quote">起初<b>没有 Rust 开发者</b>的团队，借 Claude 完成 Messages API 核心重构。分工：<b>Claude 写大量代码，人类负责系统架构、迁移策略与验证方案</b>。同步长文《工程师要解决的新问题集》提出 agent 基础设施新难题：K8s 能否扛千级 agent（隔离/状态持久化/启动速度/资源成本四难平衡）、身份认证 vs 授权、agent 长时监控——Google 正建 Agent Substrate 新运行时。</p>
+  <div class="map">📐 <b>三级跳收官</b>：Linus（个人内核级）→ Shopify（团队产品级）→ Anthropic（零语言经验团队核心 API 级）——「AI 重写经济学」从可行性进入常态。POS/BFF 重算清单新增「<b>语言经验不再是选型约束</b>」；人类角色三件套（架构/迁移/验证）与 D1 三层同构；K8s 四难中「状态持久化」正是沙箱快照提案。深挖见 Proposals 页。<a href="https://36kr.com/p/4046323307205764">原文</a></div>
+</div>
+
+<h2>⭐×4 陶哲轩「数学消化」（已回源 + 深挖）</h2>
+<div class="card">
+  <h3>从证明生成到数学消化：消化瓶颈论<span class="badge b-ok">✅ jina 全文已读</span></h3>
+  <div class="meta">11-02 · 知乎转述陶哲轩 ICM 2026 报告《Mathematics in the Age of AI》（二手转述）</div>
+  <p class="quote">流程链：开放问题 → 候选证明 → <b>验证 → 表达 → 同行接受 → 纳入标准理论</b>——「证明完成」只在前半段。<b>古德哈特警示</b>：若仍奖励证明数量/最先完成者，模型推高代理指标，验证、理解、训练停在原处——「<b>产出数量继续增加，数学理解未必同步增长</b>」。候选证明到达速度超过共同体处理速度 → 积压。</p>
+  <div class="map">📐 与我们全线同构：「验证瓶颈」升格为跨领域定律（<b>第五源</b>），且瓶颈不止验证还有<b>表达与整理</b>（judge 报告 5 分钟读不懂=已验证未消化的积压）；古德哈特同样适用于我们自己的管道（简报篇数/Proposal 数量也是代理指标）。深挖见 Proposals 页。<a href="https://zhuanlan.zhihu.com/p/2064333241499259265">原文</a></div>
+</div>
+
+<h2>⭐×3-4 今日其余</h2>
+<div class="card">
+  <p class="quote">• <b>78% of Your Developers Aren't Happy. That's a Timebomb</b><span class="badge b-warn">❌ 正文不可得（站内无此文）</span>——标题信号强（管理线），但 amazingcto 站点未找到正文，如实标注。<br>• <b>财新封面：重估科技股（AI 泡沫论一周年）</b>（财新付费 ⚠️）——建仓 lens 高价值，付费墙预期；标题本身已是信号：AI 泡沫论进入一周年盘点周期。<br>• <b>DeepSeek 大牛刘胜与：我不得不把才华埋葬在昨天</b>（知乎专栏 ⚠️ 未回源）——人才线人物故事 ⭐×3。<br>• <b>How to Cut Your Claude Code Token Usage</b>（systemdesign.one）——成本线 ⭐×3，未回源。<br>• 🧠 睡吃动工作顺序（「身体不是透支了还能分期付款的东西」⭐×2）· 年纪越大兴趣减退 · 最有力量的文字 · 人际交往 · Gemini 十年建议（图 ⚠️）· 上海冷知识。<br>• HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中（&&门控第 3 日）<br>
+  Proposals 见 <a href="readwise-proposals-20261103.html">Proposals 页</a>（2 份全文）· 昨日：<a href="readwise-briefing-20261102.html">月度收官版</a> · 下次周一回顾 11-09
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
