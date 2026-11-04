@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-04</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.banner { background:var(--surface); border:1px solid var(--accent4); border-left:4px solid var(--accent4); border-radius:10px; padding:14px 18px; margin-bottom:24px; font-size:.95em; color:var(--text2); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-04（星期三）· 手动补跑 · 独立信号 3 条 · 2 篇回源</div>
+</header>
+
+<div class="banner">
+  ⚠️ 本期为<b>手动补跑</b>（10:09，Kyle 发现）：凌晨 4:00 定时触发未执行（连续 28 天后首次漏跑）。增量窗口拉长到 11-02T20:10Z 起，无遗漏。漏跑原因待查（cron 系统侧或会话侧），journal 已记录。
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">3</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+</div>
+
+<h2>⭐×4 双信号（均回源）</h2>
+<div class="card">
+  <h3>How I AI：四 Agent 实测 + Figma PM 的「PM OS」<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-02 · Lenny's Newsletter（Claire Vo）</div>
+  <p class="quote">四款 Agent（Grok Bot / Dot / Meta Muse / Claude Duet）9 项任务实测：Grok 综合最强（93%，胜在工作）；Muse 最适合生活；<b>按用途选工具胜过指望一个万能 Agent</b>。<b>Figma PM OS</b>：31 项 AI 技能的 Git 仓库供 60-70 位 PM 共享；"what's up" 每天梳理 Slack 六次；Agent bug bash 比人细；AutoXP 自动跑增长实验仅一次人审。<b>能力上限取决于可调用的工具连接</b>（Muse 缺 Slack/GitHub 直连即卡死）；速度是体验核心——慢到几分钟用户就失去信任。</p>
+  <div class="why">双重命中：① 「31 项技能 Git 仓库共享给 60-70 位 PM」正是 Skill Hub 模式在 Figma 的验证——PM 技能而非工程技能（受众扩展到非工程师的实证）；② 「Agent 上限=工具连接」「速度=信任」两条直接进工具清单评估的 Agent-Native 维度论据。<a href="https://www.lennysnewsletter.com/p/how-i-ai-grok-vs-dot-vs-muse-vs-duet">原文</a></div>
+</div>
+<div class="card">
+  <h3>Nvidia Nemotron：为 Agent 而生的稀疏架构<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-02 · ByteByteGo</div>
+  <p class="quote">混合 Mamba-注意力 + MoE：Lightning 300 亿总参/<b>每 token 仅激活 30 亿</b>；每层 128 路由专家选 6；NVFP4 量化 66GB→<b>22GB</b>；Super 1200 亿/120 亿激活；Ultra 5500 亿/550 亿。<b>低显存+多 token 预测加速，专为频繁调用的 agent 场景</b>；但全参数仍需驻留内存（容量按权重而非 KV cache 估算）。</p>
+  <div class="why">与 Apple 端侧三数字（10-29）构成「稀疏激活」的云端对偶——Apple 为手机做小、Nvidia 为 agent 集群做大，同一架构思路双向发展；量化教材卡再+一组数字（22GB/3B 激活/128 专家选 6）。<a href="https://blog.bytebytego.com/p/how-nvidias-new-nemotron-model-works">原文</a></div>
+</div>
+
+<h2>🌿 生活维度与附录</h2>
+<div class="card">
+  <p class="quote">• 🧠 曾颖「逃向你的孤独」——「真正杀死灵魂的，是被困在错误的地方，和错误的人」——与 11-01 独居五连读同周抵达，<b>孤独主题连续第二周</b>（生活透镜最活跃议题）⭐×2。<br>• HN RSS ×2（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 手动补跑 10:09 · 零重复 · 脱敏零命中（&&门控第 4 日）<br>
+  昨日：<a href="readwise-briefing-20261103.html">Anthropic 零 Rust + 陶哲轩消化</a> · 下次周一回顾 11-09
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
