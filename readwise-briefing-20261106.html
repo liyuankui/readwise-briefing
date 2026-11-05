@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-06</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.map { background:rgba(5,150,105,.08); border:1px solid var(--accent3); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:.9em; color:var(--text2); }
+.map b { color:var(--accent3); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-06（星期五）· 独立信号 6 条 · 3 篇回源 + 1 repo 验证 · 1 深挖</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">6</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">⭐×5/×4</div></div>
+</div>
+
+<h2>⭐×5 Larson 验证模式（已回源 + 深挖）</h2>
+<div class="card">
+  <h3>每个 PR 一份验证文件：睡着时也在提升正确性<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-04 · lethain.com（Will Larson——small-change 作者再现）</div>
+  <p class="quote">要求每个 PR 生成 <code>verifications/{pr_num}.md</code>：记录<b>已验证步骤与未能验证之处</b>。五步循环：实现 → 带验证文件开 PR → ai-code-review + 人工反馈 → 采纳或 <code>/dismiss{reason}</code> 拒绝 → 每日更新技能与工具。复查验证文件找缺口收紧指导。效果：「<b>improving our codebase's correctness while we sleep</b>」（每早 4-6 待审 PR）。关键概念：<b>重复指导 = context poison</b>（应沉淀为工具/模板而非反复说）。</p>
+  <div class="map">📐 与我们全线合流：验证文件 ↔ D1 反驳日志（互补双轨：一个记「AI 哪里错」、一个记「我验过什么」）↔ Gate 0（人工侧入口）↔ P3 心跳（无人值守报告的验证段）；<code>/dismiss{reason}</code> 给练级场反驳日志加「理由」字段。深挖 Proposal 见 Proposals 页。<a href="https://lethain.com/adopting-verification-pattern">原文</a></div>
+</div>
+
+<h2>⭐×4 Anthropic 重造源码控制（已回源）</h2>
+<div class="card">
+  <h3>Scion：无 push 的服务端 Git<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-04 · ByteByteGo（二手转述）</div>
+  <p class="quote">抛弃 Git 客户端中心模式：服务端承担历史查询/diff/提交/合并，客户端只留轻缓存。changeset 内容寻址不可变（元数据存 Spanner、内容存对象存储）；三层缓存逐级取缺。量化：<b>日合并 3 万+、CI 检出 2500 万次/日</b>（否则 600PB+/天流量）；<b>7 人小团队</b>建成 Scion + 评审工具 Antique。</p>
+  <div class="why">「验证基础设施」系列的极端样本：当 CI 检出量达到千万级/日，源码控制本身成为瓶颈——Anthropic 选择重造而非优化。对我们的启示不在工具（我们远未到此规模），而在「<b>7 人团队重造核心基础设施</b>」的可行性边界——与零 Rust 重构同一叙事：小团队 + AI = 以前不可能的工程。<a href="https://blog.bytebytego.com/p/how-anthropic-redesigned-source-control">原文</a></div>
+</div>
+
+<h2>⭐×3 今日其余（含验证）</h2>
+<div class="card">
+  <p class="quote">• <b>quiet.md 开源</b><span class="badge b-ok">✅ gh 验证 s1dashu/quiet-md ⭐1034（昨日活跃）</span>——Rust + GPUI 的本地优先富文本编辑器，兼容飞书文档；无 WebView 原生速度。本地优先+原生工具链趋势再+1。<a href="https://x.com/s1dashu/status/2117948239349534937">推文</a><br>• <b>How LLM Inference Works</b>（systemdesign.one ✅ 实质内容前半免费）——分词/上下文/预填充/解码/流式五概念，讲师团 L0 教材候选（与 64 概念清单互补）。<br>• <b>Technology Radar Vol.35</b>（Thoughtworks ⚠️ 未回源）——技术趋势参考，周末看。<br>• Dan Koe「2027 最赚钱的 AI 生意」⚠️ t.co · 7 个 GitHub 人生管理项目（微信 ⚠️ 验证墙）。<br>• HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中（&&门控第 6 日）<br>
+  Proposals 见 <a href="readwise-proposals-20261106.html">Proposals 页</a>（1 份全文）· 昨日：<a href="readwise-briefing-20261105.html">极低量日</a> · 下次周一回顾 11-09<br>
+  📌 今日 17:00 周五回顾：<b>变现意图最终裁决</b>（GOAL_RESTATE 第 4 段）
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
