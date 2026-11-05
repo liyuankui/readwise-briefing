@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-11-06</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-11-06（星期五）· 1 个方向（全文渲染）· Larson 二连</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>Larson 继 small-change 后再贡献一块拼图——审查从读代码猜对错，变为读证据判真伪。</div>
+
+<h2>P1 · 「验证文件」模式落地审查与无人值守体系</h2>
+<div class="card">
+  <h3>反驳日志记「AI 哪里错」，验证文件记「我验过什么」——互补双轨</h3>
+  <div class="meta">信号：<a href="https://lethain.com/adopting-verification-pattern">Larson: Self-Reinforcing Quality</a>（✅ 全文）× <a href="https://blog.bytebytego.com/p/how-anthropic-redesigned-source-control">Anthropic Scion</a>（✅ 二手，方向佐证）· 连接：D1 练级场 / Gate 0 / P3 心跳 / 讲师团</div>
+  <div class="claim">每个 PR 与无人值守任务附一份 verifications 记录（已验步骤 + 未验之处）——审查从读代码猜对错，变为读证据判真伪。</div>
+  <h4>锁定痛点</h4>
+  <p>① 轮值审查者分不清「AI 说对」与「真验过」；② Gate 0 只收机器指标，缺人工侧证据；③ 无人值守任务失败后分不清「没跑」与「跑了没验」；④ 同一指导反复出现 = context poison。</p>
+  <h4>三块落地</h4>
+  <table>
+    <tr><th>块</th><th>动作</th></tr>
+    <tr><td>① 双轨合流（不合并）</td><td>验证文件与反驳日志各立一份、以 PR 号互链——D1 反驳日志记 AI 错误→case bank；验证文件记已验/未验→审查信任依据；Gate 0 增「人工验证证据」项；P3 无人值守日报固定含「验证段」（即任务的 verifications）</td></tr>
+    <tr><td>② /dismiss{reason}</td><td>对 AI 审查意见采纳或拒绝均须带理由；反驳日志加「dismiss 理由」字段——无理由 dismiss 记为无效轮值；理由沉淀入 case bank</td></tr>
+    <tr><td>③ context poison→工具沉淀</td><td>同一指导出现 ≥2 次即触发沉淀为模板/skill 检查项，停止口头重复</td></tr>
+  </table>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 模板定稿 + 2 试点 PR → W2-3 D1 轮值全量带双轨 + Gate 0 人工侧上线 → W4 P3 日报验证段 + 首次 context poison 盘点。可测：试点期验证文件覆盖率 ≥80%；审查往返轮次 4 周后较基线下降；无理由 dismiss = 0；case bank 月增 ≥5 条带理由案例；无人值守日报验证段覆盖率 100%。ROI：每 PR 约 5 分钟记录换审查者免于复现；重复指导工具化后编写时间下降。风险：形式主义（抽查+互查）；低风险 PR 摩擦（分层豁免）；双轨膨胀（定期归档）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>定稿 verifications.md 模板；反驳日志加 dismiss 字段</li><li>挑 2 个在途 PR 试点双轨</li><li>P3 心跳报告草案加「验证段」</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>Larson 文是个人实践分享非受控实验——「每早 4-6 PR」为自述，无对照与基线，量级不可直接预期。</li><li>verifications.md 增加每 PR 约 5 分钟成本，低风险 PR 上可能是纯摩擦——须与分层审查 v2 联动（.small_change 低层豁免或仅记一行）。</li><li>Scion 是 7 人平台团队的重基建，我们是流程改造——只借「机制先行于自觉」思路，不可比规模。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 1/1 subagent 成功 · 简报见 <a href="readwise-briefing-20261106.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
