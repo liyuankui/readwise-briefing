@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-09（周一）</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.week { background:var(--surface2); border-radius:10px; padding:12px 16px; margin-bottom:12px; font-size:.93em; color:var(--text2); }
+.week b { color:var(--accent); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-09（星期一）· 周度回顾 · 今日独立信号 3 条 · 1 篇回源</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">3</div><div class="lbl">今日信号</div></div>
+  <div class="stat"><div class="num">4</div><div class="lbl">上周主线</div></div>
+  <div class="stat"><div class="num">33</div><div class="lbl">管道累计运行</div></div>
+</div>
+
+<h2>🗓 周度回顾（11-02 → 11-08）</h2>
+<div class="week"><b>主线一 · 验证体系三连收官</b>：Larson 验证文件模式（verifications.md 双轨 + /dismiss{reason} + context poison 沉淀）→ SWLW「先读命令输出再看总结」（8 月 eval 事故教训的通俗版）→ 与 Gate 0 / P3 心跳全线合流——<b>「验证瓶颈」从工程观察固化为团队机制设计</b>。</div>
+<div class="week"><b>主线二 · AI 重写经济学三级跳 + 基础设施极端样本</b>：Anthropic 零 Rust 重构（CPU -40~50%，语言经验不再是选型约束）+ Scion 无 push 源码控制（7 人团队 / CI 检出 2500 万次/日）——小团队 + AI = 以前不可能的工程。</div>
+<div class="week"><b>主线三 · 产品范式转移</b>：Elena Verna 三连收官「功能发现的终结」（AI 应是产品本身、增长转向委派信任）+ Figma PM OS（31 技能 Git 仓库给 60-70 位 PM——Skill Hub 非工程师受众实证）——<b>菜单驱动 → 意图驱动</b>。</div>
+<div class="week"><b>主线四 · 消化瓶颈第五源</b>：陶哲轩 ICM 报告（证明完成只在前半段；产出增加理解未必增长）+ Nemotron 稀疏架构（与 Apple 端侧云地对照）——「已验证 ≠ 已消化」进入知识库自检（复述率待测基线）。</div>
+
+<h2>⭐×4 今日信号</h2>
+<div class="card">
+  <h3>6 大 Agent 编排框架速览<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-07 · ByteByteGo EP232</div>
+  <p class="quote">LangGraph（图结构状态流转）· CrewAI（角色分工+管理者调度）· Microsoft Agent Framework（组织工作流+检查点+人工暂停）· OpenAI Agents SDK（LLM 自决委派）· Google ADK（开发者定策略+根代理拆分）· <b>Claude Agent SDK（无独立编排层，内嵌代理循环）</b>。</p>
+  <div class="why">讲师团 L3「Agent 编排」一课的现成框架对照表；六框架的编排位置谱系（显式图 → 角色抽象 → 运行时自决 → 内嵌循环）本身就是教学主线——「编排在哪里」比「用哪个框架」更重要。<a href="https://blog.bytebytego.com/p/ep232-6-frequently-used-orchestration">原文</a></div>
+</div>
+
+<h2>⭐×3-4 与附录</h2>
+<div class="card">
+  <p class="quote">• <b>谷歌全球自愿离职计划（最高 12 个月补偿）</b><span class="badge b-warn">❌ InfoQ 登录墙（WebFetch+jina 双失败）</span>——AI 裁员潮的政策面新样本（从「被裁」到「自愿+补偿」的软着陆模式）：与丰田改善红利 / Only Hire / 国务院政策同链的人才市场档案再+1；标题层面记录，正文待你手动打开。<br>• 🧠 什么是一个人真正的魅力（知乎，生活 ⭐×2）。<br>• HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中（&&门控第 9 日）<br>
+  上周同期：<a href="readwise-briefing-20261102.html">11-02 月度收官版</a> · 下次周一回顾 11-16
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
