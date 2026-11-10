@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 深挖 Proposals · 2026-11-11</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; --accent5:#dc2626; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; --accent5:#f87171; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.axiom { background:var(--surface); border:1px solid var(--accent5); border-left:4px solid var(--accent5); border-radius:10px; padding:12px 18px; margin-bottom:24px; text-align:center; color:var(--text2); font-size:.95em; }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.9em; }
+th { background:var(--surface2); color:var(--text2); text-align:left; padding:8px 10px; border:1px solid var(--border); font-weight:600; }
+td { padding:8px 10px; border:1px solid var(--border); vertical-align:top; color:var(--text2); }
+td:first-child { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin-bottom:26px; }
+.card > h3 { font-size:1.15em; color:var(--accent); margin-bottom:4px; }
+.claim { font-size:1.02em; color:var(--text); background:var(--surface2); border-radius:10px; padding:12px 16px; margin:12px 0; border-left:4px solid var(--accent2); }
+.claim::before { content:"💡 核心主张"; display:block; font-size:.78em; color:var(--accent2); font-weight:700; margin-bottom:4px; }
+.card h4 { font-size:.95em; color:var(--text); margin:18px 0 6px; }
+.card p, .card li { font-size:.93em; color:var(--text2); }
+.card ul, .card ol { padding-left:20px; }
+.card li { margin-bottom:6px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.now { background:rgba(5,150,105,.08); border:1px dashed var(--accent3); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.now h4 { color:var(--accent3); margin-top:4px; font-size:.95em; }
+.chal { background:rgba(220,38,38,.06); border:1px dashed var(--accent5); border-radius:10px; padding:10px 16px; margin-top:14px; }
+.chal h4 { color:var(--accent5); margin-top:4px; font-size:.95em; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>⛏️ Readwise 深挖 Proposals</h1>
+  <div class="date">2026-11-11（星期三）· 1 个方向（全文渲染）· AI 审查系列收官</div>
+</header>
+
+<div class="axiom"><b>不可行动的信息 = 噪音。</b>移植机制而非架构——LinkedIn 的规模数字是镜子不是尺子。</div>
+
+<h2>P1 · LinkedIn 实施样本 → 分层审查 v2 五点校准</h2>
+<div class="card">
+  <h3>「生成者≠评分者」在 4 万 PR/周规模验证可工业化</h3>
+  <div class="meta">信号：<a href="https://blog.bytebytego.com/p/how-linkedin-uses-ai-to-review-40000">LinkedIn AI 审查 40K PR/周</a>（✅ 全文；二手转述）· 连接：分层审查 v2 / judge 双判 / case bank / verifications.md</div>
+  <div class="claim">LinkedIn 验证了四机制可移植：异模型验证、分层规则、按类别置信度挣信任、用 dismiss 数据收紧规则——多智能体并行、每日循环、金标集等架构在 11 人规模不成立。</div>
+  <h4>五点校准表</h4>
+  <table>
+    <tr><th>#</th><th>LinkedIn 信号</th><th>校准动作</th></tr>
+    <tr><td>1</td><td>单一来源发现由另一模型验证</td><td>judge 双判铁律成文：<b>生成者≠评分者</b>；AI:gen 变更 Gate 0 必过异模型双判</td></tr>
+    <tr><td>2</td><td>多智能体并行 + 两阶段去重</td><td>不搬架构——与 judge 双判、Uber 默认禁用、Salesforce 确定性强制合并为下方选型表</td></tr>
+    <tr><td>3</td><td>公司 YAML + 仓库 md + PR 级三层规则</td><td>.small_change YAML = <b>PR 级实例层</b>（公司层定 schema 与默认 AI 等级，仓库层覆写，PR 层只写增量）</td></tr>
+    <tr><td>4</td><td>接受率 63.9%；并发/死代码 100%、逻辑 80%、泛化=退出</td><td>信任按类别挣：case bank 加「类别置信度」字段——高置信类直接卡 Gate，低置信类仅提示</td></tr>
+    <tr><td>5</td><td>每日反馈循环调规则与 prompt</td><td>同构闭环：verifications.md + /dismiss{reason} 周汇总→规则收紧，dismiss 原因即信号</td></tr>
+  </table>
+  <h4>AI 审查实施选型表（11 人规模）</h4>
+  <table>
+    <tr><th>机制</th><th>判定</th><th>理由</th></tr>
+    <tr><td>异模型验证</td><td>✅ 直接可用</td><td>= judge 双判，补「生成者≠评分者」硬约束</td></tr>
+    <tr><td>确定性代码强制（Salesforce）</td><td>✅ 直接可用</td><td>编译/测试/lint 先于 LLM——能机检不劳模型</td></tr>
+    <tr><td>自主改默认禁用（Uber AutoCrawler）</td><td>✅ 直接可用</td><td>AI:gen 须显式声明 + Gate 0，缺省 assist</td></tr>
+    <tr><td>三层规则</td><td>🔧 需改</td><td>精简为公司 schema + 仓库覆写 + PR 增量</td></tr>
+    <tr><td>多智能体并行审查</td><td>❌ 不适用</td><td>PR 量不足，token 成本倒挂</td></tr>
+    <tr><td>两阶段 LLM 去重</td><td>❌ 不适用</td><td>保留行范围确定性去重即可</td></tr>
+  </table>
+  <h4>里程碑与成功标准</h4>
+  <p>W1 两表定稿走 review + case bank 字段上线 → W2-3 试点 1-2 个活跃仓库（含 AI:gen 样本）→ W4 复盘接受率与 dismiss 分布出 v2.1。可测：AI:gen 变更异模型双判覆盖率 100%（生成者自评 0 例）；case bank 类别置信度覆盖率 ≥90%；试点期 AI 评论接受率 ≥60%（对标 63.9%）；每月 ≥1 条规则由 dismiss 数据收紧；泛化/低置信评论占比 &lt;20%。风险：LinkedIn 数字硬搬当 KPI（脱离我们变更分布）；类别置信度标注主观（双人抽检校准）；规则超三层没人读（PR 级 YAML 沦为形式）。</p>
+  <div class="now"><h4>⚡ 本周三件事</h4><ol><li>两表入 workspace 项目目录走 review</li><li>case bank 加「类别置信度」字段，回填并发/死代码/逻辑三类 top case</li><li>verifications.md 加「/dismiss{reason} 周汇总」环节；judge 双判文档写死「生成者≠评分者」</li></ol></div>
+  <div class="chal"><h4>🔴 诚实挑战</h4><ol><li>ByteByteGo 二手转述，细节以 LinkedIn 原博为准——63.9%/100%/80% 写入 KPI 前须回源核对。</li><li>4 万 PR/周是 LinkedIn 规模——11 人团队采纳<b>机制而非架构</b>，多智能体并行/每日循环/金标集在我们变更量下不成立。</li><li>接受率受其规则集与团队文化影响——63.9% 仅作对标，我们的基线须试点自测。</li></ol></div>
+</div>
+
+<footer>
+  深度纪律 v2 · 1/1 subagent 成功 · 简报见 <a href="readwise-briefing-20261111.html">Briefing 页</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
