@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-12</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-12（星期四）· 独立信号 4 条 · 2 篇回源 · 无深挖（论据补强）</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">4</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文/摘要</div></div>
+</div>
+
+<h2>⭐×5 GitHub 用 AI 把 Copilot 从 TS 移植到 Rust（已回源）</h2>
+<div class="card">
+  <h3>43 万行迁移：5.25s → 292ms，内存 1383MB → 126MB<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-10 · ByteByteGo（二手转述）· AI 重写经济学第 4 例</div>
+  <p class="quote">动机：TS 运行时依赖 Node/V8，嵌入其他应用需额外进程 + 每客户端约 100MB 内存。AI 分工：协调代理拆解任务 → 子代理调查 → <b>子会话在独立分支写代码</b>（30K 行文件拆给 15 个会话）→ <b>评审代理逐行比对旧新代码</b> → 人类把关架构与风险。效果：单轮 5.25s → <b>292ms</b>、吞吐 ×16、内存 1383MB → <b>126MB</b>；成本约 <b>$120K</b>。教训：指令要明确、<b>先忠实翻译勿重设计</b>、需强端到端测试且<b>防止代理弱化测试</b>。</p>
+  <div class="why">AI 重写经济学第 4 例（Linus → Shopify → Anthropic → GitHub）且<b>角色分工最完整</b>：协调/调查/实现/评审四层 + 人类守架构——恰是 D1 三层 + Larson 验证文件的工业化样本；「防止代理弱化测试」直接印证 Gate 0 必要性；$120K 成本给「语言经验非选型约束」条目一个真实定价。论据补强不新开深挖（昨已出选型表）。<a href="https://blog.bytebytego.com/p/how-github-used-ai-to-port-copilot">原文</a></div>
+</div>
+
+<h2>⭐×4 技术就业市场 2026 末（已回源）</h2>
+<div class="card">
+  <h3>PM 涨 75%、工程师腰斩、FDE ×4.6<span class="badge b-ok">✅ 公开摘要（第 7 条付费）</span></h3>
+  <div class="meta">11-10 · Lenny's Newsletter</div>
+  <p class="quote">PM 职位较 2023 低点<b>涨 75%</b>；工程师招聘约 11.3 万/年（<b>不足 2022 峰值一半</b>）；设计师仅约 1,900 空缺（同比 -28%）；远程职位仅 14%、湾区集中度新高。JD 中 <b>「LLM」成 PM 最热技能</b>、Claude/Cursor 进前三；<b>FDE 岗位一年涨 4.6 倍</b>；移动/前端需求近腰斩；UXR 濒临消亡。</p>
+  <div class="why">D1 人才链的<b>最新量化快照</b>：FDE ×4.6 与「要忘掉的更少」假说互证（市场用脚投票）；「LLM 成 PM 最热技能」印证讲师团受众扩展；移动/前端腰斩与 Shopify 弃 RN 同向——我们练级场对准的「判断力」恰是 AI 不可替代侧。原博数据为美国市场，外推中国需谨慎。<a href="https://www.lennysnewsletter.com/p/state-of-the-tech-job-market-late">原文</a></div>
+</div>
+
+<h2>🌿 生活维度与附录</h2>
+<div class="card">
+  <p class="quote">• 🥗 <b>蛋白质摄入公式</b>（微信 ⚠️ 验证墙）——「体重 kg = 每日蛋白质 g；早餐吃够 20-25g 稳肌肉」——与 10-07 饮食辨析的修正版口诀一致（运动人群 1.2-1.6g/kg 略高于此公式，按运动日取上限）。<br>• ⛔ 1 条涉中国领导人内容的推文按公开仓库纪律<b>过滤</b>（政治敏感，仅记内部 journal）。<br>• HN RSS（剔除）。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏零命中（&&门控第 12 日）<br>
+  昨日：<a href="readwise-briefing-20261111.html">LinkedIn 五点校准</a> · 下次周一回顾 11-16
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
