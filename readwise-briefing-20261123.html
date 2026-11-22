@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-23（周一）</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+.week { background:var(--surface2); border-radius:10px; padding:12px 16px; margin-bottom:12px; font-size:.93em; color:var(--text2); }
+.week b { color:var(--accent); }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-23（星期一）· 周度回顾 · 今日独立信号 5 条 · 1 篇回源</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">5</div><div class="lbl">今日信号</div></div>
+  <div class="stat"><div class="num">6</div><div class="lbl">上周主线</div></div>
+  <div class="stat"><div class="num">47</div><div class="lbl">管道累计运行</div></div>
+</div>
+
+<h2>🗓 周度回顾（11-16 → 11-22）</h2>
+<div class="week"><b>主线一 · eval 方法论合围</b>：三大鸿沟框架（理解/规约/泛化 + 修法分流）+ 过度思考变笨（首答+一验截断省 45% token 无损）——<b>eval 行业共识四连确认</b>（V0-V3/Gate 0/judge 校准已非独家设计）；OTel 大规模调试 = P3 信任验收层的技术栈答案（Langfuse 工具链闭环）。</div>
+<div class="week"><b>主线二 · AI 重写经济学个人端</b>：Lauren Tan 3000 PR/月自述（⚠️ 采信量级不采信数字）+ GitHub TS→Rust（43 万行 $120K）+ Anthropic Scion 无 push 源码控制——<b>三级跳到四级跳</b>，从团队到个人全覆盖。</div>
+<div class="week"><b>主线三 · 人才链收口</b>：We Are All Junior Talent（经验贬值/年限体系失效）+ 写作收入一手数据（$36K/年——内容=获客底座非收入引擎）+ Meta Muse 幕后（等七个月才发布）。<b>「新手红利」假说获激进版互证</b>。</div>
+<div class="week"><b>主线四 · RAG 三件套补完</b>：GraphRAG（实体图谱+社区检测+多跳遍历）加入朴素 RAG / Agentic RAG——基础概念卡第六张，讲师团教材自增长持续。</div>
+<div class="week"><b>主线五 · 产品增长</b>：Lovable Whitewater 框架（市场是河流公司是木筏，ARR $6 亿）+ 功能发现的终结（AI 应是产品本身）——与 PMF 指南互补。</div>
+<div class="week"><b>管道侧</b>：cron v3 上线（<b>ikit notify 每日推送简报链接到手机</b>——失败必达通知从 P1 提案变现实）；脱敏门控连续 22 日通过。</div>
+
+<h2>⭐×3-4 今日信号</h2>
+<div class="card">
+  <h3>EP234 Docker vs Kubernetes<span class="badge b-ok">✅ 实质内容</span></h3>
+  <div class="meta">11-21 · ByteByteGo</div>
+  <p class="quote">Docker 管打包（镜像/单机/Compose），K8s 管生产规模化（跨机编排/自愈/扩缩容/流量分发）——一句话：<b>Docker 管打包，K8s 管规模化运行</b>。</p>
+  <div class="why">讲师团基础概念卡第七张（K8s 速览 11-16 后的姊妹篇）——团队技术栈 K8s/ArgoCD 的 L0 温习材料持续自增长。<a href="https://blog.bytebytego.com/p/ep234-docker-vs-kubernetes">原文</a></div>
+</div>
+<div class="card">
+  <h3>财新封面：黄仁勋「风暴眼」<span class="badge b-warn">付费墙 ⚠️</span></h3>
+  <div class="meta">11-21 · 财新周刊</div>
+  <div class why>与财新算力中心封面（11-16）连续两期 AI 算力/人物封面——<b>资本市场视角的 AI 基建叙事持续升温</b>（建仓 lens 档案：Samsung $1B + Nemotron + 算力中心 + 黄仁勋风暴眼）。标题层面记录，正文待你手动打开。</div>
+</div>
+
+<h2>🌿 生活维度与附录</h2>
+<div class="card">
+  <p class="quote">• 生活类阅读 ×2（私人议题，按脱敏规则 v2 不入公开简报，仅记本地 journal）。<br>• HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 + ikit 推送 · 04:00 无人值守 · 零重复 · 脱敏零命中（&&门控第 23 日）<br>
+  上周同期：<a href="readwise-briefing-20261116.html">11-16 周一版</a> · 下次周一回顾 11-30
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
