@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-24</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-24（星期二）· 低量日 · 独立信号 3 条 · 1 篇回源（部分可见）</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">3</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">回源（⚠️ Partial）</div></div>
+  <div class="stat"><div class="num">48</div><div class="lbl">管道累计运行</div></div>
+</div>
+
+<h2>⭐×3 今日信号</h2>
+<div class="card">
+  <h3>First Principles: What It Takes to Be a Great Product Manager<span class="badge b-warn">⚠️ Partial · 付费墙</span></h3>
+  <div class="meta">11-23 · Lenny's Podcast × Sherif Mansour（Atlassian Head of AI and Product Craft · 17 年 · Confluence 首位 PM · 公司首位 Distinguished PM）</div>
+  <p class="quote">AI 时代 PM 岗位不缩反涨，优秀 PM 的底层是第一性原理。可见大纲给出三框架：<b>Craft Triangle（artist / scientist / GM 三型 PM）</b>，且当前周期利于 artist 型；<b>PM 的第一要务是构建团队「shared brain」</b>（共享心智而非逐项传话）；<b>"juniors are your secret weapon now"</b>——Atlassian 正前所未有地招聘初级人才；方法论文章 <i>"Direct the ship, don't row it"</i>（掌舵而非划船）。核心 takeaways 与全文转录在付费墙后。</p>
+  <div class="why">① "juniors are your secret weapon" 与 11-22 <i>We Are All Junior Talent</i>（经验贬值）形成人才线互证——但方向相反：一篇说年限体系失效，这篇说初级者是 AI 组织的秘密武器，两篇合起来指向同一结论：<b>「junior」的定义权正从年限转向学习速度</b>，是讲师团 AI 时代人才观课程的现成对立素材。② "shared brain"（PM 第一要务是构建共享心智）与知识管理/AI 采纳方向同构——把团队隐性知识显性化正是 AI 工具落地的真正瓶颈，比工具选型更根本。③ 付费墙内细节未验，采信框架不采信结论细节。<a href="https://www.lennysnewsletter.com/p/first-principles-what-it-takes-to">原文</a></div>
+</div>
+
+<h2>📎 附录</h2>
+<div class="card">
+  <p class="quote">• 微信付费文 ×1（无标题，两次保存为同一篇 sn=a1bf06…）❌ 验证受阻——付费墙 + 验证墙双挡，标题与内容均不可得，待手动打开。• 知乎「安全验证」页 ×1 ⭐×1（无效存读，无标题无内容）。• HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 + 隐私纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏门控通过<br>
+  昨日：<a href="readwise-briefing-20261123.html">周一版（周度回顾六主线）</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
