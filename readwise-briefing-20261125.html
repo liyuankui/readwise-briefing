@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-25</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-25（星期三）· 独立信号 7 条 · 2 篇回源全文 · 1 篇已辨析</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">7</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源全文</div></div>
+  <div class="stat"><div class="num">49</div><div class="lbl">管道累计运行</div></div>
+</div>
+
+<h2>⭐×3 今日信号</h2>
+<div class="card">
+  <h3>DoorDash Dispatch：调度系统重构<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-24 · ByteByteGo（DoorDash 工程博客转述）</div>
+  <p class="quote">动态 VRP（车辆路径问题）调度引擎重构：<b>Coordinator（全局状态/业务规则）与 Compute（无状态计算）解耦</b>，worker 每个 dispatch tick 收 gRPC 自包含的本地化 payload 分片；大规模问题用<b>地理预聚类 + 质心细化 + 全局调和层</b>（补回跨区可拼单订单）；ML 双层 serving——L1 在 worker 内本地 ONNX Runtime 高频评分，L2 远程集群低频重算，另有 multi-agent RL 调优化器权重。替换路径：<b>shadow testing 双跑（新引擎不真正执行）→ switchback 实验（轮流控制真实流量）</b>。数字：处理规模 10×、99.96% 运行 &lt;20s（旧系统峰值分钟级）、超级碗峰值可用性 99.99%+；旧引擎近似二次复杂度、峰值需求达容量 4×。</p>
+  <div class="why">① 与订单履约域直接同构——门店交易/履约链路的核心权衡正是「慢决策 = 坏决策」（实时状态随延迟失效），Coordinator/Compute 解耦 + 问题地理分解是可直接引用的架构参照。② shadow → switchback 的分层替换验证与 eval 方法论里的分级验证同构：先行为等价、再因果效果——核心链路迁移的标准打法，比一次切换多一层零风险证据。③ 全部关键数字（10×/99.96%/99.99%）为原文自述，采信结构不采信精确值。<a href="https://blog.bytebytego.com/p/doordash-dispatch-building-a-lightning">原文</a></div>
+</div>
+<div class="card">
+  <h3>How I AI: OpenClaw for Executives<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-24 · Lenny's Podcast × Ankit Maheshwari（Innovaccer CTO）</div>
+  <p class="quote">CTO 在 Mac Mini 上用开源 OpenClaw 跑自建 AI「首席幕僚」：cron 每 4 小时汇总待批简历（含 GitHub 履历）、Slack 无响应时打电话提醒、点午餐/订餐厅/智能家居。<b>方法论</b>：用 soul 文件定义各代理的性格/边界/权限/路由（比接工具更费功夫）；<b>专家型子代理优于单一通用代理</b>（人设一致性）；护栏明确哪些操作禁止自动执行；代理从纠正中持续学习（咖喱何时配饼）。<b>成本约 $500-600/月（Opus 5.5）</b>，本地模型可免费处理摘要/邮件/cron/电话编排。原则：**"1% annoyance"**——任何略烦且重复的任务就自动化。</p>
+  <div class="why">① 这是「AI 首席幕僚」路线的一手样本，与个人自动化栈（ikit 通知 + 定时简报 + 巡检管道）互为镜像——对方每月 $500-600 换来的经验里，最可搬的是<b>专家子代理拆分</b>与<b>soul 文件化人设/权限</b>两点，正是当前 cron 任务各自内联行为约定的升级方向。② "1% annoyance" 原则给自动化立项提供了可操作的阈值语言，比「值得自动化」的模糊判断好用。③ 全文免费可读，无付费墙损失。<a href="https://www.lennysnewsletter.com/p/how-i-ai-openclaw-for-executives">原文</a></div>
+</div>
+<div class="card">
+  <h3>Superintelligence is Arriving<span class="badge b-warn">⚠️ 承重断言未核实</span></h3>
+  <div class="meta">11-24 · Alexandr Wang（推文长文，18.5M 浏览）</div>
+  <p class="quote">以「AI 辅助证明黎曼猜想」为标志性事件推演：竞赛智力 &gt; 日常工作 → 黎曼猜想难于 AI 研究 → <b>AI 将自动化 AI 研究本身（递归自我改进）</b>；呼吁行业不接受默认路径，构建保障人类 agency 的技术。交叉核验：媒体一致用 <b>"claimed" proof</b>——数学界尚未完成同行评审；发文正逢 Meta Muse 舆情周期；评论区主流质疑。</p>
+  <div class="why">① 最强「加速派」论述样本：竞赛智力→研究自动化→递归改进的三段论值得收进 AI×就业双周观察的递归自我改进章节（一手立场素材）。② 与已存陶哲轩《从证明生成到数学消化》构成同一事实的两种叙事——Wang 拿证明当里程碑，Tao 拿同一现象当消化瓶颈提醒，对立组比单篇更有教学价值。③ 采信框架、悬置结论：等黎曼证明过同行评审再回头评估。<a href="https://twitter.com/alexandr_wang/status/2124636606959345776">原文</a></div>
+</div>
+
+<h2>🌿 生活维度与附录</h2>
+<div class="card">
+  <p class="quote">• 🥗 <b>怎么样能提高睡眠质量</b>（知乎，正文反爬未读 ⚠️）——通用恢复类主题，训练恢复是运动表现的另一半，与既有营养/训练线互补。<br>• 生活类阅读 ×3（私人议题，不入公开简报）。<br>• 经典源高亮 1 条为空 t.co 链接（无正文）· HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 + 隐私纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏门控通过<br>
+  昨日：<a href="readwise-briefing-20261124.html">AI 时代 PM 第一性原理（低量日）</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
