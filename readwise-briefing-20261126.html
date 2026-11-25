@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-26</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-26（星期四）· 低量日 · 独立信号 3 条 · 2 篇回源（1 全文 1 Partial）</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">3</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源</div></div>
+  <div class="stat"><div class="num">50</div><div class="lbl">管道累计运行</div></div>
+</div>
+
+<h2>⭐×3 今日信号</h2>
+<div class="card">
+  <h3>腾讯云开放元宝搜索：面向大模型和 Agent 的搜索引擎<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-25 · 知乎专栏（腾讯云 10-20 官宣的第三方梳理）</div>
+  <p class="quote">腾讯云（非元宝 App）把内部跑了一年的搜索能力对外开放：过去供货 50+ 核心业务、日均调用数亿次。接入方式 <b>Skill / MCP / API</b> 三种（网传「插件」说法为误传，两个独立信源逐字一致）。<b>新用户每月 2000 次免费调用</b>。能力数字：全网覆盖率 96%、千亿级向量索引、94% 召回率下底层检索 8ms、排序推理 149ms→30ms（Gist Token 压缩长文喂给排序模型）、<b>157 个签约权威信源</b>（申万宏源/携程/飞常准等，A/H/美/日/韩股财报覆盖 99%+，政策/行情分钟级更新）。真实案例：ima 信源召回 +10%、腾讯视频模糊找片覆盖 +20%。</p>
+  <div class="why">① 直接竞品是个人工具链在用的搜索 API（Tavily/博查）——<b>2000 次/月免费 + 157 个签约信源</b>意味着国内场景的调研/时效搜索多了一个低成本选项；签约信源（财报/金融/法律）是网页抓取型 API 结构性拿不到的，这与 K12 AI 教育项目和公众号选题调研都相关。② 「Skill / MCP / API 三通道」是把搜索与自家 Agent 生态捆绑卖的样本——开放的是搜索，捆绑的是生态，对理解平台型 Agent 能力分发的打法有参考价值。③ MCP server 端点官方尚未放出，网上已现假配置教程——接入须以控制台为准，勿抄搜索结果。<a href="https://zhuanlan.zhihu.com/p/2096210291470218296">原文</a></div>
+</div>
+<div class="card">
+  <h3>How to Build an AI Code Assistant<span class="badge b-warn">⚠️ Partial · Part 1 免费</span></h3>
+  <div class="meta">11-25 · systemdesign.one</div>
+  <p class="quote">AI 编码助手实为<b>三个约束不同的子系统</b>：Autocomplete（~300ms 预算，拼延迟）、Chat（秒级，拼代码库检索）、Agent（分钟级，拼信任/审批）。要点：<b>FIM（Fill-in-the-Middle）</b>结构让补全贴合光标前后；延迟预算是零和的（上下文组装 ~80ms + TTFT 主导剩余，编辑器必须克制选上下文）；模型选型先看能否在硬预算内完成 prefill 再看准确率（1-3B 适合本机补全，7B 更准但易超时，Cody 换小模型后延迟降、接受率反升）；<b>评估用留存而非接受率</b>——接受率因「短而显然的建议」虚高，GitHub 用 retained characters、Cody 用编辑距离追踪被接受后是否存活。</p>
+  <div class="why">① 与 eval 方法论主线（三大鸿沟/过度思考/OTel）四连互证——这篇补上了<b>「指标本身会说谎」</b>这一层：接受率虚高的机理（短建议 bias）与 judge 校准是同一问题的两面，可直接进讲师团 eval 课程的「度量陷阱」小节。② 300ms 零和预算的架构哲学（组件克制地共享窄窗）与调度系统「慢决策=坏决策」同构，两天两源指向同一设计原则。③ Part 2-6（repo 探索/路由/沙箱/评估）在付费墙后，Part 1 的补全子系统已完整可采信。<a href="https://newsletter.systemdesign.one/p/how-to-build-ai-coding-assistant">原文</a></div>
+</div>
+
+<h2>🌿 生活维度与附录</h2>
+<div class="card">
+  <p class="quote">• 🏋️ <b>研究称过度锻炼或伤脑，运动量该怎么定</b>（知乎）❌ 验证受阻——WebFetch 403，jina 代理取回的是知乎折叠/删除页（「没有知识存在的荒原」），内容不可得；主题与既有训练恢复线相关，结论待手动打开核验，不猜内容。<br>• HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 + 隐私纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏门控通过<br>
+  昨日：<a href="readwise-briefing-20261125.html">DoorDash 调度重构 + OpenClaw 幕僚</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
