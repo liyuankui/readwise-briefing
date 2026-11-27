@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Readwise 情报简报 · 2026-11-28</title>
+<style>
+:root { --bg:#faf9f7; --surface:#ffffff; --surface2:#f5f4f0; --border:#e8e5df; --text:#1a1a1a; --text2:#4a4a4a; --text3:#888880; --accent:#2d5a4a; --accent2:#6366f1; --accent3:#059669; --accent4:#d97706; }
+html.dark { --bg:#0f1117; --surface:#1a1d27; --surface2:#242736; --border:#2e3247; --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b; --accent:#6c8ef5; --accent2:#a78bfa; --accent3:#34d399; --accent4:#f59e0b; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"LXGW WenKai","霞鹜文楷","STKaiti","KaiTi","楷体",-apple-system,BlinkMacSystemFont,serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+.container { max-width:960px; margin:0 auto; padding:32px 24px 64px; }
+header { text-align:center; padding:28px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px; position:relative; }
+h1 { font-size:1.7em; color:var(--accent); margin-bottom:6px; }
+.date { color:var(--text3); font-size:.92em; }
+#theme-toggle { position:absolute; right:0; top:8px; border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1.05em; color:var(--text); }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 10px; text-align:center; }
+.stat .num { font-size:1.6em; font-weight:700; color:var(--accent); }
+.stat .lbl { font-size:.82em; color:var(--text3); }
+h2 { font-size:1.25em; color:var(--accent); margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+.card h3 { font-size:1.05em; margin-bottom:8px; }
+.meta { font-size:.82em; color:var(--text3); margin-bottom:8px; }
+.badge { display:inline-block; font-size:.78em; border-radius:6px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+.b-ok { background:rgba(5,150,105,.14); color:var(--accent3); }
+.b-warn { background:rgba(217,119,6,.16); color:var(--accent4); }
+.quote { color:var(--text2); font-size:.95em; margin:6px 0; }
+a { color:var(--accent2); text-decoration:none; word-break:break-all; }
+a:hover { text-decoration:underline; }
+.why { border-left:3px solid var(--accent2); padding:6px 12px; margin-top:10px; background:var(--surface2); border-radius:0 8px 8px 0; font-size:.93em; color:var(--text2); }
+.why::before { content:"🎯 为何相关："; color:var(--accent2); font-weight:600; }
+footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--border); font-size:.82em; color:var(--text3); text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <button id="theme-toggle">🌙</button>
+  <h1>📡 Readwise 情报简报</h1>
+  <div class="date">2026-11-28（星期六）· 独立信号 6 条 · 1 条 ⭐×4（外部多源核验）</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="num">6</div><div class="lbl">独立信号</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">✅ 回源核验</div></div>
+  <div class="stat"><div class="num">52</div><div class="lbl">管道累计运行</div></div>
+</div>
+
+<h2>⭐×4 今日信号</h2>
+<div class="card">
+  <h3>黎曼猜想 Lean 证明通过形式化验证<span class="badge b-ok">✅ 多源外部核验</span></h3>
+  <div class="meta">11-27 · 知乎讨论（外部核验：Lean Prover 官方博客 · MIT 验证文件页 · Forbes 11-24 · Lean FRO + Mathlib 联合声明）</div>
+  <p class="quote"><b>Levent Alpöge（Anthropic 数学家，与 Claude 协作）11-20 发布的黎曼猜想 Lean 证明（约 1700 万行代码）已通过独立形式化验证</b>：Lean FRO 与 Mathlib Initiative 发联合声明确认核验完成；两套独立工具确认所证定理与 Mathlib 中黎曼猜想的规范表述完全一致（排除「证了个别的命题」）；验证文件公开于 MIT 服务器供复检。</p>
+  <div class="why">① 这落地了 11-25 简报对 Alexandr Wang《Superintelligence is Arriving》的悬置判断——其承重断言（"claimed" proof）已从<b>未经核实升级为形式化确认</b>，Wang 的「竞赛智力→研究自动化→递归自我改进」三段论地基成立，AI×就业双周观察（12-07 下期）递归自我改进章节的关键事实更新。② 与陶哲轩「证明生成 ≠ 数学消化」的对立组因此更扎实：里程碑为真，但 <b>1700 万行代码本身就是消化瓶颈的实证</b>——验证靠机器，理解仍靠人，两个叙事同时成立而非一个推翻另一个。③ 采信注记：知乎正文未读（反爬），全部事实取自外部独立信源交叉核验；「数学史上最大突破」类的定性仍属各方修辞，采信验证事实不采信欢呼。<a href="https://www.zhihu.com/question/2107620110105932525/answer/2107851083427053958">知乎讨论</a></div>
+</div>
+
+<h2>⭐×3 今日信号</h2>
+<div class="card">
+  <h3>Introducing: Langfuse Topics<span class="badge b-ok">✅ 全文已读</span></h3>
+  <div class="meta">11-27 · langfuse.com 官方公告（公测）</div>
+  <p class="quote">把生产 traces 自动聚类成带名称的<b>主题</b>，回答「用户拿我的 agent 做什么、在哪里失败」。四内置 facet：<b>Intent / Sentiment / Outcome / Issues</b> 分别聚类（同一问题跨 Intent 只形成一个 Issues 主题）；live maps 持续扫描 + snapshots 一次性对比分析；四步原理（低成本模型摘要 → 聚类 → 强模型命名 → 增量刷新）。定位：<b>发现「未知的未知」→ 再据此设新 evaluator</b>——官方自案例：发现 Halo 被用于写作业、被渗透测试。开源可 self-host（v4），模型走自己的 key，测试过日百万级 traces。</p>
+  <div class="why">① 与 eval 方法论主线直接互补：evals 管「已知问题的回归」，Topics 管「未知模式的发现」——两者闭环正是「分层验证」缺的那半边（生产流量侧的自动分诊），OTel 调试线（11-15）的工具图又补一块。② 官方案例本身就是 agent 上线后的真实风险清单（滥用/渗透/不可见 reasoning），对讲师团 agent 安全小节是好素材。③ billable unit 按 facet 摘要计费 + 模型走自己的 key，成本结构清晰，试用门槛低。<a href="https://langfuse.com/blog/introducing-topics">原文</a></div>
+</div>
+
+<h2>📎 附录</h2>
+<div class="card">
+  <p class="quote">• 🧠 <b>gemini-4 ×《Physics Travel Guide》四阶理解阶梯</b>（@LotusDecoder ⭐×2）——用 Schwichtenberg 的「四层理解」框架让模型讲论文/陌生知识，论文精读的现成提示词模板，与费曼式学习法同族。<br>• RSI 演示视频推文（@Jackywine ⭐×1 ⚠️ t.co 不可展开，无法核验内容）。<br>• 生活类阅读 ×2（私人议题，不入公开简报）。<br>• HN RSS（剔除）。本日无政治敏感项。</p>
+</div>
+
+<footer>
+  数据源：Readwise 双源 · 深度纪律 v2 + 隐私纪律 v2 · 04:00 无人值守 · 零重复 · 脱敏门控通过<br>
+  昨日：<a href="readwise-briefing-20261127.html">Larson 50× PR 复盘 + EM 商业价值</a>
+</footer>
+</div>
+<script>
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+  btn.textContent = '☀️';
+}
+</script>
+</body>
+</html>
